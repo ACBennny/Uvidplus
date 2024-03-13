@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Terms and Conditions</title>
+    <link rel="shortcut icon" href="Uvid_Company_Logo/Uvid_Icon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="Uvid_font.css">
+	<link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="https://kit.fontawesome.com/a46ad8b86a.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="bd">
+        
+        <!-- preloader -->
+        <div id="preloader">
+            <div id="spinner"></div>
+        </div>
+
+        <div class="menform frmactive tandc">
+            <div class="menform1">
+                <div class="menform2">
+                    <div class="menform2a">
+                        <h1>Terms and Conditions</h1>
+                        <p>Please endeavor to respect them</p>
+                    </div>
+                    <div class="tccon">
+                        <ul>
+                            <li>1. This website was created to provide you with varieties of shows for possibly every genre and to satisfy the undying diversity in interests</li>
+                            <br>
+                            <li>2. The content posted on this platform ARE NOT MANUFACTURED by us but sourced externally.</li>
+                            <br>
+                            <li>3. We do not and will never claim rights to content(s) posted on this platform that are not manufactured by us. All credits go to whoever may have created them and/or to its source of origin</li>
+                            <br>
+                            <li>4. Do not hesitate to <a href="Uvid_contact.html" class="redct">contact us</a> if you wish to be credited properly</li>
+                            <br>
+                            <li>5. If you wish for a content to be removed, let us know immediately with appropriate means of identification and documentation</li>
+                            <br>
+                            <li>6. Any content created by us will be stated thoroughly</li>
+                            <br>
+                            <li>7. To avoid false honouring/referrals, content whose creator or source of origin cannot be verified will not be credited.
+                                The credits still go to them (not us), only there will be no link/ means of referral to the content creators until verified
+                            </li>
+                            <br>
+                            <li>8. The content posted on this website may contain some level(s) of violence, informal/offensive language, explosions, destructions, nudity, romantic/sexual behaviors, fights, gore, death, killings etcetera and/or terms related to the aforementioned.
+                                Parents/Guardians are advised to exercise control over what their children/ward(s) are watching.
+                            </li>
+                            <br>
+                            <li>9. We do not host and will never host any form of pornography or pornographic related content on our website.
+                                In regard to the statement above, we would still recommend parental control on their child/wards use of our website.
+                            </li>
+                            <br>
+                            <li>10. Content hosted on this platform are only made to serve as a source of entertainment and Information</li>
+                            <br>
+                            <li>11. The content hosted on this platform are not made to be undermine, or degrade any form of social identities, groups, policies, beliefs, morals, ideas, values etcetera.
+                                If you are personally offended by any content, you are free to report it to us and if your reasons are deemed reasonable to a certain margin, the contents may be removed. 
+                                Otherwise, you are free to stop watching or making use of our website
+                            </li>
+                            <br>
+                            <li>12. Not all shows are available for members. To watch these shows, you will be required to upgrade to premium membership.
+                                All details regarding upgrade are stated in the "<a href="Uvid_Premium.html" class="redct">Premium</a>" tab
+                            </li>
+                            <br>
+                            <li>13. Asides upgrade to premium membership, there is NO OTHER REQUEST for you to pay before you gain access to our content.
+                                Beware of any personnel(s), companies or organisations demanding any other payments. These are scams.
+                            </li>
+                            <br>
+                            <li>14. The only other interaction involving money is DONATIONS. This is not a compulsory action and should be done out of free will. We will always appreciate any DONATIONS.</li>
+                            <br>
+                            <li>15. Payments are ONLY made through paypal at this point in time; which is on our website.
+                                Take precaution not to make payments or enter private info on external sites.
+                            </li>
+                            <br>
+                            <li>16. This website is still in development and bugs may occur. Kindly report it to have it resolved in good time</li>
+                            <br>
+                            <li>17. Our terms and conditions are not final and are subject to change</li>
+                            <br><br>
+                            <span class="dwldtchere">Click "here" to download a copy of our Usage Terms</span>
+                        </ul>
+                    </div>
+                    <br>
+                    <div class="menform2a UFoot">
+                        <a href="Uvid.html"><h1>Uvid</h1></a>
+                        <p>Every genre you can think of.. we got it</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- script -->
+        <script src="Uvid_fontscript.js"></script>
+        <script>
+            // if user wishes to  download of a copy of the terms and conditions
+                const Dwnld_here = document.querySelector('.dwldtchere');
+                const tc_Dwnld = document.createElement('a');
+
+                Dwnld_here.addEventListener("click" , () => {
+                    tc_Dwnld.href="Uvid_tc_dwld.pdf";
+                    tc_Dwnld.download="Uvid_tc_dwld.pdf";
+                    document.body.appendChild(tc_Dwnld);
+                    tc_Dwnld.click();
+                    document.body.removeChild(tc_Dwnld);
+                });
+        </script>
+
+
+
+
+
+    </body>
+</html>

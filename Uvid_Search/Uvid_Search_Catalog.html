@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Search</title>
+    <link rel="shortcut icon" href="../../Uvid_Company_Logo/Uvid_Icon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="../../../Uvid_font.css">
+	<link rel="stylesheet" type="text/css" href="Uvid_Search_Catalog_style.css">
+	<!-- <link rel="stylesheet" type="text/css" href="Usearch-style.css"> -->
+	<link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="https://kit.fontawesome.com/a46ad8b86a.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="srchbody">
+        
+
+        <!-- preloader -->
+        <div id="preloader">
+            <div id="spinner"></div>
+        </div>
+
+        <!-- ------ search ------ -->
+        <div class="searchbox-border">
+            <div class="srch-box">
+                <div class="srch-box-ctnt">
+                    <button type="submit" class="search-btn">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    </button>
+                    <input type="search" name="" id="searchId" class="searchclass" placeholder="search any show" aria-autocomplete="none">
+                </div>
+            </div>
+            <div class="srch-catalog-box">
+                <div class="srch-catalog" id="catalogId"></div>
+            </div>
+        </div>
+
+        <!-- <div class="searchbox-border">
+            
+            <!-- <div class="srch-box">
+                <div class="srch-box-ctnt">
+                    <button type="submit" class="search-btn">
+                        <i class="fa-solid fa-magnifying-glass search-icon" onclick="search()"></i>
+                    </button>
+                    <input onkeyup="search()" type="search" name="" id="searchId" class="searchclass" placeholder="search any show" aria-autocomplete="none">
+                </div>
+            </div>
+            <div class="srch-catalog" id="catalogId">
+                <a href="Ucontent-section/U-Anime/JujutsuKaisen.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/1.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Jujutsu Kaisen</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Jijutsu Kaisen sorcery fight anime shows animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/DemonSlayer.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/2.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Demon Slayer</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Demon Slayer Kimetsu No Yaiba anime shows animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/AttackOnTitan.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/3.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Attack On Titan</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Shingeki no Kyojin Attack On Titan anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/Naruto.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/4.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Naruto</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Naruto anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/FullmetalPanic.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/5.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Fullmetal Panic</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Furumetaru Panikku Fullmetal Panic anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/FullmetalAlchemist.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/6.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Fullmetal Alchemist</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Hagane no Renkinjutsushi Fullmetal Alchemist anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/FullmetalAlchemistBrotherhood.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/7.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Fullmetal Alchemist Brotherhood</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Hagane no Renkinjutsushi Fullmetal Alchemist Brotherhood anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/ClassroomoftheElite.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/8.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Classroom of the Elite</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Classroom of the Elite Yokoso Jitsuryoku Shijo Shugi no Kyoshitsu  anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/BlueExorcist.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/9.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Blue Exorcist</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Ao no Ekusoshisuto Gekijoban Blue Exorcist anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/SpyXFamily.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/10.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Spy X Family</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;"> Spy X Family anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/RentaGirlfriend.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/11.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Rent a Girlfriend</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Rent a Girlfriend  Kanojo Okarishimasu  anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/TokyoGhoul.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/12.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Tokyo Ghoul</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Tokyo Ghoul Tokyo Guru anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/InazumaEleven.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/13.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Inazuma Eleven</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Inazuma Eleven Inazuma Irebun anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/Aoashi.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/14.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Aoashi</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Aoashi anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/Cyberpunk.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/15.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Cyberpunk: Edgerunners</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Cyberpunk Edgerunners Saibapanku Edjirannazu anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/TomodachiGame.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/16.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Tomodachi Game</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Tomodachi Game Tomodachi Gemu anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/KaguyaSama.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/17.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Kaguya-sama</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Kaguya-sama wa Kokurasetai Kaguya sama wa Kokurasetai Love is War anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/Kakegurui.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/18.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Kakegurui</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Kakegure Kakegurui anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/Slime.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/19.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>That I recently got Reincarnated as a Slime</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">That I recently got Reincarnated as a Slime Tensei Shitara Suraimu Datta Ken anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/RisingoftheShieldHero.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/20.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Rising of the Shield hero</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Tate no Yūsha no Nariagari Rising of the Shield hero anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/VioletEvergarden.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/21.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Violet Evergarden</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Vaioretto Evagaden Violet Evergarden anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/YourLieinApril.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/22.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Your lie in April</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Shigatsu wa Kimi no Uso Your lie in April anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/KurokonoBasket.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/23.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Kuroko no Basuke</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Kunoku no Basket Kuroko no Basuke anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/EnenNoShouboutai.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/24.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Enen no Shouboutai</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Enen no Shouboutai Fireforce anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/VinlandSaga.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/25.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Vinland Saga</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Vinland Saga Vinrando Saga anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/TokyoRevengers.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/26.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Tokyo Revengers</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Tokyo Revengers Tōkyō Ribenjāzu Tokyo Ribenjazu anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/MyHeroAcademia.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/27.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>My Hero Academia</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">My Hero Academia Boku no Hīrō Akademia Boku no Hiro Akademia anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/CowboyBebop.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/28.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Cowboy Bebop</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Cowboy Bebop Kaubōi Bibappu Kauboi Bibappu anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/DeathNote.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/29.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Death Note</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Death Note anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/OnePiece.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/30.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>One Piece</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">One Piece anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/OnePunchMan.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/31.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>One Punch man</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">One Punch man Wanpanman anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/HunterXHunter.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/32.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Hunter X Hunter</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Hunter X Hunter anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/SteinsGate.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/33.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Steins Gate</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Steins Gate anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/DragonBallZ.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/34.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Dragon ball Z</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Dragon ball Z anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/Bleach.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/35.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Bleach</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Bleach anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/AkameGaKill.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/36.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Akame ga Kill!</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Akame ga Kill! Akame ga Kiru! anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/SwordArtOnline.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/37.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Sword Art Online</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Sword Art Online  Sōdo Āto Onrain  Sodo Ato Onrain anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/BongouStrayDogs.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/38.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Bungu Stray Dogs</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Bongou Stray Dogs Bungu Stray Dogs Bongu Stray Dogs Bungou Stray Dogs anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/MobPsycho.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/39.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Mob Psycho</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Mob Psycho Mobu Saiko Hyaku anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/SamuraiChamploo.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/40.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Samurai Champloo</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Samurai Champloo anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/HellSing.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/41.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Hellsing</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Hellsing anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/BlackLagoon.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/42.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Black Lagoon</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Black Lagoon anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/FutureDiary.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/43.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Future Diary</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Future Diary anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/Another.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/44.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Another</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Another anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/FairyTale.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/45.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Fairy tale</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Fairy tale anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/AfroSamurai.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/46.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Afro Samurai</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Afro Samurai anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/DemonKingDamaio.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/47.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Demon King Damaio</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Demon King Damaio anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/ParadiseKiss.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/48.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Paradise kiss</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Paradise kiss anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/Noragami.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/49.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Noragami</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Noragami anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/GoblinSlayer.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/50.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Goblin Slayer</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Goblin Slayer Goburin Sureiyā Goburin Sureiya anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/DrStone.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/51.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Dr Stone</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Dr Stone anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/BlueLock.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/52.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Blue Lock</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Blue Lock Burū Rokku Buru Rokku anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/SeishunButa.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/53.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Seishun Buta</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Seishun Buta Yarō anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/DarkGathering.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/54.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Dark Gathering</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Dark Gathering  Daku Gyazaringu Dāku Gyazaringu anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/Shy.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/55.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Shy</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Shy anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/MFGhost.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/56.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>MF Ghost</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">MF Ghost MF Gōsuto MF Gosuto anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/YakusokuNoNeverland.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/57.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Yakusoku no neverland</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Yakusoku no neverland Promised Neverland anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/SaikiK.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/58.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Saiki K</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Saiki Kusuo no Sai-nan The Disastrous Life of Saiki K anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/Arcane.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/59.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Arcane</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Arcane anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/AsteriskWar.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/60.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Asterisk War</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Asterisk War Gakusen Toshi Asutarisuku anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/BlackCover.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/61.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Black Cover</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Black Cover Burakku Kurōbā Burakku Kuroba anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/Bullbuster.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/62.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Bullbuster</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Bullbuster anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/ChainsawMan.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/63.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Chainsaw man</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Chensō Man Chenso Man Chainsaw man anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/Dororo.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/64.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Dororo</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Dororo anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/Erased.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/65.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Erased</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Erased Boku dake ga Inai Machi anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/Vivy.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/66.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Vivy</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Vivy Fluorite Eye's Song Vivy: Fluorite Eye's Song anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/AndYouThoughtThereIsNeverAGirlOnline.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/67.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>And You Thought There Is Never a Girl Online</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;"> Netoge no Yome wa Onna no Ko Janai to Omotta And You Thought There Is Never a Girl Online anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/Haikyuu.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/68.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Haikyuu</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Haikyū Haikyu Haikyuu anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/Hanayome.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/69.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Hanayome</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Go-Tobun no Hanayome Go-Tōbun no Hanayome Hanayome anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/HowNotToSummonADemonLord.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/70.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>How Not TO Summon a Demon Lord</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">HNTSADL Isekai Maō to Shōkan Shōjo no Dorei Majutsu  Isekai Mao to Shokan Shojo no Dorei Majutsu  How Not TO Summon a Demon Lord anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/Horimiya.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/71.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Horimiya</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Hori-san to Miyamura-kun Hori and Miyamura Horimiya anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/KimitoBoku.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/72.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Kimi to boku</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Kimi to boku anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/TomochanIsaGirl.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/73.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Tomo-chan Is a Girl!</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Tomo-chan Is a Girl! Tomo-chan wa Onnanoko! anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/BochiTheRock.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/74.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Bocabyhi the Rock</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Bocabyhi the Rock Hiroi Kikuri no Fukazake Nikki anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/LinkClick.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/75.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Link Click</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Link Click Shíguāng Dàilǐrén Shiguang Dailiren anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/MyLifeasInuSansDog.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/76.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>My Life as Inu-san's dog</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">My Life as Inu-san's dog Inu ni Nattara Suki na Hito ni Hirowareta anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/MyStepmomsDaughterisMyEx.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/77.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>My Stepmom's daughter is my Ex</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">My Stepmom's daughter is my Ex Irido Mizuto anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/Overlord.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/78.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Overlord</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Ōbārōdo Obarodo Overlord anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/TalentlessNana.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/79.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Talentless Nana</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Munō na Nana Muno na Nana Talentless Nana anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/VanitasNoCarte.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/80.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Vanitas no Carte</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Vanitasu no Karute Vanitas no Carte anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/InitialD.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/81.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Initial D</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Inisharu Dī Inisharu Di Initial D anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Ucontent-section/U-Anime/AssassinationClassroom.html" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="Ucontent-section/U-Anime/U-Anime-img/82.jpg" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3>Assassination Classroom</h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;">Assassination Classroom anime animation</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="" target="_blank">
+                    <div class="srch-card">
+                        <div class="srch-card-img">
+                            <img src="" alt="">
+                        </div>
+                        <div class="srch-card-det">
+                            <h3></h3>
+                            <h6>Anime</h6>
+                            <p style=" display: none;"> anime animation</p>
+                        </div>
+                    </div>
+                </a>
+            </div> 
+        </div> -->
+
+
+           <!-- Notifcation -->
+        <div class="notifyBdr">
+            <div class="NotifyMe">Any one see this popup</div>
+        </div>
+
+ 
+
+
+        <!-- script -->
+        <!-- <script src="Usearch-script.js"></script> -->
+        <script src="../../../Uvid_fontscript.js"></script>
+        <script src="Uvid_Search_Catalog_script.js"></script>
+
+
+
+
+
+    </body>
+</html>

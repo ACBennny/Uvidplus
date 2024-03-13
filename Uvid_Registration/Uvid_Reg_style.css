@@ -1,0 +1,478 @@
+/*************************************************************
+ * This is the stylesheet for the Join page of Uvid
+ * Here , all styling for the page is written
+ * 
+ * @name (Uvid)
+ * @name (Anyanwu_Benedict_Chukwuemeka)
+ * @version (v0.01)
+ *************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+/* --Join--- */
+
+
+.prmptlog{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#000,#0a4208,#000);
+    z-index: 22;
+    transition: all 300ms ease-in-out;
+}
+
+
+/* ----the create account form----- */
+
+
+
+.reg-bf{
+    height: 90%;
+    width: 85%;
+    max-width: 2000px;
+    max-height: 1800px;
+    display: flex;
+    border-left: 2px solid #0e5b0c;
+    border-right: 2px solid #0e5b0c;
+    border-radius: 25px;
+    background: #111010;
+    visibility: visible;
+    overflow: hidden;
+    transition: all 300ms ease-in-out;
+}
+
+.seeh{
+    background: linear-gradient(#0d0d0d, #131212);
+    height: 100%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.seeh1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.seeh1 .aboutme p{
+    color: #dfdfdf;
+    font-size: 14px;
+}
+
+
+.chead{
+    display: flex;
+    gap: 20px;
+}
+
+.chead .ch1{
+    color: #14d60d;
+    font-size: 80px;
+    transform: rotate(270deg);
+}
+
+.chead .ch2{
+    color: #fff;
+    font-size: 70px;
+}
+
+.chead .ch3{
+    color: #14d60d;
+    font-size: 80px;
+    transform: rotate(90deg);
+}
+
+.lsform{
+    width: 350px;
+    height: 100%;
+    background: #000;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.lstog{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 25px 10px;
+    row-gap: 25px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.lsbut{
+    width: 100%;
+    height: 45px;
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+}
+
+.lsbut .formTitle{
+    padding: 5px;
+    font-size: 17px;
+    color: #1a8f14;
+    border-radius: 5px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    transition: all 300ms ease-in-out;
+}
+
+.lsbut .formTitle:hover{
+    background: #2d2c2c;
+}
+
+.lsactive{
+    border-bottom: 2px solid #e9e6e6;
+}
+
+.formbx{
+    width: 200%;
+    height: calc(100% - 45px);
+    display: flex;
+    background: #000;
+    overflow: hidden;
+}
+
+.formbx::-webkit-scrollbar{
+    display: none;
+}
+
+.formbx .join_radio{
+    position: absolute;
+    left: -1000%;
+    visibility: hidden;
+}
+
+.formbx #join_rad1:checked ~ .signform{
+    margin-left: 0;
+}
+
+.formbx #join_rad2:checked ~ .signform{
+    margin-left: -50%;
+}
+
+.formtog{
+    width: 50%;
+    height: 100%;
+    padding: 20px;
+    /* margin: 10px; */
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    text-align: center;
+    transition: 500ms;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.formtog::-webkit-scrollbar{
+    display: none;
+}
+
+.formtog .form_section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.formtog h3{
+    font-size: 15px;
+    color: #e9e6e6;
+}
+
+.formtog label{
+    color: #b1b1b1;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.formtog p{
+    color: #b1b1b1;
+    font-size: 12px;
+}
+
+.formtog input{
+    width: 200px;
+    height: 30px;
+    font-size: 12px;
+    text-align: center;
+    background: transparent;
+    border: none;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom: 2px solid #1a5c17;
+    outline: none;
+    padding: 5px 12px;
+    color: #ffffff;
+    font-size: 13px;
+}
+
+.formtog input::placeholder{
+    color: #3a3a3a;
+}
+
+.formtog .field_section .TandC{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.formtog .field_section .TandC .tandC_stmt{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.formtog .field_section .TandC .tandC_stmt #tandc_btn{
+    color: #087d1e;
+}
+
+.formtog .field_section .TandC input{
+    width: 25px;
+    cursor: pointer;
+}
+
+.formtog .notactive{
+    display: none;
+}
+
+.formtog u, .formtog .fa-xmark-circle{
+    color: #fff;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+
+.formtog button{
+    width: 100px;
+    height: 40px;
+    padding: 6px;
+    font-size: 12px;
+    color: #1e5b24;
+    background: #1f1e1e;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+
+.formtog button:hover{
+    background: #2f2e2e;
+    color: #dbdfdb;
+    border-bottom: 1.5px solid #1a8f14;
+}
+
+.formtog .fa-xmark-circle:hover{
+    color: #1a8f14;
+}
+
+.signform p .fa-question-circle:hover{
+    color: #1a8f14;
+    transition: all 200ms ease-in-out;
+}
+
+.rfrshfrm{
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    height: 400px!important;
+}
+
+.incorrectPassWarn{
+    color: #d30d06;
+    font-size: 10px;
+}
+
+.recbase0, .recbase1, .recbase2, .recbase3, .recbase4, .recbase5{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 76;
+    background: rgba(0, 0, 0, .85);
+    backdrop-filter: blur(15px);
+}
+
+.recoveracc{
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    width: 40% ;
+    height: 40% ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0d0d0d;
+    border-radius: 20px;
+    border-left: 2px solid #0e5b0c;
+    border-right: 2px solid #0e5b0c;
+}
+
+.errocreate{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background: #0d0d0d;
+    border-radius: 20px;
+    border-left: 2px solid #0e5b0c;
+    border-right: 2px solid #0e5b0c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.errocreate::-webkit-scrollbar{
+    display: none;
+}
+
+.errocreate .formtog{
+    width: 100%;
+    text-align: left;
+}
+
+.errocreate .formtog a{
+    color: #087d1e;
+    transition: 300ms;
+}
+
+.errocreate .formtog a:hover{
+    color: #14d60d;
+}
+
+
+
+
+
+/* --- - - - - GATES - - - - - --- */
+
+.gnull{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#1f1d1d,#1a8f14, #111010);
+    visibility: hidden;
+    transition: all 1.0s ease;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.gnull.active{
+    display: flex;
+}
+
+.gh1{
+    font-size: 125px;
+    transition: all 0.7s ease-in-out;
+}
+
+.g1{
+    left: 0;
+}
+
+.g2{
+    right: 0;
+}
+
+.gatexpand{
+    width: 30%;
+    height: 100%;
+    visibility: visible;
+}
+
+.gnr{
+    width: 100%;
+    height: 100%;
+    display: none;
+    margin: auto;
+    flex-direction: column;
+}
+
+.gnr.active{
+    display: flex;
+}
+
+.genre{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    padding: 10px 0px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.genre::-webkit-scrollbar{
+    display: none;
+}
+
+.genre .cthead{
+    font-size: 14px;
+    color: #fff;
+    /* margin: 15px; */
+}
+
+.ctext{
+    background-color: #000;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.ctext button{
+    background-color: #282828dd;
+    font-size: 20px;
+    color: #fff;
+    padding: 10px;
+    width: 200px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    transition: all 300ms ease-in-out;
+}
+
+.ctext button:hover{
+    background-color: #3a3939;
+}
+

@@ -1,0 +1,48 @@
+.gnr{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 850;
+}
+
+.genre{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.genre::-webkit-scrollbar{
+    display: none;
+}
+
+
+
+<div class="gnr">
+    <div class="genre">
+        <div class="cthead">Have a favourite genre?</div>
+        <div class="ctext">
+            <button id="fz1" onclick="f1()">Live Action</button>
+        </div>
+        <div class="ctext">
+            <button id="fz2" onclick="f2()">Documentaries</button>
+        </div>
+        <div class="ctext">
+            <button id="fz3" onclick="f3()">TV Show</button>
+        </div>
+        <div class="ctext">
+            <button id="fz4" onclick="f4()">Anime</button>
+        </div>
+        <div class="ctext">
+            <button id="fz5" onclick="f5()">Cartoons</button>
+        </div>
+        <div class="ctext">
+            <button id="fz6" onclick="f6()">Other</button>
+        </div>
+    </div>
+</div>

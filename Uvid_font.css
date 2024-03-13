@@ -1,0 +1,828 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+
+html{
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-corner{
+    background-color: #000;
+}
+
+::-webkit-scrollbar-track{
+    background-color: #111111;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #444444;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: #545454;
+}
+
+::-webkit-scrollbar-thumb:active{
+    background-color: #777777;
+}
+
+
+
+body{
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Zen dots', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    background-color: #000;
+    overflow: hidden;
+    /* scrollbar-color: #444444 #111111;
+    scrollbar-width: auto; */
+}
+
+body.bodystart{
+    overflow: visible;
+}
+
+
+body.bodystop{
+    backface-visibility: hidden;
+    overflow: hidden;
+}
+
+
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+i{
+    /* transition: 150ms; */
+}
+
+.fa-bars-staggered.nav_menu_btn{
+    transform: rotate(90deg);
+}
+
+.give_space{
+    width: 100%;
+    height: 70px;
+    background-color: transparent;
+}
+
+img{
+    backface-visibility: hidden !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+    pointer-events: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -----------------preloader----------------- */
+#preloader{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.66);
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition:all 2s ease-out;
+    z-index: 10000000000000;
+}
+
+#spinner{
+    width: 60px;
+    height: 50px;
+    /* margin: 30px; */
+    border-right: 15px solid #21c92cb8;
+    border-bottom: 10px solid #b1b1b1;
+    border-left: 15px solid #21c92cb8;
+    border-top: 11px solid transparent;
+    border-radius: 10px;
+    /* border-top: 18px solid #21c92cb8; */
+    animation: spi 2000ms linear infinite;
+}
+
+
+@keyframes spi{
+    0%{
+        transform: translateY(0px);
+    }
+    30%{
+        transform: translateY(-100px);
+    }
+
+    70%{
+        transform: translateY(100px);
+    }
+}
+
+
+
+
+
+/*  ============= NAVBAR ============ */
+
+.navBox{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    z-index: 100;
+}
+.navbar{
+    padding: 0 10px;
+    width: 100%;
+    height: 70px;
+    background-color: #2f2e2e91;
+    display: flex;
+    justify-content: space-between;
+    transition: 700ms;
+    position: relative;
+}
+
+.hideNavUnder .baron
+{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.logo .lhead{
+    font-size: 25px;
+    color: #14d60d;
+}
+
+.logo .lname{
+    font-size: 20px;
+    color: #fff;
+}
+
+.headname{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.headname h1 .hd1{
+    font-size: 23px;
+    color: #e7e7e7;
+}
+
+.headname h1 .hd2{
+    font-size: 18px;
+    color: #14d60d;
+}
+
+.icnsets{
+    width: -moz-fit-content;
+    width: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icnsets .baroff,
+.icnsets .close_Nav_Menu{
+    display: none;
+}
+
+.navIcons{
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar i{
+    color: #e7e7e7;
+    cursor: pointer;
+    font-size: 15px;
+    padding: 0px 10px;
+    transition: all 300ms ease-in-out;
+}
+
+.navbar i:hover{
+    color: #14d60d;
+}
+
+.navbar .baron{
+    display: none;
+    align-self: center;
+}
+
+.navbar.darkenNavBar{
+    background-color: #2f2e2e;
+}
+
+.icnopener{
+    display: none;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translateY(100%);
+    width: 100%;
+    padding: 0 10px;
+}
+
+
+
+
+
+/* ======== NAV MENU ======= */
+
+.nav_Menu_bdr{
+    position: fixed;
+    right: 100%;
+    bottom: 0%;
+    width: 100%;
+    height: 100%;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: 150ms;
+    z-index: 180;
+}
+
+.nav_Menu_bdr.bdr_atv{
+    right: 0%;
+    visibility: visible;
+    opacity: 1;
+}
+
+.nav_Menu_box{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.nav_Menu_bcg{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000075;
+    z-index: 1;
+}
+
+.navOptionBox{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+    height: 100%;
+    width: 200px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 8px;
+    text-align: center;
+    background-color: #1d1c1c;
+    transition: all 600ms ease-in-out;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.navOptionBox .navOptLink{
+    width: calc(100% - 20px);
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    color: #fff;
+    font-size: 14px;
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+    transition: 300ms;
+}
+
+.navOptLink:hover{
+    color: #46da32;
+}
+
+.navOptLink i{
+    width: 20px;
+}
+
+.navOptLink span{
+    width: 100%;
+    text-align: left;
+}
+
+
+
+
+
+
+
+
+
+/* ======== SEARCH INTERFACE ======= */
+
+
+.searchcontainer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: all 200ms ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+    visibility: visible;
+    opacity: 1;
+    z-index: 200;
+}
+
+.srchatv{
+    visibility: visible;
+    opacity: 1;
+}
+
+.searchcontainer .closesearchctn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 25px;
+    margin: 15px;
+    color: #abaaaa;
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.closesearchctn:hover{
+    color: #e7e7e7;
+}
+
+.searchsub1{
+    width: 0%;
+    height: 100%;
+    background: #1c1c1c;
+    overflow: hidden;
+}
+
+.searchsub1.frameatv{
+    width: 45%;
+    transition: 100ms;
+}
+
+.searchsub2{
+    width: 0%;
+    height: 100%;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background: #00000075;
+    overflow: hidden;
+}
+
+.searchsub2.frameatv{
+    width: 55%;
+    transition: 150ms;
+}
+
+
+.pageatv{
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.srchbody{
+    background: #1c1c1c;
+}
+
+.searchbox-border{
+    width: 100%;
+    height: 100%;
+    background: #1c1c1c;
+    overflow: hidden;
+}
+
+.srch-box{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    z-index: 20;
+}
+
+.bar-float{
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.srch-box-ctnt{
+    position: relative;
+    width: 80%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: #282727;
+    border-bottom: 2px solid #1da216;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.srch-box-ctnt input{
+    font-family: 'Zen Dots', sans-serif;
+    width: calc(100% - 50px);
+    height: 100%;
+    color: #fff;
+    background: #282727;
+    outline: none;
+    border: none;
+    padding: 10px;
+}
+
+.srch-box-ctnt input::placeholder{
+    color: #aeabab;
+    font-family: 'Zen Dots', sans-serif;
+}
+
+.srch-box-ctnt .search-btn{
+    width: 50px;
+    height: 100%;
+    text-align: center;
+    background: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.search-btn i{
+    font-size: 18px;
+    color: #14d60d;
+}
+
+.srch-catalog-box{
+    width: 100%;
+    height: calc(100% - 100px);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.srch-catalog-box::-webkit-scrollbar{
+    display: none;
+}
+
+.srch-catalog{
+    width: 100%;
+    gap: 10px;
+    padding: 10px 20px;
+    transition: 500ms;
+    overflow-y: visible;
+}
+
+.srch-card{
+    width: 100%;
+    height: 120px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+    padding: 0px 10px;
+    column-gap: 10px;
+    overflow: hidden;
+    background: #2f2e2e;
+    border-radius: 10px;
+    transition: 500ms;
+}
+
+.srch-card:hover{
+    background: #3a3a3a;
+}
+
+.srch-card-img{
+    position: relative;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #3a3a3a;
+    overflow: hidden;
+}
+
+.srch-card-img img{
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+.srch-card-img .img_shadow{
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.srch-card-det{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.srch-card-det h3{
+    width: 100%;
+    font-size: 10px;
+    color: #e7e7e7;
+}
+
+.srch-card-det h6{
+    width: 100%;
+    font-size: 9px;
+    color: #14d60d;
+}
+
+
+
+
+
+/* ======== FOOTER ======= */
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====== A general notification ====== */
+.notifyBdr{
+    position: fixed;
+    left: 0%;
+    bottom: 0;
+    display: none;
+    width: 100%;
+    margin: 20px;
+    justify-content: center;
+    align-content: center;
+    transition: 300ms;
+    z-index: 140;
+    cursor: pointer;
+}
+
+.notifyBdr .NotifyMe{
+    width: -moz-fit-content;
+    width: fit-content;
+    height: fit-content;
+    background: #3d3d3d;
+    padding: 20px 30px;
+    color: #ebebeb;
+    font-size: 10px;
+    border-radius: 15px;
+    border-bottom: 2px solid #14d60d;
+}
+
+.NotifyAtv{
+    display: flex;
+}
+
+
+
+
+
+
+/* ===== testing error message ==== */
+.error_bdr{
+    width: 100%;
+    min-height: 100vh;
+}
+
+.error_bdr .error_box{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.error_box .error_note{
+    width: 100%;
+    padding: 10px;
+}
+
+.error_note .error_message{
+    text-align: center;
+    font-size: 25px;
+    color: #ffffff;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ========= Responsive ========= */
+
+/* ----- Height ----- */
+@media only screen and (max-height: 580px)
+{
+
+}
+
+
+
+
+
+/* -------- Width ------ */
+
+
+@media only screen and (max-width: 1000px)
+{
+    
+}
+
+@media only screen and (max-width: 884px)
+{
+    ::-webkit-scrollbar
+    {
+        /* display: none; */
+    }
+    
+    .navbar .baron
+    {
+        display: flex;
+    }
+
+    .icnsets
+    {
+        position: absolute;
+        right: 100%;
+        bottom: 0;
+        height: 100%;
+        width: 150px;
+        padding: 10px;
+        opacity: 0;
+        visibility: hidden;
+        transition: 150ms ease;
+    }
+    
+    .icnsets .close_Nav_Menu
+    {
+        display: flex;
+    }
+
+    .menicnatv
+    {
+        right: calc(100% - 150px);
+        justify-content: space-between;
+        align-items: center;
+        opacity: 1;
+        visibility: visible;
+        z-index: 1000;
+    }
+
+    .searchsub1.frameatv
+    {
+        width: 65%;
+    }
+
+    .searchsub2.frameatv
+    {
+        width: 35%;
+    }
+    
+    .srch-box-ctnt
+    {
+        width: 90%;
+    }
+
+    .srch-card
+    {
+        height: 85px;
+    }
+
+    .srch-card-img
+    {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media only screen and (max-width: 600px)
+{
+    .hideNavUnder .headname,
+    .hideNavUnder .logo1
+    {
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+    .icnsets
+    {
+        width: 100%;
+    }
+
+    .menicnatv
+    {
+        right: 0;
+    }
+    
+    .logo1
+    {
+        display: none;
+    }
+
+    .icnsets .baroff
+    {
+        display: flex;
+    }
+}
+
+
+@media only screen and (max-width: 485px)
+{
+    .searchsub1.frameatv
+    {
+        width: 90%;
+    }
+
+    .searchsub2.frameatv
+    {
+        width: 10%;
+    }
+
+    .searchcontainer .closesearchctn
+    {
+        margin: 6px 4px;
+    }
+}
+
+@media only screen and (max-width: 320px)
+{
+
+    .searchsub1.frameatv
+    {
+        width: 90%;
+    }
+
+    .searchsub2.frameatv
+    {
+        width: 10%;
+    }
+    
+}
+
+
+
