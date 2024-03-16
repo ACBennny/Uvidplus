@@ -16,6 +16,15 @@ html{
     scroll-behavior: smooth;
 }
 
+html:root{
+    --navElementColor_green: #14d60d;
+    --navOptionColor: #a1a1a1;
+    --navbarDividerThickness: 2px;
+    --navFooterElemColor: #878787;
+    --navFooterElemHoverColor: #dfdfdf;
+    --navFooterCompClr: #616060;
+}
+
 ::-webkit-scrollbar{
     width: 10px;
 }
@@ -159,6 +168,7 @@ img{
     height: 70px;
     z-index: 100;
 }
+
 .navbar{
     padding: 0 10px;
     width: 100%;
@@ -170,92 +180,64 @@ img{
     position: relative;
 }
 
-.hideNavUnder .baron
-{
-    opacity: 0;
-    visibility: hidden;
-}
-
-.logo{
+.navBarCompanylogo{
+    width: -moz-fit-content;
+    width: fit-content;
+    height: 100%;
     display: flex;
-    align-items: center;
     flex-direction: row;
+    align-items: center;
     cursor: pointer;
+    text-transform: uppercase;
 }
 
-.logo .lhead{
+.navBarCompanylogo .lhead{
     font-size: 25px;
-    color: #14d60d;
+    color: var(--navElementColor_green);
 }
 
-.logo .lname{
-    font-size: 20px;
+.navBarCompanylogo .lname{
+    font-size: 16px;
     color: #fff;
 }
 
-.headname{
-    display: flex;
+.navbar .headname{
+    width: -moz-fit-content;
+    width: fit-content;
+    height: 100%;
+    display: none;
     align-items: center;
-    justify-content: center;
+    flex-direction: row;
+    cursor: pointer;
+    text-transform: uppercase;
 }
 
-.headname h1 .hd1{
+.navbar .headname .hd1{
     font-size: 23px;
     color: #e7e7e7;
 }
 
-.headname h1 .hd2{
-    font-size: 18px;
-    color: #14d60d;
+.headname .hd2{
+    font-size: 16px;
+    color: var(--navElementColor_green);
 }
 
-.icnsets{
-    width: -moz-fit-content;
-    width: fit-content;
+.navbar .navBarIconBox{
+    height: 100%;
+    width: 25px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
 }
 
-.icnsets .baroff,
-.icnsets .close_Nav_Menu{
-    display: none;
-}
-
-.navIcons{
-    display: flex;
-    flex-direction: row;
-}
-
-.navbar i{
-    color: #e7e7e7;
+.navBarIconBox .navBarIcon{
+    width: 15px;
+    fill: #e7e7e7;
     cursor: pointer;
-    font-size: 15px;
-    padding: 0px 10px;
     transition: all 300ms ease-in-out;
 }
 
 .navbar i:hover{
-    color: #14d60d;
-}
-
-.navbar .baron{
-    display: none;
-    align-self: center;
-}
-
-.navbar.darkenNavBar{
-    background-color: #2f2e2e;
-}
-
-.icnopener{
-    display: none;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    transform: translateY(100%);
-    width: 100%;
-    padding: 0 10px;
+    color: var(--navElementColor_green);
 }
 
 
@@ -301,52 +283,268 @@ img{
     z-index: 1;
 }
 
-.navOptionBox{
+.nav_Opt_bcg{
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 300px;
+    width: 100%;
+    max-width: 250px;
     height: 100%;
-    width: 200px;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
-    padding: 8px;
-    text-align: center;
-    background-color: #1d1c1c;
+    background-color: transparent;
     transition: all 600ms ease-in-out;
     overflow: hidden;
+    overflow-y: visible;
+    scrollbar-gutter: stable;
     z-index: 5;
 }
 
-.navOptionBox .navOptLink{
-    width: calc(100% - 20px);
+.nav_Opt_bcg:hover{
+    overflow-y: visible;
+}
+
+.nav_Opt_bcg::-webkit-scrollbar{
+    width: 8px;
+}
+
+.nav_Opt_bcg::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+.nav_Opt_bcg .navOptBdr{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 8px;
+    background-color: #1d1c1c;
+    user-select: none;
+}
+
+.navOptBdr .navOptDivider{
+    position: relative;
+    width: 100%;
+    border: none;
+    border-bottom: var(--navbarDividerThickness) solid #03901d;
+    border-bottom-right-radius: 15px;
+}
+
+.navOptBox.navOptHeaderBdr .navOptHeaderBox{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.navOptIconBox{
+    width: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navOptIconBox .navOptIcon{
+    width: 16px;
+    fill: var(--navOptionColor);
+    cursor: pointer;
+}
+
+.navOptBox .navOptTitle{
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.navOptLink{
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    gap: 25px;
-    color: #fff;
+    gap: 15px;
+    color: var(--navOptionColor);
     font-size: 14px;
-    padding: 10px;
+    padding: 15px 10px;
     cursor: pointer;
     position: relative;
     transition: 300ms;
 }
 
-.navOptLink:hover{
-    color: #46da32;
+.navOptLink.active {
+    color: var(--navElementColor_green);
+    background-color: #334334b8;
+    border-radius: 10px;
 }
 
-.navOptLink i{
-    width: 20px;
+.navOptLink.active .navOptIconBox .navOptIcon{
+    fill: var(--navElementColor_green);
+}
+
+.navOptLink:hover{
+    color: var(--navElementColor_green);
 }
 
 .navOptLink span{
     width: 100%;
     text-align: left;
 }
+
+
+.navOptBox .navOptFooter{
+    padding: 10px 0;
+}
+
+.navOptFooter .navOptFooterBox{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.navOptFooterBox .navfooterBoxSect1{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.navfooterBoxSect1 .navfooterBoxElements{
+    width: -moz-fit-content;
+    width: fit-content;
+    font-size: 10px;
+    transition: 300ms ease;
+    color: var(--navFooterElemColor);
+    cursor: pointer;
+}
+
+.navfooterBoxElements:hover{
+    color: var(--navFooterElemHoverColor);
+}
+
+.navnavOptFooterBox .navfooterBoxSect2{
+    width: 100%;
+}
+
+.navfooterBoxSect2 .navfooterCompNameBox{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0px;
+    padding: 10px;
+}
+
+.navfooterCompNameBox .navfooterCompIconBox{
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navfooterCompIconBox .navfooterCompIcon{
+    width: 10px;
+    fill: var(--navFooterCompClr);
+}
+
+.navfooterCompNameBox .navfooterCompName{
+    width: -moz-fit-content;
+    width: fit-content;
+    color: var(--navFooterCompClr);
+    text-wrap: nowrap;
+    font-size: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+/* ========== test ============= */
+
+.test_house{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.test_house .testbdr{
+    width: 500px;
+    height: 400px;
+    background-color: #1da216;
+    border-radius: 15px;
+}
+
+.testbdr .testbox{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.testbox .test_title{
+    font-size: 25px;
+}
+
+.testbox .testInputBox{
+    width: 300px;
+    height: 75px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.testInputBox .searchBoxClass{
+    width: 100%;
+    height: 100%;
+    padding: 10px 25px;
+    font-size: 22px;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+}
+
+.searchBoxClass:focus,
+.sendBtn:active{
+    border:  4px solid #1d1c1c;
+}
+
+.sendBtn{
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 7px;
+    background-color: #aeabab;
+    cursor: pointer;
+}
+
+.receiveList{
+    width: 300px;
+    height: 200px;
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    background-color: #d3cfcf;
+    border-radius: 15px;
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -793,6 +991,10 @@ img{
 
 @media only screen and (max-width: 485px)
 {
+    ::-webkit-scrollbar{
+        display: none;
+    }
+    
     .searchsub1.frameatv
     {
         width: 90%;

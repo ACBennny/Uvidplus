@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>UvidTest | Send..</title>
+    <link rel="shortcut icon" href="Uvid_Company_Logo/Uvid_Icon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../Uvid_font.css">
+    </head>
+    <body class="">
+        
+
+        <!-- preloader -->
+        <div id="preloader">
+            <div id="spinner"></div>
+        </div>
+
+
+
+        <!-- testing -->
+        <div class="test_house">
+            <div class="testbdr">
+                <form action="test_receive.html" class="testbox" name="searchDeliver">
+                    <h1 class="test_title">The search box</h1>
+                    <span class="testInputBox">
+                        <input type="search" name="key" id="searchBoxId" class="searchBoxClass" placeholder="Search...">
+                    </span>
+                    <div class="sendBtn">Send..</div>
+                </form>
+            </div>
+        </div>
+
+        
+        <!-- Footer -->
+        <footer class="footer_base">
+            <div class="footer_bdr">
+                <div class="footer_box"></div>
+            </div>
+        </footer>
+
+
+        <!-- script -->
+        <script src="../Uvid_fontscript.js"></script>
+        <script>
+
+            // timer
+            let theTimer;
+
+            // get url head
+            const urlHead = window.location.hostname;
+            console.log(urlHead);
+
+
+            /// timeout
+            theTimer = setTimeout(
+                function()
+                {
+                    // const urlNext = window.location.assign("test_receive.html" , "_blank");
+                    clearTimeout(theTimer);
+                }
+            ,2000);
+            
+
+        </script>
+        <script src="../testing.js"></script>
+
+
+
+
+
+    </body>
+</html>
