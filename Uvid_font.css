@@ -23,6 +23,9 @@ html:root{
     --navFooterElemColor: #878787;
     --navFooterElemHoverColor: #dfdfdf;
     --navFooterCompClr: #616060;
+    --navBarIconBoxWidth: 25px;
+    --navBarIconWidth: 25px;
+    --navBarIconClr: #e7e7e7;
 }
 
 ::-webkit-scrollbar{
@@ -173,11 +176,21 @@ img{
     padding: 0 10px;
     width: 100%;
     height: 70px;
-    background-color: #2f2e2e91;
+    background-color: #2f2e2ebd;
     display: flex;
     justify-content: space-between;
-    transition: 700ms;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     position: relative;
+}
+
+.navbar .navBarLeft{
+    width: -moz-fit-content;
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
 
 .navBarCompanylogo{
@@ -206,6 +219,7 @@ img{
     width: fit-content;
     height: 100%;
     display: none;
+    display: flex;
     align-items: center;
     flex-direction: row;
     cursor: pointer;
@@ -224,21 +238,82 @@ img{
 
 .navbar .navBarIconBox{
     height: 100%;
-    width: 25px;
+    width: var(--navBarIconBoxWidth);
     display: flex;
     justify-content: center;
 }
 
 .navBarIconBox .navBarIcon{
     width: 15px;
-    fill: #e7e7e7;
+    fill: var(--navBarIconClr);
     cursor: pointer;
     transition: all 300ms ease-in-out;
 }
 
-.navbar i:hover{
-    color: var(--navElementColor_green);
+.navBarIconBox .navBarIcon:hover{
+    fill: var(--navElementColor_green);
 }
+
+.navBarSearchBdr{
+    width: calc(100% / 2);
+    max-width: 1000px;
+    height: 100%;
+    padding: 10px;
+}
+
+.navBarSearchBdr .navBarSearchBox{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 10px;
+    padding: 0 10px;
+    border-bottom: 2px solid #888888;
+    border-radius: 5px;
+    background-color: #11111188;
+    transition: all 300ms ease;
+}
+
+.navBarSearchBox:focus-within{
+    background-color: #111111;
+    border-color: var(--navElementColor_green);
+}
+
+.navBarSearchBox .navBarSearchInputBox{
+    position: relative;
+    width: calc(100% - var(--navBarIconBoxWidth));
+    height: 100%;
+}
+
+.navBarSearchInputBox .navBarSearchFieldClass{
+    font-family: 'Zen Dots' , sans-serif;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    padding: 10px;
+    color: #dfdfdf;
+    font-size: 14px;
+    background-color: transparent;
+}
+
+.navBarSearchInputBox .navBarSearchInputBoxIconBox{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: var(--navBarIconBoxWidth);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.navBarSearchInputBoxIconBox .navBarSearchInputBoxIcon{
+    width: 12px;
+    fill: #888888;
+}
+
 
 
 
@@ -960,31 +1035,9 @@ img{
 
 @media only screen and (max-width: 600px)
 {
-    .hideNavUnder .headname,
-    .hideNavUnder .logo1
-    {
-        opacity: 0;
-        visibility: hidden;
-    }
-    
-    .icnsets
-    {
-        width: 100%;
-    }
-
-    .menicnatv
-    {
-        right: 0;
-    }
-    
-    .logo1
+    .navBarSearchBdr
     {
         display: none;
-    }
-
-    .icnsets .baroff
-    {
-        display: flex;
     }
 }
 

@@ -7,13 +7,18 @@
 
 
 
-const documentBody = document.body;
-const preload = document.querySelector('#preloader');
-const navMenuIcon = document.querySelectorAll(".open_nav_menu");
-let navMenuTimer;
-const goToHomePage = document.querySelectorAll('.navBarCompanylogo');
-const AllImg = document.querySelectorAll('img');
-const allLinks = document.querySelectorAll("a");
+
+// DEFINITION
+
+    const documentBody = document.body;
+    const preload = document.querySelector('#preloader');
+    const navMenuIcon = document.querySelectorAll(".open_nav_menu");
+    let navMenuTimer;
+    const navSearchDestinaton = window.location.origin;
+    const navBarSearchForm = document.querySelectorAll(".navBarSearchBox");
+    const goToHomePage = document.querySelectorAll('.navBarCompanylogo');
+    const AllImg = document.querySelectorAll('img');
+    const allLinks = document.querySelectorAll("a");
 
 
 
@@ -29,7 +34,7 @@ const allLinks = document.querySelectorAll("a");
 
 
 
-// dddd
+// 
 
 function whatToSend()
 {
@@ -301,11 +306,21 @@ function whatToSend()
 
 
 
+// SEARCH BAR
+
+    // Sets the destination of the search
+    navBarSearchForm.forEach(form => {
+        form.action = navSearchDestinaton +  "/Uvid_site/test_receive.html";
+    });
+
+
+
+
 //  GO TO HOME PAGE
 
     goToHomePage.forEach(one => {
         one.addEventListener("click" , () => {
-            window.location.pathname = "Uvid_Home/Home.html";
+            window.location.pathname = "Uvid_site/Uvid_Home/Home.html";
         });
     });
 
