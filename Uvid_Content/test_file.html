@@ -20,7 +20,7 @@
         <!-- testing -->
         <div class="test_house">
             <div class="testbdr">
-                <form action="test_receive.html" class="testbox" name="searchDeliver">
+                <form action="" class="testbox" name="searchDeliver">
                     <h1 class="test_title">The search box</h1>
                     <span class="testInputBox">
                         <input type="search" name="key" id="searchBoxId" class="searchBoxClass" placeholder="Search...">
@@ -47,8 +47,17 @@
             let theTimer;
 
             // get url head
-            const urlHead = window.location.hostname;
-            console.log(urlHead);
+            const urlServ = window.location.origin;
+            const urlHead = window.location.host;
+
+            console.log(" ser = > " + urlServ);
+            console.log("hos = > " + urlHead);
+
+
+            // change the location of action
+            const form = document.querySelector(".testbox");
+
+            form.action = urlServ +  "/test_receive.html";
 
 
             /// timeout
