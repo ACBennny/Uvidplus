@@ -304,7 +304,7 @@
 
     goToHomePage.forEach(one => {
         one.addEventListener("click" , () => {
-            window.location.pathname = "Home.hm";
+            window.location.pathname = "Home.html";
         });
     });
 
