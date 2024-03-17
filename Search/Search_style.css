@@ -1,0 +1,175 @@
+
+
+.srchbody
+{
+    background: #1c1c1c;
+}
+
+
+
+/* ======= For search catalog ========= */
+
+.searchbox-border
+{
+    width: 100%;
+    height: 100%;
+    background: #1c1c1c;
+    overflow: hidden;
+}
+
+.srch-box
+{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    z-index: 20;
+}
+
+.search_Result_title{
+    width: 100%;
+    height: fit-content;
+    padding: 10px;
+}
+
+.search_Result_title h3{
+    font-size: 16px;
+}
+
+.search_Result_title .srt_static{
+    color: #e7e7e7;
+}
+
+.search_Result_title .srt_dynamic{
+    color: #14d60d;
+}
+
+.srch-catalog-box
+{
+    width: 100%;
+    height: calc(100% - 100px);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.srch-catalog-box::-webkit-scrollbar
+{
+    display: none;
+}
+
+.srch-catalog
+{
+    width: 100%;
+    gap: 10px;
+    padding: 10px 20px;
+    transition: 500ms;
+    overflow-y: visible;
+}
+
+.srch-card
+{
+    width: 100%;
+    height: 120px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+    padding: 0px 10px;
+    column-gap: 10px;
+    overflow: hidden;
+    background: #2f2e2e;
+    border-radius: 10px;
+    transition: 500ms;
+}
+
+.srch-card:hover
+{
+    background: #3a3a3a;
+}
+
+.srch-card-img
+{
+    position: relative;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #3a3a3a;
+    overflow: hidden;
+}
+
+.srch-card-img img
+{
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+.srch-card-img .img_shadow
+{
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.srch-card-det
+{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.srch-card-det h3
+{
+    width: 100%;
+    font-size: 10px;
+    color: #e7e7e7;
+}
+
+.srch-card-det h6
+{
+    width: 100%;
+    font-size: 9px;
+    color: #14d60d;
+}
+
+
+
+
+
+/* ============ RESPONSIVE =========== */
+@media only screen and (max-width: 884px)
+{
+    .srch-box-ctnt
+    {
+        width: 90%;
+    }
+
+    .srch-card
+    {
+        height: 85px;
+    }
+
+    .srch-card-img
+    {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media only screen and (max-width: 768px)
+{
+    .srch-box .searchBdr
+    {
+        width: 90%;
+    }
+}
+
