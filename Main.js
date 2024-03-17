@@ -294,7 +294,7 @@
 
     // Sets the destination of the search
     navBarSearchForm.forEach(form => {
-        form.action = navSearchDestinaton +  "Search.html";
+        form.action = navSearchDestinaton +  "/Search.html";
     });
 
 
