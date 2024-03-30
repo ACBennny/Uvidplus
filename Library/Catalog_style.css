@@ -1,0 +1,345 @@
+
+
+
+/*  ======== ======= BODY ======== ======== */
+html
+{
+    scroll-behavior: auto;
+}
+
+
+html:root
+{
+    --slideCardPlayIconClr: #18bd0f;
+    --slideCardPlayIconWidth: 18px;
+}
+
+.catalog_body
+{
+    width: 100%;
+    height: fit-content;
+    background-color: #000000;
+    overflow-x: hidden;
+    scroll-behavior: auto;
+}
+
+
+
+
+/* --------- For movies, anime, tv, documentaries, cartoon ------------ */
+
+.contentmain
+{
+    width: 500%;
+    display: flex;
+    background: transparent;
+    overflow: hidden;
+}
+
+.contentmain input[name="cdir"] 
+{
+    position: absolute;
+    left: -1000%;
+    visibility: none;
+}
+
+.contentsub
+{
+    width: 20%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-rows: auto;
+    justify-items: center;
+    padding: 20px;
+    gap: 25px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: 100ms;
+}
+
+.contentsub::-webkit-scrollbar
+{
+    display: none;
+}
+
+#ct1:checked ~ .ctntsub1
+{
+    margin-left: 0;
+}
+
+#ct2:checked ~ .ctntsub1
+{
+    margin-left: -20%;
+}
+
+#ct3:checked ~ .ctntsub1
+{
+    margin-left: -40%;
+}
+
+#ct4:checked ~ .ctntsub1
+{
+    margin-left: -60%;
+}
+
+#ct5:checked ~ .ctntsub1
+{
+    margin-left: -80%;
+}
+
+.ctnt-slide-box
+{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    display: none;
+    justify-content: center;
+    background: #111010b7;
+    transition: all 300ms ease-in-out;
+    z-index: 25;
+}
+
+.nullatv
+{
+    display: none;
+}
+
+.nowatv
+{
+    display: flex;
+}
+
+.ctnt-slide-box .ctnt-slide-btn
+{
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 50%;
+    background: #373636;
+    border-bottom: 2px solid #1da216;
+    text-align: center;
+    font-size: 16px;
+    color: #b1b1b1;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+
+.hidden_slide_btn
+{
+    display: none;
+}
+
+.ctnt-slide-box .ctnt-slide-btn:hover
+{
+    color: #fff;
+    background: #4f4f4f;
+    transform: scale(1.15);
+}
+
+.ctnt-slide-box .ctnt-slide-btn.active
+{
+    color: #fff;
+    background: #4f4f4f;
+    transform: scale(1.15);
+}
+
+
+
+/* ===== CARD HOLDER ==== */
+
+.cardholder
+{
+    position: relative;
+    width: 250px;
+    height: 325px;
+    display: flex;
+    flex-direction: column;
+    background: #000;
+    border-radius: 25px;
+    border-bottom: 2px solid #1da216;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.cardholder:hover
+{
+    border-top: 2px solid #21c018;
+    border-left: 2px solid #21c018;
+    border-right: 2px solid #21c018;
+    border-bottom: none;
+}
+
+
+.cardholder .cardimg
+{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.cardholder .cardimg img
+{
+    width: 100%;
+    height: 100%;
+    transition: all 700ms ease-in-out;
+}
+
+.cardholder:hover .cardimg img
+{
+    transform: scale(1.15);
+}
+
+.cardholder .cardinfo
+{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding: 10px;
+    background: #00000035;
+    transition: 300ms;
+    z-index: 4;
+}
+
+.cardholder:hover .cardinfo
+{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #00000085;
+}
+
+.cardholder .cardinfo h3
+{
+    width: 180px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    color: #e7e7e7;
+    font-size: 16px;
+}
+
+.cardholder:hover .cardinfo h3
+{
+    width: 100%;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.cardholder .cardinfo .slideCardIcon
+{
+    width: var(--slideCardPlayIconWidth);
+    fill: var(--slideCardPlayIconClr);
+    transition: 500ms;
+}
+
+.cardholder:hover .cardinfo .slideCardIcon
+{
+    --slideCardPlayIconWidth: 35px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====== ======== ======= Responsive= ===========  == == */
+
+
+
+/* ------------- Height ------------ */
+
+
+
+/*  ----------- ---- Width ---- --------- */
+
+@media only screen and (max-width: 884px)
+{
+
+    .contentsub
+    {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .cardholder
+    {
+        width: 200px;
+        height: 240px;
+    }
+
+    .cardinfo h3
+    {
+        width: 150px;
+    }
+}
+
+
+@media only screen and (max-width: 465px)
+{
+
+    .contentsub
+    {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .cardholder
+    {
+        width: 180px;
+        height: 200px;
+    }
+
+    .cardinfo h3
+    {
+        width: 150px;
+    }
+}
+
+
+@media only screen and (max-width: 320px)
+{
+
+    .contentsub
+    {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .cardholder
+    {
+        width: 150px;
+        height: 180px;
+    }
+
+    .cardinfo h3
+    {
+        width: 120px;
+    }
+}
+
+
+

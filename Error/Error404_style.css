@@ -1,0 +1,228 @@
+/***************************************************************************************************************************************
+ * This is the general styling used by all pages.
+ * It includes elements like the navbar, nav menu, earch, bar, footer etcetera
+ * 
+ * @author (Anyanwu Benedict Chukwuemeka)
+ * @version (v0.01)
+ *
+****************************************************************************************************************************************/
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar
+{
+    width: 10px;
+}
+
+::-webkit-scrollbar-corner
+{
+    background-color: #000;
+}
+
+::-webkit-scrollbar-track
+{
+    background-color: #111111;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #444444;
+}
+
+::-webkit-scrollbar-thumb:hover
+{
+    background-color: #545454;
+}
+
+::-webkit-scrollbar-thumb:active
+{
+    background-color: #777777;
+}
+
+::selection
+{
+    background: #000000;
+    color: #14d60d;
+}
+
+::placeholder{
+    user-select: none;
+    pointer-events: none;
+}
+
+
+html{
+    scroll-behavior: smooth;
+}
+
+html:root
+{
+    --color0: #000000;
+    --color1: #14d60d;
+    --color2: #d7d7d7;
+    --color3: #888888;
+}
+
+body
+{
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Zen dots', sans-serif;
+    background-color: var(--color0);
+}
+
+a
+{
+    text-decoration: none;
+    user-select: none;
+}
+
+
+/* ===== Page Not Found Error ==== */
+.error_bdr
+{
+    width: 100%;
+    height: 100vh;
+}
+
+.error_bdr .error_box
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.error_box .error_note
+{
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    max-height: 400px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.error_note .header
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0px;
+    font-size: 45px;
+    user-select: none;
+}
+
+.header .header_note.hN1
+{
+    transform: rotate(20deg) translateX(20px);
+    color: var(--color1);
+}
+
+.header .header_note.hN2
+{
+    transform: rotate(0deg);
+    color: var(--color2);
+}
+
+.header .header_note.hN3
+{
+    transform: rotate(-20deg) translateX(-20px);
+    color: var(--color1);
+}
+
+.error_note .middle
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.middle .mid_Title
+{
+    color: var(--color2);
+    font-size: 18px;
+}
+
+.middle .mid_Note
+{
+    color: var(--color3);
+    font-size: 15px;
+}
+
+.middle .goToHome
+{
+    position: relative;
+    color: var(--color1);
+    font-size: 16px;
+}
+
+.middle .goToHome::after
+{
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 0%;
+    height: 3px;
+    bottom: calc(0% - 5px);
+    border-radius: 5px;
+    background-color: var(--color1);
+    opacity: 0;
+    visibility: hidden;
+    transition: 300ms;
+}
+
+.middle .goToHome:hover::after
+{
+    left: 5%;
+    width: 90%;
+    opacity: 1;
+    visibility: visible;
+}
+
+.error_note .footer
+{
+    width: 100%;
+}
+
+.footer .logoBox
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoBox .logo
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    text-transform: uppercase;
+}
+
+.logoBox .logo .logo1
+{
+    color: var(--color1);
+    font-size: 25px;
+}
+
+.logoBox .logo .logo2
+{
+    color: var(--color2);
+    font-size: 16px;
+}

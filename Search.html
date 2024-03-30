@@ -16,9 +16,10 @@
             <div id="spinner"></div>
         </div>
 
+
         <!-- --------------- Navbar ------------ -->
         <div class="navBox">
-            <div class="navbar">
+            <div class="navBar">
                 <div class="navBarLeft">
                     <div class="navBarIconBox">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarIcon open_nav_menu">
@@ -30,56 +31,67 @@
                         <h1 class="lname">vid</h1>
                     </div>
                 </div>
-                <!-- <div class="searchBdr navBarSearchBdr">
+                <div class="navBarCenter searchBdr navBarSearchBdr active">
                     <form action="#" method="get" class="searchBox navBarSearchBox" name="navSearchForm">
                         <span class="searchInputBox">
                             <input type="text" name="search_key" id="navBarSearchFieldId" class="searchFieldClass" placeholder="Search...">
-                            <div class="searchInputBoxIconBox">
+                            <label for="navBarSearchFieldId" class="clearSearchFieldIconBox">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="clearSearchFieldIcon">
                                     <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
                                 </svg>
-                            </div>
+                            </label>
                         </span>
-                        <div class="searchIconBox">
+                        <label for="navBarSearchFieldId" class="searchIconBox">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="searchIcon">
                                 <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
                             </svg>
-                        </div>
+                        </label>
                     </form>
-                </div> -->
-                <div class="headname">
-                    <h1 class="hd1">A</h1>
-                    <h1 class="hd2">nime</h1>
+                    <div class="navBarIconBox closeNavSearch_BtnBox">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navBarIcon closeNavSearch_Btn">
+                            <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="navBarRight">
+                    <div class="headname">
+                        <h1 class="hd1">A</h1>
+                        <h1 class="hd2">nime</h1>
+                    </div>
+                    <div class="navBarRightCtnt">
+                        <div class="navBarIconBox openNavSearch_BtnBox">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarIcon openNavSearch_Btn">
+                                <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
+                            </svg>
+                        </div>
+                        <div class="navBarIconBox openNavNotifyBox">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navBarIcon openNavNotify notify_atv">
+                                <path d="M224 0c-17.7 0-32 14.3-32 32V51.2C119 66 64 130.6 64 208v25.4c0 45.4-15.5 89.5-43.8 124.9L5.3 377c-5.8 7.2-6.9 17.1-2.9 25.4S14.8 416 24 416H424c9.2 0 17.6-5.3 21.6-13.6s2.9-18.2-2.9-25.4l-14.9-18.6C399.5 322.9 384 278.8 384 233.4V208c0-77.4-55-142-128-156.8V32c0-17.7-14.3-32-32-32zm0 96c61.9 0 112 50.1 112 112v25.4c0 47.9 13.9 94.6 39.7 134.6H72.3C98.1 328 112 281.3 112 233.4V208c0-61.9 50.1-112 112-112zm64 352H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7s18.7-28.3 18.7-45.3z"/>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navBarIcon closeNavNotify ">
+                                <path d="M224 0c-17.7 0-32 14.3-32 32V51.2C119 66 64 130.6 64 208v18.8c0 47-17.3 92.4-48.5 127.6l-7.4 8.3c-8.4 9.4-10.4 22.9-5.3 34.4S19.4 416 32 416H416c12.6 0 24-7.4 29.2-18.9s3.1-25-5.3-34.4l-7.4-8.3C401.3 319.2 384 273.9 384 226.8V208c0-77.4-55-142-128-156.8V32c0-17.7-14.3-32-32-32zm45.3 493.3c12-12 18.7-28.3 18.7-45.3H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7z"/>
+                            </svg>
+                        </div>
+                        
+                        <div class="navBarProfileBdr">
+                            <div class="navBarProfileBox goToProfie">
+                                <div class="navBarProfileImageBox">
+                                    <img src="" alt="Profile Image" class="navBarProfileImage">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
         <div class="give_space" id="top"></div>
 
+        
         <!-- ------ search ------ -->
         <div class="searchbox-border">
-            <div class="srch-box">
-                <div class="searchBdr">
-                    <form action="#" method="get" class="searchBox navBarSearchBox" name="navSearchForm">
-                        <span class="searchInputBox">
-                            <input type="text" name="keyword" id="navBarSearchFieldId" class="searchFieldClass" placeholder="Search...">
-                            <div class="searchInputBoxIconBox">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="clearSearchFieldIcon">
-                                    <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
-                                </svg>
-                            </div>
-                        </span>
-                        <div class="searchIconBox">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="searchIcon">
-                                <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
-                            </svg>
-                        </div>
-                    </form>
-                </div>
-            </div>
             <div class="search_Result_title">
                 <h3>
-                    <span class="srt_static">Search results for: </span>
+                    <span class="srt_static">Search results for : </span>
                     <span class="srt_dynamic"></span>
                 </h3>
             </div>
@@ -1098,7 +1110,69 @@
             </div> 
         </div> -->
 
-
+        <!-- Footer -->
+        <footer class="footer_base">
+            <div class="footer_bdr">
+                <div class="footer_box">
+                    <div class="footer_boxCtnt footer_logoBox">
+                        <div class="Companylogo footer_logo">
+                            <h1 class="lhead">U</h1>
+                            <h1 class="lname">vid</h1>
+                        </div>
+                    </div>
+                    <div class="footer_boxCtnt footer_abt">
+                        <div class="footer_abt_titleBox">
+                            <h4 class="footer_abt_title front">A</h4>
+                            <h4 class="footer_abt_title back">bout Us</h4>
+                        </div>
+                        <div class="footer_abt_textBox">
+                            <p class="footer_abt_text">
+                                Uvid is an online streaming platform tailored with providing the best streaming experience.
+                                <br><br>
+                                Here you can watch from a vast library of movies, tv shows, anime and even cartoon shows for the kids.
+                            </p>
+                        </div>
+                        <div class="footer_Important_linksBox">
+                            <a href="/Policies/PrefCenter.html" title="" class="footerlinks footer_Important_links">Preferences</a>
+                            <a href="/Policies/Privacy.html" title="" class="footerlinks footer_Important_links">Privacy</a>
+                            <a href="/Policies/TOC.html" title="" class="footerlinks footer_Important_links">Terms of Use</a>
+                        </div>
+                    </div>
+                    <div class="footer_boxCtnt footer_OtherLinks">
+                        <div class="footer_abt_titleBox">
+                            <h4 class="footer_abt_title front">U</h4>
+                            <h4 class="footer_abt_title back">seful Links</h4>
+                        </div>
+                        <div class="footer_UsefulLinksBdr">
+                            <div class="footer_UsefulLinksBox">
+                                <a href="/FAQ.html" title="" class="footerlinks footer_UsefulLinks">FAQ</a>
+                                <a href="/Help.html" title="" class="footerlinks footer_UsefulLinks">Help Center</a>
+                                <a href="/Feeback.html" title="" class="footerlinks footer_UsefulLinks">Feedback</a>
+                                <a href="/Support.html" title="" class="footerlinks footer_UsefulLinks">Support Us</a>
+                            </div>
+                            <div class="footer_UsefulLinksBox">
+                                <a href="/About.html#contact" title="" class="footerlinks footer_UsefulLinks">Contact Us</a>
+                                <a href="/Policies/Preference.html#cookies" title="" class="footerlinks footer_UsefulLinks">Cookies</a>
+                                <a href="/AdChoices.html" title="" class="footerlinks footer_UsefulLinks">Ad Choices</a>
+                                <a href="/Policies/CopyrightsAct.html" title="" class="footerlinks footer_UsefulLinks">Copyrights Act</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="backtotopofpageBox">
+                    <a href="#top" class="backtotop" title="Go to top" draggable="false">
+                        <div class="backtotop_IconBox">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="backtotop_Icon">
+                                <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/>
+                            </svg>
+                        </div>
+                        <div class="backtotop_textBox">
+                            <span class="backtotop_text">Top</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </footer>
 
  
 

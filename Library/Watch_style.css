@@ -1,0 +1,1318 @@
+/*************************************************************
+ * This is the style for the Episode pages of Uvid
+ * 
+ * @author (Anyanwu Benedict Chukwuemeka)
+ * @version (v0.01)
+ *************************************************************/
+
+
+html:root
+{
+    --genGreenTypeLight: #14d60d;
+    --genGreenTypeDark: #148b10;
+    --genWhiteTypeBright: #ffffff;
+    --genWhiteTypeLight: #dfdfdf;
+    --genWhiteTypeMid: #ababab;
+    --genWhiteTypeDark: #6b6a6a;
+    --genMaxWidth: 1340px;
+    --leftColWidth: calc(100% - var(--rightColWidth));
+    --rightColWidth: 35%;
+    --showlistAutoNextTogglePadding: 4px;
+    --showlist_MoreEpCloseBoxHeight: 50px;
+    --showlist_MoreEpHeaderBdrHeight: 50px;
+}
+
+
+/* ================ VIDEO PLAYER ================ */
+
+.vid_bdr
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 16 / 9;
+    max-height: 900px;
+}
+
+.vid_bdr .vid_box
+{
+    width: 100%;
+    max-width: var(--genMaxWidth);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container, .video-controls, .video-timer, .options
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container
+{
+    position: relative;
+    width: 98%;
+    user-select: none;
+    overflow: hidden;
+    max-width: var(--genMaxWidth);
+    border-radius: 5px;
+    background: #000;
+    aspect-ratio: 16 / 9;
+    box-shadow: 0 10px 20px #0000001a;
+}
+
+.container.fullscreen
+{
+    max-width: 100%;
+    width: 100%;
+    height: 100vh;
+    border-radius: 0px;
+}
+
+.episode_title_bdr
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    transition: all 300ms ease;
+    z-index: 4;
+}
+
+.container.show-controls .episode_title_bdr
+{
+    background: linear-gradient(to bottom, #000000a1 , transparent);
+}
+
+.episode_title_bdr .episode_title_box
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 15px;
+}
+
+.episode_title_box .companyTitle
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: inherit;
+    text-transform: uppercase;
+}
+
+.episode_title_box .companyTitle .head
+{
+    color: var(--genGreenTypeDark);
+    font-size: 18px;
+}
+
+.episode_title_box .companyTitle .tail
+{
+    color: #6b6a6a;
+    font-size: 13px;
+}
+
+.container.show-controls .episode_title_bdr
+.episode_title_box .companyTitle .head
+{
+    color: var(--genGreenTypeLight);
+}
+
+
+.container.show-controls .episode_title_bdr
+.episode_title_box .companyTitle .tail
+{
+    color: var(--genWhiteTypeLight);
+}
+
+.episode_title_box .episodeTitle
+{
+    color: #6b6a6a;
+    font-size: 13px;
+}
+
+.container.show-controls .episode_title_bdr
+.episodeTitle
+{
+    color: var(--genWhiteTypeLight);
+}
+
+.cover-vid
+{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 5;
+}
+
+.cover-vid .playPause_fullscreen_VidPc
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: transparent;
+}
+
+.cover-vid .mobile_controls_box
+{
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background-color: #000000a1;
+}
+
+.mobile_controls_box .mobile_controls
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.mobile_controls button
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile_controls_box .mobile_controls .skip-backward,
+.mobile_controls_box .mobile_controls .skip-forward
+{
+    font-size: 20px;
+}
+
+.mobile_controls_box .mobile_controls .play-pause
+{
+    font-size: 35px;
+}
+
+.wrapper
+{
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    opacity: 0;
+    bottom: -15px;
+    transition: all 0.08s ease;
+}
+
+.container.show-controls .wrapper
+{
+    opacity: 1;
+    bottom: 0;
+    transition: all 0.13s ease;
+}
+
+.wrapper::before
+{
+    content: "";
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: calc(100% + 35px);
+    pointer-events: none;
+    background: linear-gradient(to top, #000000b3, transparent);
+}
+
+.video-timeline
+{
+    height: 7px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.video-timeline .progress-area
+{
+    height: 5px;
+    position: relative;
+    background: #ffffff5e;
+    transition: all 300ms;
+}
+
+.video-timeline:hover .progress-area
+{
+    height: 7px;
+}
+
+.progress-area span
+{
+    position: absolute;
+    left: 50%;
+    top: -25px;
+    font-size: 13px;
+    color: var(--genWhiteTypeLight);
+    pointer-events: none;
+    transform: translateX(-50%);
+}
+
+.progress-area .progress-bar
+{
+    width: 0%;
+    height: 100%;
+    position: relative;
+    background: var(--genGreenTypeDark);
+}
+
+.progress-bar::before
+{
+    content: "";
+    right: 0;
+    top: 50%;
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    border-radius: 50%;
+    background: var(--genWhiteTypeLight);
+    transform: translateY(-50%);
+}
+
+.progress-bar::before, .progress-area span
+{
+    display: none;
+}
+
+.video-timeline:hover .progress-bar::before,
+.video-timeline:hover .progress-area span
+{
+    display: block;
+}
+
+.wrapper .video-controls
+{
+    padding: 5px 20px 10px;
+}
+
+.video-controls .options
+{
+    width: 100%;
+}
+
+.video-controls .options:first-child
+{
+    justify-content: flex-start;
+}
+
+.video-controls .options:last-child
+{
+    justify-content: flex-end;
+}
+
+.options button
+{
+    height: 40px;
+    width: 40px;
+    font-size: 19px;
+    border: none;
+    cursor: pointer;
+    background: none;
+    color: var(--genWhiteTypeLight);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.options button :where(i, span)
+{
+    height: 100%;
+    width: 100%;
+    line-height: 40px;
+}
+
+.options button:hover :where(i, span)
+{
+    color: var(--genWhiteTypeBright);
+}
+
+.options button:active :where(i, span)
+{
+    transform: scale(0.9);
+}
+
+.options button span
+{
+    font-size: 23px;
+}
+
+.options input
+{
+    height: 4px;
+    margin-left: 3px;
+    max-width: 75px;
+    accent-color: var(--genGreenTypeDark);
+}
+
+.options .video-timer
+{
+    color: var(--genWhiteTypeLight);
+    margin-left: 15px;
+    font-size: 10px;
+}
+
+.video-timer .separator
+{
+    margin: 0 5px;
+    font-size: 16px;
+    font-family: "Open sans";
+}
+
+.playback-content
+{
+    display: flex;
+    position: relative;
+}
+
+.playback-content .speed-options
+{
+    position: absolute;
+    list-style: none;
+    left: -55px;
+    bottom: 50px;
+    width: 95px;
+    overflow: hidden;
+    opacity: 0;
+    border-radius: 4px;
+    pointer-events: none;
+    background: #ffffff9a;
+    box-shadow: 0 10px 20px #0000001a;
+    transition: opacity 0.13s ease;
+}
+
+.playback-content .speed-options.show
+{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.speed-options li
+{
+    cursor: pointer;
+    color: #000;
+    font-size: 14px;
+    margin: 2px 0;
+    padding: 5px 0 5px 15px;
+    transition: all 0.1s ease;
+}
+
+.speed-options li:where(:first-child, :last-child)
+{
+    margin: 0px;
+}
+
+.speed-options li:hover
+{
+    background: var(--genWhiteTypeLight);
+}
+
+.speed-options li.active
+{
+    color: var(--genWhiteTypeBright);
+    background: var(--genGreenTypeDark);
+}
+
+.container video
+{
+    width: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+
+
+
+
+
+/* ============= Section 2: Video Details ============= */
+
+.section_Base
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.section_Base .section_Bdr
+{
+    width: 100%;
+    max-width: var(--genMaxWidth);
+}
+
+.section_Bdr .section_Box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+/* ------------ Left Column ----------- */
+.section_Box .left_column
+{
+    width: calc(100% - var(--rightColWidth));
+}
+
+.left_column .column_ctnt
+{
+    width: 100%;
+    padding: 10px;
+}
+
+.column_ctnt .section_title_bdr
+{
+    width: 100%;
+    margin: 0 0 20px 0;
+    padding: 0 0 0 15px;
+}
+
+.section_title_bdr .section_title_box
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 25px 15px;
+    border-radius: 5px;
+    border-left: 3px solid var(--genGreenTypeDark);
+    background-color: #111111;
+}
+
+.section_title_box .section_title_textLarge
+{
+    width: 100%;
+    color: var(--genWhiteTypeLight);
+    font-size: 20px;
+}
+
+.section_title_box .section_title_textSmall
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    color: var(--genWhiteTypeMid);
+    font-size: 13px;
+}
+
+.column_ctnt .media_actions_bdr
+{
+    width: 100%;
+    margin: 0 0 20px 0;
+    padding: 0 0 0 15px;
+}
+
+.media_actions_bdr .media_actions_box
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 25px 15px;
+    border-radius: 5px;
+    border-left: 3px solid var(--genGreenTypeDark);
+    /* border-right: 3px solid var(--genGreenTypeDark); */
+    background-color: #111111;
+}
+
+.media_actions_box .media_actions_static
+{
+    width: 90px;
+    height: 100%;
+    background-color: var(--genGreenTypeDark);
+}
+
+
+.media_actions_box svg
+{
+    fill: var(--genGreenTypeLight);
+    width: 18px;
+}
+
+.media_actions_box .media_optBdr
+{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.media_optBdr .media_optBox
+{
+    outline: none;
+    border: none;
+    padding: 10px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.media_optBox .media_optIcon
+{
+    width: 20px;
+    fill: var(--genWhiteTypeLight);
+    transition: 300ms;
+}
+
+.media_optBox:hover .media_optIcon
+{
+    fill: var(--genGreenTypeLight);
+}
+
+
+
+
+
+/* ---------- Right Colun ---------- */
+.section_Box .right_column
+{
+    width: var(--rightColWidth);
+    overflow: hidden;
+}
+
+.right_column .showlist
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+}
+
+.showlist .showlist_head
+{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px;
+}
+
+.showlist_head .showlist_nextText
+{
+    font-size: 13px;
+    color: var(--genWhiteTypeMid);
+}
+
+.showlist_head .showlist_AutoNextBox
+{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+}
+
+.showlist_AutoNextBox .showlist_AutoNextText
+{
+    color: var(--genGreenTypeLight);
+    font-size: 10px;
+}
+
+.showlist_AutoNextBox .showlist_AutoNextToggleInput
+{
+    width: 0;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+}
+
+.showlist_AutoNextBox .showlist_AutoNextToggle
+{
+    position: relative;
+    width: 40px;
+    height: 20px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: var(--showlistAutoNextTogglePadding);
+    border-radius: 20px;
+    background-color: var(--genWhiteTypeDark);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.showlist_AutoNextToggle .showlist_AutoNextToggleCircle
+{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--genWhiteTypeLight);
+    transform: translateX(calc(-100% - var(--showlistAutoNextTogglePadding)));
+    transition: all 300ms ease;
+}
+
+.showlist_AutoNextToggleInput:checked ~ .showlist_AutoNextToggle
+{
+    background-color: var(--genGreenTypeDark);
+}
+
+.showlist_AutoNextToggleInput:checked ~ .showlist_AutoNextToggle .showlist_AutoNextToggleCircle
+{
+    transform: translateX(0%);
+}
+
+.showlist .next_epCardBdr
+{
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+}
+
+.next_epCardBdr .next_epCardBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.next_epCardBox .next_epImgBox
+{
+    position: relative;
+    width: 150px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.next_epImgBox .next_epImg
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.next_epCardBox .next_epLength
+{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 5px;
+    padding: 5px;
+    color: var(--genWhiteTypeLight);
+    font-size: 12px;
+    border-radius: 5px;
+    background-color: #000000b0;
+    z-index: 3;
+}
+
+.next_epImgBox .next_epCardHover
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000a1;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 300ms ease-in-out;
+    z-index: 2;
+}
+
+.next_epCardBox:hover .next_epCardHover
+{
+    opacity: 1;
+    visibility: visible;
+}
+
+.next_epCardHover .next_epCardHoverIcon
+{
+    width: 16px;
+    fill: var(--genGreenTypeLight);
+}
+
+.next_epCardBox .next_epDetBdr
+{
+    width: calc(100% - 150px);
+    height: 100%;
+    padding: 0 0 0 10px;
+}
+
+.next_epDetBdr .next_epDetBox
+{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.next_epDetBox .next_epDetTitle
+{
+    color: var(--genWhiteTypeMid);
+    font-size: 14px;
+}
+
+.next_epDetBox .next_epDetShow
+{
+    color: #888888;
+    font-size: 10px;
+}
+
+.showlist .showlist_epdivider
+{
+    width: 100%;
+    border-bottom: .25px solid #6b6a6a;
+}
+
+.showlist .showlist_MoreEpBtnBdr
+{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 10px;
+}
+
+.showlist_MoreEpBtnBdr .showlist_MoreEpBtnBox
+{
+    --moreEpBtnColors: #ababab;
+    font-family: 'Zen dots', sans-serif;
+    width: 200px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+    outline: none;
+    border: 2px solid var(--moreEpBtnColors);
+    border-radius: 5px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+
+.showlist_MoreEpBtnBox:active
+{
+    transform: scale(0.95);
+}
+
+
+.showlist_MoreEpBtnBox:hover
+{
+    --moreEpBtnColors: var(--genGreenTypeDark);
+}
+
+.showlist_MoreEpBtnBox .showlist_MoreEpBtnIcon
+{
+    width: 25px;
+    fill: var(--moreEpBtnColors);
+    transition: all 300ms ease-in-out;
+}
+
+.showlist_MoreEpBtnBox .showlist_MoreEpBtnText
+{
+    color: var(--moreEpBtnColors);
+    font-size: 13px;
+    transition: all 300ms ease-in-out;
+}
+
+
+
+
+/* -------------- More Episodes ------------ */
+
+.showlist_MoreEpBase
+{
+    position: fixed;
+    top: calc(0%);
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    z-index: 105;
+}
+
+.showlist_MoreEpBase.active
+{
+    display: flex;
+}
+
+.showlist_MoreEpBase .showlist_MoreEpBcg
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000000a1;
+    z-index: -1;
+}
+
+.showlist_MoreEpBase .showlist_MoreEpBdr
+{
+    width: 100%;
+    max-width: 700px;
+    height: 100%;
+}
+
+.showlist_MoreEpBdr .showlist_MoreEpBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.showlist_MoreEpBox .showlist_MoreEpCloseBox
+{
+    position: relative;
+    width: 100%;
+    height: var(--showlist_MoreEpCloseBoxHeight);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    padding: 0 15px;
+    transition: 300ms;
+}
+
+.showlist_MoreEpCloseBox .showlist_MoreEpCloseIcon
+{
+    position: absolute;
+    right: -25px;
+    width: 25px;
+    fill: var(--genWhiteTypeLight);
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.showlist_MoreEpBox .showlist_MoreEpHeaderBdr
+{
+    position: relative;
+    width: 100%;
+    height: var(--showlist_MoreEpHeaderBdrHeight);
+}
+
+.showlist_MoreEpHeaderBdr .showlist_MoreEpHeaderBox
+{
+    --showlistMoreEpHeaderClrs: var(--genWhiteTypeLight);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    background: #313131;
+    transition: all 300ms ease-in-out;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    cursor: pointer;
+}
+
+.showlist_MoreEpHeaderBox .showlist_MoreEpHeaderText
+{
+    color: var(--showlistMoreEpHeaderClrs);
+    font-size: 18px;
+    transition: 300ms;
+}
+
+.showlist_MoreEpHeaderBox:hover
+{
+    --showlistMoreEpHeaderClrs: var(--genGreenTypeLight);
+}
+
+.showlist_MoreEpHeaderBox .showlist_MoreEpHeaderIcon
+{
+    width: 16px;
+    fill: var(--showlistMoreEpHeaderClrs);
+    transition: 300ms;
+}
+
+.showlist_MoreEpHeaderBdr .showlist_MoreEpSelectorBdr
+{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    display: none;
+    background: #171717;
+    z-index: 4;
+}
+
+.showlist_MoreEpSelectorBdr.active
+{
+    display: flex;
+}
+
+.showlist_MoreEpSelectorBdr .showlist_MoreEpSelectorBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.showlist_MoreEpSelectorBox .showlist_MoreEpSelector
+{
+    color: var(--genWhiteTypeDark);
+    font-size: 12px;
+    padding: 15px;
+    transition: 300ms;
+}
+
+.showlist_MoreEpSelector:hover
+{
+    color: var(--genWhiteTypeBright);
+    background-color: #444444;
+}
+
+.showlist_MoreEpSelector.active
+{
+    color: var(--genWhiteTypeLight);
+}
+
+.showlist_MoreEpBox .showlist_MoreEpCtntBdr
+{
+    width: 100%;
+    height: calc(100% - (var(--showlist_MoreEpCloseBoxHeight) + var(--showlist_MoreEpHeaderBdrHeight)));
+    overflow: hidden;
+    overflow-y: auto;
+    background-color: #111111;
+    opacity: 1;
+    visibility: visible;
+    transition: all 300ms ease-in-out;
+}
+
+.showlist_MoreEpCtntBdr.active
+{
+    display: flex;
+}
+
+.showlist_MoreEpCtntBdr.inactive
+{
+    display: none;
+}
+
+.showlist_MoreEpCtntBdr .showlist_MoreEpCtntBox
+{
+    --moreEpCtntBox_columnWidth: 275px;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    display: grid;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--moreEpCtntBox_columnWidth), 1fr));
+    grid-template-rows: auto;
+    justify-items: center;
+    gap: 10px;
+    background-color: transparent;
+}
+
+.showlist_MoreEpCtntBox .showlist_epCardBdr
+{
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+}
+
+.showlist_epCardBdr .showlist_epCardBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.showlist_epCardBox .showlist_epImgBox
+{
+    position: relative;
+    width: 150px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.showlist_epImgBox .showlist_epImg
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.showlist_epCardBox .showlist_epLength
+{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 5px;
+    padding: 5px;
+    color: var(--genWhiteTypeLight);
+    font-size: 12px;
+    border-radius: 5px;
+    background-color: #000000b0;
+    z-index: 3;
+}
+
+.showlist_epImgBox .showlist_epCardHover
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000a1;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 300ms ease-in-out;
+    z-index: 2;
+}
+
+.showlist_epCardBox:hover .showlist_epCardHover
+{
+    opacity: 1;
+    visibility: visible;
+}
+
+.showlist_epCardHover .showlist_epCardHoverIcon
+{
+    width: 16px;
+    fill: var(--genGreenTypeLight);
+}
+
+.showlist_epCardBox .showlist_epDetBdr
+{
+    width: calc(100% - 150px);
+    height: 100%;
+    padding: 0 0 0 10px;
+}
+
+.showlist_epDetBdr .showlist_epDetBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.showlist_epDetBox .showlist_epDetTitle
+{
+    color: var(--genWhiteTypeMid);
+    font-size: 14px;
+}
+
+.showlist_epDetBox .showlist_epDetShow
+{
+    color: #888888;
+    font-size: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================  RESPONSIVENESS ========================= */
+
+
+/* --------- Width ---------- */
+
+@media screen and (max-width: 1100px)
+{
+    .section_Bdr .section_Box
+    {
+        flex-direction: column;
+    }
+
+    .section_Box .left_column,
+    .section_Box .right_column
+    {
+        width: 100%;
+    }
+}
+
+
+@media screen and (max-width: 768px)
+{
+
+    .cover-vid .playPause_fullscreen_VidPc
+    {
+        display: none;
+    }
+
+    .container.show-controls .episode_title_bdr
+    {
+        background-color: transparent;
+        z-index: 7;
+    }
+
+    .container.show-controls .cover-vid .mobile_controls_box
+    {
+        display: flex;
+    }
+
+    .wrapper .video-controls
+    {
+        padding: 3px 10px 7px;
+    }
+
+    .options input,
+    .progress-area span,
+    .pc_controls
+    {
+        display: none;
+    }
+
+    .options button
+    {
+        height: 30px;
+        width: 30px;
+        font-size: 15px;
+    }
+
+    .options .video-timer
+    {
+        margin-left: 5px;
+    }
+
+    .video-timer .separator
+    {
+        font-size: 14px;
+        margin: 0 2px;
+    }
+
+    .options button :where(i, span)
+    {
+        line-height: 30px;
+    }
+
+    .options button span
+    {
+        font-size: 21px;
+    }
+
+    .progress-area span, .speed-options li
+    {
+        font-size: 12px;
+    }
+
+    .playback-content .speed-options
+    {
+        width: 75px;
+        left: -30px;
+        bottom: 30px;
+    }
+
+    .speed-options li
+    {
+        margin: 1px 0;
+        padding: 3px 0 3px 10px;
+    }
+
+    .right .pic-in-pic
+    {
+        display: none;
+    }
+
+    .showlist_MoreEpBox .showlist_MoreEpCloseBox
+    {
+        position: relative;
+        width: 100%;
+        height: var(--showlist_MoreEpCloseBoxHeight);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 15px;
+        background-color: #222222;
+    }
+
+    .showlist_MoreEpCloseBox .showlist_MoreEpCloseIcon
+    {
+        position: static;
+        width: 18px;
+        fill: var(--genWhiteTypeLight);
+        cursor: pointer;
+    }
+
+    .showlist_MoreEpHeaderBdr .showlist_MoreEpHeaderBox
+    {
+        border-radius: 0;
+    }
+
+    .showlist_MoreEpCtntBdr .showlist_MoreEpCtntBox
+    {
+        --moreEpCtntBox_columnWidth: 175px;
+    }
+
+    .showlist_MoreEpCtntBox .showlist_epCardBdr
+    {
+        height: 200px;
+    }
+
+    .showlist_epCardBdr .showlist_epCardBox
+    {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .showlist_epCardBox .showlist_epDetBdr
+    {
+        width: 100%;
+        height: fit-content;
+        align-items: center;
+        padding: 0;
+    }
+
+    .showlist_epDetBdr .showlist_epDetBox
+    {
+        width: 100%;
+        align-items: center;
+    }
+}
