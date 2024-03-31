@@ -1037,20 +1037,41 @@ ul
 @media only screen and (max-width: 884px)
 {
 
-    .contentsub
+    .navBarLeft .spacing
     {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        margin: 0;
     }
 
-    .cardholder
+    .navBarRight .signUpBdr
     {
-        width: 200px;
-        height: 240px;
+        width: 125px;
     }
 
-    .cardinfo h3
+    .signUpBdr .signUpBox
     {
-        width: 150px;
+        margin: 0;
+        padding: 10px 15px;
+    }
+
+    .welcome_landBdr .welcome_landBox
+    {
+        padding: 0 12px;
+    }
+
+    .welcome_landTextMajorBox .welcome_landTextMajor
+    {
+        font-size: 24px;
+    }
+
+    .welcome_landTextMinorBox .welcome_landTextMinor
+    {
+        font-size: 12px;
+    }
+
+    .propmpt_AccActionBox .propmpt_AccActionBtnBox
+    {
+        max-width: 250px;
+        font-size: 13px;
     }
 
     .join_house
