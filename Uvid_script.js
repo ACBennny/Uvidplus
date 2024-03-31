@@ -9,7 +9,7 @@
 // DEFINITION
 
     const bodyDoc = document.body;
-    const preload = document.querySelector('#preloader');
+    const preloaderBdr = document.querySelector('#preloader');
 
     // To open the Account forms
     const loadAccForm = document.querySelectorAll(".action_Join");
@@ -38,7 +38,7 @@
     // This function removes the preloader after the skeleton of the website has been loaded
     
     window.addEventListener("load", () => {
-        preload.style.display = "none";
+        preloaderBdr.style.display = "none";
         bodyDoc.classList.add('bodystart');
     });
 
@@ -90,7 +90,7 @@
                                                             <label for="form_logIn_id" class="form_input_name">Username</label>
                                                         </div>
                                                         <div class="form_input_box">
-                                                            <input type="text" id="form_logIn_id" class="form_input_field" placeholder="Username">
+                                                            <input type="text" id="form_logIn_id" class="form_input_field" placeholder="Username is uvidtestuser">
                                                         </div>
                                                     </div>
 
@@ -100,7 +100,7 @@
                                                             <label for="form_logIn_pass" class="form_input_name">Password</label>
                                                         </div>
                                                         <div class="form_input_box form_PassBox">
-                                                            <input type="password" id="form_logIn_pass" class="form_input_field form_Pass" placeholder="Password">
+                                                            <input type="password" id="form_logIn_pass" class="form_input_field form_Pass" placeholder="Password is @abcd=1234">
                                                             <label for="form_logIn_pass">
                                                                 <i class="fa-regular fa-eye seeUnseePass"></i>
                                                             </label>
@@ -614,7 +614,6 @@
                         {
                             isUserLogValid = true;
                         }
-                        console.log("User bool = " + isUserLogValid);
 
                         
                     }
@@ -677,9 +676,7 @@
                             {
                                 // logInWarn.textContent = "";
                                 isUserPassValid = true;
-                                console.log("pass good");
                             }
-                            console.log("Pass bool = " + isUserPassValid);
                         }
 
                         userPassword.addEventListener("input" , validateUserPassword);
@@ -690,12 +687,11 @@
                     let testLog_user = "uvidtestuser";
                     let testLog_email = "craft.testuser.Acc.email@gmail.com";
                     let testLog_pass = "@abcd=1234";
+                    let testTimer;
 
                         // Checks if user's input is valid and if the inputted values correct
                         function validateLogInCreds()
                         {
-                            console.log("user = " + userName.value);
-                            console.log("pass = " + userPassword.value);
                             // This occurs if user's input is valid and the inputted values are correct
                             if(((isUserLogValid == true) 
                                 && (isUserPassValid == true) 
@@ -705,7 +701,10 @@
                             {
                                 logInWarn.textContent = "Logging in...";
                                 logInWarn.classList.add("active");
-                                console.log("Logged In ✊");
+                                testTimer = setTimeout(() => 
+                                {
+                                    window.location.pathname = "/Library/Anime.html";
+                                }, 1500);
                             }
                             // If it is not correct, the user is required to try again
                             else
@@ -931,7 +930,6 @@
                                 newUserWarn.textContent = "";
                                 newUserWarn.classList.remove("active");
                                 isUserValid = true;
-                                console.log("User bool = " + isUserValid);
                             }
 
                             
@@ -988,7 +986,6 @@
                                 newEmailWarn.textContent = "";
                                 newEmailWarn.classList.remove("active");
                                 isEmailValid = true;
-                                console.log("Email bool = " + isEmailValid);
                             }
 
                             
@@ -1164,7 +1161,6 @@
                             {
                                 isPassValid = false;
                             }
-                            console.log("Pass bool = " + isPassValid);
                         }
 
                         newPassword.addEventListener("input" , validateNewPassword);
@@ -1201,7 +1197,6 @@
                                     confNewPassWarn.textContent = "";
                                     confNewPassWarn.classList.remove("active");
                                     isConfPassValid = true;
-                                    console.log("ConfPass bool = " + isConfPassValid);
                                 }
                             }
 
@@ -1218,7 +1213,6 @@
                         // If all input fields are filled correctly, call verification funnction to verify user
                         if(((signUpBtn.disabled == false) && (isUserValid == true) && (isPassValid == true) && (isConfPassValid == true) && (isEmailValid == true)))
                         {
-                            console.log("Available!");
                             signUpBtn.disabled = true;
                             verification(newEmail.value);
                         }
@@ -1226,7 +1220,6 @@
                         else
                         {
                             alert("Please Check that all fields have been filled correctly");
-                            console.log("Not available!");
                         }
                     });
 
@@ -1367,7 +1360,7 @@
                             }
 
                             var secret = generateRandomString(32); // Generate a random secret key
-                            console.log('Secret key:', secret);
+                            // console.log('Secret key:', secret);
 
                         
                         // Generate OTP num
@@ -1418,7 +1411,7 @@
 
                             // Email content
                             let currVerC = thisVercart;
-                            console.log("email val => " + currVerC);
+                            // console.log("email val => " + currVerC);
                             let new_email_verBtn = destination;
                             let new_email_verSubject = "Account Creation";
                             let new_email_verBody = "This is a OTP request for " + personnel + ". Your OTP is " + currVerC +" \n\n . Please do not share this code with anyone.";
@@ -1542,8 +1535,8 @@
                                     // enterCodeArray.push(input_verCode.value);
                                     enterCodeArray.push(enterOtpInput.value);
                                     let lastEnterCodeArrayVal = enterCodeArray.at(-1);
-                                    console.log("ver code inputs => " + enterCodeArray);
-                                    console.log("last entered value => " + lastEnterCodeArrayVal);
+                                    // console.log("ver code inputs => " + enterCodeArray);
+                                    // console.log("last entered value => " + lastEnterCodeArrayVal);
                                 });
 
                                 // Click to Validate
@@ -1640,7 +1633,7 @@
                                             // Adds the user input into the invalid array
                                             invalidVerArray.push(enterOtpInput.value);
                                             // Shows result for testing
-                                            console.log("Invalid codes : " + invalidVerArray);
+                                            // console.log("Invalid codes : " + invalidVerArray);
                                             // Removes preloader after 2.5seconds
                                             setTimeout(() => verCodeBox_loader.classList.remove("active") , 2500);
                                         }
