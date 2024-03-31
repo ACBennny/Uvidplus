@@ -22,9 +22,6 @@
 
 // DEFINTION
 
-    let wlcmBdr = document.querySelector('.welcome-bdr');
-    let wlcmTab = document.querySelector('.welcome-here');
-    let wlcEnd = document.querySelector('.welcome-here button');
     const bcgOver_700 = document.querySelector('.bcg_over700');
     const bcgLess_700 = document.querySelector('.bcg_less700');
     const slideCover = document.querySelector('.intro_slide_cover');
@@ -57,10 +54,6 @@
 // WELCOME PAGE
 
     window.addEventListener("load", () => {
-        // opens the welcome page
-        // wlcmBdr.classList.add('welcome-bdr-start');
-        // wlcmTab.classList.add('welcome-here-start');
-        // document.body.classList.add('bodystop');
         
         // Starts auto-slider
         introAutoSlide();
@@ -68,21 +61,6 @@
         // Function to operate the basic Slider is called
         basicSlider();
     });
-
-
-
-    // closes the welcome page
-    wlcEnd.onclick = () => {
-        wlcmBdr.classList.remove('welcome-bdr-start');
-        wlcmTab.classList.remove('welcome-here-start');
-        document.body.classList.remove('bodystop');
-        
-        // Starts auto-slider
-        introAutoSlide();
-
-        // Function to operate the basic Slider is called
-        basicSlider();
-    }
 
 
 

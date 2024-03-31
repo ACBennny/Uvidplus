@@ -299,43 +299,44 @@
             });
 
             // Setting the active element
-            switch(navBarHeadName.title)
+            let switchElem = navBarHeadName.title.toLowerCase();
+            switch(switchElem)
             {
-                case 'Premium': navOptLink[0].classList.add("active");
-                break
+                case 'premium': navOptLink[0].classList.add("active");
+                break;
 
-                case 'Home': navOptLink[1].classList.add("active");
-                break
+                case 'home': navOptLink[1].classList.add("active");
+                break;
                 
-                case 'Trending': navOptLink[2].classList.add("active");
-                break
+                case 'trending': navOptLink[2].classList.add("active");
+                break;
                 
-                case 'Movies': navOptLink[3].classList.add("active");
-                break
+                case 'movies': navOptLink[3].classList.add("active");
+                break;
                 
-                case 'TV Shows': navOptLink[4].classList.add("active");
-                break
+                case 'tv shows': navOptLink[4].classList.add("active");
+                break;
                 
-                case 'Anime': navOptLink[5].classList.add("active");
-                break
+                case 'anime': navOptLink[5].classList.add("active");
+                break;
                 
-                case 'My List': navOptLink[6].classList.add("active");
-                break
+                case 'cartoon': navOptLink[6].classList.add("active");
+                break;
                 
-                case 'Cartoon': navOptLink[9].classList.add("active");
-                break
+                case 'news': navOptLink[7].classList.add("active");
+                break;
                 
-                case 'News': navOptLink[7].classList.add("active");
-                break
+                case 'my list': navOptLink[8].classList.add("active");
+                break;
                 
-                case 'Help': navOptLink[8].classList.add("active");
-                break
+                case 'help': navOptLink[9].classList.add("active");
+                break;
                 
-                case 'Feedback': navOptLink[9].classList.add("active");
-                break
+                case 'feedback': navOptLink[10].classList.add("active");
+                break;
                 
-                case 'Support': navOptLink[10].classList.add("active");
-                break
+                case 'support': navOptLink[11].classList.add("active");
+                break;
 
                 default: console.log("Error");
                 break;

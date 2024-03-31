@@ -9,6 +9,170 @@
 
 
 
+/* -------- Navbar --------- */
+
+
+.navBar
+{
+    background: -o-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
+    background: -moz-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
+    background: -webkit-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
+    background: linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
+    -webkit-backdrop-filter: blur(0px);
+    backdrop-filter: blur(0px);
+}
+
+.navBarLeft .spacing
+{
+    margin: 0 25px;
+}
+
+.navBarRight .signUpBdr
+{
+    width: 200px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signUpBdr .signUpBox
+{
+    margin: 10px;
+    padding: 10px 25px;
+    color: var(--navBarGenClr);
+    font-size: 14px;
+    border-radius: 5px;
+    background-color: #03901d;
+}
+
+
+/* ----------- Wwlcome ----------- */
+.welcome_landBcg
+{
+    width: 100%;
+    height: 100vh;
+    background-image: url(/Images/Uvid_bcg0.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.welcome_landBcg .welcome_landBdr
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000075;
+}
+
+.welcome_landBdr::after
+{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: -o-linear-gradient(to top, #000000ef, #000000dc, #000000ab, #00000075, #00000038, #00000000);
+    background: -moz-linear-gradient(to top, #000000ef, #000000dc, #000000ab, #00000075, #00000038, #00000000);
+    background: -webkit-linear-gradient(to top, #000000ef, #000000dc, #000000ab, #00000075, #00000038, #00000000);
+    background: linear-gradient(to top, #000000ef, #000000dc, #000000ab, #00000075, #00000038, #00000000);
+    user-select: none;
+}
+
+.welcome_landBdr .welcome_landBox
+{
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.welcome_landBox .welcome_landTextMajorBox
+{
+    width: 100%;
+}
+
+.welcome_landTextMajorBox .welcome_landTextMajor
+{
+    color: #e7e7e7;
+    font-size: 35px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.welcome_landTextMajor span
+{
+    color: #14d60d;
+}
+
+.welcome_landBox .welcome_landTextMinorBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #ffffff;
+    font-size: 15px;
+    text-align: center;
+}
+
+.welcome_landBox .propmpt_AccActionBdr
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.propmpt_AccActionBdr .propmpt_AccActionBox
+{
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.propmpt_AccActionBox .propmpt_AccActionBtnBox
+{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+    transition: all 300ms ease-in-out;
+}
+
+.propmpt_AccActionBtnBox:active
+{
+    transform: scale(0.96);
+}
+
+.propmpt_AccActionBtnBox.action_GetPremium
+{
+    --actionJoinGradientAngle: 60deg;
+    color: #dfdfdf;
+    background: -o-linear-gradient(var(--actionJoinGradientAngle), #14d60d, #03901d, #03901d, #03901d);
+    background: -moz-linear-gradient(var(--actionJoinGradientAngle), #14d60d, #03901d, #03901d, #03901d);
+    background: -webkit-linear-gradient(var(--actionJoinGradientAngle), #14d60d, #03901d, #03901d, #03901d);
+    background: linear-gradient(var(--actionJoinGradientAngle), #14d60d, #03901d, #03901d, #03901d);
+}
+
+.propmpt_AccActionBtnBox.action_GetPremium:hover
+{
+    background: -o-linear-gradient(var(--actionJoinGradientAngle),#03901d, #03901d, #03901d, #14d60d, #14d60d);
+    background: -moz-linear-gradient(var(--actionJoinGradientAngle),#03901d, #03901d, #03901d, #14d60d, #14d60d);
+    background: -webkit-linear-gradient(var(--actionJoinGradientAngle),#03901d, #03901d, #03901d, #14d60d, #14d60d);
+    background: linear-gradient(var(--actionJoinGradientAngle),#03901d, #03901d, #03901d, #14d60d, #14d60d);
+}
 
 
 
@@ -19,6 +183,79 @@
 
 
 
+
+
+
+/* ====== ======== ======= Responsive= ===========  == == */
+
+
+
+/* ------------- Height ------------ */
+
+
+/*  ----------- ---- Width ---- --------- */
+
+@media only screen and (max-width: 884px)
+{
+
+    .contentsub
+    {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .cardholder
+    {
+        width: 200px;
+        height: 240px;
+    }
+
+    .cardinfo h3
+    {
+        width: 150px;
+    }
+}
+
+
+@media only screen and (max-width: 465px)
+{
+
+    .contentsub
+    {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .cardholder
+    {
+        width: 180px;
+        height: 200px;
+    }
+
+    .cardinfo h3
+    {
+        width: 150px;
+    }
+}
+
+
+@media only screen and (max-width: 320px)
+{
+
+    .contentsub
+    {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .cardholder
+    {
+        width: 150px;
+        height: 180px;
+    }
+
+    .cardinfo h3
+    {
+        width: 120px;
+    }
+}
 
 
 

@@ -1,5 +1,5 @@
 /**********************************************************************************************
- * This will hold the styling For the error404 page of Uvid
+ * This will hold the styling For the Category home pages of Uvid 
  * 
  * @author (Anyanwu Benedict Chukwuemeka)
  * @version (v0.01)
@@ -71,109 +71,6 @@ body
     fill: var(--watchActionSaveBoxClrBdr);
     transition: 150ms;
 }
-
-
-/* -------- Welcome message ------- */
-
-.welcome-bdr
-{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000000d2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    visibility: hidden;
-    opacity: 0;
-    z-index: 250;
-    transition: 100ms;
-    overflow: hidden;
-}
-
-.welcome-bdr-start
-{
-    visibility: visible;
-    opacity: 1;
-}
-
-.welcome-here
-{
-    width: 0%;
-    height: 80%;
-    background: #262525;
-    padding: 10px;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    row-gap: 20px;
-    border-left: 2px solid #1b9415;
-    border-right: 2px solid #1b9415;
-    visibility: hidden;
-    opacity: 0;
-    overflow: hidden;
-    transition: 500ms;
-    transition-delay: 500ms;
-}
-
-.welcome-here-start
-{
-    width: 80%;
-    visibility: visible;
-    opacity: 1;
-}
-
-.welcome-here h2
-{
-    width: 100%;
-    padding: 10px;
-    color: #e7e7e7;
-    font-size: 20px;
-}
-
-.welcome-bdr h2 span
-{
-    color: #1da216;
-    font-size: 28px;
-}
-
-.welcome-bdr p
-{
-    width: 100%;
-    padding: 5px 20px;
-    color: #aeabab;
-    font-size: 16px;
-}
-
-.welcome-bdr button
-{
-    display: flex;
-    justify-content: center;
-    align-self: center;
-    width: 150px;
-    padding: 10px;
-    background: #14750f;
-    color: #000;
-    font-size: 17px;
-    text-align: center;
-    outline: none;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: 300ms;
-}
-
-.welcome-bdr button:hover
-{ 
-    background: #1da216;
-    color: #fff;
-}
-
 
 
 

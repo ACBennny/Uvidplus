@@ -187,13 +187,11 @@ img
 {
     width: 60px;
     height: 50px;
-    /* margin: 30px; */
     border-right: 15px solid #21c92cb8;
     border-bottom: 10px solid #b1b1b1;
     border-left: 15px solid #21c92cb8;
     border-top: 11px solid transparent;
     border-radius: 10px;
-    /* border-top: 18px solid #21c92cb8; */
     animation: spi 2000ms linear infinite;
 }
 
@@ -1134,6 +1132,10 @@ img
     padding: 0 20px;
     background-color: var(--navBarBcgSolid);
     background-color: #1d1c1c;
+    background-image: url(/Images/bcg_footer.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 30%;
 }
 
 .footer_base .footer_bdr

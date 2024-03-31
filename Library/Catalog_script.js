@@ -77,7 +77,7 @@
         const showCardImgs = ctntLink.querySelector('.cardimg img');
         const showCardInfoName = ctntLink.querySelector('.cardinfo h3');
 
-        // Card Base
+        // Card Link
         ctntLink.draggable = false;
         ctntLink.style.userSelect = "none";
 
@@ -90,7 +90,26 @@
         showCardImgs.draggable = false;
         showCardImgs.style.userSelect = "none";
         showCardImgs.alt ="Image of the Anime " + showCardInfoName.textContent;
+
+        // As there are many empty pages, rather than leaving blank, direct to error page *Temporary*
+        if((ctntLink.pathname == "/Library/Anime/Another.html")
+        || (ctntLink.pathname == "/Library/Anime/AttackOnTitan.html")
+        || (ctntLink.pathname == "/Library/Anime/DemonSlayer.html")
+        || (ctntLink.pathname == "/Library/Anime/InitialD.html")
+        || (ctntLink.pathname == "/Library/Anime/JujutsuKaisen.html"))
+        {
+            return;
+        }
+        else
+        {
+            ctntLink.href = "/Error404.html";
+        }
     });
+
+
+
+    
+
 
 
     
