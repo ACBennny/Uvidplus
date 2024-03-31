@@ -14,11 +14,13 @@ html:root
     --bcgFilt:15px;
     --color0:#000;
     --color1: #14d60d;
-    --color2:#fff;
+    --color2:#ffffff;
     --color3:#212121a2;
     --color4:#18181f;
     --color5:#656565be;
     --color6:#d3d3d3;
+    --color7: #03901d;
+    --color8: #e7e7e7;
 }
 
 i{
@@ -117,7 +119,7 @@ ul
     color: var(--navBarGenClr);
     font-size: 14px;
     border-radius: 5px;
-    background-color: #03901d;
+    background-color: var(--color7);
 }
 
 
@@ -178,7 +180,7 @@ ul
 
 .welcome_landTextMajorBox .welcome_landTextMajor
 {
-    color: #e7e7e7;
+    color: var(--color8);
     font-size: 35px;
     text-transform: uppercase;
     text-align: center;
@@ -186,7 +188,7 @@ ul
 
 .welcome_landTextMajor span
 {
-    color: #14d60d;
+    color: var(--color1);
 }
 
 .welcome_landBox .welcome_landTextMinorBox
@@ -195,7 +197,7 @@ ul
     display: flex;
     flex-direction: column;
     gap: 10px;
-    color: #ffffff;
+    color: var(--color2);
     font-size: 15px;
     text-align: center;
 }
@@ -236,25 +238,25 @@ ul
 .propmpt_AccActionBtnBox.action_Join
 {
     --actionJoinGradientAngle: 60deg;
-    color: #dfdfdf;
-    background: -o-linear-gradient(var(--actionJoinGradientAngle), #14d60d, #03901d, #03901d, #03901d);
-    background: -moz-linear-gradient(var(--actionJoinGradientAngle), #14d60d, #03901d, #03901d, #03901d);
-    background: -webkit-linear-gradient(var(--actionJoinGradientAngle), #14d60d, #03901d, #03901d, #03901d);
-    background: linear-gradient(var(--actionJoinGradientAngle), #14d60d, #03901d, #03901d, #03901d);
+    color: var(--color6);
+    background: -o-linear-gradient(var(--actionJoinGradientAngle), var(--color1), var(--color7), var(--color7), var(--color7));
+    background: -moz-linear-gradient(var(--actionJoinGradientAngle), var(--color1), var(--color7), var(--color7), var(--color7));
+    background: -webkit-linear-gradient(var(--actionJoinGradientAngle), var(--color1), var(--color7), var(--color7), var(--color7));
+    background: linear-gradient(var(--actionJoinGradientAngle), var(--color1), var(--color7), var(--color7), var(--color7));
 }
 
 .propmpt_AccActionBtnBox.action_Join:hover
 {
-    background: -o-linear-gradient(var(--actionJoinGradientAngle),#03901d, #03901d, #03901d, #14d60d, #14d60d);
-    background: -moz-linear-gradient(var(--actionJoinGradientAngle),#03901d, #03901d, #03901d, #14d60d, #14d60d);
-    background: -webkit-linear-gradient(var(--actionJoinGradientAngle),#03901d, #03901d, #03901d, #14d60d, #14d60d);
-    background: linear-gradient(var(--actionJoinGradientAngle),#03901d, #03901d, #03901d, #14d60d, #14d60d);
+    background: -o-linear-gradient(var(--actionJoinGradientAngle),var(--color7), var(--color7), var(--color7), var(--color1), var(--color1));
+    background: -moz-linear-gradient(var(--actionJoinGradientAngle),var(--color7), var(--color7), var(--color7), var(--color1), var(--color1));
+    background: -webkit-linear-gradient(var(--actionJoinGradientAngle),var(--color7), var(--color7), var(--color7), var(--color1), var(--color1));
+    background: linear-gradient(var(--actionJoinGradientAngle),var(--color7), var(--color7), var(--color7), var(--color1), var(--color1));
 }
 
 .propmpt_AccActionBtnBox.action_GetPremium
 {
-    color: #14d60d;
-    border: 2px solid #14d60d;
+    color: var(--color1);
+    border: 2px solid var(--color1);
     background-color: #00000050;
 }
 
@@ -1037,6 +1039,81 @@ ul
 
 /*  ----------- ---- Width ---- --------- */
 
+@media only screen and (min-width: 2500px)
+{
+    .welcome_landBdr .welcome_landBox
+    {
+        max-width: 1500px;
+        gap: 50px;
+    }
+
+    .welcome_landTextMajorBox .welcome_landTextMajor
+    {
+        font-size: 65px;
+    }
+
+    .welcome_landTextMinorBox .welcome_landTextMinor
+    {
+        font-size: 20px;
+    }
+
+    .propmpt_AccActionBdr .propmpt_AccActionBox
+    {
+        max-width: 1050px;
+    }
+
+    .propmpt_AccActionBox .propmpt_AccActionBtnBox
+    {
+        height: 60px;
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 2500px)
+{
+
+    .welcome_landTextMajorBox .welcome_landTextMajor
+    {
+        font-size: 55px;
+    }
+
+    .welcome_landTextMinorBox .welcome_landTextMinor
+    {
+        font-size: 19px;
+    }
+
+    .propmpt_AccActionBdr .propmpt_AccActionBox
+    {
+        max-width: 550px;
+    }
+
+    .propmpt_AccActionBox .propmpt_AccActionBtnBox
+    {
+        height: 60px;
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 1600px)
+{
+
+    .welcome_landTextMajorBox .welcome_landTextMajor
+    {
+        font-size: 35px;
+    }
+
+    .welcome_landTextMinorBox .welcome_landTextMinor
+    {
+        font-size: 15px;
+    }
+
+    .propmpt_AccActionBox .propmpt_AccActionBtnBox
+    {
+        height: 50px;
+        font-size: 13px;
+    }
+}
+
 @media only screen and (max-width: 884px)
 {
 
@@ -1047,7 +1124,8 @@ ul
 
     .navBarRight .signUpBdr
     {
-        width: 125px;
+        width: -moz-fit-content;
+        width: fit-content;
     }
 
     .signUpBdr .signUpBox
@@ -1071,9 +1149,14 @@ ul
         font-size: 12px;
     }
 
+    .propmpt_AccActionBdr .propmpt_AccActionBox
+    {
+        max-width: 300px;
+    }
+
     .propmpt_AccActionBox .propmpt_AccActionBtnBox
     {
-        max-width: 250px;
+        height: 40px;
         font-size: 13px;
     }
 
@@ -1096,8 +1179,18 @@ ul
 }
 
 
-@media only screen and (max-width: 485px)
+@media only screen and (max-width: 350px)
 {
+
+    .welcome_landTextMajorBox .welcome_landTextMajor
+    {
+        font-size: 20px;
+    }
+
+    .welcome_landTextMinorBox .welcome_landTextMinor
+    {
+        font-size: 10px;
+    }
 }
 
 
