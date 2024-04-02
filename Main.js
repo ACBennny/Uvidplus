@@ -63,7 +63,17 @@
     });
 
 
-
+    function hidePP()
+    {
+        seeUnseePassField.forEach(field => 
+        {
+            field.type = "password";
+        });
+        seeUnseePass.forEach((one, i) => 
+        {
+            one.classList.replace("fa-eye-slash" , "fa-eye");
+        });
+    }
 
 // NAVBAR
 

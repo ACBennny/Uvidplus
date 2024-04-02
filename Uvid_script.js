@@ -256,7 +256,7 @@
                                                     </div>
 
                                                     <!-- Password -->
-                                                    <div class="form_input_bdr">
+                                                    <div class="form_input_bdr form_Pass_input_bdr">
                                                         <div class="form_input_nameBox">
                                                             <label for="form_signUp_pass" class="form_input_name">Password</label>
                                                         </div>
@@ -452,6 +452,7 @@
 
                 // All form fields and warnings
                 const allFormFields = document.querySelectorAll(".form_input_box .form_input_field");
+                const allInputFields = document.querySelectorAll('.form_input_box input');
                 const allFormFieldWarns = document.querySelectorAll(".form_input_bdr .form_input_warn");
 
 
@@ -460,68 +461,134 @@
                 // Log In Form
 
                     // Username
-
-                        // Regex condition for Input
-                        const user_name_cond = new RegExp("^[a-zA-Z0-9_]*$");
-
-                        // Array to store all entries into the input field
-                        let userLogArray = [];
-                        
-                        // The input fields
-                        const userName = document.querySelector("#form_logIn_id");
-
-                        // Boolean variable which is only true if username is valid
-                        let isUserLogValid = false;
-
+                    const user_name_cond = new RegExp("^[a-zA-Z0-9_]*$");
+                    let userLogArray = [];
+                    const userName = document.querySelector("#form_logIn_id");
+                    let isUserLogValid = false;
                     
                     // Password
-
+                    const user_pass_cond = new RegExp("^[A-Za-z0-9!@#$%^&*_+-~`)(></\"?|]");
+                    let userpasswordArray = [];
+                    const userPassword = document.querySelector("#form_logIn_pass");
+                    let isUserPassValid = false;
 
                     // Warning
                     const logInWarn = document.querySelector("#logIn_warn");
 
 
-                // Account Recovery / Reset Password
+                    // Account Recovery / Reset Password
+                    let testLog_user = "uvidtestuser";
+                    let testLog_email = "craft.testuser.Acc.email@gmail.com";
+                    let testLog_pass = "@abcd=1234";
+                    let testTimer;
+
+                    // Submitting Info
 
 
                 
                 // Sign In Form
 
                     // Username
-
+                    const userName_Condition = new RegExp("^[a-zA-Z0-9_]*$");
+                    let userArray = [];
+                    const newUserName = document.querySelector("#form_signUp_user");
+                    const newUserWarn = document.querySelector("#form_signUp_userWarn");
+                    let isUserValid = false;
 
                     // Email
+                    const new_email_cond = new RegExp("^[A-Za-z0-9@.%_+-]*$");
+                    let emailArray = [];
+                    const newEmail = document.querySelector("#form_signUp_email");
+                    const newEmailWarn = document.querySelector("#form_signUp_emailWarn");
+                    let isEmailValid = false;
 
 
                     // Password
+                    const new_pass_cond = new RegExp("^[A-Za-z0-9!@#$%^&*_+-~`)(></\"?|]");
 
+                    let passwordArray = [];
+                    const newPassword = document.querySelector("#form_signUp_pass");
+                    const newPassWarn = document.querySelector("#form_signUp_passWarn");
+
+                    // See & Hide password
+                    const seeUnseePassField = document.querySelectorAll(".form_PassBox .form_Pass");
+                    const seeUnseePass = document.querySelectorAll(".form_input_box .seeUnseePass");
+
+                    // Conditions for password
+                    const newPassInputBdr = document.querySelector(".form_Pass_input_bdr");
+                    const newPassInputBox = document.querySelector(".form_PassBox");
+                    const newPassCondBox = document.querySelector(".form_condBox");
+                    const newPassCondMain = document.querySelectorAll(".listItem_ctnt");
+
+                    const newPassLength = document.querySelector(".listItem_ctnt.passLength");
+                    const newPassLetter = document.querySelector(".listItem_ctnt.passLetter");
+                    const newPassNumber = document.querySelector(".listItem_ctnt.passNumber");
+                    const newPassSpecChar = document.querySelector(".listItem_ctnt.passSpecChar");
+
+                    // The icons for each event
+                    const newPassLengthIcn = newPassLength.querySelector(".listItem_ctntIcon i");
+                    const newPassLetterIcn = newPassLetter.querySelector(".listItem_ctntIcon i");
+                    const newPassNumberIcn = newPassNumber.querySelector(".listItem_ctntIcon i");
+                    const newPassSpecCharIcn = newPassSpecChar.querySelector(".listItem_ctntIcon i");
+
+                    // Boolean variables for each event. Only true if condition is met
+                    let isPassLengthValid = false;
+                    let isPassLetterValid = false;
+                    let isPassNumberValid = false;
+                    let isPassSpecCharValid = false;
+
+                    // The final validation. This is only true if all booleans of the conditions are true
+                    let isPassValid = false;
 
                     // Confirm Password
+                    const confirmPassword = document.querySelector("#form_signUp_confpass");
+                    const confNewPassWarn = document.querySelector("#form_signUp_confpassWarn");
+                    let confPasswordArray = [];
+                    let isConfPassValid = false;
 
 
-                    // Verification
+                    // Forgot password
+                    const resetPass_email_cond = new RegExp("^[A-Za-z0-9@.%_+-]*$");
+                    let resetPassArray = [];
+                    const resetPass_email = document.querySelector("#form_recover_Acc");
+                    const resetPass_warn = document.querySelector("#form_recover_AccWarn");
+                    const resetPass_SubmitBtn = document.querySelector("#recoverAcc_btn");
+                    let resetPass_validEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
+                    // Submitting info
+                    const signUpBtn = document.querySelector("#signUp_btn");
+                    signUpBtn.disabled = false;
 
 
 
         // SWITCHING BETWEEN FORMS
 
             // Clears fields after a form switch
+            function hidePP()
+            {
+                console.log("aaaaaaaaaaa");
+                seeUnseePassField.forEach(field => 
+                {
+                    field.type = "password";
+                });
+                seeUnseePass.forEach((one, i) => 
+                {
+                    one.classList.replace("fa-eye-slash" , "fa-eye");
+                });
+            }
+
             function clearFields()
             {
-                allFormFields.forEach(field => {
+                allFormFields.forEach(field => 
+                {
                     field.value = "";
                 });
-                allFormFieldWarns.forEach(warn => {
+                allFormFieldWarns.forEach(warn => 
+                {
                     warn.textContent = "";
                     warn.classList.remove("active");
                 });
-                seeUnseePass.forEach((one, i) => {
-                    seeUnseePassField.forEach(field => {
-                        field.type = "password";
-                    });
-                    one.classList.replace("fa-eye-slash" , "fa-eye");
-                });
+                hidePP();
             }
            
             // Switches to Log In form
@@ -628,12 +695,6 @@
                      *  2 - Confirm password should be the same with password
                      */
 
-                    // Allows all except spaces
-                    const user_pass_cond = new RegExp("^[A-Za-z0-9!@#$%^&*_+-~`)(></\"?|]");
-
-                    let userpasswordArray = [];
-                    const userPassword = document.querySelector("#form_logIn_pass");
-                    let isUserPassValid = false;
 
                     // Sepcifies the allowed characters for Before input
                     userPassword.addEventListener("beforeinput", (event) => {
@@ -684,11 +745,6 @@
 
                 //  Validate Log in details
 
-                    let testLog_user = "uvidtestuser";
-                    let testLog_email = "craft.testuser.Acc.email@gmail.com";
-                    let testLog_pass = "@abcd=1234";
-                    let testTimer;
-
                         // Checks if user's input is valid and if the inputted values correct
                         function validateLogInCreds()
                         {
@@ -716,15 +772,7 @@
 
 
                 // Forgot Password
-                    const resetPass_email_cond = new RegExp("^[A-Za-z0-9@.%_+-]*$");
-
-                    let resetPassArray = [];
-                    const resetPass_email = document.querySelector("#form_recover_Acc");
-                    const resetPass_warn = document.querySelector("#form_recover_AccWarn");
-
-                    const resetPass_SubmitBtn = document.querySelector("#recoverAcc_btn");
-                    let resetPass_validEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
+                    
                     // Sepcifies the allowed characters for Before input
                     resetPass_email.addEventListener("beforeinput", (event) => {
                         if(event.data != null && !(resetPass_email_cond).test(event.data))
@@ -841,7 +889,6 @@
                         resetPass_SubmitBtn.addEventListener("click" , resetPasswordRequest);
                         
 
-
                     const logInBtn = document.querySelector("#logIn_btn");
                     logInBtn.addEventListener("click" , validateLogInCreds);
 
@@ -849,7 +896,6 @@
             // CREATING ACCOUNT (SIGN UP)
 
                 // Turns off autocomplete
-                const allInputFields = document.querySelectorAll('.form_input_box input');
                 allInputFields.forEach(inputField => {
                     inputField.autocomplete = "off";
                 });
@@ -867,18 +913,12 @@
 
                     // Validation function For "Username"
 
-                    const userName_Condition = new RegExp("^[a-zA-Z0-9_]*$");
-                    let userArray = [];
-                    const newUserName = document.querySelector("#form_signUp_user");
-                    const newUserWarn = document.querySelector("#form_signUp_userWarn");
-
                     // Sepcifies the allowed characters for Before input
                     newUserName.addEventListener("beforeinput", (event) => {
                         if(event.data != null && !(userName_Condition).test(event.data))
                         event.preventDefault();
                     });
                         
-                        let isUserValid = false;
                     
                         function validateUsername(event){
                             userArray.push(newUserName.value);
@@ -938,7 +978,6 @@
                         newUserName.addEventListener("input" , validateUsername);
                 
                 
-
                 // Validates Input for Email
                     // Conditions -
                     /**
@@ -948,13 +987,6 @@
                      */
 
                     // Allows a-z , A-Z , 0-9, hyphen(unltd), underscore(uLtd), period(1)
-                    const new_email_cond = new RegExp("^[A-Za-z0-9@.%_+-]*$");
-
-                    let emailArray = [];
-                    const newEmail = document.querySelector("#form_signUp_email");
-                    const newEmailWarn = document.querySelector("#form_signUp_emailWarn");
-                    let isEmailValid = false;
-
                     newEmail.addEventListener("beforeinput", (event) => {
                         if (event.data != null && !(new_email_cond.test(event.data))) 
                             event.preventDefault();
@@ -1004,40 +1036,6 @@
                      */
 
                     // Password Regex - Allows all except spaces
-                    const new_pass_cond = new RegExp("^[A-Za-z0-9!@#$%^&*_+-~`)(></\"?|]");
-
-                    let passwordArray = [];
-                    const newPassword = document.querySelector("#form_signUp_pass");
-                    const newPassWarn = document.querySelector("#form_signUp_passWarn");
-
-                    // See & Hide password
-                    const seeUnseePassField = document.querySelectorAll(".form_PassBox .form_Pass");
-                    const seeUnseePass = document.querySelectorAll(".form_input_box .seeUnseePass");
-
-                    // Conditions for password
-                    const newPassCondMain = document.querySelectorAll(".listItem_ctnt");
-
-                    const newPassLength = document.querySelector(".listItem_ctnt.passLength");
-                    const newPassLetter = document.querySelector(".listItem_ctnt.passLetter");
-                    const newPassNumber = document.querySelector(".listItem_ctnt.passNumber");
-                    const newPassSpecChar = document.querySelector(".listItem_ctnt.passSpecChar");
-
-                    // The icons for each event
-                    const newPassLengthIcn = newPassLength.querySelector(".listItem_ctntIcon i");
-                    const newPassLetterIcn = newPassLetter.querySelector(".listItem_ctntIcon i");
-                    const newPassNumberIcn = newPassNumber.querySelector(".listItem_ctntIcon i");
-                    const newPassSpecCharIcn = newPassSpecChar.querySelector(".listItem_ctntIcon i");
-
-                    // Boolean variables for each event. Only true if condition is met
-                    let isPassLengthValid = false;
-                    let isPassLetterValid = false;
-                    let isPassNumberValid = false;
-                    let isPassSpecCharValid = false;
-
-                    // The final validation. This is only true if all booleans of the conditions are true
-                    let isPassValid = false;
-
-                    // Sepcifies the allowed characters for Before input
                     newPassword.addEventListener("beforeinput", (event) => {
                         if(event.data != null && !(new_pass_cond).test(event.data))
                         event.preventDefault();
@@ -1070,6 +1068,22 @@
                             seeUnseePassField[i].type = "text";
                             one.classList.replace("fa-eye" , "fa-eye-slash");
                         });
+                    });
+
+                    // Shows the password conditions when the the input focus is true
+                    newPassInputBdr.addEventListener("click" , () => 
+                    {
+                        newPassCondBox.classList.add("active");
+                    });
+
+                    // Closing the conditions box
+                    document.addEventListener("click" , () => 
+                    {
+                        if((newPassInputBdr.matches(":hover")))
+                        {
+                            return;
+                        }
+                        newPassCondBox.classList.remove("active");
                     });
 
                     // Validation for Password
@@ -1166,49 +1180,41 @@
                         newPassword.addEventListener("input" , validateNewPassword);
 
                     // Validation for Confirm Password
-                        const confirmPassword = document.querySelector("#form_signUp_confpass");
-                        const confNewPassWarn = document.querySelector("#form_signUp_confpassWarn");
-                        let confPasswordArray = [];
-                        let isConfPassValid = false;
 
                         confirmPassword.addEventListener("beforeinput", (event) => {
                             if(event.data != null && !(new_pass_cond).test(event.data))
                             event.preventDefault();
                         });
 
-                            function confirmNewPass(event){
-                                confPasswordArray.push(confirmPassword.value);
-                                let lastConfPassArrayVal = confPasswordArray.at(-1);
+                        function confirmNewPass(event){
+                            confPasswordArray.push(confirmPassword.value);
+                            let lastConfPassArrayVal = confPasswordArray.at(-1);
 
-                                if(((event.data == null) && (lastConfPassArrayVal.length <= 0)))
-                                {
-                                    confNewPassWarn.textContent = "Required";
-                                    confNewPassWarn.classList.add("active");
-                                    isConfPassValid = false;
-                                }
-                                else if((isPassValid == false) || (lastConfPassArrayVal != newPassword.value))
-                                {
-                                    confNewPassWarn.textContent = "Passwords do not match";
-                                    confNewPassWarn.classList.add("active");
-                                    isConfPassValid = false;
-                                }
-                                else
-                                {
-                                    confNewPassWarn.textContent = "";
-                                    confNewPassWarn.classList.remove("active");
-                                    isConfPassValid = true;
-                                }
+                            if(((event.data == null) && (lastConfPassArrayVal.length <= 0)))
+                            {
+                                confNewPassWarn.textContent = "Required";
+                                confNewPassWarn.classList.add("active");
+                                isConfPassValid = false;
                             }
+                            else if((isPassValid == false) || (lastConfPassArrayVal != newPassword.value))
+                            {
+                                confNewPassWarn.textContent = "Passwords do not match";
+                                confNewPassWarn.classList.add("active");
+                                isConfPassValid = false;
+                            }
+                            else
+                            {
+                                confNewPassWarn.textContent = "";
+                                confNewPassWarn.classList.remove("active");
+                                isConfPassValid = true;
+                            }
+                        }
 
                         confirmPassword.addEventListener("input" , confirmNewPass);
 
 
 
-
                     // Checks If user fills All input fields Correctly
-                    const signUpBtn = document.querySelector("#signUp_btn");
-                    signUpBtn.disabled = false;
-
                     signUpBtn.addEventListener("click" , () => {
                         // If all input fields are filled correctly, call verification funnction to verify user
                         if(((signUpBtn.disabled == false) && (isUserValid == true) && (isPassValid == true) && (isConfPassValid == true) && (isEmailValid == true)))
@@ -1226,7 +1232,6 @@
 
 
 
-                
                 // Verification (through email)
 
                     function verification(personnel , destination)

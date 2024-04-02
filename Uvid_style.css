@@ -260,6 +260,13 @@ ul
     background-color: #00000050;
 }
 
+.propmpt_AccActionBtnBox.action_GetPremium:hover
+{
+    color: var(--color6);
+    border-color: var(--color7);
+    background-color: #00000090;
+}
+
 
 
 /*  ========== JOIN FORM ========== */
@@ -467,6 +474,7 @@ ul
     border-bottom: 2.5px solid var(--color5);
     background-color: transparent;
     transition: 300ms;
+    z-index: 2;
 }
 
 .form_input_field:focus
@@ -489,6 +497,7 @@ ul
     cursor: pointer;
     opacity: 0;
     visibility: hidden;
+    z-index: 4;
 }
 
 .seeUnseePass.active
@@ -501,14 +510,6 @@ ul
 
 /* -- Conditions for password input -- */
 
-.form_input_box:focus-within
- ~ .form_condBox
- {
-    height: 100px;
-    opacity: 1;
-    visibility: visible;
-}
-
 .form_condBox
 {
     width: 100%;
@@ -520,6 +521,14 @@ ul
     opacity: 0;
     visibility: hidden;
     transition: 300ms;
+}
+
+
+.form_condBox.active
+{
+    height: 100px;
+    opacity: 1;
+    visibility: visible;
 }
 
 .form_condBox .cond_title
@@ -642,7 +651,7 @@ ul
 
 
 
-/* ==== TEst verification of email ==== */
+/* ==== Verification of email ==== */
 
 .vercode_bdr
 {
