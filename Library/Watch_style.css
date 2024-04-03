@@ -56,6 +56,9 @@ html:root
 {
     position: relative;
     width: 98%;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
     user-select: none;
     overflow: hidden;
     max-width: var(--genMaxWidth);

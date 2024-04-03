@@ -39,7 +39,43 @@
     
     window.addEventListener("load", () => {
         preloaderBdr.style.display = "none";
-        bodyDoc.classList.add('bodystart');
+        onBodyFlow();
+    });
+
+
+
+// FREQUENTLY ASKED QUESTIONS
+
+    const faqBtns = document.querySelectorAll(".questions_CardBtn");
+    const faqAnswers = document.querySelectorAll(".questions_Card");
+
+    faqBtns.forEach((btn, b) => 
+    {
+        btn.addEventListener("click" , () => 
+        {
+    
+            if(faqAnswers[b].classList.contains("active"))
+            {
+                btn.ariaExpanded = false;
+                faqAnswers[b].classList.remove("active");
+                console.log("aaaaaaa \n");
+            }
+            else
+            {
+                faqBtns.forEach(otherBtn => 
+                {
+                    otherBtn.ariaExpanded = false;
+                });
+                faqAnswers.forEach(otherBox => 
+                {
+                    otherBox.classList.remove("active");
+                });
+                btn.ariaExpanded = true;
+                faqAnswers[b].classList.add("active");
+                console.log("bbbbbbb \n");
+            }
+        });
+        
     });
 
 

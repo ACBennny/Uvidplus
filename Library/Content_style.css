@@ -275,9 +275,10 @@ body
     background: 
     linear-gradient(to bottom, transparent,
     transparent, transparent, transparent,
+    transparent, transparent, #00000023,
     #0000004e, #00000055, #0000007b,
-    #0000008c, #000000a6, #0d0d0da4, #000000af,
-    #000000b6, #000000e1, #000000ef, #000000);
+    #0000008c, #0000009a, #000000a9, #000000bd,
+    #000000cc, #000000e1, #000000ef, #000000);
     z-index: 5;
 }
 
@@ -320,7 +321,7 @@ body
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 5px;
+    gap: 15px;
 }
 
 .intro_info_notes .intro_genre
@@ -334,6 +335,7 @@ body
 {
     font-size: 12px;
     color: #eaeaea;
+    line-height: 20px;
 }
 
 .playShow_box

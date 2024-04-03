@@ -57,6 +57,9 @@
 
 ::placeholder
 {
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
     user-select: none;
     pointer-events: none;
 }
@@ -103,11 +106,9 @@ body
     width: 100%;
     min-height: 100vh;
     font-family: 'Zen dots', sans-serif;
-    -webkit-tap-highlight-color: transparent;
+    /* -webkit-tap-highlight-color: transparent; */
     background-color: #000;
     overflow: hidden;
-    /* scrollbar-color: #444444 #111111;
-    scrollbar-width: auto; */
 }
 
 body.bodystart
@@ -134,12 +135,15 @@ a:visited
 
 button
 {
+    font-family: 'Zen dots', sans-serif;
     outline: none;
 }
 
 img
 {
     backface-visibility: hidden !important;
+    -moz-user-select: -moz-none !important;
+    -moz-user-select: none !important;
     -webkit-user-select: none !important;
     user-select: none !important;
     pointer-events: none !important;
@@ -171,6 +175,7 @@ img
     width: 100vw;
     height: 100vh;
     background-color: #000000a8;
+    -webkit-backdrop-filter: blur(25px);
     backdrop-filter: blur(25px);
     display: flex;
     flex-direction: column;
@@ -789,6 +794,9 @@ img
     gap: 10px;
     padding: 8px;
     background-color: var(--navMenuBcgClr);
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
     user-select: none;
 }
 
@@ -1317,6 +1325,9 @@ img
     border-radius: 10px;
     background-color: #03901d;
     transition: 150ms;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
     user-select: none;
 }
 
