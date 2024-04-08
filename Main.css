@@ -6,6 +6,7 @@
  * @version (v0.01)
  *
 ****************************************************************************************************************************************/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
@@ -133,6 +134,11 @@ a:visited
     color: inherit;
 }
 
+p
+{
+    font-family: 'Poppins', sans-serif;
+}
+
 button
 {
     font-family: 'Zen dots', sans-serif;
@@ -239,9 +245,12 @@ img
     display: flex;
     justify-content: space-between;
     padding: 0 10px;
-    background-color: var(--navBarBcgTransparency);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    background: -o-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
+    background: -moz-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
+    background: -webkit-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
+    background: linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
+    -webkit-backdrop-filter: blur(0px);
+    backdrop-filter: blur(0px);
 }
 
 .navBar .navBarLeft
@@ -340,7 +349,7 @@ img
 
 .navBarRightCtnt .openNavSearch_BtnBox
 {
-    display: none;
+    display: flex;
 }
 
 .navBarRightCtnt .navBarProfileBdr
@@ -471,18 +480,27 @@ img
     align-items: center;
     gap: 10px;
     padding: 10px;
+    opacity: 0;
+    visibility: hidden;
     transition: all 300ms ease;
     z-index: 5;
+}
+
+.searchBdr.navBarSearchBdr.active
+{
+    opacity: 1;
+    visibility: visible;
 }
 
 .searchBdr .closeNavSearch_BtnBox
 {
     display: none;
+    display: flex;
 }
 
 .searchBdr .searchBox
 {
-    width: 100%;
+    width: calc(100% - var(--navBarIconBoxWidth));  
     height: 100%;
     display: flex;
     flex-direction: row-reverse;
@@ -492,12 +510,11 @@ img
     transition: all 300ms ease;
 }
 
+.searchBdr .searchBox,
 .searchBox:focus-within
 {
     --navBarSearchClr: #c1c1c1;
     border-color: var(--navElementColor_green);
-
-    /* ---- Still indecisive on whether to add this --- */
     border-radius: 5px;
     background-color: #111111;
 }
@@ -777,15 +794,6 @@ img
     overflow-y: visible;
 }
 
-.nav_Opt_bcg::-webkit-scrollbar
-{
-    width: 8px;
-}
-
-.nav_Opt_bcg::-webkit-scrollbar-track{
-    background: transparent;
-}
-
 .nav_Opt_bcg .navOptBdr
 {
     width: 100%;
@@ -915,14 +923,21 @@ img
     width: 100%;
 }
 
-.navfooterBoxSect2 .navfooterCompNameBox
+.navfooterBoxSect2 .navfooterCompNameBdr
 {
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    gap: 0px;
+    align-items: center;
+    gap: 5px;
     padding: 10px;
+}
+
+.navfooterCompNameBdr .navfooterCompNameBox
+{
+    display: flex;
+    flex-direction: row;
 }
 
 .navfooterCompNameBox .navfooterCompIconBox
@@ -936,14 +951,14 @@ img
 .navfooterCompIconBox .navfooterCompIcon
 {
     width: 10px;
-    fill: var(--navFooterCompClr);
+    fill: var(--footerTxtClrMid);
 }
 
-.navfooterCompNameBox .navfooterCompName
+.navfooterCompNameBdr .navfooterCompName
 {
     width: -moz-fit-content;
     width: fit-content;
-    color: var(--navFooterCompClr);
+    color: var(--footerTxtClrMid);
     text-wrap: nowrap;
     font-size: 10px;
 }
@@ -1264,7 +1279,7 @@ img
     color: var(--footerTextClrGreen);
     font-size: 10px;
     text-align: left;
-    transition: 300ms ease-in-out;
+    transition: 200ms ease-in-out;
 }
 
 .footer_Important_links:hover
@@ -1303,6 +1318,12 @@ img
     width: 100%;
     color: var(--footerTxtClrMid);
     font-size: 10px;
+    transition: 200ms ease-in-out;
+}
+
+.footer_UsefulLinks:hover
+{
+    color: var(--footerTxtClrBright);
 }
 
 .backtotopofpageBox
@@ -1442,7 +1463,21 @@ img
 {
     ::-webkit-scrollbar
     {
-        display: none;
+        width: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb{
+        background-color: #333333;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover
+    {
+        background-color: #333333;
+    }
+    
+    ::-webkit-scrollbar-thumb:active
+    {
+        background-color: #333333;
     }
 
     .searchBdr.navBarSearchBdr
@@ -1471,11 +1506,6 @@ img
     .searchBdr .searchBox
     {
         width: calc(100% - var(--navBarIconBoxWidth));
-    }
-
-    .navBarRightCtnt .openNavSearch_BtnBox
-    {
-        display: flex;
     }
 
     .navBarNotificationMain.notify_atv

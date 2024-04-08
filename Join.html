@@ -4,12 +4,11 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Join Us</title>
-    <link rel="shortcut icon" href="../Uvid_Company_Logo/Uvid_Icon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="../Uvid_font.css">
-	<link rel="stylesheet" type="text/css" href="Uvid_Reg_style.css">
-	<link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css">
+    <link rel="shortcut icon" href="/Logo/Logo.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/Main.css">
+    <link rel="stylesheet" type="text/css" href="/Uvid_style.css">
+	<link rel="stylesheet" type="text/css" href="/Join/Join_style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<script src="https://kit.fontawesome.com/a46ad8b86a.js" crossorigin="anonymous"></script>
     </head>
     <body class="">
         
@@ -19,272 +18,356 @@
             <div id="spinner"></div>
         </div>
 
-        <!-- cover -->
 
-        <!-- ---create account page--- -->
-        <div class="prmptlog ">
-            <div class="reg-bf">
-                <div class="seeh">
-                    <div class="seeh1">
-                        <div class="chead">
-                            <h1 class="ch1 logview1">U</h1>
-                            <h1 class="ch2 logview2">U</h1>
-                            <h1 class="ch3 logview3">U</h1>
-                        </div>
-                        <div class="aboutme">
-                            <p>Every genre you can think of.. we got it</p>
-                        </div>
+        <!-- --------------- Navbar ------------ -->
+        <div class="navBox">
+            <div class="navBar">
+                <div class="navBarLeft">
+                    <div class="spacing"></div>
+                    <div class="Companylogo navBarCompanylogo">
+                        <h1 class="lhead">U</h1>
+                        <h1 class="lname">vid</h1>
                     </div>
                 </div>
-                <div class="lsform">
-                    <div class="lstog">
-                        <div class="lsbut">
-                            <label for="join_rad1" class="formTitle">Sign Up</label>
-                            <label for="join_rad2" class="formTitle lsactive">Log In</label>
-                        </div>
-                        <div class="formbx">
-                            <!-- <form class="fbx"> -->
-                                <input type="radio" name="radio" id="join_rad1" class="join_radio" >
-                                <input type="radio" name="radio" id="join_rad2" class="join_radio" checked>
-
-                                <!-- Sign Up -->
-                                <form action="#" method="get" name="Sign_Up_form" class="formtog signform">
-                                    <div class="form_section">
-                                        <h3 id="top1">Create an Account</h3>
-                                    </div>
-                                    <div class="form_section">
-                                        <label for="uname">Username</label>
-                                        <input type="text" name="new_user_name" id="uname" placeholder="do not use your real name" />
-                                        <span class="incorrectPassWarn newUser_warn"></span>
-                                    </div>
-                                    <div class="form_section">
-                                        <label for="upass">Password</label>
-                                        <input type="password" name="new_user_pass" id="upass" placeholder="enter a strong password" />
-                                        <span class="incorrectPassWarn newPass_warn"></span>
-                                    </div>
-                                    <div class="form_section">
-                                        <label for="ucfmpass">Confirm Password</label>
-                                        <input type="password" name="conf_new_pass_field" id="ucfmpass" placeholder="re-enter your password" />
-                                        <span class="incorrectPassWarn confNewPass_warn"></span>
-                                    </div>
-                                    <div class="form_section">
-                                        <label for="umail">Email</label>
-                                        <input type="email" name="new_email_field" id="umail" placeholder="enter your email" />
-                                        <span class="incorrectPassWarn newEmail_warn"></span>
-                                    </div>
-                                    <div class="form_section field_section req_to_submit">
-                                        <span class="TandC">
-                                            <p class="tandC_stmt">
-                                                By creating an account, you agree to Uvid's
-                                                <br>
-                                                <u id="tandc_btn">"terms and conditions"</u>
-                                            </p>
-                                        </span>
-                                        <span class="incorrectPassWarn signIn_TandC_warn"></span>
-                                    </div>
-                                    <div class="form_section">
-                                        <button type="button" class="" id="signUp_btn">Create</button>
-                                    </div>
-                                    <br>
-                                    <div class="form_section">
-                                        <p>Aready have an account?
-                                            <br>
-                                            <label for="join_rad2" class="log"><u>Log In</u></label>
-                                        </p>
-                                        <p>
-                                            <span>Experiencing issues?</span>
-                                            <br>
-                                            <u class="acc_create_issue">We can help</u>
-                                        </p>
-                                    </div>
-                                </form>
-
-                                <!-- Log In Form -->
-                                <form action="#" method="get" name="Log_In_form" class="formtog logform">
-                                    <div class="form_section">
-                                        <h3 id="top2">Log in to your Account</h3>
-                                    </div>
-                                    <div class="form_section">
-                                        <label for="usrname_log">Username</label>
-                                        <input type="text" name="logIn_user_field" id="usrname_log" placeholder="enter your username">
-                                    </div>
-                                    <div class="form_section">
-                                        <label for="usrpass_log">Password</label>
-                                        <input type="password" name="logIn_pass_field" id="usrpass_log" placeholder="enter your password">
-                                    </div>
-                                    <div class="form_section field_section">
-                                        <span class="incorrectPassWarn logIn_warn"></span>
-                                    </div>
-                                    <div class="form_section">
-                                        <button type="button" id="logIn_btn">Log In</button>
-                                    </div>
-                                    <br>
-                                    <div class="form_section">
-                                        <p>
-                                            Forgot password?
-                                            <br>
-                                            <u class="retnw">Reset it Now</u>
-                                        </p>
-                                        <p>
-                                            Don't have an account?
-                                            <br>
-                                            <label for="join_rad1" class="sgn"><u>Sign Up</u></label>
-                                        </p>
-                                        <p>
-                                            <span>Experiencing issues?</span>
-                                            <br>
-                                            <u class="acc_create_issue">We can help</u>
-                                        </p>
-                                    </div>
-                                </form>
-                            <!-- </form> -->
-                        </div>
+                <div class="navBarRight">
+                    <div class="signUpBdr">
+                        <a href="javascript:void(0)" class="action_Join signUpBox">Sign In</a>
                     </div>
                 </div>
             </div>
         </div>
+
+
+        <!-- ------------------- Form -------------- -->
+
+        <div class="join_fence">
+            <div class="join_area">
+                <div class="join_house">
+                    <div class="join_bdr">
+                        <div class="join_box">
+
+                            <!-- Log In Form -->
+                            <div class="join_formBox logIn_FormBox active">
+                                <form action="#" name="logInForm" id="logIn_form" class="join_form logIn_form_class">
+                                    <div class="form_ctnt">
+
+                                        <!-- TItle -->
+                                        <div class="form_title_box">
+                                            <h2 class="form_title">Welcome Back</h2>
+                                        </div>
+
+                                        <!-- Form fields -->
+                                        <div class="form_inputArea">
+
+                                            <!--  Username -->
+                                            <div class="form_input_bdr">
+                                                <div class="form_input_nameBox">
+                                                    <label for="form_logIn_id" class="form_input_name">Username</label>
+                                                </div>
+                                                <div class="form_input_box">
+                                                    <input type="text" id="form_logIn_id" class="form_input_field" placeholder="Username is uvidtestuser">
+                                                </div>
+                                            </div>
+
+                                            <!-- Password -->
+                                            <div class="form_input_bdr">
+                                                <div class="form_input_nameBox">
+                                                    <label for="form_logIn_pass" class="form_input_name">Password</label>
+                                                </div>
+                                                <div class="form_input_box form_PassBox">
+                                                    <input type="password" id="form_logIn_pass" class="form_input_field form_Pass" placeholder="Password is @abcd=1234">
+                                                    <label for="form_logIn_pass">
+                                                        <i class="fa-regular fa-eye seeUnseePass"></i>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <!-- Error message -->
+                                            <div class="form_input_bdr">
+                                                <div class="form_input_warn" id="logIn_warn"></div>
+                                            </div>
+
+                                            <!-- Log In btn -->
+                                            <div class="form_input_bdr">
+                                                <div class="form_submit_box">
+                                                    <input type="button" class="genBtn form_submit_btn form_LogIn " id="logIn_btn" value="Log In" >
+                                                </div>
+                                            </div>
+
+                                            <!-- Forgot Password -->
+                                            <div class="form_input_bdr">
+                                                <div class="form_input_box">
+                                                    <div class="form_text">
+                                                        <span>Forgot Password?</span>
+                                                        <span class="form_links toRecoverAccForm">Reset Password</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Open Sign up form if you havent got an account -->
+                                            <div class="form_input_bdr">
+                                                <div class="form_input_box">
+                                                    <div class="form_text">
+                                                        <span>Don't have an Account?</span>
+                                                        <span class="form_links toSignUpForm">Sign Up</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Contact us if you need help -->
+                                            <div class="form_input_bdr">
+                                                <div class="form_input_box">
+                                                    <div class="form_text">
+                                                        <span>Experiencing any issues?</span>
+                                                        <span class="form_links">
+                                                            <a href="/Help/HelpCenter.html" class="form_links" target="_blank">Let us know</a>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- Reset Password Form -->
+                            <div class="join_formBox RecoverAcc_FormBox ">
+                                <form action="#" name="RecoverAccForm" id="RecoverAcc_form" class="join_form RecoverAcc_form_class">
+                                    <div class="form_ctnt">
+
+                                        <!-- TItle -->
+                                        <div class="form_title_box">
+                                            <h2 class="form_title">Recover your Account</h2>
+                                        </div>
+
+                                        <!-- Form fields -->
+                                        <div class="form_inputArea">
+
+                                            <!-- Email -->
+                                            <div class="form_input_bdr">
+                                                <div class="form_input_nameBox">
+                                                    <label for="form_recover_Acc" class="form_input_name">Email</label>
+                                                </div>
+                                                <div class="form_input_box">
+                                                    <input type="text" id="form_recover_Acc" class="form_input_field" placeholder="Enter your email">
+                                                </div>
+                                            </div>
+
+                                            <!-- Error message -->
+                                            <div class="form_input_bdr">
+                                                <div class="form_input_warn" id="form_recover_AccWarn"></div>
+                                            </div>
+
+                                            <!-- Submit btn -->
+                                            <div class="form_input_bdr">
+                                                <div class="form_submit_box">
+                                                    <input type="button" class="genBtn form_submit_btn " id="recoverAcc_btn" value="Submit" >
+                                                </div>
+                                            </div>
+
+                                            <!-- Open Sign up form if you havent got an account -->
+                                            <div class="form_input_bdr">
+                                                <div class="form_input_box">
+                                                    <div class="form_text">
+                                                        <span>Have an Account?</span>
+                                                        <span class="form_links toLogInForm">Log In</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Contact us if you need help -->
+                                            <div class="form_input_bdr">
+                                                <div class="form_input_box">
+                                                    <div class="form_text">
+                                                        <span>Experiencing any issues?</span>
+                                                        <span class="form_links">
+                                                            <a href="/Help/HelpCenter.html" class="form_links" target="_blank">Let us know</a>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- Sign Up Form -->
+                            <div class="join_formBox signUp_FormBox ">
+                                <form action="#" name="signUpForm" id="signUp_form" class="join_form signUp">
+                                    <div class="form_ctnt">
+
+                                        <!-- title -->
+                                        <div class="form_title_box">
+                                            <h2 class="form_title">Create your Account</h2>
+                                        </div>
+
+                                        <!-- Form Fields -->
+                                        <div class="form_inputArea">
+
+                                            <!-- Username -->
+                                            <div class="form_input_bdr">
+                                                <div class="form_input_nameBox">
+                                                    <label for="form_signUp_user" class="form_input_name">Username</label>
+                                                </div>
+                                                <div class="form_input_box">
+                                                    <input type="text" id="form_signUp_user" class="form_input_field" placeholder="Username">
+                                                </div>
+
+                                                <!-- warning/error -->
+                                                <div class="form_input_warn" id="form_signUp_userWarn"></div>
+                                            </div>
+
+                                            <!-- Email -->
+                                            <div class="form_input_bdr">
+                                                <div class="form_input_nameBox">
+                                                    <label for="form_signUp_email" class="form_input_name">Email</label>
+                                                </div>
+                                                <div class="form_input_box">
+                                                    <input type="text" id="form_signUp_email" class="form_input_field" placeholder="name@email.com">
+                                                </div>
+
+                                                <!-- warning/error -->
+                                                <div class="form_input_warn" id="form_signUp_emailWarn"></div>
+                                            </div>
+
+                                            <!-- Password -->
+                                            <div class="form_input_bdr form_Pass_input_bdr">
+                                                <div class="form_input_nameBox">
+                                                    <label for="form_signUp_pass" class="form_input_name">Password</label>
+                                                </div>
+                                                <div class="form_input_box form_PassBox">
+                                                    <input type="password" id="form_signUp_pass" class="form_input_field form_Pass" placeholder="Password">
+                                                    <label for="form_signUp_pass">
+                                                        <i class="fa-regular fa-eye seeUnseePass"></i>
+                                                    </label>
+                                                </div>
+
+                                                <!-- Password Conditons -->
+                                                <div class="form_condBox">
+                                                    <div class="cond_title">
+                                                        Password must contain:
+                                                    </div>
+                                                    <ul class="cond_list">
+                                                        <li class="cond_listItem">
+                                                            <div class="listItem_ctnt passLength badCond">
+                                                                <span class="listItem_ctntIcon">
+                                                                    <i class="fa-solid fa-xmark-circle badCond"></i>
+                                                                </span>
+                                                                <span class="lisItem_ctntText">
+                                                                    At least 8 characters
+                                                                </span>
+                                                            </div>
+                                                        </li>
+                                                        <li class="cond_listItem">
+                                                            <div class="listItem_ctnt passLetter badCond">
+                                                                <span class="listItem_ctntIcon">
+                                                                    <i class="fa-solid fa-xmark-circle"></i>
+                                                                </span>
+                                                                <span class="lisItem_ctntText">
+                                                                    A letter [a-z , A - Z]
+                                                                </span>
+                                                            </div>
+                                                        </li>
+                                                        <li class="cond_listItem">
+                                                            <div class="listItem_ctnt passNumber badCond">
+                                                                <span class="listItem_ctntIcon">
+                                                                    <i class="fa-solid fa-xmark-circle"></i>
+                                                                </span>
+                                                                <span class="lisItem_ctntText">
+                                                                    A number [0 - 9]
+                                                                </span>
+                                                            </div>
+                                                        </li>
+                                                        <li class="cond_listItem">
+                                                            <div class="listItem_ctnt passSpecChar badCond">
+                                                                <span class="listItem_ctntIcon">
+                                                                    <i class="fa-solid fa-xmark-circle"></i>
+                                                                </span>
+                                                                <span class="lisItem_ctntText">
+                                                                    A special character [!@#$\%^&/|*]
+                                                                </span>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            <!-- Confirm Password -->
+                                            <div class="form_input_bdr">
+                                                <div class="form_input_nameBox">
+                                                    <label for="form_signUp_confpass" class="form_input_name">Confirm Password</label>
+                                                </div>
+                                                <div class="form_input_box form_PassBox">
+                                                    <input type="password" id="form_signUp_confpass" class="form_input_field form_Pass" placeholder="Confirm Password">
+                                                    <label for="form_signUp_confpass">
+                                                        <i class="fa-regular fa-eye seeUnseePass"></i>
+                                                    </label>
+                                                </div>
+
+                                                <!-- warning/error -->
+                                                <div class="form_input_warn" id="form_signUp_confpassWarn"></div>
+                                            </div>
+
+                                            <!-- Terms and Conditions -->
+                                            <div class="form_input_bdr">
+                                                <div class="form_input_box">
+                                                    <div class="form_text">
+                                                        <span>By signing up you are agreeing to our</span>
+                                                        <span>
+                                                            <a href="#" class="form_links" target="_blank">Terms of Use</a> 
+                                                            and
+                                                            <a href="#" class="form_links" target="_blank">Privacy policies</a>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Sign Up button -->
+                                            <div class="form_input_bdr">
+                                                <div class="form_submit_box">
+                                                    <input type="button" class="genBtn form_submit_btn form_SignUp" id="signUp_btn" value="Sign Up">
+                                                </div>
+                                            </div>
+
+                                            <!-- Log in if you already have an account -->
+                                            <div class="form_input_bdr">
+                                                <div class="form_input_box">
+                                                    <div class="form_text">
+                                                        <span>Already have an Account?</span>
+                                                        <span class="form_links toLogInForm">Log In</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Contact us if you hav eany issues -->
+                                            <div class="form_input_bdr">
+                                                <div class="form_input_box">
+                                                    <div class="form_text">
+                                                        <span>Experiencing any issues?</span>
+                                                        <span class="form_links">
+                                                            <a href="/Help/HelpCenter.html"" class="form_links" target="_blank">Let us know</a>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         
-        <!-- this is a popup for a user successfully creating their account -->
-        <div class="recbase0">
-            <div class="formtog recoveracc">
-                <h3>Account Created</h3>
-                <p>Now log into your newly created account</p>
-                <br>
-                <button type="button" id="cotn">continue</button>
-            </div>
-        </div>
-
-        <!-- this is a popup that requests for user's email if they cant log in -->
-        <div class="recbase1">
-            <div class="formtog recoveracc">
-                <i class="fa-solid fa-xmark-circle re1"></i>
-                <h3>Forgot Password</h3>
-                <p>Enter your email to recover your account</p>
-                <input type="email" id="resetPass_email_input" placeholder="email" />
-                <span class="incorrectPassWarn" id="resetPass_warn"></span>
-                <button type="button" id="submit_request_label">Send code</button>
-            </div>
-        </div>
-        <!-- this comes up to let user know a code has been sent and requests they type it in -->
-        <div class="recbase2">
-            <div class="formtog recoveracc">
-                <i class="fa-solid fa-xmark-circle"></i>
-                <h3>A verification code has been sent to this email</h3>
-                <br>
-                <p>Enter the verification code</p>
-                <input type="text" id="user_verCode_input" placeholder="click to type">
-                <button type="button" id="valcde">Recover</button>
-            </div>
-        </div>
-
-        <!-- this popups if a user's credentials are correct -->
-        <div class="recbase3">
-            <div class="formtog recoveracc">
-                <h3>Log in successfull</h3>
-                <br>
-                <button type="submit" id="confm">close</button>
-            </div>
-        </div>
-        <!-- this popups if a user's credentials are NOT correct -->
-        <div class="recbase4">
-            <div class="formtog recoveracc">
-                <h3>Incorrect username or password</h3>
-                <p><i class="fa-solid fa-info-circle"></i> : Ensure you have an account</p>
-                <br>
-                <button type="button" id="xuser">close</button>
-            </div>
-        </div>
-
-        <!-- Conditions for creating an account -->
-        <div class="recbase5">
-            <div class="errocreate">
-                <div class="formtog">
-                    <h3>Quick Guide</h3>
-                    <br>
-                    <p>
-                        <strong><u>Account Creation</u></strong>
-                        <br><br>
-                        Here's a brief set of instructions to follow when creating your account
-                        <br><br>
-                        1.  Username must be minimun of '5' characters but 
-                            not more than '20' characters and contain only letters, numbers and "one" underscore.
-                            <br><br>
-                        2.  Username cannot start/end with an underscore.
-                            <br><br>
-                        3.  Username cannot start/ with an number.
-                            <br><br>
-                        4.  Password must be minimun of '8' characters but 
-                            not more than '100' characters.
-                            <br><br>
-                        5.  Password must contain at least one of a "letter" , "number" , "special character" in any order.
-                            <br><br>
-                        6.  Confirm Password must be the same as the Password
-                            <br><br>
-                        7.  Email must be valid as it will be verified before account can be created.
-                            <br><br>
-                        8.  Upon processing, a verification code will be sent to the email inputed.
-                            <br>
-                            The user will need to input this code before account can be created (serves as email verification).
-                            <br><br><br>
-
-                        <strong><u>Account Log In</u></strong>
-                        <br><br>
-                            User is required to input their username and password in order to log into their account.
-                            <br>
-                            Upon inability to recall password, it can be reset by correctly inputting the email.
-                            <br><br>
-                            If email cannnot be provided, please <a href="">Contact Customer Care</a> for further assistance.
-                    </p>
-                    <br><br>
-                    <button type="button" id="closeQuickAccGuide">close</button>
-                </div>
-            </div>
-        </div>
-
-        
-        <!-- gate -->
-        <div class="gnull g1">
-            <h1 class="gch1 gh1" style="color: #fff; transform: rotate(90deg);">U</h1>
-            <h1 class="gch2 gh1" style="color: #000; transform: rotate(0deg);">U</h1>
-            <h1 class="gch3 gh1" style="color: #fff; transform: rotate(90deg);">U</h1>
-        </div> 
-        <div class="gnull g2">
-            <h1 class="gch4 gh1" style="color: #fff; transform: rotate(270deg);">U</h1>
-            <h1 class="gch5 gh1" style="color: #000; transform: rotate(180deg);">U</h1>
-            <h1 class="gch6 gh1" style="color: #fff; transform: rotate(270deg);">U</h1>
-        </div>
-
-        <!-- choice of intersted shows -->
-        <div class="gnr">
-            <div class="genre">
-                <div class="cthead">Have a favourite genre?</div>
-                <div class="ctext">
-                    <button id="fz1" onclick="f1()">Movies</button>
-                </div>
-                <div class="ctext">
-                    <button id="fz2" onclick="f2()">Documentaries</button>
-                </div>
-                <div class="ctext">
-                    <button id="fz3" onclick="f3()">TV Show</button>
-                </div>
-                <div class="ctext">
-                    <button id="fz4" onclick="f4()">Anime</button>
-                </div>
-                <div class="ctext">
-                    <button id="fz5" onclick="f5()">Cartoons</button>
-                </div>
-                <div class="ctext">
-                    <button id="fz6" onclick="f6()">Other</button>
-                </div>
-            </div>
-        </div>
         
 
         
 
 
         <!-- script -->
-        <script src="Uvid_Reg_script.js"></script>
+        <script src="/Join/Join_script.js"></script>
 
 
 
