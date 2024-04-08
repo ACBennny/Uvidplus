@@ -209,34 +209,37 @@ html:root
     cursor: default;
 }
 
-.trailer_Bdr .closeTrailer
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 20px;
-    fill: #fff;
-    margin: 10px;
-    cursor: pointer;
-}
-
 .trailer_Bdr .trailer_Box
 {
     position: relative;
     width: 98%;
     max-width: 1150px;
+    border-radius: 5px;
+    background: #000000;
+    aspect-ratio: 16 / 9;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     -moz-user-select: none;
     -moz-user-select: -moz-none;
     -webkit-user-select: none;
     -webkit-user-drag: none;
     user-select: none;
-    overflow: hidden;
-    border-radius: 5px;
-    background: #000000;
-    aspect-ratio: 16 / 9;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-    user-select: none;
+}
+
+.trailer_Box .closeTrailer
+{
+    position: absolute;
+    top: 0;
+    right: 50%;
+    width: 20px;
+    fill: #fff;
+    transform: translate(100% , -150%);
+    cursor: pointer;
+}
+
+.trailer_Box .trailer_Frame
+{
+    width: 100%;
+    height: 100%;
 }
 
 
