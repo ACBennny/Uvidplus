@@ -71,7 +71,7 @@
             break;
         case "arrowright":
         case "l":
-            videoSkip(+5);
+            videoSkip(5);
             break;
         case "c":
             toggleCaptions();
@@ -99,13 +99,14 @@
 
     function videoSkip(skipLength)
     {
-        mainVideo.currentTime = skipLength;
+        mainVideo.currentTime += skipLength;
     }
 
     function vidHasEnded()
     {
         container.classList.add("show-controls");
-
+        toggleFullScreenMode();
+        
         // Go to Next episode when video ends, if auto next is on
         if(autoNextEpCheckBox.checked == true)
         {
