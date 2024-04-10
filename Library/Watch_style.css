@@ -257,7 +257,7 @@ html:root
 
 .video-timeline:hover .progress-area
 {
-    height: 7px;
+    height: 10px;
 }
 
 .progress-area span
@@ -284,20 +284,28 @@ html:root
     content: "";
     right: 0;
     top: 50%;
-    height: 15px;
-    width: 15px;
+    height: 18px;
+    width: 18px;
     position: absolute;
     border-radius: 50%;
     background: var(--genWhiteTypeLight);
     transform: translateY(-50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: 300ms;
 }
 
-.progress-bar::before, .progress-area span
+.progress-area span
 {
     display: none;
 }
 
-.video-timeline:hover .progress-bar::before,
+.video-timeline:hover .progress-bar::before
+{
+    opacity: 1;
+    visibility: visible;
+}
+
 .video-timeline:hover .progress-area span
 {
     display: block;
@@ -370,13 +378,13 @@ html:root
 {
     color: var(--genWhiteTypeLight);
     margin-left: 15px;
-    font-size: 10px;
+    font-size: 14px;
 }
 
 .video-timer .separator
 {
     margin: 0 5px;
-    font-size: 16px;
+    font-size: 18px;
     font-family: "Open sans";
 }
 
@@ -681,6 +689,7 @@ html:root
 .showlist .next_epCardBdr
 {
     width: 100%;
+    max-width: 300px;
     height: 100px;
     padding: 10px;
 }
@@ -1226,7 +1235,7 @@ html:root
 
     .video-timer .separator
     {
-        font-size: 14px;
+        font-size: 16px;
         margin: 0 2px;
     }
 

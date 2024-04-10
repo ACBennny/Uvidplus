@@ -10,8 +10,8 @@
 
     // Section 1
     const container = document.querySelector(".container");
-    const pcControlTapBox = container.querySelector(".playPause_fullscreen_VidPc");
     const mainVideo = container.querySelector("video");
+    const pcControlTapBox = container.querySelector(".playPause_fullscreen_VidPc");
     const videoTimeline = container.querySelector(".video-timeline");
     const progressBar = container.querySelector(".progress-bar");
     const volumeBtn = container.querySelector(".volume i");
@@ -45,6 +45,74 @@
 
 
 // VIDEO PLAYER
+
+    document.addEventListener("keydown", e => {
+        const tagName = document.activeElement.tagName.toLowerCase()
+    
+        if (tagName === "input") return;
+    
+        switch (e.key.toLowerCase()) {
+        case " ":
+            e.preventDefault();
+            toggleVidPlay();
+            break;
+        case "k":
+            toggleVidPlay();
+            break;
+        case "f":
+            toggleFullScreenMode();
+            break;
+        case "m":
+            toggleMute();
+            break;
+        case "arrowleft":
+        case "j":
+            videoSkip(-5);
+            break;
+        case "arrowright":
+        case "l":
+            videoSkip(+5);
+            break;
+        case "c":
+            toggleCaptions();
+            break;
+        }
+    });
+
+    // Functions
+    
+    function toggleVidPlay()
+    {
+        mainVideo.paused ? mainVideo.play() : mainVideo.pause();
+    }
+
+    function toggleFullScreenMode()
+    {
+        container.classList.toggle("fullscreen");
+        if(document.fullscreenElement) {
+            fullScreenBtn.classList.replace("fa-compress", "fa-expand");
+            return document.exitFullscreen();
+        }
+        fullScreenBtn.classList.replace("fa-expand", "fa-compress");
+        container.requestFullscreen();
+    }
+
+    function videoSkip(skipLength)
+    {
+        mainVideo.currentTime = skipLength;
+    }
+
+    function vidHasEnded()
+    {
+        container.classList.add("show-controls");
+
+        // Go to Next episode when video ends, if auto next is on
+        if(autoNextEpCheckBox.checked == true)
+        {
+            window.open(nextEpLink.href , "_self");
+        }
+    }
+
     const hideControls = () => {
         if(mainVideo.paused) return;
         timer = setTimeout(() => {
@@ -63,13 +131,7 @@
     // Show controls when Video ends (and move to next video)
     mainVideo.addEventListener("ended" , () => 
     {
-        container.classList.add("show-controls");
-
-        // Go to Next episode when video ends, if auto next is on
-        if(autoNextEpCheckBox.checked == true)
-        {
-            window.open(nextEpLink.href , "_self");
-        }
+        vidHasEnded();
     });
 
     // calculating standard time
@@ -164,13 +226,7 @@
     // Fullscreen
     fullScreenBtn.addEventListener("click", () => 
     {
-        container.classList.toggle("fullscreen");
-        if(document.fullscreenElement) {
-            fullScreenBtn.classList.replace("fa-compress", "fa-expand");
-            return document.exitFullscreen();
-        }
-        fullScreenBtn.classList.replace("fa-expand", "fa-compress");
-        container.requestFullscreen();
+        toggleFullScreenMode();
     });
 
     document.addEventListener("fullscreenchange", () => {
@@ -196,19 +252,33 @@
     // Rewinding video
     skipBackward.forEach(btn => 
     {
-        btn.addEventListener("click", () => mainVideo.currentTime -= 5);
+        btn.addEventListener("click", () => 
+        {
+            videoSkip(-5);
+        });
     });
 
     // Fast forwarding video
     skipForward.forEach(btn => 
     {
-        btn.addEventListener("click", () => mainVideo.currentTime += 5);
+        btn.addEventListener("click", () => 
+        {
+            videoSkip(5);
+        });
     });
 
     // Pause/Play video
+    function toggleVidPlay()
+    {
+        mainVideo.paused ? mainVideo.play() : mainVideo.pause();
+    }
+
     playPauseBtn.forEach(btn => 
     {
-        btn.addEventListener("click", () => mainVideo.paused ? mainVideo.play() : mainVideo.pause());
+        btn.addEventListener("click", () => 
+        {
+            toggleVidPlay();
+        });
     });
 
     // Playing Video
@@ -236,7 +306,10 @@
     });
 
     // Pause/play (click) For Pc/ wide screen users only 
-    pcControlTapBox.addEventListener("click" , () => mainVideo.paused ? mainVideo.play() : mainVideo.pause());
+    pcControlTapBox.addEventListener("click" , () => 
+    {
+        toggleVidPlay();
+    });
 
     // Playback speed
     speedBtn.addEventListener("click", () => speedOptions.classList.toggle("show"));
