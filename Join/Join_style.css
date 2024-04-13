@@ -78,12 +78,12 @@
 {
     position: relative;
     width: 100%;
-    max-width: 500px;
+    max-width: 760px;
     background-color: var(--color4);
     -webkit-backdrop-filter: blur(var(--bcgFilt));
     backdrop-filter: blur(var(--bcgFilt));
     border-radius: 10px;
-    padding: 25px;
+    padding: 25px 40px;
     margin: 20px 10px;
     transform: translateY(-250px);
     opacity: 0;
@@ -159,7 +159,7 @@
 
 .form_title_box .form_title
 {
-    font-size: calc(var(--fzTxt) + 10px);
+    font-size: calc(var(--fzTxt) + 14px);
     color: var(--color2);
 }
 
@@ -168,7 +168,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    gap: 40px;
 }
 
 .form_inputArea .form_input_bdr
@@ -189,7 +189,7 @@
 .form_input_nameBox .form_input_name
 {
     color: var(--color2);
-    font-size: calc(var(--fzTxt) + 2px);
+    font-size: calc(var(--fzTxt) + 4px);
 }
 
 .form_input_bdr .form_input_box

@@ -12,6 +12,9 @@
 // DEFINITION
 
     const documentBody = document.body;
+    const documentTitle = document.title;
+    const currDocumentTitle = document.title;
+    const callBackToDocumentTitle = "Don't leave so soon!";
     const preload = document.querySelector('#preloader');
     const navBar = document.querySelector(".navBar");
     const navBarHeadName = document.querySelector(".navBar .headname");
@@ -23,14 +26,6 @@
     const navMenuIcon = document.querySelectorAll(".open_nav_menu");
     let navMenuTimer;
     let locationOrigin;
-    if(window.location.origin == "https://acbennny.github.io")
-    {
-        locationOrigin = window.location.origin + "/Uvid/";
-    }
-    else
-    {
-        locationOrigin = window.location.origin + "/";
-    }
     const navBarSearchForm = document.querySelectorAll(".navBarSearchBox");
     const navSearchBar = document.querySelector(".navBarSearchBdr");
     const openNavSearchBar = document.querySelector(".openNavSearch_Btn");
@@ -48,7 +43,31 @@
 
 
 
-    
+
+
+// DOCUMENT (WINDOW)
+
+    // Don't leave yet ;>
+    document.addEventListener("visibilitychange", () => 
+    {
+        if (document.visibilityState === 'hidden') {
+            document.title = callBackToDocumentTitle;
+        }
+        else
+        {
+            document.title = currDocumentTitle;
+        }
+    });
+
+    // Did it to match github's href style
+    if(window.location.origin == "https://acbennny.github.io")
+    {
+        locationOrigin = window.location.origin + "/Uvid/";
+    }
+    else
+    {
+        locationOrigin = window.location.origin + "/";
+    }
 
 
 
