@@ -168,7 +168,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 35px;
 }
 
 .form_inputArea .form_input_bdr

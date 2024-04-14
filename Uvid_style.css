@@ -23,7 +23,7 @@ html:root
     --fzTxt:12px;
     --fzIcon:20px;
     --bcgFilt:15px;
-    --actionJoinGradientAngle: 60deg;
+    --actionJoinGradientAngle: 30deg;
     --featureCardBdrRadius: 5px 5px 75px 5px;
     --ftrCardFrontTransform: 15px;
 }
@@ -238,18 +238,18 @@ ul
 .propmpt_AccActionBtnBox.action_Join
 {
     color: var(--color6);
-    background: -o-linear-gradient(var(--actionJoinGradientAngle), var(--color1), var(--color7), var(--color7), var(--color7));
-    background: -moz-linear-gradient(var(--actionJoinGradientAngle), var(--color1), var(--color7), var(--color7), var(--color7));
-    background: -webkit-linear-gradient(var(--actionJoinGradientAngle), var(--color1), var(--color7), var(--color7), var(--color7));
-    background: linear-gradient(var(--actionJoinGradientAngle), var(--color1), var(--color7), var(--color7), var(--color7));
+    background: -o-linear-gradient(var(--actionJoinGradientAngle), var(--color1), var(--color7));
+    background: -moz-linear-gradient(var(--actionJoinGradientAngle), var(--color1), var(--color7));
+    background: -webkit-linear-gradient(var(--actionJoinGradientAngle), var(--color1), var(--color7));
+    background: linear-gradient(var(--actionJoinGradientAngle), var(--color1), var(--color1), var(--color7) 45%);
+    background-size: 200%;
+    transition: all 300ms ease-in-out;
 }
 
 .propmpt_AccActionBtnBox.action_Join:hover
 {
-    background: -o-linear-gradient(var(--actionJoinGradientAngle),var(--color7), var(--color7), var(--color7), var(--color1), var(--color1));
-    background: -moz-linear-gradient(var(--actionJoinGradientAngle),var(--color7), var(--color7), var(--color7), var(--color1), var(--color1));
-    background: -webkit-linear-gradient(var(--actionJoinGradientAngle),var(--color7), var(--color7), var(--color7), var(--color1), var(--color1));
-    background: linear-gradient(var(--actionJoinGradientAngle),var(--color7), var(--color7), var(--color7), var(--color1), var(--color1));
+    color: var(--color2);
+    background-position: bottom;
 }
 
 .propmpt_AccActionBtnBox.action_GetPremium
