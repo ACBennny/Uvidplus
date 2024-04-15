@@ -25,9 +25,24 @@
                     <div class="playPause_fullscreen_VidPc"></div>
                     <div class="mobile_controls_box">
                         <div class="options center mobile_controls">
-                            <button class="skip-backward"><i class="fas fa-backward"></i></button>
-                            <button class="play-pause"><i class="fas fa-play"></i></button>
-                            <button class="skip-forward"><i class="fas fa-forward"></i></button>
+                            <button class="skip-backward">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="skipBackwardIcon">
+                                    <path d="M459.5 440.6c9.5 7.9 22.8 9.7 34.1 4.4s18.4-16.6 18.4-29V96c0-12.4-7.2-23.7-18.4-29s-24.5-3.6-34.1 4.4L288 214.3V256v41.7L459.5 440.6zM256 352V256 128 96c0-12.4-7.2-23.7-18.4-29s-24.5-3.6-34.1 4.4l-192 160C4.2 237.5 0 246.5 0 256s4.2 18.5 11.5 24.6l192 160c9.5 7.9 22.8 9.7 34.1 4.4s18.4-16.6 18.4-29V352z"/>
+                                </svg>
+                            </button>
+                            <button class="play-pause">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 512" class="playIcon">
+                                    <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 512" class="pauseIcon hide">
+                                    <path d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z"/>
+                                </svg>
+                            </button>
+                            <button class="skip-forward">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="skipForwardIcon">
+                                    <path d="M52.5 440.6c-9.5 7.9-22.8 9.7-34.1 4.4S0 428.4 0 416V96C0 83.6 7.2 72.3 18.4 67s24.5-3.6 34.1 4.4L224 214.3V256v41.7L52.5 440.6zM256 352V256 128 96c0-12.4 7.2-23.7 18.4-29s24.5-3.6 34.1 4.4l192 160c7.3 6.1 11.5 15.1 11.5 24.6s-4.2 18.5-11.5 24.6l-192 160c-9.5 7.9-22.8 9.7-34.1 4.4s-18.4-16.6-18.4-29V352z"/>
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -44,8 +59,18 @@
 
                     <ul class="video-controls">
                         <li class="options left">
-                            <button class="volume"><i class="fa-solid fa-volume-high"></i></button>
-                            <input type="range" min="0" max="1" step="any" value="0.5">
+                            <button class="volume" title="volume" aria-label="volume">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="volume_highIcon">
+                                    <path d="M533.6 32.5C598.5 85.2 640 165.8 640 256s-41.5 170.7-106.4 223.5c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C557.5 398.2 592 331.2 592 256s-34.5-142.2-88.7-186.3c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zM473.1 107c43.2 35.2 70.9 88.9 70.9 149s-27.7 113.8-70.9 149c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C475.3 341.3 496 301.1 496 256s-20.7-85.3-53.2-111.8c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zm-60.5 74.5C434.1 199.1 448 225.9 448 256s-13.9 56.9-35.4 74.5c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C393.1 284.4 400 271 400 256s-6.9-28.4-17.7-37.3c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zM301.1 34.8C312.6 40 320 51.4 320 64V448c0 12.6-7.4 24-18.9 29.2s-25 3.1-34.4-5.3L131.8 352H64c-35.3 0-64-28.7-64-64V224c0-35.3 28.7-64 64-64h67.8L266.7 40.1c9.4-8.4 22.9-10.4 34.4-5.3z"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="volume_lowIcon hide">
+                                    <path d="M301.1 34.8C312.6 40 320 51.4 320 64V448c0 12.6-7.4 24-18.9 29.2s-25 3.1-34.4-5.3L131.8 352H64c-35.3 0-64-28.7-64-64V224c0-35.3 28.7-64 64-64h67.8L266.7 40.1c9.4-8.4 22.9-10.4 34.4-5.3zM412.6 181.5C434.1 199.1 448 225.9 448 256s-13.9 56.9-35.4 74.5c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C393.1 284.4 400 271 400 256s-6.9-28.4-17.7-37.3c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5z"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="volume_offIcon hide">
+                                    <path d="M301.1 34.8C312.6 40 320 51.4 320 64V448c0 12.6-7.4 24-18.9 29.2s-25 3.1-34.4-5.3L131.8 352H64c-35.3 0-64-28.7-64-64V224c0-35.3 28.7-64 64-64h67.8L266.7 40.1c9.4-8.4 22.9-10.4 34.4-5.3zM425 167l55 55 55-55c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-55 55 55 55c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-55-55-55 55c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l55-55-55-55c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"/>
+                                </svg>
+                            </button>
+                            <input class="volume-range" type="range" min="0" max="1" step="any" value="0.5" title="volume" aria-label="volume">
                             <div class="video-timer">
                                 <p class="current-time">00:00</p>
                                 <p class="separator"> / </p>
@@ -53,25 +78,54 @@
                             </div>
                         </li>
                         <li class="options center pc_controls">
-                            <button class="skip-backward"><i class="fas fa-backward"></i></button>
-                            <button class="play-pause"><i class="fas fa-play"></i></button>
-                            <button class="skip-forward"><i class="fas fa-forward"></i></button>
+                            <button class="skip-backward" title="skip backward" aria-label="skip backward">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="skipBackwardIcon">
+                                    <path d="M459.5 440.6c9.5 7.9 22.8 9.7 34.1 4.4s18.4-16.6 18.4-29V96c0-12.4-7.2-23.7-18.4-29s-24.5-3.6-34.1 4.4L288 214.3V256v41.7L459.5 440.6zM256 352V256 128 96c0-12.4-7.2-23.7-18.4-29s-24.5-3.6-34.1 4.4l-192 160C4.2 237.5 0 246.5 0 256s4.2 18.5 11.5 24.6l192 160c9.5 7.9 22.8 9.7 34.1 4.4s18.4-16.6 18.4-29V352z"/>
+                                </svg>
+                            </button>
+                            <button class="play-pause" title="play" aria-label="play">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 512" class="playIcon">
+                                    <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 512" class="pauseIcon hide">
+                                    <path d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z"/>
+                                </svg>
+                            </button>
+                            <button class="skip-forward" title="skip forward" aria-label="skip forward">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="skipForwardIcon">
+                                    <path d="M52.5 440.6c-9.5 7.9-22.8 9.7-34.1 4.4S0 428.4 0 416V96C0 83.6 7.2 72.3 18.4 67s24.5-3.6 34.1 4.4L224 214.3V256v41.7L52.5 440.6zM256 352V256 128 96c0-12.4 7.2-23.7 18.4-29s24.5-3.6 34.1 4.4l192 160c7.3 6.1 11.5 15.1 11.5 24.6s-4.2 18.5-11.5 24.6l-192 160c-9.5 7.9-22.8 9.7-34.1 4.4s-18.4-16.6-18.4-29V352z"/>
+                                </svg>
+                            </button>
                         </li>
                         <li class="options right">
-                            <div class="playback-content">
-                                <button class="playback-speed"><span class="material-symbols-rounded">slow_motion_video</span></button>
-                                <ul class="speed-options">
-                                    <li data-speed="2">2x</li>
-                                    <li data-speed="1.5">1.5x</li>
-                                    <li data-speed="1" class="active">Normal</li>
-                                    <li data-speed="0.75">0.75x</li>
-                                    <li data-speed="0.5">0.5x</li>
-                                </ul>
-                            </div>
-                            <button class="pic-in-pic"><span class="material-icons">picture_in_picture_alt</span></button>
-                            <button class="settingsBtn"><i class="fa-solid fa-gear"></i></button>
-                            <button class="captionsBtn"><i class="fa-solid fa-closed-captioning"></i></button>
-                            <button class="fullscreenBtn"><i class="fa-solid fa-expand"></i></button>
+                            <button class="playback-speed" title="playback-speed" aria-label="playback-speed">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="playback_SpeedIcon">
+                                    <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z"/>
+                                </svg>
+                            </button>
+                            <button class="pic-in-pic" title="pic-in-pic" aria-label="pic-in-pic">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 450" class="picInPicIcon">
+                                    <path d="M384 224v184a40 40 0 01-40 40H104a40 40 0 01-40-40V168a40 40 0 0140-40h167.48M336 64h112v112M224 288L440 72" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="50"/>
+                                </svg>
+                            </button>
+                            <button class="settingsBtn" title="settings" aria-label="settings">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="settingsIcon">
+                                    <path d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"/>
+                                </svg>
+                            </button>
+                            <button class="captionsBtn" title="subtitles/captions" aria-label="subtitles/captions">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                    <path d="M512 80c8.8 0 16 7.2 16 16V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V96c0-8.8 7.2-16 16-16H512zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM200 208c14.2 0 27 6.1 35.8 16c8.8 9.9 24 10.7 33.9 1.9s10.7-24 1.9-33.9c-17.5-19.6-43.1-32-71.5-32c-53 0-96 43-96 96s43 96 96 96c28.4 0 54-12.4 71.5-32c8.8-9.9 8-25-1.9-33.9s-25-8-33.9 1.9c-8.8 9.9-21.6 16-35.8 16c-26.5 0-48-21.5-48-48s21.5-48 48-48zm144 48c0-26.5 21.5-48 48-48c14.2 0 27 6.1 35.8 16c8.8 9.9 24 10.7 33.9 1.9s10.7-24 1.9-33.9c-17.5-19.6-43.1-32-71.5-32c-53 0-96 43-96 96s43 96 96 96c28.4 0 54-12.4 71.5-32c8.8-9.9 8-25-1.9-33.9s-25-8-33.9 1.9c-8.8 9.9-21.6 16-35.8 16c-26.5 0-48-21.5-48-48z"/>
+                                </svg>
+                            </button>
+                            <button class="fullscreenBtn" title="enter fullscreen" aria-label="enter fullscreen">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="expandIcon">
+                                    <path d="M32 32C14.3 32 0 46.3 0 64v96c0 17.7 14.3 32 32 32s32-14.3 32-32V96h64c17.7 0 32-14.3 32-32s-14.3-32-32-32H32zM64 352c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7 14.3 32 32 32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H64V352zM320 32c-17.7 0-32 14.3-32 32s14.3 32 32 32h64v64c0 17.7 14.3 32 32 32s32-14.3 32-32V64c0-17.7-14.3-32-32-32H320zM448 352c0-17.7-14.3-32-32-32s-32 14.3-32 32v64H320c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c17.7 0 32-14.3 32-32V352z"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="compressIcon hide">
+                                    <path d="M160 64c0-17.7-14.3-32-32-32s-32 14.3-32 32v64H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c17.7 0 32-14.3 32-32V64zM32 320c-17.7 0-32 14.3-32 32s14.3 32 32 32H96v64c0 17.7 14.3 32 32 32s32-14.3 32-32V352c0-17.7-14.3-32-32-32H32zM352 64c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7 14.3 32 32 32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H352V64zM320 320c-17.7 0-32 14.3-32 32v96c0 17.7 14.3 32 32 32s32-14.3 32-32V384h64c17.7 0 32-14.3 32-32s-14.3-32-32-32H320z"/>
+                                </svg>
+                            </button>
                         </li>
                     </ul>
                 </div>
@@ -81,7 +135,7 @@
                     <ul>
                       <li data-label="speed">
                         <span> Speed </span>
-                        <span class="material-symbols-outlined icon">
+                        <span class="">
                           arrow_forward_ios
                         </span>
                       </li>
@@ -150,15 +204,22 @@
             const progressArea = video_player.querySelector(".progress-area");
             const bufferedBar = video_player.querySelector(".bufferedBar");
             const progress_Bar = video_player.querySelector(".progress-bar");
-            const skipBackward = video_player.querySelectorAll(".skip-backward i");
-            const skipForward = video_player.querySelectorAll(".skip-forward i");
-            const playPauseBtn = video_player.querySelectorAll(".play-pause i");
-            const volumeBtn = video_player.querySelector(".volume i");
-            const volumeSlider = video_player.querySelector(".left input");
+            const skipBackward = video_player.querySelectorAll(".skip-backward .skipBackwardIcon");
+            const skipForward = video_player.querySelectorAll(".skip-forward .skipForwardIcon");
+            const playPauseBtn = video_player.querySelectorAll(".play-pause svg");
+            const playBtn = video_player.querySelectorAll(".play-pause .playIcon");
+            const pauseBtn = video_player.querySelectorAll(".play-pause .pauseIcon");
+            const volumeBtn = video_player.querySelectorAll(".volume svg");
+            const volumeHighBtn = video_player.querySelector(".volume .volume_highIcon");
+            const volumeLowBtn = video_player.querySelector(".volume .volume_lowIcon");
+            const volumeOffBtn = video_player.querySelector(".volume .volume_offIcon");
+            const volumeSlider = video_player.querySelector(".left input.volume-range");
             const current = video_player.querySelector(".current-time");
             const totalDuration = video_player.querySelector(".video-duration");
-            const picture_in_picutre = video_player.querySelector(".pic-in-pic span");
-            const fullScreenBtn = video_player.querySelector(".fullscreenBtn i");
+            const picture_in_picutre = video_player.querySelector(".pic-in-pic .picInPicIcon");
+            const fullScreenBtn = video_player.querySelectorAll(".fullscreenBtn svg");
+            const fullScreenExpandBtn = video_player.querySelector(".fullscreenBtn .expandIcon");
+            const fullScreenContractBtn = video_player.querySelector(".fullscreenBtn .compressIcon");
             const playback = video_player.querySelectorAll(".speed-options");
             const tracks = video_player.querySelectorAll("track");
             const loader = video_player.querySelector(".loader");
@@ -230,7 +291,6 @@
                     video_player.classList.remove("show-controls");
                 }, 2000);
             }
-            // hideControls();
 
             // Function to adjust volume
             function adjustVolume(val)
@@ -247,28 +307,43 @@
             // Update volume icon based on volume level
             function updateVolumeIcon(volume)
             {
-                if (volume === 0)
+                
+                if(volume === 0)
                 {
-                    volumeBtn.classList.replace("fa-volume-high", "fa-volume-xmark");
+                    volumeOffBtn.classList.remove("hide");
+                    volumeLowBtn.classList.add("hide");
+                    volumeHighBtn.classList.add("hide");
+                }
+                else if(volume <= 0.3)
+                {
+                    volumeLowBtn.classList.remove("hide");
+                    volumeHighBtn.classList.add("hide");
+                    volumeOffBtn.classList.add("hide");
                 }
                 else
                 {
-                    volumeBtn.classList.replace("fa-volume-xmark", "fa-volume-high");
+                    volumeOffBtn.classList.add("hide");
+                    volumeLowBtn.classList.add("hide");
+                    volumeHighBtn.classList.remove("hide");
                 }
             }
 
             // To toggle between mute
             function toggleMute()
             {
-                if(!volumeBtn.classList.contains("fa-volume-high"))
+                if(!(volumeOffBtn.classList.contains("hide")))
                 {
                     mainVideo.volume = 0.5;
-                    volumeBtn.classList.replace("fa-volume-xmark", "fa-volume-high");
+                    volumeHighBtn.classList.remove("hide");
+                    volumeLowBtn.classList.add("hide");
+                    volumeOffBtn.classList.add("hide");
                 }
                 else
                 {
                     mainVideo.volume = 0.0;
-                    volumeBtn.classList.replace("fa-volume-high", "fa-volume-xmark");
+                    volumeOffBtn.classList.remove("hide");
+                    volumeLowBtn.classList.add("hide");
+                    volumeHighBtn.classList.add("hide");
                 }
                 volumeSlider.value = mainVideo.volume;
             }
@@ -309,19 +384,52 @@
             function toggleFullScreenMode()
             {
                 video_player.classList.toggle("fullscreen");
-                if(document.fullscreenElement) {
-                    fullScreenBtn.classList.replace("fa-compress", "fa-expand");
+                if(document.fullscreenElement) 
+                {
+                    fullScreenContractBtn.classList.add("hide");
+                    fullScreenExpandBtn.classList.remove("hide");
                     return document.exitFullscreen();
                 }
-                fullScreenBtn.classList.replace("fa-expand", "fa-compress");
+                fullScreenExpandBtn.classList.add("hide");
+                fullScreenContractBtn.classList.remove("hide");
                 video_player.requestFullscreen();
             }
 
-            document.addEventListener("fullscreenchange", () => {
+            document.addEventListener("fullscreenchange", () => 
+            {
                 if(!document.fullscreenElement)
                 {
-                    fullScreenBtn.classList.replace("fa-compress", "fa-expand");
-                    video_player.classList.remove("fullscreen");
+                    fullScreenContractBtn.classList.add("hide");
+                    fullScreenExpandBtn.classList.remove("hide");
+                }
+            });
+
+            document.addEventListener("visibilitychange", () => 
+            {
+                if (document.visibilityState === 'hidden') {
+                    // if video is in PiP, close and disable it.
+                    if (document.pictureInPictureElement === mainVideo)
+                    {
+                        document.exitPictureInPicture()
+                        .then(() => 
+                        {
+                            mainVideo.disablePictureInPicture = true;
+                        })
+                        .catch(error => 
+                        {
+                            console.error('Failed to exit Picture-in-Picture mode:', error);
+                        });
+                    }
+                    else
+                    {
+                        // If the video is not in PiP mode, only disable PiP
+                        mainVideo.disablePictureInPicture = true;
+                    }
+                    mainVideo.pause(); 
+                }
+                else
+                {
+                    mainVideo.disablePictureInPicture = false;
                 }
             });
         
@@ -329,6 +437,7 @@
             document.addEventListener("keydown", e => 
             {
                 const tagName = document.activeElement.tagName.toLowerCase();
+                if(document.pictureInPictureElement) return;
                 if(window.innerWidth < 768) return;
                 if(window.scrollY > vidBdrHeightThird) return;
                 if (tagName === "input") return;
@@ -427,9 +536,13 @@
             // Playing Video
             mainVideo.addEventListener("play", () => 
             {
-                playPauseBtn.forEach(btn => 
+                playBtn.forEach(btn => 
                 {
-                    btn.classList.replace("fa-play", "fa-pause");
+                    btn.classList.add("hide");
+                });
+                pauseBtn.forEach(btn => 
+                {
+                    btn.classList.remove("hide");
                 });
                 video_player.classList.add("show-controls");
                 clearTimeout(ctrltimer);
@@ -439,9 +552,13 @@
             // Paused Video
             mainVideo.addEventListener("pause", () => 
             {
-                playPauseBtn.forEach(btn => 
+                playBtn.forEach(btn => 
                 {
-                    btn.classList.replace("fa-pause", "fa-play");
+                    btn.classList.remove("hide");
+                });
+                pauseBtn.forEach(btn => 
+                {
+                    btn.classList.add("hide");
                 });
                 video_player.classList.add("show-controls");
                 clearTimeout(ctrltimer);
@@ -541,9 +658,12 @@
                 updateVolumeIcon(e.target.value);
             });
 
-            volumeBtn.addEventListener("click", () => 
+            volumeBtn.forEach(btn => 
             {
-                toggleMute();
+                btn.addEventListener("click", () => 
+                {
+                    toggleMute();
+                });
             });
 
             // Update the progress area time and display it on mouse movement
@@ -611,9 +731,12 @@
 
             // Full screen function
 
-            fullScreenBtn.addEventListener("click", () => 
+            fullScreenBtn.forEach(btn => 
             {
-                toggleFullScreenMode();
+                btn.addEventListener("click", () => 
+                {
+                    toggleFullScreenMode();
+                });
             });
 
             // Open settings

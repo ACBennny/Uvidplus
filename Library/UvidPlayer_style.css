@@ -23,6 +23,13 @@ html:root
 }
 
 
+
+svg.hide
+{
+    display: none;
+}
+
+
 /* ================ VIDEO PLAYER ================ */
 
 .vid_bdr
@@ -432,22 +439,24 @@ html:root
     line-height: 40px;
 }
 
-.options button:hover :where(i, span)
+.options button:hover :where(svg, span)
 {
     color: var(--genWhiteTypeBright);
+    fill: var(--genWhiteTypeBright);
 }
 
-.options button:active :where(i, span)
+.options button:active :where(svg, span)
 {
     transform: scale(0.9);
 }
 
-.options button span
+.options button svg
 {
-    font-size: 23px;
+    width: 20px;
+    fill: var(--genWhiteTypeLight);
+    transition: all 0.3s ease;
 }
-
-.options.left input
+.options.left input.volume-range
 {
     height: 4px;
     margin-left: 3px;
@@ -526,9 +535,12 @@ html:root
 .container video
 {
     width: 100%;
-    z-index: 1;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
     user-select: none;
     pointer-events: none;
+    z-index: 1;
 }
 
 
