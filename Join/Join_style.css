@@ -30,36 +30,6 @@
     font-size: var(--fzTxt);
 }
 
-.join_fence::-webkit-scrollbar
-{
-    width: 10px;
-}
-
-.join_fence::-webkit-scrollbar-track
-{
-    background-color: #00000000;
-}
-
-.join_fence::-webkit-scrollbar-thumb
-{
-    background-color: #222222;
-}
-
-.join_fence::-webkit-scrollbar-thumb:hover
-{
-    background-color: #333333;
-}
-
-.join_fence::-webkit-scrollbar-thumb:active
-{
-    background-color: #777777;
-}
-
-.join_fence::-webkit-scrollbar-corner
-{
-    background-color: #000000;
-}
-
 .join_area
 {
     width: 100%;
@@ -78,17 +48,18 @@
 {
     position: relative;
     width: 100%;
-    max-width: 760px;
+    min-height: fit-content;
+    max-width: 700px;
     background-color: var(--color4);
     -webkit-backdrop-filter: blur(var(--bcgFilt));
     backdrop-filter: blur(var(--bcgFilt));
     border-radius: 10px;
     padding: 25px 40px;
-    margin: 20px 10px;
+    margin: 80px 10px;
     transform: translateY(-250px);
     opacity: 0;
     visibility: hidden;
-    transition: 1500ms;
+    transition: 500ms;
 }
 
 .join_house.active
@@ -96,15 +67,6 @@
     transform: translateY(0px);
     opacity: 1;
     visibility: visible;
-}
-
-.join_house .join_close_btn
-{
-    position: absolute;
-    top: -15px;
-    right: -15px;
-    background-color: var(--color1);
-    color: var(--color2);
 }
 
 .join_house .join_bdr
@@ -168,7 +130,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    /* gap: 35px; */
 }
 
 .form_inputArea .form_input_bdr
@@ -178,6 +140,7 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    margin-bottom: 35px;
 }
 
 .form_input_bdr .form_input_nameBox
@@ -377,11 +340,13 @@
 .form_input_bdr .form_text
 {
     width: 100%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: var(--fzTxt);
     color: var(--color2);
+    font-size: var(--fzTxt);
+    text-align: center;
 }
 
 /* ---- Links in the joins boxes -- */
@@ -808,29 +773,24 @@
 /*  ----------- ---- Width ---- --------- */
 
 
-@media only screen and (max-width: 884px)
+@media only screen and (max-width: 768px)
 {
-
     .join_house
     {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
+        /* margin: 80px 0; */
+        padding: 20px;
     }
 
-    .join_house .join_close_btn
+    .form_title_box .form_title
     {
-        position: static;
-        top: 0;
-        right: 0;
-        align-self: center;
-        color: var(--color1);
-        background-color: transparent;
+        font-size: calc(var(--fzTxt) + 10px);
+        color: var(--color2);
     }
-}
 
-@media only screen and (max-width: 600px)
-{
+    .form_input_nameBox .form_input_name
+    {
+        font-size: calc(var(--fzTxt) + 1px);
+    }
 }
 
 
