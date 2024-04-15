@@ -187,7 +187,7 @@ img
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition:all 2s ease-out;
+    transition:all .2s ease-out;
     z-index: 10000000000000;
 }
 
@@ -208,16 +208,15 @@ img
 {
     0%
     {
-        transform: translateY(0px);
+        transform: translateY(-50%);
     }
-    30%
+    50%
     {
-        transform: translateY(-100px);
+        transform: translateY(0%);
     }
-
-    70%
+    100%
     {
-        transform: translateY(100px);
+        transform: translateY(-50%);
     }
 }
 
@@ -630,8 +629,9 @@ img
     top: calc(0% + var(--navBarNotificationPosT));
     right: calc(0% + var(--navBarNotificationPosR));
     width: calc(100% - 10px);
-    max-width: 400px;
     height: calc(100% - 400px);
+    max-width: 400px;
+    min-height: 450px;
     backface-visibility: hidden;
     transition: all 150ms ease;
     z-index: 5;
@@ -687,7 +687,7 @@ img
 
 .navBarNotificationSub::-webkit-scrollbar
 {
-    width: 8px;
+    width: 5px;
 }
 
 .navBarNotificationSub::-webkit-scrollbar-thumb
@@ -1509,6 +1509,13 @@ img
         width: calc(100% - var(--navBarIconBoxWidth));
     }
 
+    .navBarNotificationBdr .navBarNotificationMain
+    {
+        height: 500px;
+        min-height: 0px;
+        max-height: calc(90% - var(--navBarHeight));
+    }
+
     .navBarNotificationMain.notify_atv
     {
         --navBarNotificationPosR: 5px;
@@ -1518,6 +1525,14 @@ img
     {
         border-radius: 0px;
     }
+
+    .navBarNotificationSub::-webkit-scrollbar
+    {
+        width: 0;
+        height: 0;
+        display: none;
+    }
+
 }
 
 
