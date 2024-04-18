@@ -18,7 +18,7 @@
                             <h1 class="head">U</h1>
                             <h1 class="tail">vid</h1>
                         </div>
-                        <div class="episodeTitle">Episode 1</div>
+                        <div class="episodeTitle"></div>
                     </div>
                 </div>
                 <div class="cover-vid">
@@ -195,6 +195,7 @@
             let vidBdrBound;
             let vidBdrHeight;
             let vidBdrHeightThird;
+            const videoTitle = video_player.querySelector(".episodeTitle");
             const mainVideo = video_player.querySelector(".main-video");
             const progressAreaTime = video_player.querySelector(".progressAreaTime");
             const vidCtrlBdr = video_player.querySelector(".wrapper");
@@ -249,7 +250,11 @@
                 vidBdrHeight = vidBdrBound.height;
                 vidBdrHeightThird = Math.round(vidBdrHeight/3);
             }
-            
+            window.addEventListener("load" ,  () => 
+            {
+                checkVidBdrBounds();
+                videoTitle.textContent = majorTitle.textContent;
+            });
             window.addEventListener("scroll" , () => 
             {
                 checkVidBdrBounds();

@@ -8,6 +8,7 @@
 
 // DEFINITIONS
 
+    const majorTitle = document.querySelector(".largeText2");
     const nextEpCtntCardBdr = document.querySelectorAll(".next_epCardBdr");
 
    
