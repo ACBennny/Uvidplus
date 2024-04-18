@@ -657,7 +657,8 @@ border-radius: 20px;
 /* --------- Width ---------- */
 
 
-@media only screen and (max-height: 485px) and (max-width: 768px)
+@media only screen and (max-height: 485px),
+only screen and (max-width: 768px)
 {
 
     .cover-vid .playPause_fullscreen_VidPc
