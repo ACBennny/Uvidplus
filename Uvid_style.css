@@ -128,12 +128,28 @@ ul
     max-height: 1000px;
     background-image: url(/Images/Uvid_bcg0.jpg);
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
     background-position: center;
     background-attachment:scroll;
 }
 
 @supports (background-attachment: fixed)
+{
+    .welcome_landBcg
+    {
+        background-attachment: fixed;
+    }
+}
+
+@supports (-webkit-touch-callout: none)
+{
+    .welcome_landBcg
+    {
+        background-attachment: scroll;
+    }
+}
+  
+@supports not (-webkit-touch-callout: none)
 {
     .welcome_landBcg
     {

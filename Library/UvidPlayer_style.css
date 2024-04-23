@@ -209,64 +209,6 @@ svg.hide
     color: var(--genWhiteTypeLight);
 }
 
-.cover-vid
-{
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    z-index: 5;
-}
-
-.cover-vid .playPause_fullscreen_VidPc
-{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    background: transparent;
-}
-
-.cover-vid .mobile_controls_box
-{
-    width: 100%;
-    height: 100%;
-    display: none;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    background-color: #000000a1;
-    z-index: 4;
-}
-
-.mobile_controls_box .mobile_controls
-{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-}
-
-.mobile_controls button
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.mobile_controls_box .mobile_controls .skip-backward,
-.mobile_controls_box .mobile_controls .skip-forward
-{
-    font-size: 20px;
-}
-
-.mobile_controls_box .mobile_controls .play-pause
-{
-    font-size: 35px;
-}
-
 .wrapper
 {
     position: absolute;
@@ -276,6 +218,7 @@ svg.hide
     opacity: 0;
     bottom: -15px;
     transition: all 0.08s ease;
+    pointer-events: none;
 }
 
 .container.show-controls .wrapper
@@ -283,6 +226,7 @@ svg.hide
     opacity: 1;
     bottom: 0;
     transition: all 0.13s ease;
+    pointer-events: all;
 }
 
 .wrapper::before
@@ -402,7 +346,7 @@ svg.hide
 
 .wrapper .video-controls
 {
-    padding: 5px 20px 10px;
+    padding: 12px 20px;
 }
 
 .video-controls .options
@@ -455,7 +399,7 @@ svg.hide
 {
     width: 20px;
     fill: var(--genWhiteTypeLight);
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 .options.left input.volume-range
 {
@@ -546,93 +490,166 @@ svg.hide
 
 
 .video_player .captions,
-.video_player .settings {
-position: absolute;
-right: 25px;
-bottom: 62px;
-background: rgb(28 28 28 / 90%);
-width: 200px;
-max-height: 250px;
-height: auto;
-color: #fff;
-overflow-y: auto;
-z-index: 20;
-display: none;
-border-radius: 5px;
+.video_player .settings 
+{
+    position: absolute;
+    right: 25px;
+    bottom: 62px;
+    background: rgb(28 28 28 / 90%);
+    width: 200px;
+    max-height: 250px;
+    height: auto;
+    color: #fff;
+    overflow-y: auto;
+    z-index: 20;
+    display: none;
+    border-radius: 5px;
 }
 
 .video_player .captions.active,
-.video_player .settings.active {
-display: block;
+.video_player .settings.active 
+{
+    display: block;
 }
 
 .video_player .captions .caption span,
-.video_player .settings > div > span {
-font-size: 14px;
-font-weight: 300;
-padding: 15px 30px;
-border-bottom: 1px solid rgb(83, 83, 83);
-display: flex;
-justify-content: space-between;
-align-items: center;
-white-space: nowrap;
+.video_player .settings > div > span
+{
+    font-size: 14px;
+    font-weight: 300;
+    padding: 15px 30px;
+    border-bottom: 1px solid rgb(83, 83, 83);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
 }
-.video_player .settings > div .icon{
-font-size: 14px;
-margin: 0 5px;
-cursor: pointer;
+.video_player .settings > div .icon
+{
+    font-size: 14px;
+    margin: 0 5px;
+    cursor: pointer;
 }
-.video_player .settings > div ul li span{
-pointer-events: none;
+
+.video_player .settings > div ul li span
+{
+    pointer-events: none;
 }
 
 .video_player .captions .caption ul,
 .video_player .settings > div ul {
-position: relative;
+    position: relative;
 }
 
 .video_player .captions .caption ul li,
-.video_player .settings > div ul li {
-position: relative;
-width: 100%;
-cursor: pointer;
-text-align: left;
-padding: 12px 33px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-font-size: 14px;
+.video_player .settings > div ul li 
+{
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    text-align: left;
+    padding: 12px 33px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
 }
 
 .video_player .captions .caption ul li:hover,
-.video_player .settings > div ul li:hover {
-background: rgba(28, 28, 28, 0.9);
+.video_player .settings > div ul li:hover 
+{
+    background: rgba(28, 28, 28, 0.9);
 }
 
 .video_player .captions .caption ul li.active::before,
-.video_player .settings > div ul li.active::before {
-content: "\e876";
-font-family: "Material Icons";
-position: absolute;
-left: 7px;
-top: 50%;
-transform: translateY(-50%);
-padding-right: 10px;
-font-size: 18px;
+.video_player .settings > div ul li.active::before 
+{
+    content: "\e876";
+    font-family: "Material Icons";
+    position: absolute;
+    left: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-right: 10px;
+    font-size: 18px;
 }
 
 .video_player .captions::-webkit-scrollbar,
-.video_player .settings::-webkit-scrollbar {
-width: 8px;
-background: transparent;
+.video_player .settings::-webkit-scrollbar 
+{
+    width: 8px;
+    background: transparent;
 }
 
 .video_player .captions::-webkit-scrollbar-thumb,
-.video_player .settings::-webkit-scrollbar-thumb {
-height: 20px;
-border: 2px solid transparent;
-background: rgba(83, 83, 83, 0.9);
-border-radius: 20px;
+.video_player .settings::-webkit-scrollbar-thumb 
+{
+    height: 20px;
+    border: 2px solid transparent;
+    background: rgba(83, 83, 83, 0.9);
+    border-radius: 20px;
+}
+
+.cover-vid
+{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 5;
+}
+
+.cover-vid .playPause_fullscreen_VidPc
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: transparent;
+}
+
+.cover-vid .mobile_controls_box
+{
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background-color: #000000a1;
+    z-index: 4;
+}
+
+.mobile_controls_box .mobile_controls
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+}
+
+.mobile_controls button
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.mobile_controls_box .mobile_controls .skip-backward,
+.mobile_controls_box .mobile_controls .skip-forward,
+.mobile_controls_box .mobile_controls .skip-backward svg,
+.mobile_controls_box .mobile_controls .skip-forward svg
+{
+    width: 35px;
+}
+
+.mobile_controls_box .mobile_controls .play-pause,
+.mobile_controls_box .mobile_controls .play-pause svg
+{
+    width: 45px;
 }
 
 
@@ -654,10 +671,9 @@ border-radius: 20px;
 /* ==========================  RESPONSIVENESS ========================= */
 
 
-/* --------- Width ---------- */
-
-
-@media only screen and (max-height: 485px),
+/* --------- Mobile / Touch Devices ------ */
+@media(hover: none) and (pointer: coarse),
+only screen and (max-height: 485px),
 only screen and (max-width: 884px)
 {
 
@@ -672,23 +688,12 @@ only screen and (max-width: 884px)
         z-index: 7;
     }
 
-    .container.show-controls .cover-vid .mobile_controls_box
-    {
-        display: flex;
-    }
-
-    .wrapper .video-controls
-    {
-        padding: 3px 10px 7px;
-    }
-
     .video_player .thumbnail,
     .options input,
     .progress-area span,
     .pc_controls,
     .right .pic-in-pic,
     .video_player .progressAreaTime
-    
     {
         display: none !important;
     }
@@ -753,4 +758,81 @@ only screen and (max-width: 884px)
         margin: 1px 0;
         padding: 3px 0 3px 10px;
     }
+
+    .container.show-controls .cover-vid .mobile_controls_box
+    {
+        display: flex;
+    }
+
+    .container.show-controls .cover-vid .mobile_controls_box button
+    {
+        pointer-events: all;
+    }
 }
+
+
+
+
+/* --------- Width ---------- */
+
+
+@media only screen and (max-width: 485px)
+{
+    .wrapper .video-controls
+    {
+        padding: 5px 10px;
+    }
+
+    .wrapper .progress-area,
+    .wrapper .progress-area:hover
+    {
+        height: 5px;
+    }
+
+    .options button svg
+    {
+        width: 15px;
+    }
+
+    .options .video-timer
+    {
+        font-size: 12px;
+    }
+
+    .mobile_controls_box .mobile_controls
+    {
+        gap: 45px;
+    }
+
+    .mobile_controls_box .mobile_controls .skip-backward,
+    .mobile_controls_box .mobile_controls .skip-forward,
+    .mobile_controls_box .mobile_controls .skip-backward svg,
+    .mobile_controls_box .mobile_controls .skip-forward svg
+    {
+        width: 20px;
+    }
+
+    .mobile_controls_box .mobile_controls .play-pause,
+    .mobile_controls_box .mobile_controls .play-pause svg
+    {
+        width: 26px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

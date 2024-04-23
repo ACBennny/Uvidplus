@@ -134,7 +134,7 @@
                     <div data-label="settingHome">
                         <ul>
                             <li data-label="speed">
-                                <span> Speed </span>
+                                <p> Speed </p>
                                 <span class="">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="">
                                         <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
@@ -142,8 +142,8 @@
                                 </span>
                             </li>
                             <li data-label="quality">
-                                <span> Quality </span>
-                                <span class="material-symbols-outlined icon">
+                                <p> Quality </p>
+                                <span class="">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="">
                                         <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
                                     </svg>
@@ -158,24 +158,42 @@
                             <span>Playback Speed </span>
                         </span>
                         <ul>
-                            <li data-speed="0.25">0.25</li>
-                            <li data-speed="0.5">0.5</li>
-                            <li data-speed="0.75">0.75</li>
-                            <li data-speed="1" class="active">Normal</li>
-                            <li data-speed="1.25">1.25</li>
-                            <li data-speed="1.5">1.5</li>
-                            <li data-speed="1.75">1.75</li>
-                            <li data-speed="2">2</li>
+                            <li data-speed="0.25">
+                                <p>0.25</p>
+                            </li>
+                            <li data-speed="0.5">
+                                <p>0.5</p>
+                            </li>
+                            <li data-speed="0.75">
+                                <p>0.75</p>
+                            </li>
+                            <li data-speed="1" class="active">
+                                <p>Normal</p>
+                            </li>
+                            <li data-speed="1.25">
+                                <p>1.25</p>
+                            </li>
+                            <li data-speed="1.5">
+                                <p>1.5</p>
+                            </li>
+                            <li data-speed="1.75">
+                                <p>1.75</p>
+                            </li>
+                            <li data-speed="2">
+                                <p>2</p>
+                            </li>
                         </ul>
                     </div>
-                    <div data-label="quality">
+                    <div data-label="quality" hidden>
                         <span>
                             <i class="fa-solid fa-caret-right" data-label="settingHome">
                             </i>
                             <span>Playback Quality </span>
                         </span>
                         <ul>
-                            <li data-quality="auto" class="active">auto</li>
+                            <li data-quality="auto" class="active">
+                                <p>auto</p>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -227,7 +245,7 @@
             // const auto_play = video_player.querySelector(".auto-play");
             const autoNextEpCheckBox = video_player.querySelector("#showlist_AutoNextToggleCheckbox");
             const nextEpLink = video_player.querySelector(".next_epLink");
-            const settingsBtn = video_player.querySelector(".settingsBtn");
+            const settingsBtn = video_player.querySelector(".settingsBtn"); 
             const captionsBtn = video_player.querySelector(".captionsBtn");
             const settings = video_player.querySelector(".settings");
             const settingHome = video_player.querySelectorAll(".settings [data-label='settingHome'] > ul > li");

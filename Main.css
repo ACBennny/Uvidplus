@@ -17,39 +17,6 @@
 
 
 
-
-::-webkit-scrollbar
-{
-    width: 8px;
-    height: 8px;
-}
-
-::-webkit-scrollbar-corner
-{
-    background-color: #000;
-}
-
-::-webkit-scrollbar-track
-{
-    background-color: #111111;
-    background-color: transparent;
-    margin-block: 10px;
-}
-
-::-webkit-scrollbar-thumb{
-    background-color: #444444;
-}
-
-::-webkit-scrollbar-thumb:hover
-{
-    background-color: #545454;
-}
-
-::-webkit-scrollbar-thumb:active
-{
-    background-color: #777777;
-}
-
 ::selection
 {
     background: #202720;
@@ -683,28 +650,6 @@ img
     overflow: hidden;
     overflow-y: visible;
     padding: 10px 10px 0px 10px;
-}
-
-.navBarNotificationSub::-webkit-scrollbar
-{
-    width: 5px;
-}
-
-.navBarNotificationSub::-webkit-scrollbar-thumb
-{
-    background-color: #444444;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-}
-
-.navBarNotificationSub::-webkit-scrollbar-thumb:hover
-{
-    background-color: #666666;
-}
-
-.navBarNotificationSub::-webkit-scrollbar-thumb:active
-{
-    background-color: #888888;
 }
 
 .navBarNotificationSub .navBarNotificationBox
@@ -1427,8 +1372,6 @@ img
 
 
 
-
-
 /* ========= Responsive ========= */
 
 /* ----- Height ----- */
@@ -1461,7 +1404,7 @@ img
 
 @media only screen and (max-width: 768px)
 {
-    ::-webkit-scrollbar
+    /* ::-webkit-scrollbar
     {
         width: 4px;
         height: 4px;
@@ -1479,7 +1422,7 @@ img
     ::-webkit-scrollbar-thumb:active
     {
         background-color: #333333;
-    }
+    } */
 
     .searchBdr.navBarSearchBdr
     {
@@ -1526,14 +1469,74 @@ img
         border-radius: 0px;
     }
 
-    .navBarNotificationSub::-webkit-scrollbar
+    /* .navBarNotificationSub::-webkit-scrollbar
     {
         width: 0;
         height: 0;
         display: none;
-    }
+    } */
 
 }
 
 
+/* =============== NON-TOUCH SCREENS ============== */
 
+@media(hover: hover)
+{
+    ::-webkit-scrollbar
+    {
+        width: 8px;
+        height: 8px;
+        pointer-events: none;
+    }
+
+    ::-webkit-scrollbar-corner
+    {
+        background-color: #000;
+    }
+
+    ::-webkit-scrollbar-track
+    {
+        background-color: #111111;
+        background-color: transparent;
+        margin-block: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb{
+        background-color: #444444;
+    }
+
+    ::-webkit-scrollbar-thumb:hover
+    {
+        background-color: #545454;
+    }
+
+    ::-webkit-scrollbar-thumb:active
+    {
+        background-color: #777777;
+    }
+
+    /* ----- Navbar Notification ----- */
+
+    .navBarNotificationSub::-webkit-scrollbar
+    {
+        width: 5px;
+    }
+
+    .navBarNotificationSub::-webkit-scrollbar-thumb
+    {
+        background-color: #444444;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+    }
+
+    .navBarNotificationSub::-webkit-scrollbar-thumb:hover
+    {
+        background-color: #666666;
+    }
+
+    .navBarNotificationSub::-webkit-scrollbar-thumb:active
+    {
+        background-color: #888888;
+    }
+}
