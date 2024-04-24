@@ -774,6 +774,17 @@ only screen and (max-width: 884px)
 }
 
 
+/* ---------- Height ----------- */
+@media only screen and (max-height: 485px)
+{
+
+    .wrapper .video-controls
+    {
+        padding: 7px 10px 10px;
+    }
+}
+
+
 
 
 /* --------- Width ---------- */
@@ -782,10 +793,10 @@ only screen and (max-width: 884px)
 @media only screen and (max-width: 884px)
 {
 
-    .wrapper .video-controls
+    /* .wrapper .video-controls
     {
         padding: 7px 10px;
-    }
+    } */
 
     .options button
     {
