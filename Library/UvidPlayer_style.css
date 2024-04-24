@@ -103,7 +103,7 @@ svg.hide
     background-color: #00000010;
     transition:all 2s ease-out;
     pointer-events: none;
-    z-index: 2;
+    z-index: 15;
 }
 
 .video_player .loader .spinner
