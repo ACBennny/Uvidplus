@@ -782,6 +782,11 @@ only screen and (max-width: 884px)
 @media only screen and (max-width: 884px)
 {
 
+    .wrapper .video-controls
+    {
+        padding: 7px 10px;
+    }
+
     .options button
     {
         height: 30px;
