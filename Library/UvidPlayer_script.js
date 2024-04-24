@@ -324,6 +324,7 @@
             {
                 if(mainVideo.paused) return;
                 if(!(window.matchMedia("(hover: none)")) && (vidCtrlBdr.matches(":hover"))) return;
+                if(!(window.matchMedia("(hover: none)")) && (loader.style.display == "flex")) return;
                 ctrltimer = setTimeout(() => 
                 {
                     video_player.classList.remove("show-controls");
