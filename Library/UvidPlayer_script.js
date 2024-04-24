@@ -1,8 +1,14 @@
+/*************************************************************
+ * This is the script for the Video Player of Uvid
+ * 
+ * @author (Anyanwu Benedict Chukwuemeka)
+ * @version (v0.01)
+ *************************************************************/
 
 
 
-
-        // let's select all required tags or elements
+    // VIDEO PLAYER
+        
         const video_players = document.querySelectorAll(".video_player");
         video_players.forEach(video_player => 
         {
@@ -47,8 +53,15 @@
                     </div>
                 </div>
                 <p class="caption_text"></p>
-                <div class="thumbnail"></div>
-                <div class="progressAreaTime" >0:00</div>
+                <div class="thumbnailBox">
+                    <div class="thumbnailFence">
+                        <div class="thumbnailHouse">
+                            <div class="progressAreaTime" >0:00</div>
+                            <div class="thumbnail">
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="wrapper">
                     <div class="progress-area">
                     <canvas class="bufferedBar"></canvas>
@@ -59,7 +72,7 @@
 
                     <ul class="video-controls">
                         <li class="options left">
-                            <button class="volume" title="volume" aria-label="volume">
+                            <button class="volume" title="mute" aria-label="mute">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="volume_highIcon">
                                     <path d="M533.6 32.5C598.5 85.2 640 165.8 640 256s-41.5 170.7-106.4 223.5c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C557.5 398.2 592 331.2 592 256s-34.5-142.2-88.7-186.3c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zM473.1 107c43.2 35.2 70.9 88.9 70.9 149s-27.7 113.8-70.9 149c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C475.3 341.3 496 301.1 496 256s-20.7-85.3-53.2-111.8c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zm-60.5 74.5C434.1 199.1 448 225.9 448 256s-13.9 56.9-35.4 74.5c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C393.1 284.4 400 271 400 256s-6.9-28.4-17.7-37.3c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zM301.1 34.8C312.6 40 320 51.4 320 64V448c0 12.6-7.4 24-18.9 29.2s-25 3.1-34.4-5.3L131.8 352H64c-35.3 0-64-28.7-64-64V224c0-35.3 28.7-64 64-64h67.8L266.7 40.1c9.4-8.4 22.9-10.4 34.4-5.3z"/>
                                 </svg>
@@ -130,7 +143,7 @@
                     </ul>
                 </div>
 
-                <div class="settings">
+                 <div class="settings">
                     <div data-label="settingHome">
                         <ul>
                             <li data-label="speed">
@@ -196,7 +209,7 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> 
                 <div class="captions">
                     <div class="caption">
                         <span>Select Subtitle</span>
@@ -226,6 +239,7 @@
             const playPauseBtn = video_player.querySelectorAll(".play-pause svg");
             const playBtn = video_player.querySelectorAll(".play-pause .playIcon");
             const pauseBtn = video_player.querySelectorAll(".play-pause .pauseIcon");
+            const volumeBtnBox = video_player.querySelector(".volume");
             const volumeBtn = video_player.querySelectorAll(".volume svg");
             const volumeHighBtn = video_player.querySelector(".volume .volume_highIcon");
             const volumeLowBtn = video_player.querySelector(".volume .volume_lowIcon");
@@ -253,13 +267,14 @@
             const caption_labels = video_player.querySelector(".captions ul");
             let caption_text = video_player.querySelector(".caption_text");
 
+            const thumbnailBox = video_player.querySelector(".thumbnailBox");
             const thumbnail = video_player.querySelector(".thumbnail");
-            var thumbnails = [];
-            var thumbnailWidth = 250;
-            var thumbnailSpacing = thumbnailWidth * 0.55;
-            var thumbnailHeight = 150;
-            var horizontalItemCount = 5;
-            var verticalItemCount = 5;
+            let thumbnails = [];
+            let thumbnailWidth = 250;
+            let thumbnailSpacing = thumbnailWidth * 0.75;
+            let thumbnailHeight = 150;
+            let horizontalItemCount = 5;
+            let verticalItemCount = 5;
 
             let ctrltimer;
 
@@ -308,8 +323,9 @@
             const hideControls = () => 
             {
                 if(mainVideo.paused) return;
-                if(vidCtrlBdr.matches(":hover")) return;
-                ctrltimer = setTimeout(() => {
+                if(!(window.matchMedia("(hover: none)")) && (vidCtrlBdr.matches(":hover"))) return;
+                ctrltimer = setTimeout(() => 
+                {
                     video_player.classList.remove("show-controls");
                 }, 2000);
             }
@@ -330,23 +346,29 @@
             function updateVolumeIcon(volume)
             {
                 
-                if(volume === 0)
-                {
-                    volumeOffBtn.classList.remove("hide");
-                    volumeLowBtn.classList.add("hide");
-                    volumeHighBtn.classList.add("hide");
-                }
-                else if(volume <= 0.3)
-                {
-                    volumeLowBtn.classList.remove("hide");
-                    volumeHighBtn.classList.add("hide");
-                    volumeOffBtn.classList.add("hide");
-                }
-                else
+                if(volume > 0.3)
                 {
                     volumeOffBtn.classList.add("hide");
                     volumeLowBtn.classList.add("hide");
                     volumeHighBtn.classList.remove("hide");
+                    volumeBtnBox.title = "mute";
+                    volumeBtnBox.ariaLabel = "mute";
+                }
+                else if(volume <= 0.3 && volume > 0)
+                {
+                    volumeLowBtn.classList.remove("hide");
+                    volumeHighBtn.classList.add("hide");
+                    volumeOffBtn.classList.add("hide");
+                    volumeBtnBox.title = "mute";
+                    volumeBtnBox.ariaLabel = "mute";
+                }
+                else
+                {
+                    volumeOffBtn.classList.remove("hide");
+                    volumeLowBtn.classList.add("hide");
+                    volumeHighBtn.classList.add("hide");
+                    volumeBtnBox.title = "unmute";
+                    volumeBtnBox.ariaLabel = "unmute";
                 }
             }
 
@@ -359,6 +381,8 @@
                     volumeHighBtn.classList.remove("hide");
                     volumeLowBtn.classList.add("hide");
                     volumeOffBtn.classList.add("hide");
+                    volumeBtnBox.title = "mute";
+                    volumeBtnBox.ariaLabel = "mute";
                 }
                 else
                 {
@@ -366,6 +390,8 @@
                     volumeOffBtn.classList.remove("hide");
                     volumeLowBtn.classList.add("hide");
                     volumeHighBtn.classList.add("hide");
+                    volumeBtnBox.title = "unmute";
+                    volumeBtnBox.ariaLabel = "unmute";
                 }
                 volumeSlider.value = mainVideo.volume;
             }
@@ -553,6 +579,7 @@
             mainVideo.addEventListener("loadeddata", (e) => 
             {
                 totalDuration.innerHTML = formatTime(mainVideo.duration);
+                mainVideo.volume = volumeSlider.value;
             });
 
             // Current video duration
@@ -719,27 +746,23 @@
                 posX = posX < thumbnailSpacing ? thumbnailSpacing : (posX > (timelineWidth - thumbnailSpacing)) ? (timelineWidth - thumbnailSpacing) : posX;
                 progressAreaTime.innerText = formatTime(percent);
 
-                progressAreaTime.style.setProperty("--posX", `${posX}px`);
-                progressAreaTime.style.display = "block";
-
                 // Displaying thumbnail
+                thumbnailBox.style.setProperty("--posX", `${posX}px`);
                 thumbnail.style.setProperty("--posX", `${posX}px`);
-                thumbnail.style.display = "block";
+                thumbnailBox.classList.add("show");
 
-                for (var item of thumbnails)
+                for (let item of thumbnails)
                 {
-                    var data = item.sec.find(x1 => x1.index === Math.floor(percent));
+                    let data = item.sec.find(x1 => x1.index === Math.floor(percent));
 
-                    // thumbnail found
-                    const defaultThumnail = "/Images/bcg/default.jpg";
+                    // Show thumbnail if found
                     if (data)
                     {
                         if (item.data != undefined)
                         {
-                            thumbnail.setAttribute("style", `background-image: url(${item.data});background-position-x: ${data.backgroundPositionX}px;background-position-y: ${data.backgroundPositionY}px;--posX: ${posX}px;display: block;`);
+                            thumbnail.setAttribute("style", `background-image: url(${item.data});background-position-x: ${data.backgroundPositionX}px;background-position-y: ${data.backgroundPositionY}px;--posX: ${posX}px;`);
                             return;
                         }
-                        thumbnail.setAttribute("style", `background-image: url(${defaultThumnail});background-position-x: ${data.backgroundPositionX}px;background-position-y: ${data.backgroundPositionY}px;--posX: ${posX}px;display: block;`);
                     }
                 }
 
@@ -748,8 +771,12 @@
             // Hiding thumbnail and progress area time when mouse is not hovering the progress area
             progressArea.addEventListener("mouseleave", () => 
             {
-                thumbnail.style.display = "none";
-                progressAreaTime.style.display = "none";
+                thumbnailBox.classList.remove("show");
+            });
+
+            mainVideo.addEventListener('ended', () => 
+            {
+                mainVideo.play();
             });
 
             // Auto play
@@ -1004,30 +1031,30 @@
             {
                 preview_video.pause();
 
-                var count = 1;
-                var id = 1;
-                var x = 0,
+                let count = 1;
+                let id = 1;
+                let x = 0,
                 y = 0;
 
-                var array = [];
+                let array = [];
 
-                var duration = parseInt(preview_video.duration);
-                for (var i = 1; i <= duration; i++)
+                let duration = parseInt(preview_video.duration);
+                for (let i = 1; i <= duration; i++)
                 {
                     array.push(i);
                 }
 
-                var canvas;
+                let canvas;
 
-                var i, j;
+                let i, j;
 
                 for (i = 0, j = array.length; i < j; i += horizontalItemCount)
                 {
-                    for (var startIndex of array.slice(i, i + horizontalItemCount))
+                    for (let startIndex of array.slice(i, i + horizontalItemCount))
                     {
-                        var backgroundPositionX = x * thumbnailWidth;
-                        var backgroundPositionY = y * thumbnailHeight;
-                        var item = thumbnails.find((x) => x.id === id);
+                        let backgroundPositionX = x * thumbnailWidth;
+                        let backgroundPositionY = y * thumbnailHeight;
+                        let item = thumbnails.find((x) => x.id === id);
 
                         if (!item)
                         {
@@ -1058,11 +1085,11 @@
                             });
                         }
 
-                        var context = canvas.getContext("2d");
+                        let context = canvas.getContext("2d");
                         preview_video.currentTime = startIndex;
                         await new Promise(function (resolve)
                         {
-                            var event = function ()
+                            let event = function ()
                             {
                                 context.drawImage(
                                     preview_video,

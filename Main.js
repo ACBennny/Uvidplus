@@ -76,7 +76,8 @@
     // This function removes the preloader after the skeleton of the website has been loaded
     
     window.addEventListener("load", () => {
-        preload.style.display = "none";
+        // preload.style.display = "none";
+        preload.classList.add("preloadClose");
         document.body.classList.add('bodystart');
         instantiateSideNavBar();
     });

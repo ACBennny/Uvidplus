@@ -1,5 +1,5 @@
 /*************************************************************
- * This is the script for the Episode pages of Uvid
+ * This is the script for the General area of the Episode pages of Uvid
  * 
  * @author (Anyanwu Benedict Chukwuemeka)
  * @version (v0.01)
@@ -9,9 +9,7 @@
 // DEFINITIONS
 
     const majorTitle = document.querySelector(".largeText2");
-    const nextEpCtntCardBdr = document.querySelectorAll(".next_epCardBdr");
-
-   
+    const nextEpCtntCardBdr = document.querySelectorAll(".next_epCardBdr");   
 
 
 
@@ -28,6 +26,13 @@
         cardlink.title = "Watch " + cardEpTitle.textContent + " of " + cardShowName.textContent ;
         cardImage.alt = "Image of " + cardShowName.textContent + cardEpTitle.textContent;
     });
+
+
+
+// MORE EPISODES
+
+    //  Loads
+
 
 
 

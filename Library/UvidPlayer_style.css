@@ -22,6 +22,13 @@ html:root
     --showlist_MoreEpHeaderBdrHeight: 50px;
 }
 
+@supports(-webkit-tap-highlight-color: #00000000)
+{
+    body
+    {
+        -webkit-tap-highlight-color: #00000000;
+    }
+}
 
 
 svg.hide
@@ -30,7 +37,6 @@ svg.hide
 }
 
 
-/* ================ VIDEO PLAYER ================ */
 
 .vid_bdr
 {
@@ -52,30 +58,30 @@ svg.hide
     align-items: center;
 }
 
-.container, .video-controls, .video-timer, .options
+.video_player, .video-controls, .video-timer, .options
 {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.container
+.video_player
 {
     position: relative;
     width: 98%;
-    -moz-user-select: -moz-none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    overflow: hidden;
     max-width: var(--genMaxWidth);
     border-radius: 5px;
     background: #000;
     aspect-ratio: 16 / 9;
     box-shadow: 0 10px 20px #0000001a;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    overflow: hidden;
 }
 
-.container.fullscreen
+.video_player.fullscreen
 {
     max-width: 100%;
     width: 100%;
@@ -94,24 +100,27 @@ svg.hide
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #00000025;
-    /* -webkit-backdrop-filter: blur(25px);
-    backdrop-filter: blur(25px); */
+    background-color: #00000010;
     transition:all 2s ease-out;
-    z-index: 15;
     pointer-events: none;
+    z-index: 2;
 }
 
 .video_player .loader .spinner
 {
     width: 60px;
     height: 50px;
-    border-right: 15px solid #21c92c;
+    border-right: 15px solid var(--genGreenTypeLight);
     border-bottom: 10px solid var(--genWhiteTypeLight);
-    border-left: 15px solid #21c92c;
+    border-left: 15px solid var(--genGreenTypeLight);
     border-top: 11px solid transparent;
     border-radius: 10px;
     animation: ani 2000ms linear infinite;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
 }
 
 
@@ -131,6 +140,21 @@ svg.hide
     }
 }
 
+.video_player video
+{
+    width: 100%;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.video_player video::cue
+{
+    opacity: 0;
+}
 
 .episode_title_bdr
 {
@@ -144,7 +168,7 @@ svg.hide
     z-index: 4;
 }
 
-.container.show-controls .episode_title_bdr
+.video_player.show-controls .episode_title_bdr
 {
     background: linear-gradient(to bottom, #000000a1 , transparent);
 }
@@ -184,14 +208,14 @@ svg.hide
     font-size: 13px;
 }
 
-.container.show-controls .episode_title_bdr
+.video_player.show-controls .episode_title_bdr
 .episode_title_box .companyTitle .head
 {
     color: var(--genGreenTypeLight);
 }
 
 
-.container.show-controls .episode_title_bdr
+.video_player.show-controls .episode_title_bdr
 .episode_title_box .companyTitle .tail
 {
     color: var(--genWhiteTypeLight);
@@ -203,7 +227,7 @@ svg.hide
     font-size: 13px;
 }
 
-.container.show-controls .episode_title_bdr
+.video_player.show-controls .episode_title_bdr
 .episodeTitle
 {
     color: var(--genWhiteTypeLight);
@@ -221,7 +245,7 @@ svg.hide
     pointer-events: none;
 }
 
-.container.show-controls .wrapper
+.video_player.show-controls .wrapper
 {
     opacity: 1;
     bottom: 0;
@@ -234,11 +258,11 @@ svg.hide
     content: "";
     bottom: 0;
     width: 100%;
-    z-index: -1;
     position: absolute;
     height: calc(100% + 35px);
     pointer-events: none;
     background: linear-gradient(to top, #000000b3, transparent);
+    z-index: -1;
 }
 
 .video-timeline
@@ -251,7 +275,7 @@ svg.hide
 .wrapper .progress-area
 {
     position: relative;
-    width: calc(100% - 10px);
+    width: calc(100% - 25px);
     height: 3px;
     margin: auto;
     background: #f0f0f063;
@@ -261,7 +285,7 @@ svg.hide
 
 .progress-area:hover
 {
-    height: 7px;
+    height: 5px;
 }
 
 .progress-area .progress-bar
@@ -278,8 +302,8 @@ svg.hide
 {
     content: "";
     position: absolute;
-    width: 15px;
-    height: 15px;
+    width: 13px;
+    height: 13px;
     border-radius: 50%;
     right: -5px;
     top: 50%;
@@ -309,40 +333,73 @@ svg.hide
     height: inherit;
 }
 
-.video_player .progressAreaTime
+.video_player .thumbnailBox
+{
+    position: absolute;
+    left: calc(11px + var(--posX));
+    bottom: 75px;
+    width: 250px;
+    height: 150px;
+    display: block;
+    transform: translate(-50%, 10px) scale(.75);
+    transform-origin: 50% 100%;
+    transition: transform .2s .1s, opacity .2s .1s;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 8;
+}
+
+.thumbnailBox.show
+{
+    opacity: 1;
+    transform: translate(-50%, 0px) scale(1);
+}
+
+.thumbnailBox .thumbnailFence
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.thumbnailFence .thumbnailHouse
+{
+    width: 100%;
+    height: 100%;
+}
+
+.thumbnailHouse .thumbnail
+{
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    box-shadow: 0px 0px 10px #000000dd;
+    border-radius: 2px;
+    z-index: 2;
+}
+
+.thumbnailHouse .progressAreaTime
 {
     font-family: 'Poppins' , sans-serif;
     position: absolute;
-    left: calc(var(--posX));
-    transform: translateX(-50%);
-    bottom: 73px;
+    left: 50%;
+    bottom: 0;
     min-width: 50px;
-    display: none;
+    display: block;
     padding: 3px;
     color: var(--genWhiteTypeBright);
+    font-size: 14px;
     text-align: center;
     white-space: nowrap;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     background-color: #000000;
-    font-size: 14px;
-    z-index: 8;
+    transform: translateX(-50%);
+    z-index: 3;
 }
 
-.video_player .thumbnail
-{
-    position: absolute;
-    left: calc(var(--posX));
-    bottom: 70px;
-    width: 250px;
-    height: 150px;
-    display: none;
-    background: #000000;
-    box-shadow: 0px 0px 10px #000000dd;
-    border-radius: 2px;
-    transform: translateX(-50%);
-    z-index: 8;
-}
+
 
 .wrapper .video-controls
 {
@@ -390,7 +447,7 @@ svg.hide
     fill: var(--genWhiteTypeBright);
 }
 
-.options button:active :where(svg, span)
+.options button :where(svg:active , span:active)
 {
     transform: scale(0.9);
 }
@@ -475,17 +532,6 @@ svg.hide
 {
     color: var(--genWhiteTypeBright);
     background: var(--genGreenTypeDark);
-}
-
-.container video
-{
-    width: 100%;
-    -moz-user-select: -moz-none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    pointer-events: none;
-    z-index: 1;
 }
 
 
@@ -590,7 +636,7 @@ svg.hide
     border-radius: 20px;
 }
 
-.cover-vid
+.video_player .cover-vid
 {
     position: absolute;
     inset: 0;
@@ -606,6 +652,7 @@ svg.hide
     height: 100%;
     display: flex;
     background: transparent;
+    z-index: 5;`
 }
 
 .cover-vid .mobile_controls_box
@@ -618,7 +665,7 @@ svg.hide
     align-items: center;
     gap: 15px;
     background-color: #000000a1;
-    z-index: 4;
+    z-index: 2;
 }
 
 .mobile_controls_box .mobile_controls
@@ -635,7 +682,6 @@ svg.hide
     display: flex;
     justify-content: center;
     align-items: center;
-    pointer-events: none;
 }
 
 .mobile_controls_box .mobile_controls .skip-backward,
@@ -677,12 +723,14 @@ only screen and (max-height: 485px),
 only screen and (max-width: 884px)
 {
 
-    .cover-vid .playPause_fullscreen_VidPc
+    .video_player.show-controls .cover-vid 
+    .playPause_fullscreen_VidPc
     {
         display: none;
+        pointer-events: none;
     }
 
-    .container.show-controls .episode_title_bdr
+    .video_player.show-controls .episode_title_bdr
     {
         background-color: transparent;
         z-index: 7;
@@ -698,10 +746,26 @@ only screen and (max-width: 884px)
         display: none !important;
     }
 
+    .video_player.show-controls .cover-vid .mobile_controls_box
+    {
+        display: flex;
+    }
+}
+
+
+
+
+/* --------- Width ---------- */
+
+
+@media only screen and (max-width: 768px)
+{
+    
+
     .wrapper .progress-area,
     .wrapper .progress-area:hover
     {
-        height: 7px;
+        height: 5px;
     }
 
     .progress-area .progress-bar::before,
@@ -759,21 +823,20 @@ only screen and (max-width: 884px)
         padding: 3px 0 3px 10px;
     }
 
-    .container.show-controls .cover-vid .mobile_controls_box
+    .mobile_controls_box .mobile_controls .skip-backward,
+    .mobile_controls_box .mobile_controls .skip-forward,
+    .mobile_controls_box .mobile_controls .skip-backward svg,
+    .mobile_controls_box .mobile_controls .skip-forward svg
     {
-        display: flex;
+        width: 32px;
     }
 
-    .container.show-controls .cover-vid .mobile_controls_box button
+    .mobile_controls_box .mobile_controls .play-pause,
+    .mobile_controls_box .mobile_controls .play-pause svg
     {
-        pointer-events: all;
+        width: 40px;
     }
 }
-
-
-
-
-/* --------- Width ---------- */
 
 
 @media only screen and (max-width: 485px)
@@ -781,12 +844,6 @@ only screen and (max-width: 884px)
     .wrapper .video-controls
     {
         padding: 5px 10px;
-    }
-
-    .wrapper .progress-area,
-    .wrapper .progress-area:hover
-    {
-        height: 5px;
     }
 
     .options button svg

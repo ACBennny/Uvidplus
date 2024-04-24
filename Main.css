@@ -158,6 +158,11 @@ img
     z-index: 10000000000000;
 }
 
+#preloader.preloadClose
+{
+    display: none !important;
+}
+
 #spinner
 {
     width: 60px;
@@ -1375,7 +1380,7 @@ img
 /* ========= Responsive ========= */
 
 /* ----- Height ----- */
-@media only screen and (max-width: 300px)
+@media only screen and (max-height: 300px)
 {}
 
 
@@ -1430,7 +1435,7 @@ img
         bottom: 0;
         left: 100%;
         width: 100%;
-        background-color: var(--navBarBcgSolid);
+        background-color: #000000;
         opacity: 0;
         visibility: hidden;
     }
