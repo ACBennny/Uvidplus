@@ -727,6 +727,21 @@ only screen and (max-height: 485px),
 only screen and (max-width: 884px)
 {
 
+    .wrapper .progress-area,
+    .wrapper .progress-area:hover
+    {
+        height: 5px;
+    }
+
+    .progress-area .progress-bar::before,
+    .progress-area:hover .progress-bar::before
+    {
+        opacity: 1;
+        visibility: visible;
+        user-select: all;
+        pointer-events: all;
+    }
+
     .video_player .cover-vid 
     .playPause_fullscreen_VidPc
     {
@@ -764,24 +779,8 @@ only screen and (max-width: 884px)
 /* --------- Width ---------- */
 
 
-@media only screen and (max-width: 768px)
+@media only screen and (max-width: 884px)
 {
-    
-
-    .wrapper .progress-area,
-    .wrapper .progress-area:hover
-    {
-        height: 5px;
-    }
-
-    .progress-area .progress-bar::before,
-    .progress-area:hover .progress-bar::before
-    {
-        opacity: 1;
-        visibility: visible;
-        user-select: all;
-        pointer-events: all;
-    }
 
     .options button
     {
@@ -851,7 +850,7 @@ only screen and (max-width: 884px)
     {
         width: calc(100% - 10px);
     }
-    
+
     .wrapper .video-controls
     {
         padding: 5px 10px;
