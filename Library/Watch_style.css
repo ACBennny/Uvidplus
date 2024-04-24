@@ -762,6 +762,15 @@ html:root
 
 @media only screen and (max-width: 768px)
 {
+    .section_title_box .section_title_textLarge
+    {
+        font-size: 14px;
+    }
+
+    .section_title_box .section_title_textSmall
+    {
+        font-size: 12px;
+    }
 
     .showlist_MoreEpBox .showlist_MoreEpCloseBox
     {
@@ -819,3 +828,26 @@ html:root
         align-items: center;
     }
 }
+
+
+
+@media only screen and (max-width: 350px)
+{
+    .next_epCardBox .next_epImgBox
+    {
+        width: 120px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
