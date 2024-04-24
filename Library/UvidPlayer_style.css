@@ -238,7 +238,7 @@ svg.hide
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -15px;
+    bottom: -35px;
     opacity: 0;
     transition: all 0.08s ease;
     pointer-events: none;
