@@ -847,6 +847,11 @@ only screen and (max-width: 884px)
 
 @media only screen and (max-width: 485px)
 {
+    .wrapper .progress-area
+    {
+        width: calc(100% - 10px);
+    }
+    
     .wrapper .video-controls
     {
         padding: 5px 10px;
