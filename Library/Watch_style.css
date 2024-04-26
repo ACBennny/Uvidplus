@@ -17,7 +17,6 @@ html:root
     --genMaxWidth: 1340px;
     --leftColWidth: calc(100% - var(--rightColWidth));
     --rightColWidth: 35%;
-    --showlistAutoNextTogglePadding: 4px;
     --showlist_MoreEpCloseBoxHeight: 50px;
     --showlist_MoreEpHeaderBdrHeight: 50px;
 }
@@ -195,65 +194,6 @@ html:root
 {
     font-size: 13px;
     color: var(--genWhiteTypeMid);
-}
-
-.showlist_head .showlist_AutoNextBox
-{
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-}
-
-.showlist_AutoNextBox .showlist_AutoNextText
-{
-    color: var(--genGreenTypeLight);
-    font-size: 10px;
-}
-
-.showlist_AutoNextBox .showlist_AutoNextToggleInput
-{
-    width: 0;
-    height: 0;
-    opacity: 0;
-    visibility: hidden;
-    z-index: -1;
-}
-
-.showlist_AutoNextBox .showlist_AutoNextToggle
-{
-    position: relative;
-    width: 40px;
-    height: 20px;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    padding: var(--showlistAutoNextTogglePadding);
-    border-radius: 20px;
-    background-color: var(--genWhiteTypeDark);
-    transition: all 300ms ease;
-    cursor: pointer;
-}
-
-.showlist_AutoNextToggle .showlist_AutoNextToggleCircle
-{
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background-color: var(--genWhiteTypeLight);
-    transform: translateX(calc(-100% - var(--showlistAutoNextTogglePadding)));
-    transition: all 300ms ease;
-}
-
-.showlist_AutoNextToggleInput:checked ~ .showlist_AutoNextToggle
-{
-    background-color: var(--genGreenTypeDark);
-}
-
-.showlist_AutoNextToggleInput:checked ~ .showlist_AutoNextToggle .showlist_AutoNextToggleCircle
-{
-    transform: translateX(0%);
 }
 
 .showlist .next_epCardBdr
