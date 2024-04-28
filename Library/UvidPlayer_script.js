@@ -742,20 +742,28 @@
             {
                 settingsBase.classList.toggle("active");
                 settingsBtn.classList.toggle("active");
+                clearTimeout(ctrltimer);
+
+                // Pause video for mob/touch devices
+                if(window.innerWidth > 884 && window.innerHeight > 485) return;
+                mainVideo.pause();
+                console.log("ggggg")
 
                 if ((settingsHomeBdr.classList.contains("notActive")))
                 {
                     closeSettingsOpt();
-                }
+                };
             });
 
             // Close Settings Menu
             function closeSettBase()
             {
-                if(settingsBase.matches(":hover")) return;
-                if(settingsBtn.matches(":hover")) return;
+                // if(settingsBase.matches(":hover")) return;
+                // if(settingsBtn.matches(":hover")) return;
                 closeSettingsOpt();
                 settingsBase.classList.remove("active");
+                if(window.innerWidth > 884 && window.innerHeight > 485) return;
+                mainVideo.play();
             }
             video_player.addEventListener("mousedown", e =>
             {
