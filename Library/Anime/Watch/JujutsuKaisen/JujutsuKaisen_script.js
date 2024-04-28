@@ -1090,6 +1090,10 @@
                 {
                     moreEpBase.classList.add("active");
                     documentBody.classList.add("bodystop");
+                    moreEpCtntBdr.forEach(bdr => 
+                    {
+                        bdr.scrollTo(0, 0);
+                    });
                 });
             });
 
@@ -1141,6 +1145,10 @@
                     selector.classList.add("active");
 
                     moreEpSeasonSelectorBdr.classList.remove("active");
+                    moreEpCtntBdr.forEach(bdr => 
+                    {
+                        bdr.scrollTo(0, 0);
+                    });
                 });
             });
 
