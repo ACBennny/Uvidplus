@@ -31,7 +31,7 @@
                     <div class="playPause_fullscreen_VidPc"></div>
                     <div class="mobile_controls_box">
                         <div class="options center mobile_controls">
-                            <button class="skip-backward" title="skip backward" aria-label="skip backward">
+                            <button class="skip-backward" title="rewind 5s" aria-label="rewind 5s">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="skipBackwardIcon">
                                     <path d="M459.5 440.6c9.5 7.9 22.8 9.7 34.1 4.4s18.4-16.6 18.4-29V96c0-12.4-7.2-23.7-18.4-29s-24.5-3.6-34.1 4.4L288 214.3V256v41.7L459.5 440.6zM256 352V256 128 96c0-12.4-7.2-23.7-18.4-29s-24.5-3.6-34.1 4.4l-192 160C4.2 237.5 0 246.5 0 256s4.2 18.5 11.5 24.6l192 160c9.5 7.9 22.8 9.7 34.1 4.4s18.4-16.6 18.4-29V352z"/>
                                 </svg>
@@ -44,7 +44,7 @@
                                     <path d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z"/>
                                 </svg>
                             </button>
-                            <button class="skip-forward" title="skip forward" aria-label="skip forward">
+                            <button class="skip-forward" title="fast-forward 5s" aria-label="fast-forward 5s">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="skipForwardIcon">
                                     <path d="M52.5 440.6c-9.5 7.9-22.8 9.7-34.1 4.4S0 428.4 0 416V96C0 83.6 7.2 72.3 18.4 67s24.5-3.6 34.1 4.4L224 214.3V256v41.7L52.5 440.6zM256 352V256 128 96c0-12.4 7.2-23.7 18.4-29s24.5-3.6 34.1 4.4l192 160c7.3 6.1 11.5 15.1 11.5 24.6s-4.2 18.5-11.5 24.6l-192 160c-9.5 7.9-22.8 9.7-34.1 4.4s-18.4-16.6-18.4-29V352z"/>
                                 </svg>
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                 </div>
-                <p class="caption_text"></p>
+                <p class="captionText"></p>
                 <div class="thumbnailBox">
                     <div class="thumbnailFence">
                         <div class="thumbnailHouse">
@@ -91,7 +91,7 @@
                             </div>
                         </li>
                         <li class="options center pc_controls">
-                            <button class="skip-backward" title="skip backward" aria-label="skip backward">
+                            <button class="skip-backward" title="rewind 5s" aria-label="rewind 5s">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="skipBackwardIcon">
                                     <path d="M459.5 440.6c9.5 7.9 22.8 9.7 34.1 4.4s18.4-16.6 18.4-29V96c0-12.4-7.2-23.7-18.4-29s-24.5-3.6-34.1 4.4L288 214.3V256v41.7L459.5 440.6zM256 352V256 128 96c0-12.4-7.2-23.7-18.4-29s-24.5-3.6-34.1 4.4l-192 160C4.2 237.5 0 246.5 0 256s4.2 18.5 11.5 24.6l192 160c9.5 7.9 22.8 9.7 34.1 4.4s18.4-16.6 18.4-29V352z"/>
                                 </svg>
@@ -104,18 +104,13 @@
                                     <path d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z"/>
                                 </svg>
                             </button>
-                            <button class="skip-forward" title="skip forward" aria-label="skip forward">
+                            <button class="skip-forward" title="fast-forward 5s" aria-label="fast-forward 5s">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="skipForwardIcon">
                                     <path d="M52.5 440.6c-9.5 7.9-22.8 9.7-34.1 4.4S0 428.4 0 416V96C0 83.6 7.2 72.3 18.4 67s24.5-3.6 34.1 4.4L224 214.3V256v41.7L52.5 440.6zM256 352V256 128 96c0-12.4 7.2-23.7 18.4-29s24.5-3.6 34.1 4.4l192 160c7.3 6.1 11.5 15.1 11.5 24.6s-4.2 18.5-11.5 24.6l-192 160c-9.5 7.9-22.8 9.7-34.1 4.4s-18.4-16.6-18.4-29V352z"/>
                                 </svg>
                             </button>
                         </li>
                         <li class="options right">
-                            <button class="playback-speed" title="playback-speed" aria-label="playback-speed">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="playback_SpeedIcon">
-                                    <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z"/>
-                                </svg>
-                            </button>
                             <button class="pic-in-pic" title="pic-in-pic" aria-label="pic-in-pic">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 450" class="picInPicIcon">
                                     <path d="M384 224v184a40 40 0 01-40 40H104a40 40 0 01-40-40V168a40 40 0 0140-40h167.48M336 64h112v112M224 288L440 72" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="50"/>
@@ -124,11 +119,6 @@
                             <button class="settingsBtn" title="settings" aria-label="settings">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="settingsIcon">
                                     <path d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"/>
-                                </svg>
-                            </button>
-                            <button class="captionsBtn" title="subtitles/captions" aria-label="subtitles/captions">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                                    <path d="M512 80c8.8 0 16 7.2 16 16V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V96c0-8.8 7.2-16 16-16H512zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM200 208c14.2 0 27 6.1 35.8 16c8.8 9.9 24 10.7 33.9 1.9s10.7-24 1.9-33.9c-17.5-19.6-43.1-32-71.5-32c-53 0-96 43-96 96s43 96 96 96c28.4 0 54-12.4 71.5-32c8.8-9.9 8-25-1.9-33.9s-25-8-33.9 1.9c-8.8 9.9-21.6 16-35.8 16c-26.5 0-48-21.5-48-48s21.5-48 48-48zm144 48c0-26.5 21.5-48 48-48c14.2 0 27 6.1 35.8 16c8.8 9.9 24 10.7 33.9 1.9s10.7-24 1.9-33.9c-17.5-19.6-43.1-32-71.5-32c-53 0-96 43-96 96s43 96 96 96c28.4 0 54-12.4 71.5-32c8.8-9.9 8-25-1.9-33.9s-25-8-33.9 1.9c-8.8 9.9-21.6 16-35.8 16c-26.5 0-48-21.5-48-48z"/>
                                 </svg>
                             </button>
                             <button class="fullscreenBtn" title="enter fullscreen" aria-label="enter fullscreen">
@@ -141,82 +131,6 @@
                             </button>
                         </li>
                     </ul>
-                </div>
-
-                 <div class="settings">
-                    <div data-label="settingHome">
-                        <ul>
-                            <li data-label="speed">
-                                <p> Speed </p>
-                                <span class="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="">
-                                        <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
-                                    </svg>
-                                </span>
-                            </li>
-                            <li data-label="quality">
-                                <p> Quality </p>
-                                <span class="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="">
-                                        <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
-                                    </svg>
-                                </span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="playback" data-label="speed" hidden>
-                        <span>
-                            <i class="fa-solid fa-caret-right" data-label="settingHome">
-                            </i>
-                            <span>Playback Speed </span>
-                        </span>
-                        <ul>
-                            <li data-speed="0.25">
-                                <p>0.25</p>
-                            </li>
-                            <li data-speed="0.5">
-                                <p>0.5</p>
-                            </li>
-                            <li data-speed="0.75">
-                                <p>0.75</p>
-                            </li>
-                            <li data-speed="1" class="active">
-                                <p>Normal</p>
-                            </li>
-                            <li data-speed="1.25">
-                                <p>1.25</p>
-                            </li>
-                            <li data-speed="1.5">
-                                <p>1.5</p>
-                            </li>
-                            <li data-speed="1.75">
-                                <p>1.75</p>
-                            </li>
-                            <li data-speed="2">
-                                <p>2</p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div data-label="quality" hidden>
-                        <span>
-                            <i class="fa-solid fa-caret-right" data-label="settingHome">
-                            </i>
-                            <span>Playback Quality </span>
-                        </span>
-                        <ul>
-                            <li data-quality="auto" class="active">
-                                <p>auto</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div> 
-                <div class="captions">
-                    <div class="caption">
-                        <span>Select Subtitle</span>
-                        <ul>
-                        
-                        </ul>
-                    </div>
                 </div>
             `;
 
@@ -252,20 +166,19 @@
             const fullScreenBtn = video_player.querySelectorAll(".fullscreenBtn svg");
             const fullScreenExpandBtn = video_player.querySelector(".fullscreenBtn .expandIcon");
             const fullScreenContractBtn = video_player.querySelector(".fullscreenBtn .compressIcon");
-            const playback = video_player.querySelectorAll(".speed-options");
+            const languageUL = video_player.querySelector(".language_UL");
+            const languageLI = languageUL.querySelectorAll(".language_LI");
+            const playbackUL = video_player.querySelector(".playbackSpeed_UL");
+            const playbackLI = playbackUL.querySelectorAll(".playbackSpeed_LI");
             const tracks = video_player.querySelectorAll("track");
             const loader = video_player.querySelector(".loader");
             const pcControlTapBox = video_player.querySelector(".playPause_fullscreen_VidPc");
-            // const auto_play = video_player.querySelector(".auto-play");
-            const autoNextEpCheckBox = video_player.querySelector("#showlist_AutoNextToggleCheckbox");
+            const autoPlay = video_player.querySelector(".listItemAutoPlay");
+            const autoPlayEpCheckBox = video_player.querySelector(".listItemAutoPlay #vid_AutoPlayToggleCheckbox");
             const nextEpLink = video_player.querySelector(".next_epLink");
-            const settingsBtn = video_player.querySelector(".settingsBtn"); 
-            const captionsBtn = video_player.querySelector(".captionsBtn");
-            const settings = video_player.querySelector(".settings");
-            const settingHome = video_player.querySelectorAll(".settings [data-label='settingHome'] > ul > li");
-            const captions = video_player.querySelector(".captions");
-            const caption_labels = video_player.querySelector(".captions ul");
-            let caption_text = video_player.querySelector(".caption_text");
+            const settingsBtn = video_player.querySelector(".settingsBtn");
+            const caption_labels = video_player.querySelector(".captions_UL");
+            let caption_text = video_player.querySelector(".captionText");
 
             const thumbnailBox = video_player.querySelector(".thumbnailBox");
             const thumbnail = video_player.querySelector(".thumbnail");
@@ -277,6 +190,19 @@
             let verticalItemCount = 5;
 
             let ctrltimer;
+
+
+            const settingsBase = video_player.querySelector(".settingsBase");
+            const closeSettingsBase = video_player.querySelector(".closeSettingsBase");
+            const settingsHomeBdr = video_player.querySelector(".settingsHomeBdr");
+            const settingsOptBdr = video_player.querySelectorAll(".settingsOptBdr");
+            const openSettingsOptBdr = video_player.querySelectorAll(".openSettingsOptBdr");
+            const closeSettingsOptBdr = video_player.querySelectorAll(".closeSettingsOptBdr");
+
+            const listItemLang = settingsBase.querySelector(".listItemLanguage");
+            const listItemCaption = settingsBase.querySelector(".listItemSubtitleCC");
+            const listItemSpeed = settingsBase.querySelector(".listItemPlaybackSpeed");
+            const listItemQuality = settingsBase.querySelector(".listItemQuality");
 
 
             function checkVidBdrBounds()
@@ -303,32 +229,29 @@
                 checkVidBdrBounds();
             });
             
-            // Speed options menu
-            // speedOptions.querySelectorAll("li").forEach(option => {
-            //     option.addEventListener("click", () => {
-            //         mainVideo.playbackRate = option.dataset.speed;
-            //         speedOptions.querySelector(".active").classList.remove("active");
-            //         option.classList.add("active");
-            //     });
-            // });
-        
-            // // Closing speed Option's menu
-            // document.addEventListener("click", e => {
-            //     if(e.target.tagName !== "SPAN" || e.target.className !== "material-symbols-rounded") {
-            //         speedOptions.classList.remove("show");
-            //     }
-            // });
 
             // Hide controls
-            const hideControls = () => 
+            function hideControls() 
             {
                 if(mainVideo.paused) return;
-                if(!(window.matchMedia("(hover: none)")) && (vidCtrlBdr.matches(":hover"))) return;
+                if((window.matchMedia("(hover: hover)")) && (vidCtrlBdr.matches(":hover"))) return;
                 if(!(window.matchMedia("(hover: none)")) && (loader.style.display == "flex")) return;
+                if(settingsBase.matches(":hover")) return;
+                if (document.pictureInPictureElement === mainVideo) return;
                 ctrltimer = setTimeout(() => 
                 {
                     video_player.classList.remove("show-controls");
+                    closeSettBase();
                 }, 2000);
+            }
+
+            // Remove "active" classes from an element
+            function removeActiveClasses(e)
+            {
+                e.forEach((event) => 
+                {
+                    event.classList.remove("active");
+                });
             }
 
             // Function to adjust volume
@@ -347,7 +270,7 @@
             function updateVolumeIcon(volume)
             {
                 
-                if(volume > 0.3)
+                if(volume > 0.4)
                 {
                     volumeOffBtn.classList.add("hide");
                     volumeLowBtn.classList.add("hide");
@@ -355,7 +278,7 @@
                     volumeBtnBox.title = "mute";
                     volumeBtnBox.ariaLabel = "mute";
                 }
-                else if(volume <= 0.3 && volume > 0)
+                else if(volume <= 0.4 && volume > 0)
                 {
                     volumeLowBtn.classList.remove("hide");
                     volumeHighBtn.classList.add("hide");
@@ -411,7 +334,7 @@
                 }
         
                 // Go to Next episode when video ends, if auto next is on
-                if(autoNextEpCheckBox.checked == true)
+                if(autoPlayEpCheckBox.checked == true)
                 {
                     // window.open(nextEpLink.href , "_self");
                 }
@@ -538,19 +461,30 @@
                 }
             });
 
+            // Insert tracks into list if present
             if (tracks.length != 0) 
             {
                 caption_labels.insertAdjacentHTML(
                     "afterbegin",
-                    `<li data-track="OFF" class="active">OFF</li>`
+                    // `<li data-track="OFF" class="active">OFF</li>`
+                    `
+                        <li data-track="OFF" class="settingsCtnt_LI captions_LI active">
+                            <p>Off</p>
+                        </li>
+                    `
                 );
                 for (let i = 0; i < tracks.length; i++) 
                 {
-                    let trackLi = `<li data-track="${tracks[i].label}">${tracks[i].label}</li>`;
-                    caption_labels.insertAdjacentHTML("beforeend", trackLi);
+                    let trackLI = 
+                    `
+                        <li data-track="${tracks[i].label}" class="settingsCtnt_LI captions_LI" title="${tracks[i].label}" aria-label="${tracks[i].label}">
+                            <p>${tracks[i].label}</p>
+                        </li>
+                    `;
+                    caption_labels.insertAdjacentHTML("beforeend", trackLI);
                 }
             }
-            const caption = captions.querySelectorAll("ul li");
+            const caption = caption_labels.querySelectorAll(".captions_LI");
 
             // Showing controls on mouse move
             video_player.addEventListener("mousemove", () => 
@@ -777,22 +711,11 @@
 
             mainVideo.addEventListener('ended', () => 
             {
+                if(autoPlayEpCheckBox.checked == false) return;
                 mainVideo.play();
+                // window.location.search = "google.com";
+                // window.history.replaceState({}, '', 'google.com?key=m');
             });
-
-            // Auto play
-            // auto_play.addEventListener("click", () => 
-            // {
-            //     auto_play.classList.toggle("active");
-            //     if (auto_play.classList.contains("active")) 
-            //     {
-            //         auto_play.title = "Autoplay is on";
-            //     }
-            //     else
-            //     {
-            //         auto_play.title = "Autoplay is off";
-            //     }
-            // });
 
             // Picture in picture
             picture_in_picutre.addEventListener("click", () => 
@@ -813,44 +736,117 @@
             // Open settings
             settingsBtn.addEventListener("click", () => 
             {
-                settings.classList.toggle("active");
+                settingsBase.classList.toggle("active");
                 settingsBtn.classList.toggle("active");
 
-                if (captionsBtn.classList.contains("active") 
-                    || captions.classList.contains("active")
-                )
+                if ((settingsHomeBdr.classList.contains("notActive")))
                 {
-                    captions.classList.remove("active");
-                    captionsBtn.classList.remove("active");
+                    closeSettingsOpt();
+                    settingsHomeBdr.classList.remove("notActive");
                 }
             });
 
-            // Open caption
-            captionsBtn.addEventListener("click", () => 
+            // Close Settings Menu
+            document.addEventListener("mousedown", e =>
             {
-                captions.classList.toggle("active");
-                captionsBtn.classList.toggle("active");
-                if (settingsBtn.classList.contains("active") 
-                    ||  settings.classList.contains("active")
-                )
-                {
-                    settings.classList.remove("active");
-                    settingsBtn.classList.remove("active");
-                }
+                closeSettBase()
             });
-
-            // Playback Rate
-            playback.forEach((event) => 
+            document.addEventListener("keydown", e =>
             {
-                event.addEventListener("click", () => 
+                closeSettBase()
+            });
+            // document.addEventListener("mousedown", e =>
+            // {
+            //     closeSettBase()
+            // });
+            // document.addEventListener("mousedown", e =>
+            // {
+            //     closeSettBase()
+            // });
+
+            function closeSettBase()
+            {
+                if(settingsBase.matches(":hover")) return;
+                closeSettingsOpt();
+                settingsBase.classList.remove("active");
+            }
+
+            closeSettingsBase.addEventListener("click" , () => 
+            {
+                settingsBase.classList.remove("active");
+                settingsBtn.classList.remove("active");
+            });
+            
+            // Opening sections of the settings menu
+            openSettingsOptBdr.forEach((btn, opnBdr) => 
+            {
+                btn.addEventListener("click" , () => 
                 {
-                    removeActiveClasses(playback);
-                    event.classList.add("active");
-                    let speed = event.getAttribute("data-speed");
-                    mainVideo.playbackRate = speed;
+                    settingsHomeBdr.classList.add("notActive");
+                    settingsOptBdr[opnBdr].classList.add("active");
                 });
             });
 
+            function closeSettingsOpt()
+            {
+                settingsOptBdr.forEach(bdr => 
+                {
+                    bdr.classList.remove("active");
+                });
+                settingsHomeBdr.classList.remove("notActive");
+            }
+            
+            closeSettingsOptBdr.forEach(btn => 
+            {
+                btn.addEventListener("click" , closeSettingsOpt);
+            });
+
+            // Auto play
+            autoPlay.addEventListener("click", () => 
+            {
+                if (autoPlayEpCheckBox.checked == true) 
+                {
+                    autoPlay.title = "Autoplay is on";
+                    autoPlay.ariaLabel = "Autoplay is on";
+                }
+                else
+                {
+                    autoPlay.title = "Autoplay is off";
+                    autoPlay.ariaLabel = "Autoplay is off";
+                }
+            });
+
+            // Language Settings
+            languageLI.forEach(option => 
+            {
+                option.addEventListener("click", () => 
+                {
+                    removeActiveClasses(languageLI);
+                    option.classList.add("active");
+                    listItemLang.title = "Language is " + option.querySelector("p").textContent;
+                    listItemLang.ariaLabel = "Language is " + option.querySelector("p").textContent;
+                    listItemLang.querySelector(".itemValue").textContent = option.querySelector("p").textContent;
+                });
+            });
+
+            // Speed options menu
+            playbackLI.forEach(option => 
+            {
+                let dataSpeed = option.dataset.speed;
+                option.title = "x" + dataSpeed+ " speed";
+                option.ariaLabel = "x" + dataSpeed + " speed";
+                option.addEventListener("click", () => 
+                {
+                    mainVideo.playbackRate = dataSpeed;
+                    removeActiveClasses(playbackLI);
+                    option.classList.add("active");
+                    listItemSpeed.title = "Playback Speed is " + option.querySelector("p").textContent;
+                    listItemSpeed.ariaLabel = "Playback Speed is " + option.querySelector("p").textContent;
+                    listItemSpeed.querySelector(".itemValue").textContent = option.querySelector("p").textContent;
+                });
+            });
+
+            // Captions
             caption.forEach((event) => 
             {
                 event.addEventListener("click", () => 
@@ -859,42 +855,49 @@
                     event.classList.add("active");
                     changeCaption(event);
                     caption_text.innerHTML = "";
+                    listItemCaption.title = "Subtitles/CC is " + event.querySelector("p").textContent;
+                    listItemCaption.ariaLabel = "Playback Speed is " + event.querySelector("p").textContent;
+                    listItemCaption.querySelector(".itemValue").textContent = event.querySelector("p").textContent;
                 });
             });
 
             let track = mainVideo.textTracks;
 
-            function changeCaption(lable) 
+            function changeCaption(lbl) 
             {
-                let trackLable = lable.getAttribute("data-track");
+                let trackLabel = lbl.getAttribute("data-track");
                 for (let i = 0; i < track.length; i++)
                 {
                     track[i].mode = "disabled";
-                    if (track[i].label == trackLable)
+                    if (track[i].label == trackLabel)
                     {
                         track[i].mode = "showing";
                     }
                 }
             }
 
-            const settingDivs = video_player.querySelectorAll('.settings > div');
-            const settingBack = video_player.querySelectorAll('.settings > div .back_arrow');
-            const quality_ul = video_player.querySelector(".settings > [data-label='quality'] ul");
+            // Video Quality
+            const qualityUL = video_player.querySelector(".quality_UL");
             const qualities = video_player.querySelectorAll("source[size]");
 
             qualities.forEach(event =>
             {
-                let quality_html = `<li data-quality="${event.getAttribute('size')}">${event.getAttribute('size')}p</li>`;
-                quality_ul.insertAdjacentHTML('afterbegin', quality_html);
+                let quality_html = 
+                `
+                    <li data-quality="${event.getAttribute('size')}" class="settingsCtnt_LI quality_LI" title="${event.getAttribute('size')}p" aria-label="${event.getAttribute('size')}p">
+                        <p>${event.getAttribute('size')}p</p>
+                    </li>
+                `;
+                qualityUL.insertAdjacentHTML('afterbegin', quality_html);
             });
 
-            const quality_li = video_player.querySelectorAll(".settings > [data-label='quality'] ul > li");
-            quality_li.forEach((event) => 
+            const qualityLI = qualityUL.querySelectorAll(".quality_LI");
+            qualityLI.forEach((event) => 
             {
                 event.addEventListener('click', (e) => 
                 {
                     let quality = event.getAttribute('data-quality');
-                    removeActiveClasses(quality_li);
+                    removeActiveClasses(qualityLI);
                     event.classList.add('active');
 
                     qualities.forEach(event => 
@@ -908,54 +911,12 @@
                             toggleVidPlay();
                         }
                     });
+
+                    listItemQuality.title = "Video Quality is " + event.querySelector("p").textContent;
+                    listItemQuality.ariaLabel = "Video Quality is " + event.querySelector("p").textContent;
+                    listItemQuality.querySelector(".itemValue").textContent = event.querySelector("p").textContent;
                 });
             });
-
-            settingBack.forEach((event) => 
-            {
-                event.addEventListener('click', (e) => 
-                {
-                    let setting_label = e.target.getAttribute('data-label');
-                    for (let i = 0; i < settingDivs.length; i++)
-                    {
-                        if (settingDivs[i].getAttribute('data-label') == setting_label)
-                        {
-                            settingDivs[i].removeAttribute('hidden');
-                        }
-                        else
-                        {
-                            settingDivs[i].setAttribute('hidden', "");
-                        }
-                    }
-                });
-            });
-
-            settingHome.forEach((event) => 
-            {
-                event.addEventListener('click', (e) => 
-                {
-                    let setting_label = e.target.getAttribute('data-label');
-                    for (let i = 0; i < settingDivs.length; i++) {
-                        if (settingDivs[i].getAttribute('data-label') == setting_label)
-                        {
-                            settingDivs[i].removeAttribute('hidden');
-                        }
-                        else
-                        {
-                            settingDivs[i].setAttribute('hidden', "");
-                        }
-                    }
-                });
-            });
-
-
-            function removeActiveClasses(e)
-            {
-                e.forEach((event) => 
-                {
-                    event.classList.remove("active");
-                });
-            }
 
             for (let i = 0; i < track.length; i++)
             {
@@ -965,7 +926,12 @@
                     {
                         if (track[i].activeCues[0])
                         {
-                            let span = `<span><mark>${track[i].activeCues[0].text}</mark></span>`;
+                            let span = 
+                            `
+                                <span>
+                                    <mark>${track[i].activeCues[0].text}</mark>
+                                </span>
+                            `;
                             caption_text.innerHTML = span;
                         }
                         else
@@ -1006,8 +972,9 @@
             video_player.addEventListener("mousemove", () => 
             {
                 video_player.classList.add("active");
-                if (tracks.length != 0) {
-                caption_text.classList.remove("active");
+                if (tracks.length != 0)
+                {
+                    caption_text.classList.remove("active");
                 }
                 clearTimeout(ctrltimer);
                 hideControls();
@@ -1016,7 +983,6 @@
             if (tracks.length == 0)
             {
                 caption_labels.remove();
-                captions.remove();
                 captionsBtn.parentNode.remove();
             }
 

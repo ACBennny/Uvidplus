@@ -17,29 +17,15 @@
 
 
 
-::selection
-{
-    background: #202720;
-    color: #14d60d;
-}
-
-::placeholder
-{
-    -moz-user-select: -moz-none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    pointer-events: none;
-}
-
-
-
 html{
     scroll-behavior: smooth;
 }
 
 html:root
 {
+    --scrollbarClr: #444444;
+    --scrollbarHoverClr: #545454;
+    --scrollbarActiveClr: #777777;
     --navBarHeight: 70px;
     --navBarGenClr: #e7e7e7;
     --navBarBcgSolid: #2f2e2e;
@@ -77,6 +63,7 @@ body
     /* -webkit-tap-highlight-color: transparent; */
     background-color: #000;
     overflow: hidden;
+    scroll-behavior: smooth;
 }
 
 body.bodystart
@@ -129,7 +116,20 @@ img
     background-color: transparent;
 }
 
+::selection
+{
+    background: #202720;
+    color: #14d60d;
+}
 
+::placeholder
+{
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
 
 
 
@@ -601,9 +601,10 @@ img
     top: calc(0% + var(--navBarNotificationPosT));
     right: calc(0% + var(--navBarNotificationPosR));
     width: calc(100% - 10px);
-    height: calc(100% - 400px);
+    height: 100%;
+    max-height: calc(90% - var(--navBarHeight));
     max-width: 400px;
-    min-height: 450px;
+    min-height: 350px;
     backface-visibility: hidden;
     transition: all 150ms ease;
     z-index: 5;
@@ -1409,25 +1410,6 @@ img
 
 @media only screen and (max-width: 768px)
 {
-    /* ::-webkit-scrollbar
-    {
-        width: 4px;
-        height: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb{
-        background-color: #333333;
-    }
-    
-    ::-webkit-scrollbar-thumb:hover
-    {
-        background-color: #333333;
-    }
-    
-    ::-webkit-scrollbar-thumb:active
-    {
-        background-color: #333333;
-    } */
 
     .searchBdr.navBarSearchBdr
     {
@@ -1457,29 +1439,10 @@ img
         width: calc(100% - var(--navBarIconBoxWidth));
     }
 
-    .navBarNotificationBdr .navBarNotificationMain
-    {
-        height: 500px;
-        min-height: 0px;
-        max-height: calc(90% - var(--navBarHeight));
-    }
-
     .navBarNotificationMain.notify_atv
     {
         --navBarNotificationPosR: 5px;
     }
-
-    .navBarNotificationMain .navBarNotificationMinor
-    {
-        border-radius: 0px;
-    }
-
-    /* .navBarNotificationSub::-webkit-scrollbar
-    {
-        width: 0;
-        height: 0;
-        display: none;
-    } */
 
 }
 
@@ -1502,23 +1465,22 @@ img
 
     ::-webkit-scrollbar-track
     {
-        background-color: #111111;
         background-color: transparent;
         margin-block: 10px;
     }
 
     ::-webkit-scrollbar-thumb{
-        background-color: #444444;
+        background-color: var(--scrollbarClr);
     }
 
     ::-webkit-scrollbar-thumb:hover
     {
-        background-color: #545454;
+        background-color: var(--scrollbarHoverClr);
     }
 
     ::-webkit-scrollbar-thumb:active
     {
-        background-color: #777777;
+        background-color: var(--scrollbarActiveClr);
     }
 
     /* ----- Navbar Notification ----- */

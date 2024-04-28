@@ -27,6 +27,7 @@ html:root
 html
 {
     background-color: #000;
+    scroll-behavior: smooth;
 }
 
 
@@ -520,10 +521,10 @@ body
     top: 0;
     width: 45px;
     height: 100%;
-    background-image: -o-linear-gradient(to top, #0000008b, #0000008b);
+    /* background-image: -o-linear-gradient(to top, #0000008b, #0000008b);
     background-image: -moz-linear-gradient(to top, #0000008b, #0000008b);
     background-image: -webkit-linear-gradient(to top, #0000008b, #0000008b);
-    background-image: linear-gradient(to top, #0000008b, #0000008b);
+    background-image: linear-gradient(to top, #0000008b, #0000008b); */
     opacity: 1;
     visibility: visible;
     transition: 300ms;
@@ -536,7 +537,7 @@ body
     visibility: hidden;
 }
 
-.basic_slider_box  .slide_arrow.left_slide_arrow:hover
+.basic_slider_box  .slide_arrow.left_slide_arrow
 {
     background-image: -o-linear-gradient(to right,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
     background-image: -moz-linear-gradient(to right,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
@@ -544,7 +545,7 @@ body
     background-image: linear-gradient(to right,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
 }
 
-.basic_slider_box  .slide_arrow.right_slide_arrow:hover
+.basic_slider_box  .slide_arrow.right_slide_arrow
 {
     background-image: -o-linear-gradient(to left,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
     background-image: -moz-linear-gradient(to left,#000000d2, #000000ad, #0000008b, #00000059, #00000000);

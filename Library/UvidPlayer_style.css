@@ -8,9 +8,11 @@
 
 html:root
 {
+    --settingSectionTitleIconBoxWidth: 30px;
     --ItemLeftWidth: 30px;
     --ItemRightWidth: 75px;
     --showlistAutoPlayTogglePadding: 0px;
+    --genSettTransition: 300ms;
 }
 
 @supports(-webkit-tap-highlight-color: #00000000)
@@ -276,7 +278,7 @@ svg.hide
 
 .progress-area:hover
 {
-    height: 5px;
+    height: 6px;
 }
 
 .progress-area .progress-bar
@@ -332,6 +334,7 @@ svg.hide
     width: 250px;
     height: 150px;
     display: block;
+    box-shadow: 0 0 5px 5px #00000075;
     transform: translate(-50%, 10px) scale(.75);
     transform-origin: 50% 100%;
     transition: transform .2s .1s, opacity .2s .1s;
@@ -391,7 +394,6 @@ svg.hide
 }
 
 
-
 .wrapper .video-controls
 {
     padding: 12px 20px;
@@ -449,6 +451,7 @@ svg.hide
     fill: var(--genWhiteTypeLight);
     transition: all 0.2s ease;
 }
+
 .options.left input.volume-range
 {
     height: 4px;
@@ -471,164 +474,14 @@ svg.hide
     font-family: "Open sans";
 }
 
-.playback-content
+
+
+/* ----------- SETTINGS MENU ------------ */
+
+.settingsBtn.active svg
 {
-    display: flex;
-    position: relative;
+    transform: rotate(90deg);
 }
-
-.playback-content .speed-options
-{
-    position: absolute;
-    list-style: none;
-    left: -55px;
-    bottom: 50px;
-    width: 95px;
-    overflow: hidden;
-    opacity: 0;
-    border-radius: 4px;
-    pointer-events: none;
-    background: #ffffff9a;
-    box-shadow: 0 10px 20px #0000001a;
-    transition: opacity 0.13s ease;
-}
-
-.playback-content .speed-options.show
-{
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.speed-options li
-{
-    cursor: pointer;
-    color: #000;
-    font-size: 14px;
-    margin: 2px 0;
-    padding: 5px 0 5px 15px;
-    transition: all 0.1s ease;
-}
-
-.speed-options li:where(:first-child, :last-child)
-{
-    margin: 0px;
-}
-
-.speed-options li:hover
-{
-    background: var(--genWhiteTypeLight);
-}
-
-.speed-options li.active
-{
-    color: var(--genWhiteTypeBright);
-    background: var(--genGreenTypeDark);
-}
-
-
-.video_player .captions,
-.video_player .settings 
-{
-    position: absolute;
-    right: 25px;
-    bottom: 62px;
-    background: rgb(28 28 28 / 90%);
-    width: 200px;
-    max-height: 250px;
-    height: auto;
-    color: #fff;
-    overflow-y: auto;
-    z-index: 20;
-    display: none;
-    border-radius: 5px;
-}
-
-.video_player .captions.active,
-.video_player .settings.active 
-{
-    display: block;
-}
-
-.video_player .captions .caption span,
-.video_player .settings > div > span
-{
-    font-size: 14px;
-    font-weight: 300;
-    padding: 15px 30px;
-    border-bottom: 1px solid rgb(83, 83, 83);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    white-space: nowrap;
-}
-.video_player .settings > div .icon
-{
-    font-size: 14px;
-    margin: 0 5px;
-    cursor: pointer;
-}
-
-.video_player .settings > div ul li span
-{
-    pointer-events: none;
-}
-
-.video_player .captions .caption ul,
-.video_player .settings > div ul {
-    position: relative;
-}
-
-.video_player .captions .caption ul li,
-.video_player .settings > div ul li 
-{
-    position: relative;
-    width: 100%;
-    cursor: pointer;
-    text-align: left;
-    padding: 12px 33px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 14px;
-}
-
-.video_player .captions .caption ul li:hover,
-.video_player .settings > div ul li:hover 
-{
-    background: rgba(28, 28, 28, 0.9);
-}
-
-.video_player .captions .caption ul li.active::before,
-.video_player .settings > div ul li.active::before 
-{
-    content: "\e876";
-    font-family: "Material Icons";
-    position: absolute;
-    left: 7px;
-    top: 50%;
-    transform: translateY(-50%);
-    padding-right: 10px;
-    font-size: 18px;
-}
-
-.video_player .captions::-webkit-scrollbar,
-.video_player .settings::-webkit-scrollbar 
-{
-    width: 8px;
-    background: transparent;
-}
-
-.video_player .captions::-webkit-scrollbar-thumb,
-.video_player .settings::-webkit-scrollbar-thumb 
-{
-    height: 20px;
-    border: 2px solid transparent;
-    background: rgba(83, 83, 83, 0.9);
-    border-radius: 20px;
-}
-
-
-
 
 .video_player .settingsBase
 {
@@ -643,25 +496,52 @@ svg.hide
 {
     position: absolute;
     bottom: 0;
-    right: 0;
+    bottom: 75px;
+    right: 10px;
     width: 100%;
-    height: 100%;
     width: 350px;
     height: fit-content;
-    max-height: calc(100% - 50px);
+    max-height: calc(100% - 100px);
     display: block;
+    padding: 10px 0;
     background-color: #000000dd;
     border-radius: 10px;
+    transform: translateX(75%);
+    transition: --settingBaseScrollBarFade 0.5s 0.2s, 200ms;
+    opacity: 0;
     overflow: hidden;
+    overflow-y: auto;
     pointer-events: all;
     z-index: 15;
 }
 
-.settingsBase .settingsHomeBdr
+.video_player.show-controls .settingsBase.active
+{
+    transform: translateX(0%);
+    opacity: 1;
+}
+
+.settingsBase .settingsLayout
 {
     position: relative;
     width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    /* align-items: end; */
+}
+
+.settingsLayout .settingsHomeBdr
+{
+    width: 100%;
     height: 100%;
+    transition: var(--genSettTransition);
+    overflow: hidden;
+}
+
+.settingsHomeBdr.notActive
+{
+    width: 0%;
+    transform: translateX(200%) scale(0);
 }
 
 .settingsHomeBdr .settingsHomeBox
@@ -680,6 +560,51 @@ svg.hide
     list-style-type: none;
 }
 
+
+.settingSectionTitleBox
+{
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: transparent;
+    border-bottom: 1px solid #6b6a6a;
+}
+
+.settingSectionTitleBox.settingHomeTitleBox
+{
+    display: none;
+}
+
+.settingSectionTitleBox .settingSectionTitleIconBox
+{
+    width: var(--settingSectionTitleIconBoxWidth);
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.settingSectionTitleIconBox .settingSectionTitleIcon
+{
+    width: 13px;
+    height: 13px;
+    display: block;
+    border-top: 3px solid var(--genWhiteTypeLight);
+    border-left: 3px solid var(--genWhiteTypeLight);
+    transform: rotate(-45deg);
+    cursor: pointer;
+}
+
+.settingSectionTitleBox .settingSectionTitleText
+{
+    width: calc(100% - var(--settingSectionTitleIconBoxWidth));
+    font-size: 16px;
+    color: var(--genWhiteTypeLight);
+}
+
 .settingsHomeList .settingsHomeListItem
 {
     position: relative;
@@ -688,10 +613,12 @@ svg.hide
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 16px;
+    padding: 12px 20px 12px 10px;
     color: var(--genWhiteTypeLight);
     fill: var(--genWhiteTypeLight);
-    font-size: 12px;
+    background-color: transparent;
+    border-color: var(--genWhiteTypeLight);
+    font-size: 13px;
     transition: 200ms;
     cursor: pointer;
 }
@@ -725,6 +652,28 @@ svg.hide
 .itemIconBox .itemIcon
 {
     width: 18px;
+}
+
+
+#curr_vidLang::after,
+#curr_vidSubtitle::after,
+#curr_vidPlaybackSpeed::after,
+#curr_vidPlaybackQuality::after
+{
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 5px;
+    height: 5px;
+    display: block;
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-top-style: solid;
+    border-right-style: solid;
+    transform: rotate(45deg) translateY(-50%);
+    margin: 0 15px 0 0;
+    pointer-events: none;
 }
 
 .settingsHomeListItem .vid_AutoPlayBox
@@ -780,24 +729,135 @@ svg.hide
     transform: translateX(25%);
 }
 
-#curr_vidLang::after,
-#curr_vidSubtitle::after,
-#curr_vidPlaybackSpeed::after,
-#curr_vidPlaybackQuality::after
+.settingsLayout .settingsOptBdr
+{
+    width: 0%;
+    height: fit-content;
+    max-height: 0;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: var(--genSettTransition);
+    overflow: hidden;
+}
+
+.settingsOptBdr.active
+{
+    width: 100%;
+    max-height: unset;
+    transform: translateX(0%);
+    opacity: 1;
+}
+
+.settingsOptBdr .settingsOptBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.settingsOptBox .settingsTitleBox
+{
+    width: 100%;
+}
+
+.settingsTitleBox .settingSectionTitleBox
+{
+    cursor: pointer;
+}
+
+.settingsOptBox .settingsCtntBox
+{
+    width: 100%;
+}
+
+.settingsCtntBox .settingsCtnt
+{
+    width: 100%;
+}
+
+.settingsCtnt .settingsCtnt_UL
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    color: var(--genWhiteTypeLight);
+    list-style: none;
+}
+
+.settingsCtnt_UL .settingsCtnt_LI
+{
+    position: relative;
+    width: 100%;
+    padding: 10px 5px 10px 25px;
+    font-size: 13px;
+    transition: 200ms;
+    cursor: pointer;
+}
+
+.settingsCtnt_LI:hover
+{
+    background-color: #1d1d1ddd;
+}
+
+.settingsCtnt_LI.active
+{
+    color: var(--genGreenTypeLight);
+    background-color: #333333dd;
+}
+
+.settingsCtnt_LI.active::after
 {
     content: '';
     position: absolute;
-    right: 0;
-    top: 50%;
-    width: 5px;
-    height: 5px;
-    border-top: 2px solid var(--genWhiteTypeLight);
-    border-right: 2px solid var(--genWhiteTypeLight);
-    /* transform: translateY(50%); */
-    transform: rotate(45deg) translateY(-50%);
-    margin: 0 10px 0 0;
-    pointer-events: none;
+    bottom: 50%;
+    left: 0;
+    width: 8px;
+    height: 4px;
+    display: block;
+    margin: 0 0 0 5px;
+    border-bottom: 2px solid var(--genGreenTypeLight);
+    border-left: 2px solid var(--genGreenTypeLight);
+    transform: rotate(-45deg) translate(0%, 50%);
 }
+
+
+/* --- Captions --- */
+
+.captionText
+{
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    width: 90%;
+    max-width: 90%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    transition: bottom 300ms;
+    user-select: none;
+    pointer-events: none;
+    z-index: 6;
+}
+  
+.video_player .captionText
+{
+    bottom: 5%;
+}
+
+.video_player.show-controls .captionText
+{
+    bottom: 10%;
+}
+
+.captionText mark
+{
+    padding: 3px 10px;
+    font-size: 25px;
+    background-color: #000000c3 !important;
+    color: #fff;
+}
+
+
+
 
 
 
@@ -901,6 +961,11 @@ only screen and (max-width: 884px)
         height: 5px;
     }
 
+    .video_player
+    {
+        border-radius: 0px;
+    }
+
     .progress-area .progress-bar::before,
     .progress-area:hover .progress-bar::before
     {
@@ -931,6 +996,29 @@ only screen and (max-width: 884px)
     .video_player .progressAreaTime
     {
         display: none;
+    }
+
+    .video_player.show-controls .settingsBase
+    {
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 0%;
+        max-height: 100%;
+        background-color: #000000;
+        border-radius: 0px;
+        transform: translateX(0%);
+    }
+
+    .video_player.show-controls .settingsBase.active
+    {
+        height: 100%;
+        opacity: 1;
+    }
+
+    .settingSectionTitleBox.settingHomeTitleBox
+    {
+        display: flex;
     }
 
     .video_player.show-controls .cover-vid .mobile_controls_box
@@ -1007,14 +1095,6 @@ only screen and (max-width: 884px)
         padding: 3px 0 3px 10px;
     }
 
-    .video_player.show-controls .settingsBase
-    {
-        width: 100%;
-        height: 100%;
-        max-height: 100%;
-        background-color: #000000;
-    }
-
     .mobile_controls_box .mobile_controls .skip-backward,
     .mobile_controls_box .mobile_controls .skip-forward,
     .mobile_controls_box .mobile_controls .skip-backward svg,
@@ -1033,6 +1113,21 @@ only screen and (max-width: 884px)
 
 @media only screen and (max-width: 485px)
 {
+    .episode_title_box .companyTitle .head
+    {
+        font-size: 14px;
+    }
+
+    .episode_title_box .companyTitle .tail
+    {
+        font-size: 11px;
+    }
+
+    .episode_title_box .episodeTitle
+    {
+        font-size: 11px;
+    }
+
     .wrapper .progress-area
     {
         width: calc(100% - 10px);
@@ -1053,6 +1148,11 @@ only screen and (max-width: 884px)
         font-size: 12px;
     }
 
+    .settingsHomeList .settingsHomeListItem
+    {
+        font-size: 11px;
+    }
+
     .mobile_controls_box .mobile_controls
     {
         gap: 45px;
@@ -1070,6 +1170,64 @@ only screen and (max-width: 884px)
     .mobile_controls_box .mobile_controls .play-pause svg
     {
         width: 26px;
+    }
+}
+
+
+@media only screen and (max-width: 300px)
+{
+
+    .wrapper .video-controls
+    {
+        padding: 5px 5px;
+    }
+
+    .wrapper .progress-area,
+    .wrapper .progress-area:hover
+    {
+        height: 3px;
+    }
+
+    .options .video-timer
+    {
+        font-size: 10px;
+    }
+
+    .mobile_controls_box .mobile_controls
+    {
+        gap: 35px;
+    }
+}
+
+
+
+
+/* ------------- For PC / Non - touch devices ------------ */
+@media(hover: hover)
+{
+    @property --settingBaseScrollBarFade
+    {
+        syntax: "<color>";
+        inherits: true;
+        initial-value: #00000000;
+    }
+
+    .settingsBase:hover
+    {
+        /* --settingBaseScrollBarFade: var(--scrollbarClr); */
+        --settingBaseScrollBarFade: #444444a1;
+    }
+
+    .settingsBase::-webkit-scrollbar
+    {
+        width: 7px;
+        height: 5px;
+    }
+
+    .settingsBase::-webkit-scrollbar-thumb
+    {
+        background: var(--settingBaseScrollBarFade);
+        border-radius: 7px;
     }
 }
 
