@@ -1139,6 +1139,9 @@
                             let video_source = event.getAttribute('src');
                             mainVideo.src = video_source;
                             mainVideo.currentTime = video_current_duration;
+                            closeSettingsOpt();
+                            settingsBase.classList.remove("active");
+                            clearTimeout(ctrltimer);
                             toggleVidPlay();
                         }
                     });
