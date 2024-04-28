@@ -204,6 +204,9 @@
             const listItemSpeed = settingsBase.querySelector(".listItemPlaybackSpeed");
             const listItemQuality = settingsBase.querySelector(".listItemQuality");
 
+            let pcWindow = window.matchMedia("(hover: hover)");
+            let mobWindow = window.matchMedia("(hover: none)");
+
 
             function checkVidBdrBounds()
             {
@@ -234,7 +237,6 @@
             function hideControls() 
             {
                 if(mainVideo.paused) return;
-                if((window.matchMedia("(hover: hover)")) && (vidCtrlBdr.matches(":hover"))) return;
                 if(!(window.matchMedia("(hover: none)")) && (loader.style.display == "flex")) return;
                 if(settingsBase.matches(":hover")) return;
                 if (document.pictureInPictureElement === mainVideo) return;
@@ -419,8 +421,9 @@
             document.addEventListener("keydown", e => 
             {
                 const tagName = document.activeElement.tagName.toLowerCase();
+                if(window.matchMedia("(hover: none)")) return;
                 if(document.pictureInPictureElement) return;
-                if(window.innerWidth < 768) return;
+                if(window.innerWidth < 884) return;
                 if(window.scrollY > vidBdrHeightThird) return;
                 if (tagName === "input") return;
             
@@ -458,6 +461,7 @@
                 case "c":
                     toggleCaptions();
                     break;
+                    closeSettBase();
                 }
             });
 
@@ -742,34 +746,21 @@
                 if ((settingsHomeBdr.classList.contains("notActive")))
                 {
                     closeSettingsOpt();
-                    settingsHomeBdr.classList.remove("notActive");
                 }
             });
 
             // Close Settings Menu
-            document.addEventListener("mousedown", e =>
-            {
-                closeSettBase()
-            });
-            document.addEventListener("keydown", e =>
-            {
-                closeSettBase()
-            });
-            // document.addEventListener("mousedown", e =>
-            // {
-            //     closeSettBase()
-            // });
-            // document.addEventListener("mousedown", e =>
-            // {
-            //     closeSettBase()
-            // });
-
             function closeSettBase()
             {
                 if(settingsBase.matches(":hover")) return;
+                if(settingsBtn.matches(":hover")) return;
                 closeSettingsOpt();
                 settingsBase.classList.remove("active");
             }
+            video_player.addEventListener("mousedown", e =>
+            {
+                closeSettBase();
+            });
 
             closeSettingsBase.addEventListener("click" , () => 
             {

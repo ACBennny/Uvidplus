@@ -589,8 +589,8 @@ svg.hide
 
 .settingSectionTitleIconBox .settingSectionTitleIcon
 {
-    width: 13px;
-    height: 13px;
+    width: 10px;
+    height: 10px;
     display: block;
     border-top: 3px solid var(--genWhiteTypeLight);
     border-left: 3px solid var(--genWhiteTypeLight);
@@ -601,7 +601,7 @@ svg.hide
 .settingSectionTitleBox .settingSectionTitleText
 {
     width: calc(100% - var(--settingSectionTitleIconBoxWidth));
-    font-size: 16px;
+    font-size: 14px;
     color: var(--genWhiteTypeLight);
 }
 
@@ -988,7 +988,7 @@ only screen and (max-width: 884px)
         z-index: 7;
     }
 
-    .video_player .thumbnail,
+    .video_player .thumbnailBox,
     .options input,
     .progress-area span,
     .pc_controls,
