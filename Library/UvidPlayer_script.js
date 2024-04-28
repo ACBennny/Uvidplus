@@ -177,7 +177,7 @@
                                                 </span>
                                             </div>
                                             <div class="itemCenter">
-                                                <p class="itemName">Language</p>
+                                                <p class="itemName">Audio</p>
                                             </div>
                                             <div class="itemRight">
                                                 <p class="itemValue" id="curr_vidLang">English</p>
@@ -245,7 +245,7 @@
                                         <div class="settingSectionTitleIconBox">
                                             <span class="settingSectionTitleIcon"></span>
                                         </div>
-                                        <p class="settingSectionTitleText">Language</p>
+                                        <p class="settingSectionTitleText">Audio</p>
                                     </div>
                                 </div>
                                 <div class="settingsCtntBox">
