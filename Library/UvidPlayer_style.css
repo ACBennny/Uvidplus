@@ -831,7 +831,7 @@ svg.hide
     width: 90%;
     max-width: 90%;
     text-align: center;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -75%);
     transition: bottom 300ms;
     user-select: none;
     pointer-events: none;
@@ -840,7 +840,7 @@ svg.hide
   
 .video_player .captionText
 {
-    bottom: 5%;
+    bottom: 0%;
 }
 
 .video_player.show-controls .captionText
@@ -1077,22 +1077,14 @@ only screen and (max-width: 884px)
         font-size: 21px;
     }
 
-    .progress-area span, .speed-options li
+    .progress-area span
     {
         font-size: 12px;
     }
 
-    .playback-content .speed-options
+    .captionText mark
     {
-        width: 75px;
-        left: -30px;
-        bottom: 30px;
-    }
-
-    .speed-options li
-    {
-        margin: 1px 0;
-        padding: 3px 0 3px 10px;
+        font-size: 18px;
     }
 
     .mobile_controls_box .mobile_controls .skip-backward,
@@ -1151,6 +1143,17 @@ only screen and (max-width: 884px)
     .settingsHomeList .settingsHomeListItem
     {
         font-size: 11px;
+    }
+
+    .video_player .captionText
+    {
+        bottom: 0%;
+        transform: translate(-50%, -25%);
+    }
+
+    .captionText mark
+    {
+        font-size: 14px;
     }
 
     .mobile_controls_box .mobile_controls
