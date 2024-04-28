@@ -679,7 +679,10 @@
                     adjustVolume(-0.1);
                     break;
                 case "s":
+                    video_player.classList.add("show-controls");
                     settingsBtn.click();
+                    clearTimeout(ctrltimer);
+                    hideControls();
                     break;
                 }
             });
