@@ -390,7 +390,7 @@
             const tracks = video_player.querySelectorAll("track");
             const loader = video_player.querySelector(".loader");
             const pcControlTapBox = video_player.querySelector(".playPause_fullscreen_VidPc");
-            const nextEpLink = video_player.querySelector(".next_epLink");
+            const nextEpLink = document.querySelector(".next_epLink");
             const thumbnailBox = video_player.querySelector(".thumbnailBox");
             const thumbnail = video_player.querySelector(".thumbnail");
             let thumbnails = [];
@@ -939,7 +939,7 @@
             mainVideo.addEventListener('ended', () => 
             {
                 if(autoPlayEpCheckBox.checked == false) return;
-                window.open(nextEpLink.href);
+                window.location.href = nextEpLink.href;
                 // window.location.search = "google.com";
                 // window.history.replaceState({}, '', 'google.com?key=m');
             });
