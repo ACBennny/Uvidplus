@@ -387,20 +387,10 @@
             const fullScreenBtn = video_player.querySelectorAll(".fullscreenBtn svg");
             const fullScreenExpandBtn = video_player.querySelector(".fullscreenBtn .expandIcon");
             const fullScreenContractBtn = video_player.querySelector(".fullscreenBtn .compressIcon");
-            const languageUL = video_player.querySelector(".language_UL");
-            const languageLI = languageUL.querySelectorAll(".language_LI");
-            const playbackUL = video_player.querySelector(".playbackSpeed_UL");
-            const playbackLI = playbackUL.querySelectorAll(".playbackSpeed_LI");
             const tracks = video_player.querySelectorAll("track");
             const loader = video_player.querySelector(".loader");
             const pcControlTapBox = video_player.querySelector(".playPause_fullscreen_VidPc");
-            const autoPlay = video_player.querySelector(".listItemAutoPlay");
-            const autoPlayEpCheckBox = video_player.querySelector(".listItemAutoPlay #vid_AutoPlayToggleCheckbox");
             const nextEpLink = video_player.querySelector(".next_epLink");
-            const settingsBtn = video_player.querySelector(".settingsBtn");
-            const caption_labels = video_player.querySelector(".captions_UL");
-            let caption_text = video_player.querySelector(".captionText");
-
             const thumbnailBox = video_player.querySelector(".thumbnailBox");
             const thumbnail = video_player.querySelector(".thumbnail");
             let thumbnails = [];
@@ -410,21 +400,27 @@
             let horizontalItemCount = 5;
             let verticalItemCount = 5;
 
-            let ctrltimer;
-
-
+            const settingsBtn = video_player.querySelector(".settingsBtn");
             const settingsBase = video_player.querySelector(".settingsBase");
             const closeSettingsBase = video_player.querySelector(".closeSettingsBase");
             const settingsHomeBdr = video_player.querySelector(".settingsHomeBdr");
             const settingsOptBdr = video_player.querySelectorAll(".settingsOptBdr");
             const openSettingsOptBdr = video_player.querySelectorAll(".openSettingsOptBdr");
             const closeSettingsOptBdr = video_player.querySelectorAll(".closeSettingsOptBdr");
-
+            const autoPlay = video_player.querySelector(".listItemAutoPlay");
+            const autoPlayEpCheckBox = video_player.querySelector(".listItemAutoPlay #vid_AutoPlayToggleCheckbox");
+            const caption_labels = video_player.querySelector(".captions_UL");
+            const caption_text = video_player.querySelector(".captionText");
+            const languageUL = video_player.querySelector(".language_UL");
+            const languageLI = languageUL.querySelectorAll(".language_LI");
+            const playbackUL = video_player.querySelector(".playbackSpeed_UL");
+            const playbackLI = playbackUL.querySelectorAll(".playbackSpeed_LI");
             const listItemLang = settingsBase.querySelector(".listItemLanguage");
             const listItemCaption = settingsBase.querySelector(".listItemSubtitleCC");
             const listItemSpeed = settingsBase.querySelector(".listItemPlaybackSpeed");
             const listItemQuality = settingsBase.querySelector(".listItemQuality");
 
+            let ctrltimer;
             let pcWindow = window.matchMedia("(hover: hover)");
             let mobWindow = window.matchMedia("(hover: none)");
 
@@ -943,7 +939,7 @@
             mainVideo.addEventListener('ended', () => 
             {
                 if(autoPlayEpCheckBox.checked == false) return;
-                mainVideo.play();
+                window.open(nextEpLink.href);
                 // window.location.search = "google.com";
                 // window.history.replaceState({}, '', 'google.com?key=m');
             });

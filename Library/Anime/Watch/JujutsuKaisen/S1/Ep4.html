@@ -127,65 +127,14 @@
         <!-- ------------ Section 1: VIDEO PLAYER ---------------- -->
         <div class="vid_bdr">
             <div class="vid_box">
-                <div class="container show-controls">
-                    <div class="episode_title_bdr">
-                        <div class="episode_title_box">
-                            <div class="companyTitle">
-                                <h1 class="head">U</h1>
-                                <h1 class="tail">vid</h1>
-                            </div>
-                            <div class="episodeTitle">Episode 1</div>
-                        </div>
-                    </div>
-                    <div class="cover-vid">
-                        <div class="playPause_fullscreen_VidPc"></div>
-                        <div class="mobile_controls_box">
-                            <div class="options center mobile_controls">
-                                <button class="skip-backward"><i class="fas fa-backward"></i></button>
-                                <button class="play-pause"><i class="fas fa-play"></i></button>
-                                <button class="skip-forward"><i class="fas fa-forward"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="wrapper">
-                        <div class="video-timeline">
-                            <div class="progress-area">
-                                <span>00:00</span>
-                                <div class="progress-bar"></div>
-                            </div>
-                        </div>
-                        <ul class="video-controls">
-                            <li class="options left">
-                                <button class="volume"><i class="fa-solid fa-volume-high"></i></button>
-                                <input type="range" min="0" max="1" step="any">
-                                <div class="video-timer">
-                                    <p class="current-time">00:00</p>
-                                    <p class="separator"> / </p>
-                                    <p class="video-duration">00:00</p>
-                                </div>
-                            </li>
-                            <li class="options center pc_controls">
-                                <button class="skip-backward"><i class="fas fa-backward"></i></button>
-                                <button class="play-pause"><i class="fas fa-play"></i></button>
-                                <button class="skip-forward"><i class="fas fa-forward"></i></button>
-                            </li>
-                            <li class="options right">
-                                <div class="playback-content">
-                                    <button class="playback-speed"><span class="material-symbols-rounded">slow_motion_video</span></button>
-                                    <ul class="speed-options">
-                                        <li data-speed="2">2x</li>
-                                        <li data-speed="1.5">1.5x</li>
-                                        <li data-speed="1" class="active">Normal</li>
-                                        <li data-speed="0.75">0.75x</li>
-                                        <li data-speed="0.5">0.5x</li>
-                                    </ul>
-                                </div>
-                                <button class="pic-in-pic"><span class="material-icons">picture_in_picture_alt</span></button>
-                                <button class="fullscreen"><i class="fa-solid fa-expand"></i></button>
-                            </li>
-                        </ul>
-                    </div>
-                    <video src="/Library/Anime/Watch/JujutsuKaisen/S1/Media/1.mp4"></video>
+                <div class="container video_player show-controls">
+                    <video preload="metadata" class="main-video">
+                        <source src="/Library/Anime/Watch/JujutsuKaisen/S1/Media/2_480p.mp4" size="480"  type="video/mp4">
+                        <source src="/Library/Anime/Watch/JujutsuKaisen/S1/Media/2_480p.mp4" size="720" type="video/mp4">
+                        <source src="/Library/Anime/Watch/JujutsuKaisen/S1/Media/2_480p.mp4" size="1080" type="video/mp4">
+                        <track label="English" kind="subtitles" src="./How To Get Started With VSCode.vtt" srclang="en">
+                        <track label="Urdu" kind="subtitles" src="./test.vtt" srclang="en">
+                    </video>
                 </div>
             </div>
         </div>
@@ -202,7 +151,9 @@
                         <div class="column_ctnt">
                             <div class="section_title_bdr">
                                 <div class="section_title_box">
-                                    <h1 class="section_title_textLarge">Season 1 - Episode 4</h1>
+                                    <h1 class="section_title_textLarge">
+                                        <span class="largeText1">Season 1</span> - <span class="largeText2">Episode 4</span>
+                                    </h1>
                                     <a href="/Library//Anime/JujutsuKaisen.html" title="" class="section_title_textSmall">Jujutsu Kaisen</a>
                                 </div>
                             </div>
