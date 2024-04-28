@@ -993,6 +993,7 @@
                     hideControls();
                 }
             }
+            
             video_player.addEventListener("mousedown", e =>
             {
                 if(mobWindow.matches) return;
@@ -1013,6 +1014,7 @@
                 {
                     settingsHomeBdr.classList.add("notActive");
                     settingsOptBdr[opnBdr].classList.add("active");
+                    settingsBase.scrollTo(0, 0);
                 });
             });
 
