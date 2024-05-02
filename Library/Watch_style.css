@@ -17,8 +17,8 @@ html:root
     --genMaxWidth: 1340px;
     --leftColWidth: calc(100% - var(--rightColWidth));
     --rightColWidth: 35%;
-    --showlist_MoreEpCloseBoxHeight: 25px;
-    --showlist_MoreEpHeaderBdrHeight: 50px;
+    --showlist_MoreEpCloseBoxHeight: 30px;
+    --showlist_MoreEpHeaderBdrHeight: 40px;
 }
 
 
@@ -383,14 +383,21 @@ html:root
     left: 0;
     width: 100%;
     height: 100%;
-    display: none;
+    display: flex;
     justify-content: center;
-    z-index: 105;
+    opacity: 0;
+    visibility: hidden;
+    transition: 300ms;
+    pointer-events: none;
+    z-index: -105;
 }
 
 .showlist_MoreEpBase.active
 {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    z-index: 105;
 }
 
 .showlist_MoreEpBase .showlist_MoreEpBcg
@@ -398,7 +405,7 @@ html:root
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #000000a1;
+    background-color: #000000b2;
     z-index: -1;
 }
 
@@ -407,6 +414,15 @@ html:root
     width: 100%;
     max-width: 700px;
     height: 100%;
+    scale: 0.9;
+    translate: 0% 10%;
+    transition: 300ms;
+}
+
+.showlist_MoreEpBase.active .showlist_MoreEpBdr
+{
+    scale: 1;
+    translate: 0% 0%;
 }
 
 .showlist_MoreEpBdr .showlist_MoreEpBox
@@ -433,7 +449,8 @@ html:root
 .showlist_MoreEpCloseBox .showlist_MoreEpCloseIcon
 {
     position: absolute;
-    right: -25px;
+    top: 20px;
+    right: -30px;
     width: 25px;
     fill: var(--genWhiteTypeLight);
     cursor: pointer;
@@ -561,6 +578,7 @@ html:root
     grid-template-rows: auto;
     justify-items: center;
     gap: 10px;
+    padding: 5px 10px;
     background-color: transparent;
 }
 
@@ -737,6 +755,11 @@ html:root
         font-size: 12px;
     }
 
+    .showlist_MoreEpBase .showlist_MoreEpBdr
+    {
+        max-width: 100%;
+    }
+
     .showlist_MoreEpBox .showlist_MoreEpCloseBox
     {
         position: relative;
@@ -760,6 +783,15 @@ html:root
     .showlist_MoreEpHeaderBdr .showlist_MoreEpHeaderBox
     {
         border-radius: 0;
+    }
+    .showlist_MoreEpHeaderBox .showlist_MoreEpHeaderText
+    {
+        font-size: 14px;
+    }
+
+    .showlist_MoreEpSelectorBox .showlist_MoreEpSelector
+    {
+        font-size: 11px;
     }
 
     .showlist_MoreEpCtntBdr .showlist_MoreEpCtntBox
