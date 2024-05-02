@@ -116,6 +116,11 @@ img
     background-color: transparent;
 }
 
+::-webkit-scrollbar
+{
+    display: none;
+}
+
 ::selection
 {
     background: #202720;
@@ -1453,6 +1458,7 @@ img
 {
     ::-webkit-scrollbar
     {
+        display: block;
         width: 8px;
         height: 8px;
         pointer-events: none;
