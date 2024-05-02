@@ -121,6 +121,12 @@ img
     display: none;
 }
 
+::-moz-selection
+{
+    background: #202720;
+    color: #14d60d;
+}
+
 ::selection
 {
     background: #202720;
