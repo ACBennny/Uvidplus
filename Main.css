@@ -133,6 +133,18 @@ img
     color: #14d60d;
 }
 
+
+
+::-moz-placeholder
+{
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    opacity: 1;
+}
+
 ::placeholder
 {
     -moz-user-select: -moz-none;
@@ -140,6 +152,7 @@ img
     -webkit-user-select: none;
     user-select: none;
     pointer-events: none;
+    opacity: 1;
 }
 
 
