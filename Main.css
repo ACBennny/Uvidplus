@@ -133,7 +133,6 @@ img
     color: #14d60d;
 }
 
-
 ::-ms-input-placeholder
 {
     -moz-user-select: -moz-none;
@@ -151,6 +150,15 @@ img
     user-select: none;
     pointer-events: none;
     opacity: 1;
+}
+
+::-webkit-input-placeholder
+{
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
 }
 
 ::placeholder
