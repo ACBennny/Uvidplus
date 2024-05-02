@@ -1202,13 +1202,6 @@
                 e.preventDefault();
             });
 
-            // video_player.addEventListener("mousemove", () => 
-            // {
-            //     video_player.classList.add("active");
-            //     clearTimeout(ctrltimer);
-            //     hideControls();
-            // });
-
             if (tracks.length == 0)
             {
                 caption_labels.remove();
