@@ -66,22 +66,23 @@
 
         troBase.appendChild(trailerBdr);
 
+        const closeTrailer = trailerBdr.querySelector(".closeTrailer");
+        closeTrailer.addEventListener("click" , () => 
+        {
+            troBase.removeChild(trailerBdr);
+            document.body.classList.remove('bodystop');
+        })
+
         trailerTimer = setTimeout
         (
             function()
             {
                 document.body.classList.add('bodystop');
-
-                const closeTrailer = trailerBdr.querySelector(".closeTrailer");
-                closeTrailer.addEventListener("click" , () => 
-                {
-                    troBase.removeChild(trailerBdr);
-                    document.body.classList.remove('bodystop');
-                });
+                trailerBdr.classList.add("active");
 
                 clearTimeout(trailerTimer);
             }
-        ,200);
+        ,100);
     });
 
 
