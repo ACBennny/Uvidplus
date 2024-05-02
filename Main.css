@@ -83,7 +83,7 @@ a
     cursor: pointer;
 }
 a:focus,
-a:visited
+a:any-link
 {
     color: inherit;
 }
