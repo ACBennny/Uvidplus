@@ -17,7 +17,7 @@ html:root
     --genMaxWidth: 1340px;
     --leftColWidth: calc(100% - var(--rightColWidth));
     --rightColWidth: 35%;
-    --showlist_MoreEpCloseBoxHeight: 50px;
+    --showlist_MoreEpCloseBoxHeight: 25px;
     --showlist_MoreEpHeaderBdrHeight: 50px;
 }
 
@@ -777,6 +777,7 @@ html:root
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        gap: 10px;
     }
 
     .showlist_epCardBox .showlist_epDetBdr

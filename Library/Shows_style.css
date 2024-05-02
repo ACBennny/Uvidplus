@@ -58,6 +58,13 @@ html:root
     transition: 300ms;
 }
 
+.bcg_img_ctnt .bcgImg,
+.bcg_img_ctnt .bcgVid
+{
+    min-height: 500px;
+    /* aspect-ratio: 1/1; */
+}
+
 .bc-img-cover
 {
     position: absolute;
@@ -260,7 +267,7 @@ html:root
 {
     width: 60%;
     height: fit-content;
-    min-height: 250px;
+    min-height: 200px;
     transition: 300ms;
 }
 
@@ -546,7 +553,7 @@ html:root
 @media only screen and (max-width: 884px)
 {
 
-    .bc-img-cover
+    /* .bc-img-cover
     {
         background: 
         linear-gradient(
@@ -554,11 +561,11 @@ html:root
             transparent, #000000cb, #0d0d0de8, 
             #000000f9, #000000, #000000,
             #000000, #000000);
-    }
+    } */
     
     .title-bdr
     {
-        top: 20%;
+        /* top: 20%; */
         flex-direction: column;
         gap: 10px;
     }
@@ -582,6 +589,7 @@ html:root
         width: 100%;
         height: 100px;
         justify-content: space-evenly;
+        display: none;
     }
 
     .title-img
