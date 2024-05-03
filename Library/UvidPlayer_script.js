@@ -419,7 +419,6 @@
             const listItemCaption = settingsBase.querySelector(".listItemSubtitleCC");
             const listItemSpeed = settingsBase.querySelector(".listItemPlaybackSpeed");
             const listItemQuality = settingsBase.querySelector(".listItemQuality");
-
             let ctrltimer;
             let pcWindow = window.matchMedia("(hover: hover)");
             let mobWindow = window.matchMedia("(hover: none)");
@@ -970,7 +969,7 @@
                 settingsBtn.classList.toggle("active");
 
                 // Pause video for mob/touch devices
-                if(mobWindow.matches)
+                if(mobWindow.matches || window.innerWidth < 884 || window.innerHeight < 485)
                 {
                     mainVideo.pause();
                 }
