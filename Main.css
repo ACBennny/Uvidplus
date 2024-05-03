@@ -118,7 +118,10 @@ img
 
 ::-webkit-scrollbar
 {
-    display: none;
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0 !important;
 }
 
 ::-moz-selection

@@ -129,12 +129,6 @@ html:root
 }
 
 
-.media_actions_box svg
-{
-    fill: var(--genGreenTypeLight);
-    width: 18px;
-}
-
 .media_actions_box .media_optBdr
 {
     height: 100%;
@@ -145,6 +139,9 @@ html:root
 
 .media_optBdr .media_optBox
 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     outline: none;
     border: none;
     padding: 10px;
@@ -154,14 +151,29 @@ html:root
 
 .media_optBox .media_optIcon
 {
-    width: 20px;
+    width: 16px;
     fill: var(--genWhiteTypeLight);
     transition: 300ms;
 }
 
-.media_optBox:hover .media_optIcon
+.media_optBox:hover .media_optIcon,
+.media_optBox:active .media_optIcon
 {
     fill: var(--genGreenTypeLight);
+}
+
+.media_optBox .media_optText
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 12px;
+    margin-left: 5px;
+    transition: 300ms;
+}
+
+.media_optBox:hover .media_optText,
+.media_optBox:active .media_optText
+{
+    color: var(--genGreenTypeLight);
 }
 
 
