@@ -600,6 +600,21 @@
                 video_player.requestFullscreen();
             }
 
+            document.addEventListener("fullscreenchange", () => 
+            {
+                if(!document.fullscreenElement)
+                {
+                    video_player.classList.remove("fullscreen");
+                    fullScreenContractBtn.classList.add("hide");
+                    fullScreenExpandBtn.classList.remove("hide");
+                    fullScreenBtnBox.forEach(box => 
+                    {
+                        box.title = "enter fullscreen";
+                        box.ariaLabel = "enter fullscreen";
+                    });
+                }
+            });
+
             // Remove Picture - In - Picture Element if device is not pc
             function checkPIP()
             {
@@ -630,21 +645,6 @@
                 }
 
             }
-
-            document.addEventListener("fullscreenchange", () => 
-            {
-                if(!document.fullscreenElement)
-                {
-                    video_player.classList.remove("fullscreen");
-                    fullScreenContractBtn.classList.add("hide");
-                    fullScreenExpandBtn.classList.remove("hide");
-                    fullScreenBtnBox.forEach(box => 
-                    {
-                        box.title = "enter fullscreen";
-                        box.ariaLabel = "enter fullscreen";
-                    });
-                }
-            });
 
             document.addEventListener("visibilitychange", () => 
             {

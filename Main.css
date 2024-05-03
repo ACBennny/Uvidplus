@@ -116,14 +116,6 @@ img
     background-color: transparent;
 }
 
-::-webkit-scrollbar
-{
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-    opacity: 0 !important;
-}
-
 ::-moz-selection
 {
     background: #202720;
@@ -1549,5 +1541,16 @@ img
     .navBarNotificationSub::-webkit-scrollbar-thumb:active
     {
         background-color: #888888;
+    }
+}
+
+@media(hover: none) and (pointer: coarse)
+{
+    ::-webkit-scrollbar
+    {
+        /* display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        opacity: 0 !important; */
     }
 }
