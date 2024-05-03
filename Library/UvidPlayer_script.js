@@ -399,7 +399,6 @@
             let thumbnailHeight = 150;
             let horizontalItemCount = 5;
             let verticalItemCount = 5;
-
             const settingsBtn = video_player.querySelector(".settingsBtn");
             const settingsBase = video_player.querySelector(".settingsBase");
             const closeSettingsBase = video_player.querySelector(".closeSettingsBase");
@@ -420,6 +419,7 @@
             const listItemSpeed = settingsBase.querySelector(".listItemPlaybackSpeed");
             const listItemQuality = settingsBase.querySelector(".listItemQuality");
             let ctrltimer;
+
             let pcWindow = window.matchMedia("(hover: hover)");
             let mobWindow = window.matchMedia("(hover: none)");
 
@@ -434,8 +434,9 @@
             }
             window.addEventListener("load" ,  () => 
             {
-                checkVidBdrBounds();
                 videoTitle.textContent = majorTitle.textContent;
+                checkVidBdrBounds();
+                checkPIP();
             });
             window.addEventListener("scroll" , () => 
             {
@@ -444,10 +445,12 @@
             window.addEventListener("resize" , () => 
             {
                 checkVidBdrBounds();
+                checkPIP();
             });
             window.addEventListener("change" , () => 
             {
                 checkVidBdrBounds();
+                checkPIP();
             });
             
 
@@ -595,6 +598,37 @@
                     box.ariaLabel = "exit fullscreen";
                 });
                 video_player.requestFullscreen();
+            }
+
+            // Remove Picture - In - Picture Element if device is not pc
+            function checkPIP()
+            {
+                if(pcWindow.matches && (window.innerWidth >= 884 && window.innerHeight >= 485))
+                {
+                    mainVideo.disablePictureInPicture = false;
+                }
+                else
+                {
+                    mainVideo.pause();
+                    if (document.pictureInPictureElement === mainVideo)
+                    {
+                        document.exitPictureInPicture()
+                        .then(() => 
+                        {
+                            mainVideo.disablePictureInPicture = true;
+                        })
+                        .catch(error => 
+                        {
+                            console.error('Failed to exit Picture-in-Picture mode:', error);
+                        });
+                    }
+                    else
+                    {
+                        // If the video is not in PiP mode, only disable PiP
+                        mainVideo.disablePictureInPicture = true;
+                    }
+                }
+
             }
 
             document.addEventListener("fullscreenchange", () => 
