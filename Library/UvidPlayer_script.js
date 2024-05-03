@@ -635,8 +635,14 @@
             {
                 if(!document.fullscreenElement)
                 {
+                    video_player.classList.remove("fullscreen");
                     fullScreenContractBtn.classList.add("hide");
                     fullScreenExpandBtn.classList.remove("hide");
+                    fullScreenBtnBox.forEach(box => 
+                    {
+                        box.title = "enter fullscreen";
+                        box.ariaLabel = "enter fullscreen";
+                    });
                 }
             });
 
