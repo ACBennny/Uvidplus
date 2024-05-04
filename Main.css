@@ -1551,14 +1551,3 @@ img
         background-color: #888888;
     }
 }
-
-@media(hover: none) and (pointer: coarse)
-{
-    ::-webkit-scrollbar
-    {
-        /* display: none !important;
-        width: 0 !important;
-        height: 0 !important;
-        opacity: 0 !important; */
-    }
-}
