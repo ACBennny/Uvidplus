@@ -71,10 +71,14 @@
         {
             addToWatchListBox.classList.remove("active");
             addToWatchListText.textContent = "Add to WatchList";
+            addToWatchListBox.title = "Add to WatchList";
+            addToWatchListBox.ariaLabel = "Add to WatchList";
             return;
         }
         addToWatchListBox.classList.add("active");
         addToWatchListText.textContent = "Remove from WatchList";
+        addToWatchListBox.title = "Remove from WatchList";
+        addToWatchListBox.ariaLabel = "Remove from WatchList";
     });
 
 
