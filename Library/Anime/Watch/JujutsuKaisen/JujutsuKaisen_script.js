@@ -1078,9 +1078,7 @@
 
 
 
-
         // MORE EPSIODES OVERLAY
-
 
             // open the Overlay modal
             openMoreEpOverlay.forEach(btn => 
@@ -1096,12 +1094,10 @@
                 });
             });
 
-
-
             // Close the Overlay modal
             closeMoreEpOverlay.forEach(btn => 
             {
-                btn.addEventListener("click" , () => 
+                btn.addEventListener("mousedown" , () => 
                 {
                     moreEpBase.classList.remove("active");
                     documentBody.classList.remove("bodystop");
