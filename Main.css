@@ -1552,4 +1552,8 @@ img
     }
 }
 
-
+@media(hover: none) and (pointer: coarse)
+{
+    ::-webkit-scrollbar
+    {}
+}
