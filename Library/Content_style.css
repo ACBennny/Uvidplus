@@ -582,7 +582,9 @@ body
     scroll-padding-right: 50px;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overflow-x: auto;
     overflow-y: hidden;
 }
 
