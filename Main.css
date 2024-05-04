@@ -17,15 +17,16 @@
 
 
 
-html{
+html
+{
     scroll-behavior: smooth;
 }
 
 html:root
 {
-    --scrollbarClr: #444444;
-    --scrollbarHoverClr: #545454;
-    --scrollbarActiveClr: #777777;
+    --scrollbarClr: #282828;
+    --scrollbarHoverClr: #333333;
+    --scrollbarActiveClr: #444444;
     --navBarHeight: 70px;
     --navBarGenClr: #e7e7e7;
     --navBarBcgSolid: #2f2e2e;
@@ -1489,6 +1490,13 @@ img
     ::-webkit-scrollbar
     {
         display: block;
+        width: 7px;
+        height: 7px;
+        pointer-events: none;
+    }
+    ::-webkit-scrollbar
+    {
+        display: block;
         width: 8px;
         height: 8px;
         pointer-events: none;
@@ -1544,13 +1552,4 @@ img
     }
 }
 
-@media(hover: none) and (pointer: coarse)
-{
-    ::-webkit-scrollbar
-    {
-        /* display: none !important;
-        width: 0 !important;
-        height: 0 !important;
-        opacity: 0 !important; */
-    }
-}
+
