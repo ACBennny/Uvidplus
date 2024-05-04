@@ -29,9 +29,24 @@
 
 
 
-// MORE EPISODES
+// Expand Action tab
 
-    //  Loads
+    // 
+    const mediaActionBox = document.querySelector(".media_actions_box");
+    const openMediaActionBox = document.querySelector(".open_fullMediaActionBox");
+    const openMediaActionText = openMediaActionBox.querySelector(".media_optText");
+
+    openMediaActionBox.addEventListener("click" , () => 
+    {
+        if(mediaActionBox.classList.contains("active"))
+        {
+            mediaActionBox.classList.remove("active");
+            openMediaActionText.textContent = "More";
+            return;
+        }
+        mediaActionBox.classList.add("active");
+        openMediaActionText.textContent = "Close";
+    });
 
 
 
