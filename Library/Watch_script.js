@@ -12,6 +12,10 @@
     const nextEpCtntCardBdr = document.querySelectorAll(".next_epCardBdr");   
     const mediaActionBox = document.querySelector(".media_actions_box");
     const openMediaActionBox = document.querySelector(".open_fullMediaActionBox");
+    const likeTheEp = document.querySelector(".add_to_LikedShowsBox");
+    const dontLikeTheEp = document.querySelector(".add_to_DislikedShowsBox");
+    const addToWatchListBox = document.querySelector(".add_to_WatchListBox");
+    const addToWatchListText = addToWatchListBox.querySelector(".media_optText");
 
 
 
@@ -37,6 +41,40 @@
     openMediaActionBox.addEventListener("click" , () => 
     {
         mediaActionBox.classList.toggle("active");
+    });
+
+
+
+// THUMBS UP/ DOWN
+
+    // Like the show
+    likeTheEp.addEventListener("click" , () => 
+    {
+        likeTheEp.classList.toggle("active");
+        dontLikeTheEp.classList.remove("active");
+    });
+    
+    // Dislike the show
+    dontLikeTheEp.addEventListener("click" , () => 
+    {
+        dontLikeTheEp.classList.toggle("active");
+        likeTheEp.classList.remove("active");
+    });
+
+
+
+// WATCHLIST
+
+    addToWatchListBox.addEventListener("click" , () => 
+    {
+        if(addToWatchListBox.classList.contains("active"))
+        {
+            addToWatchListBox.classList.remove("active");
+            addToWatchListText.textContent = "Add to WatchList";
+            return;
+        }
+        addToWatchListBox.classList.add("active");
+        addToWatchListText.textContent = "Remove from WatchList";
     });
 
 

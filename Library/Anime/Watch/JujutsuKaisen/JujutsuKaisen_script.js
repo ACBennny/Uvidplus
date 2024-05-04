@@ -1085,7 +1085,6 @@
             // open the Overlay modal
             openMoreEpOverlay.forEach(btn => 
             {
-                // preload.style.display = "flex";
                 btn.addEventListener("click" , () => 
                 {
                     moreEpBase.classList.add("active");

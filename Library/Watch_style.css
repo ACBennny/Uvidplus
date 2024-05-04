@@ -206,7 +206,7 @@ html:root
 .media_optBox:hover,
 .media_optBox:active
 {
-    background-color: #242424;
+    background-color: #282828;
     border-radius: 15px;
 }
 
@@ -235,7 +235,7 @@ html:root
 .media_optBox:hover .media_optIcon,
 .media_optBox:active .media_optIcon
 {
-    fill: var(--genGreenTypeLight);
+    fill: var(--genWhiteTypeBright);
 }
 
 .media_optBox .media_optText
@@ -249,7 +249,13 @@ html:root
 .media_optBox:hover .media_optText,
 .media_optBox:active .media_optText
 {
-    color: var(--genGreenTypeLight);
+    color: var(--genWhiteTypeBright);
+}
+
+.like_buttons.active
+{
+    background-color: var(--genGreenTypeDark);
+    border-radius: 25px;
 }
 
 
@@ -264,6 +270,26 @@ html:root
 .media_actions_box.active .media_optBdr
 {
     flex-direction: column;
+}
+
+.add_to_WatchListBox .add_to_WatchListIcon
+{
+    display: block;
+}
+
+.add_to_WatchListBox .remove_from_WatchListIcon
+{
+    display: none;
+}
+
+.add_to_WatchListBox.active .add_to_WatchListIcon
+{
+    display: none;
+}
+
+.add_to_WatchListBox.active .remove_from_WatchListIcon
+{
+    display: block;
 }
 
 .left_section_box.media_actions_box.active .open_fullMediaActionBox
@@ -444,17 +470,17 @@ html:root
 {
     --moreEpBtnColors: #ababab;
     font-family: 'Zen dots', sans-serif;
-    width: 150px;
+    width: 175px;
     height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 5px;
-    padding: 5px;
+    padding: 10px 5px;
     outline: none;
-    border: 1px solid var(--moreEpBtnColors);
-    border-radius: 5px;
+    border: 1.5px solid var(--moreEpBtnColors);
+    border-radius: 8px;
     background-color: transparent;
     -moz-user-select: -moz-none;
     -moz-user-select: none;
@@ -477,7 +503,7 @@ html:root
 
 .showlist_MoreEpBtnBox .showlist_MoreEpBtnIcon
 {
-    width: 18px;
+    width: 20px;
     fill: var(--moreEpBtnColors);
     transition: all 300ms ease-in-out;
 }
@@ -485,7 +511,7 @@ html:root
 .showlist_MoreEpBtnBox .showlist_MoreEpBtnText
 {
     color: var(--moreEpBtnColors);
-    font-size: 10px;
+    font-size: 12px;
     transition: all 300ms ease-in-out;
 }
 
@@ -849,6 +875,7 @@ html:root
     .section_Box .right_column
     {
         width: 100%;
+        max-width: 100%;
     }
 }
 
