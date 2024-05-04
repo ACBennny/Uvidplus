@@ -10,6 +10,8 @@
 
     const majorTitle = document.querySelector(".largeText2");
     const nextEpCtntCardBdr = document.querySelectorAll(".next_epCardBdr");   
+    const mediaActionBox = document.querySelector(".media_actions_box");
+    const openMediaActionBox = document.querySelector(".open_fullMediaActionBox");
 
 
 
@@ -29,23 +31,12 @@
 
 
 
-// Expand Action tab
+// ACTON TAB
 
-    // 
-    const mediaActionBox = document.querySelector(".media_actions_box");
-    const openMediaActionBox = document.querySelector(".open_fullMediaActionBox");
-    const openMediaActionText = openMediaActionBox.querySelector(".media_optText");
-
+    // Expand/Contract Action tab
     openMediaActionBox.addEventListener("click" , () => 
     {
-        if(mediaActionBox.classList.contains("active"))
-        {
-            mediaActionBox.classList.remove("active");
-            openMediaActionText.textContent = "More";
-            return;
-        }
-        mediaActionBox.classList.add("active");
-        openMediaActionText.textContent = "Close";
+        mediaActionBox.classList.toggle("active");
     });
 
 
