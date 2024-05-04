@@ -84,7 +84,7 @@ html:root
     background-color: #141414;
 }
 
-
+.left_section_box.section_title_box,
 .left_section_box.synopsis_box
 {
     border-left: 3px solid var(--genGreenTypeDark);
@@ -95,6 +95,7 @@ html:root
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 3px solid var(--genGreenTypeDark);
     -moz-user-select: -moz-none;
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -833,6 +834,7 @@ html:root
         border-radius: 5px;
     }
 
+    .left_section_box.section_title_box,
     .left_section_box.synopsis_box
     {
         border-right: 3px solid var(--genGreenTypeDark);
