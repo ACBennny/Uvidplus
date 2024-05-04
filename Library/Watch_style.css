@@ -64,14 +64,14 @@ html:root
     padding: 10px;
 }
 
-.column_ctnt .section_title_bdr
+.column_ctnt .left_section_bdr
 {
     width: 100%;
     margin: 0 0 20px 0;
     padding: 0 0 0 15px;
 }
 
-.section_title_bdr .section_title_box
+.left_section_bdr .left_section_box
 {
     width: 100%;
     height: 100%;
@@ -80,9 +80,23 @@ html:root
     gap: 10px;
     padding: 25px 15px;
     border-radius: 5px;
-    border-left: 3px solid var(--genGreenTypeDark);
     background-color: #111111;
+    background-color: #141414;
 }
+
+
+.left_section_box.synopsis_box
+{
+    border-left: 3px solid var(--genGreenTypeDark);
+}
+
+.left_section_box.media_actions_box
+{
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
 
 .section_title_box .section_title_textLarge
 {
@@ -97,35 +111,69 @@ html:root
     width: fit-content;
     color: var(--genWhiteTypeMid);
     font-size: 13px;
+    transition: 200ms;
 }
 
-.column_ctnt .media_actions_bdr
+.section_title_textSmall:hover,
+.section_title_textSmall:active
 {
-    width: 100%;
-    margin: 0 0 20px 0;
-    padding: 0 0 0 15px;
+    color:var(--genWhiteTypeLight);
 }
 
-.media_actions_bdr .media_actions_box
+.synopsis_box .synopsisTitle
 {
     width: 100%;
-    height: 100%;
+    color: var(--genWhiteTypeLight);
+    font-size: 13px;
+    transition: 200ms;
+}
+
+.synopsis_box .synopsisText
+{
+    width: 100%;
+    margin: 0 0 18px 0;
+    color: var(--genWhiteTypeMid);
+    font-size: 11px;
+    transition: 200ms;
+}
+
+.synopsis_box .genreTagBox
+{
+    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 25px 15px;
-    border-radius: 5px;
-    border-left: 3px solid var(--genGreenTypeDark);
-    /* border-right: 3px solid var(--genGreenTypeDark); */
-    background-color: #111111;
+    flex-wrap: wrap;
+    gap: 5px;
 }
 
-.media_actions_box .media_actions_static
+.genreTagCardLink .genreTagCard
 {
-    width: 90px;
-    height: 100%;
-    background-color: var(--genGreenTypeDark);
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 6px;
+    border-radius: 12px;
+    border: 0.5px solid var(--genWhiteTypeMid);
+    background-color: #222222;
+    transition: 300ms;
+}
+
+.genreTagCard .genreTagCardText
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 10px;
+    transition: 300ms;
+}
+
+.genreTagCard:hover,
+.genreTagCard:active
+{
+    background-color: #333333;
+}
+
+.genreTagCard:hover .genreTagCardText,
+.genreTagCard:active .genreTagCardText
+{
+    color: var(--genWhiteTypeBright);
 }
 
 
@@ -144,9 +192,17 @@ html:root
     align-items: center;
     outline: none;
     border: none;
-    padding: 10px;
+    padding: 15px;
     background-color: transparent;
     cursor: pointer;
+    transition: 300ms;
+}
+
+.media_optBox:hover,
+.media_optBox:active
+{
+    background-color: #242424;
+    border-radius: 15px;
 }
 
 .media_optBox .media_optIcon
@@ -154,6 +210,21 @@ html:root
     width: 16px;
     fill: var(--genWhiteTypeLight);
     transition: 300ms;
+}
+
+.media_optIcon.open_fullMediaActionIcon
+{
+    width: 30px;
+}
+
+.media_optBox.open_fullMediaActionBox
+{
+    display: none;
+}
+
+.open_fullMediaActionIcon path
+{
+    stroke: var(--genWhiteTypeLight);
 }
 
 .media_optBox:hover .media_optIcon,
@@ -180,10 +251,11 @@ html:root
 
 
 
-/* ---------- Right Colun ---------- */
+/* ---------- Right Column ---------- */
 .section_Box .right_column
 {
     width: var(--rightColWidth);
+    max-width: 400px;
     overflow: hidden;
 }
 
@@ -342,7 +414,7 @@ html:root
 {
     --moreEpBtnColors: #ababab;
     font-family: 'Zen dots', sans-serif;
-    width: 200px;
+    width: 150px;
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -351,7 +423,7 @@ html:root
     gap: 5px;
     padding: 5px;
     outline: none;
-    border: 2px solid var(--moreEpBtnColors);
+    border: 1px solid var(--moreEpBtnColors);
     border-radius: 5px;
     background-color: transparent;
     cursor: pointer;
@@ -371,7 +443,7 @@ html:root
 
 .showlist_MoreEpBtnBox .showlist_MoreEpBtnIcon
 {
-    width: 25px;
+    width: 18px;
     fill: var(--moreEpBtnColors);
     transition: all 300ms ease-in-out;
 }
@@ -379,7 +451,7 @@ html:root
 .showlist_MoreEpBtnBox .showlist_MoreEpBtnText
 {
     color: var(--moreEpBtnColors);
-    font-size: 13px;
+    font-size: 10px;
     transition: all 300ms ease-in-out;
 }
 
@@ -722,19 +794,15 @@ html:root
 
 @media only screen and (max-width: 1100px)
 {
-    .column_ctnt .section_title_bdr,
-    .column_ctnt .media_actions_bdr
+    .column_ctnt .left_section_bdr
     {
         padding-left: 0px;
         border-radius: 5px;
-        border-left: 3px solid var(--genGreenTypeDark);
-        border-right: 3px solid var(--genGreenTypeDark);
     }
 
-    .section_title_bdr .section_title_box,
-    .media_actions_bdr .media_actions_box
+    .left_section_box.synopsis_box
     {
-        border: none;
+        border-right: 3px solid var(--genGreenTypeDark);
     }
 
     .section_Bdr .section_Box
@@ -765,6 +833,34 @@ html:root
     .section_title_box .section_title_textSmall
     {
         font-size: 12px;
+    }
+
+    /* .left_section_box.media_actions_box
+    {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .media_actions_box .media_optBdr
+    {
+        flex-direction: column;
+    } */
+
+    .media_optBox.open_fullMediaActionBox
+    {
+        display: flex;
+    }
+
+    .left_section_box.media_actions_box
+    {
+        justify-content: unset;
+        justify-content: center;
+        padding: 25px 0;
+    }
+
+    .media_optBox .media_optText
+    {
+        display: none;
     }
 
     .showlist_MoreEpBase .showlist_MoreEpBdr
@@ -843,6 +939,12 @@ html:root
 
 @media only screen and (max-width: 350px)
 {
+
+    .media_optBdr .media_optBox
+    {
+        padding: 8px;
+    }
+    
     .next_epCardBox .next_epImgBox
     {
         width: 120px;
