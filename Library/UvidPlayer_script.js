@@ -9,7 +9,23 @@
 
     // VIDEO PLAYER
         
+        const mainVid = document.querySelectorAll(".video_player .main-video");
+        const vidQualities = document.querySelectorAll("source[size]");
+        const majorTitle1 = document.querySelector(".largeText1");
+        const majorTitle2 = document.querySelector(".largeText2");
+        const minorTitle = document.querySelector(".section_title_textSmall");
+        const vidBdr = document.querySelector(".vid_bdr");
         const video_players = document.querySelectorAll(".video_player");
+        const addToDwldBox = document.querySelector(".add_to_DwldBox");
+        let dwldTimer;
+        let dwldBox;
+        let dwldClose;
+        let dwldOptBdr;
+        let dwldOptBox;
+
+        let pcWindow = window.matchMedia("(hover: hover)");
+        let mobWindow = window.matchMedia("(hover: none)");
+
         video_players.forEach(video_player => 
         {
             const video_player_html = 
@@ -357,7 +373,6 @@
 
             video_player.innerHTML = video_player_html;
 
-            const vidBdr = document.querySelector(".vid_bdr");
             let vidBdrBound;
             let vidBdrHeight;
             let vidBdrHeightThird;
@@ -418,10 +433,9 @@
             const listItemCaption = settingsBase.querySelector(".listItemSubtitleCC");
             const listItemSpeed = settingsBase.querySelector(".listItemPlaybackSpeed");
             const listItemQuality = settingsBase.querySelector(".listItemQuality");
+            const qualityUL = video_player.querySelector(".quality_UL");
+            const qualities = video_player.querySelectorAll("source[size]");
             let ctrltimer;
-
-            let pcWindow = window.matchMedia("(hover: hover)");
-            let mobWindow = window.matchMedia("(hover: none)");
 
 
 
@@ -434,7 +448,8 @@
             }
             window.addEventListener("load" ,  () => 
             {
-                videoTitle.textContent = majorTitle.textContent;
+                videoTitle.textContent = majorTitle2.textContent;
+                instantiateDwldr();
                 checkVidBdrBounds();
                 checkPIP();
             });
@@ -731,7 +746,6 @@
             {
                 caption_labels.insertAdjacentHTML(
                     "afterbegin",
-                    // `<li data-track="OFF" class="active">OFF</li>`
                     `
                         <li data-track="OFF" class="settingsCtnt_LI captions_LI active">
                             <p>Off</p>
@@ -1146,9 +1160,6 @@
             }
 
             // Video Quality
-            const qualityUL = video_player.querySelector(".quality_UL");
-            const qualities = video_player.querySelectorAll("source[size]");
-
             qualities.forEach(event =>
             {
                 let quality_html = 
@@ -1212,6 +1223,139 @@
                         }
                     }
                 });
+            }
+
+            // Download Video
+            function instantiateDwldr()
+            {
+                // The border holding the elements of the notification box
+                const dwldBdr = document.createElement("div");
+                dwldBdr.classList.add("dwldBdr");
+
+                // The Notification Bar Structure
+                dwldBdr.innerHTML = 
+                `
+                    <div class="dwldBdrBcg closeDwldBdr"></div>
+                    <div class="dwldBox">
+                        <div class="dwldBoxCtnt">
+                            <div class="dwldBoxHeader">
+                                <div class="close_dwldIconBox closeDwldBdr">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="close_dwldIconBoxIcon">
+                                        <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="dwldBoxHeaderText">
+                                <span class="large">D</span>
+                                <span class="small">ownload</span>
+                                </h3>
+                            </div>
+                            <div class="dwldOptBcg">
+                                <div class="dwldOptBdr"></div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                // Append to the body
+                documentBody.appendChild(dwldBdr);
+
+                // Add the different download options based on quality available
+                dwldOptBdr = document.querySelector(".dwldOptBdr");
+                vidQualities.forEach(event =>
+                {
+                    let vidQuality_html = 
+                    `
+                        <div data-link="${event.getAttribute('src')}" class="dwldOptBox switchAcc_AddAccBox" title="Download ${minorTitle.textContent} ${majorTitle1.textContent} ${majorTitle2.textContent} - ${event.getAttribute('size')}p" aria-label="Download ${minorTitle.textContent} ${majorTitle1.textContent} ${majorTitle2.textContent} - ${event.getAttribute('size')}p">
+                            <div class="dwldOptIconBox">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="dwldOptIcon">
+                                    <path transform="rotate(90, 256, 256)" d="M352 96l64 0c17.7 0 32 14.3 32 32l0 256c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l64 0c53 0 96-43 96-96l0-256c0-53-43-96-96-96l-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32zm-9.4 182.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L242.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"/>
+                                </svg>
+                            </div>
+                            <div class="dwldOptTextBox">
+                                <span class="dwldOptText">${event.getAttribute('size')}p</span>
+                            </div>
+                        </div>
+                    `;
+                    dwldOptBdr.insertAdjacentHTML('afterbegin', vidQuality_html);
+                });
+
+
+                let currDwldHTML = dwldBdr.innerHTML;
+
+                documentBody.removeChild(dwldBdr);
+
+
+                // Opens the Download bdr
+                function opendwldBdr()
+                {
+                    addToDwldBox.disabled = true;
+                    dwldBdr.innerHTML = currDwldHTML;
+                    documentBody.appendChild(dwldBdr);
+
+                    dwldBox = document.querySelector(".dwldBox");
+                    dwldClose = document.querySelectorAll(".closeDwldBdr");
+                    dwldOptBox = document.querySelectorAll(".dwldOptBox");
+
+                    dwldTimer = setTimeout(() => 
+                    {
+                        documentBody.classList.add("bodystop");
+
+                        // Adds style class
+                        dwldBdr.classList.add("active");
+                        dwldBox.classList.add("active");
+
+                        // clear timer once time runs out
+                        clearTimeout(dwldTimer);
+
+                    } , 100);
+
+
+                    // Download the Video
+                    dwldOptBox.forEach(box => 
+                    {
+                        box.addEventListener("click" , () => 
+                        {
+                            let dwldHref = box.getAttribute("data-link");
+                            let dwldOptText = box.querySelector(".dwldOptText");
+                            let fileName = "Uvid - " + minorTitle.textContent + " - " + majorTitle1.textContent + " - " + majorTitle2.textContent + " - " + dwldOptText.textContent;
+                            
+                            let dwldNode = document.createElement("a");
+                            dwldNode.setAttribute("href" , dwldHref);
+                            dwldNode.setAttribute("download" , fileName);
+                            dwldNode.click();
+                            dwldNode.remove();
+                        });
+                    });
+
+
+                    // Closes the Download bdr
+                    function closedwldBdr()
+                    {
+                        documentBody.classList.remove("bodystop");
+
+                        // Removes style classes
+                        dwldBdr.classList.remove("active");
+                        dwldBox.classList.remove("active");
+
+                        dwldTimer = setTimeout(() => 
+                        {
+                            documentBody.removeChild(dwldBdr);
+                            addToDwldBox.disabled = false;
+                            documentBody.classList.remove("bodystop");
+
+                            // clear timer once time runs out
+                            clearTimeout(dwldTimer);
+
+                        } , 300);
+                    }
+
+                    dwldClose.forEach(one => 
+                    {
+                        one.addEventListener("mousedown" , closedwldBdr);
+                    });
+                }
+
+                addToDwldBox.addEventListener("click" , opendwldBdr);
             }
 
             //  blob url
