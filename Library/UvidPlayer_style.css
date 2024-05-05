@@ -276,11 +276,6 @@ svg.hide
     cursor: pointer;
 }
 
-.progress-area:hover
-{
-    height: 6px;
-}
-
 .progress-area .progress-bar
 {
     position: relative;
@@ -307,14 +302,6 @@ svg.hide
     transition: all 300ms ease-in-out;
     user-select: none;
     pointer-events: none;
-}
-
-.progress-area:hover .progress-bar::before
-{
-    opacity: 1;
-    visibility: visible;
-    user-select: all;
-    pointer-events: all;
 }
 
 .progress-area .bufferedBar
@@ -432,12 +419,6 @@ svg.hide
     height: 100%;
     width: 100%;
     line-height: 40px;
-}
-
-.options button:hover :where(svg, span)
-{
-    color: var(--genWhiteTypeBright);
-    fill: var(--genWhiteTypeBright);
 }
 
 .options button :where(svg:active , span:active)
@@ -624,14 +605,6 @@ svg.hide
     cursor: pointer;
 }
 
-.settingsHomeListItem:hover
-{
-    color: var(--genGreenTypeLight);
-    fill: var(--genGreenTypeLight);
-    background-color: #1d1d1ddd;
-    border-color: var(--genGreenTypeLight);
-}
-
 .settingsHomeListItem .itemLeft
 {
     width: var(--ItemLeftWidth);
@@ -795,9 +768,12 @@ svg.hide
     cursor: pointer;
 }
 
-.settingsCtnt_LI:hover
+.settingsHomeListItem:active
 {
+    color: var(--genGreenTypeLight);
+    fill: var(--genGreenTypeLight);
     background-color: #1d1d1ddd;
+    border-color: var(--genGreenTypeLight);
 }
 
 .settingsCtnt_LI.active
@@ -938,7 +914,65 @@ svg.hide
 
 
 
+/* ------------- For PC / Non - touch devices ------------ */
+@media(hover: hover)
+{
+    @property --settingBaseScrollBarFade
+    {
+        syntax: "<color>";
+        inherits: true;
+        initial-value: #00000000;
+    }
 
+    .progress-area:hover
+    {
+        height: 6px;
+    }
+
+    .progress-area:hover .progress-bar::before
+    {
+        opacity: 1;
+        visibility: visible;
+        user-select: all;
+        pointer-events: all;
+    }
+
+    .options button:hover :where(svg, span)
+    {
+        color: var(--genWhiteTypeBright);
+        fill: var(--genWhiteTypeBright);
+    }
+
+    .settingsHomeListItem:hover
+    {
+        color: var(--genGreenTypeLight);
+        fill: var(--genGreenTypeLight);
+        background-color: #1d1d1ddd;
+        border-color: var(--genGreenTypeLight);
+    }
+
+    .settingsCtnt_LI:hover
+    {
+        background-color: #1d1d1ddd;
+    }
+
+    .settingsBase:hover
+    {
+        --settingBaseScrollBarFade: #444444a1;
+    }
+
+    .settingsBase::-webkit-scrollbar
+    {
+        width: 7px;
+        height: 5px;
+    }
+
+    .settingsBase::-webkit-scrollbar-thumb
+    {
+        background: var(--settingBaseScrollBarFade);
+        border-radius: 7px;
+    }
+}
 
 
 
@@ -956,8 +990,7 @@ only screen and (max-height: 485px),
 only screen and (max-width: 884px)
 {
 
-    .wrapper .progress-area,
-    .wrapper .progress-area:hover
+    .wrapper .progress-area
     {
         height: 5px;
     }
@@ -967,8 +1000,7 @@ only screen and (max-width: 884px)
         border-radius: 0px;
     }
 
-    .progress-area .progress-bar::before,
-    .progress-area:hover .progress-bar::before
+    .progress-area .progress-bar::before
     {
         opacity: 1;
         visibility: visible;
@@ -1031,6 +1063,25 @@ only screen and (max-width: 884px)
 }
 
 
+@media only screen and (hover: hover) and (max-height: 485px),
+only screen and (hover: hover) and (max-width: 884px)
+{
+    .wrapper .progress-area:hover
+    {
+        height: 5px;
+    }
+
+    .progress-area:hover .progress-bar::before
+    {
+        opacity: 1;
+        visibility: visible;
+        user-select: all;
+        pointer-events: all;
+    }
+}
+
+
+
 /* ---------- Height ----------- */
 @media only screen and (max-height: 485px)
 {
@@ -1040,7 +1091,6 @@ only screen and (max-width: 884px)
         padding: 7px 10px 10px;
     }
 }
-
 
 
 
@@ -1186,8 +1236,7 @@ only screen and (max-width: 884px)
         padding: 5px 5px;
     }
 
-    .wrapper .progress-area,
-    .wrapper .progress-area:hover
+    .wrapper .progress-area
     {
         height: 3px;
     }
@@ -1204,34 +1253,11 @@ only screen and (max-width: 884px)
 }
 
 
-
-
-/* ------------- For PC / Non - touch devices ------------ */
-@media(hover: hover)
+@media only screen and (hover: hover) and (max-width: 300px)
 {
-    @property --settingBaseScrollBarFade
+    .wrapper .progress-area:hover
     {
-        syntax: "<color>";
-        inherits: true;
-        initial-value: #00000000;
-    }
-
-    .settingsBase:hover
-    {
-        /* --settingBaseScrollBarFade: var(--scrollbarClr); */
-        --settingBaseScrollBarFade: #444444a1;
-    }
-
-    .settingsBase::-webkit-scrollbar
-    {
-        width: 7px;
-        height: 5px;
-    }
-
-    .settingsBase::-webkit-scrollbar-thumb
-    {
-        background: var(--settingBaseScrollBarFade);
-        border-radius: 7px;
+        height: 3px;
     }
 }
 

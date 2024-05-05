@@ -118,7 +118,6 @@ html:root
     transition: 200ms;
 }
 
-.section_title_textSmall:hover,
 .section_title_textSmall:active
 {
     color:var(--genWhiteTypeLight);
@@ -168,18 +167,15 @@ html:root
     transition: 300ms;
 }
 
-.genreTagCard:hover,
 .genreTagCard:active
 {
     background-color: #333333;
 }
 
-.genreTagCard:hover .genreTagCardText,
 .genreTagCard:active .genreTagCardText
 {
     color: var(--genWhiteTypeBright);
 }
-
 
 .media_actions_box .media_optBdr
 {
@@ -202,7 +198,6 @@ html:root
     transition: 300ms;
 }
 
-.media_optBox:hover,
 .media_optBox:active
 {
     background-color: #282828;
@@ -231,7 +226,6 @@ html:root
     stroke: var(--genWhiteTypeLight);
 }
 
-.media_optBox:hover .media_optIcon,
 .media_optBox:active .media_optIcon
 {
     fill: var(--genWhiteTypeBright);
@@ -245,7 +239,6 @@ html:root
     transition: 300ms;
 }
 
-.media_optBox:hover .media_optText,
 .media_optBox:active .media_optText
 {
     color: var(--genWhiteTypeBright);
@@ -453,7 +446,7 @@ html:root
     cursor: pointer;
 }
 
-.dwldOptBdr .dwldOptBox:hover
+.dwldOptBdr .dwldOptBox:active
 {
     background-color: #1d1c1c;
 }
@@ -596,7 +589,7 @@ html:root
     z-index: 2;
 }
 
-.next_epCardBox:hover .next_epCardHover
+.next_epCardBox:active .next_epCardHover
 {
     opacity: 1;
     visibility: visible;
@@ -682,7 +675,7 @@ html:root
 }
 
 
-.showlist_MoreEpBtnBox:hover
+.showlist_MoreEpBtnBox:active
 {
     --moreEpBtnColors: var(--genGreenTypeDark);
 }
@@ -818,7 +811,7 @@ html:root
     transition: 300ms;
 }
 
-.showlist_MoreEpHeaderBox:hover
+.showlist_MoreEpHeaderBox:active
 {
     --showlistMoreEpHeaderClrs: var(--genGreenTypeLight);
 }
@@ -862,7 +855,7 @@ html:root
     transition: 300ms;
 }
 
-.showlist_MoreEpSelector:hover
+.showlist_MoreEpSelector:active
 {
     color: var(--genWhiteTypeBright);
     background-color: #444444;
@@ -980,7 +973,7 @@ html:root
     z-index: 2;
 }
 
-.showlist_epCardBox:hover .showlist_epCardHover
+.showlist_epCardBox:active .showlist_epCardHover
 {
     opacity: 1;
     visibility: visible;
@@ -1027,7 +1020,73 @@ html:root
 
 
 
+@media(hover: hover)
+{
+    .section_title_textSmall:hover
+    {
+        color:var(--genWhiteTypeLight);
+    }
 
+    .genreTagCard:hover
+    {
+        background-color: #333333;
+    }
+
+    .genreTagCard:hover .genreTagCardText
+    {
+        color: var(--genWhiteTypeBright);
+    }
+
+    .media_optBox:hover
+    {
+        background-color: #282828;
+        border-radius: 15px;
+    }
+
+    .media_optBox:hover .media_optIcon
+    {
+        fill: var(--genWhiteTypeBright);
+    }
+
+    .media_optBox:hover .media_optText
+    {
+        color: var(--genWhiteTypeBright);
+    }
+
+    .dwldOptBdr .dwldOptBox:hover
+    {
+        background-color: #1d1c1c;
+    }
+
+    .next_epCardBox:hover .next_epCardHover
+    {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .showlist_MoreEpBtnBox:hover
+    {
+        --moreEpBtnColors: var(--genGreenTypeDark);
+    }
+
+    .showlist_MoreEpHeaderBox:hover
+    {
+        --showlistMoreEpHeaderClrs: var(--genGreenTypeLight);
+    }
+
+    .showlist_MoreEpSelector:hover
+    {
+        color: var(--genWhiteTypeBright);
+        background-color: #444444;
+    }
+
+    .showlist_epCardBox:hover .showlist_epCardHover
+    {
+        opacity: 1;
+        visibility: visible;
+    }
+
+}
 
 
 
