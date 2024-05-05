@@ -639,7 +639,6 @@
                 }
                 else
                 {
-                    mainVideo.pause();
                     if (document.pictureInPictureElement === mainVideo)
                     {
                         document.exitPictureInPicture()
