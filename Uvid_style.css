@@ -28,7 +28,8 @@ html:root
     --ftrCardFrontTransform: 15px;
 }
 
-i{
+i
+{
     font-size: var(--fzIcon);
     transition: 150ms;
 }
@@ -38,7 +39,8 @@ ul
     list-style: none;
 }
 
-.genBtn{
+.genBtn
+{
     width: -moz-fit-content;
     width: fit-content;
     height: fit-content;
@@ -63,15 +65,14 @@ ul
     cursor: pointer;
 }
 
-.genBtn:active{
+.genBtn:active
+{
+    box-shadow: 0 0 20px var(--color1);
     transform: scale(0.9);
 }
 
-.genBtn:hover{
-    box-shadow: 0 0 20px var(--color1);
-}
-
-.genIconBox{
+.genIconBox
+{
     width: 50px;
     height: 50px;
     display: flex;
@@ -83,11 +84,13 @@ ul
     transition: 300ms;
 }
 
-.genIconBox:active{
+.genIconBox:active
+{
     transform: scale(0.9);
 }
 
-.genIconBox .genIcon{
+.genIconBox .genIcon
+{
     font-size: calc(var(--fzIcon) + 1px);
 }
 
@@ -122,30 +125,47 @@ ul
 /* ----------- Wwlcome ----------- */
 .welcome_landBcg
 {
+    position: relative;
     width: 100%;
     height: 100vh;
     min-height: 500px;
     max-height: 1000px;
     background-image: url(/Images/Uvid_bcg0.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-attachment:scroll;
+}
+
+.welcome_landBcg .welcome_landBcgImgBox
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: -1;
+}
+
+.welcome_landBcgImgBox .welcome_landBcgImg
+{
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    min-width: 100%;
+    min-height: 100%;
+    object-position: center;
+    object-fit: cover;
 }
 
 @supports (background-attachment: fixed)
 {
     .welcome_landBcg
     {
+        background-size: cover;
         background-attachment: fixed;
-    }
-}
-
-@supports (-webkit-touch-callout: none)
-{
-    .welcome_landBcg
-    {
-        background-attachment: scroll;
     }
 }
   
@@ -153,7 +173,21 @@ ul
 {
     .welcome_landBcg
     {
+        background-size: cover;
         background-attachment: fixed;
+    }
+}
+
+@supports (-webkit-touch-callout: none)
+{
+    .welcome_landBcg .welcome_landBcgImgBox
+    {
+        display: block;
+    }
+
+    .welcome_landBcg
+    {
+        background-image: none;
     }
 }
 
@@ -750,6 +784,14 @@ ul
 }
 
 
+
+@media(hover: hover)
+{
+    .genBtn:hover
+    {
+        box-shadow: 0 0 20px var(--color1);
+    }
+}
 
 
 
