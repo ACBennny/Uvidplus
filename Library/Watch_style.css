@@ -244,12 +244,6 @@ html:root
     color: var(--genWhiteTypeBright);
 }
 
-.like_buttons.active
-{
-    background-color: var(--genGreenTypeDark);
-    border-radius: 25px;
-}
-
 
 .left_section_box.media_actions_box.active
 {
@@ -1086,6 +1080,12 @@ html:root
         visibility: visible;
     }
 
+}
+
+.like_buttons.active
+{
+    background-color: var(--genGreenTypeDark) ;
+    border-radius: 25px ;
 }
 
 
