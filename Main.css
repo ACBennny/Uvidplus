@@ -61,10 +61,17 @@ body
     width: 100%;
     min-height: 100vh;
     font-family: 'Zen dots', sans-serif;
-    /* -webkit-tap-highlight-color: transparent; */
     background-color: #000;
     overflow: hidden;
     scroll-behavior: smooth;
+}
+
+@supports(-webkit-tap-highlight-color: #00000000)
+{
+    body
+    {
+        -webkit-tap-highlight-color: #00000000;
+    }
 }
 
 body.bodystart

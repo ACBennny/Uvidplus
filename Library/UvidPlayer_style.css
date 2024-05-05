@@ -15,14 +15,6 @@ html:root
     --genSettTransition: 300ms;
 }
 
-@supports(-webkit-tap-highlight-color: #00000000)
-{
-    body
-    {
-        -webkit-tap-highlight-color: #00000000;
-    }
-}
-
 
 svg.hide
 {
