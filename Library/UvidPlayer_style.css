@@ -421,6 +421,12 @@ svg.hide
     line-height: 40px;
 }
 
+.options button:active :where(svg, span)
+{
+    color: var(--genWhiteTypeBright);
+    fill: var(--genWhiteTypeBright);
+}
+
 .options button :where(svg:active , span:active)
 {
     transform: scale(0.9);
@@ -766,6 +772,11 @@ svg.hide
     font-size: 13px;
     transition: 200ms;
     cursor: pointer;
+}
+
+.settingsCtnt_LI:active
+{
+    background-color: #1d1d1ddd;
 }
 
 .settingsHomeListItem:active
