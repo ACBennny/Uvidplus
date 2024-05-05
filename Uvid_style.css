@@ -761,34 +761,34 @@ ul
     }
 
     .propmpt_AccActionBtnBox.action_Join:hover
-{
-    color: var(--color2);
-    background-position: bottom;
-}
+    {
+        color: var(--color2);
+        background-position: bottom;
+    }
 
-.propmpt_AccActionBtnBox.action_GetPremium:hover
-{
-    color: var(--color6);
-    border-color: var(--color7);
-    background-color: #00000090;
-}
+    .propmpt_AccActionBtnBox.action_GetPremium:hover
+    {
+        color: var(--color6);
+        border-color: var(--color7);
+        background-color: #00000090;
+    }
 
-.feature_cardBaseBox:hover .feature_card.feature_cardUnder
-{
-    top: var(--ftrCardFrontTransform);
-    left: var(--ftrCardFrontTransform);
-}
+    .feature_cardBaseBox:hover .feature_card.feature_cardUnder
+    {
+        top: var(--ftrCardFrontTransform);
+        left: var(--ftrCardFrontTransform);
+    }
 
-.feature_cardBaseBox:hover .feature_card.feature_cardFront
-{
-    --ftrCardFrontTransform: 0px;
-    background-color: #222222;
-}
+    .feature_cardBaseBox:hover .feature_card.feature_cardFront
+    {
+        --ftrCardFrontTransform: 0px;
+        background-color: #222222;
+    }
 
-.questions_CardBtn:hover
-{
-    background-color: var(--color11);
-}
+    .questions_CardBtn:hover
+    {
+        background-color: var(--color11);
+    }
 }
 
 
