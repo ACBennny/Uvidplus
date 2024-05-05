@@ -304,7 +304,7 @@ ul
     transition: all 300ms ease-in-out;
 }
 
-.propmpt_AccActionBtnBox.action_Join:hover
+.propmpt_AccActionBtnBox.action_Join:active
 {
     color: var(--color2);
     background-position: bottom;
@@ -317,7 +317,7 @@ ul
     background-color: #00000050;
 }
 
-.propmpt_AccActionBtnBox.action_GetPremium:hover
+.propmpt_AccActionBtnBox.action_GetPremium:active
 {
     color: var(--color6);
     border-color: var(--color7);
@@ -398,12 +398,6 @@ ul
     z-index: -1;
 }
 
-.feature_cardBaseBox:hover .feature_card.feature_cardUnder
-{
-    top: var(--ftrCardFrontTransform);
-    left: var(--ftrCardFrontTransform);
-}
-
 .feature_card.feature_cardFront
 {
     width: 100%;
@@ -412,12 +406,6 @@ ul
     background-color: #1a1a1a;
     transform: translate( var(--ftrCardFrontTransform), var(--ftrCardFrontTransform));
     z-index: 3;
-}
-
-.feature_cardBaseBox:hover .feature_card.feature_cardFront
-{
-    --ftrCardFrontTransform: 0px;
-    background-color: #222222;
 }
 
 .feature_card .feature_cardCtnt
@@ -654,7 +642,7 @@ ul
     transition: all 300ms ease-in-out;
 }
 
-.questions_CardBtn:hover
+.questions_CardBtn:active
 {
     background-color: var(--color11);
 }
@@ -762,26 +750,6 @@ ul
 
 
 
-/* ========= Get Premium ========= */
-
-.premFeatBase
-{
-    display: none;
-    width: 100%;
-}
-
-.premFeatBase .premFeatBdr
-{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.premFeatBdr .premFeatBox
-{
-    width: 100%;
-    max-width: 1600px;
-}
 
 
 
@@ -791,6 +759,36 @@ ul
     {
         box-shadow: 0 0 20px var(--color1);
     }
+
+    .propmpt_AccActionBtnBox.action_Join:hover
+{
+    color: var(--color2);
+    background-position: bottom;
+}
+
+.propmpt_AccActionBtnBox.action_GetPremium:hover
+{
+    color: var(--color6);
+    border-color: var(--color7);
+    background-color: #00000090;
+}
+
+.feature_cardBaseBox:hover .feature_card.feature_cardUnder
+{
+    top: var(--ftrCardFrontTransform);
+    left: var(--ftrCardFrontTransform);
+}
+
+.feature_cardBaseBox:hover .feature_card.feature_cardFront
+{
+    --ftrCardFrontTransform: 0px;
+    background-color: #222222;
+}
+
+.questions_CardBtn:hover
+{
+    background-color: var(--color11);
+}
 }
 
 
