@@ -97,6 +97,12 @@
 
 // NAVBAR
 
+    // Darken Navbar on scroll
+    window.addEventListener("scroll" , () => 
+    {
+        navBar.classList.toggle("float" , window.scrollY > 0);
+    });
+
     //  Go to Home page
         goToHomePage.forEach(one => 
             {
