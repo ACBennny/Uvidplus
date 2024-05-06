@@ -373,7 +373,7 @@ body
     background-color: var(--watchActionLinkBoxBcg);
 }
 
-.playShow_box .play_Now:hover
+.playShow_box .play_Now:active
 {
     --watchActionLinkBoxBcg: var(--watchActionLinkBoxBcgHover);
 }
@@ -384,7 +384,7 @@ body
     background-color: transparent;
 }
 
-.playShow_box .save_to_PList:hover
+.playShow_box .save_to_PList:active
 {
     --watchActionSaveBoxClrBdr: var(--watchActionSaveBoxClrBdrHover);
 }
@@ -561,12 +561,6 @@ body
     transition: 300ms;
 }
 
-.basic_slider_box:hover .slide_arrow .introSlideIcon
-{
-    opacity: 1;
-    visibility: visible;
-}
-
 
 .basic_slider_card_box
 {
@@ -613,15 +607,6 @@ body
     transition: 300ms;
 }
 
-.slide_card:hover
-{
-    border-top: 2px solid #21c018;
-    border-left: 2px solid #21c018;
-    border-right: 2px solid #21c018;
-    border-bottom: none;
-}
-
-
 .slide_card .cardimg
 {
     width: 100%;
@@ -636,12 +621,6 @@ body
     height: 100%;
     transition: all 700ms ease-in-out;
 }
-
-.slide_card:hover .cardimg img
-{
-    transform: scale(1.15);
-}
-
 
 .slide_card .cardinfo
 {
@@ -659,14 +638,6 @@ body
     z-index: 4;
 }
 
-.slide_card:hover .cardinfo
-{
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: #00000085;
-}
-
 .slide_card .cardinfo h3
 {
     width: 180px;
@@ -678,23 +649,11 @@ body
     padding: 0 5px;
 }
 
-.slide_card:hover .cardinfo h3
-{
-    width: 100%;
-    justify-content: space-evenly;
-    text-align: center;
-}
-
 .slide_card .cardinfo .slideCardIcon
 {
     width: var(--slideCardPlayIconWidth);
     fill: var(--slideCardPlayIconClr);
     transition: 500ms;
-}
-
-.slide_card:hover .cardinfo .slideCardIcon
-{
-    --slideCardPlayIconWidth: 35px;
 }
 
 
@@ -834,7 +793,7 @@ body
     color: var(--watchActionLinkBoxClr)
 }
 
-.watchAction.watchEpLink:hover
+.watchAction.watchEpLink:active
 {
     background-color: var(--watchActionLinkBoxBcgHover);
 }
@@ -847,7 +806,7 @@ body
     position: relative;
 }
 
-.watchAction.addToWatchList:hover
+.watchAction.addToWatchList:active
 {
     border-color: var(--watchActionSaveBoxClrBdrHover);
     --watchActionSaveBoxClrBdr: var(--watchActionSaveBoxClrBdrHover);
@@ -1071,7 +1030,7 @@ body
     transition: 250ms;
 }
 
-.type1_Ctnt_box_HeadRight .seeAll:hover{
+.type1_Ctnt_box_HeadRight .seeAll:active{
     color: #dfdfdf;
 }
 
@@ -1104,13 +1063,13 @@ body
     fill: #1ae310;
 }
 
-.type1_ctntCard:hover .type1_ctntImg_hover
+.type1_ctntCard:active .type1_ctntImg_hover
 {
     opacity: 1;
     visibility: visible;
 }
 
-.type1_ctntCard:hover .type1_ctntImg_hover .type1_ctntImg_hoverIcon
+.type1_ctntCard:active .type1_ctntImg_hover .type1_ctntImg_hoverIcon
 {
     animation: type1Ctnt_spinAnimation 1000ms reverse forwards;
 }
@@ -1160,7 +1119,7 @@ body
     overflow: hidden;
 }
 
-.latestEp_card:hover
+.latestEp_card:active
 {
     background-color: #000000cf;
 }
@@ -1248,10 +1207,6 @@ body
 .latestEp_view_more:active
 {
     transform: scale(0.96);
-}
-
-.latestEp_view_more:hover
-{
     background-color: #136e25;
 }
 
@@ -1289,7 +1244,7 @@ body
     cursor: pointer;
 }
 
-.news_card:hover
+.news_card:active
 {
     background-color: #000000cf;
 }
@@ -1384,13 +1339,9 @@ body
     transition: 150ms;
 }
 
-.seeAllCat_btn:hover
-{
-    background-color: #1b9415;
-}
-
 .seeAllCat_btn:active
 {
+    background-color: #1b9415;
     transform: scale(0.95);
 }
 
@@ -1441,6 +1392,115 @@ body
 
 
 
+
+@media(hover: hover)
+{
+    .playShow_box .play_Now:hover
+    {
+        --watchActionLinkBoxBcg: var(--watchActionLinkBoxBcgHover);
+    }
+
+    .playShow_box .save_to_PList:hover
+    {
+        --watchActionSaveBoxClrBdr: var(--watchActionSaveBoxClrBdrHover);
+    }
+
+    .basic_slider_box:hover .slide_arrow .introSlideIcon
+    {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .slide_card:hover
+    {
+        border-top: 2px solid #21c018;
+        border-left: 2px solid #21c018;
+        border-right: 2px solid #21c018;
+        border-bottom: none;
+    }
+
+    .slide_card:hover .cardimg img
+    {
+        transform: scale(1.15);
+    }
+
+    .slide_card:hover .cardinfo
+    {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #00000085;
+    }
+
+    .slide_card:hover .cardinfo h3
+    {
+        width: 100%;
+        justify-content: space-evenly;
+        text-align: center;
+    }
+
+    .slide_card:hover .cardinfo .slideCardIcon
+    {
+        --slideCardPlayIconWidth: 35px;
+    }
+
+    .watchAction.watchEpLink:hover
+    {
+        background-color: var(--watchActionLinkBoxBcgHover);
+    }
+
+    .watchAction.addToWatchList:hover
+    {
+        border-color: var(--watchActionSaveBoxClrBdrHover);
+        --watchActionSaveBoxClrBdr: var(--watchActionSaveBoxClrBdrHover);
+        
+    }
+
+    .type1_Ctnt_box_HeadRight .seeAll:hover{
+        color: #dfdfdf;
+    }
+
+    .type1_ctntCard:hover .type1_ctntImg_hover
+    {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .type1_ctntCard:hover .type1_ctntImg_hover .type1_ctntImg_hoverIcon
+    {
+        animation: type1Ctnt_spinAnimation 1000ms reverse forwards;
+    }
+
+    .latestEp_card:hover
+    {
+        background-color: #000000cf;
+    }
+
+    .latestEp_view_more:hover
+    {
+        background-color: #136e25;
+    }
+
+    .news_card:hover
+    {
+        background-color: #000000cf;
+    }
+
+    .seeAllCat_btn:hover
+    {
+        background-color: #1b9415;
+    }
+}
+
+
+@media(hover: none)
+{
+    .basic_slider_box .slide_arrow .introSlideIcon
+    {
+        opacity: 1;
+        visibility: visible;
+    }
+}
 
 
 
@@ -1854,6 +1914,7 @@ body
 
 }
 
+
 @media only screen and (max-width: 485px)
 {
     .basic_slider_title_bdr
@@ -1864,15 +1925,6 @@ body
     .basic_slider_box  .slide_arrow
     {
         display: none;
-    }
-
-    .basic_slider_box  .slide_arrow.left_slide_arrow:hover,
-    .basic_slider_box  .slide_arrow.right_slide_arrow:hover
-    {
-        background-image: -o-linear-gradient(to top, #0000008b, #0000008b);
-        background-image: -moz-linear-gradient(to top, #0000008b, #0000008b);
-        background-image: -webkit-linear-gradient(to top, #0000008b, #0000008b);
-        background-image: linear-gradient(to top, #0000008b, #0000008b);
     }
 
     .basic_slider_box  .slide_arrow i
@@ -1896,6 +1948,7 @@ body
     }
 
 }
+
 
 @media only screen and (max-width: 350px)
 {
@@ -1921,24 +1974,13 @@ body
         height: 180px;
         background-color: #00000050;
     }
-    
-    .slide_card:hover
-    {
-        border: none;
-    }
-    
-    .slide_card:hover .cardimg img 
-    {
-        transform: scale(1.0);
-    }
 
     .slide_card .cardinfo
     {
         background-color: #00000050;
     }
     
-    .slide_card .cardinfo h3,
-    .slide_card:hover .cardinfo h3
+    .slide_card .cardinfo h3
     {
         width: 100%;
     }
@@ -1952,13 +1994,11 @@ body
      
     .slide_card .cardinfo .slideCardIcon
     {
-        display: none;
-    }
-
-    .slide_card:hover .cardinfo .slideCardIcon
-    {
-        --slideCardPlayIconWidth: 22px;
-        display: flex;
+        --slideCardPlayIconWidth: 0px;
+        transform: translateY(-50%);
+        opacity: 0;
+        visibility: hidden;
+        transition: 100ms;
     }
 
     .specialEp_box .specialEp_SpImgBdr
@@ -2014,6 +2054,36 @@ body
 
 }
 
+
+@media only screen and (hover: hover) and (max-width: 350px)
+{
+    
+    .slide_card:hover
+    {
+        border: none;
+    }
+    
+    .slide_card:hover .cardimg img 
+    {
+        transform: scale(1.15);
+    }
+    
+    .slide_card:hover .cardinfo h3
+    {
+        display: none;
+    }
+
+    .slide_card:hover .cardinfo .slideCardIcon
+    {
+        display: flex;
+        transform: translateY(0%);
+        opacity: 1;
+        visibility: visible;
+    }
+
+}
+
+
 @media only screen and (max-width: 265px)
 {
 
@@ -2037,7 +2107,16 @@ body
         grid-auto-columns: 100%;
     }
     
-    .slide_card .cardinfo h3,
+    .slide_card .cardinfo h3
+    {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
+@media only screen and (hover: hover) and (max-width: 265px)
+{
     .slide_card:hover .cardinfo h3
     {
         width: 100%;

@@ -346,7 +346,7 @@ img
     transition: all 300ms ease-in-out;
 }
 
-.navBarIconBox .navBarIcon:hover
+.navBarIconBox .navBarIcon:active
 {
     fill: var(--navElementColor_green);
 }
@@ -392,7 +392,7 @@ img
     cursor: pointer;
 }
 
-.navBarProfileBox:hover
+.navBarProfileBox:active
 {
     padding: 2px;
 }
@@ -455,7 +455,7 @@ img
     background-color: transparent;
 }
 
-.navBarProfileOptBox .navBarProfileOpt:hover
+.navBarProfileOptBox .navBarProfileOpt:active
 {
     --navBarProfileOptLinkClr: var(--navElementColor_green);
     background-color: #3d3d3d;
@@ -787,7 +787,7 @@ img
     z-index: 5;
 }
 
-.nav_Opt_bcg:hover
+.nav_Opt_bcg:active
 {
     overflow-y: visible;
 }
@@ -866,7 +866,7 @@ img
     border-radius: 10px;
 }
 
-.navOptLink:hover
+.navOptLink:active
 {
     --navMenuPageActiveElementClr: #14d60d;
 }
@@ -911,7 +911,7 @@ img
     cursor: pointer;
 }
 
-.navfooterBoxElements:hover
+.navfooterBoxElements:active
 {
     color: var(--navFooterElemHoverColor);
 }
@@ -1420,7 +1420,40 @@ img
 
 
 @media(hover: hover)
-{}
+{
+    .navBarIconBox .navBarIcon:hover
+{
+    fill: var(--navElementColor_green);
+}
+
+.navBarProfileBox:hover
+{
+    padding: 2px;
+}
+
+.navBarProfileOptBox .navBarProfileOpt:hover
+{
+    --navBarProfileOptLinkClr: var(--navElementColor_green);
+    background-color: #3d3d3d;
+}
+
+.nav_Opt_bcg:hover
+{
+    overflow-y: visible;
+}
+
+.navOptLink:hover
+{
+    --navMenuPageActiveElementClr: #14d60d;
+}
+
+.navfooterBoxElements:hover
+{
+    color: var(--navFooterElemHoverColor);
+}
+
+
+}
 
 
 
