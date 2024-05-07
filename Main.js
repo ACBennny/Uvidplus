@@ -82,26 +82,13 @@
         instantiateSideNavBar();
     });
     
-    window.addEventListener("load", () => {
-        // preload.style.display = "none";
-        // preload.classList.add("preloadClose");
-        // document.body.classList.add('bodystart');
-        // instantiateSideNavBar();
-
-        allImg.forEach(eachImg => {
-
+    window.addEventListener("load", () => 
+    {
+        allImg.forEach(eachImg => 
+        {
             // Remove filter once image has loaded
-            console.log("image number");
-            // eachImg.addEventListener("load" , () => 
-            // {
-                eachImg.style.filter = "blur(0px)";
-                if (eachImg.style.filter == "blur(0px)")
-                {
-                    console.log("loadedd");
-                    return;
-                }
-                console.log("noot loadedd");
-            // });
+            eachImg.style.filter = "blur(0px)";
+            eachImg.style.animation = "none";
         });
     });
 

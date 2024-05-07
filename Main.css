@@ -109,6 +109,8 @@ button
 
 img
 {
+    filter: blur(15px);
+    animation: imgLoadShell 2s linear infinite;
     backface-visibility: hidden !important;
     -moz-user-select: -moz-none !important;
     -moz-user-select: none !important;
@@ -116,9 +118,21 @@ img
     user-select: none !important;
     pointer-events: none !important;
 }
-img.allImgTags
+
+@keyframes imgLoadShell
 {
-    filter: blur(10px);
+    0%
+    {
+        filter: blur(15px) brightness(0.9);
+    }
+    50%
+    {
+        filter: blur(15px) brightness(1.1);
+    }
+    100%
+    {
+        filter: blur(15px) brightness(0.9);
+    }
 }
 
 .give_space

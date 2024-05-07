@@ -254,7 +254,7 @@ html:root
     background-color: #222222;
     border-radius: 5px;
     transform: translate(0%, 50%);
-    transition: 300ms 300ms;
+    transition: 300ms 500ms;
     opacity: 0;
     visibility: hidden;
     overflow: hidden;
@@ -300,12 +300,6 @@ html:root
 {
     background-color: #282828;
     border-radius: 15px;
-}
-
-.rating_btn.active
-{
-    background-color: #148b10;
-    border-radius: 25px;
 }
 
 .rating_btn .rating_btnIcon
@@ -488,11 +482,11 @@ html:root
     height: fit-content;
     display: flex;
     flex-direction: column;
-    padding: 6px 15px 12px 6px;
+    padding: 6px 15px 12px 15px;
     transition: 300ms;
 }
 
-.abt-stmtText
+.abt-stmt .abt-stmtText
 {
     --lineNo: 3;
     --lineHeight: 1.4;
@@ -536,7 +530,7 @@ html:root
 .abt-stmt-detBox .abt-stmt-detBtn
 {
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     align-items: center;
     padding: 8px 12px;
     background-color: #148b10;
@@ -548,15 +542,24 @@ html:root
 
 .abt-stmt-detBtn .read_more_btnIcon
 {
-    width: 15px;
-    fill: #cccccc;
+    position: relative;
+    width: 10px;
+    height: 2px;
+    background-color: #cccccc;
+    transition: 300ms;
 }
 
-.abt-stmt-detBtn .read_more_btnText
+.read_more_btnIcon::before
 {
-    font-size: 11px;
-    color: #cccccc;
-    margin-left: 5px;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 10px;
+    background-color: #cccccc;
+    transform: translate(-50%, -50%);
+    transition: 300ms;
 }
 
 .abt-stmt-detBtn  .abt-stmt-checkBoxCls
@@ -577,6 +580,18 @@ html:root
 .abt-stmt-checkBoxCls:checked:before
 {
     content: 'Read Less';
+}
+
+.abt-stmt-checkBoxCls:checked ~ .read_more_btnIcon
+{
+    transform: rotate(180deg);
+}
+
+.abt-stmt-checkBoxCls:checked ~ .read_more_btnIcon::before
+{
+    content: none;
+    opacity: 0;
+    visibility: hidden;
 }
 
 .abt-stmtText:has(+ .abt-stmt-detBdr .abt-stmt-checkBoxCls:checked)
@@ -843,6 +858,11 @@ html:root
     }
 }
 
+.rating_btn.active
+{
+    background-color: #148b10;
+    border-radius: 25px;
+}
 
 
 
@@ -938,24 +958,17 @@ html:root
 @media only screen and (max-width: 485px)
 {
 
-    .title_ImgBdr
-    {
-        height: 1000px;
-    }
-
-    .title_ImgBox
-    {
-        width: 105px;
-        height: 125px;
-        transform: translateY(10%);
-    }
-
     .sect-head a
     {
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    .sect-abt
+    {
+        margin-bottom: 60px;
     }
     
     .sect-dv
@@ -968,10 +981,19 @@ html:root
         width: 100%;
     }
 
-    abt-stmtText
+    .abt-stmt .abt-stmtText
     {
-        font-size: 12px;
         text-align: justify;
+    }
+
+    .abt-stmt .abt-stmt-detBdr
+    {
+        margin-bottom: 25px;
+    }
+
+    .abt-stmt-detBdr .abt-stmt-detBox
+    {
+        justify-content: center;
     }
 
     .abt-card
