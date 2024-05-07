@@ -567,7 +567,9 @@ html:root
     appearance: none;
     color: #dfdfdf;
     margin-left: 5px;
-    cursor: pointer;
+    outline: none;
+    border: none;
+    pointer-events: none;
 }
 
 .abt-stmt-checkBoxCls::before
@@ -688,13 +690,14 @@ html:root
 .show-sub
 {
     width: 0%;
+    display: flex;
     height: fit-content;
     justify-content: center;
     align-items: start;
     padding: 0;
-    visibility: hidden;
     opacity: 0;
-    transition: opacity 500ms;
+    visibility: hidden;
+    transition: opacity 500ms 500ms;
     overflow-x: hidden;
     overflow-y: auto;
     z-index: 75;
@@ -708,7 +711,6 @@ html:root
 .showsub-atv
 {
     width: 100%;
-    display: flex;
     opacity: 1;
     visibility: visible;
 }
@@ -1028,6 +1030,11 @@ html:root
         left: 0;
         width: 100%;
         border-radius: 0px;
+        transform: translate(0%, 50%);
+    }
+
+    .ratingActionBdr.active
+    {
         transform: translate(0%, 100%);
     }
 
