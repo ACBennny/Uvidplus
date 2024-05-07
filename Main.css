@@ -109,13 +109,16 @@ button
 
 img
 {
-    filter: blur(10px);
     backface-visibility: hidden !important;
     -moz-user-select: -moz-none !important;
     -moz-user-select: none !important;
     -webkit-user-select: none !important;
     user-select: none !important;
     pointer-events: none !important;
+}
+img.allImgTags
+{
+    filter: blur(10px);
 }
 
 .give_space
@@ -1151,7 +1154,6 @@ img
 {
     width: 100%;
     padding: 0 20px;
-    background-color: var(--navBarBcgSolid);
     background-color: #1d1c1c;
     background-image: url(/Images/bcg_footer.jpg);
     background-repeat: no-repeat;

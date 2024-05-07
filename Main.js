@@ -37,7 +37,8 @@
     let navNotificationBarTimer;
     const openSwitchAccBtn = document.querySelector(".open_switchAcc");
     let switchAccTimer;
-    const AllImg = document.querySelectorAll('img');
+    const allImg = document.querySelectorAll('img');
+    const allImgTags = document.querySelectorAll('.allImgTags');
     const allLinks = document.querySelectorAll("a");
     let notifyTimer;
 
@@ -74,12 +75,34 @@
 // PRELOADER
 
     // This function removes the preloader after the skeleton of the website has been loaded
-    
-    window.addEventListener("load", () => {
-        // preload.style.display = "none";
+    window.addEventListener("DOMContentLoaded" , () => 
+    {
         preload.classList.add("preloadClose");
         document.body.classList.add('bodystart');
         instantiateSideNavBar();
+    });
+    
+    window.addEventListener("load", () => {
+        // preload.style.display = "none";
+        // preload.classList.add("preloadClose");
+        // document.body.classList.add('bodystart');
+        // instantiateSideNavBar();
+
+        allImg.forEach(eachImg => {
+
+            // Remove filter once image has loaded
+            console.log("image number");
+            // eachImg.addEventListener("load" , () => 
+            // {
+                eachImg.style.filter = "blur(0px)";
+                if (eachImg.style.filter == "blur(0px)")
+                {
+                    console.log("loadedd");
+                    return;
+                }
+                console.log("noot loadedd");
+            // });
+        });
     });
 
 
@@ -657,9 +680,26 @@
 
 // ALL IMAGES
     
-    AllImg.forEach(eachImg => {
+    allImg.forEach(eachImg => {
+
+        // Prevents User from dragging Images
+        eachImg.draggable = false;
+
+        // Sets loading to lazy
+        eachImg.loading = "lazy";
+
+        // Sets the alt text to image if none is set
+        if(eachImg.alt.valueOf() == "")
+        {
+            eachImg.alt = "image";
+        }
+        
+    });
+
+    allImgTags.forEach(eachImg => {
+
         // Remove filter once image has loaded
-                console.log("image number");
+        console.log("image number");
         eachImg.addEventListener("load" , () => 
         {
             eachImg.style.filter = "blur(0px)";
@@ -670,30 +710,7 @@
             }
             console.log("noot loadedd");
         });
-
-        // Prevents User from dragging Images
-        eachImg.draggable = false;
-
-        // Sets loading to lazy
-        // eachImg.loading = "lazy";
-
-        // Sets the alt text to image if none is set
-        if(eachImg.alt.valueOf() == "")
-        {
-            eachImg.alt = "image";
-        }
-        
     });
-
-    // document.addEventListener("load", function(event) {
-    //     // check tag name of target
-    //     let tag = event.target.tagName.toLowerCase();
-    //     // Check if the event target is an image
-    //     if (tag === 'img') {
-    //         // Remove filter once image has loaded
-    //         event.target.style.filter = "blur(0px)";
-    //     }
-    // }, true);
 
 
 
