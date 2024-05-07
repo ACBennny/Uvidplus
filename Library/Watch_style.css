@@ -156,7 +156,7 @@ html:root
     padding: 6px;
     border-radius: 12px;
     border: 0.5px solid var(--genWhiteTypeMid);
-    background-color: #222222;
+    background-color: #1d1d1d;
     transition: 300ms;
 }
 
@@ -290,6 +290,7 @@ html:root
 {
     transform: rotate(135deg);
 }
+
 
 /* ------ Download modal----- */
 .dwldBdr

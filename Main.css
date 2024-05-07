@@ -90,9 +90,9 @@ a
     text-decoration: none;
     cursor: pointer;
 }
-a:focus,
-a:any-link
+a:focus, a:link, a:visited, a:any-link
 {
+    text-decoration: none;
     color: inherit;
 }
 
@@ -109,6 +109,7 @@ button
 
 img
 {
+    filter: blur(10px);
     backface-visibility: hidden !important;
     -moz-user-select: -moz-none !important;
     -moz-user-select: none !important;

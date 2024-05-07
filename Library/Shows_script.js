@@ -10,14 +10,57 @@
 
 // DEFINITION
 
+    const bcgImgBdr = document.querySelector(".bcg_img_bdr");
+    const bcgImgBox = document.querySelector(".bcg_img_box");
+    const bcgImgGradient = document.querySelector(".bcg_img_gradient");
+    let bcgImgBdrBound;
+    let bcgImgBdrHeight;
+    let bcgImgBdrHalf;
+    let bcgImgBdr3Qarts;
+    let bcgImgBdr3QartsH;
     const troBase = document.querySelector(".tro");
     const showHeaderName = document.querySelector("#show_Header_Name");
     const watchTrailerBox = document.querySelector('.watchTrailer_box');
     let trailerTimer;
+    const openRatingActionBdr = document.querySelector(".like_buttonsBox");
+    const ratingActionBdr = document.querySelector(".ratingActionBdr");
+    const likeTheEp = document.querySelector(".add_to_LikedShowsBox");
+    const dontLikeTheEp = document.querySelector(".add_to_DislikedShowsBox");
+    const addToWatchListBox = document.querySelector(".add_to_WatchListBox");
     const seasonBox = document.querySelector('.show-home-bx');
     const season = document.querySelectorAll('.show-sub');
     const seasonAtv = document.querySelectorAll('.season-select');
     const watchEpBox = document.querySelectorAll(".episodes");
+
+
+
+
+// POSITIONING THE CONTENT
+
+    function checkBcgImgBdrBounds()
+    {
+        bcgImgBdrBound = bcgImgBdr.getBoundingClientRect();
+        bcgImgBdrHeight = bcgImgBdrBound.height;
+        bcgImgBdrHalf = Math.round(bcgImgBdrHeight/2);
+        bcgImgBdr3Qarts = bcgImgBdrHeight + bcgImgBdrHalf;
+        bcgImgBdr3QartsH = bcgImgBdrHeight + bcgImgBdrHalf + 10;
+
+        bcgImgBox.setAttribute("style", `--ImgHeight:${bcgImgBdr3Qarts}px`);
+        bcgImgGradient.setAttribute("style", `--ImgHeight:${bcgImgBdr3QartsH}px`);
+    }
+    window.addEventListener("load" ,  () => 
+    {
+        checkBcgImgBdrBounds();
+    });
+    window.addEventListener("resize" , () => 
+    {
+        checkBcgImgBdrBounds();
+    });
+    window.addEventListener("change" , () => 
+    {
+        checkBcgImgBdrBounds();
+    });
+
 
 
 
@@ -47,7 +90,11 @@
 
 
 // WATCH TRAILER
-    watchTrailerBox.title = "Watch \"" + showHeaderName.textContent + "\"trailer";
+
+    // Setting the title of the button
+    watchTrailerBox.title = "Watch \"" + showHeaderName.textContent + "\" trailer";
+
+    // Handling the rendering of thr trailer elements
     watchTrailerBox.addEventListener("click" , () => 
     {
         const trailerTitle = showHeaderName.textContent;
@@ -86,7 +133,49 @@
     });
 
 
+// RATINGS
 
+    // Open Ratings Box
+        openRatingActionBdr.addEventListener("click" , () => 
+        {
+            ratingActionBdr.classList.toggle("active");
+        });
+
+    // Thumbs Up/Down
+        // Like the show
+        likeTheEp.addEventListener("click" , () => 
+        {
+            likeTheEp.classList.toggle("active");
+            dontLikeTheEp.classList.remove("active");
+            ratingActionBdr.classList.remove("active");
+        });
+        
+        // Dislike the show
+        dontLikeTheEp.addEventListener("click" , () => 
+        {
+            dontLikeTheEp.classList.toggle("active");
+            likeTheEp.classList.remove("active");
+            ratingActionBdr.classList.remove("active");
+        });
+
+
+
+// ADD TO WATCHLIST
+    
+    addToWatchListBox.addEventListener("click" , () => 
+    {
+        if(addToWatchListBox.classList.contains("active"))
+        {
+            addToWatchListBox.classList.remove("active");
+            addToWatchListBox.title = "Add to WatchList";
+            addToWatchListBox.ariaLabel = "Add to WatchList";
+            return;
+        }
+        addToWatchListBox.classList.add("active");
+        addToWatchListBox.title = "Remove from WatchList";
+        addToWatchListBox.ariaLabel = "Remove from WatchList";
+    });
+    
 
 
 

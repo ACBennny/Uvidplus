@@ -658,11 +658,24 @@
 // ALL IMAGES
     
     AllImg.forEach(eachImg => {
+        // Remove filter once image has loaded
+                console.log("image number");
+        eachImg.addEventListener("load" , () => 
+        {
+            eachImg.style.filter = "blur(0px)";
+            if (eachImg.style.filter == "blur(0px)")
+            {
+                console.log("loadedd");
+                return;
+            }
+            console.log("noot loadedd");
+        });
+
         // Prevents User from dragging Images
         eachImg.draggable = false;
 
         // Sets loading to lazy
-        eachImg.loading = "lazy";
+        // eachImg.loading = "lazy";
 
         // Sets the alt text to image if none is set
         if(eachImg.alt.valueOf() == "")
@@ -671,6 +684,16 @@
         }
         
     });
+
+    // document.addEventListener("load", function(event) {
+    //     // check tag name of target
+    //     let tag = event.target.tagName.toLowerCase();
+    //     // Check if the event target is an image
+    //     if (tag === 'img') {
+    //         // Remove filter once image has loaded
+    //         event.target.style.filter = "blur(0px)";
+    //     }
+    // }, true);
 
 
 
