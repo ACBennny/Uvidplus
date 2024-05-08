@@ -1198,16 +1198,21 @@ body
     color: #cecece;
     font-size: 13px;
     text-align: center;
-    background-color: #11521e;
+    background-color: var(--genGreenTypeDark3);
     border-radius: 5px;
-    cursor: pointer;
+    -moz-user-select: none;
+    -moz-user-select: -moz-none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    user-select: none;
     transition: 150ms ease;
+    cursor: pointer;
 }
 
 .latestEp_view_more:active
 {
     transform: scale(0.96);
-    background-color: #136e25;
+    background-color: var(--genGreenTypeDark2);
 }
 
 
@@ -1478,7 +1483,7 @@ body
 
     .latestEp_view_more:hover
     {
-        background-color: #136e25;
+        background-color: var(--genGreenTypeDark2);
     }
 
     .news_card:hover

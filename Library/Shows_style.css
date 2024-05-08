@@ -292,6 +292,7 @@ html:root
     top: 0;
     right: 0;
     padding: 15px 7px;
+    cursor: pointer;
 }
 
 .close_ratingActionBdr .close_ratingActionBox
@@ -302,7 +303,6 @@ html:root
     border-radius: 5px;
     background-color: #dfdfdf;
     transform: rotate(45deg);
-    cursor: pointer;
 }
 
 .close_ratingActionBox::after
@@ -569,11 +569,18 @@ html:root
     flex-direction: row-reverse;
     align-items: center;
     padding: 8px 12px;
-    background-color: #148b10;
+    background-color: var(--genGreenTypeDark3);
     outline: none;
     border: none;
     border-radius: 10px;
+    transition: 300ms;
     cursor: pointer;
+}
+
+.abt-stmt-detBtn:active
+{
+    transform: scale(0.96);
+    background-color: var(--genGreenTypeDark2);
 }
 
 .abt-stmt-detBtn .read_more_btnIcon
@@ -897,9 +904,8 @@ html:root
 {
     width: 0%;
     display: flex;
+    flex-direction: column;
     height: fit-content;
-    justify-content: center;
-    align-items: start;
     padding: 0;
     opacity: 0;
     visibility: hidden;
@@ -949,9 +955,19 @@ html:root
     overflow: hidden;
 }
 
-.showset .episodes:active
+.episodes:active
 {
     background: #55545480;
+}
+
+.episodes.active
+{
+    display: flex;
+}
+
+.episodes.inactive
+{
+    display: none;
 }
 
 .episodes span
@@ -998,6 +1014,55 @@ html:root
 }
 
 
+/* ------ Show all ep button ----- */
+.showall_EpBdr
+{
+    width: 100%;
+}
+
+.showall_EpBdr .showall_EpBox
+{
+    width: 100%;
+    padding: 20px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.showall_EpBox .showall_EpBtn
+{
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color: #cecece;
+    font-size: 13px;
+    text-align: center;
+    background-color: var(--genGreenTypeDark3);
+    border-radius: 5px;
+    -moz-user-select: none;
+    -moz-user-select: -moz-none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    transition: 300ms ease;
+    cursor: pointer;
+}
+
+.showall_EpBtn.active
+{
+    display: flex;
+}
+
+.showall_EpBtn:active
+{
+    transform: scale(0.96);
+    background-color: var(--genGreenTypeDark2);
+}
+
+
 
 
 
@@ -1025,9 +1090,19 @@ html:root
         color: #dfdfdf;
     }
 
+    .abt-stmt-detBtn:hover
+    {
+        background-color: var(--genGreenTypeDark2);
+    }
+
     .seasons_headerBox:hover
     {
         --seasons_headerClrs: var(--genGreenTypeLight);
+    }
+
+    .seasons_selectorBox::-webkit-scrollbar-thumb
+    {
+        background: #444444;
     }
 
     .seasons_selector:hover
@@ -1036,7 +1111,7 @@ html:root
         background-color: #242424;
     }
 
-    .showset .episodes:hover
+    .episodes:hover
     {
         background: #55545480;
     }
@@ -1051,10 +1126,10 @@ html:root
         display: flex;
         font-size: 25px;
     }
-
-    .seasons_selectorBox::-webkit-scrollbar-thumb
+    
+    .showall_EpBtn:hover
     {
-        background: #444444;
+        background-color: var(--genGreenTypeDark2);
     }
 }
 
@@ -1158,7 +1233,7 @@ html:root
 }
 
 
-@media only screen and (max-width: 600px)
+@media only screen and (max-width: 768px)
 {
     .seasons_headerBdr .seasons_selectorBdr
     {

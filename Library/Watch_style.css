@@ -11,6 +11,7 @@ html:root
     --genMaxWidth: 1340px;
     --leftColWidth: calc(100% - var(--rightColWidth));
     --rightColWidth: 35%;
+    --next_epImgBoxWidth: 150px;
     --showlist_MoreEpCloseBoxHeight: 30px;
     --showlist_MoreEpHeaderBdrHeight: 40px;
 }
@@ -530,7 +531,7 @@ html:root
 .next_epCardBox .next_epImgBox
 {
     position: relative;
-    width: 150px;
+    width: var(--next_epImgBoxWidth);
     height: 100%;
     display: flex;
     justify-content: center;
@@ -592,7 +593,7 @@ html:root
 
 .next_epCardBox .next_epDetBdr
 {
-    width: calc(100% - 150px);
+    width: calc(100% - var(--next_epImgBoxWidth));
     height: 100%;
     padding: 0 0 0 10px;
 }
@@ -600,7 +601,7 @@ html:root
 .next_epDetBdr .next_epDetBox
 {
     width: 100%;
-    height: 100px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -1140,7 +1141,6 @@ html:root
     .left_section_box.media_actions_box
     {
         flex-direction: column;
-        /* align-items: flex-start; */
     }
 
     .showlist_MoreEpBase .showlist_MoreEpBdr
@@ -1234,26 +1234,14 @@ html:root
 
 @media only screen and (max-width: 350px)
 {
-
-    .left_section_box.media_actions_box
+    html:root
     {
-        padding: 25px 0;
+        --next_epImgBoxWidth: 100px;
     }
 
-    .left_section_box.media_actions_box.active .open_fullMediaActionBox
-    .media_optText
+    .next_epCardBdr .next_epCardBox
     {
-        display: none;
-    }
-
-    .media_optBdr .media_optBox
-    {
-        padding: 8px;
-    }
-    
-    .next_epCardBox .next_epImgBox
-    {
-        width: 120px;
+        justify-content: start;
     }
 }
 
