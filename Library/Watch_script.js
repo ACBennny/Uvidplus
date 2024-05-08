@@ -10,11 +10,9 @@
 
     const nextEpCtntCardBdr = document.querySelectorAll(".next_epCardBdr");   
     const mediaActionBox = document.querySelector(".media_actions_box");
-    const openMediaActionBox = document.querySelector(".open_fullMediaActionBox");
     const likeTheEp = document.querySelector(".add_to_LikedShowsBox");
     const dontLikeTheEp = document.querySelector(".add_to_DislikedShowsBox");
     const addToWatchListBox = document.querySelector(".add_to_WatchListBox");
-    const addToWatchListText = addToWatchListBox.querySelector(".media_optText");
 
 
 
@@ -32,15 +30,6 @@
         cardImage.alt = "Image of " + cardShowName.textContent + cardEpTitle.textContent;
     });
 
-
-
-// ACTON TAB
-
-    // Expand/Contract Action tab
-    openMediaActionBox.addEventListener("click" , () => 
-    {
-        mediaActionBox.classList.toggle("active");
-    });
 
 
 
@@ -69,13 +58,11 @@
         if(addToWatchListBox.classList.contains("active"))
         {
             addToWatchListBox.classList.remove("active");
-            addToWatchListText.textContent = "Add to WatchList";
             addToWatchListBox.title = "Add to WatchList";
             addToWatchListBox.ariaLabel = "Add to WatchList";
             return;
         }
         addToWatchListBox.classList.add("active");
-        addToWatchListText.textContent = "Remove from WatchList";
         addToWatchListBox.title = "Remove from WatchList";
         addToWatchListBox.ariaLabel = "Remove from WatchList";
     });

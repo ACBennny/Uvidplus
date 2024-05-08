@@ -10,6 +10,7 @@ html:root
     --watchTrailerIconClr: #ff0000;
     --greenClr: #14d60d;
     --episodesBoxWidth: 150px;
+    --seasons_BdrHeight: 60px;
 }
 
 
@@ -258,6 +259,7 @@ html:root
     opacity: 0;
     visibility: hidden;
     overflow: hidden;
+    pointer-events: none;
     z-index: -1;
 }
 
@@ -267,11 +269,13 @@ html:root
     opacity: 1;
     visibility: visible;
     transition: all 300ms ease;
+    pointer-events: all;
     z-index: 3;
 }
 
 .ratingActionBdr .ratingActionBox
 {
+    position: relative;
     width: 100%;
     height: 100%;
     display: flex;
@@ -280,6 +284,38 @@ html:root
     align-items: flex-start;
     padding: 12px 16px;
     gap: 10px;
+}
+
+.ratingActionBox .close_ratingActionBdr
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 15px 7px;
+}
+
+.close_ratingActionBdr .close_ratingActionBox
+{
+    position: relative;
+    width: 15px;
+    height: 2px;
+    border-radius: 5px;
+    background-color: #dfdfdf;
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+
+.close_ratingActionBox::after
+{
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    width: 2px;
+    height: 15px;
+    border-radius: 5px;
+    background-color: #dfdfdf;
+    transform: translate(50%, -50%);
 }
 
 .ratingActionBox .rating_btn
@@ -456,14 +492,14 @@ html:root
     padding: 5px;
 }
 
-.sect-head a
+.sect-headText
 {
     font-size: 17px;
     color: #fff;
     padding: 0 10px;
 }
 
-.sect-head a span
+.sect-headText span
 {
     font-size: 20px;
     color: var(--greenClr);
@@ -631,8 +667,9 @@ html:root
 
 
 
-/* -------- Episodes ------ */
+/* ============= EPISODE SECTION ============== */
 
+/* ------------- Header --------- */
 .sect-ep
 {
     width: 100%;
@@ -640,43 +677,212 @@ html:root
     overflow: hidden;
 }
 
-.mini-nav
+.sect-ep .sect-controls
 {
     width: 100%;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    column-gap: 20px;
-    row-gap: 10px;
-    padding: 10px;
+    justify-content: space-between;
 }
 
-.mini-nav-atv
+.sect-controls .seasons_headerBdr,
+.sect-controls .episode_sortBdr
 {
-    color: #ebebeb;
-    border-bottom: 2px solid var(--greenClr);
+    position: relative;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: var(--seasons_BdrHeight);
 }
 
-.mini-nav a
+.seasons_headerBdr .seasons_headerBox
 {
-    padding: 20px;
-    color: #b0b0b0;
-    font-size: 14px;
+    --seasons_headerClrs: var(--genWhiteTypeMid);
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+    transition: all 300ms ease-in-out;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     cursor: pointer;
+}
+
+.seasons_headerBox::after
+{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    border-left: 7.5px solid var(--seasons_headerClrs);
+    border-top: 7.5px solid #00000000;
+    transform: translate(100%, -100%) rotate(-45deg);
     transition: 300ms;
 }
 
-.mini-nav a:hover
+.seasons_headerBox .seasons_headerText
 {
-    color: #ebebeb;
-    border-bottom: 2px solid var(--greenClr);
+    color: var(--seasons_headerClrs);
+    font-size: 13px;
+    transition: 300ms;
 }
 
+.seasons_headerBox:active
+{
+    --seasons_headerClrs: var(--genGreenTypeLight);
+}
+
+.seasons_headerBdr .seasons_selectorBdr
+{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 485px;
+    height: fit-content;
+    max-height: 0;
+    display: flex;
+    flex-direction: column;
+    background: #111111;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: 300ms;
+    z-index: -3;
+}
+
+.seasons_selectorBdr.active
+{
+    max-height: 250px;
+    opacity: 1;
+    visibility: visible;
+    z-index: 3;
+}
+
+.seasons_selectorBdr .seasons_selectorHeader
+{
+    width: 100%;
+    height: var(--seasons_BdrHeight);
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333333;
+}
+
+.seasons_selectorHeader .seasons_selectorHeaderText
+{
+    color: var(--genWhiteTypeBright);
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.seasons_selectorHeader .seasons_selectorHeaderIcon
+{
+    position: relative;
+    width: 20px;
+    height: 2px;
+    margin-right: 10px;
+    border-radius: 5px;
+    background-color: #dfdfdf;
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+
+.seasons_selectorHeaderIcon::after
+{
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    width: 2px;
+    height: 20px;
+    border-radius: 5px;
+    background-color: #dfdfdf;
+    transform: translate(50%, -50%);
+}
+
+.seasons_selectorBdr .seasons_selectorBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    overflow-y: visible;
+}
+
+.seasons_selectorBox .seasons_selector
+{
+    color: var(--genWhiteTypeDark);
+    font-size: 12px;
+    padding: 15px;
+    transition: 300ms;
+    -moz-user-select: none;
+    -moz-user-select: -moz-none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.seasons_selector:active
+{
+    color: var(--genWhiteTypeBright);
+    background-color: #444444;
+}
+
+.seasons_selector.active
+{
+    color: var(--genWhiteTypeLight);
+}
+
+.episode_sortBdr .episode_sortBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.episode_sortBox .episode_sortIcon
+{
+    width: 14px;
+    fill: var(--genWhiteTypeMid);
+    transform: rotate(90deg);
+}
+
+.episode_sortBox .episode_sortText
+{
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    color: var(--genWhiteTypeMid);
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+}
+
+.episode_sortText::after
+{
+    content: 'Oldest';
+}
+
+.episode_sortText.active::after
+{
+    content: 'Latest';
+}
+
+
+/* -------------- Episode Lists ------------ */
 .show-home-bx
 {
     width: 100%;
 }
-
 
 .show-home
 {
@@ -700,15 +906,14 @@ html:root
     transition: opacity 500ms 500ms;
     overflow-x: hidden;
     overflow-y: auto;
-    z-index: 75;
 }
 
-.showsub-inatv
+.show-sub.showsub-inatv
 {
     display: none;
 }
 
-.showsub-atv
+.show-sub.showsub-atv
 {
     width: 100%;
     opacity: 1;
@@ -725,29 +930,6 @@ html:root
     padding: 10px;
     gap: 10px;
     transition: 500ms;
-}
-
-.showset .setTitleBar
-{
-    position: fixed!important;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 40px;
-    display: none;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10px;
-    background: #00000011;
-    font-size: 25px;
-    color: #b1b1b1;
-    z-index: 1;
-}
-
-.setTitleBar h3
-{
-    font-size: 18px;
-    color: #b1b1b1; 
 }
 
 
@@ -843,6 +1025,17 @@ html:root
         color: #dfdfdf;
     }
 
+    .seasons_headerBox:hover
+    {
+        --seasons_headerClrs: var(--genGreenTypeLight);
+    }
+
+    .seasons_selector:hover
+    {
+        color: var(--genWhiteTypeBright);
+        background-color: #242424;
+    }
+
     .showset .episodes:hover
     {
         background: #55545480;
@@ -857,6 +1050,11 @@ html:root
     {
         display: flex;
         font-size: 25px;
+    }
+
+    .seasons_selectorBox::-webkit-scrollbar-thumb
+    {
+        background: #444444;
     }
 }
 
@@ -897,7 +1095,6 @@ html:root
         width: 100%;
         text-align: center;
         font-size: 25px;
-        z-index: 10;
     }
 
     .title_ImgBdr
@@ -931,6 +1128,11 @@ html:root
         height: fit-content;
     }
 
+    .abt-stmt .abt-stmtText
+    {
+        --lineNo: 4;
+    }
+
     .abt-card
     {
         width: 35%;
@@ -956,11 +1158,44 @@ html:root
 }
 
 
+@media only screen and (max-width: 600px)
+{
+    .seasons_headerBdr .seasons_selectorBdr
+    {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        max-height: none;
+    }
+
+    .seasons_selectorBdr.active
+    {
+        height: 100vh;
+        max-height: none;
+        opacity: 1;
+        visibility: visible;
+        z-index: 101;
+    }
+
+    .seasons_selectorBdr .seasons_selectorHeader
+    {
+        display: flex;
+    }
+
+    .seasons_selectorBdr .seasons_selectorBox
+    {
+        height: calc(100% - var(--seasons_BdrHeight));
+    }
+
+}
+
 
 @media only screen and (max-width: 485px)
 {
 
-    .sect-head a
+    .sect-headText
     {
         width: 100%;
         display: flex;

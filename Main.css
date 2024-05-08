@@ -24,6 +24,12 @@ html
 
 html:root
 {
+    --genGreenTypeLight: #14d60d;
+    --genGreenTypeDark: #148b10;
+    --genWhiteTypeBright: #ffffff;
+    --genWhiteTypeLight: #dfdfdf;
+    --genWhiteTypeMid: #ababab;
+    --genWhiteTypeDark: #6b6a6a;
     --scrollbarClr: #282828;
     --scrollbarHoverClr: #333333;
     --scrollbarActiveClr: #444444;

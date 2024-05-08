@@ -8,12 +8,6 @@
 
 html:root
 {
-    --genGreenTypeLight: #14d60d;
-    --genGreenTypeDark: #148b10;
-    --genWhiteTypeBright: #ffffff;
-    --genWhiteTypeLight: #dfdfdf;
-    --genWhiteTypeMid: #ababab;
-    --genWhiteTypeDark: #6b6a6a;
     --genMaxWidth: 1340px;
     --leftColWidth: calc(100% - var(--rightColWidth));
     --rightColWidth: 35%;
@@ -1143,24 +1137,10 @@ html:root
         font-size: 12px;
     }
 
-    .media_optBox.open_fullMediaActionBox
-    {
-        display: flex;
-    }
-
     .left_section_box.media_actions_box
     {
-        justify-content: center;
-    }
-
-    .media_optBox .media_optText
-    {
-        display: none;
-    }
-
-    .media_actions_box.active .media_optBox .media_optText
-    {
-        display: flex;
+        flex-direction: column;
+        /* align-items: flex-start; */
     }
 
     .showlist_MoreEpBase .showlist_MoreEpBdr
@@ -1232,6 +1212,21 @@ html:root
     {
         width: 100%;
         align-items: center;
+    }
+}
+
+
+
+@media only screen and (max-width: 485px)
+{
+    .left_section_box.media_actions_box
+    {
+        align-items: flex-start;
+    }
+
+    .media_actions_box .media_optBdr
+    {
+        flex-direction: column;
     }
 }
 

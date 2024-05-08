@@ -18,19 +18,26 @@
     let bcgImgBdrHalf;
     let bcgImgBdr3Qarts;
     let bcgImgBdr3QartsH;
+    const seasonHeaderBox = document.querySelector(".seasons_headerBox");
+    const seasonHeaderText = document.querySelector(".seasons_headerText");
+    const seasonSelectorBdr = document.querySelector(".seasons_selectorBdr");
+    const seasonSelector = document.querySelectorAll(".seasons_selector");
+    const seasonBox = document.querySelector('.show-home-bx');
+    const season = document.querySelectorAll('.show-sub');
+    const seasonAtv = document.querySelectorAll('.season-select');
+    const sortEPbtn = document.querySelectorAll('.sort_EpisodesBtn');
+    const watchEpBox = document.querySelectorAll(".episodes");
     const troBase = document.querySelector(".tro");
     const showHeaderName = document.querySelector("#show_Header_Name");
     const watchTrailerBox = document.querySelector('.watchTrailer_box');
     let trailerTimer;
     const openRatingActionBdr = document.querySelector(".like_buttonsBox");
+    const closeRatingActionBdr = document.querySelector(".close_ratingActionBdr");
     const ratingActionBdr = document.querySelector(".ratingActionBdr");
     const likeTheEp = document.querySelector(".add_to_LikedShowsBox");
     const dontLikeTheEp = document.querySelector(".add_to_DislikedShowsBox");
     const addToWatchListBox = document.querySelector(".add_to_WatchListBox");
-    const seasonBox = document.querySelector('.show-home-bx');
-    const season = document.querySelectorAll('.show-sub');
-    const seasonAtv = document.querySelectorAll('.season-select');
-    const watchEpBox = document.querySelectorAll(".episodes");
+
 
 
 
@@ -47,6 +54,18 @@
 
         bcgImgBox.setAttribute("style", `--ImgHeight:${bcgImgBdr3Qarts}px`);
         bcgImgGradient.setAttribute("style", `--ImgHeight:${bcgImgBdr3QartsH}px`);
+
+        if(window.innerWidth <= 600)
+        {
+            if(seasonSelectorBdr.classList.contains("active"))
+            {
+                documentBody.classList.add("bodystop");
+                return;
+            }
+            documentBody.classList.remove("bodystop");
+            return;
+        }
+        documentBody.classList.remove("bodystop");
     }
     window.addEventListener("load" ,  () => 
     {
@@ -64,35 +83,108 @@
 
 
 
+// CLOSING CONTENT
+    
+    document.addEventListener("click" , e => 
+    {
+        // Close season selector
+        if((seasonHeaderBox.matches(":hover")))
+        {
+            return;
+        }
+        seasonSelectorBdr.classList.remove("active");
+        documentBody.classList.remove("bodystop");
+
+        // Close the Ratings Action Box
+        if((openRatingActionBdr.matches(":hover")) || (ratingActionBdr.matches(":hover")))
+        {
+            return;
+        }
+        ratingActionBdr.classList.remove("active");
+    });
+    
+
+
+
 // SEASON SELECTOR
 
-    //opening/closing the episode
-    var popSeason = function(popupClick)
+    // Open season selctor
+    seasonHeaderBox.addEventListener("click" , () => 
     {
-        season[popupClick].classList.add('showsub-atv');
-        season[popupClick].classList.remove('showsub-inatv');
-        seasonAtv[popupClick].classList.add('mini-nav-atv');
-    }
+        seasonSelectorBdr.classList.toggle("active");
+        if(window.innerWidth <= 600)
+        {
+            documentBody.classList.add("bodystop");
+        }
+    });
 
-    seasonAtv.forEach((opnSeasons, i) => {
-        opnSeasons.addEventListener("click" , () => {
-            season.forEach((seasons) => {
-                seasons.classList.remove('showsub-atv');
-                seasons.classList.add('showsub-inatv');
+    // Select season
+    seasonSelector.forEach((selector, s) => 
+    {
+        selector.addEventListener("click" , () => 
+        {
+            seasonHeaderText.textContent = selector.textContent;
+            season.forEach(ctnt => 
+            {
+                ctnt.classList.remove("showsub-atv");
+                ctnt.classList.add("showsub-inatv");
             });
-            seasonAtv.forEach((offNavSeason) => {
-                offNavSeason.classList.remove('mini-nav-atv');
+            seasonSelector.forEach(one => 
+            { 
+                one.classList.remove("active");
             });
-            popSeason(i);
+            season[s].classList.remove("showsub-inatv");
+            season[s].classList.add("showsub-atv");
+            selector.classList.add("active");
+
+            seasonSelectorBdr.classList.remove("active");
+            // moreEpCtntBdr.forEach(bdr => 
+            // {
+            //     bdr.scrollTo(0, 0);
+            // });
+            documentBody.classList.remove("bodystop");
         });
     });
+
+
+
+// SORTING THE EPISODES
+
+    function sortEpisodesFunc() 
+    {
+        const container = document.querySelector('.show-sub.showsub-atv .showset');
+        const items = Array.from(container.querySelectorAll('.episodes'));
+        
+        // Reverse the array of items
+        const reversedItems = items.reverse();
+        
+        // Remove existing elements from the DOM
+        items.forEach(item => container.removeChild(item));
+        
+        // Append reversed elements back to the container
+        reversedItems.forEach(item => container.appendChild(item));
+
+        // Update the sort text
+
+    }
+
+    sortEPbtn.forEach(btn => 
+    {
+        btn.addEventListener("click" , () => 
+        {
+            sortEpisodesFunc();
+            const sortEPbtnText = btn.querySelector('.episode_sortText');
+            sortEPbtnText.classList.toggle("active");
+        });
+    });
+
 
 
 
 // WATCH TRAILER
 
     // Setting the title of the button
-    watchTrailerBox.title = "Watch \"" + showHeaderName.textContent + "\" trailer";
+    watchTrailerBox.title = "Watch " + showHeaderName.textContent + " trailer";
 
     // Handling the rendering of thr trailer elements
     watchTrailerBox.addEventListener("click" , () => 
@@ -136,27 +228,30 @@
 // RATINGS
 
     // Open Ratings Box
-        openRatingActionBdr.addEventListener("click" , () => 
-        {
-            ratingActionBdr.classList.toggle("active");
-        });
+    openRatingActionBdr.addEventListener("click" , () => 
+    {
+        ratingActionBdr.classList.toggle("active");
+    });
 
-    // Thumbs Up/Down
-        // Like the show
-        likeTheEp.addEventListener("click" , () => 
-        {
-            likeTheEp.classList.toggle("active");
-            dontLikeTheEp.classList.remove("active");
-            ratingActionBdr.classList.remove("active");
-        });
-        
-        // Dislike the show
-        dontLikeTheEp.addEventListener("click" , () => 
-        {
-            dontLikeTheEp.classList.toggle("active");
-            likeTheEp.classList.remove("active");
-            ratingActionBdr.classList.remove("active");
-        });
+    // Close Ratings Box
+    closeRatingActionBdr.addEventListener("click" , () => 
+    {
+        ratingActionBdr.classList.remove("active");
+    });
+
+    // Like the show
+    likeTheEp.addEventListener("click" , () => 
+    {
+        likeTheEp.classList.toggle("active");
+        dontLikeTheEp.classList.remove("active");
+    });
+    
+    // Dislike the show
+    dontLikeTheEp.addEventListener("click" , () => 
+    {
+        dontLikeTheEp.classList.toggle("active");
+        likeTheEp.classList.remove("active");
+    });
 
 
 

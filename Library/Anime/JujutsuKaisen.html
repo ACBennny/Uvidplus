@@ -165,6 +165,9 @@
                                     </div>
                                     <div class="ratingActionBdr">
                                         <div class="ratingActionBox">
+                                            <div class="close_ratingActionBdr">
+                                                <div class="close_ratingActionBox"></div>
+                                            </div>
                                             <button class="rating_btn like_buttons add_to_LikedShowsBox" title="I like this epsidoe" aria-label="I like this epsidoe">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="rating_btnIcon add_to_LikedShows">
                                                     <path d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75.2H464c26.5 0 48 21.5 48 48c0 18.5-10.5 34.6-25.9 42.6C497 275.4 504 288.9 504 304c0 23.4-16.8 42.9-38.9 47.1c4.4 7.3 6.9 15.8 6.9 24.9c0 21.3-13.9 39.4-33.1 45.6c.7 3.3 1.1 6.8 1.1 10.4c0 26.5-21.5 48-48 48H294.5c-19 0-37.5-5.6-53.3-16.1l-38.5-25.7C176 420.4 160 390.4 160 358.3V320 272 247.1c0-29.2 13.3-56.7 36-75l7.4-5.9c26.5-21.2 44.6-51 51.2-84.2l2.3-11.4c5.2-26 30.5-42.9 56.5-37.7zM32 192H96c17.7 0 32 14.3 32 32V448c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V224c0-17.7 14.3-32 32-32z"/>
@@ -219,7 +222,7 @@
                                 <!-- About the Show -->
                                 <div class="sect-abt">
                                     <div class="sect-head" id="abt">
-                                        <a href="#abt" target="_self"><span class="1">A</span>bout</a>
+                                        <div class="sect-headText"><span class="1">A</span>bout</div>
                                     </div>
                                     <div class="sect-dv">
                                         <div class="abt-stmt">
@@ -248,23 +251,41 @@
                                     </div>
                                 </div>
 
+                                <!-- Seasons List -->
                                 <div class="sect-ep">
                                     <div class="sect-head" id="ep">
-                                        <a href="#ep"><span class="1">W</span>atch</a>
+                                        <div class="sect-headText"><span class="1">W</span>atch</div>
                                     </div>
-                                    <!-- mini bar to navigte from about to the different seasons -->
-                                    <div class="mini-nav">
-                                        <a href="#ep" id="s1" class="season-select mini-nav-atv">Season 1</a>
-                                        <a href="#ep" id="s2" class="season-select ">Season 2</a>
-                                        <a href="#ep" id="s3" class="season-select ">Movies</a>
+                                    <div class="sect-controls">
+                                        <div class="seasons_headerBdr">
+                                            <div class="seasons_headerBox">
+                                                <div class="seasons_headerText">Season 1</div>
+                                            </div>
+                                            <div class="seasons_selectorBdr">
+                                                <div class="seasons_selectorHeader">
+                                                    <div class="seasons_selectorHeaderText">Season</div>
+                                                    <div class="seasons_selectorHeaderIcon"></div>
+                                                </div>
+                                                <div class="seasons_selectorBox">
+                                                    <div class="seasons_selector active">Season 1</div>
+                                                    <div class="seasons_selector">Season 2</div>
+                                                    <div class="seasons_selector">JJK 0</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="episode_sortBdr">
+                                            <div class="episode_sortBox sort_EpisodesBtn">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="episode_sortIcon">
+                                                    <path d="M32 96l320 0V32c0-12.9 7.8-24.6 19.8-29.6s25.7-2.2 34.9 6.9l96 96c6 6 9.4 14.1 9.4 22.6s-3.4 16.6-9.4 22.6l-96 96c-9.2 9.2-22.9 11.9-34.9 6.9s-19.8-16.6-19.8-29.6V160L32 160c-17.7 0-32-14.3-32-32s14.3-32 32-32zM480 352c17.7 0 32 14.3 32 32s-14.3 32-32 32H160v64c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-96-96c-6-6-9.4-14.1-9.4-22.6s3.4-16.6 9.4-22.6l96-96c9.2-9.2 22.9-11.9 34.9-6.9s19.8 16.6 19.8 29.6l0 64H480z"/>
+                                                </svg>
+                                                <div class="episode_sortText"></div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="show-home-bx">
                                         <div class="show-home">
                                             <div class="show-sub showsub-atv">
                                                 <div class="showset season1">
-                                                    <div class="setTitleBar">
-                                                        <h3>Season 1</h3>
-                                                    </div>
                                                     <a href="#" title="" class="episodes">
                                                         <span>Ep 1</span>
                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="episodesIcon">
@@ -413,9 +434,6 @@
                                             </div>
                                             <div class="show-sub showsub-inatv">
                                                 <div class="showset season2">
-                                                    <div class="setTitleBar">
-                                                        <h3>Season 2</h3>
-                                                    </div>
                                                     <a href="#" title="" class="episodes">
                                                         <span>Ep 1</span>
                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="episodesIcon">
@@ -498,9 +516,6 @@
                                             </div>
                                             <div class="show-sub showsub-inatv">
                                                 <div class="showset season2">
-                                                    <div class="setTitleBar">
-                                                        <h3>Movies</h3>
-                                                    </div>
                                                     <a href="#" title="" class="episodes">
                                                         <span>JJK 0</span>
                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="episodesIcon">
