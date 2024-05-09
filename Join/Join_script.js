@@ -160,6 +160,12 @@
     });
 
 
+// RELOADING
+    
+    // Warns if user tries to refresh
+    window.addEventListener('beforeunload', function (e) {
+        e.preventDefault(); 
+    });
 
 
 // ACCOUNT LOG IN / SIGN UP
