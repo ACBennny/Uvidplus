@@ -141,47 +141,7 @@ html:root
     z-index: 1;
 }
 
-.watchNowBdr
-{
-    /* width: 100%; */
-    display: none;
-}
 
-.watchNowBdr .watchNowBox
-{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-}
-
-.watchNowBox .watchNowBtn
-{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 15px 20px;
-    background-color: var(--genGreenTypeDark3);
-    outline: none;
-    border: none;
-    border-radius: 10px;
-    transition: 300ms;
-    cursor: pointer;
-}
-
-.watchNowBtn .watchActionIcon
-{
-    width: 18px;
-    fill: var(--genWhiteTypeLight);
-}
-
-.watchNowBtn .watchNowText
-{
-    font-size: 14px;
-    color: var(--genWhiteTypeLight);
-    margin-left: 5px;
-}
 
 
 /*  ------ Quick Actions ------ */
