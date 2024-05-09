@@ -303,7 +303,7 @@ html:root
     width: 15px;
     height: 2px;
     border-radius: 5px;
-    background-color: #dfdfdf;
+    background-color: var(--genWhiteTypeLight);
     transform: rotate(45deg);
 }
 
@@ -316,7 +316,7 @@ html:root
     width: 2px;
     height: 15px;
     border-radius: 5px;
-    background-color: #dfdfdf;
+    background-color: var(--genWhiteTypeLight);
     transform: translate(50%, -50%);
 }
 
@@ -343,13 +343,13 @@ html:root
 .rating_btn .rating_btnIcon
 {
     width: 16px;
-    fill: #b1b1b1;
+    fill: var(--genWhiteTypeMid);
     transition: 300ms;
 }
 
 .rating_btn .rating_btnText
 {
-    color: #b1b1b1;
+    color: var(--genWhiteTypeMid);
     font-size: 12px;
     margin-left: 10px;
     transition: 300ms;
@@ -358,13 +358,13 @@ html:root
 .rating_btn.active .rating_btnIcon,
 .rating_btn:active .rating_btnIcon
 {
-    fill: #dfdfdf;
+    fill: var(--genWhiteTypeLight);
 }
 
 .rating_btn.active .rating_btnText,
 .rating_btn:active .rating_btnText
 {
-    color: #dfdfdf;
+    color: var(--genWhiteTypeLight);
 }
 
 
@@ -377,13 +377,13 @@ html:root
 .topIconBox .topIcon
 {
     width: 100%;
-    fill: #dfdfdf;
+    fill: var(--genWhiteTypeLight);
 }
 
 .btmCtnt .btmText
 {
     width: 100%;
-    color: #dfdfdf;
+    color: var(--genWhiteTypeLight);
     font-size: 12px;
     margin-top: 5px;
     text-align: center;
@@ -438,7 +438,7 @@ html:root
     top: 0;
     right: 50%;
     width: 20px;
-    fill: #fff;
+    fill: var(--genWhiteTypeBright);;
     transform: translate(100% , -150%);
     cursor: pointer;
 }
@@ -497,7 +497,7 @@ html:root
 .sect-headText
 {
     font-size: 17px;
-    color: #fff;
+    color: var(--genWhiteTypeBright);
     padding: 0 10px;
 }
 
@@ -531,7 +531,7 @@ html:root
     position: relative;
     width: 100%;
     font-size: 13px;
-    color: #b0b0b0;
+    color: var(--genWhiteTypeMid);
     transition: 300ms;
     max-height: calc(var(--lineNo) * 1em * var(--lineHeight));
     line-height: var(--lineHeight);
@@ -590,7 +590,7 @@ html:root
     position: relative;
     width: 10px;
     height: 2px;
-    background-color: #cccccc;
+    background-color: var(--genWhiteTypeMid);
     transition: 300ms;
 }
 
@@ -602,7 +602,7 @@ html:root
     left: 50%;
     width: 2px;
     height: 10px;
-    background-color: #cccccc;
+    background-color: var(--genWhiteTypeMid);
     transform: translate(-50%, -50%);
     transition: 300ms;
 }
@@ -610,7 +610,7 @@ html:root
 .abt-stmt-detBtn  .abt-stmt-checkBoxCls
 {
     appearance: none;
-    color: #dfdfdf;
+    color: var(--genWhiteTypeMid);
     margin-left: 5px;
     outline: none;
     border: none;
@@ -658,7 +658,7 @@ html:root
 
 .abt-cardText
 {
-    color: #dfdfdf;
+    color: var(--genWhiteTypeLight);
     display: flex;
     gap: 3px;
     font-size: 10px;
@@ -796,7 +796,7 @@ html:root
     height: 2px;
     margin-right: 10px;
     border-radius: 5px;
-    background-color: #dfdfdf;
+    background-color: var(--genWhiteTypeLight);
     transform: rotate(45deg);
     cursor: pointer;
 }
@@ -810,7 +810,7 @@ html:root
     width: 2px;
     height: 20px;
     border-radius: 5px;
-    background-color: #dfdfdf;
+    background-color: var(--genWhiteTypeLight);
     transform: translate(50%, -50%);
 }
 
@@ -965,7 +965,7 @@ html:root
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    color: #ebebeb;
+    color: var(--genWhiteTypeLight);
     cursor: pointer;
     transition: 500ms;
     position: relative;
@@ -1053,7 +1053,7 @@ html:root
     display: none;
     justify-content: center;
     align-items: center;
-    color: #cecece;
+    color: var(--genWhiteTypeLight);
     font-size: 13px;
     text-align: center;
     background-color: var(--genGreenTypeDark3);
@@ -1098,12 +1098,12 @@ html:root
 
     .rating_btn:hover .rating_btnIcon
     {
-        fill: #dfdfdf;
+        fill: var(--genWhiteTypeLight);
     }
 
     .rating_btn:hover .rating_btnText
     {
-        color: #dfdfdf;
+        color: var(--genWhiteTypeLight);
     }
 
     .abt-stmt-detBtn:hover
@@ -1151,7 +1151,7 @@ html:root
 
 .rating_btn.active
 {
-    background-color: #148b10;
+    background-color: var(--genWhiteTypeDark);
     border-radius: 25px;
 }
 
