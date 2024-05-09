@@ -692,6 +692,7 @@ html:root
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding: 0 10px;
 }
 
 .sect-controls .seasons_headerBdr,
@@ -1334,6 +1335,16 @@ html:root
     .abt-cardText
     {
         width: 100%;
+    }
+
+    .episode_sortBox .episode_sortIcon
+    {
+        margin-right: 10px;
+    }
+
+    .episode_sortBox .episode_sortText
+    {
+        display: none;
     }
 
     .showset
