@@ -11,7 +11,6 @@ html:root
 {
     --introSlideIconClr: #b8b8b8;
     --introSlideIconWidth: 18px;
-    --basicSlideIconWidth: 18px;
     --watchActionIconWidth: 18px;
     --watchListIconWidth: 15px;
     --watchActionLinkBoxBcg: #1da216;
@@ -19,9 +18,6 @@ html:root
     --watchActionLinkBoxClr: #ffffff;
     --watchActionSaveBoxClrBdr: #1da216;
     --watchActionSaveBoxClrBdrHover: #e7e7e7;
-    --basicSliderCardDivision: 4;
-    --slideCardPlayIconClr: #18bd0f;
-    --slideCardPlayIconWidth: 18px;
 }
 
 html
@@ -100,7 +96,7 @@ body
     height: fit-content;
 }
 
-.slide_arrow
+.intro_slide_ctnt_box .slide_arrow
 {
     position: absolute;
     bottom: 0;
@@ -112,17 +108,17 @@ body
     z-index: 25;
 }
 
-.slide_arrow.left_slide_arrow
+.intro_slide_ctnt_box .slide_arrow.left_slide_arrow
 {
     left: 0;
 }
 
-.slide_arrow.right_slide_arrow
+.intro_slide_ctnt_box .slide_arrow.right_slide_arrow
 {
     right: 0;
 }
 
-.slide_arrow .introSlideIcon
+.intro_slide_ctnt_box .slide_arrow .introSlideIcon
 {
     width: var(--introSlideIconWidth);
     fill: var(--introSlideIconClr);
@@ -1266,76 +1262,13 @@ body
 
 
 
-@media only screen and (min-width: 1920px)
-{
-    .basic_slider_card_box
-    {
-        --basicSliderCardDivision: 10;
-    }
-}
-
-
-@media only screen and (max-width: 1920px)
-{
-
-    .basic_slider_card_box
-    {
-        --basicSliderCardDivision: 7;
-    }
-}
-
-@media only screen and (max-width: 1520px)
-{
-
-    .basic_slider_card_box
-    {
-        --basicSliderCardDivision: 5;
-    }
-}
-
 @media only screen and (max-width: 1100px)
 {
-
-    .basic_slider_card_box
-    {
-        --basicSliderCardDivision: 4;
-    }
     
     .intro_info_notes .intro_desc
     {
         display: none;
     }
-}
-
-@media only screen and (max-width: 884px)
-{
-
-    .basic_slider_title_box h2 .big
-    {
-        font-size: 20px;
-    }
-
-    .basic_slider_title_box h2 .small
-    {
-        font-size: 15px;
-    }
-
-    .basic_slider_title_box p
-    {
-        font-size: 11px;
-    }
-
-    .basic_slider_card_box
-    {
-        --basicSliderCardDivision: 3;
-    }
-
-    .slide_card .cardinfo h3
-    {
-        font-size: 14px;
-        width: 150px;
-    }
-
 }
 
 
@@ -1444,11 +1377,6 @@ body
         width: 50px;
     }
 
-    .slide_card
-    {
-        height: 240px;
-    }
-
     .infoBox .watchActionBox
     {
         flex-direction: column;
@@ -1486,11 +1414,6 @@ body
 
 @media only screen and (max-width: 600px)
 {
-
-    .basic_slider_card_box
-    {
-        --basicSliderCardDivision: 2;
-    }
 
     .type1_Ctnt_bdr
     {
@@ -1575,21 +1498,6 @@ body
     {
         width: 75%;
     }
-
-    .basic_slider_title_box h2 .big
-    {
-        font-size: 22px;
-    }
-
-    .basic_slider_title_box h2 .small
-    {
-        font-size: 15px;
-    }
-
-    .basic_slider_title_box p
-    {
-        font-size: 12px;
-    }
     
     .extImgBox
     {
@@ -1666,30 +1574,6 @@ body
 
 @media only screen and (max-width: 485px)
 {
-    .basic_slider_title_bdr
-    {
-        padding: 10px 10px 10px 20px;
-    }
-
-    .basic_slider_box  .slide_arrow
-    {
-        display: none;
-    }
-
-    .basic_slider_box  .slide_arrow i
-    {
-        padding: 10px;
-        font-size: 19px;
-    }
-
-    .basic_slider_card_box
-    {
-        gap: 15px;
-        padding: 20px;
-        scroll-padding-left: 20px;
-        scroll-padding-right: 20px;
-        overflow-x: auto;
-    }
 
     .latestEp_bdr .latestEp_box
     {
@@ -1716,38 +1600,6 @@ body
     .intro_info_notes .playShow_box .btn
     {
         height: 35px;
-    }
-
-    .slide_card
-    {
-        height: 180px;
-        background-color: #00000050;
-    }
-
-    .slide_card .cardinfo
-    {
-        background-color: #00000050;
-    }
-    
-    .slide_card .cardinfo h3
-    {
-        width: 100%;
-    }
-
-    .slide_card .cardinfo h3
-    {
-        width: 100%;
-        font-size: 12px;
-        justify-content: start;
-    }
-     
-    .slide_card .cardinfo .slideCardIcon
-    {
-        --slideCardPlayIconWidth: 0px;
-        transform: translateY(-50%);
-        opacity: 0;
-        visibility: hidden;
-        transition: 100ms;
     }
 
     .specialEp_box .specialEp_SpImgBdr
@@ -1803,36 +1655,6 @@ body
 
 }
 
-
-@media only screen and (hover: hover) and (max-width: 350px)
-{
-    
-    .slide_card:hover
-    {
-        border: none;
-    }
-    
-    .slide_card:hover .cardimg img 
-    {
-        transform: scale(1.15);
-    }
-    
-    .slide_card:hover .cardinfo h3
-    {
-        display: none;
-    }
-
-    .slide_card:hover .cardinfo .slideCardIcon
-    {
-        display: flex;
-        transform: translateY(0%);
-        opacity: 1;
-        visibility: visible;
-    }
-
-}
-
-
 @media only screen and (max-width: 265px)
 {
 
@@ -1849,27 +1671,6 @@ body
     .slide_nav_btn.active
     {
         width: 55px;
-    }
-
-    .basic_slider_card_box
-    {
-        grid-auto-columns: 100%;
-    }
-    
-    .slide_card .cardinfo h3
-    {
-        width: 100%;
-        justify-content: center;
-    }
-}
-
-
-@media only screen and (hover: hover) and (max-width: 265px)
-{
-    .slide_card:hover .cardinfo h3
-    {
-        width: 100%;
-        justify-content: center;
     }
 }
 

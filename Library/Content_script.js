@@ -35,12 +35,6 @@
     let auto_slide_count = 0;
     let auto_slide_timer;
     let auto_slide_timer_count = 15;
-    const basic_slider_LeftArrBox = [...document.querySelectorAll('.basic_slider_box .left_slide_arrow')];
-    const basic_slider_RightArrBox = [...document.querySelectorAll('.basic_slider_box .right_slide_arrow')];
-    const basic_slider_LeftArr = [...document.querySelectorAll('.basic_slider_box .left_slide_arrow .basic_icon_Left')];
-    const basic_slider_RightArr = [...document.querySelectorAll('.basic_slider_box .right_slide_arrow .basic_icon_Right')];
-    const basic_slider_CardBox = [...document.querySelectorAll('.basic_slider_card_box')];
-    const ctntLinks = document.querySelectorAll('.slide_card_base');
     const watchSectionBdr = document.querySelectorAll(".watchSectionBdr");
     const latestEpCards = document.querySelectorAll(".latestEp_card");
     const latestEpHiddenCards = document.querySelectorAll(".latestEp_card_IsNotActive");
@@ -57,9 +51,6 @@
         
         // Starts auto-slider
         introAutoSlide();
-
-        // Function to operate the basic Slider is called
-        basicSlider();
     });
 
 
@@ -68,7 +59,8 @@
 // MAIN CONTENT - INTRO SLIDES
 
     // For transition (blur) effect when switching sides
-    function flshBur(){
+    function flshBur()
+    {
         slideCover.classList.add("active");
         setTimeout(() => slideCover.classList.remove("active"), 400);
     }
@@ -90,20 +82,24 @@
     }
 
     // Left button to slide left
-    intro_LeftSlide_btn.addEventListener("click" , () => {
+    intro_LeftSlide_btn.addEventListener("click" , () =>
+    {
         prevSlideSet();
         resetIntroAutoSlide();
     });
 
     // Roght button to slide Right
-    intro_RightSlide_btn.addEventListener("click" , () => {
+    intro_RightSlide_btn.addEventListener("click" , () =>
+    {
         nextSlideSet();
         resetIntroAutoSlide();
     });
 
     // The nav buttons to choose to a particular slide
-    intro_Slide_radioBtn.forEach(radBtn => {
-        radBtn.addEventListener("click" , () => {
+    intro_Slide_radioBtn.forEach(radBtn => 
+    {
+        radBtn.addEventListener("click" , () => 
+        {
             resetIntroAutoSlide();
         });
     });
@@ -135,90 +131,7 @@
 
 
 
-// SUB CONTENT - BASIC SLIDERS
 
-    // The slider for different shows
-    function basicSlider()
-    {
-        basic_slider_CardBox.forEach((item, i) => {
-            let boxDimension = item.getBoundingClientRect();
-            let boxWidth = boxDimension.width;
-            let boxW = boxWidth - 10;
-
-            // Slides Right
-            basic_slider_RightArrBox[i].addEventListener("click" , () => {
-                item.scrollLeft += boxW;
-            });
-
-            // Slides Left
-            basic_slider_LeftArrBox[i].addEventListener("click" , () => {
-                item.scrollLeft -= boxW;
-            });
-
-            // Hides button  when boundary is reached
-            item.addEventListener("scroll" , () => {
-                let scrollStart = 0;
-                let scrollEnd = item.scrollWidth;
-                let scrollOffWidth = Math.ceil(item.offsetWidth);
-                let currScrollLeft = Math.ceil(item.scrollLeft);
-                let currScroll = Math.ceil((scrollOffWidth + currScrollLeft));
-
-                // Hides Right button
-                if(!(((currScroll) >= scrollEnd) || ((currScroll) >= (scrollEnd - 10))))
-                {
-                    basic_slider_RightArrBox[i].classList.remove("hide");
-                }
-                else
-                {
-                    basic_slider_RightArrBox[i].classList.add("hide");
-                }
-
-                // Hides Left button
-                if(!(currScrollLeft <= scrollStart))
-                {
-                    basic_slider_LeftArrBox[i].classList.remove("hide");
-                }
-                else
-                {
-                    basic_slider_LeftArrBox[i].classList.add("hide");
-                }
-            });
-
-        });
-    }
-
-    // Calls the function again if window changes size
-    // Used for Responsivenes and adaptation for device orientation
-    window.addEventListener("resize" , () => {
-        basicSlider();   
-    });
-
-    window.addEventListener("change" , () => {
-        basicSlider();   
-    });
-
-
-   
-    // Slide Card details (title, alt etc)
-    ctntLinks.forEach(ctntLink => {
-        const showCards = ctntLink.querySelector('.slide_card');
-        const showCardImgs = ctntLink.querySelector('.cardimg img');
-        const showCardInfoName = showCards.querySelector('.cardinfo h3');
-
-        // Slide Card Base
-        ctntLink.draggable = false;
-        ctntLink.style.userSelect = "none";
-
-        // Slide card
-        showCards.title = "Watch " + showCardInfoName.textContent;
-        showCards.draggable = false;
-        showCards.style.userSelect = "none";
-
-        // Slide Card
-        showCardImgs.draggable = false;
-        showCardImgs.style.userSelect = "none";
-        showCardImgs.alt ="Image of the Anime " + showCardInfoName.textContent;
-    });
 
 
 
