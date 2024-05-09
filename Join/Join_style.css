@@ -1,4 +1,4 @@
-
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
 /*************************************************************
  * This is the stylesheet for the Join page of Uvid
  * 
@@ -11,6 +11,13 @@
 
 
 /*  ========== JOIN FORM ========== */
+body
+{
+    background-image: url(/Images/Uvid_bcg0.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
 
 .join_fence
 {
@@ -20,7 +27,16 @@
     backdrop-filter: blur(var(--bcgFilt));
     overflow-x: hidden;
     overflow-y: auto;
+    scrollbar-color: #00000000 #00000000;
+    scrollbar-width: none;
     z-index: 150;
+}
+
+.join_fence::-webkit-scrollbar
+{
+    display: none;
+    width: 0;
+    height: 0;
 }
 
 .join_fence p
@@ -38,10 +54,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(/Images/Uvid_bcg0.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
 }
 
 .join_house
@@ -692,8 +704,11 @@
 {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: first baseline;
     gap: 5px;
     font-size: var(--fzTxt);
+    color: var(--color2);
 }
 
 .typeincode .input_verCode_num
@@ -740,17 +755,46 @@
     margin: 10px 0;
 }
 
-.email_verForm .form_provider a
+.form_provider a
 {
     position: relative;
     font-size: 10px;
     color: var(--color6);
+    font-size: calc(var(--fzTxt) - 2px);
 }
 
-.email_verForm .form_provider a::after
+.form_provider a::after
 {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0%;
     height: 1px;
+    border-radius: 10px;
     background-color: var(--color1);
+    transform: translate(0%, 100%);
+    transition: all 300ms ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.form_provider a:hover::after
+{
+    left: 5%;
+    width: 90%;
+    opacity: 1;
+    visibility: visible;
+}
+
+.form_provider .by_ABC
+{
+    display: block;
+}
+
+.form_provider .by_PM
+{
+    display: none;
 }
 
 

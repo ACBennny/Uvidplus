@@ -1167,6 +1167,216 @@ img
 }
 
 
+/* ================ General Carousel ============== */
+.basic_slider_bdr
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.basic_slider_title_bdr
+{
+    width: 100%;
+    height: 75px;
+    padding: 10px 10px 10px 50px;
+}
+
+.basic_slider_title_box
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.basic_slider_title_box h2
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.basic_slider_title_box h2 .big
+{
+    font-size: 25px;
+    color: #14d60d;
+}
+
+.basic_slider_title_box h2 .small
+{
+    font-size: 18px;
+    color: #fff;
+}
+
+.basic_slider_title_box p
+{
+    font-size: 13px;
+    color: #c0bebe;
+    text-align: left;
+}
+
+.basic_slider_ctnt
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.basic_slider_box
+{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.basic_slider_box  .slide_arrow
+{
+    top: 0;
+    width: 45px;
+    height: 100%;
+    /* background-image: -o-linear-gradient(to top, #0000008b, #0000008b);
+    background-image: -moz-linear-gradient(to top, #0000008b, #0000008b);
+    background-image: -webkit-linear-gradient(to top, #0000008b, #0000008b);
+    background-image: linear-gradient(to top, #0000008b, #0000008b); */
+    opacity: 1;
+    visibility: visible;
+    transition: 300ms;
+    cursor: pointer;
+}
+
+.basic_slider_box  .slide_arrow.hide
+{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.basic_slider_box  .slide_arrow.left_slide_arrow
+{
+    background-image: -o-linear-gradient(to right,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
+    background-image: -moz-linear-gradient(to right,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
+    background-image: -webkit-linear-gradient(to right,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
+    background-image: linear-gradient(to right,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
+}
+
+.basic_slider_box  .slide_arrow.right_slide_arrow
+{
+    background-image: -o-linear-gradient(to left,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
+    background-image: -moz-linear-gradient(to left,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
+    background-image: -webkit-linear-gradient(to left,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
+    background-image: linear-gradient(to left,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
+}
+
+.slide_arrow .introSlideIcon,
+.slide_arrow.hide .introSlideIcon
+{
+    opacity: 0;
+    visibility: hidden;
+    transition: 300ms;
+}
+
+
+.basic_slider_card_box
+{
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    display: grid;
+    grid-auto-columns: calc((100% / var(--basicSliderCardDivision)) - 10px);
+    grid-auto-flow: column;
+    gap: 15px;
+    padding: 10px 50px;
+    scroll-padding-left: 50px;
+    scroll-padding-right: 50px;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.basic_slider_card_box::-webkit-scrollbar
+{
+    display: none;
+}
+
+.basic_slider_card_box .slide_card_base
+{
+    scroll-snap-align: start;
+}
+
+.slide_card
+{
+    position: relative;
+    width: 100%;
+    height: 325px;
+    display: flex;
+    flex-direction: column;
+    background: #000;
+    border-radius: 25px;
+    border-bottom: 2px solid #1da216;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.slide_card .cardimg
+{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.slide_card .cardimg img
+{
+    width: 100%;
+    height: 100%;
+    transition: all 700ms ease-in-out;
+}
+
+.slide_card .cardinfo
+{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding: 5px;
+    background: #00000035;
+    transition: 300ms;
+    z-index: 4;
+}
+
+.slide_card .cardinfo h3
+{
+    width: 180px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    color: #e7e7e7;
+    font-size: 16px;
+    padding: 0 5px;
+}
+
+.slide_card .cardinfo .slideCardIcon
+{
+    width: var(--slideCardPlayIconWidth);
+    fill: var(--slideCardPlayIconClr);
+    transition: 500ms;
+}
+
+
+
 
 
 

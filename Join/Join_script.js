@@ -515,8 +515,11 @@
     // CREATING ACCOUNT (SIGN UP)
 
         // Turns off autocomplete
-        allInputFields.forEach(inputField => {
-            inputField.autocomplete = "off";
+        allInputFields.forEach(inputField => 
+        {
+            inputField.ariaAutoComplete = "off";
+            inputField.ariaHasPopup = false;
+            inputField.autoCorrect = false;
         });
     
 
@@ -539,7 +542,8 @@
             });
                 
             
-                function validateUsername(event){
+                function validateUsername(event)
+                {
                     userArray.push(newUserName.value);
                     let lastCurArrayVal = userArray.at(-1);
 
@@ -612,7 +616,8 @@
             });
 
             // Validation function For "Email"
-                function validateNewEmail(event){
+                function validateNewEmail(event)
+                {
                     emailArray.push(newEmail.value);
                     let lastEmailArrayval = emailArray.at(-1);
 
@@ -655,14 +660,17 @@
              */
 
             // Password Regex - Allows all except spaces
-            newPassword.addEventListener("beforeinput", (event) => {
+            newPassword.addEventListener("beforeinput", (event) => 
+            {
                 if(event.data != null && !(new_pass_cond).test(event.data))
                 event.preventDefault();
             });
 
             // Unhides the icon to change the input tpye of the password
-            seeUnseePassField.forEach((field, i) => {
-                field.addEventListener("input" , () => {
+            seeUnseePassField.forEach((field, i) => 
+            {
+                field.addEventListener("input" , () => 
+                {
                     // if the length is greater than zero unhide icon
                     if(field.value.length > 0)
                     {
@@ -676,8 +684,10 @@
             });
 
             // Allows user to change input type for password in order to see password via onclick
-            seeUnseePass.forEach((one, i) => {
-                one.addEventListener("click" , () => {
+            seeUnseePass.forEach((one, i) => 
+            {
+                one.addEventListener("click" , () => 
+                {
                     if(one.classList.contains("fa-eye-slash"))
                     {
                         seeUnseePassField[i].type = "password";
@@ -707,145 +717,149 @@
 
             // Validation for Password
 
-                function validateNewPassword(event) {
-                    passwordArray.push(newPassword.value);
-                    let lastPassArrayVal = passwordArray.at(-1);
-                    const userPass_Cond_SpecialChar = /\W/g;
-                    const userPass_Cond_num = /\d/g;
-                    const userPass_Cond_Lett = /[A-Z a-z]/g;
+            function validateNewPassword(event) 
+            {
+                passwordArray.push(newPassword.value);
+                let lastPassArrayVal = passwordArray.at(-1);
+                const userPass_Cond_SpecialChar = /\W/g;
+                const userPass_Cond_num = /\d/g;
+                const userPass_Cond_Lett = /[A-Z a-z]/g;
 
-                    // Checks if there is any value in the input feild
-                    if(((event.data == null) && (newPassword.length <= 0)))
-                    {
-                        newPassLength.classList.replace("goodCond" , "badCond");
-                        newPassLengthIcn.classList.replace("fa-circle-check" , "fa-xmark-circle");
-                        isPassLengthValid = false;
-                        isPassLetterValid = false;
-                        isPassNumberValid = false;
-                        isPassSpecCharValid = false;
-                    }
-
-                    // Checks if the pattern is less "8" characters
-                    if(((lastPassArrayVal.length > -1) && (lastPassArrayVal.length < 8)))
-                    {
-                        newPassLength.classList.replace("goodCond" , "badCond");
-                        newPassLengthIcn.classList.replace("fa-circle-check" , "fa-xmark-circle");
-                        isPassLengthValid = false;
-                    }
-                    else
-                    {
-                        newPassLength.classList.replace("badCond" , "goodCond");
-                        newPassLengthIcn.classList.replace("fa-xmark-circle" , "fa-circle-check");
-                        isPassLengthValid = true;
-                    }
-
-                    // Checks if it contains a Letter
-                    if((lastPassArrayVal.match(userPass_Cond_Lett)))
-                    {
-                        newPassLetter.classList.replace("badCond" , "goodCond");
-                        newPassLetterIcn.classList.replace("fa-xmark-circle" , "fa-circle-check");
-                        isPassLetterValid = true;
-                    }
-                    else
-                    {
-                        newPassLetter.classList.replace("goodCond" , "badCond");
-                        newPassLetterIcn.classList.replace("fa-circle-check" , "fa-xmark-circle");
-                        isPassLetterValid = false;
-                    }
-
-                    // Checks if it contains number
-                    if((lastPassArrayVal.match(userPass_Cond_num)))
-                    {
-                        newPassNumber.classList.replace("badCond" , "goodCond");
-                        newPassNumberIcn.classList.replace("fa-xmark-circle" , "fa-circle-check");
-                        isPassNumberValid = true;
-                    }
-                    else
-                    {
-                        newPassNumber.classList.replace("goodCond" , "badCond");
-                        newPassNumberIcn.classList.replace("fa-circle-check" , "fa-xmark-circle");
-                        isPassNumberValid = false;
-                    }
-                    
-                    // Checks if it contains a special character
-                    if((lastPassArrayVal.match(userPass_Cond_SpecialChar)))
-                    {
-                        newPassSpecChar.classList.replace("badCond" , "goodCond");
-                        newPassSpecCharIcn.classList.replace("fa-xmark-circle" , "fa-circle-check");
-                        isPassSpecCharValid = true;
-                    }
-                    else
-                    {
-                        newPassSpecChar.classList.replace("goodCond" , "badCond");
-                        newPassSpecCharIcn.classList.replace("fa-circle-check" , "fa-xmark-circle")
-                        isPassSpecCharValid = false;
-                    }
-
-                    // If all the coditions are met, the password is validated
-                    if(((isPassLengthValid == true)
-                        && (isPassLetterValid == true)
-                        && (isPassNumberValid == true)
-                        && (isPassSpecCharValid == true)
-                    ))
-                    {
-                        isPassValid = true;
-                    }
-                    else
-                    {
-                        isPassValid = false;
-                    }
+                // Checks if there is any value in the input feild
+                if(((event.data == null) && (newPassword.length <= 0)))
+                {
+                    newPassLength.classList.replace("goodCond" , "badCond");
+                    newPassLengthIcn.classList.replace("fa-circle-check" , "fa-xmark-circle");
+                    isPassLengthValid = false;
+                    isPassLetterValid = false;
+                    isPassNumberValid = false;
+                    isPassSpecCharValid = false;
                 }
 
-                newPassword.addEventListener("input" , validateNewPassword);
+                // Checks if the pattern is less "8" characters
+                if(((lastPassArrayVal.length > -1) && (lastPassArrayVal.length < 8)))
+                {
+                    newPassLength.classList.replace("goodCond" , "badCond");
+                    newPassLengthIcn.classList.replace("fa-circle-check" , "fa-xmark-circle");
+                    isPassLengthValid = false;
+                }
+                else
+                {
+                    newPassLength.classList.replace("badCond" , "goodCond");
+                    newPassLengthIcn.classList.replace("fa-xmark-circle" , "fa-circle-check");
+                    isPassLengthValid = true;
+                }
+
+                // Checks if it contains a Letter
+                if((lastPassArrayVal.match(userPass_Cond_Lett)))
+                {
+                    newPassLetter.classList.replace("badCond" , "goodCond");
+                    newPassLetterIcn.classList.replace("fa-xmark-circle" , "fa-circle-check");
+                    isPassLetterValid = true;
+                }
+                else
+                {
+                    newPassLetter.classList.replace("goodCond" , "badCond");
+                    newPassLetterIcn.classList.replace("fa-circle-check" , "fa-xmark-circle");
+                    isPassLetterValid = false;
+                }
+
+                // Checks if it contains number
+                if((lastPassArrayVal.match(userPass_Cond_num)))
+                {
+                    newPassNumber.classList.replace("badCond" , "goodCond");
+                    newPassNumberIcn.classList.replace("fa-xmark-circle" , "fa-circle-check");
+                    isPassNumberValid = true;
+                }
+                else
+                {
+                    newPassNumber.classList.replace("goodCond" , "badCond");
+                    newPassNumberIcn.classList.replace("fa-circle-check" , "fa-xmark-circle");
+                    isPassNumberValid = false;
+                }
+                
+                // Checks if it contains a special character
+                if((lastPassArrayVal.match(userPass_Cond_SpecialChar)))
+                {
+                    newPassSpecChar.classList.replace("badCond" , "goodCond");
+                    newPassSpecCharIcn.classList.replace("fa-xmark-circle" , "fa-circle-check");
+                    isPassSpecCharValid = true;
+                }
+                else
+                {
+                    newPassSpecChar.classList.replace("goodCond" , "badCond");
+                    newPassSpecCharIcn.classList.replace("fa-circle-check" , "fa-xmark-circle")
+                    isPassSpecCharValid = false;
+                }
+
+                // If all the coditions are met, the password is validated
+                if(((isPassLengthValid == true)
+                    && (isPassLetterValid == true)
+                    && (isPassNumberValid == true)
+                    && (isPassSpecCharValid == true)
+                ))
+                {
+                    isPassValid = true;
+                }
+                else
+                {
+                    isPassValid = false;
+                }
+            }
+
+            newPassword.addEventListener("input" , validateNewPassword);
 
             // Validation for Confirm Password
+            confirmPassword.addEventListener("beforeinput", (event) => 
+            {
+                if(event.data != null && !(new_pass_cond).test(event.data))
+                event.preventDefault();
+            });
 
-                confirmPassword.addEventListener("beforeinput", (event) => {
-                    if(event.data != null && !(new_pass_cond).test(event.data))
-                    event.preventDefault();
-                });
+            function confirmNewPass(event)
+            {
+                confPasswordArray.push(confirmPassword.value);
+                let lastConfPassArrayVal = confPasswordArray.at(-1);
 
-                function confirmNewPass(event){
-                    confPasswordArray.push(confirmPassword.value);
-                    let lastConfPassArrayVal = confPasswordArray.at(-1);
-
-                    if(((event.data == null) && (lastConfPassArrayVal.length <= 0)))
-                    {
-                        confNewPassWarn.textContent = "Required";
-                        confNewPassWarn.classList.add("active");
-                        isConfPassValid = false;
-                    }
-                    else if((isPassValid == false) || (lastConfPassArrayVal != newPassword.value))
-                    {
-                        confNewPassWarn.textContent = "Passwords do not match";
-                        confNewPassWarn.classList.add("active");
-                        isConfPassValid = false;
-                    }
-                    else
-                    {
-                        confNewPassWarn.textContent = "";
-                        confNewPassWarn.classList.remove("active");
-                        isConfPassValid = true;
-                    }
+                if(((event.data == null) && (lastConfPassArrayVal.length <= 0)))
+                {
+                    confNewPassWarn.textContent = "Required";
+                    confNewPassWarn.classList.add("active");
+                    isConfPassValid = false;
                 }
+                else if((isPassValid == false) || (lastConfPassArrayVal != newPassword.value))
+                {
+                    confNewPassWarn.textContent = "Passwords do not match";
+                    confNewPassWarn.classList.add("active");
+                    isConfPassValid = false;
+                }
+                else
+                {
+                    confNewPassWarn.textContent = "";
+                    confNewPassWarn.classList.remove("active");
+                    isConfPassValid = true;
+                }
+            }
 
-                confirmPassword.addEventListener("input" , confirmNewPass);
+            confirmPassword.addEventListener("input" , confirmNewPass);
 
 
 
             // Checks If user fills All input fields Correctly
-            signUpBtn.addEventListener("click" , () => {
+            signUpBtn.addEventListener("click" , () => 
+            {
                 // If all input fields are filled correctly, call verification funnction to verify user
-                if(((signUpBtn.disabled == false) && (isUserValid == true) && (isPassValid == true) && (isConfPassValid == true) && (isEmailValid == true)))
-                {
-                    signUpBtn.disabled = true;
-                    verification(newEmail.value);
-                }
-                // If not filled correctly, alert user 
-                else
-                {
-                    alert("Please Check that all fields have been filled correctly");
-                }
+                // if(((signUpBtn.disabled == false) && (isUserValid == true) && (isPassValid == true) && (isConfPassValid == true) && (isEmailValid == true)))
+                // {
+                //     signUpBtn.disabled = true;
+                //     verification(newEmail.value);
+                // }
+                // // If not filled correctly, alert user 
+                // else
+                // {
+                //     alert("Please Check that all fields have been filled correctly");
+                // }
+                verification(newEmail.value);
             });
 
 
@@ -915,12 +929,13 @@
                     
                         <!-- Form Provider - Powered by Postmail -->
                         <p class="form_provider">
-                            <a href="https://postmail.invotes.com" target="_blank">Powered by PostMail</a>
+                            <a href="https://acbennny.netlify.app" target="_blank" class="by_ABC">Made by acbennny</a>
+                            <a href="https://postmail.invotes.com" target="_blank" class="by_PM">Powered by PostMail</a>
                         </p>
                     </form>
                 </div>
                 `;
-                join_form_fence.appendChild(verCodeBdr);
+                bodyDoc.appendChild(verCodeBdr);
                 const verCodeBox_loader = verCodeBdr.querySelector(".ver_loader");
                 const ver_loader_note_ctnt = verCodeBox_loader.querySelector("#loader_ctnt");
                 const close_verCodeBdr = verCodeBdr.querySelector(".close_verification_box");
@@ -952,7 +967,8 @@
                 }
 
                 // Closes the verification box
-                close_verCodeBdr.addEventListener("click" , (e) => {
+                close_verCodeBdr.addEventListener("click" , (e) => 
+                {
                     let warn_to_close = confirm(" Please note that closing this form will forfeit the account creation process \nAll unsaved changes would be lost");
                     if((warn_to_close == false))
                     {
@@ -964,9 +980,9 @@
                     }
                 });
 
-
                 // Removes preloader after "5" seconds
-                function verCodeLoader(){
+                function verCodeLoader()
+                {
                     verCodeBox_loader.classList.add("active");
                     if((verCodeBox_loader.classList.contains("active")))
                     {
@@ -975,37 +991,41 @@
                 }
                     
                 //  Generating OTP String
-                    function generateRandomString() {
-                        const length = 32
-                        var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ()|\"@#$%&*^&!~`/;:<>[{]}-+=?';
-                        var result = '';
-                        for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
-                        return result;
-                    }
+                function generateRandomString()
+                {
+                    const length = 32
+                    var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ()|\"@#$%&*^&!~`/;:<>[{]}-+=?';
+                    var result = '';
+                    for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+                    return result;
+                }
 
-                    var secret = generateRandomString(32); // Generate a random secret key
-                    // console.log('Secret key:', secret);
+                // Generate a random secret key
+                var secret = generateRandomString(32);
+                // console.log('Secret key:', secret);
 
-                
                 // Generate OTP num
-                function generateOTP () {
-
+                function generateOTP()
+                {
                     const len = 8;
-                        let otp = '';
-                        const digits = '0123456789';
-                            for (let i = 0; i < len; i++) {
-                                otp += digits[Math.floor(Math.random() * 10)];
-                            }
-                            return otp;
+                    let otp = '';
+                    const digits = '0123456789';
+                    for (let i = 0; i < len; i++)
+                    {
+                        otp += digits[Math.floor(Math.random() * 10)];
+                    }
+                    return otp;
                 }
                 
                 // Carries the sending of email
-                function emailVerCode(){
+                function emailVerCode()
+                {
                     verCodeSubTitleCtnt.textContent = "Request a code";
+                    
                     // Gets code
                     // let thisVercart = generateRandomString();
                     let thisVercart = generateOTP();
-                    console.log(" val => " + thisVercart);
+                    // console.log(" val => " + thisVercart);
                     
                     // Stores user input for code
                     let enterCodeArray = [];
@@ -1013,16 +1033,34 @@
                     // Countdown timer for verification code
                     const timePeriod = 300;
 
-                    function verTimer() {
+                    function verTimer() 
+                    {
                         let sec = timePeriod;
-                        timer = setInterval(function(){
+                        timer = setInterval(function()
+                        {
                             sec--;
 
                             // Displays timer in page
                             verCodeTimer.textContent = sec;
+
+                            //
+                            if(sec == 200)
+                            {
+                                let askIfNoCode = confirm("Haven't seen your code? \nWill you like to have it displayed? (for dev testing)");
+                                if(askIfNoCode == false)
+                                {
+                                    event.preventDefault();
+                                }
+                                else
+                                {
+                                    askIfNoCode = "";
+                                    alert("Your code is : " + thisVercart);
+                                }
+                            }
                             
                             // Once timer hits "0" , a notification is diplayed and field for vercode is closed. User would need to request a new one
-                            if (sec <= 0) {
+                            if (sec <= 0)
+                            {
                                 clearInterval(timer);
                                 verCodeSubTitleCtnt.textContent = "Your code has expired. You will need to request a new one";
                                 enterOtp.classList.remove("active");
@@ -1048,7 +1086,8 @@
                     }
 
                     // Send Email
-                    sendVerCode.addEventListener("click" , () => {
+                    sendVerCode.addEventListener("click" , () => 
+                    {
 
                         /* ========= Code by Post Mail =========== starts ===*/
                             // var form_id_js = "signUp_form";
@@ -1137,6 +1176,7 @@
 
                     
                     // VALIDATING CODE
+
                         // Array to store wrong values
                         const invalidVerArray = [];
 
@@ -1149,22 +1189,22 @@
                         enterOtpInput.spellCheck = false;
                         enterOtpInput.ariaHasPopup = false;
 
-                        enterOtpInput.addEventListener("beforeinput", (event) => {
+                        enterOtpInput.addEventListener("beforeinput", (event) => 
+                        {
                             if (event.data != null && !(enterOtp_Condition.test(event.data))) 
                                 event.preventDefault();
                         });
 
                         // Stores user input in an array
-                        enterOtpInput.addEventListener("input" , () => {
-                            // enterCodeArray.push(input_verCode.value);
+                        enterOtpInput.addEventListener("input" , () =>
+                        {
                             enterCodeArray.push(enterOtpInput.value);
                             let lastEnterCodeArrayVal = enterCodeArray.at(-1);
-                            // console.log("ver code inputs => " + enterCodeArray);
-                            // console.log("last entered value => " + lastEnterCodeArrayVal);
                         });
 
                         // Click to Validate
-                        valVerCode.addEventListener("click" , () => {
+                        valVerCode.addEventListener("click" , () =>
+                        {
                             // Gets last value in array
                             let lastEnterCodeArrayVal = enterCodeArray.at(-1);
                             // Assigns last value to avraible
@@ -1211,7 +1251,6 @@
                                                     if(seconds == 0)
                                                     {
                                                         clearInterval(verSuccesstimer);
-                                                        bodyDoc.removeChild(join_form_fence);
                                                         preloaderBdr.style.display = "flex";
                                                         setTimeout(() => 
                                                         {
@@ -1243,9 +1282,6 @@
                                     // The verify button is hidden
                                     reqVerCode.classList.remove("hideBtn");
 
-                                    // Showing this in console for test purposes
-                                    // console.log("too many tries");
-
                                     // Removes preloader after 2.5seconds
                                     setTimeout(() => verCodeBox_loader.classList.remove("active") , 2500);
                                 }
@@ -1254,10 +1290,10 @@
                                 {
                                     // Sets preloader text note to "invalid code"
                                     ver_loader_note_ctnt.textContent = "Invalid Code";
+
                                     // Adds the user input into the invalid array
                                     invalidVerArray.push(enterOtpInput.value);
-                                    // Shows result for testing
-                                    // console.log("Invalid codes : " + invalidVerArray);
+
                                     // Removes preloader after 2.5seconds
                                     setTimeout(() => verCodeBox_loader.classList.remove("active") , 2500);
                                 }
@@ -1266,7 +1302,7 @@
                 }
 
                 // Requesting new code
-                    reqVerCode.addEventListener("click" , emailVerCode);
+                reqVerCode.addEventListener("click" , emailVerCode);
                 
             }
 

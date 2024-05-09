@@ -8,9 +8,9 @@
 html:root
 {
     --watchTrailerIconClr: #ff0000;
-    --greenClr: #14d60d;
+    --genGreenTypeLight: #14d60d;
     --episodesBoxWidth: 150px;
-    --seasons_BdrHeight: 60px;
+    --seasons_BdrHeight: 50px;
 }
 
 
@@ -113,18 +113,18 @@ html:root
 
 .title_ImgBdr
 {
+    position: relative;
     width: 30%;
     height: 100%;
-    position: relative;
     display: flex;
-    justify-content: right;
+    flex-direction: column;
+    align-items: flex-end;
     padding: 0px 20px;
     transition: 300ms;
 }
 
 .title_ImgBox
 {
-    position: relative;
     transform: translateY(-10%);
     width: 200px;
     height: 250px;
@@ -139,6 +139,47 @@ html:root
     height: 100%;
     transition: 300ms;
     z-index: 1;
+}
+
+.watchNowBdr
+{
+    /* width: 100%; */
+}
+
+.watchNowBdr .watchNowBox
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.watchNowBox .watchNowBtn
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: var(--genGreenTypeDark3);
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    transition: 300ms;
+    cursor: pointer;
+}
+
+.watchNowBtn .watchActionIcon
+{
+    width: 18px;
+    fill: var(--genWhiteTypeLight);
+}
+
+.watchNowBtn .watchNowText
+{
+    font-size: 14px;
+    color: var(--genWhiteTypeLight);
+    margin-left: 5px;
 }
 
 
@@ -502,7 +543,7 @@ html:root
 .sect-headText span
 {
     font-size: 20px;
-    color: var(--greenClr);
+    color: var(--genGreenTypeLight);
 }
 
 .sect-dv
@@ -524,7 +565,7 @@ html:root
 
 .abt-stmt .abt-stmtText
 {
-    --lineNo: 3;
+    --lineNo: 4;
     --lineHeight: 1.4;
     position: relative;
     width: 100%;
@@ -665,7 +706,7 @@ html:root
 
 .abt-cardText span
 {
-    color: var(--greenClr);
+    color: var(--genGreenTypeLight);
     font-size: 11px;
     transition: 300ms;
 }
@@ -823,8 +864,11 @@ html:root
 
 .seasons_selectorBox .seasons_selector
 {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     color: var(--genWhiteTypeDark);
-    font-size: 12px;
     padding: 15px;
     transition: 300ms;
     -moz-user-select: none;
@@ -833,6 +877,16 @@ html:root
     -webkit-user-drag: none;
     user-select: none;
     cursor: pointer;
+}
+
+.seasons_selector .selectorMain
+{
+    font-size: 12px;
+}
+
+.seasons_selector .selectorMinor
+{
+    font-size: 11px;
 }
 
 .seasons_selector:active
@@ -871,7 +925,8 @@ html:root
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 5px;
+    margin-left: 5px;
+    margin-right: 15px;
 }
 
 .episode_sortText::after
@@ -984,7 +1039,7 @@ html:root
 {
     width: 18px;
     display: none;
-    fill: var(--greenClr);
+    fill: var(--genGreenTypeLight);
     transition: 500ms;
     animation: spinPlay 1000ms reverse forwards;
 }
@@ -1032,7 +1087,6 @@ html:root
 .showall_EpBox .showall_EpBtn
 {
     width: 100%;
-    max-width: 600px;
     padding: 10px;
     display: none;
     justify-content: center;
@@ -1041,7 +1095,7 @@ html:root
     font-size: 13px;
     text-align: center;
     background-color: var(--genGreenTypeDark3);
-    border-radius: 5px;
+    border-radius: 10px;
     -moz-user-select: none;
     -moz-user-select: -moz-none;
     -webkit-user-select: none;

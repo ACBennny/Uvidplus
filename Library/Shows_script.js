@@ -216,9 +216,11 @@
     // Select season
     seasonSelector.forEach((selector, s) => 
     {
+        const seasonSelectorMain = selector.querySelector(".selectorMain");
+        const seasonSelectorMinor = selector.querySelector(".selectorMinor");
         selector.addEventListener("click" , () => 
         {
-            seasonHeaderText.textContent = selector.textContent;
+            seasonHeaderText.textContent = seasonSelectorMain.textContent;
             season.forEach(ctnt => 
             {
                 ctnt.classList.remove("showsub-atv");
@@ -278,6 +280,8 @@
     seasonSet.forEach(set => 
     {
         let setEpBox = set.querySelectorAll(".episodes");
+
+        // Setting the number of episodes in each season
 
         // Showing the first ten episodes on page load
         if(setEpBox.length > noOfEpShown)

@@ -20,9 +20,9 @@ html:root
     --color9: #b4b4b4;
     --color10: #888888;
     --color11: #252525;
-    --fzTxt:12px;
-    --fzIcon:20px;
-    --bcgFilt:15px;
+    --fzTxt: 12px;
+    --fzIcon: 20px;
+    --bcgFilt: 2px;
     --actionJoinGradientAngle: 30deg;
     --featureCardBdrRadius: 5px 5px 75px 5px;
     --ftrCardFrontTransform: 15px;
@@ -789,8 +789,56 @@ ul
     {
         background-color: var(--color11);
     }
+
+    .basic_slider_box:hover .slide_arrow .introSlideIcon
+    {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .slide_card:hover
+    {
+        border-top: 2px solid #21c018;
+        border-left: 2px solid #21c018;
+        border-right: 2px solid #21c018;
+        border-bottom: none;
+    }
+
+    .slide_card:hover .cardimg img
+    {
+        transform: scale(1.15);
+    }
+
+    .slide_card:hover .cardinfo
+    {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #00000085;
+    }
+
+    .slide_card:hover .cardinfo h3
+    {
+        width: 100%;
+        justify-content: space-evenly;
+        text-align: center;
+    }
+
+    .slide_card:hover .cardinfo .slideCardIcon
+    {
+        --slideCardPlayIconWidth: 35px;
+    }
 }
 
+
+@media(hover: none)
+{
+    .basic_slider_box .slide_arrow .introSlideIcon
+    {
+        opacity: 1;
+        visibility: visible;
+    }
+}
 
 
 
