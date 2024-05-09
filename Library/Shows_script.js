@@ -30,6 +30,7 @@
     const seasonHeaderBox = document.querySelector(".seasons_headerBox");
     const seasonHeaderText = document.querySelector(".seasons_headerText");
     const seasonSelectorBdr = document.querySelector(".seasons_selectorBdr");
+    const seasonSelectorBox = document.querySelector(".seasons_selectorBox");
     const seasonSelector = document.querySelectorAll(".seasons_selector");
     const seasonAtv = document.querySelectorAll('.season-select');
     const sortEPbtn = document.querySelectorAll('.sort_EpisodesBtn');
@@ -85,13 +86,12 @@
 
 
 
-
 // CLOSING CONTENT
     
     document.addEventListener("click" , e => 
     {
         // Close season selector
-        if((seasonHeaderBox.matches(":hover")))
+        if((seasonHeaderBox.matches(":hover") || seasonSelectorBox.matches(":hover")))
         {
             return;
         }
@@ -105,7 +105,6 @@
         }
         ratingActionBdr.classList.remove("active");
     });
-
 
 
 
@@ -136,6 +135,7 @@
         dontLikeTheEp.classList.toggle("active");
         likeTheEp.classList.remove("active");
     });
+
 
 
 // WATCH TRAILER
@@ -203,7 +203,13 @@
 
 // SEASON SELECTOR
 
-    // Open season selctor
+    // Setting the number of episodes in each season
+    for(let sel = 0; sel < seasonSelector.length; sel++)
+    {
+        seasonSelector[sel].querySelector(".selectorMinor").textContent = seasonSet[sel].querySelectorAll(".episodes").length + " episodes";
+    }
+
+    // Open season selector
     seasonHeaderBox.addEventListener("click" , () => 
     {
         seasonSelectorBdr.classList.toggle("active");
@@ -218,6 +224,8 @@
     {
         const seasonSelectorMain = selector.querySelector(".selectorMain");
         const seasonSelectorMinor = selector.querySelector(".selectorMinor");
+
+        
         selector.addEventListener("click" , () => 
         {
             seasonHeaderText.textContent = seasonSelectorMain.textContent;
@@ -277,11 +285,11 @@
 
 // EPISODES
 
+    // Showing the Episodes
     seasonSet.forEach(set => 
     {
         let setEpBox = set.querySelectorAll(".episodes");
 
-        // Setting the number of episodes in each season
 
         // Showing the first ten episodes on page load
         if(setEpBox.length > noOfEpShown)
