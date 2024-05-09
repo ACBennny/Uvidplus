@@ -58,7 +58,6 @@
             // Warning
             const logInWarn = document.querySelector("#logIn_warn");
 
-
             // Account Recovery / Reset Password
             let testLog_user = "uvidtestuser";
             let testLog_email = "craft.testuser.Acc.email@gmail.com";
@@ -66,7 +65,7 @@
             let testTimer;
 
             // Submitting Info
-
+            const logInBtn = document.querySelector("#logIn_btn");
 
         
         // Sign In Form
@@ -153,7 +152,8 @@
 
     // This function removes the preloader after the skeleton of the website has been loaded
 
-    window.addEventListener("load", () => {
+    window.addEventListener("load", () => 
+    {
         preloaderBdr.style.display = "none";
         bodyDoc.classList.add("bodystart");
         AccountJoin();
@@ -211,8 +211,10 @@
     }
 
     // Switches to Log In form
-    goToLogInForm.forEach(elem => {
-        elem.addEventListener("click" , () => {
+    goToLogInForm.forEach(elem => 
+    {
+        elem.addEventListener("click" , () => 
+        {
             joinMMLogInForm.classList.add("active");
             joinMMRecoverAccForm.classList.remove("active");
             joinMMSignUpForm.classList.remove("active");
@@ -221,8 +223,10 @@
     });
 
     // Switching to Account Recovery form
-    goToRecoverAccForm.forEach(elem => {
-        elem.addEventListener("click" , () => {
+    goToRecoverAccForm.forEach(elem => 
+    {
+        elem.addEventListener("click" , () => 
+        {
             joinMMRecoverAccForm.classList.add("active");
             joinMMLogInForm.classList.remove("active");
             joinMMSignUpForm.classList.remove("active");
@@ -231,8 +235,10 @@
     });
 
     // Switching to Sign Up form
-    goToSignUpForm.forEach(elem => {
-        elem.addEventListener("click" , () => {
+    goToSignUpForm.forEach(elem => 
+    {
+        elem.addEventListener("click" , () => 
+        {
             joinMMSignUpForm.classList.add("active");
             joinMMLogInForm.classList.remove("active");
             joinMMRecoverAccForm.classList.remove("active");
@@ -255,7 +261,8 @@
              *  2 - Characters allowed a-z , A-Z , 0-9, underscore
              */
 
-            userName.addEventListener("beforeinput", (event) => {
+            userName.addEventListener("beforeinput", (event) => 
+            {
                 if (event.data != null && !(user_name_cond.test(event.data))) 
                     event.preventDefault();
             });
@@ -308,6 +315,7 @@
 
 
         // Validates Input for Password
+
             // Conditions -
             /**
              *  1 - Must contain at least one of: "a-z" , "A-Z" , "0-9" , "special character"
@@ -316,203 +324,206 @@
 
 
             // Sepcifies the allowed characters for Before input
-            userPassword.addEventListener("beforeinput", (event) => {
+            userPassword.addEventListener("beforeinput", (event) => 
+            {
                 if(event.data != null && !(user_pass_cond).test(event.data))
                 event.preventDefault();
             });
 
             // Validation for Password
 
-                function validateUserPassword(event) {
-                    userpasswordArray.push(userPassword.value);
-                    let lastPassArrayVal = userpasswordArray.at(-1);
-                    const userPass_Cond_SpecialChar = /\W/g;
-                    const userPass_Cond_num = /\d/g;
-                    const userPass_Cond_Lett = /[A-Z a-z]/g;
+            function validateUserPassword(event) 
+            {
+                userpasswordArray.push(userPassword.value);
+                let lastPassArrayVal = userpasswordArray.at(-1);
+                const userPass_Cond_SpecialChar = /\W/g;
+                const userPass_Cond_num = /\d/g;
+                const userPass_Cond_Lett = /[A-Z a-z]/g;
 
-                    // Checks if there is any value int the input feild
-                    if(((event.data == null) && (lastPassArrayVal.length <= 0)))
-                    {
-                        // logInWarn.textContent = "Email or Password is incorrect";
-                        isUserPassValid = false;
-                    }
-                    // Checks if the pattern is less "8" characters and above than "100" characters
-                    else if(((lastPassArrayVal.length > 0) && (lastPassArrayVal.length < 8)) || (lastPassArrayVal.length > 100))
-                    {
-                        // logInWarn.textContent = "Email or Password is incorrect";
-                        isUserPassValid = false;
-                    }
-                    // Checks if the input fits the specified pattern
-                    else if(!(lastPassArrayVal.match(userPass_Cond_SpecialChar) 
-                        && lastPassArrayVal.match(userPass_Cond_Lett)
-                        && lastPassArrayVal.match(userPass_Cond_num)
-                    ))
-                    {
-                        // logInWarn.textContent = "Email or Password is incorrect";
-                        isUserPassValid = false;
-                    }
-                    // If all checks are completed then it is accepted
-                    else
-                    {
-                        // logInWarn.textContent = "";
-                        isUserPassValid = true;
-                    }
+                // Checks if there is any value int the input feild
+                if(((event.data == null) && (lastPassArrayVal.length <= 0)))
+                {
+                    // logInWarn.textContent = "Email or Password is incorrect";
+                    isUserPassValid = false;
                 }
+                // Checks if the pattern is less "8" characters and above than "100" characters
+                else if(((lastPassArrayVal.length > 0) && (lastPassArrayVal.length < 8)) || (lastPassArrayVal.length > 100))
+                {
+                    // logInWarn.textContent = "Email or Password is incorrect";
+                    isUserPassValid = false;
+                }
+                // Checks if the input fits the specified pattern
+                else if(!(lastPassArrayVal.match(userPass_Cond_SpecialChar) 
+                    && lastPassArrayVal.match(userPass_Cond_Lett)
+                    && lastPassArrayVal.match(userPass_Cond_num)
+                ))
+                {
+                    // logInWarn.textContent = "Email or Password is incorrect";
+                    isUserPassValid = false;
+                }
+                // If all checks are completed then it is accepted
+                else
+                {
+                    // logInWarn.textContent = "";
+                    isUserPassValid = true;
+                }
+            }
 
-                userPassword.addEventListener("input" , validateUserPassword);
+            userPassword.addEventListener("input" , validateUserPassword);
 
 
         //  Validate Log in details
 
-                // Checks if user's input is valid and if the inputted values correct
-                function validateLogInCreds()
+            // Checks if user's input is valid and if the inputted values correct
+            function validateLogInCreds()
+            {
+                // This occurs if user's input is valid and the inputted values are correct
+                if(((isUserLogValid == true) 
+                    && (isUserPassValid == true) 
+                    && (userName.value == testLog_user.valueOf()) 
+                    && (userPassword.value == testLog_pass.valueOf())
+                ))
                 {
-                    // This occurs if user's input is valid and the inputted values are correct
-                    if(((isUserLogValid == true) 
-                        && (isUserPassValid == true) 
-                        && (userName.value == testLog_user.valueOf()) 
-                        && (userPassword.value == testLog_pass.valueOf())
-                    ))
+                    logInWarn.textContent = "Logging in...";
+                    logInWarn.classList.add("active");
+                    testTimer = setTimeout(() => 
                     {
-                        logInWarn.textContent = "Logging in...";
-                        logInWarn.classList.add("active");
-                        testTimer = setTimeout(() => 
-                        {
-                            window.location.pathname = "/Library/Anime.html";
-                        }, 1500);
-                    }
-                    // If it is not correct, the user is required to try again
-                    else
-                    {
-                        logInWarn.textContent = "Email or Password is incorrect";
-                        logInWarn.classList.add("active");
-                    }
+                        window.location.pathname = "/Library/Anime.html";
+                    }, 1500);
                 }
+                // If it is not correct, the user is required to try again
+                else
+                {
+                    logInWarn.textContent = "Email or Password is incorrect";
+                    logInWarn.classList.add("active");
+                }
+            }
 
 
         // Forgot Password
             
             // Sepcifies the allowed characters for Before input
-            resetPass_email.addEventListener("beforeinput", (event) => {
+            resetPass_email.addEventListener("beforeinput", (event) => 
+            {
                 if(event.data != null && !(resetPass_email_cond).test(event.data))
                 event.preventDefault();
             });
 
-                function resetPasswordRequest(e)
+            function resetPasswordRequest(e)
+            {
+                // adds user input into array
+                resetPassArray.push(resetPass_email.value);
+                let lastEmailArrayval = resetPassArray.at(-1);
+
+                // Checks if the field is empty
+                if((e.data == null) && (lastEmailArrayval.length <= 0))
                 {
-                    // adds user input into array
-                    resetPassArray.push(resetPass_email.value);
-                    let lastEmailArrayval = resetPassArray.at(-1);
+                    resetPass_warn.textContent = "Invalid Email";
+                    resetPass_warn.classList.add("active");
+                }
+                // Condition for valid email
+                else if(!(lastEmailArrayval.match(resetPass_validEmail)))
+                {
+                    resetPass_warn.textContent = "Invalid Email";
+                    resetPass_warn.classList.add("active");
+                }
+                // If conditions are met, function is called to send the email
+                else
+                {
+                    resetPass_SubmitBtn.value='Email Sent';
+                    resetPass_SubmitBtn.disabled=true;
+                    resetPass_warn.textContent = "";
+                    resetPass_warn.classList.remove("active");
+                    emailPassLink();
 
-                    // Checks if the field is empty
-                    if((e.data == null) && (lastEmailArrayval.length <= 0))
-                    {
-                        resetPass_warn.textContent = "Invalid Email";
-                        resetPass_warn.classList.add("active");
+                    // Generating link String Function
+                    function generateRandomString() {
+                        const length = 16;
+                        var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                        var result = '';
+                        for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+                        return result;
+                    };
+
+                    // Carries out the sending of the email
+                    function emailPassLink(){
+                        // Gets string for link
+                        let thisLinkcart1 = generateRandomString();
+                        let thisLinkcart2 = generateRandomString();
+
+                        // Email content
+                        let link_part1 = thisLinkcart1;
+                        let link_part2 = thisLinkcart2;
+                        let new_email_verBtn = resetPass_email.value;
+                        let new_email_verSubject = "Password Reset";
+                        let new_email_verBody= "This is a test (jokes) Password request for " + resetPass_email.value + ". Click here to reset your password " 
+                        + "https://bluecraftologies.com/Join/LogIn/?=Password+Error+Req+%20%Request+Reset+Email=?%value!/" + link_part1 
+                        + "/blueCrafts_Request+Error+%201%+Req+open=null?/Users/" + link_part2 + "/if+fall=open!+%call%lessChange.aspx";
+                        // console.log("email val => " + new_email_verBody);
+
+                        // Send Email
+                        setTimeout(() => 
+                        {
+                            // Reloads page after  seconds
+                            setTimeout(() => window.location.reload(), 10000);
+
+                            /* ========= Code by Post Mail =========== starts ===*/
+                                // var form_id_js = "RecoverAcc_form";
+
+                                // var data_js = {
+                                //     "access_token": "0m8ikok0thqv6rtoucea493n"
+                                // };
+    
+                                // function js_send() {
+                                //     var request = new XMLHttpRequest();
+    
+                                //     var subject = new_email_verSubject;
+                                //     var message = new_email_verBody;
+                                //     data_js['subject'] = subject;
+                                //     data_js['text'] = message;
+                                //     var params = toParams(data_js);
+    
+                                //     request.open("POST", "https://postmail.invotes.com/send", true);
+                                //     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    
+                                //     request.send(params);
+    
+                                //     return false;
+                                // }
+    
+                                // setTimeout(() => js_send(), 1);
+    
+                                // function toParams(data_js) {
+                                //     var form_data = [];
+                                //     for ( var key in data_js ) {
+                                //         form_data.push(encodeURIComponent(key) + "=" + encodeURIComponent(data_js[key]));
+                                //     }
+    
+                                //     return form_data.join("&");
+                                // }
+    
+                                // var js_form = document.getElementById(form_id_js);
+                                // js_form.addEventListener("submit", function (e) {
+                                //     e.preventDefault();
+                                // });
+                            /* ========= Code by Post Mail =========== ends ==*/
+                            /* ===== ==> Visit https://postmail.invotes.com <== testing only! === */
+                        } , 1000);
                     }
-                    // Condition for valid email
-                    else if(!(lastEmailArrayval.match(resetPass_validEmail)))
-                    {
-                        resetPass_warn.textContent = "Invalid Email";
-                        resetPass_warn.classList.add("active");
-                    }
-                    // If conditions are met, function is called to send the email
-                    else
-                    {
-                        resetPass_SubmitBtn.value='Email Sent';
-                        resetPass_SubmitBtn.disabled=true;
-                        resetPass_warn.textContent = "";
-                        resetPass_warn.classList.remove("active");
-                        emailPassLink();
-
-                        // Generating link String Function
-                        function generateRandomString() {
-                            const length = 16;
-                            var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-                            var result = '';
-                            for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
-                            return result;
-                        };
-
-                        // Carries out the sending of the email
-                        function emailPassLink(){
-                            // Gets string for link
-                            let thisLinkcart1 = generateRandomString();
-                            let thisLinkcart2 = generateRandomString();
-
-                            // Email content
-                            let link_part1 = thisLinkcart1;
-                            let link_part2 = thisLinkcart2;
-                            let new_email_verBtn = resetPass_email.value;
-                            let new_email_verSubject = "Password Reset";
-                            let new_email_verBody= "This is a test (jokes) Password request for " + resetPass_email.value + ". Click here to reset your password " 
-                            + "https://bluecraftologies.com/Join/LogIn/?=Password+Error+Req+%20%Request+Reset+Email=?%value!/" + link_part1 
-                            + "/blueCrafts_Request+Error+%201%+Req+open=null?/Users/" + link_part2 + "/if+fall=open!+%call%lessChange.aspx";
-                            // console.log("email val => " + new_email_verBody);
-
-                            // Send Email
-                            setTimeout(() => 
-                            {
-                                // Reloads page after  seconds
-                                setTimeout(() => window.location.reload(), 10000);
-
-                                /* ========= Code by Post Mail =========== starts ===*/
-                                    // var form_id_js = "RecoverAcc_form";
-
-                                    // var data_js = {
-                                    //     "access_token": "0m8ikok0thqv6rtoucea493n"
-                                    // };
-        
-                                    // function js_send() {
-                                    //     var request = new XMLHttpRequest();
-        
-                                    //     var subject = new_email_verSubject;
-                                    //     var message = new_email_verBody;
-                                    //     data_js['subject'] = subject;
-                                    //     data_js['text'] = message;
-                                    //     var params = toParams(data_js);
-        
-                                    //     request.open("POST", "https://postmail.invotes.com/send", true);
-                                    //     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        
-                                    //     request.send(params);
-        
-                                    //     return false;
-                                    // }
-        
-                                    // setTimeout(() => js_send(), 1);
-        
-                                    // function toParams(data_js) {
-                                    //     var form_data = [];
-                                    //     for ( var key in data_js ) {
-                                    //         form_data.push(encodeURIComponent(key) + "=" + encodeURIComponent(data_js[key]));
-                                    //     }
-        
-                                    //     return form_data.join("&");
-                                    // }
-        
-                                    // var js_form = document.getElementById(form_id_js);
-                                    // js_form.addEventListener("submit", function (e) {
-                                    //     e.preventDefault();
-                                    // });
-                                /* ========= Code by Post Mail =========== ends ==*/
-                                /* ===== ==> Visit https://postmail.invotes.com <== testing only! === */
-                            } , 1000);
-                        }
-                    }
-
-                    
                 }
 
-                // Calls function to validate and send reset password link
-                resetPass_SubmitBtn.addEventListener("click" , resetPasswordRequest);
+                
+            }
+
+            // Calls function to validate and send reset password link
+            resetPass_SubmitBtn.addEventListener("click" , resetPasswordRequest);
                 
 
-            const logInBtn = document.querySelector("#logIn_btn");
             logInBtn.addEventListener("click" , validateLogInCreds);
 
 
-    // CREATING ACCOUNT (SIGN UP)
+
+        // CREATING ACCOUNT (SIGN UP)
 
         // Turns off autocomplete
         allInputFields.forEach(inputField => 
@@ -521,7 +532,7 @@
             inputField.ariaHasPopup = false;
             inputField.autoCorrect = false;
         });
-    
+
 
         // Validates Input for Username
 
@@ -542,65 +553,65 @@
             });
                 
             
-                function validateUsername(event)
+            function validateUsername(event)
+            {
+                userArray.push(newUserName.value);
+                let lastCurArrayVal = userArray.at(-1);
+
+                let userNameCond_letter = /^[A-Z a-z]/g;
+                let userNameCond_num = /\d/g;
+                let userScrCond = /(^_|_$)/gi;
+                let tempArray = userArray;
+                let lastTempArrayVal = tempArray.at(-1);
+                let unScr = lastTempArrayVal.replace(/[^_]/g, "");
+
+                // Checks if username starts/ends with an underscore
+                if((lastCurArrayVal.match(userScrCond)))
                 {
-                    userArray.push(newUserName.value);
-                    let lastCurArrayVal = userArray.at(-1);
-
-                    let userNameCond_letter = /^[A-Z a-z]/g;
-                    let userNameCond_num = /\d/g;
-                    let userScrCond = /(^_|_$)/gi;
-                    let tempArray = userArray;
-                    let lastTempArrayVal = tempArray.at(-1);
-                    let unScr = lastTempArrayVal.replace(/[^_]/g, "");
-
-                    // Checks if username starts/ends with an underscore
-                    if((lastCurArrayVal.match(userScrCond)))
-                    {
-                        newUserWarn.textContent = "Username can NOT start/end with an underscore";
-                        newUserWarn.classList.add("active");
-                        isUserValid = false;
-                    }
-                    //Checks if username has more than "one" underscore
-                    else if(unScr.length > 1)
-                    {
-                        newUserWarn.textContent = "Username can ONLY have ONE underscore";
-                        newUserWarn.classList.add("active");
-                        isUserValid = false;
-                    }
-                    // Checks if username contains only numbers and starts with a number
-                    else if(!(lastCurArrayVal.match(userNameCond_letter)) && (lastCurArrayVal.match(userNameCond_num)))
-                    {
-                        newUserWarn.textContent = "Username can NOT start with a number or contain only numbers";
-                        newUserWarn.classList.add("active");
-                        isUserValid = false;
-                    }
-                    // Checks if username is between "5" and "20" characters
-                    else if(((lastCurArrayVal.length > 0) && (lastCurArrayVal.length < 5)) || (lastCurArrayVal.length > 20))
-                    {
-                        newUserWarn.textContent = "Username length must be \"5\" min and \"20\" max";
-                        newUserWarn.classList.add("active");
-                        isUserValid = false;
-                    }
-                    else if((event.data == null) && (lastCurArrayVal.length <= 0))
-                    {
-                        newUserWarn.textContent = "Required";
-                        newUserWarn.classList.add("active");
-                        isUserValid = false;
-                    }
-                    else
-                    {
-                        newUserWarn.textContent = "";
-                        newUserWarn.classList.remove("active");
-                        isUserValid = true;
-                    }
-
-                    
+                    newUserWarn.textContent = "Username can NOT start/end with an underscore";
+                    newUserWarn.classList.add("active");
+                    isUserValid = false;
+                }
+                //Checks if username has more than "one" underscore
+                else if(unScr.length > 1)
+                {
+                    newUserWarn.textContent = "Username can ONLY have ONE underscore";
+                    newUserWarn.classList.add("active");
+                    isUserValid = false;
+                }
+                // Checks if username contains only numbers and starts with a number
+                else if(!(lastCurArrayVal.match(userNameCond_letter)) && (lastCurArrayVal.match(userNameCond_num)))
+                {
+                    newUserWarn.textContent = "Username can NOT start with a number or contain only numbers";
+                    newUserWarn.classList.add("active");
+                    isUserValid = false;
+                }
+                // Checks if username is between "5" and "20" characters
+                else if(((lastCurArrayVal.length > 0) && (lastCurArrayVal.length < 5)) || (lastCurArrayVal.length > 20))
+                {
+                    newUserWarn.textContent = "Username length must be \"5\" min and \"20\" max";
+                    newUserWarn.classList.add("active");
+                    isUserValid = false;
+                }
+                else if((event.data == null) && (lastCurArrayVal.length <= 0))
+                {
+                    newUserWarn.textContent = "Required";
+                    newUserWarn.classList.add("active");
+                    isUserValid = false;
+                }
+                else
+                {
+                    newUserWarn.textContent = "";
+                    newUserWarn.classList.remove("active");
+                    isUserValid = true;
                 }
 
-                newUserName.addEventListener("input" , validateUsername);
-        
-        
+                
+            }
+
+            newUserName.addEventListener("input" , validateUsername);
+
+
         // Validates Input for Email
             // Conditions -
             /**
@@ -616,38 +627,38 @@
             });
 
             // Validation function For "Email"
-                function validateNewEmail(event)
+            function validateNewEmail(event)
+            {
+                emailArray.push(newEmail.value);
+                let lastEmailArrayval = emailArray.at(-1);
+
+                let check_for_AtSign_in_Email = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+                // Checks if the field is empty
+                if((event.data == null) && (lastEmailArrayval.length <= 0))
                 {
-                    emailArray.push(newEmail.value);
-                    let lastEmailArrayval = emailArray.at(-1);
-
-                    let check_for_AtSign_in_Email = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-                    // Checks if the field is empty
-                    if((event.data == null) && (lastEmailArrayval.length <= 0))
-                    {
-                        newEmailWarn.textContent = "Required";
-                        newEmailWarn.classList.add("active");
-                        isEmailValid = false;
-                    }
-                    else if(!(lastEmailArrayval.match(check_for_AtSign_in_Email)))
-                    {
-                        newEmailWarn.textContent = "Invalid Email";
-                        newEmailWarn.classList.add("active");
-                        isEmailValid = false;
-                    }
-                    // // If all condition are met, the Email is valid, i.e "true";
-                    else
-                    {
-                        newEmailWarn.textContent = "";
-                        newEmailWarn.classList.remove("active");
-                        isEmailValid = true;
-                    }
-
-                    
+                    newEmailWarn.textContent = "Required";
+                    newEmailWarn.classList.add("active");
+                    isEmailValid = false;
+                }
+                else if(!(lastEmailArrayval.match(check_for_AtSign_in_Email)))
+                {
+                    newEmailWarn.textContent = "Invalid Email";
+                    newEmailWarn.classList.add("active");
+                    isEmailValid = false;
+                }
+                // // If all condition are met, the Email is valid, i.e "true";
+                else
+                {
+                    newEmailWarn.textContent = "";
+                    newEmailWarn.classList.remove("active");
+                    isEmailValid = true;
                 }
 
-                newEmail.addEventListener("input" , validateNewEmail);
+                
+            }
+
+            newEmail.addEventListener("input" , validateNewEmail);
 
 
 
@@ -844,22 +855,20 @@
             confirmPassword.addEventListener("input" , confirmNewPass);
 
 
-
             // Checks If user fills All input fields Correctly
             signUpBtn.addEventListener("click" , () => 
             {
                 // If all input fields are filled correctly, call verification funnction to verify user
-                // if(((signUpBtn.disabled == false) && (isUserValid == true) && (isPassValid == true) && (isConfPassValid == true) && (isEmailValid == true)))
-                // {
-                //     signUpBtn.disabled = true;
-                //     verification(newEmail.value);
-                // }
-                // // If not filled correctly, alert user 
-                // else
-                // {
-                //     alert("Please Check that all fields have been filled correctly");
-                // }
-                verification(newEmail.value);
+                if(((signUpBtn.disabled == false) && (isUserValid == true) && (isPassValid == true) && (isConfPassValid == true) && (isEmailValid == true)))
+                {
+                    signUpBtn.disabled = true;
+                    verification(newUserName.value, newEmail.value);
+                }
+                // If not filled correctly, alert user 
+                else
+                {
+                    alert("Please Check that all fields have been filled correctly");
+                }
             });
 
 
@@ -1021,7 +1030,7 @@
                 function emailVerCode()
                 {
                     verCodeSubTitleCtnt.textContent = "Request a code";
-                    
+
                     // Gets code
                     // let thisVercart = generateRandomString();
                     let thisVercart = generateOTP();
