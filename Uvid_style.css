@@ -8,121 +8,14 @@
 
 html:root
 {
-    --color0:#000;
-    --color1: #14d60d;
-    --color2:#ffffff;
-    --color3:#212121a2;
-    --color4:#18181f;
-    --color5:#656565be;
-    --color6:#d3d3d3;
-    --color7: #03901d;
-    --color8: #e7e7e7;
-    --color9: #b4b4b4;
-    --color10: #888888;
-    --color11: #252525;
-    --fzTxt: 12px;
-    --fzIcon: 20px;
-    --bcgFilt: 2px;
     --actionJoinGradientAngle: 30deg;
     --featureCardBdrRadius: 5px 5px 75px 5px;
     --ftrCardFrontTransform: 15px;
 }
 
-i
-{
-    font-size: var(--fzIcon);
-    transition: 150ms;
-}
-
-ul
-{
-    list-style: none;
-}
-
-.genBtn
-{
-    width: -moz-fit-content;
-    width: fit-content;
-    height: fit-content;
-    min-width: 100px;
-    min-height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--color2);
-    font-size: var(--fzTxt);
-    text-align: center;
-    padding: 10px;
-    border-radius: 20px;
-    outline: none;
-    border: none;
-    background-color: var(--color1);
-    transition: 300ms;
-    -moz-user-select: -moz-none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    cursor: pointer;
-}
-
-.genBtn:active
-{
-    box-shadow: 0 0 20px var(--color1);
-    transform: scale(0.9);
-}
-
-.genIconBox
-{
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: 300ms;
-}
-
-.genIconBox:active
-{
-    transform: scale(0.9);
-}
-
-.genIconBox .genIcon
-{
-    font-size: calc(var(--fzIcon) + 1px);
-}
 
 
-/* -------- Navbar --------- */
-
-.navBarLeft .spacing
-{
-    margin: 0 25px;
-}
-
-.navBarRight .signUpBdr
-{
-    width: 200px;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.signUpBdr .signUpBox
-{
-    margin: 10px;
-    padding: 10px 25px;
-    color: var(--navBarGenClr);
-    font-size: 14px;
-    border-radius: 5px;
-    background-color: var(--color7);
-}
-
-
-/* ----------- Wwlcome ----------- */
+/* ----------- Welcome ----------- */
 .welcome_landBcg
 {
     position: relative;
@@ -892,23 +785,6 @@ ul
 
 @media only screen and (max-width: 884px)
 {
-
-    .navBarLeft .spacing
-    {
-        margin: 0;
-    }
-
-    .navBarRight .signUpBdr
-    {
-        width: -moz-fit-content;
-        width: fit-content;
-    }
-
-    .signUpBdr .signUpBox
-    {
-        margin: 0;
-        padding: 10px 15px;
-    }
 
     .welcome_landBdr .welcome_landBox
     {

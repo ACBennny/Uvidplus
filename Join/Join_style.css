@@ -9,8 +9,6 @@
 
 
 
-
-/*  ========== JOIN FORM ========== */
 body
 {
     background-image: url(/Images/Uvid_bcg0.jpg);
@@ -18,6 +16,198 @@ body
     background-size: cover;
     background-position: center;
 }
+
+ 
+.genBtn
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    height: fit-content;
+    min-width: 100px;
+    min-height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color2);
+    font-size: var(--fzTxt);
+    text-align: center;
+    padding: 10px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    background-color: var(--color1);
+    transition: 300ms;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.genBtn:active
+{
+    box-shadow: 0 0 20px var(--color1);
+    transform: scale(0.9);
+}
+
+.genIconBox
+{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.genIconBox:active
+{
+    transform: scale(0.9);
+}
+
+.genIconBox .genIcon
+{
+    font-size: calc(var(--fzIcon) + 1px);
+}
+
+
+i
+{
+    font-size: var(--fzIcon);
+    transition: 150ms;
+}
+
+ul
+{
+    list-style: none;
+}
+
+/* ========== INACTIVITY ========= */
+
+.inactivity_bcg
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: #000000d1;
+    -webkit-backdrop-filter: blur(calc(var(--bcgFilt) + 10px));
+    backdrop-filter: blur(calc(var(--bcgFilt) + 10px));
+    overflow: hidden;
+    z-index: 140;
+}
+
+.inactivity_bcg .inactivity_bdr
+{
+    width: 100%;
+    max-width: 500px;
+    height: fit-content;
+    padding: 10px;
+    background-color: var(--color4);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    animation: inactivityAni 1.5s linear infinite;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100%);
+    transition: all 500ms ease-in-out;
+    overflow: hidden;
+}
+
+@keyframes inactivityAni 
+{
+    0%
+    {
+        box-shadow: 0px 0px 0px 0px #00000000;
+    }
+    50%
+    {
+        box-shadow: 0px 0px 10px 10px var(--color1);
+    }
+    100%
+    {
+        box-shadow: 0px 0px 0px 0px #00000000;
+    }
+}
+
+.inactivity_bcg.active .inactivity_bdr
+{
+    transform: translateY(0%);
+    opacity: 1;
+    visibility: visible;
+}
+
+.inactivity_bdr .inactivity_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.inactivity_box .inactivity_headerBox,
+.inactivity_box .inactivity_textBox,
+.inactivity_box .inactivity_actionBox
+{
+    width: 100%;
+}
+
+.inactivity_box .inactivity_headerBox
+{
+    margin-bottom: 5px;
+}
+
+.inactivity_headerBox .inactivity_header
+{
+    font-size: calc(var(--fzTxt) + 8px);
+    color: var(--color1);
+}
+
+.inactivity_box .inactivity_textBox
+{
+    margin-bottom: 20px;
+}
+
+.inactivity_textBox .inactivity_text
+{
+    font-size: calc(var(--fzTxt) + 1px);
+    color: var(--color2);
+}
+
+.inactivity_box .inactivity_actionBox
+{
+    display: flex;
+    justify-content: end;
+}
+
+.inactivity_actionBox .inactivity_actionBtn
+{
+    padding: 10px 20px;
+    background-color: var(--color1);
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    transition: 300ms;
+    cursor: pointer;
+}
+
+.inactivity_actionBtn:active
+{
+    transform: scale(0.96);
+}
+
+
+
+
+
+/*  ========== JOIN FORM ========== */
 
 .join_fence
 {
@@ -29,7 +219,6 @@ body
     overflow-y: auto;
     scrollbar-color: #00000000 #00000000;
     scrollbar-width: none;
-    z-index: 150;
 }
 
 .join_fence::-webkit-scrollbar

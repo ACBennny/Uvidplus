@@ -21,6 +21,34 @@
     const bodyDoc = document.body;
     const preloaderBdr = document.querySelector('#preloader');
 
+    // Inactivity
+    const inactivityModalHTML = 
+    `
+        <!-- --------- TImeout Modal -------- -->
+            <div class="inactivity_bdr">
+                <div class="inactivity_box">
+                    <div class="inactivity_headerBox">
+                        <h3 class="inactivity_header">Notice</h3>
+                    </div>
+                    <div class="inactivity_textBox">
+                        <p class="inactivity_text">
+                            For privacy reasons, the form will be refreshed in the next 60 seconds
+                            due to inactivity. Click "Ok" to show you are there.
+                        </p>
+                    </div>
+                    <div class="inactivity_actionBox">
+                        <button type="button" class="inactivity_actionBtn">Ok</button>
+                    </div>
+                </div>
+            </div>
+    `;
+    let inactivityModalTimer;
+    let inactivityBcg;
+    let removeInactivityModalBtn;
+    let inactivityStartTimer;
+    let inactivityStartFixedTimerRange = 305;
+    let inactivityStartTimerRange = inactivityStartFixedTimerRange;
+
     // Form Switching
 
         // The Forms
@@ -150,8 +178,7 @@
 
 // PRELOADER
 
-    // This function removes the preloader after the skeleton of the website has been loaded
-
+    // This function removes the preloader after the DOM of the website has been loaded
     window.addEventListener("load", () => 
     {
         preloaderBdr.style.display = "none";
@@ -160,12 +187,91 @@
     });
 
 
+
+// TIMEOUT
+
+    function createInactivityModal()
+    {
+        inactivityBcg = document.createElement("div");
+        inactivityBcg.innerHTML = inactivityModalHTML;
+        inactivityBcg.classList.add("inactivity_bcg");
+
+        bodyDoc.appendChild(inactivityBcg);
+
+        inactivityBcg.classList.add("active");
+        removeInactivityModalBtn = document.querySelector(".inactivity_actionBtn");
+        removeInactivityModalBtn.addEventListener("click" , removeInactivityModal);
+    }
+
+    function removeInactivityModal()
+    {
+        inactivityBcg.classList.remove("active");
+        inactivityModalTimer = setTimeout(() => 
+        {
+            bodyDoc.removeChild(inactivityBcg);
+            clearTimeout(inactivityModalTimer);
+        }, 1000);
+    }
+
+    function startInactivityTimer()
+    {
+        inactivityStartTimer = setInterval(() => 
+        {
+            inactivityStartTimerRange--;
+
+            if (inactivityStartTimerRange == 100) 
+            {
+                createInactivityModal();
+            }
+            if (inactivityStartTimerRange <= 0)
+            {
+                resetInactivityTimer();
+            }
+        }, 1000);
+    }
+
+    function resetInactivityTimer()
+    {
+        if(inactivityStartTimerRange > 0)
+        {
+            clearInterval(inactivityStartTimer);
+            inactivityStartTimerRange = inactivityStartFixedTimerRange;
+        }
+        else
+        {
+            removeInactivityModal();
+            clearFields();
+            clearInterval(inactivityStartTimer);
+            inactivityStartTimerRange = inactivityStartFixedTimerRange;
+
+            window.removeEventListener("beforeunload", (e) => {e.preventDefault();});
+
+            setTimeout(() => window.location.reload() , 10000);
+        }
+    }
+
+    document.addEventListener("visibilitychange", () => 
+    {
+        if (document.visibilityState === 'hidden')
+        {
+            startInactivityTimer();
+        }
+        else
+        {
+            resetInactivityTimer()
+        }
+    });
+
+
+
+
 // RELOADING
     
     // Warns if user tries to refresh
     window.addEventListener('beforeunload', function (e) {
         e.preventDefault(); 
     });
+
 
 
 // ACCOUNT LOG IN / SIGN UP
@@ -256,7 +362,6 @@
 
 
 //  VALIDATING USER INPUTS
-
 
     // LOGGING IN TO YOUR ACCOUNT
 

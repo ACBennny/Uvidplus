@@ -23,7 +23,7 @@ html
 }
 
 html:root
-{
+{   
     --genGreenTypeLight: #14d60d;
     --genGreenTypeDark: #148b10;
     --genGreenTypeDark2: #136e25;
@@ -35,6 +35,21 @@ html:root
     --scrollbarClr: #282828;
     --scrollbarHoverClr: #333333;
     --scrollbarActiveClr: #444444;
+    --color0:#000;
+    --color1: var(--genGreenTypeLight);
+    --color2: var(--genWhiteTypeBright);
+    --color3:#212121a2;
+    --color4:#18181f;
+    --color5:#656565be;
+    --color6:#d3d3d3;
+    --color7: #03901d;
+    --color8: #e7e7e7;
+    --color9: #b4b4b4;
+    --color10: #888888;
+    --color11: #252525;
+    --fzTxt: 12px;
+    --fzIcon: 20px;
+    --bcgFilt: 2px;
     --navBarHeight: 70px;
     --navBarGenClr: #e7e7e7;
     --navBarBcgSolid: #2f2e2e;
@@ -313,6 +328,11 @@ img
     gap: 10px;
 }
 
+.navBarLeft .spacing
+{
+    margin: 0 25px;
+}
+
 .navBarCompanylogo
 {
     width: -moz-fit-content;
@@ -386,6 +406,25 @@ img
 .navBarRight
 {
     height: 100%;
+}
+
+.navBarRight .signUpBdr
+{
+    width: 200px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signUpBdr .signUpBox
+{
+    margin: 10px;
+    padding: 10px 25px;
+    color: var(--navBarGenClr);
+    font-size: 14px;
+    border-radius: 5px;
+    background-color: var(--color7);
 }
 
 .navBarRight .navBarRightCtnt
@@ -1819,6 +1858,22 @@ img
 
 @media only screen and (max-width: 884px)
 {
+    .navBarLeft .spacing
+    {
+        margin: 0;
+    }
+
+    .navBarRight .signUpBdr
+    {
+        width: -moz-fit-content;
+        width: fit-content;
+    }
+
+    .signUpBdr .signUpBox
+    {
+        margin: 0;
+        padding: 10px 15px;
+    }
 
     .basic_slider_title_box h2 .big
     {
