@@ -247,7 +247,7 @@ html:root
     margin-left: 5px;
 }
 
-.ratingActionBdr
+.quickAtnModalBdr
 {
     position: absolute;
     bottom: 0;
@@ -265,7 +265,7 @@ html:root
     z-index: -1;
 }
 
-.ratingActionBdr.active
+.quickAtnModalBdr.active
 {
     transform: translate(0%, 100%);
     opacity: 1;
@@ -275,7 +275,7 @@ html:root
     z-index: 3;
 }
 
-.ratingActionBdr .ratingActionBox
+.quickAtnModalBdr .quickAtnModalBox
 {
     position: relative;
     width: 100%;
@@ -288,7 +288,7 @@ html:root
     gap: 10px;
 }
 
-.ratingActionBox .close_ratingActionBdr
+.quickAtnModalBox .close_quickAtnModalBdr
 {
     position: absolute;
     top: 0;
@@ -297,7 +297,7 @@ html:root
     cursor: pointer;
 }
 
-.close_ratingActionBdr .close_ratingActionBox
+.close_quickAtnModalBdr .close_quickAtnModalBox
 {
     position: relative;
     width: 15px;
@@ -307,7 +307,7 @@ html:root
     transform: rotate(45deg);
 }
 
-.close_ratingActionBox::after
+.close_quickAtnModalBox::after
 {
     content: '';
     position: absolute;
@@ -320,7 +320,7 @@ html:root
     transform: translate(50%, -50%);
 }
 
-.ratingActionBox .rating_btn
+.quickAtnModalBox .quickAtnModal_btn
 {
     height: 50px;
     display: flex;
@@ -334,20 +334,20 @@ html:root
     transition: 300ms;
 }
 
-.rating_btn:active
+.quickAtnModal_btn:active
 {
     background-color: #282828;
     border-radius: 15px;
 }
 
-.rating_btn .rating_btnIcon
+.quickAtnModal_btn .quickAtnModal_btnIcon
 {
     width: 16px;
     fill: var(--genWhiteTypeMid);
     transition: 300ms;
 }
 
-.rating_btn .rating_btnText
+.quickAtnModal_btn .quickAtnModal_btnText
 {
     color: var(--genWhiteTypeMid);
     font-size: 12px;
@@ -355,14 +355,14 @@ html:root
     transition: 300ms;
 }
 
-.rating_btn.active .rating_btnIcon,
-.rating_btn:active .rating_btnIcon
+.quickAtnModal_btn.active .quickAtnModal_btnIcon,
+.quickAtnModal_btn:active .quickAtnModal_btnIcon
 {
     fill: var(--genWhiteTypeLight);
 }
 
-.rating_btn.active .rating_btnText,
-.rating_btn:active .rating_btnText
+.quickAtnModal_btn.active .quickAtnModal_btnText,
+.quickAtnModal_btn:active .quickAtnModal_btnText
 {
     color: var(--genWhiteTypeLight);
 }
@@ -1091,18 +1091,18 @@ html:root
         border-radius: 5px;
     }
 
-    .rating_btn:hover
+    .quickAtnModal_btn:hover
     {
         background-color: #282828;
         border-radius: 15px;
     }
 
-    .rating_btn:hover .rating_btnIcon
+    .quickAtnModal_btn:hover .quickAtnModal_btnIcon
     {
         fill: var(--genWhiteTypeLight);
     }
 
-    .rating_btn:hover .rating_btnText
+    .quickAtnModal_btn:hover .quickAtnModal_btnText
     {
         color: var(--genWhiteTypeLight);
     }

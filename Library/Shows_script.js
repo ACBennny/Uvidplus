@@ -292,13 +292,12 @@
 
 // EPISODES
 
-    // Showing the Episodes
+    // Showing the first ten episodes on page load
     seasonSet.forEach(set => 
     {
         let setEpBox = set.querySelectorAll(".episodes");
 
-
-        // Showing the first ten episodes on page load
+        // Add a "show more" button if the the no of episodes is greater than the margin
         if(setEpBox.length > noOfEpShown)
         {
             noEpOverflow++;
@@ -312,6 +311,7 @@
                 showAllEp[j].classList.add("active");
             }
         }
+        // If not, just display the episodes present in the set
         else if(setEpBox.length <= noOfEpShown)
         {
             for(let i = 0; i < setEpBox.length; i++)
@@ -320,19 +320,20 @@
                 setEpBox[i].classList.add("active");
             }
         }
+    });
 
-        // Showing all Episodes via onclick
-        showAllEp.forEach((btn, b) => 
+    // Showing all Episodes via onclick
+    showAllEp.forEach((btn, b) => 
+    {
+        btn.addEventListener("click" , () => 
         {
-            btn.addEventListener("click" , () => 
+            let chosenSetEpBox = seasonSet[b].querySelectorAll(".episodes");
+            chosenSetEpBox.forEach(box => 
             {
-                setEpBox.forEach(box => 
-                {
-                    box.classList.remove("inactive");
-                    box.classList.add("active");
-                });
-                btn.classList.remove("active");
+                box.classList.remove("inactive");
+                box.classList.add("active");
             });
+            btn.classList.remove("active");
         });
     });
 
