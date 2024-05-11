@@ -1312,6 +1312,7 @@ img
 {
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
 }
 
 .basic_slider_box .slide_arrow .introSlideIcon
