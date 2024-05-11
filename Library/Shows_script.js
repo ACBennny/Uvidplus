@@ -276,6 +276,13 @@
             sortEpisodesFunc();
             const sortEPbtnText = btn.querySelector('.episode_sortText');
             sortEPbtnText.classList.toggle("active");
+
+            if(btn.title == "Sort by latest episodes")
+            {
+                btn.title = "Sort by oldest episodes";
+                return;
+            }
+            btn.title = "Sort by latest episodes";
         });
     });
 
