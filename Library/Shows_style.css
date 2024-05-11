@@ -602,15 +602,15 @@ html:root
     left: 50%;
     width: 2px;
     height: 10px;
-    background-color: var(--genWhiteTypeMid);
+    background-color: var(--genWhiteTypeLight);
     transform: translate(-50%, -50%);
     transition: 300ms;
 }
 
-.abt-stmt-detBtn  .abt-stmt-checkBoxCls
+.abt-stmt-detBtn .abt-stmt-checkBoxCls
 {
     appearance: none;
-    color: var(--genWhiteTypeMid);
+    color: var(--genWhiteTypeLight);
     margin-left: 5px;
     outline: none;
     border: none;
