@@ -73,7 +73,7 @@ html:root
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 25px 15px;
+    padding: 25px 10px;
     border-radius: 5px;
     background-color: #141414;
 }
@@ -187,7 +187,7 @@ html:root
     align-items: center;
     outline: none;
     border: none;
-    padding: 15px;
+    padding: 10px;
     background-color: transparent;
     cursor: pointer;
     transition: 300ms;
@@ -1080,7 +1080,7 @@ html:root
 
 .like_buttons.active
 {
-    background-color: var(--genGreenTypeDark) ;
+    background-color: var(--genGreenTypeDark);
     border-radius: 25px ;
 }
 
@@ -1143,6 +1143,11 @@ html:root
         flex-direction: column;
     }
 
+    .media_optBdr .media_optBox
+    {
+        padding: 15px;
+    }
+
     .showlist_MoreEpBase .showlist_MoreEpBdr
     {
         max-width: 100%;
@@ -1172,6 +1177,7 @@ html:root
     {
         border-radius: 0;
     }
+
     .showlist_MoreEpHeaderBox .showlist_MoreEpHeaderText
     {
         font-size: 14px;

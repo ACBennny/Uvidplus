@@ -18,9 +18,9 @@
     let bcgImgBdrHalf;
     let bcgImgBdr3Qarts;
     let bcgImgBdr3QartsH;
-    const openRatingActionBdr = document.querySelector(".like_buttonsBox");
-    const closeRatingActionBdr = document.querySelector(".close_ratingActionBdr");
-    const ratingActionBdr = document.querySelector(".ratingActionBdr");
+    const openQuickAtnModalBdr = document.querySelectorAll(".open_quickAtnModalBdr");
+    const closeQuickAtnModalBdr = document.querySelectorAll(".close_quickAtnModalBdr");
+    const quickAtnModalBdr = document.querySelectorAll(".quickAtnModalBdr");
     const likeTheEp = document.querySelector(".add_to_LikedShowsBox");
     const dontLikeTheEp = document.querySelector(".add_to_DislikedShowsBox");
     const showHeaderName = document.querySelector("#show_Header_Name");
@@ -41,6 +41,8 @@
     const watchEpBox = document.querySelectorAll(".episodes");
     let noOfEpShown = 12;
     let noEpOverflow = 0;
+    const watchNowBtn = document.querySelector(".watchShowNowBtn");
+    let watchNowLink;
 
 
 
@@ -99,28 +101,54 @@
         documentBody.classList.remove("bodystop");
 
         // Close the Ratings Action Box
-        if((openRatingActionBdr.matches(":hover")) || (ratingActionBdr.matches(":hover")))
+        if(    ((openQuickAtnModalBdr[0].matches(":hover")) || (quickAtnModalBdr[0].matches(":hover")))
+            || ((openQuickAtnModalBdr[1].matches(":hover")) || (quickAtnModalBdr[1].matches(":hover")))
+        )
         {
             return;
         }
-        ratingActionBdr.classList.remove("active");
+        quickAtnModalBdr[0].classList.remove("active");
+        quickAtnModalBdr[1].classList.remove("active");
+
+        // Close the More Action Box
+        // if((openQuickAtnModalBdr[1].matches(":hover")) || (quickAtnModalBdr[1].matches(":hover")))
+        // {
+        //     return;
+        // }
+        // quickAtnModalBdr[1].classList.remove("active");
     });
 
+
+
+// QUICK ACTIONS
+
+    // Open QuickActions Box
+    openQuickAtnModalBdr.forEach((btn, b) => 
+    {
+        btn.addEventListener("click" , () => 
+        {
+            quickAtnModalBdr.forEach(bdr => 
+            {
+                bdr.classList.remove("active");
+            });
+            quickAtnModalBdr[b].classList.add("active");
+        });
+    });
+
+    // Close QuickActions Box
+    closeQuickAtnModalBdr.forEach(btn => 
+    {
+        btn.addEventListener("click" , () => 
+        {
+            quickAtnModalBdr.forEach(bdr => 
+            {
+                bdr.classList.remove("active");
+            });
+        });
+    });
 
 
 // RATINGS
-
-    // Open Ratings Box
-    openRatingActionBdr.addEventListener("click" , () => 
-    {
-        ratingActionBdr.classList.toggle("active");
-    });
-
-    // Close Ratings Box
-    closeRatingActionBdr.addEventListener("click" , () => 
-    {
-        ratingActionBdr.classList.remove("active");
-    });
 
     // Like the show
     likeTheEp.addEventListener("click" , () => 
@@ -181,6 +209,8 @@
         ,100);
     });
 
+
+// WATCH NOW
 
 
 // ADD TO WATCHLIST
@@ -354,6 +384,14 @@
         epBox.href = "/Library/Anime/Watch/JujutsuKaisen/S1/Ep1.html";
     });
 
+
+    // Redirecting the user to first episode of the show
+    watchNowLink = seasonSet[0].querySelectorAll(".episodes")[0].href;
+    console.log("first ep link => " + watchNowLink);
+    watchNowBtn.addEventListener("click" , () => 
+    {
+        window.open(watchNowLink , "_self");
+    });
 
 
 
