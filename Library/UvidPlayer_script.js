@@ -481,7 +481,7 @@
                 ctrltimer = setTimeout(() => 
                 {
                     video_player.classList.remove("show-controls");
-                }, 2000);
+                }, 2500);
             }
 
             // Remove "active" classes from an element
