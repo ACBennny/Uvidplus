@@ -559,6 +559,7 @@
                 volumeSlider.value = mainVideo.volume;
             }
         
+            // Skip forward/backward
             function videoSkip(skipLength)
             {
                 mainVideo.currentTime += skipLength;
@@ -569,7 +570,7 @@
             {
                 video_player.classList.add("show-controls");
                 clearTimeout(ctrltimer);
-                
+
                 if(document.fullscreenElement) 
                 {
                     toggleFullScreenMode();
@@ -664,36 +665,6 @@
                 }
 
             }
-
-            document.addEventListener("visibilitychange", () => 
-            {
-                if (document.visibilityState === 'hidden') {
-                    // if video is in PiP, close and disable it.
-                    if (document.pictureInPictureElement === mainVideo)
-                    {
-                        document.exitPictureInPicture()
-                        .then(() => 
-                        {
-                            mainVideo.disablePictureInPicture = true;
-                        })
-                        .catch(error => 
-                        {
-                            console.error('Failed to exit Picture-in-Picture mode:', error);
-                        });
-                    }
-                    else
-                    {
-                        // If the video is not in PiP mode, only disable PiP
-                        mainVideo.disablePictureInPicture = true;
-                    }
-                    mainVideo.pause(); 
-                }
-                else
-                {
-                    mainVideo.disablePictureInPicture = false;
-                }
-            });
-            
         
             // Keyboard key functions for pc only
             document.addEventListener("keydown", e => 

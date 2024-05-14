@@ -478,7 +478,6 @@ svg.hide
     right: 10px;
     width: 350px;
     height: fit-content;
-    /* height: 150px; */
     max-height: calc(100% - 100px);
     display: block;
     padding: 10px 0;
