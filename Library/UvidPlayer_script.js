@@ -564,18 +564,22 @@
                 mainVideo.currentTime += skipLength;
             }
         
+            // Auto Play
             function vidHasEnded()
             {
                 video_player.classList.add("show-controls");
-                mainVideo.play();
-                if(document.fullscreenElement) {
+                clearTimeout(ctrltimer);
+                
+                if(document.fullscreenElement) 
+                {
                     toggleFullScreenMode();
                 }
         
                 // Go to Next episode when video ends, if auto next is on
                 if(autoPlayEpCheckBox.checked == true)
                 {
-                    // window.open(nextEpLink.href , "_self");
+                    if(autoPlayEpCheckBox.checked == false) return;
+                    window.location.href = nextEpLink.href;
                 }
             }
 
@@ -994,8 +998,8 @@
 
             mainVideo.addEventListener('ended', () => 
             {
-                if(autoPlayEpCheckBox.checked == false) return;
-                window.location.href = nextEpLink.href;
+                vidHasEnded();
+
                 // window.location.search = "google.com";
                 // window.history.replaceState({}, '', 'google.com?key=m');
             });
@@ -1364,7 +1368,7 @@
                 addToDwldBox.addEventListener("click" , opendwldBdr);
             }
 
-            //  blob url
+            // Blob url
             let mainVideoSources = mainVideo.querySelectorAll("source");
             for (let i = 0; i < mainVideoSources.length; i++)
             {
@@ -1405,7 +1409,7 @@
             preview_video.height = "300"
             preview_video.controls = true;
             preview_video.src = mainVideo.querySelector("source").src;
-            preview_video.addEventListener("loadeddata", async function ()
+            preview_video.addEventListener("loadeddata", async function()
             {
                 preview_video.pause();
 
