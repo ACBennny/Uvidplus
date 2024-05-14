@@ -326,7 +326,7 @@
                                             <li data-speed="0.75" class="settingsCtnt_LI playbackSpeed_LI">
                                                 <p>0.75</p>
                                             </li>
-                                            <li data-speed="1" class="settingsCtnt_LI playbackSpeed_LI active">
+                                            <li data-speed="1" class="settingsCtnt_LI normalPlaybackspeed_LI playbackSpeed_LI active">
                                                 <p>Normal</p>
                                             </li>
                                             <li data-speed="1.25" class="settingsCtnt_LI playbackSpeed_LI">
@@ -428,6 +428,7 @@
             const languageUL = video_player.querySelector(".language_UL");
             const languageLI = languageUL.querySelectorAll(".language_LI");
             const playbackUL = video_player.querySelector(".playbackSpeed_UL");
+            const normalPlaybackLI = playbackUL.querySelector(".normalPlaybackspeed_LI");
             const playbackLI = playbackUL.querySelectorAll(".playbackSpeed_LI");
             const listItemLang = settingsBase.querySelector(".listItemLanguage");
             const listItemCaption = settingsBase.querySelector(".listItemSubtitleCC");
@@ -1128,36 +1129,6 @@
                 });
             });
 
-            // Captions
-            caption.forEach((event) => 
-            {
-                event.addEventListener("click", () => 
-                {
-                    removeActiveClasses(caption);
-                    event.classList.add("active");
-                    changeCaption(event);
-                    caption_text.innerHTML = "";
-                    listItemCaption.title = "Subtitles/CC is " + event.querySelector("p").textContent;
-                    listItemCaption.ariaLabel = "Playback Speed is " + event.querySelector("p").textContent;
-                    listItemCaption.querySelector(".itemValue").textContent = event.querySelector("p").textContent;
-                });
-            });
-
-            let track = mainVideo.textTracks;
-
-            function changeCaption(lbl) 
-            {
-                let trackLabel = lbl.getAttribute("data-track");
-                for (let i = 0; i < track.length; i++)
-                {
-                    track[i].mode = "disabled";
-                    if (track[i].label == trackLabel)
-                    {
-                        track[i].mode = "showing";
-                    }
-                }
-            }
-
             // Video Quality
             qualities.forEach(event =>
             {
@@ -1194,11 +1165,47 @@
                         }
                     });
 
+                    removeActiveClasses(playbackLI);
+                    normalPlaybackLI.classList.add("active");
+                    listItemSpeed.title = "Playback Speed is " + normalPlaybackLI.querySelector("p").textContent;
+                    listItemSpeed.ariaLabel = "Playback Speed is " + normalPlaybackLI.querySelector("p").textContent;
+                    listItemSpeed.querySelector(".itemValue").textContent = normalPlaybackLI.querySelector("p").textContent;
+
                     listItemQuality.title = "Video Quality is " + event.querySelector("p").textContent;
                     listItemQuality.ariaLabel = "Video Quality is " + event.querySelector("p").textContent;
                     listItemQuality.querySelector(".itemValue").textContent = event.querySelector("p").textContent;
                 });
             });
+
+            // Captions
+            caption.forEach((event) => 
+            {
+                event.addEventListener("click", () => 
+                {
+                    removeActiveClasses(caption);
+                    event.classList.add("active");
+                    changeCaption(event);
+                    caption_text.innerHTML = "";
+                    listItemCaption.title = "Subtitles/CC is " + event.querySelector("p").textContent;
+                    listItemCaption.ariaLabel = "Playback Speed is " + event.querySelector("p").textContent;
+                    listItemCaption.querySelector(".itemValue").textContent = event.querySelector("p").textContent;
+                });
+            });
+
+            let track = mainVideo.textTracks;
+
+            function changeCaption(lbl) 
+            {
+                let trackLabel = lbl.getAttribute("data-track");
+                for (let i = 0; i < track.length; i++)
+                {
+                    track[i].mode = "disabled";
+                    if (track[i].label == trackLabel)
+                    {
+                        track[i].mode = "showing";
+                    }
+                }
+            }
 
             for (let i = 0; i < track.length; i++)
             {

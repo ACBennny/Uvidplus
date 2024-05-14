@@ -212,6 +212,13 @@
 
 // WATCH NOW
 
+    // Redirecting the user to first episode of the show
+    watchNowBtn.addEventListener("click" , () => 
+    {
+        watchNowLink = seasonSet[0].querySelectorAll(".episodes")[0].href;
+        window.open(watchNowLink , "_self");
+    });
+
 
 // ADD TO WATCHLIST
     
@@ -229,6 +236,8 @@
         addToWatchListBox.ariaLabel = "Remove from WatchList";
     });
 
+
+// PLAYLIST & SHARE ARE IN MAIN JS FILE
 
 
 // SEASON SELECTOR
@@ -384,14 +393,6 @@
         epBox.href = "/Library/Anime/Watch/JujutsuKaisen/S1/Ep1.html";
     });
 
-
-    // Redirecting the user to first episode of the show
-    watchNowLink = seasonSet[0].querySelectorAll(".episodes")[0].href;
-    console.log("first ep link => " + watchNowLink);
-    watchNowBtn.addEventListener("click" , () => 
-    {
-        window.open(watchNowLink , "_self");
-    });
 
 
 

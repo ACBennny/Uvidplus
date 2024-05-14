@@ -764,7 +764,7 @@ html:root
     position: absolute;
     top: 20px;
     right: -30px;
-    width: 25px;
+    width: 18px;
     fill: var(--genWhiteTypeLight);
     cursor: pointer;
     transition: 300ms;
@@ -797,7 +797,7 @@ html:root
 .showlist_MoreEpHeaderBox .showlist_MoreEpHeaderText
 {
     color: var(--showlistMoreEpHeaderClrs);
-    font-size: 18px;
+    font-size: 16px;
     transition: 300ms;
 }
 

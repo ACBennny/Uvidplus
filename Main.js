@@ -41,6 +41,7 @@
     const allImgTags = document.querySelectorAll('.allImgTags');
     const allLinks = document.querySelectorAll("a");
     let notifyTimer;
+    const shareShowBtn = document.querySelectorAll(".shareShowBtn");
 
 
 
@@ -667,7 +668,8 @@
 
 // ALL IMAGES
     
-    allImg.forEach(eachImg => {
+    allImg.forEach(eachImg => 
+    {
 
         // Prevents User from dragging Images
         eachImg.draggable = false;
@@ -683,7 +685,8 @@
         
     });
 
-    allImgTags.forEach(eachImg => {
+    allImgTags.forEach(eachImg => 
+    {
 
         // Remove filter once image has loaded
         console.log("image number");
@@ -704,7 +707,8 @@
 
 // ALL LINKS
 
-    allLinks.forEach(link => {
+    allLinks.forEach(link => 
+    {
 
         // Sets rel to "no-referrer" if it hasn't been set.
         if(link.rel.valueOf() == "")
@@ -773,6 +777,60 @@
            }
        , 2500);
    }
+
+
+
+// SHARE
+
+    // share function
+    let socialShareLink;
+    let socialShareTitle;
+    let socialShareMsg;
+    let socialShareHTML = 
+    `
+        <div class="socialShareBcg">
+        </div>
+    `;
+    let socialShareBcg;
+
+    function socialShareFunc()
+    {
+        socialShareBcg = document.createElement("div");
+        socialShareBcg.innerHTML = socialShareHTML;
+        documentBody.appendChild(socialShareBcg);
+        //
+        socialShareLink = window.location.href;
+        socialShareTitle = documentTitle;
+
+        // if(navigator.share)
+        // {
+        //     navigator.share(
+        //     {
+        //         title: `${socialShareTitle}`,
+        //         url: `${socialShareLink}`
+        //     })
+        //     .then(() => 
+        //     {
+        //         console.log("Thanks for sharing");
+        //     })
+        //     .catch(console.error);
+        // }
+        // else
+        // {
+        //     socialShareBcg = document.createElement("div");
+        //     socialShareBcg.innerHTML = socialShareHTML;
+        //     documentBody.appendChild(socialShareBcg);
+        // }
+    }
+
+    shareShowBtn.forEach(btn => 
+    {
+        btn.addEventListener("click" , () => 
+        {
+            socialShareFunc();
+            btn.disabled = true;
+        });
+    });
 
 
 
