@@ -92,14 +92,6 @@
     
     document.addEventListener("click" , e => 
     {
-        // Close season selector
-        if((seasonHeaderBox.matches(":hover") || seasonSelectorBox.matches(":hover")))
-        {
-            return;
-        }
-        seasonSelectorBdr.classList.remove("active");
-        documentBody.classList.remove("bodystop");
-
         // Close the Ratings Action Box
         if(    ((openQuickAtnModalBdr[0].matches(":hover")) || (quickAtnModalBdr[0].matches(":hover")))
             || ((openQuickAtnModalBdr[1].matches(":hover")) || (quickAtnModalBdr[1].matches(":hover")))
@@ -109,13 +101,15 @@
         }
         quickAtnModalBdr[0].classList.remove("active");
         quickAtnModalBdr[1].classList.remove("active");
+        
+        // Close season selector
+        if((seasonHeaderBox.matches(":hover") || seasonSelectorBox.matches(":hover")))
+        {
+            return;
+        }
+        seasonSelectorBdr.classList.remove("active");
+        documentBody.classList.remove("bodystop");
 
-        // Close the More Action Box
-        // if((openQuickAtnModalBdr[1].matches(":hover")) || (quickAtnModalBdr[1].matches(":hover")))
-        // {
-        //     return;
-        // }
-        // quickAtnModalBdr[1].classList.remove("active");
     });
 
 

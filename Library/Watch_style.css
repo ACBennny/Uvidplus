@@ -326,7 +326,7 @@ html:root
 .dwldBdr .dwldBox
 {
     width: 100%;
-    max-width: 400px;
+    max-width: 700px;
     height: 100%;
     max-height: 400px;
     opacity: 0;
@@ -394,7 +394,7 @@ html:root
 {
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1146,6 +1146,60 @@ html:root
     .media_optBdr .media_optBox
     {
         padding: 15px;
+    }
+
+    .dwldBdr .dwldBox
+    {
+        max-width: none;
+        max-height: none;
+    }
+
+    .dwldBox .dwldBoxCtnt
+    {
+        border: none;
+        border-radius: 0px;
+    }
+
+    .dwldBoxCtnt .dwldBoxHeader
+    {
+        justify-content: start;
+    }
+
+    .dwldBoxHeader .dwldBoxHeaderText
+    {
+        margin-left: 10px;
+    }
+
+    .dwldBoxHeaderText .large
+    {
+        font-size: 18px;
+    }
+
+    .dwldBoxHeaderText .small
+    {
+        font-size: 14px;
+    }
+
+    .dwldOptBdr .dwldOptBox
+    {
+        padding: 15px 5px;
+    }
+
+    .dwldOptBox .dwldOptIconBox
+    {
+        width: 40px;
+        height: 40px;
+    }
+
+    .dwldOptIconBox .dwldOptIcon,
+    .close_dwldIconBox .close_dwldIconBoxIcon
+    {
+        width: 16px;
+    }
+
+    .dwldOptTextBox .dwldOptText
+    {
+        font-size: 12px;
     }
 
     .showlist_MoreEpBase .showlist_MoreEpBdr

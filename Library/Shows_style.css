@@ -254,7 +254,7 @@ html:root
     left: 0;
     width: 300px;
     height: fit-content;
-    background-color: #222222;
+    background-color: #141414;
     border-radius: 5px;
     transform: translate(0%, 50%);
     transition: 300ms;
@@ -761,7 +761,7 @@ html:root
     max-height: 0;
     display: flex;
     flex-direction: column;
-    background: #111111;
+    background: #141414;
     overflow: hidden;
     opacity: 0;
     visibility: hidden;
@@ -785,20 +785,36 @@ html:root
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: #333333;
+    background-color: #141414;
+    border-bottom: 1px solid #444444;
 }
 
 .seasons_selectorHeader .seasons_selectorHeaderText
 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 15px;
     color: var(--genWhiteTypeBright);
+    text-align: center;
+}
+
+.seasons_selectorHeaderText .large
+{
+    color: var(--genGreenTypeLight);
+    font-size: 18px;
+}
+
+.seasons_selectorHeaderText .small
+{
+    color: var(--genWhiteTypeLight);
     font-size: 16px;
-    margin-left: 10px;
 }
 
 .seasons_selectorHeader .seasons_selectorHeaderIcon
 {
     position: relative;
-    width: 20px;
+    width: 15px;
     height: 2px;
     margin-right: 10px;
     border-radius: 5px;
@@ -814,7 +830,7 @@ html:root
     top: 50%;
     right: 50%;
     width: 2px;
-    height: 20px;
+    height: 15px;
     border-radius: 5px;
     background-color: var(--genWhiteTypeLight);
     transform: translate(50%, -50%);
@@ -860,7 +876,7 @@ html:root
 .seasons_selector:active
 {
     color: var(--genWhiteTypeBright);
-    background-color: #444444;
+    background-color: #242424;
 }
 
 .seasons_selector.active
@@ -964,18 +980,17 @@ html:root
 
 .showset .episodes
 {
+    position: relative;
     width: 100%;
     height: 70px;
-    background: #2e2d2daa;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    color: var(--genWhiteTypeLight);
-    cursor: pointer;
+    background: #222222;
     transition: 500ms;
-    position: relative;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .episodes:active
@@ -998,7 +1013,8 @@ html:root
     display: flex;
     text-align: center;
     justify-content: center;
-    align-items: center ;
+    align-items: center;
+    color: var(--genWhiteTypeLight);
     font-size: 12px;
     transition: 500ms;
 }

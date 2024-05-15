@@ -240,8 +240,11 @@
                             </a>
                             <a href="/Watchlist.html" class="navOptLink" id="myListLink" title="My List">
                                 <div class="navOptIconBox">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navOptIcon">
+                                    <!---- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navOptIcon">
                                         <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
+                                    </svg> ---->
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" style=" transform:rotate(90deg)" class="navOptIcon">
+                                        <path d="M237.3,136.88l-42.66,64A16,16,0,0,1,181.33,208H24a8,8,0,0,1-6.58-12.55L64,128,17.42,60.55A8,8,0,0,1,24,48H181.33a16,16,0,0,1,13.31,7.12l42.66,64A16,16,0,0,1,237.3,136.88Z"></path>
                                     </svg>
                                 </div>
                                 <span class="navOptTitle">My List</span>
