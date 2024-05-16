@@ -2404,13 +2404,6 @@ img
         height: 7px;
         pointer-events: none;
     }
-    ::-webkit-scrollbar
-    {
-        display: block;
-        width: 8px;
-        height: 8px;
-        pointer-events: none;
-    }
 
     ::-webkit-scrollbar-corner
     {
@@ -2420,10 +2413,12 @@ img
     ::-webkit-scrollbar-track
     {
         background-color: transparent;
+        margin-block: 3px 3px;
     }
 
     ::-webkit-scrollbar-thumb{
         background-color: var(--scrollbarClr);
+        border-radius: 3px;
     }
 
     ::-webkit-scrollbar-thumb:hover
