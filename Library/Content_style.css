@@ -1310,7 +1310,7 @@ body
 
     .intro_slide_box
     {
-      height: 60%;
+        height: 60%;
     }
 
     .intro_slide_box .intro_info_bdr
@@ -1326,15 +1326,12 @@ body
         width: 100%;
         display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 10px;
+        gap: 0px;
+        /* gap: 25px; */
         opacity: 1;
         visibility: visible;
-    }
-
-    .intro_info_bdr .intro_info_box
-    {
-        align-items: center;
-        gap: 25px;
     }
 
     .info_title_img

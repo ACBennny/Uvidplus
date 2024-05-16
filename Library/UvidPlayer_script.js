@@ -1209,7 +1209,6 @@
             // Download Video
             function instantiateDwldr()
             {
-                // The border holding the elements of the notification box
                 const dwldBdr = document.createElement("div");
                 dwldBdr.classList.add("genAtnModalBdr");
 

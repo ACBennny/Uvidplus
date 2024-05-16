@@ -854,11 +854,6 @@ html:root
         color: var(--genWhiteTypeBright);
     }
 
-    .dwldOptBdr .dwldOptBox:hover
-    {
-        background-color: #1d1c1c;
-    }
-
     .next_epCardBox:hover .next_epCardHover
     {
         opacity: 1;

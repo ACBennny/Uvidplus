@@ -1808,13 +1808,13 @@ img
 .genAtnModalHeaderText .large
 {
     color: var(--genGreenTypeLight);
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .genAtnModalHeaderText .small
 {
     color: var(--genWhiteTypeLight);
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .genAtnModalHeader .genAtnModalHeaderIconBox
@@ -1865,7 +1865,7 @@ img
 
 .genAtnModalOptBdr .genAtnModalOptBox:active
 {
-    background-color: #1d1c1c;
+    background-color: #222222;
 }
 
 .genAtnModalOptBox .genAtnModalOptIconBox
@@ -1903,19 +1903,6 @@ img
 
 
 
-/* =============== SOCIAL SHARE ============== */
-
-.socialShareBase
-{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: #00000075;
-    z-index: 101;
-    display: none;
-}
 
 
 
@@ -1996,6 +1983,11 @@ img
     .slide_card:hover .cardinfo .slideCardIcon
     {
         --slideCardPlayIconWidth: 35px;
+    }
+
+    .genAtnModalOptBdr .genAtnModalOptBox:hover
+    {
+        background-color: #222222;
     }
 }
 
@@ -2200,7 +2192,7 @@ img
         border-radius: 0px;
     }
 
-    .genAtnModalCtnt .genAtnModalHeaderText
+    .genAtnModalCtnt .genAtnModalHeader
     {
         justify-content: start;
     }
