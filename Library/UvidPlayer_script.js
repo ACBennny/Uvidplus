@@ -1211,27 +1211,27 @@
             {
                 // The border holding the elements of the notification box
                 const dwldBdr = document.createElement("div");
-                dwldBdr.classList.add("dwldBdr");
+                dwldBdr.classList.add("genAtnModalBdr");
 
                 // The Notification Bar Structure
                 dwldBdr.innerHTML = 
                 `
-                    <div class="dwldBdrBcg closeDwldBdr"></div>
-                    <div class="dwldBox">
-                        <div class="dwldBoxCtnt">
-                            <div class="dwldBoxHeader">
-                                <div class="close_dwldIconBox closeDwldBdr">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="close_dwldIconBoxIcon">
+                    <div class="genAtnModalBcg closeDwldBdr"></div>
+                    <div class="genAtnModalBox dwldBox">
+                        <div class="genAtnModalCtnt">
+                            <div class="genAtnModalHeader">
+                                <div class="genAtnModalHeaderIconBox closeDwldBdr">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="genAtnModalHeaderIcon">
                                         <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
                                     </svg>
                                 </div>
-                                <h3 class="dwldBoxHeaderText">
+                                <h3 class="genAtnModalHeaderText">
                                 <span class="large">D</span>
                                 <span class="small">ownload</span>
                                 </h3>
                             </div>
-                            <div class="dwldOptBcg">
-                                <div class="dwldOptBdr"></div>
+                            <div class="genAtnModalOptBcg">
+                                <div class="genAtnModalOptBdr dwldOptBdr"></div>
                             </div>
                         </div>
                     </div>
@@ -1246,18 +1246,18 @@
                 {
                     let vidQuality_html = 
                     `
-                        <div data-link="${event.getAttribute('src')}" class="dwldOptBox switchAcc_AddAccBox" title="Download ${minorTitle.textContent} ${majorTitle1.textContent} ${majorTitle2.textContent} - ${event.getAttribute('size')}p" aria-label="Download ${minorTitle.textContent} ${majorTitle1.textContent} ${majorTitle2.textContent} - ${event.getAttribute('size')}p">
-                            <div class="dwldOptIconBox">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="dwldOptIcon">
+                        <div data-link="${event.getAttribute('src')}" class="genAtnModalOptBox dwldOptBox" title="Download ${minorTitle.textContent} ${majorTitle1.textContent} ${majorTitle2.textContent} - ${event.getAttribute('size')}p" aria-label="Download ${minorTitle.textContent} ${majorTitle1.textContent} ${majorTitle2.textContent} - ${event.getAttribute('size')}p">
+                            <div class="genAtnModalOptIconBox">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="genAtnModalOptIcon">
                                     <path transform="rotate(90, 256, 256)" d="M352 96l64 0c17.7 0 32 14.3 32 32l0 256c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l64 0c53 0 96-43 96-96l0-256c0-53-43-96-96-96l-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32zm-9.4 182.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L242.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"/>
                                 </svg>
                             </div>
-                            <div class="dwldOptTextBox">
-                                <span class="dwldOptText">${event.getAttribute('size')}p</span>
+                            <div class="genAtnModalOptTextBox dwldOptTextBox">
+                                <span class="genAtnModalOptText dwldOptText">${event.getAttribute('size')}p</span>
                             </div>
                         </div>
                     `;
-                    dwldOptBdr.insertAdjacentHTML('afterbegin', vidQuality_html);
+                    dwldOptBdr.insertAdjacentHTML('afterBegin', vidQuality_html);
                 });
 
 
