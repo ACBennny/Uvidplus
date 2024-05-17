@@ -13,7 +13,7 @@ html:root
     --rightColWidth: 35%;
     --next_epImgBoxWidth: 150px;
     --showlist_MoreEpCloseBoxHeight: 30px;
-    --showlist_MoreEpHeaderBdrHeight: 40px;
+    --showlist_MoreEpHeaderBdrHeight: 50px;
 }
 
 
@@ -583,6 +583,7 @@ html:root
 
 .showlist_MoreEpBox .showlist_MoreEpHeaderBdr
 {
+    --showlistMoreEpHeaderClrs: var(--genWhiteTypeLight);
     position: relative;
     width: 100%;
     height: var(--showlist_MoreEpHeaderBdrHeight);
@@ -590,7 +591,6 @@ html:root
 
 .showlist_MoreEpHeaderBdr .showlist_MoreEpHeaderBox
 {
-    --showlistMoreEpHeaderClrs: var(--genWhiteTypeLight);
     width: 100%;
     height: 100%;
     display: flex;
@@ -598,7 +598,7 @@ html:root
     justify-content: space-between;
     align-items: center;
     padding: 0 15px;
-    background: #313131;
+    background: #1f1f1f;
     transition: all 300ms ease-in-out;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -609,12 +609,27 @@ html:root
 {
     color: var(--showlistMoreEpHeaderClrs);
     font-size: 16px;
+    margin-left: 20px;
     transition: 300ms;
+}
+
+.showlist_MoreEpHeaderBdr.active
+{
+    --showlistMoreEpHeaderClrs: var(--genGreenTypeLight);
 }
 
 .showlist_MoreEpHeaderBox:active
 {
     --showlistMoreEpHeaderClrs: var(--genGreenTypeLight);
+}
+
+.showlist_MoreEpHeaderListIcon
+{
+    position: absolute;
+    left: 10px;
+    width: 14px;
+    fill: var(--showlistMoreEpHeaderClrs);
+    transition: 300ms;
 }
 
 .showlist_MoreEpHeaderBox .showlist_MoreEpHeaderIcon
@@ -624,6 +639,11 @@ html:root
     transition: 300ms;
 }
 
+.showlist_MoreEpHeaderBdr.active .showlist_MoreEpHeaderIcon
+{
+    transform: rotate(-180deg);
+}
+
 .showlist_MoreEpHeaderBdr .showlist_MoreEpSelectorBdr
 {
     position: absolute;
@@ -631,11 +651,12 @@ html:root
     left: 0;
     width: 100%;
     display: none;
-    background: #171717;
+    padding: 10px 0;
+    background: #141414;
     z-index: 4;
 }
 
-.showlist_MoreEpSelectorBdr.active
+.showlist_MoreEpHeaderBdr.active .showlist_MoreEpSelectorBdr
 {
     display: flex;
 }
@@ -659,7 +680,7 @@ html:root
 .showlist_MoreEpSelector:active
 {
     color: var(--genWhiteTypeBright);
-    background-color: #444444;
+    background-color: #222222;
 }
 
 .showlist_MoreEpSelector.active
@@ -873,7 +894,7 @@ html:root
     .showlist_MoreEpSelector:hover
     {
         color: var(--genWhiteTypeBright);
-        background-color: #444444;
+        background-color: #222222;
     }
 
     .showlist_epCardBox:hover .showlist_epCardHover
@@ -968,7 +989,7 @@ html:root
         align-items: center;
         justify-content: center;
         padding: 0 15px;
-        background-color: #222222;
+        background-color: #1f1f1f;
     }
 
     .showlist_MoreEpCloseBox .showlist_MoreEpCloseIcon
