@@ -101,7 +101,7 @@
         }
         quickAtnModalBdr[0].classList.remove("active");
         quickAtnModalBdr[1].classList.remove("active");
-        
+
         // Close season selector
         if((seasonHeaderBox.matches(":hover") || seasonSelectorBox.matches(":hover")))
         {
@@ -229,9 +229,6 @@
         addToWatchListBox.title = "Remove from WatchList";
         addToWatchListBox.ariaLabel = "Remove from WatchList";
     });
-
-
-// PLAYLIST & SHARE ARE IN MAIN JS FILE
 
 
 // SEASON SELECTOR

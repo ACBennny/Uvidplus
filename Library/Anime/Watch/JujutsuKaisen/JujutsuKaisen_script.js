@@ -43,8 +43,27 @@
                             </div>
                             <div class="showlist_MoreEpSelectorBdr">
                                 <div class="showlist_MoreEpSelectorBox">
-                                    <div class="showlist_MoreEpSelector active">Season 1</div>
-                                    <div class="showlist_MoreEpSelector">Season 2</div>
+                                    <div class="showlist_MoreEpSelector active">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="showlist_MoreEpHeaderListIcon">
+                                            <path d="M64 144a48 48 0 1 0 0-96 48 48 0 1 0 0 96zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM64 464a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm48-208a48 48 0 1 0 -96 0 48 48 0 1 0 96 0z"/>
+                                        </svg>
+                                        <span class="showlist_MoreEpSelectorText">Season 1</span>
+                                        <span class="showlist_MoreEpSelectorEpNo"></span>
+                                    </div>
+                                    <div class="showlist_MoreEpSelector">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="showlist_MoreEpHeaderListIcon">
+                                            <path d="M64 144a48 48 0 1 0 0-96 48 48 0 1 0 0 96zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM64 464a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm48-208a48 48 0 1 0 -96 0 48 48 0 1 0 96 0z"/>
+                                        </svg>
+                                        <span class="showlist_MoreEpSelectorText">Season 2</span>
+                                        <span class="showlist_MoreEpSelectorEpNo"></span>
+                                    </div>
+                                    <div class="showlist_MoreEpSelector">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="showlist_MoreEpHeaderListIcon">
+                                            <path d="M64 144a48 48 0 1 0 0-96 48 48 0 1 0 0 96zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM64 464a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm48-208a48 48 0 1 0 -96 0 48 48 0 1 0 96 0z"/>
+                                        </svg>
+                                        <span class="showlist_MoreEpSelectorText">JJK 0</span>
+                                        <span class="showlist_MoreEpSelectorEpNo"></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1064,6 +1083,31 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="showlist_MoreEpCtntBdr inactive">
+                            <div class="showlist_MoreEpCtntBox">
+                                <div class="showlist_epCardBdr">
+                                    <a href="#" title="" class="showlist_epCardBox">
+                                        <div class="showlist_epImgBox">
+                                            <img src="/Library/Anime//Watch/JujutsuKaisen/img/1.jpg" alt="" class="showlist_epImg">
+                                            <div class="showlist_epLengthBox">
+                                                <p class="showlist_epLength">24m</p>
+                                            </div>
+                                            <div class="showlist_epCardHover">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="showlist_epCardHoverIcon">
+                                                    <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="showlist_epDetBdr">
+                                            <div class="showlist_epDetBox">
+                                                <h4 class="showlist_epDetTitle">JJK 0</h4>
+                                                <div class="showlist_epDetShow">Jujutsu Kaisen</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             `;
@@ -1075,7 +1119,6 @@
             const moreEpHeaderText = document.querySelector(".showlist_MoreEpHeaderText");
             const moreEpSeasonSelectorBdr = document.querySelector(".showlist_MoreEpSelectorBdr");
             const moreEpSeasonSelector = document.querySelectorAll(".showlist_MoreEpSelector");
-            const moreEpSelectorBdr = document.querySelector(".showlist_MoreEpSelectorBdr");
             const moreEpSelectors = document.querySelectorAll(".showlist_MoreEpHeaderBdr");
             const moreEpCtntBdr = document.querySelectorAll(".showlist_MoreEpCtntBdr");
             const moreEpCtntCardBdr = document.querySelectorAll(".showlist_epCardBdr");
@@ -1083,6 +1126,12 @@
 
 
         // MORE EPSIODES OVERLAY
+
+            // Setting the number of episodes in each season
+            for(let epNo = 0; epNo < moreEpSeasonSelector.length; epNo++)
+            {
+                moreEpSeasonSelector[epNo].querySelector(".showlist_MoreEpSelectorEpNo").textContent = moreEpCtntBdr[epNo].querySelectorAll(".showlist_epCardBdr").length + " episodes";
+            }
 
             // open the Overlay modal
             openMoreEpOverlay.forEach(btn => 
@@ -1127,9 +1176,10 @@
             // Select season
             moreEpSeasonSelector.forEach((selector, s) => 
             {
+                const moreEpSelectorText = selector.querySelector(".showlist_MoreEpSelectorText");
                 selector.addEventListener("click" , () => 
                 {
-                    moreEpHeaderText.textContent = selector.textContent;
+                    moreEpHeaderText.textContent = moreEpSelectorText.textContent;
                     moreEpCtntBdr.forEach(ctnt => 
                     { 
                         ctnt.classList.remove("active");

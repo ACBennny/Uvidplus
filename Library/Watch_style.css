@@ -14,6 +14,8 @@ html:root
     --next_epImgBoxWidth: 150px;
     --showlist_MoreEpCloseBoxHeight: 30px;
     --showlist_MoreEpHeaderBdrHeight: 50px;
+    --moreEpCtntBox_columnWidth: 275px;
+    --showlist_epImgBoxWidth: 150px;
 }
 
 
@@ -628,14 +630,14 @@ html:root
     position: absolute;
     left: 10px;
     width: 14px;
-    fill: var(--showlistMoreEpHeaderClrs);
+    fill: var(--genWhiteTypeLight);
     transition: 300ms;
 }
 
 .showlist_MoreEpHeaderBox .showlist_MoreEpHeaderIcon
 {
     width: 16px;
-    fill: var(--showlistMoreEpHeaderClrs);
+    fill: var(--genWhiteTypeLight);
     transition: 300ms;
 }
 
@@ -652,7 +654,7 @@ html:root
     width: 100%;
     display: none;
     padding: 10px 0;
-    background: #141414;
+    background: #171717;
     z-index: 4;
 }
 
@@ -665,27 +667,73 @@ html:root
 {
     width: 100%;
     height: 100%;
+    max-height: 300px;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    overflow-y: auto;
 }
 
 .showlist_MoreEpSelectorBox .showlist_MoreEpSelector
 {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     color: var(--genWhiteTypeDark);
     font-size: 12px;
-    padding: 15px;
+    padding: 20px 15px;
+    transition: 300ms;
+    cursor: pointer;
+}
+
+.showlist_MoreEpSelector .showlist_MoreEpSelectorText
+{
+    color: var(--genWhiteTypeDark);
+    font-size: 12px;
+    margin-left: 20px;
     transition: 300ms;
 }
 
+.showlist_MoreEpSelector .showlist_MoreEpSelectorEpNo
+{
+    color: var(--genWhiteTypeDark);
+    font-size: 10px;
+    transition: 300ms;
+}
+
+.showlist_MoreEpSelector .showlist_MoreEpHeaderListIcon
+{
+    fill: var(--genWhiteTypeDark);
+}
+
+
 .showlist_MoreEpSelector:active
 {
-    color: var(--genWhiteTypeBright);
     background-color: #222222;
 }
 
-.showlist_MoreEpSelector.active
+.showlist_MoreEpSelector:active .showlist_MoreEpSelectorText,
+.showlist_MoreEpSelector:active .showlist_MoreEpSelectorEpNo
 {
     color: var(--genWhiteTypeLight);
+}
+
+.showlist_MoreEpSelector:active .showlist_MoreEpHeaderListIcon
+{
+    fill: var(--genWhiteTypeLight);
+}
+
+.showlist_MoreEpSelector.active .showlist_MoreEpSelectorText,
+.showlist_MoreEpSelector.active .showlist_MoreEpSelectorEpNo
+{
+    color: var(--genWhiteTypeLight);
+}
+
+.showlist_MoreEpSelector.active .showlist_MoreEpHeaderListIcon
+{
+    fill: var(--genWhiteTypeLight);
 }
 
 .showlist_MoreEpBox .showlist_MoreEpCtntBdr
@@ -712,12 +760,8 @@ html:root
 
 .showlist_MoreEpCtntBdr .showlist_MoreEpCtntBox
 {
-    --moreEpCtntBox_columnWidth: 275px;
     width: 100%;
     height: fit-content;
-    display: flex;
-    flex-direction: column;
-    display: grid;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(var(--moreEpCtntBox_columnWidth), 1fr));
     grid-template-rows: auto;
@@ -729,7 +773,7 @@ html:root
 
 .showlist_MoreEpCtntBox .showlist_epCardBdr
 {
-    width: 100%;
+    width: var(--moreEpCtntBox_columnWidth);
     height: 100px;
     padding: 10px;
 }
@@ -747,7 +791,7 @@ html:root
 .showlist_epCardBox .showlist_epImgBox
 {
     position: relative;
-    width: 150px;
+    width: var(--showlist_epImgBoxWidth);
     height: 100%;
     display: flex;
     justify-content: center;
@@ -809,7 +853,7 @@ html:root
 
 .showlist_epCardBox .showlist_epDetBdr
 {
-    width: calc(100% - 150px);
+    width: calc(100% - var(--showlist_epImgBoxWidth));
     height: 100%;
     padding: 0 0 0 10px;
 }
@@ -893,8 +937,18 @@ html:root
 
     .showlist_MoreEpSelector:hover
     {
-        color: var(--genWhiteTypeBright);
         background-color: #222222;
+    }
+
+    .showlist_MoreEpSelector:hover .showlist_MoreEpSelectorText,
+    .showlist_MoreEpSelector:hover .showlist_MoreEpSelectorEpNo
+    {
+        color: var(--genWhiteTypeLight);
+    }
+    
+    .showlist_MoreEpSelector:hover .showlist_MoreEpHeaderListIcon
+    {
+        fill: var(--genWhiteTypeLight);
     }
 
     .showlist_epCardBox:hover .showlist_epCardHover
@@ -908,7 +962,7 @@ html:root
 .like_buttons.active
 {
     background-color: var(--genGreenTypeDark);
-    border-radius: 25px ;
+    border-radius: 25px;
 }
 
 
@@ -1010,20 +1064,16 @@ html:root
         font-size: 14px;
     }
 
-    .showlist_MoreEpSelectorBox .showlist_MoreEpSelector
+    .showlist_MoreEpCtntBox .showlist_epCardBdr
     {
-        font-size: 11px;
+        /* --showlist_epImgBoxWidth: 120px;
+        height: 90px; */
     }
-
-    .showlist_MoreEpCtntBdr .showlist_MoreEpCtntBox
+    /* .showlist_MoreEpCtntBdr .showlist_MoreEpCtntBox
     {
         --moreEpCtntBox_columnWidth: 175px;
     }
 
-    .showlist_MoreEpCtntBox .showlist_epCardBdr
-    {
-        height: 200px;
-    }
 
     .showlist_epCardBdr .showlist_epCardBox
     {
@@ -1045,6 +1095,29 @@ html:root
     {
         width: 100%;
         align-items: center;
+    } */
+}
+
+
+
+@media only screen and (max-width: 600px)
+{
+
+    .showlist_MoreEpCtntBdr .showlist_MoreEpCtntBox
+    {
+        grid-template-columns: 100%;
+        justify-items: start;
+    }
+
+    .showlist_MoreEpCtntBox .showlist_epCardBdr
+    {
+        --moreEpCtntBox_columnWidth: 100%;
+    }
+
+    .showlist_epCardBdr .showlist_epCardBox
+    {
+        width: 100%;
+        justify-content: start;
     }
 }
 
@@ -1060,6 +1133,22 @@ html:root
     .media_actions_box .media_optBdr
     {
         flex-direction: column;
+    }
+
+    .showlist_MoreEpCtntBox .showlist_epCardBdr
+    {
+        --showlist_epImgBoxWidth: 120px;
+        height: 90px;
+    }
+
+    .showlist_epDetBox .showlist_epDetTitle
+    {
+        font-size: 12px;
+    }
+
+    .showlist_epDetBox .showlist_epDetShow
+    {
+        font-size: 9px;
     }
 }
 
