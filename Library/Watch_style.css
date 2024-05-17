@@ -1063,39 +1063,6 @@ html:root
     {
         font-size: 14px;
     }
-
-    .showlist_MoreEpCtntBox .showlist_epCardBdr
-    {
-        /* --showlist_epImgBoxWidth: 120px;
-        height: 90px; */
-    }
-    /* .showlist_MoreEpCtntBdr .showlist_MoreEpCtntBox
-    {
-        --moreEpCtntBox_columnWidth: 175px;
-    }
-
-
-    .showlist_epCardBdr .showlist_epCardBox
-    {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .showlist_epCardBox .showlist_epDetBdr
-    {
-        width: 100%;
-        height: fit-content;
-        align-items: center;
-        padding: 0;
-    }
-
-    .showlist_epDetBdr .showlist_epDetBox
-    {
-        width: 100%;
-        align-items: center;
-    } */
 }
 
 
