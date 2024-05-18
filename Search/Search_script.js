@@ -10,46 +10,11 @@
 
 // DECLARATIONS
 
-    let search_query = getQueryString();
-    let search_queryString =  "\"" + search_query + "\"";
+    let search_query = '';
     const docTitle = document.querySelector("title");
-    const whatYouSearched = document.querySelector(".search_Result_title .srt_dynamic");
+    const searchInput = document.getElementById('searchInput');
+    const searchwall = document.querySelector("#catalogId");
 
-
-// SEARCH INTERFACE
-
-    // Updates the page title and "What you seached" once DOM download is complete
-    window.addEventListener("DOMContentLoaded" , () => {
-        docTitle.textContent = "You searched for " + search_queryString;
-        whatYouSearched.textContent = search_query;
-    });
-
-
-    // Retrieves Query String from URL and updates the page
-    function getQueryString()
-    {
-        const querystring = window.location.href;
-        const searchParams = new URL(querystring).searchParams; 
-        const params = new URLSearchParams(decodeURI(searchParams));
-        const entries = params.entries();
-
-        let result = [];
-        // each 'entry' is a [key, value]
-        for(let entry of entries) {
-            var key = entry[0];
-            var val = entry[1];
-            if(key in result){
-                result[key].push(val);
-            }else{
-                result[key] = [val];
-            }
-        }
-
-        // convert 'key' of result to string
-        const retVal = result[key].toString();
-
-        return retVal;
-    }
 
 
 // SEARCH THE ENGINE
@@ -64,7 +29,7 @@
             search_image: '/Library/Anime/img/1.jpg',
             search_title: 'Jujutsu Kaisen',
             search_section: 'Anime',
-            search_code: 'Jijutsu Kaisen sorcery fight anime shows animation',
+            search_code: 'Jujutsu Kaisen sorcery fight anime shows animation',
         },
         {
             id: 1,
@@ -101,70 +66,46 @@
         {
             id: 5,
             search_link: '/Library/Anime/AttackOnTitan.html',
-            search_image: '/Library/Watch/Anime/img/3.jpg',
+            search_image: '/Library/Anime/img/3.jpg',
             search_title: 'Attack On Titan',
             search_section: 'Anime',
             search_code: 'Shingeki no Kyojin Attack On Titan anime animation',
         },
     ];
 
-    // Gets items in catalog and stores in array
-    const categories = [...new Set(searchInventory.map((item) => { return item }))];
 
-    // Filtering the search
-    const searchwall = document.querySelector("#catalogId");
-    const searchcatalog = searchwall.querySelector(".srch_card_box");
-    const searchbox = document.querySelector('#searchId');
+    // Function to display items
+    const displayItem = (items) => 
+    {
+        searchwall.innerHTML = items.map((item) => 
+        {
+            const { search_link, search_image, search_title, search_section } = item;
+            return `
+                <div class="srch_card_box">
+                    <a href="${search_link}" target="_self" title="Watch ${search_title}">
+                        <div class="srch-card">
+                            <div class="srch-card-img">
+                                <img src="${search_image}" alt="Image of ${search_title}">
+                            </div>
+                            <div class="srch-card-det">
+                                <h3>${search_title}</h3>
+                                <h6>${search_section}</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            `;
+        }).join('');
+    };
 
-        window.addEventListener('load', () => {
-            const searchData = search_query.toLowerCase();
-            const filteredData = categories.filter((item) => {
-                return (
-                    item.search_code.toLowerCase().includes(searchData)
-                );
-            });
-            displayItem(filteredData);
-        });
-
-        // Displaying the result
-        const displayItem = (items) => {
-
-            // A fixed number of results shown
-            const noOfResultsShown = items.slice(0, 5);
-
-            searchwall.innerHTML = noOfResultsShown.map((item) => 
-            {
-                var { search_link, search_image, search_title, search_section, search_code } = item;
-                if((search_query.length > 0) && (search_query != " "))
-                {
-                    return (
-                        `
-                            <div class="srch_card_box">
-                                <a href="${search_link}" target="_self" title="Watch ${search_title}">
-                                    <div class="srch-card">
-                                        <div class="srch-card-img">
-                                            <img src="${search_image}" alt="Image of ${search_title}">
-                                        </div>
-                                        <div class="srch-card-det">
-                                            <h3>${search_title}</h3>
-                                            <h6>${search_section}</h6>
-                                            <p style=" display: none;">${search_code}</p>
-                                        </div>
-                                    </div>
-                                </a> 
-                            <div>
-                        `
-                    );
-                }        
-                else
-                {
-                    return (``);
-                }
-            }).join('');
-        };
-        displayItem(categories);
-
-
+    // Optionally, handle 'Enter' key press in the input field
+    searchInput.addEventListener('keyup', () => 
+    {
+        search_query = searchInput.value.trim().toLowerCase();
+        docTitle.textContent = `You searched for "${search_query}"`;
+        const filteredData = searchInventory.filter((item) => item.search_code.toLowerCase().includes(search_query));
+        displayItem(filteredData);
+    });
 
 
 

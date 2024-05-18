@@ -1090,7 +1090,7 @@
                                         <div class="showlist_epImgBox">
                                             <img src="/Library/Anime//Watch/JujutsuKaisen/img/1.jpg" alt="" class="showlist_epImg">
                                             <div class="showlist_epLengthBox">
-                                                <p class="showlist_epLength">24m</p>
+                                                <p class="showlist_epLength">1h 44m</p>
                                             </div>
                                             <div class="showlist_epCardHover">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="showlist_epCardHoverIcon">

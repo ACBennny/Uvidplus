@@ -54,7 +54,7 @@ html:root
     --navBarGenClr: #e7e7e7;
     --navBarBcgSolid: #2f2e2e;
     --navBarBcgTransparency: #2f2e2eef;
-    --navElementColor_green: #14d60d;
+    --navElementColor_green: var(--genGreenTypeLight);
     --navMenuPageActiveElementClr: #888888;
     --navOptionColor: #a1a1a1;
     --navBarDividerThickness: 2px;
@@ -75,9 +75,9 @@ html:root
     --switchAccOptImgBoxWidth: 50px;
     --basicSliderCardDivision: 4;
     --basicSlideIconWidth: 18px;
-    --slideCardPlayIconClr: #18bd0f;
+    --slideCardPlayIconClr: var(--genGreenTypeLight);
     --slideCardPlayIconWidth: 18px;
-    --footerTextClrGreen: #14d60d;
+    --footerTextClrGreen: var(--genGreenTypeLight);
     --footerTxtClrBright: #e7e7e7;
     --footerTxtClrMid: #b7b7b7;
     --footerTxtClrDark: #888888;
@@ -1681,16 +1681,16 @@ img
 .notifyBdr
 {
     position: fixed;
-    left: 0%;
-    bottom: 0;
+    top: 0;
+    left: 0;
     display: none;
     width: 100%;
-    margin: 20px;
     justify-content: center;
     align-content: center;
     transition: 300ms;
     z-index: 140;
     cursor: pointer;
+    background-color: var(--genGreenTypeLight);
 }
 
 .notifyBdr .NotifyMe
@@ -1698,12 +1698,11 @@ img
     width: -moz-fit-content;
     width: fit-content;
     height: fit-content;
-    background: #3d3d3d;
-    padding: 20px 30px;
-    color: #ebebeb;
-    font-size: 10px;
+    padding: 20px 10px;
+    color: #000000;
+    font-size: 14px;
+    text-align: center;
     border-radius: 15px;
-    border-bottom: 2px solid #14d60d;
 }
 
 .NotifyAtv
@@ -1852,6 +1851,8 @@ img
     align-items: center;
     gap: 10px;
     padding: 15px 20px;
+    outline: none;
+    border: none;
     border-radius: 10px;
     background-color: transparent;
     -moz-user-select: -moz-none;
@@ -1905,6 +1906,138 @@ img
 {
     color: #cdcdcd;
     font-size: 14px;
+}
+
+
+/* ------------ Create New Playlist Modal ------------ */
+.newPLBtn.inactive
+{
+    display: none;
+}
+
+.newPLBdr
+{
+    width: 100%;
+    display: none;
+    margin-bottom: 40px;
+}
+
+.newPLBdr.active
+{
+    display: block;
+}
+
+.newPLBdr .newPLBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.newPLBox .newPLInputBdr
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px 0;
+}
+
+.newPLInputBdr .newPLInputBox
+{
+    width: 80%;
+    height: 40px;
+    border-bottom: 2px solid var(--genWhiteTypeDark);
+    transition: all 300ms ease-in-out;
+    overflow: hidden;
+}
+
+.newPLInputBox:focus-within
+{
+    border-color: var(--genGreenTypeDark);
+}
+
+.newPLInputBox .newPLInputClass
+{
+    font-family: 'Zen dots' , sans-serif;   
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    color: var(--genWhiteTypeLight);
+    font-size: 14px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+.newPLBox .newPLWarnBdr
+{
+    width: 100%;
+}
+
+.newPLWarnBdr .newPLWarnBox
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.newPLWarnBox .newPLWarnText
+{
+    width: 80%;
+    display: none;
+    color: var(--genWhiteTypeMid);
+    font-size: 14px;
+}
+
+.newPLWarnText.active
+{
+    display: block;
+}
+
+.newPLWarnText.empty
+{
+    color: #ff0000;
+}
+
+.newPLBox .newPLAtnBdr
+{
+    width: 100%;
+}
+
+.newPLAtnBdr .newPLAtnBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.newPLAtnBox .newPLAtnBtn
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 25px;
+    color: var(--genWhiteTypeLight);
+    font-size: 14px;
+    background-color: var(--genGreenTypeDark);
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+}
+
+.newPLAtnBtn:disabled
+{
+    color: var(--genWhiteTypeMid);
+    background-color: var(--genGreenTypeDark3);
+    cursor: not-allowed;
 }
 
 
@@ -2248,6 +2381,11 @@ img
     .basic_slider_card_box
     {
         --basicSliderCardDivision: 2;
+    }
+
+    .newPLInputBdr .newPLInputBox
+    {
+        width: 100%;
     }
     
 }
