@@ -287,40 +287,9 @@ html:root
     padding: 12px 16px;
 }
 
-.quickAtnModalBox .close_quickAtnModalBdr
-{
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 15px 7px;
-    cursor: pointer;
-}
-
-.close_quickAtnModalBdr .close_quickAtnModalBox
-{
-    position: relative;
-    width: 15px;
-    height: 2px;
-    border-radius: 5px;
-    background-color: var(--genWhiteTypeLight);
-    transform: rotate(45deg);
-}
-
-.close_quickAtnModalBox::after
-{
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    width: 2px;
-    height: 15px;
-    border-radius: 5px;
-    background-color: var(--genWhiteTypeLight);
-    transform: translate(50%, -50%);
-}
-
 .quickAtnModalBox .quickAtnModal_btn
 {
+    width: 100%;
     height: 50px;
     display: flex;
     flex-direction: row;

@@ -19,7 +19,6 @@
     let bcgImgBdr3Qarts;
     let bcgImgBdr3QartsH;
     const openQuickAtnModalBdr = document.querySelectorAll(".open_quickAtnModalBdr");
-    const closeQuickAtnModalBdr = document.querySelectorAll(".close_quickAtnModalBdr");
     const quickAtnModalBdr = document.querySelectorAll(".quickAtnModalBdr");
     const likeTheEp = document.querySelector(".add_to_LikedShowsBox");
     const dontLikeTheEp = document.querySelector(".add_to_DislikedShowsBox");
@@ -126,18 +125,6 @@
                 bdr.classList.remove("active");
             });
             quickAtnModalBdr[b].classList.add("active");
-        });
-    });
-
-    // Close QuickActions Box
-    closeQuickAtnModalBdr.forEach(btn => 
-    {
-        btn.addEventListener("click" , () => 
-        {
-            quickAtnModalBdr.forEach(bdr => 
-            {
-                bdr.classList.remove("active");
-            });
         });
     });
 
