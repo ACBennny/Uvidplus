@@ -1130,7 +1130,14 @@
             // Setting the number of episodes in each season
             for(let epNo = 0; epNo < moreEpSeasonSelector.length; epNo++)
             {
-                moreEpSeasonSelector[epNo].querySelector(".showlist_MoreEpSelectorEpNo").textContent = moreEpCtntBdr[epNo].querySelectorAll(".showlist_epCardBdr").length + " episodes";
+                let epNumber = moreEpSeasonSelector[epNo].querySelector(".showlist_MoreEpSelectorEpNo");
+                let epLength = moreEpCtntBdr[epNo].querySelectorAll(".showlist_epCardBdr").length;
+
+                epNumber.textContent = `${epLength} episodes`;
+                if(epLength == 1)
+                {
+                    epNumber.textContent = `${epLength} episodes`;
+                }    
             }
 
             // open the Overlay modal

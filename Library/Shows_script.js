@@ -25,7 +25,14 @@
     const showHeaderName = document.querySelector("#show_Header_Name");
     const watchTrailerBox = document.querySelector('.watchTrailer_box');
     let trailerTimer;
-    const addToWatchListBox = document.querySelector(".add_to_WatchListBox");
+    const addToWatchListBox = document.querySelector(".add_to_WatchListBox"); 
+    let seasonHome = document.querySelector(".show-home");
+    let seasonHTML = 
+    `
+        <div class="show-sub showsub-inatv">
+            <div class="showset"></div>
+        </div>
+    `;
     const seasonHeaderBox = document.querySelector(".seasons_headerBox");
     const seasonHeaderText = document.querySelector(".seasons_headerText");
     const seasonSelectorBdr = document.querySelector(".seasons_selectorBdr");
@@ -35,7 +42,7 @@
     const sortEPbtn = document.querySelectorAll('.sort_EpisodesBtn');
     const seasonBox = document.querySelector('.show-home-bx');
     let seasonSub;
-    // const seasonSet = document.querySelectorAll('.showset');
+    let epLinkName = showHeaderName.textContent.replace(/\s+/g, '');
     let seasonSet;
     const showAllEpHtml = 
     `
@@ -51,6 +58,16 @@
     const noOfEpShown = 12;
     const watchNowBtn = document.querySelector(".watchShowNowBtn");
     let watchNowLink;
+    function extractPath(url) 
+    {
+        const urlObj = new URL(url);
+        const pathSegments = urlObj.pathname.split('/');
+        pathSegments.pop();
+        const basePath = pathSegments.join('/');
+        
+        return basePath;
+    }
+    let epLinkDomain = extractPath(window.location.href);
 
 
 
@@ -224,28 +241,9 @@
 // SEASON SELECTOR
 
     // Adding the episodes to the DOM
-    let seasonHome = document.querySelector(".show-home");
-    let seasonHTML = 
-    `
-        <div class="show-sub showsub-inatv">
-            <div class="showset"></div>
-        </div>
-    `;
-    function extractPath(url) 
-    {
-        const urlObj = new URL(url);
-        const pathSegments = urlObj.pathname.split('/');
-        pathSegments.pop();
-        const basePath = pathSegments.join('/');
-        
-        return basePath;
-    }
-    let epLinkDomain = extractPath(window.location.href);
-    let epLinkName = showHeaderName.textContent.replace(/\s+/g, '');
 
     seasonSelector.forEach(selector =>
     {
-        let showType = selector.getAttribute("show-type");
         let epLength = selector.getAttribute("ep-length");
         let seasonEpNo = selector.querySelector(".selectorMinor");
         seasonEpNo.textContent = `${epLength} epsisodes`;
