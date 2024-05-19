@@ -80,7 +80,10 @@
         searchwall.innerHTML = items.map((item) => 
         {
             const { search_link, search_image, search_title, search_section } = item;
-            return `
+            if((search_query.length > 0) && (search_query != undefined) && (search_query != null) && (search_query != " "))
+            {
+                console.log("query: " + search_query);
+                return `
                 <div class="srch_card_box">
                     <a href="${search_link}" target="_self" title="Watch ${search_title}">
                         <div class="srch-card">
@@ -95,10 +98,15 @@
                     </a>
                 </div>
             `;
+            }
+            else
+            {
+                return null;
+            }
         }).join('');
     };
 
-    // Optionally, handle 'Enter' key press in the input field
+    // Filter and display result based on user's entry
     searchInput.addEventListener('keyup', () => 
     {
         search_query = searchInput.value.trim().toLowerCase();
