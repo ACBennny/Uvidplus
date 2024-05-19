@@ -263,6 +263,7 @@ html:root
 .add_to_WatchListBox .remove_from_WatchListIcon
 {
     display: none;
+    fill: var(--genGreenTypeLight) !important;
 }
 
 .add_to_WatchListBox.active .add_to_WatchListIcon
