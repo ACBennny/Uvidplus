@@ -978,7 +978,7 @@ html:root
     display: none;
 }
 
-.episodes span
+.episodes .episodesText
 {
     display: flex;
     text-align: center;
@@ -1011,7 +1011,7 @@ html:root
 }
 
 
-.episodes:active span
+.episodes:active .episodesText
 {
     display: none;
 }
@@ -1027,6 +1027,12 @@ html:root
 .showall_EpBdr
 {
     width: 100%;
+    display: none;
+}
+
+.showall_EpBdr.active
+{
+    display: block;
 }
 
 .showall_EpBdr .showall_EpBox
@@ -1042,7 +1048,7 @@ html:root
 {
     width: 100%;
     padding: 10px;
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     color: var(--genWhiteTypeLight);
@@ -1057,11 +1063,6 @@ html:root
     user-select: none;
     transition: 300ms ease;
     cursor: pointer;
-}
-
-.showall_EpBtn.active
-{
-    display: flex;
 }
 
 .showall_EpBtn:active
@@ -1108,11 +1109,6 @@ html:root
         --seasons_headerClrs: var(--genGreenTypeLight);
     }
 
-    .seasons_selectorBox::-webkit-scrollbar-thumb
-    {
-        background: #444444;
-    }
-
     .seasons_selector:hover
     {
         color: var(--genWhiteTypeBright);
@@ -1124,7 +1120,7 @@ html:root
         background: #55545480;
     }
 
-    .episodes:hover span
+    .episodes:hover .episodesText
     {
         display: none;
     }

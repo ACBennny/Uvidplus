@@ -34,12 +34,21 @@
     const seasonAtv = document.querySelectorAll('.season-select');
     const sortEPbtn = document.querySelectorAll('.sort_EpisodesBtn');
     const seasonBox = document.querySelector('.show-home-bx');
-    const season = document.querySelectorAll('.show-sub');
-    const seasonSet = document.querySelectorAll('.showset');
-    const showAllEp = document.querySelectorAll('.showall_EpBtn');
+    let seasonSub;
+    // const seasonSet = document.querySelectorAll('.showset');
+    let seasonSet;
+    const showAllEpHtml = 
+    `
+        <div class="showall_EpBdr active">
+            <div class="showall_EpBox">
+                <div class="showall_EpBtn">show more</div>
+            </div>
+        </div>
+    `;
+    let showAllEpBdr;
+    let showAllEpBtn;
     const watchEpBox = document.querySelectorAll(".episodes");
-    let noOfEpShown = 12;
-    let noEpOverflow = 0;
+    const noOfEpShown = 12;
     const watchNowBtn = document.querySelector(".watchShowNowBtn");
     let watchNowLink;
 
@@ -87,32 +96,6 @@
 
 
 
-// CLOSING CONTENT
-    
-    document.addEventListener("click" , e => 
-    {
-        // Close the Ratings Action Box
-        if(    ((openQuickAtnModalBdr[0].matches(":hover")) || (quickAtnModalBdr[0].matches(":hover")))
-            || ((openQuickAtnModalBdr[1].matches(":hover")) || (quickAtnModalBdr[1].matches(":hover")))
-        )
-        {
-            return;
-        }
-        quickAtnModalBdr[0].classList.remove("active");
-        quickAtnModalBdr[1].classList.remove("active");
-
-        // Close season selector
-        if((seasonHeaderBox.matches(":hover") || seasonSelectorBox.matches(":hover")))
-        {
-            return;
-        }
-        seasonSelectorBdr.classList.remove("active");
-        documentBody.classList.remove("bodystop");
-
-    });
-
-
-
 // QUICK ACTIONS
 
     // Open QuickActions Box
@@ -127,6 +110,7 @@
             quickAtnModalBdr[b].classList.add("active");
         });
     });
+
 
 
 // RATINGS
@@ -218,13 +202,114 @@
     });
 
 
+// CLOSING THE QUICK ACTION MODAL
+
+    document.addEventListener("click" , e => 
+    {
+        // Close the Ratings Action Box
+        if(    ((openQuickAtnModalBdr[0].matches(":hover")) || (quickAtnModalBdr[0].matches(":hover")))
+            || ((openQuickAtnModalBdr[1].matches(":hover")) || (quickAtnModalBdr[1].matches(":hover")))
+        )
+        {
+            return;
+        }
+        quickAtnModalBdr[0].classList.remove("active");
+        quickAtnModalBdr[1].classList.remove("active");
+    });
+
+
+
+
+
 // SEASON SELECTOR
 
-    // Setting the number of episodes in each season
-    for(let sel = 0; sel < seasonSelector.length; sel++)
+    // Adding the episodes to the DOM
+    let seasonHome = document.querySelector(".show-home");
+    let seasonHTML = 
+    `
+        <div class="show-sub showsub-inatv">
+            <div class="showset"></div>
+        </div>
+    `;
+    function extractPath(url) 
     {
-        seasonSelector[sel].querySelector(".selectorMinor").textContent = seasonSet[sel].querySelectorAll(".episodes").length + " episodes";
+        const urlObj = new URL(url);
+        const pathSegments = urlObj.pathname.split('/');
+        pathSegments.pop();
+        const basePath = pathSegments.join('/');
+        
+        return basePath;
     }
+    let epLinkDomain = extractPath(window.location.href);
+    let epLinkName = showHeaderName.textContent.replace(/\s+/g, '');
+
+    seasonSelector.forEach(selector =>
+    {
+        let showType = selector.getAttribute("show-type");
+        let epLength = selector.getAttribute("ep-length");
+        let seasonEpNo = selector.querySelector(".selectorMinor");
+        seasonEpNo.textContent = `${epLength} epsisodes`;
+        if(epLength == "1")
+        {
+            seasonEpNo.textContent = `${epLength} epsisode`;
+        }
+
+        seasonHome.insertAdjacentHTML("beforeend" , seasonHTML);
+    });
+
+    seasonSub = document.querySelectorAll('.show-sub');
+    seasonSet = document.querySelectorAll('.showset');
+        
+    seasonSelector.forEach((selector, sls) =>
+    {
+        let showType = selector.getAttribute("show-type");
+        let epLength = selector.getAttribute("ep-length");
+        let epLengthNo = Number(epLength);
+        let seasonSetIndex = seasonSet[sls];
+        let slsPlus = sls + 1;
+
+        if((showType == "serie") || (showType == "series"))
+        {
+            for(let ep = 0; ep < epLengthNo; ep++)
+            {
+                let epPlus = ep + 1;
+                let episodeHTML = 
+                `
+                    <a href="${epLinkDomain}/Watch/${epLinkName}/S${slsPlus}/Ep${epPlus}.html" title="" class="episodes inactive">
+                        <span class="episodesText">Ep ${epPlus}</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="episodesIcon">
+                            <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                        </svg>
+                    </a>
+                `;
+                seasonSetIndex.insertAdjacentHTML("beforeend" , episodeHTML);
+            }
+        }
+        else if((showType == "movie") || (showType == "movies"))
+        {
+            for(let ep = 0; ep < epLengthNo; ep++)
+            {
+                let epPlus = ep + 1;
+                let movieName = selector.querySelector(".selectorMain").textContent.replace(/\s+/g, '');
+                let episodeHTML = 
+                `
+                    <a href="${epLinkDomain}/Watch/${epLinkName}/Movies/${movieName}.html" title="" class="episodes inactive">
+                        <span class="episodesText">Ep ${epPlus}</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="episodesIcon">
+                            <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                        </svg>
+                    </a>
+                `;
+                seasonSetIndex.insertAdjacentHTML("beforeend" , episodeHTML);
+            };
+        }
+    });
+
+    // Displaying the first season
+    seasonSub[0].classList.add("showsub-atv");
+    seasonSub[0].classList.remove("showsub-inatv");
+
+    // Setting the number of episodes
 
     // Open season selector
     seasonHeaderBox.addEventListener("click" , () => 
@@ -241,12 +326,11 @@
     {
         const seasonSelectorMain = selector.querySelector(".selectorMain");
         const seasonSelectorMinor = selector.querySelector(".selectorMinor");
-
         
         selector.addEventListener("click" , () => 
         {
             seasonHeaderText.textContent = seasonSelectorMain.textContent;
-            season.forEach(ctnt => 
+            seasonSub.forEach(ctnt => 
             {
                 ctnt.classList.remove("showsub-atv");
                 ctnt.classList.add("showsub-inatv");
@@ -255,13 +339,26 @@
             { 
                 one.classList.remove("active");
             });
-            season[s].classList.remove("showsub-inatv");
-            season[s].classList.add("showsub-atv");
+            seasonSub[s].classList.remove("showsub-inatv");
+            seasonSub[s].classList.add("showsub-atv");
             selector.classList.add("active");
 
             seasonSelectorBdr.classList.remove("active");
             documentBody.classList.remove("bodystop");
         });
+    });
+
+    // Closing the Selctor
+    document.addEventListener("click" , e => 
+    {
+        // Close season selector
+        if((seasonHeaderBox.matches(":hover") || seasonSelectorBox.matches(":hover")))
+        {
+            return;
+        }
+        seasonSelectorBdr.classList.remove("active");
+        documentBody.classList.remove("bodystop");
+
     });
     
     
@@ -310,23 +407,21 @@
 // EPISODES
 
     // Showing the first ten episodes on page load
-    seasonSet.forEach(set => 
+    seasonSub.forEach(set => 
     {
-        let setEpBox = set.querySelectorAll(".episodes");
+        let setEpBox = set.querySelector(".showset").querySelectorAll(".episodes");
 
         // Add a "show more" button if the the no of episodes is greater than the margin
         if(setEpBox.length > noOfEpShown)
         {
-            noEpOverflow++;
             for(let i = 0; i < noOfEpShown; i++)
             {
                 setEpBox[i].classList.remove("inactive");
                 setEpBox[i].classList.add("active");
             }
-            for(let j = 0; j < noEpOverflow; j++)
-            {
-                showAllEp[j].classList.add("active");
-            }
+            set.insertAdjacentHTML("beforeend" , showAllEpHtml);
+            showAllEpBdr = document.querySelectorAll('.showall_EpBdr');
+            showAllEpBtn = document.querySelectorAll('.showall_EpBtn');
         }
         // If not, just display the episodes present in the set
         else if(setEpBox.length <= noOfEpShown)
@@ -340,7 +435,7 @@
     });
 
     // Showing all Episodes via onclick
-    showAllEp.forEach((btn, b) => 
+    showAllEpBtn.forEach((btn, b) => 
     {
         btn.addEventListener("click" , () => 
         {
@@ -350,7 +445,7 @@
                 box.classList.remove("inactive");
                 box.classList.add("active");
             });
-            btn.classList.remove("active");
+            showAllEpBdr[b].classList.remove("active");
         });
     });
 
