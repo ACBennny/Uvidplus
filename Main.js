@@ -1182,13 +1182,12 @@
         const newPLWarn = document.querySelector("#newPLWarnId");
         const createPLBtn = document.querySelector("#createNewPL");
         const cancelPLBtn = document.querySelector("#cancelNewPL");
-        let inputUppBnd = 64;
+        let inputUppBnd = 50;
         let inputLowBnd = 3;
         let plArr = [];
         let lastPLArr;
         let lastPLArrLength = 0;
-        let b4lastPLArr;
-        let b4lastPLArrLength = 0;
+        let currLength = 0;
         let wordCount = inputUppBnd;
 
         openAddToPLBtn.forEach(btn => 
@@ -1261,33 +1260,15 @@
             plArr.push(input);
             lastPLArr = plArr.at(-1);
             lastPLArrLength = lastPLArr.length;
-            if(plArr.at(-2) != undefined)
-            {
-                b4lastPLArr = plArr.at(-2);
-                b4lastPLArrLength = b4lastPLArr.length;
-            }
 
-            if(lastPLArrLength > b4lastPLArrLength)
-            {
-                wordCount--;
-            }
-            if(b4lastPLArrLength > lastPLArrLength)
-            {
-                wordCount++;
-            }
+            // update warn label
+            currLength = wordCount - lastPLArrLength;
+            newPLWarn.textContent = currLength;
 
-            updateWarnlabel(wordCount);
-            checkBeforeCreate(lastPLArr)
-        }
+            newPLWarn.classList.toggle("active" , currLength < 16);
+            newPLWarn.classList.toggle("empty" , currLength < 1);
 
-        // update warn label
-        function updateWarnlabel(count)
-        {
-            let warnVal = count;
-            newPLWarn.textContent = warnVal;
-
-            newPLWarn.classList.toggle("active" , warnVal < 16);
-            newPLWarn.classList.toggle("empty" , warnVal < 1);
+            checkBeforeCreate(lastPLArr);
         }
 
         // Check if name is valid (3 - 64 characters)
