@@ -131,11 +131,6 @@ body
     visibility: visible;
 }
 
-.slide_arrow .introSlideIcon:active
-{
-    transform: scale(0.85);
-}
-
 .intro_slide_box_main
 {
     width: 100%;
