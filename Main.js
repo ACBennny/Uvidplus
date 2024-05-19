@@ -38,7 +38,8 @@
     const allImg = document.querySelectorAll('img');
     const allImgTags = document.querySelectorAll('.allImgTags');
     const allLinks = document.querySelectorAll("a");
-    let notifyTimer;
+    const notificationQueue = [];
+    let isNotificationActive = false;
     let socialShareLink = encodeURI(window.location.href);
     let socialShareTitle = encodeURIComponent(documentTitle);
     let socialShareMsg = `Check this out`;
@@ -964,28 +965,55 @@
 
 // NOTIFICATION POPUP
 
-    function notification(noteCtnt) 
+    function showNextNotification() 
     {
+        if (notificationQueue.length === 0) 
+        {
+            isNotificationActive = false;
+            return;
+        }
+
+        // Get the next notification from the queue
+        const { noteCtnt, resolve } = notificationQueue.shift();
+
+        // Assigning properties
         const btnNotifyBdr = document.createElement('div');
         const btnNotify = document.createElement('div');
-        btnNotifyBdr.classList.add("notifyBdr")
+        btnNotifyBdr.classList.add("notifyBdr");
         btnNotify.classList.add("NotifyMe");
         btnNotifyBdr.appendChild(btnNotify);
         btnNotify.textContent = noteCtnt;
 
-       if (!btnNotifyBdr.classList.contains("NotifyAtv"))
-       {
-           document.body.appendChild(btnNotifyBdr);
-           btnNotifyBdr.classList.add('NotifyAtv');
-       }
-       notifyTimer =  setTimeout(
-           function()
-           {
-               btnNotifyBdr.classList.remove('NotifyAtv');
-               document.body.removeChild(btnNotifyBdr);
-           }
-       , 2500);
-   }
+        document.body.appendChild(btnNotifyBdr);
+        btnNotifyBdr.classList.add('NotifyAtv');
+
+        isNotificationActive = true;
+        setTimeout(() => 
+        {
+            btnNotifyBdr.classList.remove('NotifyAtv');
+            document.body.removeChild(btnNotifyBdr);
+
+            // Resolve the promise to indicate this notification is done
+            resolve();
+
+            // Show the next notification
+            showNextNotification();
+        }, 3000);
+    }
+
+    function notification(noteCtnt) 
+    {
+        return new Promise((resolve) => 
+        {
+            notificationQueue.push({ noteCtnt, resolve });
+            if (!isNotificationActive) 
+            {
+                // If no notification is active, show the next one immediately
+                showNextNotification(); 
+            }
+        });
+    }
+
 
 
 
@@ -1159,6 +1187,7 @@
             navigatorSclShareModal();
         });
     });
+
 
 
 
