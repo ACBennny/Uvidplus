@@ -616,7 +616,7 @@
             // clear timer once time runs out
             clearTimeout(navMenuTimer);
 
-        } , 100);
+        }, 100);
     }
 
 
@@ -924,19 +924,6 @@
         if(link.rel.valueOf() == "")
         {
             link.rel = "noopener no-referrer";
-        }
-
-        // Sets title if not preset
-        if(link.title.valueOf() == "")
-        {
-            // link.title = "link";
-        }
-
-        // Sets link to "#" if empty
-        const par = window.location.hash
-        if((link.href== "#uuu"))
-        {
-            link.href = "/Error404.html";
         }
 
         // Testing finding opening the "Error404" page if url is not set

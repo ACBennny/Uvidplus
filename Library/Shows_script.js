@@ -241,7 +241,6 @@
 // SEASON SELECTOR
 
     // Adding the episodes to the DOM
-
     seasonSelector.forEach(selector =>
     {
         let epLength = selector.getAttribute("ep-length");

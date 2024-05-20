@@ -68,6 +68,18 @@
     });
 
 
+// MORE EPISODES
+
+    const openMoreEpOverlay = document.querySelectorAll(".open_MoreEpOverlay");
+
+    openMoreEpOverlay.forEach(btn => 
+    {
+        btn.addEventListener("click" , () => 
+        {
+            window.open(`${document.querySelector(".section_title_textSmall").href}#ep` , `_self`);
+        });
+    });
+
 
 
 

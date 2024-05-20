@@ -7,13 +7,16 @@
 
 
 
-    // 
+    // Instantiate Modal when window loads
     window.addEventListener("load", () => 
     {
         MoreEpFunction();
     });
 
-
+    /*********************************************************************************
+     * Note: If you are going to use this enusre to insert this snippet under the "More Ep" button
+     *      <div class="showlist_MoreEpBase"></div>
+     ********************************************************************************/
 
 
     function MoreEpFunction()
@@ -1122,7 +1125,6 @@
             const moreEpSelectors = document.querySelectorAll(".showlist_MoreEpHeaderBdr");
             const moreEpCtntBdr = document.querySelectorAll(".showlist_MoreEpCtntBdr");
             const moreEpCtntCardBdr = document.querySelectorAll(".showlist_epCardBdr");
-
 
 
         // MORE EPSIODES OVERLAY
