@@ -52,6 +52,7 @@
             </div>
         </div>
     `;
+    let seasonEpOvf;
     let showAllEpBdr;
     let showAllEpBtn;
     const watchEpBox = document.querySelectorAll(".episodes");
@@ -416,10 +417,11 @@
                 setEpBox[i].classList.remove("inactive");
                 setEpBox[i].classList.add("active");
             }
+            set.classList.add("epSetOverflow");
             set.insertAdjacentHTML("beforeend" , showAllEpHtml);
         }
         // If not, just display the episodes present in the set
-        if(setEpBox.length <= noOfEpShown)
+        else if(setEpBox.length <= noOfEpShown)
         {
             for(let i = 0; i < setEpBox.length; i++)
             {
@@ -432,16 +434,18 @@
     // Showing all Episodes via onclick
     showAllEpBdr = document.querySelectorAll('.showall_EpBdr');
     showAllEpBtn = document.querySelectorAll('.showall_EpBtn');
-
+    seasonEpOvf = document.querySelectorAll(".epSetOverflow");
+    
     showAllEpBtn.forEach((btn, b) => 
     {
         btn.addEventListener("click" , () => 
         {
-            let chosenSetEpBox = seasonSet[b].querySelectorAll(".episodes");
+            let chosenSetEpBox = seasonEpOvf[b].querySelectorAll(".episodes");
             chosenSetEpBox.forEach(box => 
             {
                 box.classList.remove("inactive");
                 box.classList.add("active");
+                console.log("done");
             });
             showAllEpBdr[b].classList.remove("active");
         });
