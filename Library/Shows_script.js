@@ -417,11 +417,9 @@
                 setEpBox[i].classList.add("active");
             }
             set.insertAdjacentHTML("beforeend" , showAllEpHtml);
-            showAllEpBdr = document.querySelectorAll('.showall_EpBdr');
-            showAllEpBtn = document.querySelectorAll('.showall_EpBtn');
         }
         // If not, just display the episodes present in the set
-        else if(setEpBox.length <= noOfEpShown)
+        if(setEpBox.length <= noOfEpShown)
         {
             for(let i = 0; i < setEpBox.length; i++)
             {
@@ -432,6 +430,9 @@
     });
 
     // Showing all Episodes via onclick
+    showAllEpBdr = document.querySelectorAll('.showall_EpBdr');
+    showAllEpBtn = document.querySelectorAll('.showall_EpBtn');
+
     showAllEpBtn.forEach((btn, b) => 
     {
         btn.addEventListener("click" , () => 
