@@ -87,17 +87,15 @@
         bcgImgBox.setAttribute("style", `--ImgHeight:${bcgImgBdr3Qarts}px`);
         bcgImgGradient.setAttribute("style", `--ImgHeight:${bcgImgBdr3QartsH}px`);
 
-        if(window.innerWidth <= 768)
+        if(seasonSelectorBdr.classList.contains("active"))
         {
-            if(seasonSelectorBdr.classList.contains("active"))
+            if(window.innerWidth <= 768)
             {
                 documentBody.classList.add("bodystop");
                 return;
             }
             documentBody.classList.remove("bodystop");
-            return;
         }
-        documentBody.classList.remove("bodystop");
     }
     window.addEventListener("load" ,  () => 
     {
@@ -172,22 +170,22 @@
         `;
 
         documentBody.appendChild(trailerBdr);
-
-        const closeTrailer = trailerBdr.querySelector(".closeTrailer");
-        closeTrailer.addEventListener("click" , () => 
-        {
-            documentBody.removeChild(trailerBdr);
-            document.body.classList.remove('bodystop');
-        })
+        documentBody.classList.add('bodystop');
 
         trailerTimer = setTimeout
         (
             function()
             {
-                document.body.classList.add('bodystop');
                 trailerBdr.classList.add("active");
 
                 clearTimeout(trailerTimer);
+
+                const closeTrailer = trailerBdr.querySelector(".closeTrailer");
+                closeTrailer.addEventListener("click" , () => 
+                {
+                    documentBody.removeChild(trailerBdr);
+                    documentBody.classList.remove('bodystop');
+                });
             }
         ,100);
     });
@@ -347,16 +345,19 @@
     });
 
     // Closing the Selctor
+    
     document.addEventListener("click" , e => 
     {
-        // Close season selector
-        if((seasonHeaderBox.matches(":hover") || seasonSelectorBox.matches(":hover")))
+        if((seasonSelectorBdr.classList.contains("active")))
         {
-            return;
+            // Close season selector
+            if((seasonHeaderBox.matches(":hover") || seasonSelectorBox.matches(":hover")))
+            {
+                return;
+            }
+            seasonSelectorBdr.classList.remove("active");
+            documentBody.classList.remove("bodystop");
         }
-        seasonSelectorBdr.classList.remove("active");
-        documentBody.classList.remove("bodystop");
-
     });
     
     
