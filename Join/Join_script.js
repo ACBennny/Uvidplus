@@ -21,7 +21,7 @@
     const bodyDoc = document.body;
     const preloaderBdr = document.querySelector('#preloader');
 
-    // Inactivity
+    // Inactivity Modal
     const inactivityModalHTML = 
     `
         <!-- --------- TImeout Modal -------- -->
@@ -268,9 +268,11 @@
 // RELOADING
     
     // Warns if user tries to refresh
-    window.addEventListener('beforeunload', function (e) {
-        e.preventDefault(); 
-    });
+    const beforeUnloadHandler = (event) => 
+    {
+        event.preventDefault();
+        event.returnValue = '';
+    };
 
 
 
@@ -331,6 +333,7 @@
             joinMMRecoverAccForm.classList.remove("active");
             joinMMSignUpForm.classList.remove("active");
             clearFields();
+            window.removeEventListener("beforeunload" , beforeUnloadHandler);
         });
     });
 
@@ -355,6 +358,7 @@
             joinMMLogInForm.classList.remove("active");
             joinMMRecoverAccForm.classList.remove("active");
             clearFields();
+            window.addEventListener("beforeunload" , beforeUnloadHandler);
         });
     });
 
