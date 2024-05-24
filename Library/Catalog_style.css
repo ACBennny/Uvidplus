@@ -123,14 +123,18 @@ html:root
     width: 30px;
     height: 30px;
     margin: 10px;
+    color: #b1b1b1;
+    font-size: 16px;
+    text-align: center;
     border-radius: 50%;
     background: #373636;
     border-bottom: 2px solid #1da216;
-    text-align: center;
-    font-size: 16px;
-    color: #b1b1b1;
-    cursor: pointer;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
     transition: all 300ms ease-in-out;
+    cursor: pointer;
 }
 
 .hidden_slide_btn
