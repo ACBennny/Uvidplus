@@ -3,12 +3,8 @@
  * This will hold the code for the different sections of the website 
     The sections include:
     - Anime
-    - TV
-    - Documentaries
+    - TV sHOWS
     - Movies
-    - Latest
-    - Upcoming
-    - News
     - Cartoon
  * 
  * @author (Anyanwu Benedict Chukwuemeka)
@@ -17,95 +13,63 @@
 ****************************************************************/
 
 
-// Side Buttons
+// LOADS THE ITEMS IN THE INVENTORY FOR EACH SECTION
 
-/**
- * 1. This will make the next sets of buttons active while the previous inactive
- */
-        const contentMain = document.querySelector(".contentmain");
-        const contentSub = document.querySelectorAll(".contentsub");
-        const pageBtnsBox = document.querySelectorAll('.ctnt-slide-box');
-        const pageBtns = document.querySelectorAll('.ctnt-slide-box .page_btn');
-         let slide_i = 0;
+    const ctntSub1 = document.querySelector(".ctntsub1");
+    const loadingIndicator = document.getElementById("loadingIndicator");
 
-        //  This show next sets of btns
-         function nextBtnSet(){
-            pageBtnsBox[slide_i].querySelectorAll('.ctnt-slide-btn').forEach(thisChild => thisChild.classList.remove("active"));
-            pageBtnsBox[slide_i].classList.remove('nowatv');
-            slide_i = (slide_i + 1) % pageBtnsBox.length;
-            pageBtnsBox[slide_i].classList.add('nowatv');
-            pageBtnsBox[slide_i].querySelectorAll('.ctnt-slide-btn:nth-child(2)').forEach(thisChild => thisChild.classList.add("active"));
-            backToTopOfSub();
-         }
+    let currentIndex = 0;
+    const noOfItemsToLoad = 20; 
 
-        ///  This prev next sets of btns
-         function prevBtnSet(){
-            pageBtnsBox[slide_i].querySelectorAll('.ctnt-slide-btn').forEach(thisChild => thisChild.classList.remove("active"));
-            pageBtnsBox[slide_i].classList.remove('nowatv');
-            slide_i = (slide_i - 1 + pageBtnsBox.length) % pageBtnsBox.length;
-            pageBtnsBox[slide_i].classList.add('nowatv');
-            pageBtnsBox[slide_i].querySelectorAll('.ctnt-slide-btn:nth-child(5)').forEach(thisChild => thisChild.classList.add("active"));
-            backToTopOfSub();
-         }
-
-
-         // opens each page(slide)
-         pageBtns.forEach(btn => {
-            btn.addEventListener("click" , () => {
-                pageBtns.forEach(activePageBtn => {
-                    activePageBtn.classList.remove("active");
-                });
-                btn.classList.add("active");
-                backToTopOfSub();
-            });
-         });
-
-
-        // Scrolls to top when another page opens
-        function backToTopOfSub()
+    function loadItems() 
+    {
+        const endIndex = Math.min(currentIndex + noOfItemsToLoad, catalogInventory.length);
+        for (let i = currentIndex; i < endIndex; i++)
         {
-            location.href="#top";
+            const item = catalogInventory[i];
+            const cardHTML = 
+            `
+                <a href="${item.show_link}" class="cardholder_bdr" title="Watch ${item.show_title}">
+                    <div class="cardholder">
+                        <div class="cardimg">
+                            <img src="${item.show_image}" alt="Image of the ${item.show_section}: ${item.show_title}">
+                        </div>
+                        <div class="cardinfo">
+                            <h3>${item.show_title}</h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
+                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+            `;
+            ctntSub1.insertAdjacentHTML("beforeend", cardHTML);
         }
+        currentIndex = endIndex;
 
-   
-
-// Card details (title, alt etc)
-    const ctntLinks = contentMain.querySelectorAll('.cardholder_bdr');
-
-    ctntLinks.forEach(ctntLink => {
-        const showCards = ctntLink.querySelector('.cardholder');
-        const showCardImgs = ctntLink.querySelector('.cardimg img');
-        const showCardInfoName = ctntLink.querySelector('.cardinfo h3');
-
-        // Card Link
-        ctntLink.draggable = false;
-        ctntLink.style.userSelect = "none";
-
-        // Card title
-        showCards.title = "Watch " + showCardInfoName.textContent;
-        showCards.draggable = false;
-        showCards.style.userSelect = "none";
-
-        // Card image
-        showCardImgs.draggable = false;
-        showCardImgs.style.userSelect = "none";
-        showCardImgs.alt ="Image of the Anime " + showCardInfoName.textContent;
-
-        // As there are many empty pages, rather than leaving blank, direct to error page *Temporary*
-        if((ctntLink.pathname == "/Library/Anime/Another.html")
-        || (ctntLink.pathname == "/Library/Anime/AttackOnTitan.html")
-        || (ctntLink.pathname == "/Library/Anime/DemonSlayer.html")
-        || (ctntLink.pathname == "/Library/Anime/InitialD.html")
-        || (ctntLink.pathname == "/Library/Anime/JujutsuKaisen.html"))
+        if (currentIndex >= catalogInventory.length)
         {
-            return;
+            observer.unobserve(loadingIndicator);
+            loadingIndicator.style.display = 'none';
         }
-        else
+    }
+
+    const observer = new IntersectionObserver((entries) => 
+    {
+        if (entries[0].isIntersecting) 
         {
-            ctntLink.href = "/Error404.html";
+            loadItems();
         }
+    },
+    {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
     });
+    observer.observe(loadingIndicator);
 
+    // Initial load
+    loadItems();
 
 
     

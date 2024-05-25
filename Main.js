@@ -322,26 +322,26 @@
     });
 
     //  Go to Home page
-        goToHomePage.forEach(one => 
+    goToHomePage.forEach(one => 
+        {
+            one.addEventListener("click" , () => 
             {
-                one.addEventListener("click" , () => 
-                {
-                    window.location.href = locationOrigin + "Home.html";
-                });
-        });
+                window.location.href = locationOrigin + "Home.html";
+            });
+    });
 
     // Profile Options
-        openNavProfileOptions.addEventListener("click" , () => 
+    openNavProfileOptions.addEventListener("click" , () => 
+    {
+        navProfileOptionsBdr.classList.toggle("active");
+        document.addEventListener("click" , () => 
         {
-            navProfileOptionsBdr.classList.toggle("active");
-            document.addEventListener("click" , () => 
+            if((navProfileOptionsBdr.classList.contains("active")) && !(openNavProfileOptions.matches(":hover")))
             {
-                if((navProfileOptionsBdr.classList.contains("active")) && !(openNavProfileOptions.matches(":hover")))
-                {
-                    navProfileOptionsBdr.classList.remove("active");
-                }
-            });
+                navProfileOptionsBdr.classList.remove("active");
+            }
         });
+    });
 
 
 // NAVBAR SIDE MENU
@@ -566,7 +566,7 @@
             let switchElem = navBarHeadName.title.toLowerCase();
             switch(switchElem)
             {
-                case 'premium': navOptLink[0].classList.add("active");
+                case 'search': navOptLink[0].classList.add("active");
                 break;
 
                 case 'home': navOptLink[1].classList.add("active");

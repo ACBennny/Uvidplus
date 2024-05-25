@@ -463,11 +463,6 @@ img
     cursor: pointer;
 }
 
-.navBarProfileBox:active
-{
-    padding: 2px;
-}
-
 .navBarProfileBox .navBarProfileImageBox
 {
     width: 100%;
@@ -2051,11 +2046,6 @@ img
     .navBarIconBox .navBarIcon:hover
     {
         fill: var(--navElementColor_green);
-    }
-
-    .navBarProfileBox:hover
-    {
-        padding: 2px;
     }
 
     .navBarProfileOptBox .navBarProfileOpt:hover
