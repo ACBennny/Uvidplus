@@ -492,15 +492,6 @@
 
                         <section class="navOptBox navOptFooter">
                             <div class="navOptFooterBox">
-                                <div class="navfooterBoxSect1">
-                                    <a href="/About.html" class="navfooterBoxElements">About</a>
-                                    <a href="/About.html#contact" class="navfooterBoxElements">Contact</a>
-                                    <a href="/Policies/Preference.html" class="navfooterBoxElements">Preference Center</a>
-                                    <a href="/Policies/Preference.html#cookies" class="navfooterBoxElements">Coookies</a>
-                                    <a href="/Policies/Privacy.html" class="navfooterBoxElements">Privacy</a>
-                                    <a href="/Policies/CopyrightsAct.html" class="navfooterBoxElements">Copyright</a>
-                                    <a href="/Policies/TOC.html" class="navfooterBoxElements">Terms of Use</a>
-                                </div>
                                 <div class="navfooterBoxSect2">
                                     <div class="navfooterCompNameBdr">
                                         <div class="navfooterCompNameBox">

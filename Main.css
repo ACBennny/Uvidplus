@@ -2387,6 +2387,10 @@ img
 
 @media only screen and (max-width: 565px)
 {
+    .nav_Opt_bcg
+    {
+        max-width: 100%;
+    }
 
     .basic_slider_title_box h2 .big
     {
