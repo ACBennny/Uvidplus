@@ -1375,6 +1375,7 @@
                                                     if(seconds == 0)
                                                     {
                                                         clearInterval(verSuccesstimer);
+                                                        window.removeEventListener("beforeunload" , beforeUnloadHandler);
                                                         preloaderBdr.style.display = "flex";
                                                         setTimeout(() => 
                                                         {
