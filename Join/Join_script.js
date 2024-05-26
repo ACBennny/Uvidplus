@@ -1093,7 +1093,7 @@
                 // Closes the verification box
                 close_verCodeBdr.addEventListener("click" , (e) => 
                 {
-                    let warn_to_close = confirm(" Please note that closing this form will forfeit the account creation process \nAll unsaved changes would be lost");
+                    let warn_to_close = confirm("Please note that closing this form will forfeit the account creation process \nAll unsaved changes would be lost");
                     if((warn_to_close == false))
                     {
                         e.preventDefault();
