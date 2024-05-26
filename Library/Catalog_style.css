@@ -61,6 +61,54 @@ html:root
     transition: 100ms;
 }
 
+#loadingIndicator
+{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #00000010;
+    transition:all 2s ease-out;
+    pointer-events: none;
+    z-index: 15;
+}
+
+#loadingIndicator .spinner
+{
+    width: 60px;
+    height: 50px;
+    border-right: 15px solid var(--genGreenTypeLight);
+    border-bottom: 10px solid var(--genWhiteTypeLight);
+    border-left: 15px solid var(--genGreenTypeLight);
+    border-top: 11px solid transparent;
+    border-radius: 10px;
+    animation: ani 2000ms linear infinite;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+
+@keyframes ani
+{
+    0%
+    {
+        transform: translateY(-50%);
+    }
+    50%
+    {
+        transform: translateY(0%);
+    }
+    100%
+    {
+        transform: translateY(-50%);
+    }
+}
+
 
 
 /* ===== CARD HOLDER ==== */

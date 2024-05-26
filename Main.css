@@ -115,6 +115,10 @@ body.bodystop
 a
 {
     text-decoration: none;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
     cursor: pointer;
 }
 a:focus, a:link, a:visited, a:any-link
@@ -2225,21 +2229,6 @@ img
         padding: 10px 15px;
     }
 
-    .basic_slider_title_box h2 .big
-    {
-        font-size: 20px;
-    }
-
-    .basic_slider_title_box h2 .small
-    {
-        font-size: 15px;
-    }
-
-    .basic_slider_title_box p
-    {
-        font-size: 11px;
-    }
-
     .basic_slider_card_box
     {
         --basicSliderCardDivision: 3;
@@ -2303,6 +2292,21 @@ img
     .navBarNotificationMain.notify_atv
     {
         --navBarNotificationPosR: 5px;
+    }
+
+    .basic_slider_title_box h2 .big
+    {
+        font-size: 20px;
+    }
+
+    .basic_slider_title_box h2 .small
+    {
+        font-size: 15px;
+    }
+
+    .basic_slider_title_box p
+    {
+        font-size: 11px;
     }
 
     .slide_card

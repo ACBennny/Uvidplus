@@ -940,9 +940,6 @@
         }
         extractHash(link.href);
 
-        // Prevents user Select
-        link.style.userSelect = "none";
-
         // Prevents draggable
         // link.draggable = false;
     });

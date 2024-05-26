@@ -1107,7 +1107,7 @@ body
 .seeAllCat_box .seaAllCat_text
 {
     color: #fff;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .seeAllCat_box .seeAllCat_btn
@@ -1323,7 +1323,6 @@ body
         align-items: center;
         gap: 10px;
         gap: 0px;
-        /* gap: 25px; */
         opacity: 1;
         visibility: visible;
     }
