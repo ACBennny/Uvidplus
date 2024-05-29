@@ -1033,7 +1033,10 @@ img
     backface-visibility: hidden;
     opacity: 0;
     visibility: hidden;
-    /* transition: all 500ms ease-in-out; */
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
     z-index: 110;
 }
 
@@ -1168,7 +1171,7 @@ img
     z-index: -1;
 }
 
-.switchAccOptBox:hover::before
+.switchAccOptBox:active::before
 {
     opacity: 1;
     transform: scale(1.0);
@@ -1247,7 +1250,7 @@ img
     font-size: 15px;
 }
 
-.switchAccOptBox .currProfileBadgeBdr
+.editProfileBadgeBdr
 {
     position: absolute;
     bottom: 0;
@@ -1259,10 +1262,10 @@ img
     align-items: center;
     padding: 5px;
     border-radius: 50%;
-    background-color: var(--genGreenTypeLight);
+    background-color: var(--genWhiteTypeLight);
 }
 
-.currProfileBadgeBdr .currProfileBadgeBox
+.editProfileBadgeBdr .editProfileBadgeBox
 {
     width: 100%;
     height: 100%;
@@ -1271,7 +1274,7 @@ img
     align-items: center;
 }
 
-.currProfileBadgeBox .currProfileBadgeIcon
+.editProfileBadgeBox .editProfileBadgeIcon
 {
     width: 80%;
 }
@@ -1295,8 +1298,17 @@ img
 {
     padding: 10px 20px;
     color: var(--genWhiteTypeLight);
+    font-size: 16px;
     border-radius: 5px;
     border: 2px solid var(--genWhiteTypeLight);
+    transition: all 300ms;
+}
+
+.actionBtnBox:active
+{
+    transform: scale(0.96);
+    color: var(--genWhiteTypeBright);
+    border-color: var(--genWhiteTypeBright);
 }
 
 
@@ -1445,6 +1457,7 @@ img
     scroll-padding-right: 50px;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
+    scrollbar-color: #00000000 #00000000;
     scrollbar-width: none;
     -ms-overflow-style: none;
     overflow-x: auto;
@@ -1706,7 +1719,7 @@ img
     transition: 200ms ease-in-out;
 }
 
-.footer_UsefulLinks:hover
+.footer_UsefulLinks:active
 {
     color: var(--footerTxtClrBright);
 }
@@ -2214,9 +2227,26 @@ img
         --slideCardPlayIconWidth: 35px;
     }
 
+    .footer_UsefulLinks:hover
+    {
+        color: var(--footerTxtClrBright);
+    }
+
     .genAtnModalOptBdr .genAtnModalOptBox:hover
     {
         background-color: #222222;
+    }
+    
+    .switchAccOptBox:hover::before
+    {
+        opacity: 1;
+        transform: scale(1.0);
+    }
+
+    .actionBtnBox:hover
+    {
+        color: var(--genWhiteTypeBright);
+        border-color: var(--genWhiteTypeBright);
     }
 }
 
@@ -2720,6 +2750,8 @@ img
         background-color: var(--scrollbarActiveClr);
     }
 
+
+
     /* ----- Navbar Notification ----- */
 
     .navBarNotificationSub::-webkit-scrollbar
@@ -2742,5 +2774,15 @@ img
     .navBarNotificationSub::-webkit-scrollbar-thumb:active
     {
         background-color: #888888;
+    }
+
+
+    /* --------- Switch Profiles Modal ---------- */
+    
+    .switchAccBoxCtnt::-webkit-scrollbar-thumb,
+    .switchAccBoxCtnt::-webkit-scrollbar-thumb:active,
+    .switchAccBoxCtnt::-webkit-scrollbar-thumb:hover
+    {
+        background: #dfdfdf50;
     }
 }
