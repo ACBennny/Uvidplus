@@ -1050,6 +1050,7 @@ img
     left: 0;
     width: 100%;
     height: 100%;
+    background-color: #00000065;
     z-index: -1;
     cursor: pointer;
 }
@@ -1099,7 +1100,7 @@ img
     flex-direction: column;
     justify-content: center;
     gap: 25px;
-    border-radius: 10px;
+    padding: 25px 0;
     overflow: hidden;
     overflow-y: visible;
 }
@@ -1119,7 +1120,7 @@ img
 .switchAccHeader .switchAccHeaderText
 {
     font-size: 35px;
-    color: #dfdfdf;
+    color: var(--genWhiteTypeLight);
     text-align: center;
 }
 
@@ -1274,6 +1275,33 @@ img
 {
     width: 80%;
 }
+
+.switchAccBoxCtnt .actionBtnBcg
+{
+    width: 100%;
+    height: var(--switchAccHeaderHeight);
+}
+
+.actionBtnBcg .actionBtnBdr
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.actionBtnBdr .actionBtnBox
+{
+    padding: 10px 20px;
+    color: var(--genWhiteTypeLight);
+    border-radius: 5px;
+    border: 2px solid var(--genWhiteTypeLight);
+}
+
+
+
+
 
 
 /* ================ General (Basic) Carousel ============== */
@@ -2476,6 +2504,11 @@ img
     .nav_Opt_bcg
     {
         max-width: 100%;
+    }
+
+    .switchAccBox .switchAccBoxCtnt
+    {
+        justify-content: unset;
     }
 
     .basic_slider_title_box h2 .big
