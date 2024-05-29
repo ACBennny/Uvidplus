@@ -32,6 +32,7 @@
     const closeNavNotificationBarBtn = document.querySelector(".closeNavNotify");
     const openNavNotificationBarBtn = document.querySelector(".openNavNotify");
     const footerLinks = document.querySelectorAll(".footerlinks");
+    const backtotopBtn = document.querySelectorAll(".backtotop_btn");
     let navNotificationBarTimer;
     const openSwitchAccBtn = document.querySelector(".open_switchAcc");
     let switchAccTimer;
@@ -261,6 +262,7 @@
         </div>
     `;
     let addToPLTimer;
+    const addToWatchListBox = document.querySelectorAll(".add_to_WatchListBox");
 
 
 
@@ -445,23 +447,40 @@
                                 </div>
                                 <span class="navOptTitle">News</span>
                             </a>
-                            <a href="/Watchlist.html" class="navOptLink" id="myListLink" title="My List">
+                        </section>
+
+                        <div class="navOptDivider"></div>
+                        
+                        <section class="navOptBox navOptLinkBox navOptSetting">
+                            <a href="/MyList.html?list=watchlist" class="navOptLink" id="prem" title="Help">
                                 <div class="navOptIconBox">
-                                    <!---- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navOptIcon">
-                                        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
-                                    </svg> ---->
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" style=" transform:rotate(90deg)" class="navOptIcon">
-                                        <path d="M237.3,136.88l-42.66,64A16,16,0,0,1,181.33,208H24a8,8,0,0,1-6.58-12.55L64,128,17.42,60.55A8,8,0,0,1,24,48H181.33a16,16,0,0,1,13.31,7.12l42.66,64A16,16,0,0,1,237.3,136.88Z"></path>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navOptIcon">
+                                    <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
                                     </svg>
                                 </div>
-                                <span class="navOptTitle">My List</span>
+                                <span class="navOptTitle">Watchlist</span>
+                            </a>
+                            <a href="/MyList.html?list=playlist" class="navOptLink" id="feedback" title="Feedback">
+                                <div class="navOptIconBox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="navOptIcon">
+                                        <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
+                                    </svg>
+                                </div>
+                                <span class="navOptTitle">Playlist</span>
+                            </a>
+                            <a href="/MyList.html?list=history" class="navOptLink" id="supp" title="Support">
+                                <div class="navOptIconBox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navOptIcon">
+                                        <path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/>
+                                    </svg>
+                                </div>
+                                <span class="navOptTitle">History</span>
                             </a>
                         </section>
 
                         <div class="navOptDivider"></div>
                         
                         <section class="navOptBox navOptLinkBox navOptSetting">
-
                             <a href="/Help/HelpCenter.html" class="navOptLink" id="prem" title="Help">
                                 <div class="navOptIconBox">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navOptIcon">
@@ -492,7 +511,7 @@
 
                         <section class="navOptBox navOptFooter">
                             <div class="navOptFooterBox">
-                                <div class="navfooterBoxSect2">
+                                <div class="navfooterBoxSect">
                                     <div class="navfooterCompNameBdr">
                                         <div class="navfooterCompNameBox">
                                             <span class="navfooterCompIconBox">
@@ -613,52 +632,52 @@
 
 // SEARCH BAR
 
-    navBarSearchForm.forEach(form => 
-    {
+    // navBarSearchForm.forEach(form => 
+    // {
 
-        // Sets the destination of the search
-        form.action = locationOrigin +  "Search.html";
+    //     // Sets the destination of the search
+    //     form.action = locationOrigin +  "Search.html";
 
-        // Turns "xmark" visible once there is text in the field
-        const navBarSearchFormField = form.querySelectorAll("#navBarSearchFieldId");
-        const navBarSearchFormFieldXmark = form.querySelectorAll(".clearSearchFieldIconBox");
+    //     // Turns "xmark" visible once there is text in the field
+    //     const navBarSearchFormField = form.querySelectorAll("#navBarSearchFieldId");
+    //     const navBarSearchFormFieldXmark = form.querySelectorAll(".clearSearchFieldIconBox");
         
-        navBarSearchFormField.forEach((field, f) => 
-        {
-            field.addEventListener("input" , () => 
-            {
-                if(field.value.length > 0)
-                {
-                    navBarSearchFormFieldXmark[f].classList.add("active");
-                    return;
-                }
-                navBarSearchFormFieldXmark[f].classList.remove("active");
-            });
-        });
+    //     navBarSearchFormField.forEach((field, f) => 
+    //     {
+    //         field.addEventListener("input" , () => 
+    //         {
+    //             if(field.value.length > 0)
+    //             {
+    //                 navBarSearchFormFieldXmark[f].classList.add("active");
+    //                 return;
+    //             }
+    //             navBarSearchFormFieldXmark[f].classList.remove("active");
+    //         });
+    //     });
 
-        // Clears search field
-        navBarSearchFormFieldXmark.forEach((xmark, x) => 
-        {
-            xmark.addEventListener("click" , () => 
-            {
-                navBarSearchFormField[x].value = "";
-                xmark.classList.remove("active");
-            });
-        });
-    });
+    //     // Clears search field
+    //     navBarSearchFormFieldXmark.forEach((xmark, x) => 
+    //     {
+    //         xmark.addEventListener("click" , () => 
+    //         {
+    //             navBarSearchFormField[x].value = "";
+    //             xmark.classList.remove("active");
+    //         });
+    //     });
+    // });
 
 
     // This will open the seearch Bar (max-width: 768px)
     openNavSearchBar.addEventListener("click" , () => 
     {
-        navSearchBar.classList.toggle("active");
+        window.open("/Search.html" , "_self");
     });
 
-    // This will close the seearch Bar (max-width: 768px)
-    closeNavSearchBar.addEventListener("click" , () => 
-    {
-        navSearchBar.classList.remove("active");
-    });
+    // // This will close the seearch Bar (max-width: 768px)
+    // closeNavSearchBar.addEventListener("click" , () => 
+    // {
+    //     navSearchBar.classList.remove("active");
+    // });
 
 
 
@@ -765,7 +784,7 @@
     openNavNotificationBarBtn.addEventListener("click" , instantiateNavBarNotificationBox);
 
 
-// SWITCH ACCOUNTS
+// SWITCH PROFILES
 
     // Opens the Notification Box
     function instantiateSwitchAccBdr()
@@ -865,6 +884,15 @@
     openSwitchAccBtn.addEventListener("click" , instantiateSwitchAccBdr);
 
 
+// BACK TO TOP
+
+    backtotopBtn.forEach(btn => 
+    {
+        btn.addEventListener("click" , () => 
+        {
+            window.scrollTo(null , 0);
+        });
+    });
 
 
 // ALL IMAGES
@@ -1160,6 +1188,31 @@
         btn.addEventListener("click" , () => 
         {
             navigatorSclShareModal();
+        });
+    });
+
+
+
+
+// WATCHLIST
+
+    addToWatchListBox.forEach(box => 
+    {
+        const addToWatchListText = box.querySelector(".add_to_WatchListText");
+        box.addEventListener("click" , () => 
+        {
+            if(box.classList.contains("active"))
+            {
+                box.classList.remove("active");
+                addToWatchListText.textContent = "Watchlist";
+                box.title = "Add to Watchlist";
+                box.ariaLabel = "Add to Watchlist";
+                return;
+            }
+            box.classList.add("active");
+            addToWatchListText.textContent = "In Watchlist";
+            box.title = "Remove from Watchlist";
+            box.ariaLabel = "Remove from Watchlist";
         });
     });
 

@@ -25,7 +25,6 @@
     const showHeaderName = document.querySelector("#show_Header_Name");
     const watchTrailerBox = document.querySelector('.watchTrailer_box');
     let trailerTimer;
-    const addToWatchListBox = document.querySelector(".add_to_WatchListBox"); 
     let seasonHome = document.querySelector(".show-home");
     let seasonHTML = 
     `
@@ -198,23 +197,6 @@
     {
         watchNowLink = seasonSet[0].querySelectorAll(".episodes")[0].href;
         window.open(watchNowLink , "_self");
-    });
-
-
-// ADD TO WATCHLIST
-    
-    addToWatchListBox.addEventListener("click" , () => 
-    {
-        if(addToWatchListBox.classList.contains("active"))
-        {
-            addToWatchListBox.classList.remove("active");
-            addToWatchListBox.title = "Add to WatchList";
-            addToWatchListBox.ariaLabel = "Add to WatchList";
-            return;
-        }
-        addToWatchListBox.classList.add("active");
-        addToWatchListBox.title = "Remove from WatchList";
-        addToWatchListBox.ariaLabel = "Remove from WatchList";
     });
 
 

@@ -179,7 +179,7 @@ html:root
     height: 100%;
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 5px;
 }
 
 .media_optBdr .media_optBox
@@ -239,25 +239,6 @@ html:root
 .media_optBox:active .media_optText
 {
     color: var(--genWhiteTypeBright);
-}
-
-
-.left_section_box.media_actions_box.active
-{
-    position: relative;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
-}
-
-.media_actions_box.active .media_optBdr
-{
-    flex-direction: column;
-}
-
-.add_to_WatchListBox .add_to_WatchListIcon
-{
-    display: block;
 }
 
 .add_to_WatchListBox .remove_from_WatchListIcon
@@ -1036,6 +1017,11 @@ html:root
     .left_section_box.media_actions_box
     {
         flex-direction: column;
+    }
+
+    .media_actions_box .media_optBdr
+    {
+        gap: 3px;
     }
 
     .media_optBdr .media_optBox

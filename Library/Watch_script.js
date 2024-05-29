@@ -12,7 +12,6 @@
     const mediaActionBox = document.querySelector(".media_actions_box");
     const likeTheEp = document.querySelector(".add_to_LikedShowsBox");
     const dontLikeTheEp = document.querySelector(".add_to_DislikedShowsBox");
-    const addToWatchListBox = document.querySelector(".add_to_WatchListBox");
 
 
 
@@ -50,22 +49,6 @@
     });
 
 
-
-// WATCHLIST
-
-    addToWatchListBox.addEventListener("click" , () => 
-    {
-        if(addToWatchListBox.classList.contains("active"))
-        {
-            addToWatchListBox.classList.remove("active");
-            addToWatchListBox.title = "Add to WatchList";
-            addToWatchListBox.ariaLabel = "Add to WatchList";
-            return;
-        }
-        addToWatchListBox.classList.add("active");
-        addToWatchListBox.title = "Remove from WatchList";
-        addToWatchListBox.ariaLabel = "Remove from WatchList";
-    });
 
 
 // MORE EPISODES
