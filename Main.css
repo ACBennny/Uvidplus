@@ -1018,6 +1018,7 @@ img
 
 
 /* ====== Switch Account ====== */
+
 .switchAccBdr
 {
     position: fixed;
@@ -1030,6 +1031,8 @@ img
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #000000;
+    filter: brightness(0.0);
     backface-visibility: hidden;
     opacity: 0;
     visibility: hidden;
@@ -1042,8 +1045,10 @@ img
 
 .switchAccBdr.active
 {
+    filter: brightness(1.0);
     opacity: 1;
     visibility: visible;
+    transition: all 500ms ease-in-out;
 }
 
 .switchAccBdr .switchAccBcg
@@ -1257,12 +1262,17 @@ img
     right: 0;
     width: calc((var(--switchAccOptImgBoxWidth) / 4));
     height: calc((var(--switchAccOptImgBoxWidth) / 4));
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     padding: 5px;
     border-radius: 50%;
     background-color: var(--genWhiteTypeLight);
+}
+
+.editProfileBadgeBdr.active
+{
+    display: flex;
 }
 
 .editProfileBadgeBdr .editProfileBadgeBox
@@ -1301,7 +1311,9 @@ img
     font-size: 16px;
     border-radius: 5px;
     border: 2px solid var(--genWhiteTypeLight);
+    background-color: #00000000;
     transition: all 300ms;
+    cursor: pointer;
 }
 
 .actionBtnBox:active
@@ -1310,7 +1322,6 @@ img
     color: var(--genWhiteTypeBright);
     border-color: var(--genWhiteTypeBright);
 }
-
 
 
 
@@ -1478,7 +1489,9 @@ img
 {
     position: relative;
     width: 100%;
-    height: 325px;
+    /* height: 325px; */
+    /* height: 100%; */
+    aspect-ratio: 12/20;
     display: flex;
     flex-direction: column;
     background: #000;
@@ -1784,7 +1797,7 @@ img
 
 
 
-/* ====== A general notification ====== */
+/* ========== A general notification ========= */
 .notifyBdr
 {
     position: fixed;
@@ -2015,6 +2028,9 @@ img
     color: #cdcdcd;
     font-size: 14px;
 }
+
+
+
 
 
 /* ------------ Create New Playlist Modal ------------ */
@@ -2462,7 +2478,7 @@ img
 
     .slide_card
     {
-        height: 240px;
+        /* height: 240px; */
     }
 
     .genAtnModalBdr .genAtnModalBox
@@ -2613,7 +2629,7 @@ img
 
     .slide_card
     {
-        height: 180px;
+        /* height: 180px; */
         background-color: #00000050;
     }
 
@@ -2778,7 +2794,7 @@ img
 
 
     /* --------- Switch Profiles Modal ---------- */
-    
+
     .switchAccBoxCtnt::-webkit-scrollbar-thumb,
     .switchAccBoxCtnt::-webkit-scrollbar-thumb:active,
     .switchAccBoxCtnt::-webkit-scrollbar-thumb:hover
