@@ -2264,7 +2264,14 @@ img
 /* ========= Responsive ========= */
 
 /* ----- Height ----- */
+@media only screen and (max-height: 600px)
+{
 
+    .switchAccBox .switchAccBoxCtnt
+    {
+        justify-content: unset;
+    }
+}
 
 
 /* -------- Width ------ */
