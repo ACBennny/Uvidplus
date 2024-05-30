@@ -39,7 +39,7 @@
     grid-template-columns: repeat(auto-fit, minmax(var(--cardWidth), 1fr));
     grid-template-rows: auto;
     justify-items: center;
-    padding: 20px;
+    padding: 20px 15px;
     gap: 10px;
     overflow-x: hidden;
     overflow-y: auto;
@@ -91,6 +91,25 @@
     100%
     {
         transform: translateY(-50%);
+    }
+}
+
+
+
+
+
+
+
+/* ====== ======== ======= Responsive= ===========  == == */
+
+
+/*  ----------- ---- Width ---- --------- */
+
+@media only screen and (max-width: 768px)
+{
+    .contentsub
+    {
+        --cardWidth: 125px;
     }
 }
 
