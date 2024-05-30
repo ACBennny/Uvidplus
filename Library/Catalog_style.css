@@ -8,18 +8,8 @@
 
 
 
-/*  ======== ======= BODY ======== ======== */
-html
-{
-    scroll-behavior: auto;
-}
 
-
-html:root
-{
-    --slideCardPlayIconClr: #18bd0f;
-    --slideCardPlayIconWidth: 18px;
-}
+/* --------- For movies, anime, tv shows, cartoon ------------ */
 
 .catalog_body
 {
@@ -29,11 +19,6 @@ html:root
     overflow-x: hidden;
     scroll-behavior: auto;
 }
-
-
-
-
-/* --------- For movies, anime, tv shows, cartoon ------------ */
 
 .contentmain
 {
@@ -47,7 +32,7 @@ html:root
 
 .contentsub
 {
-    --cardWidth: 250px;
+    --cardWidth: 165px;
     width: 100%;
     height: 100%;
     display: grid;
@@ -55,7 +40,7 @@ html:root
     grid-template-rows: auto;
     justify-items: center;
     padding: 20px;
-    gap: 25px;
+    gap: 10px;
     overflow-x: hidden;
     overflow-y: auto;
     transition: 100ms;
@@ -106,235 +91,6 @@ html:root
     100%
     {
         transform: translateY(-50%);
-    }
-}
-
-
-
-/* ===== CARD HOLDER ==== */
-
-.cardholder
-{
-    position: relative;
-    width: 250px;
-    height: 325px;
-    display: flex;
-    flex-direction: column;
-    background: #000;
-    border-radius: 25px;
-    border-bottom: 2px solid #1da216;
-    overflow: hidden;
-    cursor: pointer;
-    transition: 300ms;
-}
-
-.cardholder:active
-{
-    border-top: 2px solid #21c018;
-    border-left: 2px solid #21c018;
-    border-right: 2px solid #21c018;
-    border-bottom: none;
-}
-
-
-.cardholder .cardimg
-{
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 2;
-}
-
-.cardholder .cardimg img
-{
-    width: 100%;
-    height: 100%;
-    transition: all 700ms ease-in-out;
-}
-
-.cardholder:active .cardimg img
-{
-    transform: scale(1.15);
-}
-
-.cardholder .cardinfo
-{
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-    padding: 10px;
-    background: #00000035;
-    transition: 300ms;
-    z-index: 4;
-}
-
-.cardholder:active .cardinfo
-{
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: #00000085;
-}
-
-.cardholder .cardinfo h3
-{
-    width: 180px;
-    display: flex;
-    flex-wrap: wrap;
-    overflow: hidden;
-    color: #e7e7e7;
-    font-size: 16px;
-}
-
-.cardholder:active .cardinfo h3
-{
-    width: 100%;
-    justify-content: space-evenly;
-    text-align: center;
-}
-
-.cardholder .cardinfo .slideCardIcon
-{
-    width: var(--slideCardPlayIconWidth);
-    fill: var(--slideCardPlayIconClr);
-    transition: 500ms;
-}
-
-.cardholder:active .cardinfo .slideCardIcon
-{
-    --slideCardPlayIconWidth: 35px;
-}
-
-
-
-
-
-
-
-
-
-@media(hover: hover)
-{
-
-    .cardholder:hover
-    {
-        border-top: 2px solid #21c018;
-        border-left: 2px solid #21c018;
-        border-right: 2px solid #21c018;
-        border-bottom: none;
-    }
-
-    .cardholder:hover .cardimg img
-    {
-        transform: scale(1.15);
-    }
-
-    .cardholder:hover .cardinfo
-    {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background: #00000085;
-    }
-
-    .cardholder:hover .cardinfo h3
-    {
-        width: 100%;
-        justify-content: space-evenly;
-        text-align: center;
-    }
-
-    .cardholder:hover .cardinfo .slideCardIcon
-    {
-        --slideCardPlayIconWidth: 35px;
-    }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-/* ====== ======== ======= Responsive= ===========  == == */
-
-
-
-/* ------------- Height ------------ */
-
-
-
-/*  ----------- ---- Width ---- --------- */
-
-@media only screen and (max-width: 884px)
-{
-
-    .contentsub
-    {
-        --cardWidth: 200px;
-    }
-
-    .cardholder
-    {
-        width: 200px;
-        height: 240px;
-    }
-
-    .cardinfo h3
-    {
-        width: 150px;
-    }
-}
-
-
-@media only screen and (max-width: 485px)
-{
-
-    .contentsub
-    {
-        --cardWidth: 180px;
-    }
-
-    .cardholder
-    {
-        width: 180px;
-        height: 200px;
-    }
-
-    .cardinfo h3
-    {
-        width: 150px;
-    }
-}
-
-
-@media only screen and (max-width: 320px)
-{
-
-    .contentsub
-    {
-        --cardWidth: 150px;
-    }
-
-    .cardholder
-    {
-        width: 150px;
-        height: 180px;
-    }
-
-    .cardinfo h3
-    {
-        width: 120px;
     }
 }
 

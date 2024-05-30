@@ -3,7 +3,7 @@
  * This will hold the code for the different sections of the website 
     The sections include:
     - Anime
-    - TV sHOWS
+    - TV Shows
     - Movies
     - Cartoon
  * 
@@ -30,7 +30,7 @@
             const cardHTML = 
             `
                 <a href="${item.show_link}" class="cardholder_bdr" title="Watch ${item.show_title}">
-                    <div class="cardholder">
+                    <div class="slide_card">
                         <div class="cardimg">
                             <img src="${item.show_image}" alt="Image of the ${item.show_section}: ${item.show_title}">
                         </div>
@@ -77,22 +77,6 @@
 
 
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

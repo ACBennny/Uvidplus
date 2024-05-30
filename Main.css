@@ -74,9 +74,9 @@ html:root
     --switchAccHeaderHeight: 60px;
     --switchAccOptImgBoxWidth: 125px;
     --basicSliderCardDivision: 4;
-    --basicSlideIconWidth: 18px;
+    --basicSlideIconWidth: 16px;
     --slideCardPlayIconClr: var(--genGreenTypeLight);
-    --slideCardPlayIconWidth: 18px;
+    --slideCardPlayIconWidth: 35px;
     --footerTextClrGreen: var(--genGreenTypeLight);
     --footerTxtClrBright: #e7e7e7;
     --footerTxtClrMid: #b7b7b7;
@@ -1341,7 +1341,7 @@ img
 {
     width: 100%;
     height: 75px;
-    padding: 10px 10px 10px 50px;
+    padding: 10px 10px 10px 30px;
 }
 
 .basic_slider_title_box
@@ -1400,7 +1400,7 @@ img
 {
     position: absolute;
     top: 0;
-    width: 45px;
+    width: 35px;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -1460,12 +1460,12 @@ img
     min-width: 100%;
     height: 100%;
     display: grid;
-    grid-auto-columns: calc((100% / var(--basicSliderCardDivision)) - 10px);
+    grid-auto-columns: calc((100% / var(--basicSliderCardDivision)) - 7px);
     grid-auto-flow: column;
-    gap: 15px;
-    padding: 10px 50px;
-    scroll-padding-left: 50px;
-    scroll-padding-right: 50px;
+    gap: 10px;
+    padding: 0px 30px 5px;
+    scroll-padding-left: 30px;
+    scroll-padding-right: 30px;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     scrollbar-color: #00000000 #00000000;
@@ -1489,23 +1489,36 @@ img
 {
     position: relative;
     width: 100%;
-    /* height: 325px; */
-    /* height: 100%; */
-    aspect-ratio: 12/20;
+    aspect-ratio: 18/27;
     display: flex;
     flex-direction: column;
-    background: #000;
+    background: #000000;
     border-radius: 25px;
-    border-bottom: 2px solid #1da216;
-    overflow: hidden;
     cursor: pointer;
     transition: 300ms;
+}
+
+.slide_card::after
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000000;
+    border-radius: 25px;
+    border-bottom: 2px solid #1da216;
+    transition: 0ms;
+    pointer-events: none;
+    z-index: 5;
 }
 
 .slide_card .cardimg
 {
     width: 100%;
     height: 100%;
+    border-radius: 25px;
     overflow: hidden;
     z-index: 2;
 }
@@ -1527,28 +1540,33 @@ img
     display: flex;
     justify-content: space-between;
     align-items: end;
-    padding: 5px;
-    background: #00000035;
+    padding: 10px;
+    background: #00000055;
     transition: 300ms;
-    z-index: 4;
+    z-index: 3;
 }
 
 .slide_card .cardinfo h3
 {
-    width: 180px;
+    font-family: 'Poppins' , sans-serif;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
-    color: #e7e7e7;
-    font-size: 16px;
-    padding: 0 5px;
+    color: var(--genWhiteTypeBright);
+    font-size: 14px;
 }
 
 .slide_card .cardinfo .slideCardIcon
 {
+    position: absolute;
+    bottom: 25%;
+    right: 50%;
+    opacity: 0;
     width: var(--slideCardPlayIconWidth);
     fill: var(--slideCardPlayIconClr);
-    transition: 500ms;
+    transform: translate(50% , 50%);
+    transition: all 300ms ease-in-out;
 }
 
 
@@ -2196,6 +2214,18 @@ img
     {
         color: var(--navFooterElemHoverColor);
     }
+    
+    .switchAccOptBox:hover::before
+    {
+        opacity: 1;
+        transform: scale(1.0);
+    }
+
+    .actionBtnBox:hover
+    {
+        color: var(--genWhiteTypeBright);
+        border-color: var(--genWhiteTypeBright);
+    }
 
     .basic_slider_box:hover .basic_slide_arrow
     {
@@ -2210,12 +2240,15 @@ img
         pointer-events: all;
     }
 
-    .slide_card:hover
+    .slide_card:hover::after
     {
+        width: calc(100% - 2px);
+        height: calc(100% - 2px);
         border-top: 2px solid #21c018;
         border-left: 2px solid #21c018;
         border-right: 2px solid #21c018;
         border-bottom: none;
+        transition: all 300ms ease-in-out;
     }
 
     .slide_card:hover .cardimg img
@@ -2225,22 +2258,13 @@ img
 
     .slide_card:hover .cardinfo
     {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
         background: #00000085;
-    }
-
-    .slide_card:hover .cardinfo h3
-    {
-        width: 100%;
-        justify-content: space-evenly;
-        text-align: center;
     }
 
     .slide_card:hover .cardinfo .slideCardIcon
     {
-        --slideCardPlayIconWidth: 35px;
+        bottom: 50%;
+        opacity: 1;
     }
 
     .footer_UsefulLinks:hover
@@ -2251,18 +2275,6 @@ img
     .genAtnModalOptBdr .genAtnModalOptBox:hover
     {
         background-color: #222222;
-    }
-    
-    .switchAccOptBox:hover::before
-    {
-        opacity: 1;
-        transform: scale(1.0);
-    }
-
-    .actionBtnBox:hover
-    {
-        color: var(--genWhiteTypeBright);
-        border-color: var(--genWhiteTypeBright);
     }
 }
 
@@ -2345,7 +2357,7 @@ img
 
     .basic_slider_card_box
     {
-        --basicSliderCardDivision: 5;
+        --basicSliderCardDivision: 6;
     }
 }
 
@@ -2354,7 +2366,7 @@ img
 
     .basic_slider_card_box
     {
-        --basicSliderCardDivision: 4;
+        --basicSliderCardDivision: 5;
     }
 }
 
@@ -2375,11 +2387,6 @@ img
     {
         margin: 0;
         padding: 10px 15px;
-    }
-
-    .basic_slider_card_box
-    {
-        --basicSliderCardDivision: 3;
     }
 
     .slide_card .cardinfo h3
@@ -2461,6 +2468,11 @@ img
         --navBarNotificationPosR: 5px;
     }
 
+    .basic_slider_card_box
+    {
+        --basicSliderCardDivision: 4;
+    }
+
     .basic_slider_title_box h2 .big
     {
         font-size: 20px;
@@ -2474,11 +2486,6 @@ img
     .basic_slider_title_box p
     {
         font-size: 11px;
-    }
-
-    .slide_card
-    {
-        /* height: 240px; */
     }
 
     .genAtnModalBdr .genAtnModalBox
@@ -2539,10 +2546,30 @@ img
 
 @media only screen and (max-width: 600px)
 {
+    html:root
+    {
+        --basicSlideIconWidth: 15px;
+        --slideCardPlayIconWidth: 27px;
+    }
+
+    .basic_slider_box  .basic_slide_arrow
+    {
+        width: 30px;
+    }
+    
+    .basic_slider_title_bdr
+    {
+        padding: 10px 10px 10px 20px;
+    }
 
     .basic_slider_card_box
     {
-        --basicSliderCardDivision: 2;
+        --basicSliderCardDivision: 3;
+        grid-auto-columns: calc((100% / var(--basicSliderCardDivision)) - 5px);
+        gap: 5px;
+        padding: 5px 10px 5px 20px;
+        scroll-padding-left: 20px;
+        scroll-padding-right: 10px;
     }
 
     .newPLInputBdr .newPLInputBox
@@ -2550,6 +2577,25 @@ img
         width: 100%;
     }
     
+}
+
+@media only screen and (max-width: 600px) and (hover: none)
+{
+
+    .basic_slider_box .basic_slide_arrow
+    {
+        cursor: none;
+        pointer-events: none;
+    }
+
+    .basic_slide_arrow .basic_slide_arrowIcon
+    {
+        opacity: 0;
+        visibility: hidden;
+        cursor: none;
+        pointer-events: none;
+
+    }
 }
 
 @media only screen and (max-width: 565px)
@@ -2583,24 +2629,6 @@ img
 
 @media only screen and (max-width: 485px)
 {
-    .basic_slider_title_bdr
-    {
-        padding: 10px 10px 10px 20px;
-    }
-
-    .basic_slider_box  .basic_slide_arrow
-    {
-        display: none;
-    }
-
-    .basic_slider_card_box
-    {
-        gap: 15px;
-        padding: 20px;
-        scroll-padding-left: 20px;
-        scroll-padding-right: 20px;
-        overflow-x: auto;
-    }
 }
 
 
@@ -2627,36 +2655,14 @@ img
         font-size: 12px;
     }
 
-    .slide_card
+    .basic_slider_card_box
     {
-        /* height: 180px; */
-        background-color: #00000050;
-    }
-
-    .slide_card .cardinfo
-    {
-        background-color: #00000050;
-    }
-    
-    .slide_card .cardinfo h3
-    {
-        width: 100%;
+        --basicSliderCardDivision: 2;
     }
 
     .slide_card .cardinfo h3
     {
-        width: 100%;
         font-size: 12px;
-        justify-content: start;
-    }
-     
-    .slide_card .cardinfo .slideCardIcon
-    {
-        --slideCardPlayIconWidth: 0px;
-        transform: translateY(-50%);
-        opacity: 0;
-        visibility: hidden;
-        transition: 100ms;
     }
 
     .specialEp_box .specialEp_SpImgBdr
@@ -2666,65 +2672,6 @@ img
         height: 200px;
     }
 
-}
-
-
-@media only screen and (hover: hover) and (max-width: 350px)
-{
-    
-    .slide_card:hover
-    {
-        border: none;
-    }
-    
-    .slide_card:hover .cardimg img 
-    {
-        transform: scale(1.15);
-    }
-    
-    .slide_card:hover .cardinfo h3
-    {
-        display: none;
-    }
-
-    .slide_card:hover .cardinfo .slideCardIcon
-    {
-        display: flex;
-        transform: translateY(0%);
-        opacity: 1;
-        visibility: visible;
-    }
-
-}
-
-
-@media only screen and (max-width: 265px)
-{
-    .slide_nav_btn.active
-    {
-        width: 55px;
-    }
-
-    .basic_slider_card_box
-    {
-        grid-auto-columns: 100%;
-    }
-    
-    .slide_card .cardinfo h3
-    {
-        width: 100%;
-        justify-content: center;
-    }
-}
-
-
-@media only screen and (hover: hover) and (max-width: 265px)
-{
-    .slide_card:hover .cardinfo h3
-    {
-        width: 100%;
-        justify-content: center;
-    }
 }
 
 

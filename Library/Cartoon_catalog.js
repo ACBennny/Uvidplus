@@ -118,7 +118,7 @@
         {
             show_link: `/Library/Anime/TomodachiGame.html`,
             show_image: `/Library/Anime/img/16.jpg`,
-            show_title: `>Tomodachi Game`,
+            show_title: `Tomodachi Game`,
             show_section: `Anime`,
             show_code: `Tomodachi Game Tomodachi Gemu anime`,
         },
