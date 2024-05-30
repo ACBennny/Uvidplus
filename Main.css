@@ -2627,8 +2627,14 @@ img
 }
 
 
-@media only screen and (max-width: 485px)
-{}
+@media only screen and (max-width: 400px)
+{
+
+    .basic_slider_card_box
+    {
+        --basicSliderCardDivision: 2;
+    }
+}
 
 
 @media only screen and (max-width: 350px)
@@ -2652,11 +2658,6 @@ img
     .switchAccOptTextBox .switchAccOptText
     {
         font-size: 12px;
-    }
-
-    .basic_slider_card_box
-    {
-        --basicSliderCardDivision: 2;
     }
 
     .slide_card .cardinfo h3
