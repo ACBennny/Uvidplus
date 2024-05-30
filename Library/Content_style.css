@@ -501,7 +501,7 @@ body
 .watchSectionBox .watchSection
 {
     width: 50%;
-    height: 350px;
+    height: 300px;
 }
 
 .watchSection.watchSectionDet
@@ -554,7 +554,6 @@ body
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 10px;
     border-radius: 5px;
     transition: 300ms;
     cursor: pointer;
@@ -568,6 +567,7 @@ body
 .watchActionBox .watchAction span
 {
     font-size: 14px;
+    margin-left: 5px;
 }
 
 .watchAction.watchEpLink
@@ -1424,6 +1424,68 @@ body
 }
 
 
+@media only screen and (max-width: 768px)
+{
+
+    .watchSectionBdr .watchSectionBox
+    {
+        width: calc(100% - 40px);
+        align-items: center;
+    }
+
+    .watchSectionBox.foreSectionBox
+    {
+        flex-direction: column-reverse;
+    }
+    
+    .watchSectionBox.backSectionBox
+    {
+        flex-direction: column-reverse;
+    }
+
+    .watchSection.watchSectionDet,
+    .watchSection.watchSectionImgBdr
+    {
+        width: 100%;
+    }
+
+    .watchSection.watchSectionDet
+    {
+        height: fit-content;
+    }
+
+    .watchSection.watchSectionImgBdr
+    {
+        height: 200px;
+    }
+
+    .infoBox .watchHead
+    {
+        font-size: 18px;
+    }
+    
+    .infoBox .watchType
+    {
+        font-size: 11px;
+    }
+    
+    .infoBox .watchInfo
+    {
+        font-size: 12px;
+    }
+    
+    .watchActionBox .watchAction span
+    {
+        font-size: 12px;
+    }
+
+    .infoBox .watchActionBox
+    {
+        flex-direction: row;
+    }
+}
+
+
 @media only screen and (max-width: 600px)
 {
 
@@ -1516,66 +1578,6 @@ body
         width: 100%;
     }
 
-    .watchSectionBdr .watchSectionBox
-    {
-        width: calc(100% - 20px);
-        align-items: center;
-    }
-
-    .watchSectionBox.foreSectionBox
-    {
-        flex-direction: column-reverse;
-    }
-    
-    .watchSectionBox.backSectionBox
-    {
-        flex-direction: column-reverse;
-    }
-
-    .watchSection.watchSectionDet,
-    .watchSection.watchSectionImgBdr
-    {
-        width: 100%;
-    }
-
-    .watchSection.watchSectionDet
-    {
-        height: fit-content;
-    }
-
-    .watchSection.watchSectionImgBdr
-    {
-        height: 200px;
-    }
-
-    .watchImgBox .goToSeries
-    {
-        background-color: #00000000;
-        opacity: 1;
-        visibility: visible;
-        color: #00000000;
-    }
-
-    .infoBox .watchHead
-    {
-        font-size: 18px;
-    }
-    
-    .infoBox .watchType
-    {
-        font-size: 11px;
-    }
-    
-    .infoBox .watchInfo
-    {
-        font-size: 12px;
-    }
-    
-    .watchActionBox .watchAction span
-    {
-        font-size: 12px;
-    }
-
     .specialEp_bdr
     {
         padding: 10px 20px;
@@ -1586,6 +1588,25 @@ body
 
 @media only screen and (max-width: 485px)
 {
+    html
+    {
+        --addTOWatchListSmallWidth: 20px;
+    }
+
+    .watchAction.watchEpLink
+    {
+        width: calc((100% - var(--watchActionIconWidth)) + var(--addTOWatchListSmallWidth));
+    }
+
+    .watchAction.addToWatchList
+    {
+        width: calc(var(--watchActionIconWidth) + var(--addTOWatchListSmallWidth));
+    }
+
+    .addToWatchList span
+    {
+        display: none;
+    }
 
     .latestEp_bdr .latestEp_box
     {
