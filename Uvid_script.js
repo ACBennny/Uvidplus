@@ -10,6 +10,7 @@
 
     const bodyDoc = document.body;
     const preloaderBdr = document.querySelector('#preloader');
+    let backtotopBtn = document.querySelectorAll(".backtotop_btn");
 
     // To open the Account forms
     const loadAccForm = document.querySelectorAll(".action_Join");
@@ -37,9 +38,21 @@
 
     // This function removes the preloader after the skeleton of the website has been loaded
     
-    window.addEventListener("load", () => {
+    window.addEventListener("load", () => 
+    {
         preloaderBdr.style.display = "none";
         onBodyFlow();
+    });
+
+
+// BACK TO TOP
+
+    backtotopBtn.forEach(btn => 
+    {
+        btn.addEventListener("click" , () => 
+        {
+            window.scrollTo(null , 0);
+        });
     });
 
 
