@@ -1810,6 +1810,58 @@ img
     font-size: 12px;
 }
 
+.developer_creditsBdr
+{
+    width: 100%;
+    margin-top: 40px;
+}
+
+.developer_creditsBdr .developer_creditsBox
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.developer_creditsBox .developer_creditsText
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 12px;
+}
+
+.developer_creditsText .developer_creditsName
+{
+    font-family: 'Poppins' , sans-serif;
+    position: relative;
+    color: var(--genGreenTypeLight);
+    cursor: pointer;
+}
+
+.developer_creditsName::after
+{
+    content: '';
+    position: absolute;
+    right: 50%;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    border-radius: 10px;
+    background-color: var(--genGreenTypeLight);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100%);
+    transition: all 300ms ease-in-out;
+}
+
+.developer_creditsName:active::after
+{
+    right: 2%;
+    width: 96%;
+    opacity: 1;
+    visibility: visible;
+}
+
 
 
 
@@ -2268,14 +2320,22 @@ img
         opacity: 1;
     }
 
+    .genAtnModalOptBdr .genAtnModalOptBox:hover
+    {
+        background-color: #222222;
+    }
+
     .footer_UsefulLinks:hover
     {
         color: var(--footerTxtClrBright);
     }
-
-    .genAtnModalOptBdr .genAtnModalOptBox:hover
+    
+    .developer_creditsName:hover::after
     {
-        background-color: #222222;
+        right: 2%;
+        width: 96%;
+        opacity: 1;
+        visibility: visible;
     }
 }
 

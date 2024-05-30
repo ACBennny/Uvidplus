@@ -9,18 +9,106 @@
 
 
 
+// PRE - DEFINITION
+
+
 // DEFINITION
 
     const documentBody = document.body;
     const documentTitle = document.title;
-    const preload = document.querySelector('#preloader');
+    const preload = document.querySelector("#preloader");
+    const developerLink = "https://acbennny.netlify.app";
+    const developerProfile = document.querySelectorAll(".developer_profile");
+    const navBarHTML = 
+    `
+        <div class="navBox">
+            <div class="navBar">
+                <div class="navBarLeft">
+                    <div class="navBarIconBox">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarIcon open_nav_menu">
+                            <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM64 256c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H96c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+                        </svg>
+                    </div>
+                    <div class="Companylogo navBarCompanylogo">
+                        <h1 class="lhead">U</h1>
+                        <h1 class="lname">vid</h1>
+                    </div>
+                </div>
+                <div class="navBarCenter navBarSearchBdr"></div>
+                <div class="navBarRight">
+                    <div class="headname" title="Anime">
+                        <h1 class="hd1">A</h1>
+                        <h1 class="hd2">nime</h1>
+                    </div>
+                    <div class="navBarRightCtnt">
+                        <div class="navBarIconBox openNavSearch_BtnBox">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarIcon openNavSearch_Btn">
+                                <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
+                            </svg>
+                        </div>
+                        <div class="navBarIconBox openNavNotifyBox">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navBarIcon openNavNotify notify_atv">
+                                <path d="M224 0c-17.7 0-32 14.3-32 32V51.2C119 66 64 130.6 64 208v25.4c0 45.4-15.5 89.5-43.8 124.9L5.3 377c-5.8 7.2-6.9 17.1-2.9 25.4S14.8 416 24 416H424c9.2 0 17.6-5.3 21.6-13.6s2.9-18.2-2.9-25.4l-14.9-18.6C399.5 322.9 384 278.8 384 233.4V208c0-77.4-55-142-128-156.8V32c0-17.7-14.3-32-32-32zm0 96c61.9 0 112 50.1 112 112v25.4c0 47.9 13.9 94.6 39.7 134.6H72.3C98.1 328 112 281.3 112 233.4V208c0-61.9 50.1-112 112-112zm64 352H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7s18.7-28.3 18.7-45.3z"/>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navBarIcon closeNavNotify ">
+                                <path d="M224 0c-17.7 0-32 14.3-32 32V51.2C119 66 64 130.6 64 208v18.8c0 47-17.3 92.4-48.5 127.6l-7.4 8.3c-8.4 9.4-10.4 22.9-5.3 34.4S19.4 416 32 416H416c12.6 0 24-7.4 29.2-18.9s3.1-25-5.3-34.4l-7.4-8.3C401.3 319.2 384 273.9 384 226.8V208c0-77.4-55-142-128-156.8V32c0-17.7-14.3-32-32-32zm45.3 493.3c12-12 18.7-28.3 18.7-45.3H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7z"/>
+                            </svg>
+                        </div>
+                        <div class="navBarProfileBdr">
+                            <div class="navBarProfileBox open_nav_profileOptions">
+                                <div class="navBarProfileImageBox">
+                                    <img src="/Images/Uvid_profilebase.png" alt="Profile Image" class="navBarProfileImage">
+                                </div>
+                                <div class="navBarProfileOptBdr">
+                                    <div class="navBarProfileOptBox">
+                                        <div class="navBarProfileOpt">
+                                            <a href="/Profile.html" class="navBarProfileOptLink">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarProfileOptLinkIcon">
+                                                    <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/>
+                                                </svg>
+                                                <p class="navBarProfileOptLinkText">Profile</p>
+                                            </a>
+                                        </div>
+                                        <div class="navBarProfileOpt">
+                                            <a href="javascript:void(0)" class="navBarProfileOptLink open_switchAcc">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarProfileOptLinkIcon">
+                                                    <path d="M32 96l320 0V32c0-12.9 7.8-24.6 19.8-29.6s25.7-2.2 34.9 6.9l96 96c6 6 9.4 14.1 9.4 22.6s-3.4 16.6-9.4 22.6l-96 96c-9.2 9.2-22.9 11.9-34.9 6.9s-19.8-16.6-19.8-29.6V160L32 160c-17.7 0-32-14.3-32-32s14.3-32 32-32zM480 352c17.7 0 32 14.3 32 32s-14.3 32-32 32H160v64c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-96-96c-6-6-9.4-14.1-9.4-22.6s3.4-16.6 9.4-22.6l96-96c9.2-9.2 22.9-11.9 34.9-6.9s19.8 16.6 19.8 29.6l0 64H480z"/>
+                                                </svg>
+                                                <p class="navBarProfileOptLinkText">Switch Profile</p>
+                                            </a>
+                                        </div>
+                                        <div class="navBarProfileOpt">
+                                            <a href="/Settings.html" class="navBarProfileOptLink">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarProfileOptLinkIcon">
+                                                    <path d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"/>
+                                                </svg>
+                                                <p class="navBarProfileOptLinkText">Settings</p>
+                                            </a>
+                                        </div>
+                                        <div class="navBarProfileOpt">
+                                            <a href="javascript:void(0)" class="navBarProfileOptLink">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarProfileOptLinkIcon">
+                                                    <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 17.7 14.3 32 32 32s32-14.3 32-32V32zM143.5 120.6c13.6-11.3 15.4-31.5 4.1-45.1s-31.5-15.4-45.1-4.1C49.7 115.4 16 181.8 16 256c0 132.5 107.5 240 240 240s240-107.5 240-240c0-74.2-33.8-140.6-86.6-184.6c-13.6-11.3-33.8-9.4-45.1 4.1s-9.4 33.8 4.1 45.1c38.9 32.3 63.5 81 63.5 135.4c0 97.2-78.8 176-176 176s-176-78.8-176-176c0-54.4 24.7-103.1 63.5-135.4z"/>
+                                                </svg>
+                                                <p class="navBarProfileOptLinkText">Sign Out</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
     const navBar = document.querySelector(".navBar");
     const navBarHeadName = document.querySelector(".navBar .headname");
     const navBarRight = navBar.querySelector(".navBarRight");
     const navBarRightCtnt = navBarRight.querySelector(".navBarRightCtnt");
-    const goToHomePage = document.querySelectorAll('.Companylogo');
-    const openNavProfileOptions = document.querySelector('.open_nav_profileOptions');
-    const navProfileOptionsBdr = document.querySelector('.navBarProfileOptBdr');
+    const goToHomePage = document.querySelectorAll(".Companylogo");
+    const openNavProfileOptions = document.querySelector(".open_nav_profileOptions");
+    const navProfileOptionsBdr = document.querySelector(".navBarProfileOptBdr");
     const navMenuIcon = document.querySelectorAll(".open_nav_menu");
     let navMenuTimer;
     let locationOrigin;
@@ -289,6 +377,7 @@
     {
         preload.classList.add("preloadClose");
         document.body.classList.add('bodystart');
+        // document.body.insertAdjacentHTML(`beforebegin` , navBarHTML);
         instantiateSideNavBar();
     });
     
@@ -303,17 +392,39 @@
     });
 
 
-    function hidePP()
+
+// DEVELOPER'S PROFILE
+
+    developerProfile.forEach(dev => 
     {
-        seeUnseePassField.forEach(field => 
+        dev.title = `This website was designed and developed by acbennny (me😁). You can check out my portfolio at: "${developerLink}"`;
+
+        // Opening my portfolio (in a new tab)
+        dev.addEventListener("click" , () => 
         {
-            field.type = "password";
+            window.open(developerLink , "_blank");
         });
-        seeUnseePass.forEach((one, i) => 
+
+        // Copying link to clipboard
+        dev.addEventListener("contextmenu" , (e) => 
         {
-            one.classList.replace("fa-eye-slash" , "fa-eye");
+            // Prevent the default context menu from appearing
+            e.preventDefault();
+
+            // Then copy to clipboard and notify user
+            navigator.clipboard.writeText(developerLink)
+            .then(() => 
+            {
+                notification(`Link copied to clipboard`);
+            })
+            .catch((err) => 
+            {
+                notification(`Could not copy link, ${err}`);
+            });
         });
-    }
+    });
+
+
 
 // NAVBAR
 
@@ -520,7 +631,7 @@
                                                 </svg>
                                             </span>
                                             <span class="navfooterCompName">
-                                                <span>2024 ACBennny</span>
+                                                <span>2024 UVID</span>
                                             </span>
                                         </div>
                                         <div class="navfooterCompName">All Rights Reserved</div>

@@ -39,6 +39,8 @@
     const latestEpCards = document.querySelectorAll(".latestEp_card");
     const latestEpHiddenCards = document.querySelectorAll(".latestEp_card_IsNotActive");
     const latestEp_ShowMoreCardsBtn = document.querySelector(".latestEp_view_more");
+    const latestEp_ViewScheduleBtn = document.querySelector(".latestEp_schedule");
+    const scheduleLink = document.querySelector(".schedule_link");
     let latestEp_childLength = latestEpCards.length;
     let noOfVisible_latestEpChildren = 6;
     const newsCard = document.querySelectorAll(".news_card");
@@ -47,8 +49,8 @@
     
 // WELCOME PAGE
 
-    window.addEventListener("load", () => {
-        
+    window.addEventListener("load", () => 
+    {
         // Starts auto-slider
         introAutoSlide();
     });
@@ -132,15 +134,11 @@
 
 
 
-
-
-
-
-
 // DOUBLE SIDED SHOWS
 
     // Double Sided Show Details
-    watchSectionBdr.forEach(sectionBdr => {
+    watchSectionBdr.forEach(sectionBdr => 
+    {
         const showHead = sectionBdr.querySelector(".watchHead");
         const showEpLink = sectionBdr.querySelector(".watchEpLink");
         const showImg = sectionBdr.querySelector(".watchImg");
@@ -168,7 +166,8 @@
     }
 
     // Latest Show Card Details
-    latestEpCards.forEach(latestEpCard => {
+    latestEpCards.forEach(latestEpCard => 
+    {
         const showTitle = latestEpCard.querySelector(".latestEp_cardTitle");
         const showSubTitle = latestEpCard.querySelector(".latestEp_cardSubTitle");
         const showImg = latestEpCard.querySelector(".latestEp_cardImg");
@@ -182,7 +181,8 @@
 
     
     // Displays all of the remaining hidden show cards
-    latestEp_ShowMoreCardsBtn.addEventListener("click" , () => {
+    latestEp_ShowMoreCardsBtn.addEventListener("click" , () => 
+    {
 
         // adding visible class to allow display of cards with forEach loop
         latestEpCards.forEach(hiddenCard => {
@@ -190,7 +190,14 @@
         });
 
         // Removing the button after displaying hidden cards
-        latestEp_ShowMoreCardsBtn.style.display = "none";
+        latestEp_ShowMoreCardsBtn.classList.add("inactive");
+        latestEp_ViewScheduleBtn.classList.remove("inactive");
+    });
+
+    // View schedule
+    latestEp_ViewScheduleBtn.addEventListener("click" , () => 
+    {
+        window.open(scheduleLink.getAttribute("href") , "_blank");
     });
 
 
@@ -198,7 +205,8 @@
 
 // NEWS
 
-    newsCard.forEach(card => {
+    newsCard.forEach(card => 
+    {
         const newsCardImg = card.querySelector(".news_cardImg");
         const newsCardTitle = card.querySelector(".news_cardTitle");
 
@@ -213,22 +221,6 @@
 
 
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -1001,7 +1001,7 @@ body
     color: #828282;
 }
 
-.latestEp_view_more
+.latestEp_btn
 {
     width: 100%;
     padding: 10px;
@@ -1022,10 +1022,15 @@ body
     cursor: pointer;
 }
 
-.latestEp_view_more:active
+.latestEp_btn:active
 {
     transform: scale(0.96);
     background-color: var(--genGreenTypeDark2);
+}
+
+.latestEp_btn.inactive
+{
+    display: none;
 }
 
 
@@ -1254,7 +1259,7 @@ body
         background-color: #000000cf;
     }
 
-    .latestEp_view_more:hover
+    .latestEp_btn:hover
     {
         background-color: var(--genGreenTypeDark2);
     }
