@@ -866,10 +866,16 @@
                 });
             });
 
-            // Pause/play (click) For Pc/ wide screen users only 
+            // Pause/play (single click) For Pc users only 
             pcControlTapBox.addEventListener("click" , () => 
             {
                 toggleVidPlay();
+            });
+
+             // Fullscreen (dbl click) For Pc users only 
+             pcControlTapBox.addEventListener("dblclick" , () => 
+            {
+                toggleFullScreenMode();
             });
         
             // Playing Video
