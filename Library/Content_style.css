@@ -482,10 +482,11 @@ body
 
 .watchSectionBdr .watchSectionBox
 {
-    width: calc(100% - 100px);
+    width: calc(100% - 60px);
     max-width: 1200px;
     display: flex;
-    gap: 10px;
+    justify-content: center;
+    gap: 20px;
 }
 
 .watchSectionBox.foreSectionBox
@@ -522,7 +523,7 @@ body
 
 .infoBox .watchHead
 {
-    font-size: 25px;
+    font-size: 20px;
     color: #ffffff;
 }
 
@@ -534,7 +535,7 @@ body
 
 .infoBox .watchInfo
 {
-    font-size: 14px;
+    font-size: 13px;
     color: #dfdfdf;
 }
 
@@ -593,14 +594,23 @@ body
 {
     border-color: var(--watchActionSaveBoxClrBdrHover);
     --watchActionSaveBoxClrBdr: var(--watchActionSaveBoxClrBdrHover);
-    
 }
 
 .watchSection.watchSectionImgBdr
 {
-    width: 40%;
+    width: 200px;
+    height: 300px;
     display: flex;
-    justify-content: center;
+}
+
+.watchSectionBox.foreSectionBox .watchSection.watchSectionImgBdr
+{
+    justify-content: start;
+}
+
+.watchSectionBox.backSectionBox .watchSection.watchSectionImgBdr
+{
+    justify-content: end;
 }
 
 .watchSection.watchSectionImgBdr .watchImgBox
@@ -608,8 +618,6 @@ body
     position: relative;
     width: 100%;
     height: 100%;
-    max-width: 200px;
-    max-height: 350px;
     overflow: hidden;
 }
 
@@ -1288,6 +1296,21 @@ body
 }
 
 
+@media only screen and (max-width: 884px)
+{
+
+    .infoBox .watchActionBox
+    {
+        flex-direction: column;
+    }
+
+    .watchActionBox .watchAction
+    {
+        width: 100%;
+    }
+}
+
+
 @media only screen and (max-width: 800px)
 {
     .intro_slide_cover,
@@ -1389,11 +1412,6 @@ body
         width: 50px;
     }
 
-    .infoBox .watchActionBox
-    {
-        flex-direction: column;
-    }
-
     .watchActionBox .watchAction
     {
         width: 100%;
@@ -1429,7 +1447,6 @@ body
 
     .watchSectionBdr .watchSectionBox
     {
-        width: calc(100% - 40px);
         align-items: center;
     }
 
@@ -1458,6 +1475,14 @@ body
     {
         height: 200px;
     }
+
+    .watchSectionBox.foreSectionBox .watchSection.watchSectionImgBdr,
+    .watchSectionBox.backSectionBox .watchSection.watchSectionImgBdr
+    {
+        justify-content: center;
+    }
+
+
 
     .infoBox .watchHead
     {
@@ -1488,6 +1513,10 @@ body
 
 @media only screen and (max-width: 600px)
 {
+    .watchSectionBdr .watchSectionBox
+    {
+        width: calc(100% - 40px);
+    }
 
     .type1_Ctnt_bdr
     {
