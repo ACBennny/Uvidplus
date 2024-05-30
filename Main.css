@@ -1874,14 +1874,18 @@ img
     position: fixed;
     top: 0;
     left: 0;
-    display: none;
+    display: flex;
     width: 100%;
     justify-content: center;
     align-content: center;
-    transition: 300ms;
-    z-index: 140;
-    cursor: pointer;
     background-color: var(--genGreenTypeLight);
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-100%);
+    transition: all 500ms ease-in;
+    z-index: 150;
+    cursor: pointer;
 }
 
 .notifyBdr .NotifyMe
@@ -1898,7 +1902,9 @@ img
 
 .NotifyAtv
 {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0%);
 }
 
 

@@ -218,6 +218,9 @@
             let allLinks = document.querySelectorAll("a");
             let notificationQueue = [];
             let isNotificationActive = false;
+            let preNotifyTimer;
+            let midNotifyTimer;
+            let endNotifyTimer;
             let socialShareLink = encodeURI(window.location.href);
             let socialShareTitle = encodeURIComponent(documentTitle);
             let socialShareMsg = `Check this out`;
@@ -1075,33 +1078,40 @@
                     isNotificationActive = false;
                     return;
                 }
-
-                // Get the next notification from the queue
-                const { noteCtnt, resolve } = notificationQueue.shift();
-
-                // Assigning properties
+            
+                const { noteCtnt, resolve } = notificationQueue.shift(); // Get the next notification from the queue
+            
                 const btnNotifyBdr = document.createElement('div');
                 const btnNotify = document.createElement('div');
                 btnNotifyBdr.classList.add("notifyBdr");
                 btnNotify.classList.add("NotifyMe");
                 btnNotifyBdr.appendChild(btnNotify);
                 btnNotify.textContent = noteCtnt;
-
+            
                 document.body.appendChild(btnNotifyBdr);
-                btnNotifyBdr.classList.add('NotifyAtv');
-
+                // Ensures the element is added to the DOM before adding the class
+                requestAnimationFrame(() => 
+                { 
+                    preNotifyTimer = setTimeout(() => 
+                    {
+                        btnNotifyBdr.classList.add('NotifyAtv');
+                        clearTimeout(preNotifyTimer);
+                    }, 500);
+                });
+            
                 isNotificationActive = true;
-                setTimeout(() => 
+                endNotifyTimer = setTimeout(() => 
                 {
+                    clearTimeout(endNotifyTimer);
                     btnNotifyBdr.classList.remove('NotifyAtv');
-                    document.body.removeChild(btnNotifyBdr);
-
-                    // Resolve the promise to indicate this notification is done
-                    resolve();
-
-                    // Show the next notification
-                    showNextNotification();
-                }, 3000);
+                    midNotifyTimer = setTimeout(() => 
+                    {
+                        clearTimeout(midNotifyTimer);
+                        document.body.removeChild(btnNotifyBdr);
+                        resolve(); 
+                        showNextNotification();
+                    }, 500);
+                }, 7500);
             }
 
             function notification(noteCtnt) 
