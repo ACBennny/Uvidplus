@@ -599,14 +599,17 @@ body
 .watchSection.watchSectionImgBdr
 {
     width: 40%;
+    display: flex;
+    justify-content: center;
 }
 
 .watchSection.watchSectionImgBdr .watchImgBox
 {
     position: relative;
     width: 100%;
-    max-width: 1000px;
     height: 100%;
+    max-width: 200px;
+    max-height: 350px;
     overflow: hidden;
 }
 
@@ -629,7 +632,6 @@ body
     justify-content: center;
     align-items: center;
     color: #ffffff;
-    text-align: center;
     background-color: #00000099;
     opacity: 0;
     visibility: hidden;
@@ -642,6 +644,26 @@ body
     visibility: visible;
 }
 
+.goToSeries .goToSeries_iconBox
+{
+    width: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.goToSeries_iconBox .goToSeries_icon
+{
+    width: 100%;
+    fill: var(--genWhiteTypeLight);
+}
+
+.goToSeries .goToSeries_text
+{
+    color: #ffffff;
+    font-size: 16px;
+    margin-left: 5px;
+}
 
 
 
