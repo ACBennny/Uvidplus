@@ -872,8 +872,8 @@
                 toggleVidPlay();
             });
 
-             // Fullscreen (dbl click) For Pc users only 
-             pcControlTapBox.addEventListener("dblclick" , () => 
+            // Fullscreen (dbl click) For Pc users only 
+            pcControlTapBox.addEventListener("dblclick" , () => 
             {
                 toggleFullScreenMode();
             });
