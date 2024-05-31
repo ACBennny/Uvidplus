@@ -509,11 +509,11 @@ html:root
     width: 100%;
     font-size: 13px;
     color: var(--genWhiteTypeMid);
-    transition: 300ms;
     max-height: calc(var(--lineNo) * 1em * var(--lineHeight));
     line-height: var(--lineHeight);
     margin-bottom: 10px;
     overflow: hidden;
+    transition: 300ms;
 }
 
 .abt-stmtText.abt-stmtText:has(+ .abt-stmt-detBdr .abt-stmt-checkBoxCls:not(:checked))::after
@@ -523,7 +523,6 @@ html:root
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 30%;
     height: calc(1.1em * var(--lineHeight));
     background: linear-gradient(to top, #000000, #00000090, #00000000);
     pointer-events: none;
@@ -913,9 +912,11 @@ html:root
 .show-sub
 {
     width: 0%;
+    height: fit-content;
+    max-height: -moz-fit-content;
+    max-height: fit-content;
     display: flex;
     flex-direction: column;
-    height: fit-content;
     padding: 0;
     opacity: 0;
     visibility: hidden;
@@ -940,6 +941,8 @@ html:root
 {
     width: 100%;
     height: fit-content;
+    max-height: -moz-fit-content;
+    max-height: fit-content;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(var(--episodesBoxWidth), 1fr));
     grid-template-rows: auto;
@@ -1205,7 +1208,6 @@ html:root
     .abt-stmt
     {
         width: 65%;
-        height: fit-content;
     }
 
     .abt-stmt .abt-stmtText

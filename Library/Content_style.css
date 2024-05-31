@@ -11,6 +11,7 @@ html:root
 {
     --introSlideIconClr: #b8b8b8;
     --introSlideIconWidth: 18px;
+    --introInfoNotesMargin: 20px;
     --watchActionIconWidth: 18px;
     --watchListIconWidth: 15px;
     --watchActionLinkBoxBcg: #1da216;
@@ -44,12 +45,14 @@ body
 }
 
 
-.content_body{
+.content_body
+{
     width: 100%;
     height: fit-content;
+    max-height: -moz-fit-content;
+    max-height: fit-content;
     display: flex;
     flex-direction: column;
-    gap: 0px;
     background: #000;
     overflow-x: hidden;
 }
@@ -94,6 +97,8 @@ body
     position: relative;
     width: 100%;
     height: fit-content;
+    max-height: -moz-fit-content;
+    max-height: fit-content;
 }
 
 .intro_slide_ctnt_box .slide_arrow
@@ -280,9 +285,9 @@ body
     left: calc(0% + 50px);
     bottom: 35%;
     width: 30%;
+    max-width: 600px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
     opacity: 1;
     visibility: visible;
 }
@@ -299,9 +304,11 @@ body
 .info_title_img img
 {
     width: 80%;
-    height: 80%;
+    height: 100%;
+    min-height: 100%;
+    max-height: 100%;
     object-fit: contain;
-    object-position: center;
+    object-position: bottom;
     z-index: 1;
 }
 
@@ -309,24 +316,43 @@ body
 {
     width: 100%;
     height: calc(100% - 125px);
+    height: fit-content;
+    max-height: -moz-fit-content;
+    max-height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 15px;
 }
 
 .intro_info_notes .intro_genre
 {
     font-size: 12px;
-    color: #afacac;
+    color: var(--genWhiteTypeMid);
     text-align: center;
+    margin: var(--introInfoNotesMargin) 0px;
 }
 
 .intro_info_notes .intro_desc
 {
+    --introDescLineNo: 5;
+    --introDescLineH: 1.4;
+    position: relative;
+    max-height: calc(var(--introDescLineNo) * 1em * var(--introDescLineH));
+    line-height: var(--introDescLineH);
+    margin-bottom: var(--introInfoNotesMargin);
+    padding-right: 10px;
     font-size: 14px;
-    color: #eaeaea;
-    line-height: 20px;
+    text-align: justify;
+    color: var(--genWhiteTypeLight);
+    overflow: hidden;
+}
+
+.intro_desc::after
+{
+    content: '...';
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 
 .playShow_box
@@ -346,7 +372,6 @@ body
     align-items: center;
     gap: 5px;
     padding: 5px;
-    margin: 5px;
     font-size: 15px;
     border-radius: 5px;
     cursor: pointer;
@@ -371,6 +396,7 @@ body
 
 .playShow_box .save_to_PList
 {
+    margin-left: 5px;
     border: 2px solid var(--watchActionSaveBoxClrBdr);
     background-color: transparent;
 }
@@ -397,10 +423,12 @@ body
     bottom: calc(35% - 40px);
     width: 100%;
     height: fit-content;
+    max-height: -moz-fit-content;
+    max-height: fit-content;
     display: none;
     flex-direction: row;
     align-items: center;
-    padding: 5px 10px;
+    margin-top: var(--introInfoNotesMargin);
     gap: 10px;
     z-index: 5;
 }
@@ -435,9 +463,6 @@ body
     display: grid;
     grid-template-columns: minmax(0, auto);
     gap: 25px;
-    grid-row-gap: 2.5rem;
-    row-gap: 2.5rem;
-    z-index: 10;
 }
 
 
@@ -455,6 +480,8 @@ body
 {
     width: 80%;
     height: fit-content;
+    max-height: -moz-fit-content;
+    max-height: fit-content;
     max-width: 1500px;
     display: flex;
     justify-content: center;
@@ -1296,6 +1323,15 @@ body
     
     .intro_info_notes .intro_desc
     {
+        --introDescLineNo: 4;
+    }
+}
+
+@media only screen and (max-width: 1025px)
+{
+    
+    .intro_info_notes .intro_desc
+    {
         display: none;
     }
 }
@@ -1364,14 +1400,11 @@ body
     
     .intro_info_bcg .intro_info_box
     {
-        position: absolute;
         left: 0%;
         bottom: 0%;
         width: 100%;
-        display: flex;
-        flex-direction: column;
+        max-width: none;
         align-items: center;
-        gap: 10px;
         gap: 0px;
         opacity: 1;
         visibility: visible;
@@ -1402,7 +1435,6 @@ body
     .intro_slide_box .intro_slide_nav_box
     {
         position: static;
-        height: 75px;
         display: flex;
         justify-content: center;
     }
@@ -1474,6 +1506,8 @@ body
     .watchSection.watchSectionDet
     {
         height: fit-content;
+        max-height: -moz-fit-content;
+        max-height: fit-content;
     }
 
     .watchSection.watchSectionImgBdr
@@ -1486,8 +1520,6 @@ body
     {
         justify-content: center;
     }
-
-
 
     .infoBox .watchHead
     {
@@ -1587,11 +1619,6 @@ body
         height: 100px;
     }
 
-    .intro_slide_nav_box
-    {
-        height: 50px;
-    }
-
     .intro_info_bdr .intro_info_box
     {
         align-items: center;
@@ -1625,6 +1652,11 @@ body
     html
     {
         --addTOWatchListSmallWidth: 20px;
+    }
+
+    .infoBox .watchActionBox
+    {
+        gap: 5px;
     }
 
     .watchAction.watchEpLink
