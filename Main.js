@@ -1096,7 +1096,7 @@
                     {
                         btnNotifyBdr.classList.add('NotifyAtv');
                         clearTimeout(preNotifyTimer);
-                    }, 500);
+                    }, 300);
                 });
             
                 isNotificationActive = true;
@@ -1110,8 +1110,8 @@
                         document.body.removeChild(btnNotifyBdr);
                         resolve(); 
                         showNextNotification();
-                    }, 500);
-                }, 7500);
+                    }, 300);
+                }, 6500);
             }
 
             function notification(noteCtnt) 

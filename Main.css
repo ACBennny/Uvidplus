@@ -1883,9 +1883,16 @@ img
     opacity: 0;
     visibility: hidden;
     transform: translateY(-100%);
-    transition: all 500ms ease-in;
+    transition: all 300ms ease-in;
     z-index: 150;
     cursor: pointer;
+}
+
+.notifyBdr.NotifyAtv
+{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0%);
 }
 
 .notifyBdr .NotifyMe
@@ -1898,13 +1905,6 @@ img
     font-size: 14px;
     text-align: center;
     border-radius: 15px;
-}
-
-.NotifyAtv
-{
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0%);
 }
 
 
