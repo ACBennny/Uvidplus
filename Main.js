@@ -937,7 +937,7 @@
 
                 switchProfScript.addEventListener("load" , () => 
                 {
-                    instantiateSwitchAccBdr();
+                    instantiateSwitchProfBdr();
                 });
                 switchProfScript.onerror = function() 
                 {

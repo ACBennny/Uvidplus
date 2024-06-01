@@ -71,8 +71,8 @@ html:root
     --navBarNotificationPosT: calc(var(--navBarHeight) + 10px);
     --navBarNotificationPosR: -100%;
     --navBarNotificationTitleBoxHeight: 50px;
-    --switchAccHeaderHeight: 60px;
-    --switchAccOptImgBoxWidth: 125px;
+    --switchProfHeaderHeight: 60px;
+    --switchProfOptImgBoxWidth: 125px;
     --basicSliderCardDivision: 4;
     --basicSlideIconWidth: 16px;
     --slideCardPlayIconClr: var(--genGreenTypeLight);
@@ -1019,7 +1019,7 @@ img
 
 /* ====== Switch Account ====== */
 
-.switchAccBdr
+.switchProfBdr
 {
     position: fixed;
     top: 0;
@@ -1043,18 +1043,18 @@ img
     z-index: 110;
 }
 
-.switchAccBdr.active
+.switchProfBdr.active
 {
     filter: brightness(1.0);
     opacity: 1;
     visibility: visible;
-    transition: all 500ms ease-in-out;
+    /* transition: all 500ms ease-in-out; */
 }
 
-.switchAccBdr .switchAccBcg
+.switchProfBdr .switchProfBcg
 {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
     height: 100%;
@@ -1063,14 +1063,14 @@ img
     cursor: pointer;
 }
 
-.switchAccBcg .switchAccBcgImageBox
+.switchProfBcg .switchProfBcgImgBox
 {
     width: 100%;
     height: 100%;
     overflow: hidden;
 }
 
-.switchAccBcgImageBox .switchAccBcgImage
+.switchProfBcgImgBox .switchProfBcgImg
 {
     width: 100%;
     height: 100%;
@@ -1082,7 +1082,7 @@ img
     object-fit: cover;
 }
 
-.switchAccBdr .switchAccBox
+.switchProfBdr .switchProfBox
 {
     width: 100%;
     height: 100%;
@@ -1093,14 +1093,14 @@ img
     z-index: 2;
 }
 
-.switchAccBox.active
+.switchProfBox.active
 {
     opacity: 1;
     visibility: visible;
     transform: translateY(0px);
 }
 
-.switchAccBox .switchAccBoxCtnt
+.switchProfBox .switchProfBoxCtnt
 {
     width: 100%;
     height: 100%;
@@ -1113,11 +1113,11 @@ img
     overflow-y: visible;
 }
 
-.switchAccBoxCtnt .switchAccHeader
+.switchProfBoxCtnt .switchProfHeader
 {
     position: relative;
     width: 100%;
-    height: var(--switchAccHeaderHeight);
+    height: var(--switchProfHeaderHeight);
     padding: 10px;
     display: flex;
     flex-direction: row;
@@ -1125,19 +1125,19 @@ img
     align-items: center;
 }
 
-.switchAccHeader .switchAccHeaderText
+.switchProfHeader .switchProfHeaderText
 {
     font-size: 35px;
     color: var(--genWhiteTypeLight);
     text-align: center;
 }
 
-.switchAccBoxCtnt .switchAccOptBcg
+.switchProfBoxCtnt .switchProfOptBcg
 {
     width: 100%;
 }
 
-.switchAccOptBcg .switchAccOptBdr
+.switchProfOptBcg .switchProfOptBdr
 {
     width: 100%;
     display: flex;
@@ -1147,10 +1147,10 @@ img
     padding: 10px;
 }
 
-.switchAccOptBdr .switchAccOptBox
+.switchProfOptBdr .switchProfOptBox
 {
     position: relative;
-    width: calc(var(--switchAccOptImgBoxWidth) + 30px);
+    width: calc(var(--switchProfOptImgBoxWidth) + 30px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1160,7 +1160,7 @@ img
     cursor: pointer;
 }
 
-.switchAccOptBox::before
+.switchProfOptBox::before
 {
     content: '';
     position: absolute;
@@ -1176,39 +1176,24 @@ img
     z-index: -1;
 }
 
-.switchAccOptBox:active::before
+.switchProfOptBox:active::before
 {
     opacity: 1;
     transform: scale(1.0);
 }
 
-.switchAccOptBox .switchAccOptImgBdr
+.switchProfOptBox .switchProfOptImgBdr
 {
     position: relative;
-    width: var(--switchAccOptImgBoxWidth);
-    height: var(--switchAccOptImgBoxWidth);
+    width: var(--switchProfOptImgBoxWidth);
+    height: var(--switchProfOptImgBoxWidth);
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 15px;
 }
 
-.switchAccOptBox .switchAcc_AddAccIconBox
-{
-    position: relative;
-    width: var(--switchAccOptImgBoxWidth);
-    height: var(--switchAccOptImgBoxWidth);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    border: 2px solid var(--genWhiteTypeLight);
-    background-color: var(--color4);
-    margin-bottom: 15px;
-    overflow: hidden;
-}
-
-.switchAccOptImgBdr .switchAccOptImgBox
+.switchProfOptImgBdr .switchProfOptImgBox
 {
     width: 100%;
     height: 100%;
@@ -1218,7 +1203,7 @@ img
     overflow: hidden;
 }
 
-.switchAccOptImgBox .switchAccOptImg
+.switchProfOptImgBox .switchProfOptImg
 {
     width: 100%;
     height: 100%;
@@ -1230,18 +1215,12 @@ img
     object-position: center;
 }
 
-.switchAccOptBox.currProfile .switchAccOptImgBox
+.switchProfOptBox.currProfile .switchProfOptImgBox
 {
     border-color: var(--genGreenTypeLight);
 }
 
-.switchAcc_AddAccIconBox .switchAcc_AddAccBoxIcon
-{
-    width: 35px;
-    fill: var(--genWhiteTypeMid);
-}
-
-.switchAccOptBox .switchAccOptTextBox
+.switchProfOptBox .switchProfOptTextBox
 {
     width: 100%;
     display: flex;
@@ -1249,7 +1228,7 @@ img
     align-items: center;
 }
 
-.switchAccOptTextBox .switchAccOptText
+.switchProfOptTextBox .switchProfOptText
 {
     color: var(--genWhiteTypeLight);
     font-size: 15px;
@@ -1260,8 +1239,8 @@ img
     position: absolute;
     bottom: 0;
     right: 0;
-    width: calc((var(--switchAccOptImgBoxWidth) / 4));
-    height: calc((var(--switchAccOptImgBoxWidth) / 4));
+    width: calc((var(--switchProfOptImgBoxWidth) / 4));
+    height: calc((var(--switchProfOptImgBoxWidth) / 4));
     display: none;
     justify-content: center;
     align-items: center;
@@ -1289,10 +1268,31 @@ img
     width: 80%;
 }
 
-.switchAccBoxCtnt .actionBtnBcg
+.switchProfOptBox .addNewProfIconBox
+{
+    position: relative;
+    width: var(--switchProfOptImgBoxWidth);
+    height: var(--switchProfOptImgBoxWidth);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 2px solid var(--genWhiteTypeLight);
+    background-color: var(--color4);
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.addNewProfIconBox .addNewProfIcon
+{
+    width: 35px;
+    fill: var(--genWhiteTypeMid);
+}
+
+.switchProfBoxCtnt .actionBtnBcg
 {
     width: 100%;
-    height: var(--switchAccHeaderHeight);
+    height: var(--switchProfHeaderHeight);
 }
 
 .actionBtnBcg .actionBtnBdr
@@ -1983,7 +1983,7 @@ img
 {
     position: relative;
     width: 100%;
-    height: var(--switchAccHeaderHeight);
+    height: var(--switchProfHeaderHeight);
     padding: 10px;
     display: flex;
     flex-direction: row;
@@ -2028,7 +2028,7 @@ img
 .genAtnModalCtnt .genAtnModalOptBcg
 {
     width: 100%;
-    height: calc(100% - var(--switchAccHeaderHeight));
+    height: calc(100% - var(--switchProfHeaderHeight));
     overflow-y: auto;
 }
 
@@ -2093,7 +2093,7 @@ img
 
 .genAtnModalOptBox .genAtnModalOptTextBox
 {
-    width: calc(100% - var(--switchAccOptImgBoxWidth));
+    width: calc(100% - var(--switchProfOptImgBoxWidth));
     height: 100%;
     display: flex;
     align-items: center;
@@ -2274,7 +2274,7 @@ img
         color: var(--navFooterElemHoverColor);
     }
     
-    .switchAccOptBox:hover::before
+    .switchProfOptBox:hover::before
     {
         opacity: 1;
         transform: scale(1.0);
@@ -2392,7 +2392,7 @@ img
 @media only screen and (max-height: 600px)
 {
 
-    .switchAccBox .switchAccBoxCtnt
+    .switchProfBox .switchProfBoxCtnt
     {
         justify-content: unset;
     }
@@ -2483,10 +2483,10 @@ img
 {
     html:root
     {
-        --switchAccOptImgBoxWidth: 100px;
+        --switchProfOptImgBoxWidth: 100px;
     }
 
-    .switchAccHeader .switchAccHeaderText
+    .switchProfHeader .switchProfHeaderText
     {
         font-size: 30px;
     }
@@ -2496,7 +2496,7 @@ img
         width: 30px;
     }
 
-    .switchAccOptTextBox .switchAccOptText
+    .switchProfOptTextBox .switchProfOptText
     {
         font-size: 13px;
     }
@@ -2671,7 +2671,7 @@ img
         max-width: 100%;
     }
 
-    .switchAccBox .switchAccBoxCtnt
+    .switchProfBox .switchProfBoxCtnt
     {
         justify-content: unset;
     }
@@ -2711,7 +2711,7 @@ img
         display: none;
     }
 
-    .switchAccHeader .switchAccHeaderText
+    .switchProfHeader .switchProfHeaderText
     {
         font-size: 25px;
     }
@@ -2721,7 +2721,7 @@ img
         width: 25px;
     }
 
-    .switchAccOptTextBox .switchAccOptText
+    .switchProfOptTextBox .switchProfOptText
     {
         font-size: 12px;
     }
@@ -2808,9 +2808,9 @@ img
 
     /* --------- Switch Profiles Modal ---------- */
 
-    .switchAccBoxCtnt::-webkit-scrollbar-thumb,
-    .switchAccBoxCtnt::-webkit-scrollbar-thumb:active,
-    .switchAccBoxCtnt::-webkit-scrollbar-thumb:hover
+    .switchProfBoxCtnt::-webkit-scrollbar-thumb,
+    .switchProfBoxCtnt::-webkit-scrollbar-thumb:active,
+    .switchProfBoxCtnt::-webkit-scrollbar-thumb:hover
     {
         background: #dfdfdf50;
     }

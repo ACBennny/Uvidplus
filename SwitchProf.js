@@ -7,34 +7,25 @@
 
 
 
-    let switchAccTimer;
-
-    // Opens the Notification Box
-    function instantiateSwitchAccBdr()
-    {
-        // The border holding the elements of the notification box
-        const switchAccBdr = document.createElement("div");
-        switchAccBdr.classList.add("switchAccBdr");
-
-        // The Notification Bar Structure
-        switchAccBdr.innerHTML = 
-        `
-            <div class="switchAccBcg closeSwitchAcc">
-            <div class="switchAccBcgImageBox">
-                <img src="/Images/Uvid_green_bcg1_light.jpg" alt="Background image of the 'Switch Profiles' modal" class="switchAccBcgImage">
+    let switchProfTimer;
+    let switchProfHTML = 
+    `
+        <div class="switchProfBcg closeSwitchProf">
+            <div class="switchProfBcgImgBox">
+                <img src="/Images/Uvid_green_bcg1_light.jpg" alt="Background image of the 'Switch Profiles' modal" class="switchProfBcgImg">
             </div>
         </div>
-        <div class="switchAccBox active">
-            <div class="switchAccBoxCtnt">
-                <div class="switchAccHeader">
-                    <span class="switchAccHeaderText">Who's watching?</span>
+        <div class="switchProfBox active">
+            <div class="switchProfBoxCtnt">
+                <div class="switchProfHeader">
+                    <span class="switchProfHeaderText">Who's watching?</span>
                 </div>
-                <div class="switchAccOptBcg">
-                    <div class="switchAccOptBdr">
-                        <div class="switchAccOptBox switchProfOpt">
-                            <div class="switchAccOptImgBdr">
-                                <div class="switchAccOptImgBox">
-                                    <img src="/Images/pfp/red_velvet_cupcake.jpg" alt="profile_img" class="switchAccOptImg">
+                <div class="switchProfOptBcg">
+                    <div class="switchProfOptBdr">
+                        <div class="switchProfOptBox switchProfOpt">
+                            <div class="switchProfOptImgBdr">
+                                <div class="switchProfOptImgBox">
+                                    <img src="/Images/pfp/red_velvet_cupcake.jpg" alt="profile_img" class="switchProfOptImg">
                                 </div>
                                 <div class="editProfileBadgeBdr">
                                     <div class="editProfileBadgeBox">
@@ -44,14 +35,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="switchAccOptTextBox">
-                                <p class="switchAccOptText">Velvet</p>
+                            <div class="switchProfOptTextBox">
+                                <p class="switchProfOptText">Velvet</p>
                             </div>
                         </div>
-                        <div class="switchAccOptBox switchProfOpt">
-                            <div class="switchAccOptImgBdr">
-                                <div class="switchAccOptImgBox">
-                                    <img src="/Images/pfp/IMG_0371.jpg" alt="profile_img" class="switchAccOptImg">
+                        <div class="switchProfOptBox switchProfOpt">
+                            <div class="switchProfOptImgBdr">
+                                <div class="switchProfOptImgBox">
+                                    <img src="/Images/pfp/IMG_0371.jpg" alt="profile_img" class="switchProfOptImg">
                                 </div>
                                 <div class="editProfileBadgeBdr">
                                     <div class="editProfileBadgeBox">
@@ -61,14 +52,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="switchAccOptTextBox">
-                                <p class="switchAccOptText">Sarah</p>
+                            <div class="switchProfOptTextBox">
+                                <p class="switchProfOptText">Sarah</p>
                             </div>
                         </div>
-                        <div class="switchAccOptBox switchProfOpt">
-                            <div class="switchAccOptImgBdr">
-                                <div class="switchAccOptImgBox">
-                                    <img src="/Images/pfp/IMG_1239.jpg" alt="profile_img" class="switchAccOptImg">
+                        <div class="switchProfOptBox switchProfOpt">
+                            <div class="switchProfOptImgBdr">
+                                <div class="switchProfOptImgBox">
+                                    <img src="/Images/pfp/IMG_1239.jpg" alt="profile_img" class="switchProfOptImg">
                                 </div>
                                 <div class="editProfileBadgeBdr">
                                     <div class="editProfileBadgeBox">
@@ -78,14 +69,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="switchAccOptTextBox">
-                                <p class="switchAccOptText">Aston</p>
+                            <div class="switchProfOptTextBox">
+                                <p class="switchProfOptText">Aston</p>
                             </div>
                         </div>
-                        <div class="switchAccOptBox switchProfOpt">
-                            <div class="switchAccOptImgBdr">
-                                <div class="switchAccOptImgBox">
-                                    <img src="/Images/Uvid_profilebase.png" alt="profile_img" class="switchAccOptImg">
+                        <div class="switchProfOptBox switchProfOpt">
+                            <div class="switchProfOptImgBdr">
+                                <div class="switchProfOptImgBox">
+                                    <img src="/Images/Uvid_profilebase.png" alt="profile_img" class="switchProfOptImg">
                                 </div>
                                 <div class="editProfileBadgeBdr">
                                     <div class="editProfileBadgeBox">
@@ -95,18 +86,18 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="switchAccOptTextBox">
-                                <p class="switchAccOptText">acbennny</p>
+                            <div class="switchProfOptTextBox">
+                                <p class="switchProfOptText">acbennny</p>
                             </div>
                         </div>
-                        <div class="switchAccOptBox switchAcc_AddAccBox">
-                            <div class="switchAcc_AddAccIconBox">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="switchAcc_AddAccBoxIcon">
+                        <div class="switchProfOptBox addNewProfBox">
+                            <div class="addNewProfIconBox">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="addNewProfIcon">
                                     <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
                                 </svg>
                             </div>
-                            <div class="switchAccOptTextBox">
-                                <p class="switchAccOptText">Add New</p>
+                            <div class="switchProfOptTextBox">
+                                <p class="switchProfOptText">Add New</p>
                             </div>
                         </div>
                     </div>
@@ -118,52 +109,65 @@
                 </div>
             </div>
         </div>
-        `;
+    `;
+
+    // Opens the Notification Box
+    function instantiateSwitchProfBdr()
+    {
+        // The border holding the elements of the notification box
+        const switchProfBdr = document.createElement("div");
+        switchProfBdr.classList.add("switchProfBdr");
+
+        // The Notification Bar Structure
+        switchProfBdr.innerHTML = switchProfHTML
 
         // Append the fragment to navBarRightCtnt of the navbar
-        documentBody.appendChild(switchAccBdr);
+        documentBody.appendChild(switchProfBdr);
 
-        
-        switchAccTimer = setTimeout(() => 
+        // Definitons
+        let switchProfBox = document.querySelector(".switchProfBox");
+        let switchProfOPtBox = document.querySelectorAll(".switchProfOptBox");
+        let switchProfOPt = document.querySelectorAll(".switchProfOpt");
+        let editProfOPt = document.querySelectorAll(".switchProfOpt");
+        let manageProfBtn = document.querySelector(".switchProfOpt");
+        let saveEditsBtn = document.querySelector(".switchProfOpt");
+
+        // Opens the Switch Profile Modal
+        switchProfTimer = setTimeout(() => 
         {
             documentBody.classList.add("bodystop");
 
             // Adds style class
-            switchAccBdr.classList.add("active");
+            switchProfBdr.classList.add("active");
 
             // Slides in the Notification box
-            const switchAccBox = document.querySelector(".switchAccBox");
-            switchAccBox.classList.add("active");
-
-
-            // Closes the Notification box
-            function closeSwitchAccBdr()
-            {
-                documentBody.classList.remove("bodystop");
-
-                // Removes style classes
-                switchAccBdr.classList.remove("active");
-                switchAccBox.classList.remove("active");
-
-                setTimeout(() => 
-                {
-                    // Remove Child Nodes
-                    documentBody.removeChild(switchAccBdr);
-
-                    // clear timer once time runs out
-                    clearTimeout(switchAccTimer);
-                },1000);
-            
-            }
-
-            const switchAccClose = document.querySelectorAll(".closeSwitchAcc");
-            switchAccClose.forEach(one => 
-            {
-                one.addEventListener("click" , closeSwitchAccBdr);
-            });
+            switchProfBox.classList.add("active");
 
             // clear timer once time runs out
-            clearTimeout(switchAccTimer);
+            clearTimeout(switchProfTimer);
 
         } , 100);
+
+        // Switching a profile
+        //
+
+        // Closes the Switch Profile Modal
+        function closeswitchProfBdr()
+        {
+            documentBody.classList.remove("bodystop");
+
+            // Removes style classes
+            switchProfBdr.classList.remove("active");
+            switchProfBox.classList.remove("active");
+
+            switchProfTimer = setTimeout(() => 
+            {
+                // Remove Child Nodes
+                documentBody.removeChild(switchProfBdr);
+
+                // clear timer once time runs out
+                clearTimeout(switchProfTimer);
+            },1000);
+        
+        }
     }
