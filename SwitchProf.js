@@ -110,6 +110,12 @@
             </div>
         </div>
     `;
+    let switchProfBox;
+    let switchProfOPtBox;
+    let switchProfOPt;
+    let editProfOPt;
+    let manageProfBtn;
+    let saveEditsBtn;
 
     // Opens the Notification Box
     function instantiateSwitchProfBdr()
@@ -119,18 +125,18 @@
         switchProfBdr.classList.add("switchProfBdr");
 
         // The Notification Bar Structure
-        switchProfBdr.innerHTML = switchProfHTML
+        switchProfBdr.innerHTML = switchProfHTML;
 
         // Append the fragment to navBarRightCtnt of the navbar
         documentBody.appendChild(switchProfBdr);
 
         // Definitons
-        let switchProfBox = document.querySelector(".switchProfBox");
-        let switchProfOPtBox = document.querySelectorAll(".switchProfOptBox");
-        let switchProfOPt = document.querySelectorAll(".switchProfOpt");
-        let editProfOPt = document.querySelectorAll(".switchProfOpt");
-        let manageProfBtn = document.querySelector(".switchProfOpt");
-        let saveEditsBtn = document.querySelector(".switchProfOpt");
+        switchProfBox = document.querySelector(".switchProfBox");
+        switchProfOPtBox = document.querySelectorAll(".switchProfOptBox");
+        switchProfOPt = document.querySelectorAll(".switchProfOpt");
+        editProfOPt = document.querySelectorAll(".switchProfOpt");
+        manageProfBtn = document.querySelector(".switchProfOpt");
+        saveEditsBtn = document.querySelector(".switchProfOpt");
 
         // Opens the Switch Profile Modal
         switchProfTimer = setTimeout(() => 
