@@ -22,6 +22,7 @@
 
 // DEFINTION
 
+    let allContentImg = document.querySelectorAll('img');
     const bcgOver_700 = document.querySelector('.bcg_over700');
     const bcgLess_700 = document.querySelector('.bcg_less700');
     const slideCover = document.querySelector('.intro_slide_cover');
@@ -55,6 +56,14 @@
         introAutoSlide();
     });
 
+
+// ALL IMAGES
+            
+    // Sets loading to lazy
+    allContentImg.forEach(eachImg => 
+    {
+        eachImg.loading = "lazy";
+    });
 
 
 

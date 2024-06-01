@@ -52,7 +52,7 @@
                         <div class="navBarProfileBdr">
                             <div class="navBarProfileBox open_nav_profileOptions">
                                 <div class="navBarProfileImageBox">
-                                    <img src="/Images/Uvid_profilebase.png" alt="Profile Image" class="navBarProfileImage">
+                                    <img src="/Images/Uvid_profilebase.png" alt="Profile Image" class="navBarProfileImage" loading="eager">
                                 </div>
                                 <div class="navBarProfileOptBdr">
                                     <div class="navBarProfileOptBox">
@@ -362,7 +362,6 @@
                     </div>
                 </div>
             `;
-            let socialShareBcg;
             let socialShareTimer;
             let socialDestinationH;
             let socialDestinationW;
@@ -934,20 +933,19 @@
             {
                 switchProfScript = document.createElement('script');
                 switchProfScript.setAttribute(`src` , `/SwitchProf.js`);
+                switchProfScript.setAttribute(`id` , `switchProfScriptID`);
 
                 switchProfScript.addEventListener("load" , () => 
                 {
-                    instantiateSwitchProfBdr();
+                    openSwitchProfBtn.addEventListener("click" , instantiateSwitchProfBdr);
                 });
                 switchProfScript.onerror = function() 
                 {
                     notification(`An error occurred`);
                 };
-
                 document.body.appendChild(switchProfScript);
             }
-
-            openSwitchProfBtn.addEventListener("click" , insertSwitchProfJS);
+            insertSwitchProfJS();
 
   
 
@@ -1007,9 +1005,6 @@
 
                 // Prevents User from dragging Images
                 eachImg.draggable = false;
-
-                // Sets loading to lazy
-                eachImg.loading = "lazy";
 
                 // Sets the alt text to image if none is set
                 if(eachImg.alt.valueOf() == "")

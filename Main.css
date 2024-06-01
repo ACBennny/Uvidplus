@@ -463,7 +463,7 @@ img
     height: 35px;
     padding: 0px;
     border-radius: 50%;
-    border: 2px solid var(--navElementColor_green);
+    border: 2px solid var(--genGreenTypeDark);
     transition: all 250ms ease-in-out;
     cursor: pointer;
 }

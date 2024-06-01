@@ -7,6 +7,7 @@
 
 
 
+    let navProfleImg = document.querySelector(".navBarProfileImage");
     let switchProfTimer;
     let switchProfHTML = 
     `
@@ -22,7 +23,7 @@
                 </div>
                 <div class="switchProfOptBcg">
                     <div class="switchProfOptBdr">
-                        <div class="switchProfOptBox switchProfOpt">
+                        <div class="switchProfOptBox changeProfOPt">
                             <div class="switchProfOptImgBdr">
                                 <div class="switchProfOptImgBox">
                                     <img src="/Images/pfp/red_velvet_cupcake.jpg" alt="profile_img" class="switchProfOptImg">
@@ -39,7 +40,7 @@
                                 <p class="switchProfOptText">Velvet</p>
                             </div>
                         </div>
-                        <div class="switchProfOptBox switchProfOpt">
+                        <div class="switchProfOptBox changeProfOPt">
                             <div class="switchProfOptImgBdr">
                                 <div class="switchProfOptImgBox">
                                     <img src="/Images/pfp/IMG_0371.jpg" alt="profile_img" class="switchProfOptImg">
@@ -56,7 +57,7 @@
                                 <p class="switchProfOptText">Sarah</p>
                             </div>
                         </div>
-                        <div class="switchProfOptBox switchProfOpt">
+                        <div class="switchProfOptBox changeProfOPt">
                             <div class="switchProfOptImgBdr">
                                 <div class="switchProfOptImgBox">
                                     <img src="/Images/pfp/IMG_1239.jpg" alt="profile_img" class="switchProfOptImg">
@@ -73,7 +74,7 @@
                                 <p class="switchProfOptText">Aston</p>
                             </div>
                         </div>
-                        <div class="switchProfOptBox switchProfOpt">
+                        <div class="switchProfOptBox changeProfOPt">
                             <div class="switchProfOptImgBdr">
                                 <div class="switchProfOptImgBox">
                                     <img src="/Images/Uvid_profilebase.png" alt="profile_img" class="switchProfOptImg">
@@ -104,7 +105,7 @@
                 </div>
                 <div class="actionBtnBcg">
                     <div class="actionBtnBdr">
-                        <button class="actionBtnBox manageProfBtn" disabled>Manage Profiles</button>
+                        <button class="actionBtnBox manageProfBtn">Manage Profiles</button>
                     </div>
                 </div>
             </div>
@@ -112,7 +113,7 @@
     `;
     let switchProfBox;
     let switchProfOPtBox;
-    let switchProfOPt;
+    let changeProfOPt;
     let editProfOPt;
     let manageProfBtn;
     let saveEditsBtn;
@@ -133,7 +134,7 @@
         // Definitons
         switchProfBox = document.querySelector(".switchProfBox");
         switchProfOPtBox = document.querySelectorAll(".switchProfOptBox");
-        switchProfOPt = document.querySelectorAll(".switchProfOpt");
+        changeProfOPt = document.querySelectorAll(".changeProfOPt");
         editProfOPt = document.querySelectorAll(".switchProfOpt");
         manageProfBtn = document.querySelector(".switchProfOpt");
         saveEditsBtn = document.querySelector(".switchProfOpt");
@@ -155,14 +156,27 @@
         } , 100);
 
         // Switching a profile
-        //
+        changeProfOPt.forEach((opt) => 
+        {
+            let optImg = opt.querySelector(".switchProfOptImg");
+            let optSrc = optImg.getAttribute("src");
+
+            opt.addEventListener("click" , () => 
+            {
+                // Update the profile image 
+                navProfleImg.setAttribute("src" , optSrc);
+
+                // Close the switch profile modal
+                closeswitchProfBdr();
+            });
+        });
 
         // Closes the Switch Profile Modal
         function closeswitchProfBdr()
         {
-            documentBody.classList.remove("bodystop");
 
             // Removes style classes
+            switchProfBdr.classList.add("active");
             switchProfBdr.classList.remove("active");
             switchProfBox.classList.remove("active");
 
@@ -173,6 +187,8 @@
 
                 // clear timer once time runs out
                 clearTimeout(switchProfTimer);
+
+                documentBody.classList.remove("bodystop");
             },1000);
         
         }
