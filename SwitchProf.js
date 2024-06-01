@@ -9,6 +9,7 @@
 
     let navProfleImg = document.querySelector(".navBarProfileImage");
     let switchProfTimer;
+    let switchProfTimer2;
     let switchProfHTML = 
     `
         <div class="switchProfBcg closeSwitchProf">
@@ -118,18 +119,19 @@
     let manageProfBtn;
     let saveEditsBtn;
 
-    // Opens the Notification Box
+    
     function instantiateSwitchProfBdr()
     {
-        // The border holding the elements of the notification box
+        // The border holding the elements of the Switch Profile Modal
         const switchProfBdr = document.createElement("div");
         switchProfBdr.classList.add("switchProfBdr");
 
-        // The Notification Bar Structure
+        // The Switch Profile Modal Structure
         switchProfBdr.innerHTML = switchProfHTML;
 
-        // Append the fragment to navBarRightCtnt of the navbar
+        // Append the fragment to DOM
         documentBody.appendChild(switchProfBdr);
+        documentBody.classList.add("bodystop");
 
         // Definitons
         switchProfBox = document.querySelector(".switchProfBox");
@@ -142,18 +144,19 @@
         // Opens the Switch Profile Modal
         switchProfTimer = setTimeout(() => 
         {
-            documentBody.classList.add("bodystop");
+            clearTimeout(switchProfTimer);
 
             // Adds style class
             switchProfBdr.classList.add("active");
+            switchProfBdr.classList.add("animate");
 
-            // Slides in the Notification box
-            switchProfBox.classList.add("active");
+            switchProfTimer2 = setTimeout(() => 
+            {
+                clearTimeout(switchProfTimer2);
+                switchProfBdr.classList.remove("animate");
+            }, 750);
 
-            // clear timer once time runs out
-            clearTimeout(switchProfTimer);
-
-        } , 100);
+        }, 100);
 
         // Switching a profile
         changeProfOPt.forEach((opt) => 
@@ -174,22 +177,17 @@
         // Closes the Switch Profile Modal
         function closeswitchProfBdr()
         {
-
             // Removes style classes
-            switchProfBdr.classList.add("active");
+            switchProfBdr.classList.add("animate");
             switchProfBdr.classList.remove("active");
-            switchProfBox.classList.remove("active");
 
             switchProfTimer = setTimeout(() => 
             {
-                // Remove Child Nodes
-                documentBody.removeChild(switchProfBdr);
-
-                // clear timer once time runs out
                 clearTimeout(switchProfTimer);
 
+                // Remove Child Nodes
+                documentBody.removeChild(switchProfBdr);
                 documentBody.classList.remove("bodystop");
             },1000);
-        
         }
     }
