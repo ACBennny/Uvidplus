@@ -71,6 +71,7 @@ html:root
     --navBarNotificationPosT: calc(var(--navBarHeight) + 10px);
     --navBarNotificationPosR: -100%;
     --navBarNotificationTitleBoxHeight: 50px;
+    --switchProfileFadeTranstion: 750ms;
     --switchProfHeaderHeight: 60px;
     --switchProfOptImgBoxWidth: 125px;
     --basicSliderCardDivision: 4;
@@ -111,6 +112,7 @@ body.bodystop
     backface-visibility: hidden;
     overflow: hidden;
 }
+
 
 a
 {
@@ -513,7 +515,6 @@ img
     height: 100%;
     display: flex;
     flex-direction: column;
-    /* padding: 10px 0; */
     border-radius: 10px;
     border-bottom: 1px solid #14d60d;
     background-color: #1d1c1c;
@@ -1052,7 +1053,7 @@ img
 
 .switchProfBdr.animate
 {
-    transition: all 750ms ease-in-out;
+    transition: all var(--switchProfileFadeTranstion) ease-in-out;
 }
 
 .switchProfBdr .switchProfBcg
