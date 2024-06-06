@@ -79,7 +79,7 @@ html:root
     --switchProfileFadeTranstion: 750ms;
     --switchProfHeaderHeight: 60px;
     --switchProfOptImgBoxWidth: 125px;
-    --editProfileBcgImgHeight: 175px;
+    --editProfileBcgImgHeight: 200px;
     --basicSliderCardDivision: 4;
     --basicSlideIconWidth: 16px;
     --slideCardPlayIconClr: var(--genGreenTypeLight);
@@ -348,7 +348,7 @@ img
     gap: 10px;
 }
 
-.navBarLeft .spacing
+.navBar .spacing
 {
     margin: 0 25px;
 }
@@ -430,9 +430,11 @@ img
 
 .navBarRight .signUpBdr
 {
-    width: 200px;
+    width: -moz-fit-content;
+    width: fit-content;
     height: 100%;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
@@ -1406,6 +1408,11 @@ img
 }
 
 
+
+.profileNavBox
+{
+    z-index: 115;
+}
 
 .editProfileFence
 {
@@ -2989,15 +2996,9 @@ img
 
 @media only screen and (max-width: 884px)
 {
-    .navBarLeft .spacing
+    .navBar .spacing
     {
         margin: 0;
-    }
-
-    .navBarRight .signUpBdr
-    {
-        width: -moz-fit-content;
-        width: fit-content;
     }
 
     .signUpBdr .signUpBox
@@ -3305,7 +3306,7 @@ img
 {
     html:root
     {
-        --editProfileBcgImgHeight: 125px;
+        --editProfileBcgImgHeight: 150px;
     }
 
     .editProfileBcgImgOverlayBox .editProfileBcgImgOverlayText
