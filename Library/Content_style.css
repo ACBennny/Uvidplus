@@ -14,11 +14,11 @@ html:root
     --introInfoNotesMargin: 20px;
     --watchActionIconWidth: 18px;
     --watchListIconWidth: 15px;
-    --watchActionLinkBoxBcg: #1da216;
-    --watchActionLinkBoxBcgHover: #1fc316;
-    --watchActionLinkBoxClr: #ffffff;
-    --watchActionSaveBoxClrBdr: #1da216;
-    --watchActionSaveBoxClrBdrHover: #e7e7e7;
+    --watchActionLinkBoxBcg: var(--genGreenTypeMid);
+    --watchActionLinkBoxBcgHover: var(--genGreenTypeLight2);
+    --watchActionLinkBoxClr: var(--genWhiteTypeBright);
+    --watchActionSaveBoxClrBdr: var(--genGreenTypeMid);
+    --watchActionSaveBoxClrBdrHover: var(--color8);
 }
 
 html

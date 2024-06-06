@@ -11,10 +11,8 @@
     const bodyDoc = document.body;
     const preloaderBdr = document.querySelector('#preloader');
     let backtotopBtn = document.querySelectorAll(".backtotop_btn");
-
-    // To open the Account forms
-    const loadAccForm = document.querySelectorAll(".action_Join");
-
+    const faqBtns = document.querySelectorAll(".questions_CardBtn");
+    const faqAnswers = document.querySelectorAll(".questions_Card");
 
 
 
@@ -36,8 +34,6 @@
 
 // PRELOADER
 
-    // This function removes the preloader after the skeleton of the website has been loaded
-    
     window.addEventListener("load", () => 
     {
         preloaderBdr.style.display = "none";
@@ -59,8 +55,6 @@
 
 // FREQUENTLY ASKED QUESTIONS
 
-    const faqBtns = document.querySelectorAll(".questions_CardBtn");
-    const faqAnswers = document.querySelectorAll(".questions_Card");
 
     faqBtns.forEach((btn, b) => 
     {
@@ -71,7 +65,6 @@
             {
                 btn.ariaExpanded = false;
                 faqAnswers[b].classList.remove("active");
-                console.log("aaaaaaa \n");
             }
             else
             {
@@ -85,7 +78,6 @@
                 });
                 btn.ariaExpanded = true;
                 faqAnswers[b].classList.add("active");
-                console.log("bbbbbbb \n");
             }
         });
         

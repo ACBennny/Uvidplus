@@ -153,12 +153,12 @@
                         <div class="settingsHomeBdr">
                             <div class="settingsHomeBox">
                                 <ul class="settingsHomeList">
-                                    <div class="settingSectionTitleBox settingHomeTitleBox">
+                                    <li class="settingSectionTitleBox settingHomeTitleBox">
                                         <div class="settingSectionTitleIconBox">
                                             <span class="settingSectionTitleIcon closeSettingsBase"></span>
                                         </div>
                                         <h3 class="settingSectionTitleText">Settings</h3>
-                                    </div>
+                                    </li>
                                     <li>
                                         <label for="vid_AutoPlayToggleCheckbox" class="settingsHomeListItem listItemAutoPlay" title="Autoplay is on" aria-label="Autoplay is on">
                                             <div class="itemLeft">
@@ -173,10 +173,10 @@
                                             </div>
                                             <div class="itemRight">
                                                 <span class="itemValue">
-                                                    <div class="vid_AutoPlayBox">
-                                                        <input type="checkbox" id="vid_AutoPlayToggleCheckbox" class="vid_AutoPlayToggleInput" tabindex="-1" checked>
-                                                        <label for="vid_AutoPlayToggleCheckbox" class="vid_AutoPlayToggle">
-                                                            <span class="vid_AutoPlayToggleCircle"></span>
+                                                    <div class="genCheckBoxBase">
+                                                        <input type="checkbox" id="vid_AutoPlayToggleCheckbox" class="genCheckBoxInput" tabindex="-1" checked>
+                                                        <label for="vid_AutoPlayToggleCheckbox" class="genCheckBoxToggle">
+                                                            <span class="genCheckBoxToggleCircle"></span>
                                                         </label>
                                                     </div>
                                                 </span>

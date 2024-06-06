@@ -25,6 +25,9 @@ html
 html:root
 {   
     --genGreenTypeLight: #14d60d;
+    --genGreenTypeLight2: #1fc316;
+    --genGreenTypeMid: #1da216;
+    --genGreenTypeLight2: #1fc316;
     --genGreenTypeDark: #148b10;
     --genGreenTypeDark2: #136e25;
     --genGreenTypeDark3: #11521e;
@@ -32,6 +35,7 @@ html:root
     --genWhiteTypeLight: #dfdfdf;
     --genWhiteTypeMid: #ababab;
     --genWhiteTypeDark: #6b6a6a;
+    --scrollBarWidth: 7px;
     --scrollbarClr: #282828;
     --scrollbarHoverClr: #333333;
     --scrollbarActiveClr: #444444;
@@ -47,6 +51,7 @@ html:root
     --color9: #b4b4b4;
     --color10: #888888;
     --color11: #252525;
+    --warningClr: #ff0000;
     --fzTxt: 12px;
     --fzIcon: 20px;
     --bcgFilt: 2px;
@@ -74,6 +79,7 @@ html:root
     --switchProfileFadeTranstion: 750ms;
     --switchProfHeaderHeight: 60px;
     --switchProfOptImgBoxWidth: 125px;
+    --editProfileBcgImgHeight: 175px;
     --basicSliderCardDivision: 4;
     --basicSlideIconWidth: 16px;
     --slideCardPlayIconClr: var(--genGreenTypeLight);
@@ -178,17 +184,19 @@ img
 ::-moz-selection
 {
     background: #202720;
-    color: #14d60d;
+    color: var(--genGreenTypeLight);
 }
 
 ::selection
 {
     background: #202720;
-    color: #14d60d;
+    color: var(--genGreenTypeLight);
 }
 
 ::-ms-input-placeholder
 {
+    fill:  var(--genWhiteTypeDark);
+    color: var(--genWhiteTypeDark);
     -moz-user-select: -moz-none;
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -198,6 +206,8 @@ img
 
 ::-moz-placeholder
 {
+    fill:  var(--genWhiteTypeDark);
+    color: var(--genWhiteTypeDark);
     -moz-user-select: -moz-none;
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -208,6 +218,8 @@ img
 
 ::-webkit-input-placeholder
 {
+    fill:  var(--genWhiteTypeDark);
+    color: var(--genWhiteTypeDark);
     -moz-user-select: -moz-none;
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -217,6 +229,8 @@ img
 
 ::placeholder
 {
+    fill:  var(--genWhiteTypeDark);
+    color: var(--genWhiteTypeDark);
     -moz-user-select: -moz-none;
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -516,7 +530,7 @@ img
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    border-bottom: 1px solid #14d60d;
+    border-bottom: 1px solid var(--genGreenTypeLight);
     background-color: #1d1c1c;
     overflow: hidden;
 }
@@ -525,6 +539,8 @@ img
 {
     width: 100%;
     padding: 0 15px;
+    outline: none;
+    border: none;
     background-color: transparent;
 }
 
@@ -894,7 +910,7 @@ img
     position: relative;
     width: 100%;
     border: none;
-    border-bottom: var(--navBarDividerThickness) solid #03901d;
+    border-bottom: var(--navBarDividerThickness) solid var(--color7);
     border-bottom-right-radius: 15px;
 }
 
@@ -944,14 +960,14 @@ img
 }
 
 .navOptLink.active{
-    --navMenuPageActiveElementClr: #14d60d;
+    --navMenuPageActiveElementClr: var(--genGreenTypeLight);
     background-color: #334334b8;
     border-radius: 10px;
 }
 
 .navOptLink:active
 {
-    --navMenuPageActiveElementClr: #14d60d;
+    --navMenuPageActiveElementClr: var(--genGreenTypeLight);
 }
 
 .navOptLink .navOptTitle
@@ -1018,6 +1034,73 @@ img
 
 
 
+
+/* ============== general buttons ============= */
+
+.lightSolidBtn
+{
+    background-color: var(--watchActionLinkBoxBcg);
+    color: var(--watchActionLinkBoxClr)
+}
+
+
+
+
+/* ============= Toggle Btn ============= */
+.genCheckBoxBase
+{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+}
+
+.genCheckBoxBase .genCheckBoxInput
+{
+    width: 0;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+}
+
+.genCheckBoxBase .genCheckBoxToggle
+{
+    position: relative;
+    width: 30px;
+    height: 15px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: var(--showlistAutoPlayTogglePadding);
+    border-radius: 20px;
+    background-color: var(--genWhiteTypeDark);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.genCheckBoxToggle .genCheckBoxToggleCircle
+{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--genWhiteTypeLight);
+    transform: translateX(-75%);
+    transition: all 300ms ease;
+}
+
+.genCheckBoxInput:checked ~ .genCheckBoxToggle
+{
+    background-color: var(--genGreenTypeDark);
+}
+
+.genCheckBoxInput:checked ~ .genCheckBoxToggle .genCheckBoxToggleCircle
+{
+    transform: translateX(25%);
+}
+
+
 /* ====== Switch Account ====== */
 
 .switchProfBdr
@@ -1033,7 +1116,6 @@ img
     justify-content: center;
     align-items: center;
     background-color: #000000;
-    filter: brightness(0.0);
     backface-visibility: hidden;
     opacity: 0;
     visibility: hidden;
@@ -1051,7 +1133,12 @@ img
     visibility: visible;
 }
 
-.switchProfBdr.animate
+.switchProfBdr.inactive
+{
+    filter: brightness(0.0);
+}
+
+.switchProfBdr.flow
 {
     transition: all var(--switchProfileFadeTranstion) ease-in-out;
 }
@@ -1244,7 +1331,7 @@ img
     background-color: var(--genWhiteTypeLight);
 }
 
-.editProfileBadgeBdr.active
+.switchProfOptBox.editProfOPt .editProfileBadgeBdr
 {
     display: flex;
 }
@@ -1320,9 +1407,449 @@ img
 
 
 
+.editProfileFence
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    height: 100vh;
+    background-color: #000000;
+    overflow: hidden;
+    z-index: 110;
+}
+
+.editProfileFence .editProfileBase
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: calc(var(--switchProfHeaderHeight) * 2) var(--switchProfHeaderHeight) 0;
+    background-color: #00000055;
+    overflow: hidden;
+    overflow-y: visible;
+}
+
+.editProfileBcgImgBdr
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.editProfileBcgImgBdr.editProfileMobBcgImgBdr
+{
+    display: none;
+}
+
+.editProfileBcgImgBdr .editProfileBcgImgBox
+{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.editProfileBcgImgBox .editProfileBcgImg
+{
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-position: center;
+    object-fit: cover;
+}
+
+.editProfileBase .editProfileBdr
+{
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    max-height: -moz-fit-content;
+    max-height: fit-content;
+    max-width: 700px;
+    padding: 10px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    background: linear-gradient(#111111,#1f1d1d,#222222);
+}
+
+.editProfileBdr .editProfileBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: var(--switchProfHeaderHeight) 10px 10px;
+    overflow: hidden;
+}
+
+.editProfileBox .editProfileTitleBox
+{
+    position: relative;
+    width: 100%;
+    height: var(--switchProfHeaderHeight);
+    margin-bottom: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.editProfileTitleBox .editProfileTitle
+{
+    font-size: 25px;
+    color: var(--genWhiteTypeLight);
+    text-align: center;
+}
 
 
-/* ================ General (Basic) Carousel ============== */
+.editProfileBcgImgOverlayBdr
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--editProfileBcgImgHeight);
+    display: none;
+    transform: translateY(-100%);
+    cursor: pointer;
+}
+
+.editProfileBcgImgOverlayBdr .editProfileBcgImgOverlayBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000055;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 300ms ease-in-out;
+}
+
+.editProfileBcgImgOverlayBox .editProfileBcgImgOverlayText
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 14px;
+    padding: 10px 15px;
+    border-radius: 15px;
+    background-color: #222222;
+}
+
+.editBcgImgBtnBdr
+{
+    --editBcgImgBtnBoxWidth: 40px;
+    --editBcgImgBtnIconWidth: 16px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 20px;
+    z-index: 3;
+}
+
+.editBcgImgBtnBdr .editBcgImgBtnBox
+{
+    position: relative;
+    width: var(--editBcgImgBtnBoxWidth);
+    height: var(--editBcgImgBtnBoxWidth);
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--genWhiteTypeLight);
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+}
+
+.editBcgImgBtnBox .editBcgImgBtnIconBox
+{
+    width: var(--editBcgImgBtnIconWidth);
+}
+
+.editBcgImgBtnIconBox .editBcgImgBtnIcon
+{
+    width: 100%;
+    fill: #000000;
+}
+
+.editBcgImgBtnBox .editBcgImgBtnTextBox
+{
+    --editBcgImgBtnTextAfterProp: 7px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: fit-content;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--genWhiteTypeLight);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(calc(-100% - var(--editBcgImgBtnTextAfterProp)));
+    transition: all 300ms ease-in-out;
+    pointer-events: none;
+}
+
+.editBcgImgBtnTextBox .editBcgImgBtnText
+{
+    position: relative;
+    padding: 10px;
+    color: #000000;
+    font-size: 13px;
+    text-wrap:nowrap;
+}
+
+.editBcgImgBtnText::after
+{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-top: var(--editBcgImgBtnTextAfterProp) solid var(--genWhiteTypeLight);
+    border-left: var(--editBcgImgBtnTextAfterProp) solid #00000000;
+    border-right: var(--editBcgImgBtnTextAfterProp) solid #00000000;
+    transform: translate(calc(50% - (var(--editBcgImgBtnBoxWidth) / 2)), 100%);
+}
+
+
+.editProfileFrgImgBase
+{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: var(--switchProfOptImgBoxWidth);
+    height: var(--switchProfOptImgBoxWidth);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.editProfileFrgImgBase .editProfileFrgImgBdr
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.editProfileFrgImgBdr .editProfileFrgImgBox
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #111111;
+    overflow: hidden;
+}
+
+.editProfileFrgImgBox .editProfileFrgImg
+{
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-position: center;
+    object-fit: cover;
+}
+
+.editProfileFrgImgBdr .editProfileBadgeBdr
+{
+    display: flex;
+}
+
+.editProfileFrgImgBdr .editProfileFrgImgOverlayBdr
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: all 300ms ease-in-out;
+}
+
+.editProfileFrgImgOverlayBdr .editProfileFrgImgOverlayBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000085;
+}
+
+.editProfileFrgImgOverlayBox .editProfileFrgImgOverlayText
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 12px;
+    padding: 7px 10px;
+    border-radius: 15px;
+    background-color: #222222;
+}
+
+
+.editProfileBox .editProfileDetBdr
+{
+    width: 100%;
+    border-radius: 5px;
+    background-color: #111111;
+}
+
+.editProfileDetBdr .editProfileDetBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.editProfileDetBox .editProfileDetSect
+{
+    width: 100%;
+    padding: 20px 0;
+    border-bottom: 1px solid #333333;
+}
+
+.editProfileDetSect .editProfileDetSectCtnt
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+}
+
+.editProfileDetSectCtnt .editProfileDetSectHead
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.editProfileDetSectHead .editProfileDetSectHeadText
+{
+    font-size: 16px;
+    color: var(--genWhiteTypeLight);
+}
+
+.editProfileDetSectCtnt .editProfileDetSectBody
+{
+    width: 100%;
+}
+
+.editProfileDetSectBody .editProfileDetSectBodyText
+{
+    width: 100%;
+    color: var(--genWhiteTypeMid);
+    font-size: 14px;
+}
+
+.editProfileNameBdr
+{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 7px;
+}
+
+.editProfileNameBdr .editProfileNameBox
+{
+    width: 100%;
+    height: 100%;
+}
+
+.editProfileNameBox .editProfileNameField
+{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    padding: 0 5px;
+    font-size: 16px;
+    color: var(--genWhiteTypeMid);
+    border-bottom: 2px solid var(--genWhiteTypeDark);
+    background-color: #00000000;
+    transition: all 300ms ease-in-out;
+}
+
+.editProfileNameField:focus
+{
+    border-color: var(--genGreenTypeLight);
+}
+
+.editProfileNameWarnBdr
+{
+    width: 100%;
+}
+
+.editProfileNameWarnBdr .editProfileNameWarnBox
+{
+    width: 100%;
+}
+
+.editProfileNameWarnBox .editProfileNameWarnText
+{
+    width: 100%;
+    color: var(--warningClr);
+    font-size: 12px;
+}
+
+.editProfileLangSelectBdr
+{
+}
+
+.editProfileLangSelectBdr .editProfileLangSelectBox
+{
+    position: relative;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #262626;
+    cursor: pointer;
+}
+
+.editProfileLangSelectBox::after
+{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    border-top: 5px solid var(--genWhiteTypeLight);
+    border-left: 5px solid #00000000;
+    border-right: 5px solid #00000000;
+    transform: translate(100%, -50%);
+}
+
+.editProfileLangSelectBox .editProfileLangSelectText
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+
+
+
+/* ================ Basic (General) Carousel ============== */
 
 .basic_slider_bdr
 {
@@ -1769,7 +2296,7 @@ img
     flex-direction: row;
     gap: 10px;
     border-radius: 10px;
-    background-color: #03901d;
+    background-color: var(--color7);
     transition: 150ms;
     -moz-user-select: -moz-none;
     -moz-user-select: none;
@@ -2186,6 +2713,11 @@ img
     display: none;
     color: var(--genWhiteTypeMid);
     font-size: 14px;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
 }
 
 .newPLWarnText.active
@@ -2195,7 +2727,7 @@ img
 
 .newPLWarnText.empty
 {
-    color: #ff0000;
+    color: var(--warningClr);
 }
 
 .newPLBox .newPLAtnBdr
@@ -2211,6 +2743,10 @@ img
     justify-content: center;
     align-items: center;
     gap: 10px;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .newPLAtnBox .newPLAtnBtn
@@ -2279,6 +2815,25 @@ img
     {
         color: var(--genWhiteTypeBright);
         border-color: var(--genWhiteTypeBright);
+    }
+
+    .editBcgImgBtnBdr:hover ~ .editProfileBcgImgOverlayBdr .editProfileBcgImgOverlayBox,
+    .editProfileBcgImgOverlayBdr:hover .editProfileBcgImgOverlayBox
+    {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .editBcgImgBtnBox:hover .editBcgImgBtnTextBox
+    {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .editProfileFrgImgBdr:hover .editProfileFrgImgOverlayBdr
+    {
+        opacity: 1;
+        visibility: visible;
     }
 
     .basic_slider_box:hover .basic_slide_arrow
@@ -2486,7 +3041,7 @@ img
         font-size: 30px;
     }
 
-    .switchAcc_AddAccIconBox .switchAcc_AddAccBoxIcon
+    .addNewProfIconBox .addNewProfIcon
     {
         width: 30px;
     }
@@ -2498,13 +3053,8 @@ img
 
     .searchBdr.navBarSearchBdr
     {
-        position: absolute;
-        bottom: 0;
-        left: 100%;
         width: 100%;
         background-color: #000000;
-        opacity: 0;
-        visibility: hidden;
     }
 
     .searchBdr.navBarSearchBdr.active
@@ -2513,20 +3063,48 @@ img
         opacity: 1;
         visibility: visible;
     }
-    
-    .searchBdr .closeNavSearch_BtnBox
-    {
-        display: flex;
-    }
-
-    .searchBdr .searchBox
-    {
-        width: calc(100% - var(--navBarIconBoxWidth));
-    }
 
     .navBarNotificationMain.notify_atv
     {
         --navBarNotificationPosR: 5px;
+    }
+
+    .editProfileFence .editProfileBase
+    {
+        padding: calc(var(--editProfileBcgImgHeight)) 0 0;
+    }
+
+    .editProfileBcgImgBdr
+    {
+        max-height: var(--editProfileBcgImgHeight);
+    }
+
+    .editProfileBase .editProfileBdr
+    {
+        max-width: none;
+        padding: 0;
+        border-radius: 0px;
+    }
+
+    .editProfileBcgImgOverlayBdr
+    {
+        display: block;
+    }
+
+    .editBcgImgBtnBdr
+    {
+        --editBcgImgBtnBoxWidth: 30px;
+        --editBcgImgBtnIconWidth: 12px;
+        position: absolute;
+        top: 0;
+        bottom: unset;
+        margin: 0 10px;
+        transform: translateY(calc(-100% - (var(--editBcgImgBtnBoxWidth) / 2)));
+    }
+
+    .editBcgImgBtnBox .editBcgImgBtnTextBox
+    {
+        display: none;
     }
 
     .basic_slider_card_box
@@ -2671,6 +3249,41 @@ img
         justify-content: unset;
     }
 
+    .editProfileBox .editProfileTitleBox
+    {
+        margin-bottom: 0px;
+    }
+
+    .editProfileTitleBox .editProfileTitle
+    {
+        font-size: 22px;
+    }
+
+    .editProfileDetSectHead .editProfileDetSectHeadText
+    {
+        font-size: 14px;
+    }
+
+    .editProfileDetSectBody .editProfileDetSectBodyText
+    {
+        font-size: 12px;
+    }
+
+    .editProfileNameBox .editProfileNameField
+    {
+        font-size: 14px;
+    }
+
+    .editProfileNameWarnBox .editProfileNameWarnText
+    {
+        font-size: 11px;
+    }
+
+    .editProfileLangSelectBox .editProfileLangSelectText
+    {
+        font-size: 12px;
+    }
+
     .basic_slider_title_box h2 .big
     {
         font-size: 22px;
@@ -2690,6 +3303,16 @@ img
 
 @media only screen and (max-width: 400px)
 {
+    html:root
+    {
+        --editProfileBcgImgHeight: 125px;
+    }
+
+    .editProfileBcgImgOverlayBox .editProfileBcgImgOverlayText
+    {
+        font-size: 12px;
+        transform: translateY(-50%);
+    }
 
     .basic_slider_card_box
     {
@@ -2711,7 +3334,7 @@ img
         font-size: 25px;
     }
 
-    .switchAcc_AddAccIconBox .switchAcc_AddAccBoxIcon
+    .addNewProfIconBox .addNewProfIcon
     {
         width: 25px;
     }
@@ -2743,8 +3366,8 @@ img
     ::-webkit-scrollbar
     {
         display: block;
-        width: 7px;
-        height: 7px;
+        width: var(--scrollBarWidth);
+        height: var(--scrollBarWidth);
         pointer-events: none;
     }
 
@@ -2785,28 +3408,36 @@ img
 
     .navBarNotificationSub::-webkit-scrollbar-thumb
     {
-        background-color: #444444;
-        border-top-left-radius: 15px;
-        border-bottom-left-radius: 15px;
+        background-color: #333333;
     }
 
     .navBarNotificationSub::-webkit-scrollbar-thumb:hover
     {
-        background-color: #666666;
+        background-color: #3f3f3f;
     }
 
     .navBarNotificationSub::-webkit-scrollbar-thumb:active
     {
-        background-color: #888888;
+        background-color: #444444;
     }
 
 
     /* --------- Switch Profiles Modal ---------- */
 
-    .switchProfBoxCtnt::-webkit-scrollbar-thumb,
-    .switchProfBoxCtnt::-webkit-scrollbar-thumb:active,
-    .switchProfBoxCtnt::-webkit-scrollbar-thumb:hover
+    .userProfileScrollbar::-webkit-scrollbar-thumb,
+    .userProfileScrollbar::-webkit-scrollbar-thumb:active,
+    .userProfileScrollbar::-webkit-scrollbar-thumb:hover
     {
-        background: #dfdfdf50;
+        background-color: #dfdfdf80;
+    }
+}
+
+
+@media only screen and (max-width: 768px) and (hover: hover)
+{
+    .editProfileBase::-webkit-scrollbar-track
+    {
+        margin-block: 0px;
+        background-color: #000000;
     }
 }

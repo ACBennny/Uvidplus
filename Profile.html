@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Uvid • Profile</title>
+    <link rel="shortcut icon" href="/Logo/Logo.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/Main.css">
+    </head>
+    <body class="">
+        
+         <!-- preloader -->
+         <div id="preloader">
+            <div id="spinner"></div>
+        </div>
+
+
+        <!-- div profile -->
+        <div class="editProfileFence">
+            <div class="editProfileBcgImgBdr editProfilePcBcgImgBdr">
+                <div class="editProfileBcgImgBox">
+                    <img src="/Images/Uvid_green_bcg1_light.jpg" alt="" class="editProfileBcgImg">
+                </div>
+            </div>
+            <div class="editProfileBase userProfileScrollbar">
+                <div class="editProfileBdr">
+                    <div class="editBcgImgBtnBdr">
+                        <button type="button" class="editBcgImgBtnBox">
+                            <div class="editBcgImgBtnIconBox">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="editBcgImgBtnIcon">
+                                    <path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/>
+                                </svg>
+                            </div>
+                            <div class="editBcgImgBtnTextBox">
+                                <p class="editBcgImgBtnText">Update Background Image</p>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="editProfileBcgImgOverlayBdr">
+                        <div class="editProfileBcgImgOverlayBox">
+                            <p class="editProfileBcgImgOverlayText">Update Background Image</p>
+                        </div>
+                    </div>
+                    <div class="editProfileFrgImgBase" title="Change Profile Image">
+                        <div class="editProfileFrgImgBdr">
+                            <div class="editProfileFrgImgBox">
+                                <img src="/Images/Uvid_profilebase.png" alt="" class="editProfileFrgImg">
+                            </div>
+                            <div class="editProfileFrgImgOverlayBdr">
+                                <div class="editProfileFrgImgOverlayBox">
+                                    <p class="editProfileFrgImgOverlayText">Change</p>
+                                </div>
+                            </div>
+                            <div class="editProfileBadgeBdr">
+                                <div class="editProfileBadgeBox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="editProfileBadgeIcon">
+                                        <path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="editProfileBox">
+                        <div class="editProfileTitleBox">
+                            <span class="editProfileTitle">Edit Profile</span>
+                        </div>
+                        <div class="editProfileDetBdr">
+                            <div class="editProfileDetBox">
+                                <div class="editProfileDetSect profileNameSection">
+                                    <div class="editProfileDetSectCtnt">
+                                        <div class="editProfileDetSectHead">
+                                            <div class="editProfileDetSectHeadText">Profile Name</div>
+                                        </div>
+                                        <div class="editProfileNameBdr">
+                                            <div class="editProfileNameBox">
+                                                <input type="text" name="editProfileNameField" id="editProfileNameField" class="editProfileNameField" placeholder="Enter here.." value="" />
+                                            </div>
+                                        </div>
+                                        <div class="editProfileNameWarnBdr">
+                                            <div class="editProfileNameWarnBox">
+                                                <p class="editProfileNameWarnText">Must be between 2 and 50 characters.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="editProfileDetSect">
+                                    <div class="editProfileDetSectCtnt">
+                                        <div class="editProfileDetSectHead">
+                                            <div class="editProfileDetSectHeadText">App Language</div>
+                                            <div class="editProfileLangSelectBdr" id="appLangSelect">
+                                                <div class="editProfileLangSelectBox">
+                                                    <div class="editProfileLangSelectText">English</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="editProfileDetSectBody">
+                                            <p class="editProfileDetSectBodyText">
+                                                Set your preferred language for all contents of the app.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="editProfileDetSect">
+                                    <div class="editProfileDetSectCtnt">
+                                        <div class="editProfileDetSectHead">
+                                            <div class="editProfileDetSectHeadText">Subtitle/CC Language</div>
+                                            <div class="editProfileLangSelectBdr" id="appLangSelect">
+                                                <div class="editProfileLangSelectBox">
+                                                    <div class="editProfileLangSelectText">English</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="editProfileDetSectBody">
+                                            <p class="editProfileDetSectBodyText">
+                                                Set your preferred language for all contents of the app.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="editProfileDetSect">
+                                    <div class="editProfileDetSectCtnt">
+                                        <div class="editProfileDetSectHead">
+                                            <div class="editProfileDetSectHeadText">Closed Caption</div>
+                                            <div class="editProfileDetSectToggle">
+                                                <div class="genCheckBoxBase">
+                                                    <input type="checkbox" id="autoCCDisplay" class="genCheckBoxInput" tabindex="-1">
+                                                    <label for="autoCCDisplay" class="genCheckBoxToggle">
+                                                        <span class="genCheckBoxToggleCircle"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="editProfileDetSectBody">
+                                            <p class="editProfileDetSectBodyText">
+                                                By enabling this, closed captions will be shown automatically if they are available.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="editProfileDetSect">
+                                    <div class="editProfileDetSectCtnt">
+                                        <div class="editProfileDetSectHead">
+                                            <div class="editProfileDetSectHeadText">Autoplay</div>
+                                            <div class="editProfileDetSectToggle">
+                                                <div class="genCheckBoxBase">
+                                                    <input type="checkbox" id="autoNextVidPlay" class="genCheckBoxInput" tabindex="-1" checked>
+                                                    <label for="autoNextVidPlay" class="genCheckBoxToggle">
+                                                        <span class="genCheckBoxToggleCircle"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="editProfileDetSectBody">
+                                            <p class="editProfileDetSectBodyText">
+                                                By enabling this, the next video in a series plays automatically.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="editProfileDetSect">
+                                    <div class="editProfileDetSectCtnt">
+                                        <div class="editProfileDetSectHead">
+                                            <div class="editProfileDetSectHeadText">Background Video</div>
+                                            <div class="editProfileDetSectToggle">
+                                                <div class="genCheckBoxBase">
+                                                    <input type="checkbox" id="autoBcgVidPlay" class="genCheckBoxInput" tabindex="-1" checked>
+                                                    <label for="autoBcgVidPlay" class="genCheckBoxToggle">
+                                                        <span class="genCheckBoxToggleCircle"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="editProfileDetSectBody">
+                                            <p class="editProfileDetSectBodyText">
+                                                By enabling this, landing pages will automatically play videos in the background throughout the app.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="editProfileDetSect">
+                                    <div class="editProfileDetSectCtnt">
+                                        <div class="editProfileDetSectHead">
+                                            <div class="editProfileDetSectHeadText">Kid's Profile</div>
+                                            <div class="editProfileDetSectToggle">
+                                                <div class="genCheckBoxBase">
+                                                    <input type="checkbox" id="thisIsKidsProfile" class="genCheckBoxInput" tabindex="-1">
+                                                    <label for="thisIsKidsProfile" class="genCheckBoxToggle">
+                                                        <span class="genCheckBoxToggleCircle"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="editProfileDetSectBody">
+                                            <p class="editProfileDetSectBodyText">
+                                                By enabling this, the interface is changed to a kid friendly design and only content suitable for kids is shown.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="editProfileDetSect">
+                                    <div class="editProfileDetSectCtnt">
+                                        <div class="editProfileDetSectHead">
+                                            <div class="editProfileDetSectHeadText">Mature Content</div>
+                                            <div class="editProfileDetSectToggle">
+                                                <div class="genCheckBoxBase">
+                                                    <input type="checkbox" id="matureCtntId" class="genCheckBoxInput" tabindex="-1">
+                                                    <label for="matureCtntId" class="genCheckBoxToggle">
+                                                        <span class="genCheckBoxToggleCircle"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="editProfileDetSectBody">
+                                            <p class="editProfileDetSectBodyText">
+                                                By enabling this, you confirm that you are at least 18 years of age.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- script -->
+        <script src="/Main.js" defer></script>
+
+
+
+    </body>
+</html>

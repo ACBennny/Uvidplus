@@ -647,59 +647,6 @@ svg.hide
     pointer-events: none;
 }
 
-.settingsHomeListItem .vid_AutoPlayBox
-{
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-}
-
-.vid_AutoPlayBox .vid_AutoPlayToggleInput
-{
-    width: 0;
-    height: 0;
-    opacity: 0;
-    visibility: hidden;
-    z-index: -1;
-}
-
-.vid_AutoPlayBox .vid_AutoPlayToggle
-{
-    position: relative;
-    width: 30px;
-    height: 15px;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    padding: var(--showlistAutoPlayTogglePadding);
-    border-radius: 20px;
-    background-color: var(--genWhiteTypeDark);
-    transition: all 300ms ease;
-    cursor: pointer;
-}
-
-.vid_AutoPlayToggle .vid_AutoPlayToggleCircle
-{
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: var(--genWhiteTypeLight);
-    transform: translateX(-75%);
-    transition: all 300ms ease;
-}
-
-.vid_AutoPlayToggleInput:checked ~ .vid_AutoPlayToggle
-{
-    background-color: var(--genGreenTypeDark);
-}
-
-.vid_AutoPlayToggleInput:checked ~ .vid_AutoPlayToggle .vid_AutoPlayToggleCircle
-{
-    transform: translateX(25%);
-}
-
 .settingsLayout .settingsOptBdr
 {
     width: 0%;
