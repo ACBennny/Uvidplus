@@ -83,7 +83,7 @@ html:root
 .left_section_box.section_title_box,
 .left_section_box.synopsis_box
 {
-    border-left: 3px solid var(--genGreenTypeDark1);
+    border-left: 3px solid var(--genGreenTypeMid);
 }
 
 .left_section_box.media_actions_box
@@ -91,7 +91,7 @@ html:root
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 3px solid var(--genGreenTypeDark1);
+    border-bottom: 3px solid var(--genGreenTypeMid);
     -moz-user-select: -moz-none;
     -moz-user-select: none;
     -webkit-user-select: none;

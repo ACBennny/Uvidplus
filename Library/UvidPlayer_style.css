@@ -272,7 +272,7 @@ svg.hide
 {
     position: relative;
     width: 0%;
-    background: var(--genGreenTypeLight);
+    background: var(--genGreenTypeMid);
     height: inherit;
     border-radius: inherit;
     cursor: pointer;
@@ -436,7 +436,7 @@ svg.hide
     height: 4px;
     margin-left: 3px;
     max-width: 75px;
-    accent-color: var(--genGreenTypeDark1);
+    accent-color: var(--genGreenTypeMid2);
 }
 
 .options .video-timer

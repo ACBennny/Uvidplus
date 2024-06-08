@@ -1178,7 +1178,7 @@ img
 
 .genCheckBoxInput:checked ~ .genCheckBoxToggle
 {
-    background-color: var(--genGreenTypeDark1);
+    background-color: var(--genGreenTypeMid);
 }
 
 .genCheckBoxInput:checked ~ .genCheckBoxToggle .genCheckBoxToggleCircle
