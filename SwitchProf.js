@@ -20,11 +20,6 @@
                         <h1 class="lname">vid</h1>
                     </a>
                 </div>
-                <div class="navBarRight">
-                    <div class="signUpBdr">
-                        <div class="signUpBox lightSolidBtn">Save</div>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="switchProfBcg closeSwitchProf">
