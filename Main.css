@@ -1891,6 +1891,12 @@ img
 .editProfileNameWarnBdr
 {
     width: 100%;
+    display: none;
+}
+
+.editProfileNameWarnBdr.active
+{
+    display: block;
 }
 
 .editProfileNameWarnBdr .editProfileNameWarnBox
@@ -1905,9 +1911,18 @@ img
     font-size: 12px;
 }
 
-.editProfileLangSelectBdr .editProfileLangSelectBox
+.editProfileLangSelectBdr
 {
     position: relative;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.editProfileLangSelectBdr .editProfileLangSelectBox
+{
+    max-width: 125px;
     padding: 10px 20px;
     border-radius: 5px;
     background-color: #262626;
@@ -1928,9 +1943,90 @@ img
 
 .editProfileLangSelectBox .editProfileLangSelectText
 {
+    --editProfileLangSelectTextLineNo: 1;
+    --editProfileLangSelectTextLineH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--editProfileLangSelectTextLineNo);
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    max-height: calc(var(--editProfileLangSelectTextLineNo) * 1em * var(--editProfileLangSelectTextLineH));
+    line-height: var(--editProfileLangSelectTextLineH);
+    -webkit-hyphens: auto;
+    hyphens: auto;
     color: var(--genWhiteTypeLight);
     font-size: 14px;
     margin-left: 5px;
+    overflow: hidden;
+}
+
+.editProfileLangSelectBdr .editProfileLangOptBdr
+{
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 275px;
+    height: -moz-fit-content;
+    height: fit-content;
+    max-height: 300px;
+    display: none;
+    background-color: #1b1b1b;
+    overflow: hidden;
+    overflow-y: auto;
+    z-index: 4;
+}
+
+.editProfileLangSelectBdr.active .editProfileLangSelectBox
+{
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    background-color: #1b1b1b;
+}
+
+.editProfileLangSelectBdr.active .editProfileLangOptBdr
+{
+    display: block;
+}
+
+.editProfileLangOptBdr .editProfileLangOptBox
+{
+    width: 100%;
+    height: 100%;
+    padding: 12px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.editProfileLangOptBox .editProfileLangOptItems
+{
+    position: relative;
+    width: 100%;
+    padding: 10px 12px;
+    color: var(--genWhiteTypeMid);
+    font-size: 13px;
+    transition: all 150ms ease-in-out;
+    cursor: pointer;
+}
+
+.editProfileLangOptItems:active
+{
+    background-color: #282828;
+}
+
+.editProfileLangOptItems.active
+{
+    color: var(--genWhiteTypeBright);
+}
+
+.editProfileLangOptItems.active::after
+{
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    border-right: 5px solid var(--genWhiteTypeBright);
+    border-bottom: 5px solid #00000000;
+    border-top: 5px solid #00000000;
+    transform: translateY(-50%);
 }
 
 
@@ -2949,6 +3045,11 @@ img
         visibility: visible;
     }
 
+    .editProfileLangOptItems:hover
+    {
+        background-color: #282828;
+    }
+
     .basic_slider_box:hover .basic_slide_arrow
     {
         pointer-events: all;
@@ -3384,6 +3485,11 @@ img
     .editProfileLangSelectBox .editProfileLangSelectText
     {
         font-size: 12px;
+    }
+
+    .editProfileLangOptBox .editProfileLangOptItems
+    {
+        font-size: 11px;
     }
 
     .basic_slider_title_box h2 .big
