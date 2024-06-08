@@ -3448,7 +3448,7 @@ img
 
     .switchProfBox .switchProfBoxCtnt
     {
-        padding: calc(var(--navBarHeight) + 0px) 0 25px;
+        padding: calc(var(--navBarHeight) * 2) 0 25px;
         justify-content: unset;
     }
 
