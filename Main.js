@@ -409,8 +409,8 @@
                                         </div>
                                         <div class="newPLAtnBdr">
                                             <div class="newPLAtnBox">
-                                                <button type="button" id="createNewPL" class="newPLAtnBtn" disabled>Create</button>
-                                                <button type="button" id="cancelNewPL" class="newPLAtnBtn" disabled>Cancel</button>
+                                                <button type="button" id="createNewPL" class="newPLAtnBtn midSolidBtn" disabled>Create</button>
+                                                <button type="button" id="cancelNewPL" class="newPLAtnBtn hollowBtn" disabled>Cancel</button>
                                             </div>
                                         </div>
                                     </div>
@@ -1526,7 +1526,6 @@
                     addToPLFunc();
                 });
             });
-
 
     }
 

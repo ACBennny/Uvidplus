@@ -27,13 +27,13 @@ html:root
     --genGreenTypeLight: #14d60d;
     --genGreenTypeLight2: #1fc316;
     --genGreenTypeMid: #1da216;
-    --genGreenTypeLight2: #1fc316;
-    --genGreenTypeDark: #148b10;
-    --genGreenTypeDark2: #136e25;
-    --genGreenTypeDark3: #11521e;
+    --genGreenTypeMid2: #148b10;
+    --genGreenTypeDark1: #136e25;
+    --genGreenTypeDark2:#11521e;
     --genWhiteTypeBright: #ffffff;
     --genWhiteTypeLight: #dfdfdf;
     --genWhiteTypeMid: #ababab;
+    --genWhiteTypeMid2: #cecece;
     --genWhiteTypeDark: #6b6a6a;
     --scrollBarWidth: 7px;
     --scrollbarClr: #282828;
@@ -71,7 +71,7 @@ html:root
     --navBarSearchClr: #888888;
     --navBarProfileOptLinkClr: #cdcdcd;
     --navFooterElemColor: #878787;
-    --navFooterElemHoverColor: #dfdfdf;
+    --navFooterElemHoverColor: var(--genWhiteTypeLight);
     --navFooterCompClr: #616060;
     --navBarNotificationPosT: calc(var(--navBarHeight) + 10px);
     --navBarNotificationPosR: -100%;
@@ -129,10 +129,19 @@ a
     user-select: none;
     cursor: pointer;
 }
-a:focus, a:link, a:visited, a:any-link
+
+a:active, a:link, a:visited, a:any-link, a:focus, a:focus-visible, a:focus-within
 {
+    /* color: #00000000; */
+    outline: none;
+    border: none;
+    border-color: #00000000;
     text-decoration: none;
-    color: inherit;
+    list-style: none;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 p
@@ -418,17 +427,7 @@ img
     transition: all 300ms ease-in-out;
 }
 
-.navBarIconBox .navBarIcon:active
-{
-    fill: var(--navElementColor_green);
-}
-
-.navBarRight
-{
-    height: 100%;
-}
-
-.navBarRight .signUpBdr
+.navBar .signUpBdr
 {
     width: -moz-fit-content;
     width: fit-content;
@@ -441,12 +440,20 @@ img
 
 .signUpBdr .signUpBox
 {
-    margin: 10px;
+    margin: 0 10px;
     padding: 10px 25px;
-    color: var(--navBarGenClr);
     font-size: 14px;
     border-radius: 5px;
-    background-color: var(--color7);
+}
+
+.navBarIconBox .navBarIcon:active
+{
+    fill: var(--navElementColor_green);
+}
+
+.navBarRight
+{
+    height: 100%;
 }
 
 .navBarRight .navBarRightCtnt
@@ -481,7 +488,7 @@ img
     height: 35px;
     padding: 0px;
     border-radius: 50%;
-    border: 2px solid var(--genGreenTypeDark);
+    border: 2px solid var(--genGreenTypeDark1);
     transition: all 250ms ease-in-out;
     cursor: pointer;
 }
@@ -1037,12 +1044,89 @@ img
 
 
 
-/* ============== general buttons ============= */
+/* ============== General buttons ============= */
+
+.lightSolidBtn,
+.midSolidBtn,
+.darkSolidBtn
+{
+    border: none;
+}
+
+.lightSolidBtn,
+.midSolidBtn,
+.darkSolidBtn,
+.hollowBtn
+{
+    transition: all 150ms ease-in-out;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
 
 .lightSolidBtn
 {
-    background-color: var(--watchActionLinkBoxBcg);
-    color: var(--watchActionLinkBoxClr)
+    color: var(--genWhiteTypeLight); 
+    fill: var(--genWhiteTypeLight);
+    background-color: var(--genGreenTypeMid);
+}
+
+.midSolidBtn
+{
+    color: var(--genWhiteTypeLight);
+    fill: var(--genWhiteTypeLight);
+    background-color: var(--genGreenTypeMid2);
+}
+
+.darkSolidBtn
+{
+    color: var(--genWhiteTypeMid);
+    fill: var(--genWhiteTypeMid);
+    background-color: var(--genGreenTypeDark2);
+}
+
+.hollowBtn
+{
+    color: var(--genGreenTypeMid);
+    fill: var(--genGreenTypeMid);
+    border: 2px solid var(--genGreenTypeMid);
+    background-color: #00000000;
+}
+
+.lightSolidBtn:active,
+.midSolidBtn:active,
+.darkSolidBtn:active,
+.hollowBtn:active
+{
+    transform: scale(0.96);
+}
+
+.lightSolidBtn:active
+{
+    color: var(--genWhiteTypeBright);
+    fill: var(--genWhiteTypeBright);
+    background-color: var(--genGreenTypeLight2);
+}
+
+.midSolidBtn:active
+{
+    background-color: var(--genGreenTypeLight);
+}
+
+.darkSolidBtn:active
+{
+    color: var(--genWhiteTypeLight);
+    fill: var(--genWhiteTypeLight);
+    background-color: var(--genGreenTypeDark1);
+}
+
+.hollowBtn:active
+{
+    color: var(--genWhiteTypeMid2);
+    fill: var(--genWhiteTypeMid2);
+    border-color: var(--genWhiteTypeMid2);
 }
 
 
@@ -1094,7 +1178,7 @@ img
 
 .genCheckBoxInput:checked ~ .genCheckBoxToggle
 {
-    background-color: var(--genGreenTypeDark);
+    background-color: var(--genGreenTypeDark1);
 }
 
 .genCheckBoxInput:checked ~ .genCheckBoxToggle .genCheckBoxToggleCircle
@@ -1821,10 +1905,6 @@ img
     font-size: 12px;
 }
 
-.editProfileLangSelectBdr
-{
-}
-
 .editProfileLangSelectBdr .editProfileLangSelectBox
 {
     position: relative;
@@ -2502,8 +2582,8 @@ img
     flex-direction: column;
     gap: 5px;
     border-radius: 10px;
-    border-top: 3px solid var(--genGreenTypeDark);
-    border-bottom: 3px solid var(--genGreenTypeDark);
+    border-top: 3px solid var(--genGreenTypeDark1);
+    border-bottom: 3px solid var(--genGreenTypeDark1);
     background-color: #141414;
     overflow: hidden;
 }
@@ -2684,7 +2764,7 @@ img
 
 .newPLInputBox:focus-within
 {
-    border-color: var(--genGreenTypeDark);
+    border-color: var(--genGreenTypeDark1);
 }
 
 .newPLInputBox .newPLInputClass
@@ -2762,20 +2842,19 @@ img
     justify-content: center;
     align-items: center;
     padding: 15px 25px;
-    color: var(--genWhiteTypeLight);
     font-size: 14px;
-    background-color: var(--genGreenTypeDark);
     border-radius: 5px;
     outline: none;
-    border: none;
     transition: all 300ms ease-in-out;
     cursor: pointer;
 }
 
-.newPLAtnBtn:disabled
+.newPLAtnBtn:disabled,
+.newPLAtnBtn:disabled:active,
+.newPLAtnBtn:disabled:hover
 {
-    color: var(--genWhiteTypeMid);
-    background-color: var(--genGreenTypeDark3);
+    color: var(--genWhiteTypeMid) !important;
+    background-color: var(--genGreenTypeDark2);
     cursor: not-allowed;
 }
 
@@ -2804,12 +2883,38 @@ img
 
     .navOptLink:hover
     {
-        --navMenuPageActiveElementClr: #14d60d;
+        --navMenuPageActiveElementClr: var(--genGreenTypeLight);
     }
 
     .navfooterBoxElements:hover
     {
         color: var(--navFooterElemHoverColor);
+    }
+
+    .lightSolidBtn:hover
+    {
+        background-color: var(--genGreenTypeLight2);
+        color: var(--genWhiteTypeBright);
+        fill: var(--genWhiteTypeBright);
+    }
+
+    .midSolidBtn:hover
+    {
+        background-color: var(--genGreenTypeMid);
+    }
+    
+    .darkSolidBtn:hover
+    {
+        background-color: var(--genGreenTypeDark1);
+        color: var(--genWhiteTypeLight);
+        color: var(--genWhiteTypeLight);
+    }
+    
+    .hollowBtn:hover
+    {
+        border-color: var(--genWhiteTypeMid2);
+        color: var(--genWhiteTypeMid2);
+        fill: var(--genWhiteTypeMid2);
     }
     
     .switchProfOptBox:hover::before
@@ -2999,12 +3104,6 @@ img
     .navBar .spacing
     {
         margin: 0;
-    }
-
-    .signUpBdr .signUpBox
-    {
-        margin: 0;
-        padding: 10px 15px;
     }
 
     .slide_card .cardinfo h3
@@ -3307,6 +3406,11 @@ img
     html:root
     {
         --editProfileBcgImgHeight: 150px;
+    }
+
+    .signUpBdr .signUpBox
+    {
+        padding: 10px 15px;
     }
 
     .editProfileBcgImgOverlayBox .editProfileBcgImgOverlayText

@@ -7,8 +7,6 @@
 ************************************************************************************************/
 html:root
 {
-    --watchTrailerIconClr: #ff0000;
-    --genGreenTypeLight: #14d60d;
     --episodesBoxWidth: 150px;
     --seasons_BdrHeight: 50px;
 }
@@ -543,22 +541,17 @@ html:root
 
 .abt-stmt-detBox .abt-stmt-detBtn
 {
+    --abtStmtDetBtnClrs: var(--genWhiteTypeMid);
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
     padding: 8px 12px;
-    background-color: var(--genGreenTypeDark3);
     outline: none;
     border: none;
     border-radius: 10px;
-    transition: 300ms;
-    cursor: pointer;
-}
-
-.abt-stmt-detBtn:active
-{
-    transform: scale(0.96);
     background-color: var(--genGreenTypeDark2);
+    cursor: pointer;
+    transition: all 150ms ease-in-out;
 }
 
 .abt-stmt-detBtn .read_more_btnIcon
@@ -566,8 +559,8 @@ html:root
     position: relative;
     width: 10px;
     height: 2px;
-    background-color: var(--genWhiteTypeMid);
-    transition: 300ms;
+    background-color: var(--abtStmtDetBtnClrs);
+    transition: all 150ms ease-in-out;
 }
 
 .read_more_btnIcon::before
@@ -578,15 +571,16 @@ html:root
     left: 50%;
     width: 2px;
     height: 10px;
-    background-color: var(--genWhiteTypeLight);
+    background-color: var(--abtStmtDetBtnClrs);
     transform: translate(-50%, -50%);
-    transition: 300ms;
+    transition: all 150ms ease-in-out;
 }
 
 .abt-stmt-detBtn .abt-stmt-checkBoxCls
 {
+    -webkit-appearance: none;
     appearance: none;
-    color: var(--genWhiteTypeLight);
+    color: var(--abtStmtDetBtnClrs);
     margin-left: 5px;
     outline: none;
     border: none;
@@ -598,6 +592,7 @@ html:root
     content: 'Read More';
     font-family: 'Poppins' , sans-serif;
     font-size:  11px;
+    transition: all 150ms ease-in-out;
 }
 
 .abt-stmt-checkBoxCls:checked:before
@@ -1055,10 +1050,8 @@ html:root
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--genWhiteTypeLight);
     font-size: 13px;
     text-align: center;
-    background-color: var(--genGreenTypeDark3);
     border-radius: 10px;
     -moz-user-select: none;
     -moz-user-select: -moz-none;
@@ -1067,12 +1060,6 @@ html:root
     user-select: none;
     transition: 300ms ease;
     cursor: pointer;
-}
-
-.showall_EpBtn:active
-{
-    transform: scale(0.96);
-    background-color: var(--genGreenTypeDark2);
 }
 
 
@@ -1102,10 +1089,11 @@ html:root
     {
         color: var(--genWhiteTypeLight);
     }
-
+    
     .abt-stmt-detBtn:hover
     {
-        background-color: var(--genGreenTypeDark2);
+        --abtStmtDetBtnClrs: var(--genWhiteTypeLight);
+        background-color: var(--genGreenTypeDark1);
     }
 
     .seasons_headerBox:hover
@@ -1134,16 +1122,14 @@ html:root
         display: flex;
         font-size: 25px;
     }
-    
-    .showall_EpBtn:hover
-    {
-        background-color: var(--genGreenTypeDark2);
-    }
 }
 
 .rating_btn.active
 {
-    background-color: var(--genGreenTypeDark);
+    width: -moz-fit-content;
+    width: fit-content;
+    width: 70%;
+    background-color: var(--genGreenTypeDark1);
     border-radius: 25px;
 }
 

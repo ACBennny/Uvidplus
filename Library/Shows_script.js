@@ -47,7 +47,7 @@
     `
         <div class="showall_EpBdr active">
             <div class="showall_EpBox">
-                <div class="showall_EpBtn">show more</div>
+                <div class="showall_EpBtn darkSolidBtn">show more</div>
             </div>
         </div>
     `;

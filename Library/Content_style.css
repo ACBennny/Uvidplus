@@ -14,11 +14,6 @@ html:root
     --introInfoNotesMargin: 20px;
     --watchActionIconWidth: 18px;
     --watchListIconWidth: 15px;
-    --watchActionLinkBoxBcg: var(--genGreenTypeMid);
-    --watchActionLinkBoxBcgHover: var(--genGreenTypeLight2);
-    --watchActionLinkBoxClr: var(--genWhiteTypeBright);
-    --watchActionSaveBoxClrBdr: var(--genGreenTypeMid);
-    --watchActionSaveBoxClrBdrHover: var(--color8);
 }
 
 html
@@ -60,16 +55,11 @@ body
 .watchActionIcon
 {
     width: var(--watchActionIconWidth);
-    fill: var(--watchActionLinkBoxClr);
-    transition: 150ms;
 }
-
 
 .watchListIcon
 {
     width: var(--watchListIconWidth);
-    fill: var(--watchActionSaveBoxClrBdr);
-    transition: 150ms;
 }
 
 
@@ -315,7 +305,6 @@ body
 .intro_info_notes
 {
     width: 100%;
-    height: calc(100% - 125px);
     height: fit-content;
     max-height: -moz-fit-content;
     max-height: fit-content;
@@ -337,6 +326,9 @@ body
     --introDescLineNo: 5;
     --introDescLineH: 1.4;
     position: relative;
+    -webkit-line-clamp: var(--introDescLineNo);
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
     max-height: calc(var(--introDescLineNo) * 1em * var(--introDescLineH));
     line-height: var(--introDescLineH);
     margin-bottom: var(--introInfoNotesMargin);
@@ -344,15 +336,10 @@ body
     font-size: 14px;
     text-align: justify;
     color: var(--genWhiteTypeLight);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
     overflow: hidden;
-}
-
-.intro_desc::after
-{
-    content: '...';
-    position: absolute;
-    right: 0;
-    bottom: 0;
 }
 
 .playShow_box
@@ -378,32 +365,9 @@ body
     transition: 150ms;
 }
 
-.playShow_box .btn:active
-{
-    transform: scale(0.95);
-}
-
-.playShow_box .play_Now
-{
-    color: var(--watchActionLinkBoxClr);
-    background-color: var(--watchActionLinkBoxBcg);
-}
-
-.playShow_box .play_Now:active
-{
-    --watchActionLinkBoxBcg: var(--watchActionLinkBoxBcgHover);
-}
-
 .playShow_box .save_to_PList
 {
     margin-left: 5px;
-    border: 2px solid var(--watchActionSaveBoxClrBdr);
-    background-color: transparent;
-}
-
-.playShow_box .save_to_PList:active
-{
-    --watchActionSaveBoxClrBdr: var(--watchActionSaveBoxClrBdrHover);
 }
 
 .intro_info_notes .playShow_box .play_Now
@@ -562,8 +526,22 @@ body
 
 .infoBox .watchInfo
 {
+    --watchInfoLineNo: 3;
+    --watchInfoLineH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--watchInfoLineNo);
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    max-height: calc(var(--watchInfoLineNo) * 1em * var(--watchInfoLineH));
+    line-height: var(--watchInfoLineH);
+    padding-right: 10px;
     font-size: 13px;
-    color: #dfdfdf;
+    text-align: justify;
+    color: var(--genWhiteTypeLight);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    overflow: hidden;
 }
 
 .infoBox .watchActionBox
@@ -596,31 +574,6 @@ body
 {
     font-size: 14px;
     margin-left: 5px;
-}
-
-.watchAction.watchEpLink
-{
-    background-color: var(--watchActionLinkBoxBcg);
-    color: var(--watchActionLinkBoxClr)
-}
-
-.watchAction.watchEpLink:active
-{
-    background-color: var(--watchActionLinkBoxBcgHover);
-}
-
-.watchAction.addToWatchList
-{
-    border: 2px solid var(--watchActionSaveBoxClrBdr);
-    color: var(--watchActionSaveBoxClrBdr);
-    background-color: transparent;
-    position: relative;
-}
-
-.watchAction.addToWatchList:active
-{
-    border-color: var(--watchActionSaveBoxClrBdrHover);
-    --watchActionSaveBoxClrBdr: var(--watchActionSaveBoxClrBdrHover);
 }
 
 .watchSection.watchSectionImgBdr
@@ -1035,24 +988,15 @@ body
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #cecece;
     font-size: 13px;
     text-align: center;
-    background-color: var(--genGreenTypeDark3);
     border-radius: 5px;
     -moz-user-select: none;
     -moz-user-select: -moz-none;
     -webkit-user-select: none;
     -webkit-user-drag: none;
     user-select: none;
-    transition: 150ms ease;
     cursor: pointer;
-}
-
-.latestEp_btn:active
-{
-    transform: scale(0.96);
-    background-color: var(--genGreenTypeDark2);
 }
 
 .latestEp_btn.inactive
@@ -1244,30 +1188,10 @@ body
 
 @media(hover: hover)
 {
-    .playShow_box .play_Now:hover
-    {
-        --watchActionLinkBoxBcg: var(--watchActionLinkBoxBcgHover);
-    }
 
-    .playShow_box .save_to_PList:hover
+    .type1_Ctnt_box_HeadRight .seeAll:hover
     {
-        --watchActionSaveBoxClrBdr: var(--watchActionSaveBoxClrBdrHover);
-    }
-
-    .watchAction.watchEpLink:hover
-    {
-        background-color: var(--watchActionLinkBoxBcgHover);
-    }
-
-    .watchAction.addToWatchList:hover
-    {
-        border-color: var(--watchActionSaveBoxClrBdrHover);
-        --watchActionSaveBoxClrBdr: var(--watchActionSaveBoxClrBdrHover);
-        
-    }
-
-    .type1_Ctnt_box_HeadRight .seeAll:hover{
-        color: #dfdfdf;
+        color: var(--genWhiteTypeLight);
     }
 
     .type1_ctntCard:hover .type1_ctntImg_hover
@@ -1284,11 +1208,6 @@ body
     .latestEp_card:hover
     {
         background-color: #000000cf;
-    }
-
-    .latestEp_btn:hover
-    {
-        background-color: var(--genGreenTypeDark2);
     }
 
     .news_card:hover

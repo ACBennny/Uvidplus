@@ -83,7 +83,7 @@ html:root
 .left_section_box.section_title_box,
 .left_section_box.synopsis_box
 {
-    border-left: 3px solid var(--genGreenTypeDark);
+    border-left: 3px solid var(--genGreenTypeDark1);
 }
 
 .left_section_box.media_actions_box
@@ -91,7 +91,7 @@ html:root
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 3px solid var(--genGreenTypeDark);
+    border-bottom: 3px solid var(--genGreenTypeDark1);
     -moz-user-select: -moz-none;
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -462,7 +462,7 @@ html:root
 
 .showlist_MoreEpBtnBox:active
 {
-    --moreEpBtnColors: var(--genGreenTypeDark);
+    --moreEpBtnColors: var(--genGreenTypeMid);
 }
 
 .showlist_MoreEpBtnBox .showlist_MoreEpBtnIcon
@@ -916,7 +916,7 @@ html:root
 
     .showlist_MoreEpBtnBox:hover
     {
-        --moreEpBtnColors: var(--genGreenTypeDark);
+        --moreEpBtnColors: var(--genGreenTypeMid);
     }
 
     .showlist_MoreEpHeaderBox:hover
@@ -956,7 +956,7 @@ html:root
 
 .like_buttons.active
 {
-    background-color: var(--genGreenTypeDark);
+    background-color: var(--genGreenTypeDark1);
     border-radius: 25px;
 }
 
@@ -980,7 +980,7 @@ html:root
     .left_section_box.section_title_box,
     .left_section_box.synopsis_box
     {
-        border-right: 3px solid var(--genGreenTypeDark);
+        border-right: 3px solid var(--genGreenTypeDark1);
     }
 
     .section_Bdr .section_Box

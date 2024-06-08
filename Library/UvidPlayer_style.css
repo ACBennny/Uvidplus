@@ -183,7 +183,7 @@ svg.hide
 
 .episode_title_box .companyTitle .head
 {
-    color: var(--genGreenTypeDark);
+    color: var(--genGreenTypeDark1);
     font-size: 18px;
 }
 
@@ -436,7 +436,7 @@ svg.hide
     height: 4px;
     margin-left: 3px;
     max-width: 75px;
-    accent-color: var(--genGreenTypeDark);
+    accent-color: var(--genGreenTypeDark1);
 }
 
 .options .video-timer

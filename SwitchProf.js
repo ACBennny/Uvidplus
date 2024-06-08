@@ -12,6 +12,21 @@
     let switchProfTimer2;
     let switchProfHTML = 
     `
+        <div class="navBox profileNavBox">
+            <div class="navBar">
+                <div class="navBarLeft">
+                    <a href="/index.html" class="Companylogo navBarCompanylogo">
+                        <h1 class="lhead">U</h1>
+                        <h1 class="lname">vid</h1>
+                    </a>
+                </div>
+                <div class="navBarRight">
+                    <div class="signUpBdr">
+                        <div class="signUpBox lightSolidBtn">Save</div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="switchProfBcg closeSwitchProf">
             <div class="switchProfBcgImgBox">
                 <img src="/Images/Uvid_green_bcg1_light.jpg" alt="Background image of the 'Switch Profiles' modal" class="switchProfBcgImg">
