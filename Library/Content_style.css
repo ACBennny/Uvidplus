@@ -426,7 +426,7 @@ body
 {
     display: grid;
     grid-template-columns: minmax(0, auto);
-    gap: 25px;
+    gap: 35px;
 }
 
 

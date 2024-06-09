@@ -444,6 +444,22 @@
             let addToWatchListBox = document.querySelectorAll(".add_to_WatchListBox");
 
 
+        // ADDING/REMOVING EVENTLISTENERS FOR FUNCTIONS
+        
+            function addListener(theElem, theEv, theFunc)
+            {
+                theElem.forEach((event) => 
+                {
+                    event.addEventListener(`${theEv}` , theFunc);
+                });
+            }
+            function removeListener(theElem, theEv, theFunc)
+            {
+                theElem.forEach((event) => 
+                {
+                    event.removeEventListener(`${theEv}` , theFunc);
+                });
+            }
 
 
         // DOCUMENT (WINDOW)

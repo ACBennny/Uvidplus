@@ -1296,7 +1296,7 @@ img
 .switchProfHeader .switchProfHeaderText
 {
     font-size: 35px;
-    color: var(--genWhiteTypeLight);
+    color: var(--genWhiteTypeBright);
     text-align: center;
 }
 
@@ -1457,40 +1457,6 @@ img
     fill: var(--genWhiteTypeMid);
 }
 
-.switchProfBoxCtnt .actionBtnBcg
-{
-    width: 100%;
-    height: var(--switchProfHeaderHeight);
-}
-
-.actionBtnBcg .actionBtnBdr
-{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.actionBtnBdr .actionBtnBox
-{
-    padding: 10px 20px;
-    color: var(--genWhiteTypeLight);
-    font-size: 16px;
-    border-radius: 5px;
-    border: 2px solid var(--genWhiteTypeLight);
-    background-color: #00000000;
-    transition: all 300ms;
-    cursor: pointer;
-}
-
-.actionBtnBox:active
-{
-    transform: scale(0.96);
-    color: var(--genWhiteTypeBright);
-    border-color: var(--genWhiteTypeBright);
-}
-
 
 
 .profileNavBox
@@ -1643,8 +1609,9 @@ img
     position: fixed;
     bottom: 0;
     right: 0;
+    display: block;
     margin: 20px;
-    z-index: 3;
+    z-index: 10;
 }
 
 .editBcgImgBtnBdr .editBcgImgBtnBox
@@ -1690,6 +1657,7 @@ img
     transform: translateY(calc(-100% - var(--editBcgImgBtnTextAfterProp)));
     transition: all 300ms ease-in-out;
     pointer-events: none;
+    z-index: 10;
 }
 
 .editBcgImgBtnTextBox .editBcgImgBtnText
@@ -1714,6 +1682,12 @@ img
 }
 
 
+.openSelectBcgPicModal.inactive
+{
+    display: none;
+}
+
+
 .editProfileFrgImgBase
 {
     position: absolute;
@@ -1721,6 +1695,7 @@ img
     left: 50%;
     width: var(--switchProfOptImgBoxWidth);
     height: var(--switchProfOptImgBoxWidth);
+    display: block;
     border-radius: 50%;
     transform: translate(-50%, -50%);
     -moz-user-select: -moz-none;
@@ -1811,6 +1786,11 @@ img
     display: flex;
     flex-direction: column;
     padding: 10px;
+}
+
+.editProfileDetBox.inactive
+{
+    display: none;
 }
 
 .editProfileDetBox .editProfileDetSect
@@ -2015,18 +1995,294 @@ img
 .editProfileLangOptItems.active
 {
     color: var(--genWhiteTypeBright);
+    background-color: #262626;
 }
 
 .editProfileLangOptItems.active::after
 {
     content: '';
     position: absolute;
-    top: 50%;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background-color: var(--genWhiteTypeBright);
+}
+
+
+.selectPicBdr
+{
+    width: 100%;
+    display: none;
+    border-radius: 5px;
+    background-color: #111111;
+}
+
+.selectFrgPicBdr.active,
+.selectBcgPicBdr.active
+{
+    display: block;
+}
+
+.selectPicBdr .selectPicBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.selectPicBox .selectPicSect
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 40px;
+}
+
+.selectPicSect .selectPicSectHeader
+{
+    width: 100%;
+    margin: 0 0 5px;
+    padding: 0 20px;
+}
+
+.selectPicSectHeader .selectPicSectHeaderText
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 16px;
+}
+
+.selectPicSect .selectPicSectCarouselBdr
+{
+    width: 100%;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.selectPicSectCarouselBdr .selectPicSectCarouselBox
+{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.selectPicSectCarouselBox  .selectPicCarouselArrBox
+{
+    position: absolute;
+    top: 0;
+    width: 35px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    visibility: visible;
+    transition: 300ms;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.selectPicCarouselArrBox.selectPicCarouselArrLeftBox
+{
+    left: 0;
+}
+
+.selectPicCarouselArrBox.selectPicCarouselArrRightBox
+{
     right: 0;
-    border-right: 5px solid var(--genWhiteTypeBright);
-    border-bottom: 5px solid #00000000;
-    border-top: 5px solid #00000000;
-    transform: translateY(-50%);
+}
+
+.selectPicCarouselArrBox.selectPicCarouselArrLeftBox
+{
+    background-image: -o-linear-gradient(to right,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
+    background-image: -moz-linear-gradient(to right,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
+    background-image: -webkit-linear-gradient(to right,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
+    background-image: linear-gradient(to right,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
+}
+
+.selectPicCarouselArrBox.selectPicCarouselArrRightBox
+{
+    background-image: -o-linear-gradient(to left,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
+    background-image: -moz-linear-gradient(to left,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
+    background-image: -webkit-linear-gradient(to left,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
+    background-image: linear-gradient(to left,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
+}
+
+.selectPicCarouselArrBox .selectPicCarouselArr
+{
+    width: var(--basicSlideIconWidth);
+    fill: var(--genWhiteTypeMid);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 300ms ease-in-out;
+    cursor: none;
+}
+
+.selectPicSectCarouselBox .selectPicCarouselGrid
+{
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-color: #00000000 #00000000;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+
+/* ----- Profile (Frg) Carousel ----- */
+.selectPicCarouselGrid.selectFrgPicCarouselGrid
+{
+    --selectFrgPicCarouselGridRowNo: 5;
+    display: grid;
+    grid-auto-columns: calc((100% / var(--selectFrgPicCarouselGridRowNo)) - 8px);
+    grid-auto-flow: column;
+    gap: 10px;
+    padding: 10px 30px;
+    scroll-padding-left: 30px;
+    scroll-padding-right: 30px;
+}
+
+.selectFrgPicCarouselGrid .selectFrgPicCarouselCardBox
+{
+    scroll-snap-align: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selectFrgPicCarouselCardBox .selectFrgPicCarouselCard
+{
+    position: relative;
+    width: 100%;
+    max-width: calc(var(--switchProfOptImgBoxWidth));
+    max-height: calc(var(--switchProfOptImgBoxWidth));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+}
+
+.selectFrgPicCarouselCard:active
+{
+    border: 2px solid var(--genWhiteTypeLight);
+    transform: scale(1.15);
+    z-index: 4;
+}
+
+.selectFrgPicCarouselCard .selectFrgPicCarouselImgBox
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.selectFrgPicCarouselImgBox .selectFrgPicCarouselImg
+{
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-position: center;
+    object-fit: cover;
+}
+
+
+
+/* ----- Background (Bcg) Carousel ----- */
+.selectPicCarouselGrid.selectBcgPicCarouselGrid
+{
+    --selectBcgPicCarouselGridRowNo: 2;
+    display: grid;
+    grid-auto-columns: calc((100% / var(--selectBcgPicCarouselGridRowNo)) - 8px);
+    grid-auto-flow: column;
+    gap: 10px;
+    padding: 5px 30px;
+    scroll-padding-left: 30px;
+    scroll-padding-right: 30px;
+}
+
+.selectBcgPicCarouselGrid .selectBcgPicCarouselCardBox
+{
+    scroll-snap-align: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selectBcgPicCarouselCardBox .selectBcgPicCarouselCard
+{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    aspect-ratio: 7/3;
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+}
+
+.selectBcgPicCarouselCard::before
+{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 2px solid var(--genWhiteTypeLight);
+    background-color: var(--genWhiteTypeLight);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.95);
+    transition: all 300ms ease-in-out;
+    z-index: -1;
+}
+
+.selectBcgPicCarouselCard:active
+{
+    transform: scale(1.025);
+}
+
+.selectBcgPicCarouselCard:active::before
+{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+}
+
+.selectBcgPicCarouselCard .selectBcgPicCarouselImgBox
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.selectBcgPicCarouselImgBox .selectBcgPicCarouselImg
+{
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-position: center;
+    object-fit: cover;
 }
 
 
@@ -2148,10 +2404,6 @@ img
 {
     width: var(--basicSlideIconWidth);
     fill: var(--genWhiteTypeMid);
-}
-
-.basic_slide_arrow .basic_slide_arrowIcon
-{
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -2165,10 +2417,11 @@ img
     min-width: 100%;
     height: 100%;
     display: grid;
-    grid-auto-columns: calc((100% / var(--basicSliderCardDivision)) - 7px);
+    grid-auto-columns: calc((100% / var(--basicSliderCardDivision)) - 8px);
     grid-auto-flow: column;
     gap: 10px;
-    padding: 0px 30px 5px;
+    margin-bottom: 10px;
+    padding: 5px 30px;
     scroll-padding-left: 30px;
     scroll-padding-right: 30px;
     scroll-snap-type: x mandatory;
@@ -2198,6 +2451,8 @@ img
     max-height: 300px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border-radius: 25px;
     background: #000000;
     aspect-ratio: 18/27;
@@ -2209,13 +2464,11 @@ img
 {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     background-color: #00000000;
     border-radius: 25px;
-    border-bottom: 2px solid #1da216;
+    border-bottom: 2px solid var(--genGreenTypeMid);
     transition: 0ms;
     pointer-events: none;
     z-index: 5;
@@ -3020,12 +3273,6 @@ img
         transform: scale(1.0);
     }
 
-    .actionBtnBox:hover
-    {
-        color: var(--genWhiteTypeBright);
-        border-color: var(--genWhiteTypeBright);
-    }
-
     .editBcgImgBtnBdr:hover ~ .editProfileBcgImgOverlayBdr .editProfileBcgImgOverlayBox,
     .editProfileBcgImgOverlayBdr:hover .editProfileBcgImgOverlayBox
     {
@@ -3045,17 +3292,38 @@ img
         visibility: visible;
     }
 
+    .selectFrgPicCarouselCard:hover
+    {
+        border: 2px solid var(--genWhiteTypeLight);
+        transform: scale(1.15);
+        z-index: 4;
+    }
+
     .editProfileLangOptItems:hover
     {
         background-color: #282828;
     }
 
+    .selectBcgPicCarouselCard:hover
+    {
+        transform: scale(1.025);
+    }
+
+    .selectBcgPicCarouselCard:hover::before
+    {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1.0);
+    }
+
     .basic_slider_box:hover .basic_slide_arrow
+    .selectPicSectCarouselBox:hover .selectPicCarouselArrBox
     {
         pointer-events: all;
     }
 
-    .basic_slider_box:hover .basic_slide_arrow .basic_slide_arrowIcon
+    .basic_slider_box:hover .basic_slide_arrow .basic_slide_arrowIcon,
+    .selectPicSectCarouselBox:hover .selectPicCarouselArrBox .selectPicCarouselArr
     {
         opacity: 1;
         visibility: visible;
@@ -3065,11 +3333,9 @@ img
 
     .slide_card:hover::after
     {
-        width: calc(100% - 2px);
-        height: calc(100% - 2px);
-        border-top: 2px solid #21c018;
-        border-left: 2px solid #21c018;
-        border-right: 2px solid #21c018;
+        border-top: 2px solid var(--genGreenTypeLight);
+        border-left: 2px solid var(--genGreenTypeLight);
+        border-right: 2px solid var(--genGreenTypeLight);
         border-bottom: none;
         transition: all 300ms ease-in-out;
     }
@@ -3113,13 +3379,15 @@ img
 @media(hover: none)
 {
 
-    .basic_slider_box .basic_slide_arrow
+    .basic_slider_box .basic_slide_arrow,
+    .selectPicCarouselArrBox.selectPicCarouselArrRightBox
     {
         cursor: none;
         pointer-events: all;
     }
 
-    .basic_slide_arrow .basic_slide_arrowIcon
+    .basic_slide_arrow .basic_slide_arrowIcon,
+    .selectPicCarouselArrBox .selectPicCarouselArr
     {
         opacity: 1;
         visibility: visible;
@@ -3129,14 +3397,16 @@ img
     }
 }
 
-.basic_slider_box  .basic_slide_arrow.hide
+.basic_slider_box .basic_slide_arrow.hide,
+.selectPicCarouselArrBox.hide
 {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
 }
 
-.basic_slider_box .basic_slide_arrow.hide .basic_slide_arrowIcon
+.basic_slider_box .basic_slide_arrow.hide .basic_slide_arrowIcon,
+.selectPicCarouselArrBox.hide .selectPicCarouselArr
 {
     opacity: 0;
     visibility: hidden;
@@ -3233,10 +3503,6 @@ img
 
 @media only screen and (max-width: 768px)
 {
-    html:root
-    {
-        --switchProfOptImgBoxWidth: 100px;
-    }
 
     .switchProfHeader .switchProfHeaderText
     {
@@ -3393,7 +3659,8 @@ img
         --slideCardPlayIconWidth: 27px;
     }
 
-    .basic_slider_box  .basic_slide_arrow
+    .basic_slider_box  .basic_slide_arrow,
+    .selectPicSectCarouselBox .selectPicCarouselArrBox
     {
         width: 30px;
     }
@@ -3423,13 +3690,15 @@ img
 @media only screen and (max-width: 600px) and (hover: none)
 {
 
-    .basic_slider_box .basic_slide_arrow
+    .basic_slider_box .basic_slide_arrow,
+    .selectPicSectCarouselBox .selectPicCarouselArrBox
     {
         cursor: none;
         pointer-events: none;
     }
 
-    .basic_slide_arrow .basic_slide_arrowIcon
+    .basic_slide_arrow .basic_slide_arrowIcon,
+    .selectPicCarouselArrBox .selectPicCarouselArr
     {
         opacity: 0;
         visibility: hidden;
@@ -3441,6 +3710,11 @@ img
 
 @media only screen and (max-width: 565px)
 {
+    html:root
+    {
+        --switchProfOptImgBoxWidth: 100px;
+    }
+
     .nav_Opt_bcg
     {
         max-width: 100%;
@@ -3454,7 +3728,7 @@ img
 
     .editProfileBox .editProfileTitleBox
     {
-        margin-bottom: 0px;
+        margin-bottom: 10px;
     }
 
     .editProfileTitleBox .editProfileTitle
@@ -3492,6 +3766,21 @@ img
         font-size: 11px;
     }
 
+    .selectPicCarouselGrid.selectFrgPicCarouselGrid
+    {
+        --selectFrgPicCarouselGridRowNo: 4;
+        grid-auto-columns: calc((100% / var(--selectFrgPicCarouselGridRowNo)) - 4px);
+        gap: 5px;
+        padding: 10px 15px;
+        scroll-padding-left: 15px;
+        scroll-padding-right: 15px;
+    }
+
+    .selectPicCarouselGrid.selectBcgPicCarouselGrid
+    {
+        --selectBcgPicCarouselGridRowNo: 1;
+    }
+
     .basic_slider_title_box h2 .big
     {
         font-size: 22px;
@@ -3525,6 +3814,11 @@ img
     {
         font-size: 12px;
         transform: translateY(-50%);
+    }
+
+    .selectPicCarouselGrid.selectFrgPicCarouselGrid
+    {
+        --selectFrgPicCarouselGridRowNo: 3;
     }
 
     .basic_slider_card_box

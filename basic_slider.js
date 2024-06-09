@@ -20,8 +20,6 @@
 
     window.addEventListener("load", () => 
     {
-
-        // Function to operate the basic Slider is called
         basicSlider();
     });
 
@@ -32,7 +30,8 @@
     // The slider for different shows
     function basicSlider()
     {
-        basic_slider_CardBox.forEach((item, i) => {
+        basic_slider_CardBox.forEach((item, i) => 
+        {
             let boxDimension = item.getBoundingClientRect();
             let boxWidth = boxDimension.width;
             let boxW = boxWidth - 10;
@@ -81,11 +80,13 @@
 
     // Calls the function again if window changes size
     // Used for Responsivenes and adaptation for device orientation
-    window.addEventListener("resize" , () => {
+    window.addEventListener("resize" , () => 
+    {
         basicSlider();   
     });
 
-    window.addEventListener("change" , () => {
+    window.addEventListener("change" , () => 
+    {
         basicSlider();   
     });
 
