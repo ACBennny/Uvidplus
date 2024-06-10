@@ -1198,12 +1198,6 @@ img
 {
     z-index: 115;
 }
-
-.profileNavBox .profileNavBar
-{
-    background: #00000000;
-}
-
 .switchProfBdr
 {
     position: fixed;
@@ -3300,6 +3294,11 @@ img
     {
         width: calc(100% - var(--scrollBarWidth));
     }
+
+    .profileNavBox .profileNavBar
+    {
+        background: #00000000;
+    }    
     
     .switchProfOptBox:hover::before
     {
