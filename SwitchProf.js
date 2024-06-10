@@ -2082,6 +2082,8 @@
             {
                 profCurrBeignEdited.setAttribute(`data-background-image` , `${editProfOptTempBcg}`);
             }
+            // Clear the variables after updating
+            editProfOptTempName, editProfOptTempFrg, editProfOptTempBcg = null;
 
             profCurrBeignEdited.removeAttribute("id");
 
