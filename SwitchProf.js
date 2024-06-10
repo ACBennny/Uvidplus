@@ -41,7 +41,7 @@
                 </div>
                 <div class="switchProfOptBcg">
                     <div class="switchProfOptBdr">
-                        <div class="switchProfOptBox profileOpt" data-background-image="/Images/Uvid_green_bcg2.jpg">
+                        <div class="switchProfOptBox profileOpt" data-background-image="/Images/Uvid_green_bcg1_light.jpg">
                             <div class="switchProfOptImgBdr">
                                 <div class="switchProfOptImgBox">
                                     <img src="/Images/Uvid_profilebase.png" alt="profile_img" class="switchProfOptImg">
@@ -177,7 +177,7 @@
         }, 100);
 
         // Closes the Switch Profile Modal
-        function closeswitchProfBdr()
+        function closeswitchProfBdr(bcg)
         {
             // Removes style classes
             switchProfBdr.classList.add("flow");
@@ -189,22 +189,23 @@
                 clearTimeout(switchProfTimer);
 
                 // Update the HTML
+                mainProfileBcg.setAttribute(`src` , `${bcg}`);
                 switchProfHTML = switchProfBdr.innerHTML;
 
                 // Remove Child Nodes
                 documentBody.removeChild(switchProfBdr);
                 documentBody.classList.remove("bodystop");
-            },1000);
+            },800);
         }
 
         // Switching a profile
-        function effectProfChange(src)
+        function effectProfChange(frg, bcg)
         {
             // Update the profile image 
-            navProfleImg.setAttribute("src" , src);
+            navProfleImg.setAttribute(`src` , `${frg}`);
 
             // Close the switch profile modal
-            closeswitchProfBdr();
+            closeswitchProfBdr(bcg);
         }
 
         // Attaches the listener for the "editing of profile" events
@@ -212,8 +213,12 @@
         {
             let optImg = opt.querySelector(".switchProfOptImg");
             let optSrc = optImg.getAttribute("src");
+            let optBcg = opt.getAttribute("data-background-image");
 
-            const callEffectProfChange = () => {effectProfChange(optSrc)};
+            const callEffectProfChange = () => 
+            {
+                effectProfChange(optSrc, optBcg);
+            }
 
             opt.addEventListener("click" , callEffectProfChange);
             opt.callEffectProfChange = callEffectProfChange;
@@ -279,7 +284,10 @@
                 let optImg = opt.querySelector(".switchProfOptImg");
                 let optSrc = optImg.getAttribute("src");
     
-                const callEffectProfChange = () => {effectProfChange(optSrc)};
+                const callEffectProfChange = () => 
+                {
+                    effectProfChange(optSrc, optBcg);
+                }
     
                 opt.addEventListener("click" , callEffectProfChange);
                 opt.callEffectProfChange = callEffectProfChange;
