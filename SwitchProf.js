@@ -262,7 +262,6 @@
                 opt.callOpenEditModal = callOpenEditModal;
             });
         }
-        // editProfAtnBtn.addEventListener("click" , switchToEditProf);
         addListener(editProfAtnBtn, `click`, switchToEditProf);
 
 
