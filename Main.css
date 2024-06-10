@@ -1187,7 +1187,12 @@ img
 }
 
 
-/* ====== Switch Account ====== */
+
+
+
+/* =================== PROFILE ================ */
+
+/* ------ Switch Profile Modal ------ */
 
 .switchProfBdr
 {
@@ -1474,11 +1479,7 @@ img
 
 
 
-.profileNavBox
-{
-    width: calc(100% - var(--scrollBarWidth));
-    z-index: 115;
-}
+/* -------- Edit Profile Modal ------- */
 
 .editProfileFence
 {
@@ -3282,6 +3283,11 @@ img
         border-color: var(--genWhiteTypeMid2);
         color: var(--genWhiteTypeMid2);
         fill: var(--genWhiteTypeMid2);
+    }
+    
+    .profileNavBox
+    {
+        width: calc(100% - var(--scrollBarWidth));
     }
     
     .switchProfOptBox:hover::before
