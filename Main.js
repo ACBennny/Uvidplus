@@ -171,16 +171,33 @@
         </footer>
     `;
 
-
-
-// PRELOADER
+    // ADDING/REMOVING EVENTLISTENERS FOR FUNCTIONS
     
-    window.addEventListener("load", () => 
-    {
-        preload.classList.add("preloadClose");
-        document.body.classList.add('bodystart');
-        startApplication();
-    });
+        function addListener(theElem, theEv, theFunc)
+        {
+            theElem.forEach((event) => 
+            {
+                event.addEventListener(`${theEv}` , theFunc);
+            });
+        }
+        function removeListener(theElem, theEv, theFunc)
+        {
+            theElem.forEach((event) => 
+            {
+                event.removeEventListener(`${theEv}` , theFunc);
+            });
+        }
+
+
+
+    // PRELOADER
+        
+        window.addEventListener("load", () => 
+        {
+            preload.classList.add("preloadClose");
+            document.body.classList.add('bodystart');
+            startApplication();
+        });
     
 
     function startApplication()
@@ -442,24 +459,6 @@
             `;
             let addToPLTimer;
             let addToWatchListBox = document.querySelectorAll(".add_to_WatchListBox");
-
-
-        // ADDING/REMOVING EVENTLISTENERS FOR FUNCTIONS
-        
-            function addListener(theElem, theEv, theFunc)
-            {
-                theElem.forEach((event) => 
-                {
-                    event.addEventListener(`${theEv}` , theFunc);
-                });
-            }
-            function removeListener(theElem, theEv, theFunc)
-            {
-                theElem.forEach((event) => 
-                {
-                    event.removeEventListener(`${theEv}` , theFunc);
-                });
-            }
 
 
         // DOCUMENT (WINDOW)

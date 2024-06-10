@@ -144,7 +144,7 @@
         let mainHeader = document.querySelector(".switchProfHeaderText");
         let mainProfileBcg = document.querySelector(".switchProfBcgImg");
         let profileOpt = document.querySelectorAll(".profileOpt");
-        let editProfAtnBtn = document.querySelector(".editProfAtnBtn");
+        let editProfAtnBtn = document.querySelectorAll(".editProfAtnBtn");
         let editProfOptTempName;
         let editProfOptTempFrg;
         let editProfOptTempBcg;
@@ -153,9 +153,12 @@
         // Function to change the eventlistener of the action button
         function changeEditProfAtnListener(theAtnEv, theOldFunc, theNewFunc, theTxtCtnt)
         {
-            editProfAtnBtn.removeEventListener(`${theAtnEv}` , theOldFunc);
-            editProfAtnBtn.addEventListener(`${theAtnEv}` , theNewFunc);
-            editProfAtnBtn.textContent = `${theTxtCtnt}`;
+            editProfAtnBtn.forEach(btn => 
+            {
+                btn.removeEventListener(`${theAtnEv}` , theOldFunc);
+                btn.addEventListener(`${theAtnEv}` , theNewFunc);
+                btn.textContent = `${theTxtCtnt}`;
+            });
         }
 
         // Opens the Switch Profile Modal
@@ -259,7 +262,8 @@
                 opt.callOpenEditModal = callOpenEditModal;
             });
         }
-        editProfAtnBtn.addEventListener("click" , switchToEditProf);
+        // editProfAtnBtn.addEventListener("click" , switchToEditProf);
+        addListener(editProfAtnBtn, `click`, switchToEditProf);
 
 
         // Switch back to "Changing of Profiles" modal
