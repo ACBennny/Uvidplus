@@ -1194,6 +1194,11 @@ img
 
 /* ------ Switch Profile Modal ------ */
 
+.profileNavBox
+{
+    z-index: 115;
+}
+
 .switchProfBdr
 {
     position: fixed;
