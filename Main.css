@@ -1704,7 +1704,8 @@ img
 }
 
 
-.openSelectBcgPicModal.inactive
+.openSelectBcgPicModal.inactive,
+.openSelectFrgPicModal.inactive
 {
     display: none;
 }
@@ -1769,10 +1770,7 @@ img
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    opacity: 0;
-    visibility: hidden;
     overflow: hidden;
-    transition: all 300ms ease-in-out;
 }
 
 .editProfileFrgImgOverlayBdr .editProfileFrgImgOverlayBox
@@ -1783,6 +1781,9 @@ img
     justify-content: center;
     align-items: center;
     background-color: #00000085;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 300ms ease-in-out;
 }
 
 .editProfileFrgImgOverlayBox .editProfileFrgImgOverlayText
@@ -3314,7 +3315,7 @@ img
         visibility: visible;
     }
 
-    .editProfileFrgImgBdr:hover .editProfileFrgImgOverlayBdr
+    .editProfileFrgImgBdr:hover .editProfileFrgImgOverlayBox
     {
         opacity: 1;
         visibility: visible;

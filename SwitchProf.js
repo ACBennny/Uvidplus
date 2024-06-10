@@ -58,7 +58,7 @@
                                 <p class="switchProfOptText">acbennny</p>
                             </div>
                         </div>
-                        <div class="switchProfOptBox profileOpt" data-background-image="/Images/uvid_red_velvet1.jpg">
+                        <div class="switchProfOptBox profileOpt" data-background-image="/Images/uvid_red_velvet0.png">
                             <div class="switchProfOptImgBdr">
                                 <div class="switchProfOptImgBox">
                                     <img src="/Images/pfp/pfp_8.jpg" alt="profile_img" class="switchProfOptImg">
@@ -78,7 +78,7 @@
                         <div class="switchProfOptBox profileOpt" data-background-image="/Images/Uvid_TVShows.jpg">
                             <div class="switchProfOptImgBdr">
                                 <div class="switchProfOptImgBox">
-                                    <img src="/Images/pfp/pfp_3.jpg" alt="profile_img" class="switchProfOptImg">
+                                    <img src="/Images/pfp/pfp_2.jpg" alt="profile_img" class="switchProfOptImg">
                                 </div>
                                 <div class="editProfileBadgeBdr">
                                     <div class="editProfileBadgeBox">
@@ -89,7 +89,7 @@
                                 </div>
                             </div>
                             <div class="switchProfOptTextBox">
-                                <p class="switchProfOptText">Sarah</p>
+                                <p class="switchProfOptText">Alvare</p>
                             </div>
                         </div>
                         <div class="switchProfOptBox profileOpt" data-background-image="/Images/Uvid_Anime.jpg">
@@ -283,6 +283,7 @@
             {
                 let optImg = opt.querySelector(".switchProfOptImg");
                 let optSrc = optImg.getAttribute("src");
+                let optBcg = opt.getAttribute("data-background-image");
     
                 const callEffectProfChange = () => 
                 {
@@ -324,12 +325,12 @@
                                     <p class="editProfileBcgImgOverlayText">Update Background Image</p>
                                 </div>
                             </div>
-                            <div class="editProfileFrgImgBase openSelectFrgPicModal" title="Change Profile Image">
+                            <div class="editProfileFrgImgBase " title="Change Profile Image">
                                 <div class="editProfileFrgImgBdr">
                                     <div class="editProfileFrgImgBox">
                                         <img src="${forePic}" alt="" class="editProfileFrgImg">
                                     </div>
-                                    <div class="editProfileFrgImgOverlayBdr">
+                                    <div class="editProfileFrgImgOverlayBdr openSelectFrgPicModal">
                                         <div class="editProfileFrgImgOverlayBox">
                                             <p class="editProfileFrgImgOverlayText">Change</p>
                                         </div>
@@ -1985,6 +1986,10 @@
             {
                 frg.addEventListener("click" , () => 
                 {
+                    openSelectFrgPicModal.forEach(currFrgModal => 
+                    {
+                        currFrgModal.classList.add("inactive");
+                    });
                     openSelectBcgPicModal.forEach(currBcgModal => 
                     {
                         currBcgModal.classList.add("inactive");
@@ -2006,6 +2011,10 @@
             {
                 bcg.addEventListener("click" , () => 
                 {
+                    openSelectFrgPicModal.forEach(currFrgModal => 
+                    {
+                        currFrgModal.classList.add("inactive");
+                    });
                     openSelectBcgPicModal.forEach(currBcgModal => 
                     {
                         currBcgModal.classList.add("inactive");
@@ -2053,6 +2062,10 @@
             // Closing the select Pic Modals
             function closeSelectPicModals()
             {
+                openSelectFrgPicModal.forEach(currFrgModal => 
+                {
+                    currFrgModal.classList.remove("inactive");
+                });
                 openSelectBcgPicModal.forEach(currBcgModal => 
                 {
                     currBcgModal.classList.remove("inactive");
