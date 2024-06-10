@@ -1199,6 +1199,11 @@ img
     z-index: 115;
 }
 
+.profileNavBox .profileNavBar
+{
+    background: #00000000;
+}
+
 .switchProfBdr
 {
     position: fixed;
@@ -3533,16 +3538,6 @@ img
 @media only screen and (max-width: 768px)
 {
 
-    .addNewProfIconBox .addNewProfIcon
-    {
-        width: 30px;
-    }
-
-    .switchProfOptTextBox .switchProfOptText
-    {
-        font-size: 13px;
-    }
-
     .searchBdr.navBarSearchBdr
     {
         width: 100%;
@@ -3559,6 +3554,16 @@ img
     .navBarNotificationMain.notify_atv
     {
         --navBarNotificationPosR: 5px;
+    }
+
+    .addNewProfIconBox .addNewProfIcon
+    {
+        width: 30px;
+    }
+
+    .switchProfOptTextBox .switchProfOptText
+    {
+        font-size: 13px;
     }
 
     .editProfileFence .editProfileBase
@@ -3960,6 +3965,11 @@ img
     .userProfileScrollbar::-webkit-scrollbar-thumb:hover
     {
         background-color: #dfdfdf80;
+    }
+    .editProfileBase::-webkit-scrollbar-track
+    {
+        /* margin-block: 0px;
+        background-color: #000000; */
     }
 }
 

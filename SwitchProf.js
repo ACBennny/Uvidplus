@@ -13,7 +13,7 @@
     let switchProfHTML = 
     `
         <div class="navBox profileNavBox">
-            <div class="navBar">
+            <div class="navBar profileNavBar">
                 <div class="navBarLeft">
                     <div class="spacing"></div>
                     <a href="/index.html" class="Companylogo navBarCompanylogo">
