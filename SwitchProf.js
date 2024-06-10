@@ -188,6 +188,9 @@
             {
                 clearTimeout(switchProfTimer);
 
+                // Update the HTML
+                switchProfHTML = switchProfBdr.innerHTML;
+
                 // Remove Child Nodes
                 documentBody.removeChild(switchProfBdr);
                 documentBody.classList.remove("bodystop");
