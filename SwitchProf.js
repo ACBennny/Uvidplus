@@ -41,7 +41,7 @@
                 </div>
                 <div class="switchProfOptBcg">
                     <div class="switchProfOptBdr">
-                        <div class="switchProfOptBox profileOpt" data-background-image="/Images/Uvid_green_bcg1_light.jpg">
+                        <div class="switchProfOptBox profileOpt" data-background-image="/Images/Uvid_green_bcg2.jpg">
                             <div class="switchProfOptImgBdr">
                                 <div class="switchProfOptImgBox">
                                     <img src="/Images/Uvid_profilebase.png" alt="profile_img" class="switchProfOptImg">
@@ -143,10 +143,20 @@
         // Definitons
         let mainHeader = document.querySelector(".switchProfHeaderText");
         let mainProfileBcg = document.querySelector(".switchProfBcgImg");
-        let tempProfBcg;
         let profileOpt = document.querySelectorAll(".profileOpt");
         let editProfAtnBtn = document.querySelector(".editProfAtnBtn");
+        let editProfOptTempName;
+        let editProfOptTempFrg;
+        let editProfOptTempBcg;
         let editProfFence;
+
+        // Function to change the eventlistener of the action button
+        function changeEditProfAtnListener(theAtnEv, theOldFunc, theNewFunc, theTxtCtnt)
+        {
+            editProfAtnBtn.removeEventListener(`${theAtnEv}` , theOldFunc);
+            editProfAtnBtn.addEventListener(`${theAtnEv}` , theNewFunc);
+            editProfAtnBtn.textContent = `${theTxtCtnt}`;
+        }
 
         // Opens the Switch Profile Modal
         switchProfTimer = setTimeout(() => 
@@ -210,9 +220,7 @@
         // Edit Profiles
         function switchToEditProf()
         {
-            editProfAtnBtn.removeEventListener("click" , switchToEditProf);
-            editProfAtnBtn.addEventListener("click" , switchToChangeProf);
-            editProfAtnBtn.textContent = "Done";
+            changeEditProfAtnListener(`click` , switchToEditProf , switchToChangeProf , `Done`);
             mainHeader.textContent = "Edit Profiles";
 
             // Removes the current eventlistener
@@ -228,12 +236,16 @@
             // Sets eventlistener to save changes after all edits are done
             profileOpt.forEach((opt) => 
             {
-                let optName = opt.querySelector(".switchProfOptText");
-                let optImg = opt.querySelector(".switchProfOptImg");
-                let optImgSrc = optImg.getAttribute("src");
-                let optBcg = opt.getAttribute("data-background-image");
-    
-                const callOpenEditModal = () => {openEditModal(optName.textContent, optImgSrc, optBcg)};
+                const callOpenEditModal = () => 
+                {
+                    let optName = opt.querySelector(".switchProfOptText");
+                    let optImg = opt.querySelector(".switchProfOptImg");
+                    let optImgSrc = optImg.getAttribute("src");
+                    let optBcg = opt.getAttribute("data-background-image");
+                    
+                    opt.setAttribute(`id` , `profile-is-curr-being-edited`);
+                    openEditModal(optName.textContent, optImgSrc, optBcg)
+                };
     
                 opt.addEventListener("click" , callOpenEditModal);
                 opt.callOpenEditModal = callOpenEditModal;
@@ -245,9 +257,7 @@
         // Switch back to "Changing of Profiles" modal
         function switchToChangeProf()
         {
-            editProfAtnBtn.removeEventListener("click" , switchToChangeProf);
-            editProfAtnBtn.addEventListener("click" , switchToEditProf);
-            editProfAtnBtn.textContent = "Edit";
+            changeEditProfAtnListener(`click` , switchToChangeProf , switchToEditProf , `Edit`);
             mainHeader.textContent = "Who's watching?";
 
             // Removes the current eventlistener
@@ -270,7 +280,7 @@
     
                 opt.addEventListener("click" , callEffectProfChange);
                 opt.callEffectProfChange = callEffectProfChange;
-            })
+            });
         }
 
         // This function instantiates the modal for editing unique profiles
@@ -278,7 +288,7 @@
         {
             let editProfHTML =
             `
-                <div class="editProfileFence">
+                <!-- <div class="editProfileFence"> -->
                     <div class="editProfileBcgImgBdr editProfilePcBcgImgBdr">
                         <div class="editProfileBcgImgBox">
                             <img src="${bcgPic}" alt="" class="editProfileBcgImg">
@@ -1819,16 +1829,14 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                <!-- </div> -->
             `;
             editProfFence = document.createElement("div");
-            editProfFence.classList.add("editProfFence");
+            editProfFence.classList.add("editProfileFence");
             editProfFence.innerHTML = editProfHTML;
             switchProfBdr.appendChild(editProfFence);
 
-            editProfAtnBtn.removeEventListener("click" , switchToChangeProf);
-            editProfAtnBtn.addEventListener("click" , saveCurrProfEdits);
-            editProfAtnBtn.textContent = "Save";
+            changeEditProfAtnListener(`click` , switchToChangeProf , saveCurrProfEdits , `Save`);
 
 
             let editProfileNameField = document.querySelector("#editProfileNameField");
@@ -1846,7 +1854,7 @@
             let selectFrgPicCarouselCard = document.querySelectorAll(".selectFrgPicCarouselCard");
             let selectBcgPicCarouselCard = document.querySelectorAll(".selectBcgPicCarouselCard");
 
-            // The slider for different shows
+            // The slider for select pic modals
             function selectPicSlider()
             {
                 selectPicCarouselGrid.forEach((item, i) => 
@@ -1902,29 +1910,23 @@
             }
             selectPicSlider();
 
-            // Calls the function again if window changes size
-            window.addEventListener("resize" , () => 
-            {
-                selectPicSlider();   
-            });
-
-            window.addEventListener("change" , () => 
-            {
-                selectPicSlider();   
-            });
-
-
             // Visualise warning if naming condition is breached
             editProfileNameField.addEventListener("input" , () => 
             {
-                let fieldVal = editProfileNameField.value.replace(/\s+/g, '');
+                let fieldVal = editProfileNameField.value.trim().replace(/\s+/g, ' ');
+
                 if(((fieldVal != undefined) && (fieldVal != null) && (fieldVal != "  "))
                     && ((fieldVal.length >= 2) && (fieldVal.length <= 50)))
                 {
                     editProfileNameWarnBdr.classList.remove("active");
-                    return;
                 }
-                editProfileNameWarnBdr.classList.add("active");
+                else
+                {
+                    editProfileNameWarnBdr.classList.add("active");
+                }
+
+                // Update the temp value for profile name
+                editProfOptTempName = fieldVal;
             });
 
             // Selecting Languages for different components of the app
@@ -1981,7 +1983,10 @@
                     editProfileDetBox.classList.add("inactive");
                     editProfileTitle.textContent = `Choose your Avatar`;
                     selectPicSlider();
-                    selectPicModalIsOpen();
+                    // Calls the function again if window changes size
+                    window.addEventListener("resize" , selectPicSlider);
+                    window.addEventListener("change" , selectPicSlider);
+                    changeEditProfAtnListener(`click` , saveCurrProfEdits , closeSelectPicModals , `Back`);
                 });
             });
 
@@ -1999,7 +2004,10 @@
                     editProfileDetBox.classList.add("inactive");
                     editProfileTitle.textContent = `Choose your Background Image`;
                     selectPicSlider();
-                    selectPicModalIsOpen();
+                    // Calls the function again if window changes size
+                    window.addEventListener("resize" , selectPicSlider);
+                    window.addEventListener("change" , selectPicSlider);
+                    changeEditProfAtnListener(`click` , saveCurrProfEdits , closeSelectPicModals , `Back`);
                 });
             });
 
@@ -2012,6 +2020,7 @@
                 card.addEventListener("click" , () => 
                 {
                     editProfileFrgImg.setAttribute(`src` , `${imgSrc}`);
+                    editProfOptTempFrg = imgSrc;
                     closeSelectPicModals();
                 });
             });
@@ -2025,7 +2034,7 @@
                 card.addEventListener("click" , () => 
                 {
                     editProfileBcgImg.setAttribute(`src` , `${imgSrc}`);
-                    tempProfBcg = imgSrc;
+                    editProfOptTempBcg = imgSrc;
                     closeSelectPicModals();
                 });
             });
@@ -2040,37 +2049,40 @@
                 selectFrgPicBdr.classList.remove("active");
                 selectBcgPicBdr.classList.remove("active");
                 editProfileDetBox.classList.remove("inactive");
-                editProfileTitle.textContent = `Edit Profile`;
-                selectPicModalIsClosed();
-            }
-        }
-        
 
-        // Updating the actionBtn when the selectPicModal is Open/Closed
-        function selectPicModalIsOpen()
-        {
-            editProfAtnBtn.removeEventListener("click" , switchToChangeProf);
-            editProfAtnBtn.addEventListener("click" , selectPicModalIsClosed);
-            editProfAtnBtn.textContent = "Back";
-        }
-        function selectPicModalIsClosed()
-        {
-            editProfAtnBtn.removeEventListener("click" , selectPicModalIsClosed);
-            editProfAtnBtn.addEventListener("click" , saveCurrProfEdits);
-            editProfAtnBtn.textContent = "Save";
+                window.removeEventListener("resize" , selectPicSlider);
+                window.removeEventListener("change" , selectPicSlider);
+                editProfileTitle.textContent = `Edit Profile`;
+                changeEditProfAtnListener(`click` , closeSelectPicModals , saveCurrProfEdits , `Save`);
+            }
         }
 
         // Save Edits made to a profile and return back to the "Edits profile" modal
         function saveCurrProfEdits()
         {
-            if(((tempProfBcg != null) && (tempProfBcg != undefined)))
+            let profCurrBeignEdited = document.querySelector("#profile-is-curr-being-edited");
+            let profCurrName = profCurrBeignEdited.querySelector(".switchProfOptText");
+            let profCurrFrgImg = profCurrBeignEdited.querySelector(".switchProfOptImg");
+            
+            // Update the Profile Name
+            if(((editProfOptTempName != null) || (editProfOptTempName != undefined)))
             {
-                mainProfileBcg.setAttribute(`src` , `${tempProfBcg}`);
+                profCurrName.textContent = `${editProfOptTempName}`;
+            }
+            // Update the Foreground (Frg) pic
+            if(((editProfOptTempFrg != null) || (editProfOptTempFrg != undefined)))
+            {
+                profCurrFrgImg.setAttribute(`src` , `${editProfOptTempFrg}`);
+            }
+            // Update the Background (Bcg) pic
+            if(((editProfOptTempBcg != null) || (editProfOptTempBcg != undefined)))
+            {
+                profCurrBeignEdited.setAttribute(`data-background-image` , `${editProfOptTempBcg}`);
             }
 
+            profCurrBeignEdited.removeAttribute("id");
+
             switchProfBdr.removeChild(editProfFence);
-            editProfAtnBtn.removeEventListener("click" , saveCurrProfEdits);
-            editProfAtnBtn.addEventListener("click" , switchToChangeProf);
-            editProfAtnBtn.textContent = "Done";
+            changeEditProfAtnListener(`click` , saveCurrProfEdits , switchToChangeProf , `Done`);
         }
     }

@@ -1312,13 +1312,15 @@ img
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 10px;
+    padding: 10px 5px;
 }
 
 .switchProfOptBdr .switchProfOptBox
 {
     position: relative;
     width: calc(var(--switchProfOptImgBoxWidth) + 30px);
+    height: -moz-fit-content;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1398,8 +1400,21 @@ img
 
 .switchProfOptTextBox .switchProfOptText
 {
+    --editProfileLangSelectTextLineNo: 2;
+    --editProfileLangSelectTextLineH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--editProfileLangSelectTextLineNo);
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    max-height: calc(var(--editProfileLangSelectTextLineNo) * 1em * var(--editProfileLangSelectTextLineH));
+    line-height: var(--editProfileLangSelectTextLineH);
     color: var(--genWhiteTypeLight);
     font-size: 15px;
+    text-align: center;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    overflow: hidden;
 }
 
 .editProfileBadgeBdr
@@ -1461,6 +1476,7 @@ img
 
 .profileNavBox
 {
+    width: calc(100% - var(--scrollBarWidth));
     z-index: 115;
 }
 
@@ -1936,6 +1952,7 @@ img
     color: var(--genWhiteTypeLight);
     font-size: 14px;
     margin-left: 5px;
+    text-wrap: nowrap;
     overflow: hidden;
 }
 
@@ -3504,11 +3521,6 @@ img
 @media only screen and (max-width: 768px)
 {
 
-    .switchProfHeader .switchProfHeaderText
-    {
-        font-size: 30px;
-    }
-
     .addNewProfIconBox .addNewProfIcon
     {
         width: 30px;
@@ -3724,6 +3736,11 @@ img
     {
         padding: calc(var(--navBarHeight) * 1.5) 0 25px;
         justify-content: unset;
+    }
+
+    .switchProfHeader .switchProfHeaderText
+    {
+        font-size: 30px;
     }
 
     .editProfileBox .editProfileTitleBox
