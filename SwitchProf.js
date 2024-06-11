@@ -150,6 +150,7 @@
         let mainProfileBcg = document.querySelector(".switchProfBcgImg");
         let profileOpt = document.querySelectorAll(".profileOpt");
         let editProfAtnBtn = document.querySelectorAll(".editProfAtnBtn");
+        let editProfAtnBtnMob = document.querySelector(".editProfAtnBtn_Mob");
         let editProfOptTempName;
         let editProfOptTempFrg;
         let editProfOptTempBcg;
@@ -1856,6 +1857,7 @@
             editProfFence.innerHTML = editProfHTML;
             switchProfBdr.appendChild(editProfFence);
 
+            editProfAtnBtnMob.classList.add("active");
             changeEditProfAtnListener(`click` , switchToChangeProf , saveCurrProfEdits , `Save`);
 
 
@@ -2117,6 +2119,7 @@
             profCurrBeignEdited.removeAttribute("id");
 
             switchProfBdr.removeChild(editProfFence);
+            editProfAtnBtnMob.classList.remove("active");
             changeEditProfAtnListener(`click` , saveCurrProfEdits , switchToChangeProf , `Done`);
         }
     }
