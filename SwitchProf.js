@@ -23,7 +23,7 @@
                 </div>
                 <div class="navBarRight">
                     <div class="signUpBdr">
-                        <div class="signUpBox lightSolidBtn editProfAtnBtn">Edit</div>
+                        <div class="signUpBox lightSolidBtn editProfAtnBtn editProfAtnBtn_Mob">Edit</div>
                         <div class="spacing"></div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
         </div>
         <div class="switchProfBcg closeSwitchProf">
             <div class="switchProfBcgImgBox">
-                <img src="/Images/Uvid_green_bcg1_light.jpg" alt="Background image of the 'Switch Profiles' modal" class="switchProfBcgImg">
+                <img src="/Images/Uvid_green_bcg1_dark.jpg" alt="Background image of the 'Switch Profiles' modal" class="switchProfBcgImg">
             </div>
         </div>
         <div class="switchProfBox">
@@ -41,7 +41,7 @@
                 </div>
                 <div class="switchProfOptBcg">
                     <div class="switchProfOptBdr">
-                        <div class="switchProfOptBox profileOpt" data-background-image="/Images/Uvid_green_bcg1_light.jpg">
+                        <div class="switchProfOptBox profileOpt" data-background-image="/Images/Uvid_green_bcg1_dark.jpg">
                             <div class="switchProfOptImgBdr">
                                 <div class="switchProfOptImgBox">
                                     <img src="/Images/Uvid_profilebase.png" alt="profile_img" class="switchProfOptImg">
@@ -119,6 +119,11 @@
                                 <p class="switchProfOptText">Add New</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="editProfAtnBdr editProfAtnBtn_Pc">
+                    <div class="editProfAtnBox">
+                        <div class="editProfAtnBtn editProfAtnBtn">Edit</div>
                     </div>
                 </div>
             </div>

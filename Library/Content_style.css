@@ -323,7 +323,7 @@ body
 
 .intro_info_notes .intro_desc
 {
-    --introDescLineNo: 5;
+    --introDescLineNo: 4;
     --introDescLineH: 1.4;
     position: relative;
     -webkit-line-clamp: var(--introDescLineNo);
@@ -392,7 +392,7 @@ body
     display: none;
     flex-direction: row;
     align-items: center;
-    margin-top: var(--introInfoNotesMargin);
+    margin-top: calc(var(--introInfoNotesMargin) * 1.5);
     gap: 10px;
     z-index: 5;
 }
@@ -1242,7 +1242,7 @@ body
     
     .intro_info_notes .intro_desc
     {
-        --introDescLineNo: 4;
+        --introDescLineNo: 3;
     }
 }
 
