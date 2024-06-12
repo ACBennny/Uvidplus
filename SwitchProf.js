@@ -154,6 +154,7 @@
 
         // Definitons
         let profileNavBox = switchProfBdr.querySelector(".profileNavBox");
+        let navbarHeight = (document.querySelector(".profileNavBar").getBoundingClientRect().height * 2) + 10;
         let mainHeader = switchProfBdr.querySelector(".switchProfHeaderText");
         let mainProfileBcg = switchProfBdr.querySelector(".switchProfBcgImg");
         let switchProfBoxCtnt = switchProfBdr.querySelector(".switchProfBoxCtnt");
@@ -168,11 +169,8 @@
         let editProfFence;
 
         // Function to position the navbar based on the scrollbar
-        let navbarHeight = (document.querySelector(".profileNavBar").getBoundingClientRect().height * 2) + 10;
         function setProfileNavbarPos()
         {
-            console.log(navbarHeight);
-
             if((switchProfBoxCtnt.scrollHeight > switchProfBoxCtnt.clientHeight) 
                 && (switchProfBoxCtnt.scrollTop < navbarHeight)
                 && (window.matchMedia("(hover: hover)").matches))
