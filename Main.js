@@ -170,6 +170,71 @@
             </div>
         </footer>
     `;
+    let notificationQueue = [];
+    let isNotificationActive = false;
+    let preNotifyTimer;
+    let midNotifyTimer;
+    let endNotifyTimer;
+
+
+    // NOTIFICATION POPUP
+
+        function showNextNotification() 
+        {
+            if (notificationQueue.length === 0) 
+            {
+                isNotificationActive = false;
+                return;
+            }
+        
+            const { noteCtnt, resolve } = notificationQueue.shift(); // Get the next notification from the queue
+        
+            const btnNotifyBdr = document.createElement('div');
+            const btnNotify = document.createElement('div');
+            btnNotifyBdr.classList.add("notifyBdr");
+            btnNotify.classList.add("NotifyMe");
+            btnNotifyBdr.appendChild(btnNotify);
+            btnNotify.textContent = noteCtnt;
+        
+            document.body.appendChild(btnNotifyBdr);
+            // Ensures the element is added to the DOM before adding the class
+            requestAnimationFrame(() => 
+            { 
+                preNotifyTimer = setTimeout(() => 
+                {
+                    btnNotifyBdr.classList.add('NotifyAtv');
+                    clearTimeout(preNotifyTimer);
+                }, 300);
+            });
+        
+            isNotificationActive = true;
+            endNotifyTimer = setTimeout(() => 
+            {
+                clearTimeout(endNotifyTimer);
+                btnNotifyBdr.classList.remove('NotifyAtv');
+                midNotifyTimer = setTimeout(() => 
+                {
+                    clearTimeout(midNotifyTimer);
+                    document.body.removeChild(btnNotifyBdr);
+                    resolve(); 
+                    showNextNotification();
+                }, 300);
+            }, 6500);
+        }
+
+        function notification(noteCtnt) 
+        {
+            return new Promise((resolve) => 
+            {
+                notificationQueue.push({ noteCtnt, resolve });
+                if (!isNotificationActive) 
+                {
+                    // If no notification is active, show the next one immediately
+                    showNextNotification(); 
+                }
+            });
+        }
+
 
     // ADDING/REMOVING EVENTLISTENERS FOR FUNCTIONS
     
@@ -233,11 +298,6 @@
             let allImg = document.querySelectorAll('img');
             let allImgTags = document.querySelectorAll('.allImgTags');
             let allLinks = document.querySelectorAll("a");
-            let notificationQueue = [];
-            let isNotificationActive = false;
-            let preNotifyTimer;
-            let midNotifyTimer;
-            let endNotifyTimer;
             let socialShareLink = encodeURI(window.location.href);
             let socialShareTitle = encodeURIComponent(documentTitle);
             let socialShareMsg = `Check out ${socialShareTitle}`;
@@ -1076,66 +1136,6 @@
                 // Prevents draggable
                 // link.draggable = false;
             });
-
-
-
-        // NOTIFICATION POPUP
-
-            function showNextNotification() 
-            {
-                if (notificationQueue.length === 0) 
-                {
-                    isNotificationActive = false;
-                    return;
-                }
-            
-                const { noteCtnt, resolve } = notificationQueue.shift(); // Get the next notification from the queue
-            
-                const btnNotifyBdr = document.createElement('div');
-                const btnNotify = document.createElement('div');
-                btnNotifyBdr.classList.add("notifyBdr");
-                btnNotify.classList.add("NotifyMe");
-                btnNotifyBdr.appendChild(btnNotify);
-                btnNotify.textContent = noteCtnt;
-            
-                document.body.appendChild(btnNotifyBdr);
-                // Ensures the element is added to the DOM before adding the class
-                requestAnimationFrame(() => 
-                { 
-                    preNotifyTimer = setTimeout(() => 
-                    {
-                        btnNotifyBdr.classList.add('NotifyAtv');
-                        clearTimeout(preNotifyTimer);
-                    }, 300);
-                });
-            
-                isNotificationActive = true;
-                endNotifyTimer = setTimeout(() => 
-                {
-                    clearTimeout(endNotifyTimer);
-                    btnNotifyBdr.classList.remove('NotifyAtv');
-                    midNotifyTimer = setTimeout(() => 
-                    {
-                        clearTimeout(midNotifyTimer);
-                        document.body.removeChild(btnNotifyBdr);
-                        resolve(); 
-                        showNextNotification();
-                    }, 300);
-                }, 6500);
-            }
-
-            function notification(noteCtnt) 
-            {
-                return new Promise((resolve) => 
-                {
-                    notificationQueue.push({ noteCtnt, resolve });
-                    if (!isNotificationActive) 
-                    {
-                        // If no notification is active, show the next one immediately
-                        showNextNotification(); 
-                    }
-                });
-            }
 
 
 

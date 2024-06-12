@@ -10,7 +10,11 @@
     let navProfleImg = document.querySelector(".navBarProfileImage");
     let switchProfTimer;
     let switchProfTimer2;
-    let switchProfHTML = 
+    let currProfOpt = `profile-is-curr-being-edited`;
+    let defaultProfName = `acbennny`;
+    let defaultProfFrg = `/Images/Uvid_profilebase.png`;
+    let defaultProfBcg = `/Images/Uvid_green_bcg1_dark.jpg`;
+    let switchProfBdrHTML = 
     `
         <div class="navBox profileNavBox">
             <div class="navBar profileNavBar">
@@ -31,7 +35,7 @@
         </div>
         <div class="switchProfBcg closeSwitchProf">
             <div class="switchProfBcgImgBox">
-                <img src="/Images/Uvid_green_bcg1_dark.jpg" alt="Background image of the 'Switch Profiles' modal" class="switchProfBcgImg">
+                <img src="${defaultProfBcg}" alt="Background image of the 'Switch Profiles' modal" class="switchProfBcgImg">
             </div>
         </div>
         <div class="switchProfBox">
@@ -41,10 +45,10 @@
                 </div>
                 <div class="switchProfOptBcg">
                     <div class="switchProfOptBdr">
-                        <div class="switchProfOptBox profileOpt" data-background-image="/Images/Uvid_green_bcg1_dark.jpg">
+                        <div class="switchProfOptBox profileOpt" data-background-image="${defaultProfBcg}">
                             <div class="switchProfOptImgBdr">
                                 <div class="switchProfOptImgBox">
-                                    <img src="/Images/Uvid_profilebase.png" alt="profile_img" class="switchProfOptImg">
+                                    <img src="${defaultProfFrg}" alt="profile_img" class="switchProfOptImg">
                                 </div>
                                 <div class="editProfileBadgeBdr">
                                     <div class="editProfileBadgeBox">
@@ -55,24 +59,7 @@
                                 </div>
                             </div>
                             <div class="switchProfOptTextBox">
-                                <p class="switchProfOptText">acbennny</p>
-                            </div>
-                        </div>
-                        <div class="switchProfOptBox profileOpt" data-background-image="/Images/uvid_red_velvet0.png">
-                            <div class="switchProfOptImgBdr">
-                                <div class="switchProfOptImgBox">
-                                    <img src="/Images/pfp/pfp_8.jpg" alt="profile_img" class="switchProfOptImg">
-                                </div>
-                                <div class="editProfileBadgeBdr">
-                                    <div class="editProfileBadgeBox">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="editProfileBadgeIcon">
-                                            <path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="switchProfOptTextBox">
-                                <p class="switchProfOptText">Velvet</p>
+                                <p class="switchProfOptText">${defaultProfName}</p>
                             </div>
                         </div>
                         <div class="switchProfOptBox profileOpt" data-background-image="/Images/Uvid_TVShows.jpg">
@@ -109,7 +96,7 @@
                                 <p class="switchProfOptText">Aston</p>
                             </div>
                         </div>
-                        <div class="switchProfOptBox addNewProfBox">
+                        <div class="switchProfOptBox createProfile">
                             <div class="addNewProfIconBox">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="addNewProfIcon">
                                     <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
@@ -129,6 +116,26 @@
             </div>
         </div>
     `;
+    let switchProfOptHTML = 
+    `
+        <div class="switchProfOptBox profileOpt" id="${currProfOpt}" data-background-image="${defaultProfBcg}">
+            <div class="switchProfOptImgBdr">
+                <div class="switchProfOptImgBox">
+                    <img src="${defaultProfFrg}" alt="profile_img" class="switchProfOptImg">
+                </div>
+                <div class="editProfileBadgeBdr">
+                    <div class="editProfileBadgeBox">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="editProfileBadgeIcon">
+                            <path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="switchProfOptTextBox">
+                <p class="switchProfOptText">${defaultProfName}</p>
+            </div>
+        </div>
+    `;
 
     
     function instantiateSwitchProfBdr()
@@ -139,22 +146,44 @@
         switchProfBdr.classList.add("inactive");
 
         // The Switch Profile Modal Structure
-        switchProfBdr.innerHTML = switchProfHTML;
+        switchProfBdr.innerHTML = switchProfBdrHTML;
 
         // Append the fragment to DOM
         documentBody.appendChild(switchProfBdr);
         documentBody.classList.add("bodystop");
 
         // Definitons
-        let mainHeader = document.querySelector(".switchProfHeaderText");
-        let mainProfileBcg = document.querySelector(".switchProfBcgImg");
-        let profileOpt = document.querySelectorAll(".profileOpt");
-        let editProfAtnBtn = document.querySelectorAll(".editProfAtnBtn");
-        let editProfAtnBtnMob = document.querySelector(".editProfAtnBtn_Mob");
+        let profileNavBox = switchProfBdr.querySelector(".profileNavBox");
+        let mainHeader = switchProfBdr.querySelector(".switchProfHeaderText");
+        let mainProfileBcg = switchProfBdr.querySelector(".switchProfBcgImg");
+        let switchProfBoxCtnt = switchProfBdr.querySelector(".switchProfBoxCtnt");
+        let switchProfOptBdr = switchProfBdr.querySelector(".switchProfOptBdr");
+        let createProfile = switchProfBdr.querySelector(".createProfile");
+        let profileOpt = switchProfBdr.querySelectorAll(".profileOpt");
+        let editProfAtnBtn = switchProfBdr.querySelectorAll(".editProfAtnBtn");
+        let editProfAtnBtnMob = switchProfBdr.querySelector(".editProfAtnBtn_Mob");
         let editProfOptTempName;
         let editProfOptTempFrg;
         let editProfOptTempBcg;
         let editProfFence;
+
+        // Function to position the navbar based on the scrollbar
+        let navbarHeight = (document.querySelector(".profileNavBar").getBoundingClientRect().height * 2) + 10;
+        function setProfileNavbarPos()
+        {
+            console.log(navbarHeight);
+
+            if((switchProfBoxCtnt.scrollHeight > switchProfBoxCtnt.clientHeight) 
+                && (switchProfBoxCtnt.scrollTop < navbarHeight)
+                && (window.matchMedia("(hover: hover)").matches))
+            {
+                profileNavBox.classList.add("shorten");
+                return;
+            }
+            profileNavBox.classList.remove("shorten");
+        }
+        setProfileNavbarPos();
+        switchProfBoxCtnt.addEventListener("scroll" , setProfileNavbarPos);
 
         // Function to change the eventlistener of the action button
         function changeEditProfAtnListener(theAtnEv, theOldFunc, theNewFunc, theTxtCtnt)
@@ -199,7 +228,7 @@
 
                 // Update the HTML
                 mainProfileBcg.setAttribute(`src` , `${bcg}`);
-                switchProfHTML = switchProfBdr.innerHTML;
+                switchProfBdrHTML = switchProfBdr.innerHTML;
 
                 // Remove Child Nodes
                 documentBody.removeChild(switchProfBdr);
@@ -233,12 +262,26 @@
             opt.callEffectProfChange = callEffectProfChange;
         });
 
+        // Creating a new profile ***** NOT WORKING - Elemments added to DOM dont respond to code or inputs *****
+        // function addProfile()
+        // {
+        //     createProfile.insertAdjacentHTML(`beforebegin`, `${switchProfOptHTML}`);
+        //     if(profileOpt.length > 3)
+        //     {
+        //         createProfile.classList.add("inactive");
+        //     }
+        //     console.log(`Profile opt lenghth = ${profileOpt.length}`);
+        //     openEditModal(`${defaultProfName}`, `${defaultProfFrg}`, `${defaultProfBcg}`);
+        // }
+        // createProfile.addEventListener("click" , addProfile);
+
 
         // Edit Profiles
         function switchToEditProf()
         {
             changeEditProfAtnListener(`click` , switchToEditProf , switchToChangeProf , `Done`);
             mainHeader.textContent = "Edit Profiles";
+            createProfile.classList.add("hidden");
 
             // Removes the current eventlistener
             profileOpt.forEach(opt => 
@@ -260,8 +303,8 @@
                     let optImgSrc = optImg.getAttribute("src");
                     let optBcg = opt.getAttribute("data-background-image");
                     
-                    opt.setAttribute(`id` , `profile-is-curr-being-edited`);
-                    openEditModal(optName.textContent, optImgSrc, optBcg)
+                    opt.setAttribute(`id` , `${currProfOpt}`);
+                    openEditModal(optName.textContent, optImgSrc, optBcg);
                 };
     
                 opt.addEventListener("click" , callOpenEditModal);
@@ -276,6 +319,7 @@
         {
             changeEditProfAtnListener(`click` , switchToChangeProf , switchToEditProf , `Edit`);
             mainHeader.textContent = "Who's watching?";
+            createProfile.classList.remove("hidden");
 
             // Removes the current eventlistener
             profileOpt.forEach(opt => 
@@ -1931,6 +1975,11 @@
                 });
             }
             selectPicSlider();
+
+            // Initialisation
+            editProfOptTempName = editProfileNameField.value.trim().replace(/\s+/g, ' ');
+            editProfOptTempBcg = editProfileFrgImg.getAttribute("src");
+            editProfOptTempBcg = editProfileBcgImg.getAttribute("src");
 
             // Visualise warning if naming condition is breached
             editProfileNameField.addEventListener("input" , () => 

@@ -870,27 +870,6 @@ html:root
 
 @media only screen and (max-width: 600px)
 {
-    
-
-    .questions_box .questions_Body
-    {
-        padding: 10px;
-    }
-    
-    .questions_Card .questions_CardTextBox
-    {
-        padding: 0px 20px;
-    }
-
-    .questions_box .questions_footerBox
-    {
-        padding: 20px;
-    }
-}
-
-
-@media only screen and (max-width: 350px)
-{
     html:root
     {
         --ftrCardFrontTransform: 10px;
@@ -915,6 +894,25 @@ html:root
         height: calc(100% - 20px);
         transform: translate(10px,10px);
     }
+    .questions_box .questions_Body
+    {
+        padding: 10px;
+    }
+    
+    .questions_Card .questions_CardTextBox
+    {
+        padding: 0px 20px;
+    }
+
+    .questions_box .questions_footerBox
+    {
+        padding: 20px;
+    }
+}
+
+
+@media only screen and (max-width: 350px)
+{
 
     .welcome_landTextMajorBox .welcome_landTextMajor
     {

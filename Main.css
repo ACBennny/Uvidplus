@@ -1460,6 +1460,16 @@ img
     width: 80%;
 }
 
+.switchProfOptBox.createProfile.hidden
+{
+    display: none;
+}
+
+.switchProfOptBox.createProfile.inactive
+{
+    display: none !important;
+}
+
 .switchProfOptBox .addNewProfIconBox
 {
     position: relative;
@@ -1478,7 +1488,7 @@ img
 .addNewProfIconBox .addNewProfIcon
 {
     width: 35px;
-    fill: var(--genWhiteTypeMid);
+    fill: var(--genWhiteTypeLight);
 }
 
 .editProfAtnBdr
@@ -3345,14 +3355,14 @@ img
         fill: var(--genWhiteTypeMid2);
     }
     
-    .profileNavBox
+    .profileNavBox.shorten
     {
         width: calc(100% - var(--scrollBarWidth));
     }
 
     .profileNavBox .profileNavBar
     {
-        background: #00000000;
+        /* background: #00000000; */
     }    
     
     .switchProfOptBox:hover::before
