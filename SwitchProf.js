@@ -274,6 +274,10 @@
         //     openEditModal(`${defaultProfName}`, `${defaultProfFrg}`, `${defaultProfBcg}`);
         // }
         // createProfile.addEventListener("click" , addProfile);
+        createProfile.addEventListener("click" , () => 
+        {
+            notification(`Error`);
+        });
 
 
         // Edit Profiles
