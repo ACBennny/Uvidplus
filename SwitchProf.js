@@ -48,7 +48,7 @@
                         <div class="switchProfOptBox profileOpt" data-background-image="${defaultProfBcg}">
                             <div class="switchProfOptImgBdr">
                                 <div class="switchProfOptImgBox">
-                                    <img src="${defaultProfFrg}" alt="profile_img" class="switchProfOptImg">
+                                    <img src="${defaultProfFrg}" alt="profile image" class="switchProfOptImg">
                                 </div>
                                 <div class="editProfileBadgeBdr">
                                     <div class="editProfileBadgeBox">
@@ -65,7 +65,7 @@
                         <div class="switchProfOptBox profileOpt" data-background-image="/Images/Uvid_TVShows.jpg">
                             <div class="switchProfOptImgBdr">
                                 <div class="switchProfOptImgBox">
-                                    <img src="/Images/pfp/pfp_2.jpg" alt="profile_img" class="switchProfOptImg">
+                                    <img src="/Images/pfp/pfp_2.jpg" alt="profile image" class="switchProfOptImg">
                                 </div>
                                 <div class="editProfileBadgeBdr">
                                     <div class="editProfileBadgeBox">
@@ -82,7 +82,7 @@
                         <div class="switchProfOptBox profileOpt" data-background-image="/Images/Uvid_Anime.jpg">
                             <div class="switchProfOptImgBdr">
                                 <div class="switchProfOptImgBox">
-                                    <img src="/Images/pfp/pfp_4.jpg" alt="profile_img" class="switchProfOptImg">
+                                    <img src="/Images/pfp/pfp_4.jpg" alt="profile image" class="switchProfOptImg">
                                 </div>
                                 <div class="editProfileBadgeBdr">
                                     <div class="editProfileBadgeBox">
@@ -96,7 +96,7 @@
                                 <p class="switchProfOptText">Aston</p>
                             </div>
                         </div>
-                        <div class="switchProfOptBox createProfile">
+                        <div class="switchProfOptBox createProfile hidden">
                             <div class="addNewProfIconBox">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="addNewProfIcon">
                                     <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
@@ -121,7 +121,7 @@
         <div class="switchProfOptBox profileOpt" id="${currProfOpt}" data-background-image="${defaultProfBcg}">
             <div class="switchProfOptImgBdr">
                 <div class="switchProfOptImgBox">
-                    <img src="${defaultProfFrg}" alt="profile_img" class="switchProfOptImg">
+                    <img src="${defaultProfFrg}" alt="profile image" class="switchProfOptImg">
                 </div>
                 <div class="editProfileBadgeBdr">
                     <div class="editProfileBadgeBox">
@@ -264,6 +264,7 @@
         // function addProfile()
         // {
         //     createProfile.insertAdjacentHTML(`beforebegin`, `${switchProfOptHTML}`);
+
         //     if(profileOpt.length > 3)
         //     {
         //         createProfile.classList.add("inactive");
@@ -283,7 +284,7 @@
         {
             changeEditProfAtnListener(`click` , switchToEditProf , switchToChangeProf , `Done`);
             mainHeader.textContent = "Edit Profiles";
-            createProfile.classList.add("hidden");
+            createProfile.classList.remove("hidden");
 
             // Removes the current eventlistener
             profileOpt.forEach(opt => 
@@ -321,7 +322,7 @@
         {
             changeEditProfAtnListener(`click` , switchToChangeProf , switchToEditProf , `Edit`);
             mainHeader.textContent = "Who's watching?";
-            createProfile.classList.remove("hidden");
+            createProfile.classList.add("hidden");
 
             // Removes the current eventlistener
             profileOpt.forEach(opt => 
