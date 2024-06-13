@@ -476,11 +476,16 @@ img
     display: flex;
     justify-content: center;
     align-items: center;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 
 
 /* =============== Profile ================ */
+
 .navBarProfileBdr .navBarProfileBox
 {
     position: relative;
@@ -516,7 +521,7 @@ img
     position: absolute;
     bottom: 0;
     right: calc(0% - 10px);
-    width: 250px;
+    width: 220px;
     height: fit-content;
     max-height: 0px;
     transform: translateY(calc(100% + 20px));
@@ -619,11 +624,24 @@ img
 .navProfileNameBox .navProfileName
 {
     width: 100%;
+    --editProfileLangSelectTextLineNo: 3;
+    --editProfileLangSelectTextLineH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--editProfileLangSelectTextLineNo);
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    max-height: calc(var(--editProfileLangSelectTextLineNo) * 1em * var(--editProfileLangSelectTextLineH));
+    line-height: var(--editProfileLangSelectTextLineH);
+    -webkit-hyphens: auto;
+    hyphens: auto;
     text-align: left;
     color: var(--navBarProfileOptLinkClr);
     font-size: 13px;
     font-weight: 500;
+    overflow: hidden;
 }
+
+
 
 
 /* ====== Search Bar ========== */
