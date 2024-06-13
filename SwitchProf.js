@@ -2181,7 +2181,7 @@
             // Deleting a profile
             deleteProfile.addEventListener("click" , () => 
             {
-                let warnAlert = confirm(`Are you sure you want to delete this profile? \nThis action cannot be undone`);
+                let warnAlert = confirm(`Are you sure you want to delete this profile? \nThis action can not be undone.`);
                 if(warnAlert == false)
                 {
                     e.preventDefault();
