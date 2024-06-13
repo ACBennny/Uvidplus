@@ -3413,12 +3413,7 @@ img
     .profileNavBox.shorten
     {
         width: calc(100% - var(--scrollBarWidth));
-    }
-
-    .profileNavBox .profileNavBar
-    {
-        /* background: #00000000; */
-    }    
+    }  
     
     .switchProfOptBox:hover::before
     {
@@ -3873,7 +3868,7 @@ only screen and (max-width: 800px)
 
     .nav_Opt_bcg
     {
-        max-width: 100%;
+        /* max-width: 100%; */
     }
 
     .switchProfHeader .switchProfHeaderText
