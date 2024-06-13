@@ -64,7 +64,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="navProfileNameBox">
-                                                    <p class="navProfileName">One of the greatesteverweb designers to come and design</p>
+                                                    <p class="navProfileName">acbennny</p>
                                                 </div>
                                             </div>
                                         </button>

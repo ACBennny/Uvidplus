@@ -519,12 +519,12 @@ img
 .navBarProfileBox .navBarProfileOptBdr
 {
     position: absolute;
-    bottom: 0;
+    top: 0;
     right: calc(0% - 10px);
     width: 220px;
     height: fit-content;
     max-height: 0px;
-    transform: translateY(calc(100% + 20px));
+    /* transform: translateY(calc(100% + 20px)); */
     opacity: 0;
     visibility: hidden;
     transition: all 200ms ease-in-out;
@@ -603,9 +603,11 @@ img
 {
     width: 100%;
     display: flex;
+    flex-direction: row;
     align-items: center;
     flex-direction: row;
     padding: 15px 0;
+    gap: 10px;
 }
 
 .navProfileInfoBox .navBarProfileBox
@@ -617,14 +619,13 @@ img
 
 .navProfileInfoBox .navProfileNameBox
 {
-    width: calc(100% - 50px);
-    margin-left: 10px;
+    width: calc(100% - 75px);
 }
 
 .navProfileNameBox .navProfileName
 {
     width: 100%;
-    --editProfileLangSelectTextLineNo: 3;
+    --editProfileLangSelectTextLineNo: 5;
     --editProfileLangSelectTextLineH: 1.4;
     position: relative;
     -webkit-line-clamp: var(--editProfileLangSelectTextLineNo);
@@ -638,6 +639,7 @@ img
     color: var(--navBarProfileOptLinkClr);
     font-size: 13px;
     font-weight: 500;
+    overflow-wrap: break-word;
     overflow: hidden;
 }
 
