@@ -1915,6 +1915,7 @@
             changeEditProfAtnListener(`click` , switchToChangeProf , saveCurrProfEdits , `Save`);
 
 
+            let editProfileBase = document.querySelector(".editProfileBase");
             let editProfileNameField = document.querySelector("#editProfileNameField");
             let editProfileNameWarnBdr = document.querySelector(".editProfileNameWarnBdr");
             let editProfileLangSelectBdr = document.querySelectorAll(".editProfileLangSelectBdr");
@@ -1929,6 +1930,21 @@
             let editProfileBcgImg = document.querySelector(".editProfileBcgImg");
             let selectFrgPicCarouselCard = document.querySelectorAll(".selectFrgPicCarouselCard");
             let selectBcgPicCarouselCard = document.querySelectorAll(".selectBcgPicCarouselCard");
+
+            //
+            function setEditProfileNavbarPos()
+            {
+                if((editProfileBase.scrollHeight > editProfileBase.clientHeight) 
+                    && (editProfileBase.scrollTop < navbarHeight)
+                    && (window.matchMedia("(hover: hover)").matches))
+                {
+                    profileNavBox.classList.add("shorten");
+                    return;
+                }
+                profileNavBox.classList.remove("shorten");
+            }
+            setEditProfileNavbarPos();
+            editProfileBase.addEventListener("scroll" , setEditProfileNavbarPos);
 
             // The slider for select pic modals
             function selectPicSlider()
