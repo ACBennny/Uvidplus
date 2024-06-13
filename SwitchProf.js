@@ -2184,7 +2184,7 @@
                 let warnAlert = confirm(`Are you sure you want to delete this profile? \nThis action can not be undone.`);
                 if(warnAlert == false)
                 {
-                    e.preventDefault();
+                    event.preventDefault();
                 }
                 else
                 {
@@ -2202,6 +2202,7 @@
         // Save Edits made to a profile and return back to the "Edits profile" modal
         function saveCurrProfEdits()
         {
+            let profCurrBeignEdited = document.querySelector("#profile-is-curr-being-edited");
             let profCurrName = profCurrBeignEdited.querySelector(".switchProfOptText");
             let profCurrFrgImg = profCurrBeignEdited.querySelector(".switchProfOptImg");
             
