@@ -698,6 +698,18 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="editProfileDetSect">
+                                            <div class="editProfileDetSectCtnt">
+                                                <div class="editProfileDetSectHead">
+                                                    <div class="editProfileDetSectHeadText">Danger Zone</div>
+                                                </div>
+                                                <div class="editProfileDetSectBody">
+                                                    <p class="editProfileDetSectBodyText deleteProfile">
+                                                        Delete Account
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="selectPicBdr selectFrgPicBdr">
@@ -1930,8 +1942,9 @@
             let editProfileBcgImg = document.querySelector(".editProfileBcgImg");
             let selectFrgPicCarouselCard = document.querySelectorAll(".selectFrgPicCarouselCard");
             let selectBcgPicCarouselCard = document.querySelectorAll(".selectBcgPicCarouselCard");
+            let deleteProfile = document.querySelector(".deleteProfile");
 
-            //
+            // Adjust navabr based on scrollbar position
             function setEditProfileNavbarPos()
             {
                 if((editProfileBase.scrollHeight > editProfileBase.clientHeight) 
@@ -2164,12 +2177,31 @@
                 editProfileTitle.textContent = `Edit Profile`;
                 changeEditProfAtnListener(`click` , closeSelectPicModals , saveCurrProfEdits , `Save`);
             }
+
+            // Deleting a profile
+            deleteProfile.addEventListener("click" , () => 
+            {
+                let warnAlert = confirm(`Are you sure you want to delete this profile \nAction cannot be undone`);
+                if(warnAlert == false)
+                {
+                    e.preventDefault();
+                }
+                else
+                {
+                    editProfOptTempName, editProfOptTempFrg, editProfOptTempBcg = null;
+                    let profCurrBeignEdited = document.querySelector("#profile-is-curr-being-edited");
+                    switchProfOptBdr.removeChild(profCurrBeignEdited);
+
+                    switchProfBdr.removeChild(editProfFence);
+                    editProfAtnBtnMob.classList.remove("active");
+                    changeEditProfAtnListener(`click` , saveCurrProfEdits , switchToChangeProf , `Done`);
+                }
+            });
         }
 
         // Save Edits made to a profile and return back to the "Edits profile" modal
         function saveCurrProfEdits()
         {
-            let profCurrBeignEdited = document.querySelector("#profile-is-curr-being-edited");
             let profCurrName = profCurrBeignEdited.querySelector(".switchProfOptText");
             let profCurrFrgImg = profCurrBeignEdited.querySelector(".switchProfOptImg");
             

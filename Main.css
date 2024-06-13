@@ -1978,6 +1978,12 @@ img
     font-size: 14px;
 }
 
+.editProfileDetSectBodyText.deleteProfile
+{
+    color: var(--warningClr);
+    cursor: pointer;
+}
+
 .editProfileNameBdr
 {
     width: 100%;
