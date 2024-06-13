@@ -567,14 +567,10 @@ img
     background-color: #3d3d3d;
 }
 
-.navBarProfileOpt:first-child
+.navBarProfileOpt:first-child,
+.navBarProfileOpt:nth-child(3)
 {
     border-bottom: 1px solid var(--color5);
-}
-
-.navBarProfileOpt:nth-child(4)
-{
-    border-top: 1px solid var(--color5);
 }
 
 .navBarProfileOpt .navBarProfileOptLink
