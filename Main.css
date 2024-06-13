@@ -598,7 +598,7 @@ img
     transition: 300ms;
 }
 
-.navProfileInfoBox
+.navBarProfileInfoBox
 {
     width: 100%;
     display: flex;
@@ -609,19 +609,19 @@ img
     gap: 10px;
 }
 
-.navProfileInfoBox .navBarProfileBox
+.navBarProfileInfoBox .navBarProfileBox
 {
     width: 50px;
     height: 50px;
     cursor: default;
 }
 
-.navProfileInfoBox .navProfileNameBox
+.navBarProfileInfoBox .navBarProfileNameBox
 {
     width: calc(100% - 75px);
 }
 
-.navProfileNameBox .navProfileName
+.navBarProfileNameBox .navBarProfileName
 {
     width: 100%;
     --editProfileLangSelectTextLineNo: 5;

@@ -7,7 +7,8 @@
 
 
 
-    let navProfleImg = document.querySelector(".navBarProfileImage");
+    let navProfleImg = document.querySelectorAll(".navBarProfileImage");
+    let navProfileName = document.querySelector(".navBarProfileName");
     let switchProfTimer;
     let switchProfTimer2;
     let currProfOpt = `profile-is-curr-being-edited`;
@@ -235,10 +236,16 @@
         }
 
         // Switching a profile
-        function effectProfChange(frg, bcg)
+        function effectProfChange(name, frg, bcg)
         {
             // Update the profile image 
-            navProfleImg.setAttribute(`src` , `${frg}`);
+            navProfleImg.forEach(img => 
+            {
+                img.setAttribute(`src` , `${frg}`);
+            });
+
+            // Update the profile Name
+            navProfileName.textContent = `${name}`;
 
             // Close the switch profile modal
             closeswitchProfBdr(bcg);
@@ -247,13 +254,13 @@
         // Attaches the listener for the "editing of profile" events
         profileOpt.forEach((opt) => 
         {
-            let optImg = opt.querySelector(".switchProfOptImg");
-            let optSrc = optImg.getAttribute("src");
+            let optName = opt.querySelector(".switchProfOptText").textContent;
+            let optImg = opt.querySelector(".switchProfOptImg").getAttribute("src");
             let optBcg = opt.getAttribute("data-background-image");
 
             const callEffectProfChange = () => 
             {
-                effectProfChange(optSrc, optBcg);
+                effectProfChange(optName, optImg, optBcg);
             }
 
             opt.addEventListener("click" , callEffectProfChange);
@@ -337,13 +344,13 @@
             // Attaches the listener for the "changing of profile" events
             profileOpt.forEach((opt) => 
             {
-                let optImg = opt.querySelector(".switchProfOptImg");
-                let optSrc = optImg.getAttribute("src");
+                let optName = opt.querySelector(".switchProfOptText").textContent;
+                let optImg = opt.querySelector(".switchProfOptImg").getAttribute("src");
                 let optBcg = opt.getAttribute("data-background-image");
     
                 const callEffectProfChange = () => 
                 {
-                    effectProfChange(optSrc, optBcg);
+                    effectProfChange(optName, optImg, optBcg);
                 }
     
                 opt.addEventListener("click" , callEffectProfChange);

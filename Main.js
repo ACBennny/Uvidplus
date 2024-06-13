@@ -57,14 +57,14 @@
                                 <div class="navBarProfileOptBdr">
                                     <div class="navBarProfileOptBox">
                                         <button class="navBarProfileOpt">
-                                            <div class="navProfileInfoBox">
+                                            <div class="navBarProfileInfoBox">
                                                 <div class="navBarProfileBox">
                                                     <div class="navBarProfileImageBox">
                                                         <img src="/Images/Uvid_profilebase.png" alt="Profile Image" class="navBarProfileImage" loading="eager">
                                                     </div>
                                                 </div>
-                                                <div class="navProfileNameBox">
-                                                    <p class="navProfileName">acbennny</p>
+                                                <div class="navBarProfileNameBox">
+                                                    <p class="navBarProfileName">acbennny</p>
                                                 </div>
                                             </div>
                                         </button>
