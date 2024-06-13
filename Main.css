@@ -516,7 +516,7 @@ img
     position: absolute;
     bottom: 0;
     right: calc(0% - 10px);
-    width: 175px;
+    width: 250px;
     height: fit-content;
     max-height: 0px;
     transform: translateY(calc(100% + 20px));
@@ -592,6 +592,37 @@ img
     font-size: 12px;
     margin-left: 5px;
     transition: 300ms;
+}
+
+.navProfileInfoBox
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 15px 0;
+}
+
+.navProfileInfoBox .navBarProfileBox
+{
+    width: 50px;
+    height: 50px;
+    cursor: default;
+}
+
+.navProfileInfoBox .navProfileNameBox
+{
+    width: calc(100% - 50px);
+    margin-left: 10px;
+}
+
+.navProfileNameBox .navProfileName
+{
+    width: 100%;
+    text-align: left;
+    color: var(--navBarProfileOptLinkClr);
+    font-size: 13px;
+    font-weight: 500;
 }
 
 
