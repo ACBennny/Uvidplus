@@ -1416,10 +1416,14 @@ body
         flex-direction: column-reverse;
     }
 
-    .watchSection.watchSectionDet,
-    .watchSection.watchSectionImgBdr
+    .watchSection.watchSectionDet
     {
         width: 100%;
+    }
+    
+    .watchSection.watchSectionImgBdr
+    {
+        width: 200px;
     }
 
     .watchSection.watchSectionDet
