@@ -568,9 +568,14 @@ img
 }
 
 .navBarProfileOpt:first-child,
-.navBarProfileOpt:nth-child(3)
+.navBarProfileOpt:nth-child(2)
 {
     border-bottom: 1px solid var(--color5);
+}
+
+.navBarProfileOpt:last-child
+{
+    border-top: 1px solid var(--color5);
 }
 
 .navBarProfileOpt .navBarProfileOptLink
