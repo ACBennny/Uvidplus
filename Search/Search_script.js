@@ -795,12 +795,15 @@
     };
 
     // Filter and display result based on user's entry
-    searchInput.addEventListener('keyup', () => 
+    searchInput.addEventListener("keyup", () => 
     {
         search_query = searchInput.value.trim().toLowerCase();
         searchTitle.textContent = `"${search_query}"`;
         const filteredData = searchInventory.filter((item) => item.show_code.toLowerCase().includes(search_query));
         displayItem(filteredData);
+
+        // Automatically scrolls the page back to top for every input
+        window.scrollTo(null , 0);
     });
 
 

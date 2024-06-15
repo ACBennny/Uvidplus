@@ -107,7 +107,7 @@
     cursor: pointer;
 }
 
-.searchBox:focus-within .clearSearchFieldIconBox.active
+.clearSearchFieldIconBox.active
 {
     display: flex;
 }
