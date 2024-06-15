@@ -753,17 +753,23 @@ html:root
     }
 }
 
-@media only screen and (max-width: 1600px)
-{
-}
-
 @media only screen and (max-width: 1100px)
 {
 
-    .feature_cardBaseBdr
+    .welcome_landTextMajorBox .welcome_landTextMajor
     {
-        width: 260px;
-        height: 300px;
+        font-size: 45px;
+    }
+
+    .welcome_landTextMinorBox .welcome_landTextMinor
+    {
+        font-size: 17px;
+    }
+
+    .propmpt_AccActionBox .propmpt_AccActionBtnBox
+    {
+        height: 55px;
+        font-size: 16px;
     }
 }
 
@@ -786,24 +792,15 @@ html:root
         font-size: 13px;
     }
 
-    /* .welcome_landBdr .welcome_landBox
+    .feature_cardBaseBdr
     {
-        padding: 0 12px;
+        width: 260px;
+        height: 300px;
     }
-
-    .welcome_landTextMajorBox .welcome_landTextMajor
-    {
-        font-size: 24px;
-    }
-
-    .welcome_landTextMinorBox .welcome_landTextMinor
-    {
-        font-size: 12px;
-    } */
 
     .propmpt_AccActionBdr .propmpt_AccActionBox
     {
-        max-width: 300px;
+        /* max-width: 300px; */
     }
 
     .propmpt_AccActionBox .propmpt_AccActionBtnBox
@@ -876,6 +873,21 @@ html:root
         --featureCardBdrRadius: 5px 5px 5px 5px;
     }
 
+    .welcome_landBdr .welcome_landBox
+    {
+        padding: 0 12px;
+    }
+
+    .welcome_landTextMajorBox .welcome_landTextMajor
+    {
+        font-size: 24px;
+    }
+
+    .propmpt_AccActionBdr .propmpt_AccActionBox
+    {
+        max-width: 300px;
+    }
+
     .feature_cardBaseBdr
     {
         width: 100%;
@@ -921,7 +933,7 @@ html:root
 
     .welcome_landTextMinorBox .welcome_landTextMinor
     {
-        font-size: 10px;
+        font-size: 12px;
     }
 }
 
