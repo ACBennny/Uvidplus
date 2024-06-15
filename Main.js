@@ -199,16 +199,19 @@
                 return;
             }
         
-            const { noteCtnt, resolve } = notificationQueue.shift(); // Get the next notification from the queue
+            // Get the next notification from the queue
+            const { notifyState, notifyCtnt, resolve } = notificationQueue.shift();
         
             const btnNotifyBdr = document.createElement('div');
             const btnNotify = document.createElement('div');
             btnNotifyBdr.classList.add("notifyBdr");
             btnNotify.classList.add("NotifyMe");
+            btnNotify.classList.add(`${notifyState}`);
             btnNotifyBdr.appendChild(btnNotify);
-            btnNotify.textContent = noteCtnt;
+            btnNotify.textContent = notifyCtnt;
         
             document.body.appendChild(btnNotifyBdr);
+            
             // Ensures the element is added to the DOM before adding the class
             requestAnimationFrame(() => 
             { 
@@ -234,11 +237,11 @@
             }, 6500);
         }
 
-        function notification(noteCtnt) 
+        function notification(notifyState, notifyCtnt) 
         {
             return new Promise((resolve) => 
             {
-                notificationQueue.push({ noteCtnt, resolve });
+                notificationQueue.push({ notifyState, notifyCtnt, resolve });
                 if (!isNotificationActive) 
                 {
                     // If no notification is active, show the next one immediately
