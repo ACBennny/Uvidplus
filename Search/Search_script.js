@@ -13,7 +13,30 @@
     let search_query = '';
     const searchTitle = document.querySelector(".srt_dynamic");
     const searchInput = document.getElementById('searchInput');
+    const searchXmark = document.querySelector(".clearSearchFieldIconBox");
     const searchwall = document.querySelector("#catalogId");
+
+
+
+
+    // SEARCH BAR
+
+        searchInput.addEventListener("input" , () => 
+        {
+            if(searchInput.value.length > 0)
+            {
+                searchXmark.classList.add("active");
+                return;
+            }
+            searchXmark.classList.remove("active");
+        });
+
+        // Clears search field
+        searchXmark.addEventListener("click" , () => 
+        {
+            searchInput.value = "";
+            searchXmark.classList.remove("active");
+        });
 
 
 

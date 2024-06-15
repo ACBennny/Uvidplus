@@ -86,20 +86,10 @@
     transition: all 300ms ease;
 }
 
-.searchInputBox .clearSearchFieldIconBox.active
-{
-    display: flex;
-}
-
-.clearSearchFieldIconBox .clearSearchFieldIcon
-{
-    width: calc(var(--navBarIconWidth) - 3px);
-    fill: var(--navBarSearchClr);
-}
-
 .searchIconBox
 {
     width: var(--navBarIconBoxWidth);
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -111,6 +101,22 @@
     fill: var(--navBarSearchClr);
 }
 
+.searchIconBox.clearSearchFieldIconBox
+{
+    display: none;
+    cursor: pointer;
+}
+
+.searchBox:focus-within .clearSearchFieldIconBox.active
+{
+    display: flex;
+}
+
+.clearSearchFieldIconBox .clearSearchFieldIcon
+{
+    width: calc(var(--navBarIconWidth) - 3px);
+    fill: var(--navBarSearchClr);
+}
 
 
 
