@@ -806,7 +806,7 @@
                         case 'my list': navOptLink[8].classList.add("active");
                         break;
 
-                        default: console.log("Error: No corresponding navbar item found");
+                        default: console.error("Error: No corresponding navbar item found");
                         break;
                     }
 
