@@ -150,6 +150,7 @@ html:root
     gap: 10px;
     color: var(--color2);
     font-size: 15px;
+    font-weight: 500;
     text-align: center;
 }
 
@@ -738,7 +739,7 @@ html:root
 
     .welcome_landTextMinorBox .welcome_landTextMinor
     {
-        font-size: 19px;
+        font-size: 20px;
     }
 
     .propmpt_AccActionBdr .propmpt_AccActionBox
@@ -800,12 +801,12 @@ html:root
 
     .propmpt_AccActionBdr .propmpt_AccActionBox
     {
-        /* max-width: 300px; */
+        max-width: 450px;
     }
 
     .propmpt_AccActionBox .propmpt_AccActionBtnBox
     {
-        height: 40px;
+        height: 45px;
         font-size: 13px;
     }
 
