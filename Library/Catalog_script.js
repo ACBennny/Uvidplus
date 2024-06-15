@@ -15,8 +15,8 @@
 
 // LOADS THE ITEMS IN THE INVENTORY FOR EACH SECTION
 
-    const ctntSub1 = document.querySelector(".ctntsub1");
-    const loadingIndicator = document.getElementById("loadingIndicator");
+    const showCatalog = document.querySelector(".showCatalog");
+    const basicLoadingIndicator = document.getElementById("basicLoadingIndicator");
 
     let currentIndex = 0;
     const noOfItemsToLoad = 20; 
@@ -43,14 +43,14 @@
                     </div>
                 </a>
             `;
-            ctntSub1.insertAdjacentHTML("beforeend", cardHTML);
+            showCatalog.insertAdjacentHTML("beforeend", cardHTML);
         }
         currentIndex = endIndex;
 
         if (currentIndex >= catalogInventory.length)
         {
-            observer.unobserve(loadingIndicator);
-            loadingIndicator.style.display = 'none';
+            observer.unobserve(basicLoadingIndicator);
+            basicLoadingIndicator.style.display = 'none';
         }
     }
 
@@ -66,7 +66,7 @@
         rootMargin: '0px',
         threshold: 0.1
     });
-    observer.observe(loadingIndicator);
+    observer.observe(basicLoadingIndicator);
 
     // Initial load
     loadItems();

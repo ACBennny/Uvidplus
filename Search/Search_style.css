@@ -1,23 +1,130 @@
+/*************************************************************
+ * This is the style for the search page of Uvid
+ * 
+ * @author (Anyanwu Benedict Chukwuemeka)
+ * @version (v0.01)
+ *************************************************************/
 
 
-.srchbody
+/* ====== Search bar ======= */
+
+.searchBase
 {
-    background: #1c1c1c;
-    overflow: hidden !important;
+    position: fixed;
+    top: var(--navBarHeight);
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: calc(var(--navBarHeight) + var(--navBarSearchBarHeight));
+    display: flex;
+    align-items: flex-end;
+    background-color: #111111a0;
+    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    z-index: 30;
+}
+
+.searchBdr
+{
+    width: 100%;
+    height: var(--navBarSearchBarHeight);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 10px 30px;
+    transition: all 300ms ease;
+    z-index: 5;
+}
+
+.searchBdr .searchBox
+{
+    width: 100%;
+    height: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border-bottom: 2px solid #666666;
+    background-color: #141414;
+    transition: all 300ms ease;
+}
+
+.searchBox:focus-within
+{
+    --navBarSearchClr: var(--genWhiteTypeLight);
+    border-color: var(--navElementColor_green);
+    background-color: #141414;
+}
+
+.searchBox .searchInputBox
+{
+    position: relative;
+    width: calc(100% - (var(--navBarIconBoxWidth) * 2));
+    height: 100%;
+}
+
+.searchInputBox .searchFieldClass
+{
+    font-family: 'Zen Dots' , sans-serif;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    padding: 0 10px;
+    color: var(--navBarSearchClr);
+    font-size: 18px;
+    background-color: transparent;
+    transition: all 300ms ease;
+}
+
+.searchInputBox .clearSearchFieldIconBox.active
+{
+    display: flex;
+}
+
+.clearSearchFieldIconBox .clearSearchFieldIcon
+{
+    width: calc(var(--navBarIconWidth) - 3px);
+    fill: var(--navBarSearchClr);
+}
+
+.searchIconBox
+{
+    width: var(--navBarIconBoxWidth);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchIconBox .searchIcon
+{
+    width: var(--navBarIconWidth);
+    fill: var(--navBarSearchClr);
 }
 
 
 
-/* ======= For search catalog ========= */
+
+
+/* ========= Search catalog ========= */
 
 .searchbox-border
 {
     width: 100%;
-    height: 100%;
+    min-height: 50vh;
+    padding: calc(var(--navBarHeight) + var(--navBarSearchBarHeight)) 10px 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background: #1c1c1c;
     overflow: hidden;
 }
 
@@ -33,155 +140,70 @@
     z-index: 20;
 }
 
-.search_Result_title{
-    /* position: fixed; */
+.search_Result_title
+{
     width: 100%;
-    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
 }
 
-.search_Result_title h3{
-    font-size: 16px;
-}
-
-.search_Result_title .srt_static{
-    color: #e7e7e7;
-}
-
-.search_Result_title .srt_dynamic{
-    color: #14d60d;
-}
-
-.srch-catalog-box
+.search_Result_title .search_Result_titleText
 {
+    --srt_staticWidth: 200px;
     width: 100%;
-    height: calc(100% - 100px);
-    display: flex;
-    justify-content: center;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-.srch-catalog-box::-webkit-scrollbar
-{
-    display: none;
-}
-
-.srch-catalog
-{
-    width: 100%;
-    max-width: 1200px;
-    min-height: 200px;
-    gap: 10px;
-    padding: 10px 20px;
-    transition: 500ms;
-    overflow-y: visible;
-}
-
-.srch-card
-{
-    width: 100%;
-    height: 120px;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    margin-top: 10px;
-    padding: 0px 10px;
-    column-gap: 10px;
-    overflow: hidden;
-    background: #2f2e2e;
-    border-radius: 10px;
-    transition: 500ms;
-}
-
-.srch-card:hover
-{
-    background: #3a3a3a;
-}
-
-.srch-card-img
-{
-    position: relative;
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    background: #3a3a3a;
-    overflow: hidden;
-}
-
-.srch-card-img img
-{
-    width: 100%;
-    height: 100%;
-    z-index: 3;
-}
-
-.srch-card-img .img_shadow
-{
-    position: absolute;
-    display: none;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-}
-
-.srch-card-det
-{
-    width: 70%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-size: 16px;
+    overflow: hidden;
 }
 
-.srch-card-det h3
+.search_Result_titleText .srt_static
 {
-    width: 100%;
-    font-size: 10px;
-    color: #e7e7e7;
+    width: -moz-fit-content;
+    width: fit-content;
+    max-width: var(--srt_staticWidth);
+    color: var(--genWhiteTypeMid);
 }
 
-.srch-card-det h6
+.search_Result_titleText .srt_dynamic
 {
-    width: 100%;
-    font-size: 9px;
-    color: #14d60d;
+    --srt_dynamicLineNo: 1;
+    --srt_dynamicLineH: 1.4;
+    position: relative;
+    width: -moz-fit-content;
+    width: fit-content;
+    max-width: calc(100% - var(--srt_staticWidth));
+    -webkit-line-clamp: var(--srt_dynamicLineNo);
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    max-height: calc(var(--srt_dynamicLineNo) * 1em * var(--srt_dynamicLineH));
+    line-height: var(--srt_dynamicLineH);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    color: var(--genGreenTypeLight);
+    overflow: hidden;
 }
-
 
 
 
 
 /* ============ RESPONSIVE =========== */
-@media only screen and (max-width: 884px)
+
+@media only screen and (max-width: 565px)
 {
-    .srch-box-ctnt
+    .search_Result_title .search_Result_titleText
     {
-        width: 90%;
+        flex-direction: column;
     }
 
-    .srch-card
+    .search_Result_titleText .srt_dynamic
     {
-        height: 85px;
-    }
-
-    .srch-card-img
-    {
-        width: 50px;
-        height: 50px;
-    }
-}
-
-@media only screen and (max-width: 768px)
-{
-    .srch-box .searchBdr
-    {
-        width: 90%;
+        max-width: 100%;
     }
 }
 

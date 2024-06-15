@@ -56,7 +56,7 @@ html:root
     --fzIcon: 20px;
     --bcgFilt: 2px;
     --navBarHeight: 70px;
-    --navBarGenClr: #e7e7e7;
+    --navBarGenClr: var(--color8);
     --navBarBcgSolid: #2f2e2e;
     --navBarBcgTransparency: #2f2e2eef;
     --navElementColor_green: var(--genGreenTypeLight);
@@ -66,9 +66,10 @@ html:root
     --navMenuBcgClr: #1d1c1c;
     --navBarIconBoxWidth: 25px;
     --navBarIconWidth: 18px;
-    --navBarIconClr: #e7e7e7;
+    --navBarIconClr: var(--color8);
     --navBarSearchWidth: 12px;
-    --navBarSearchClr: #888888;
+    --navBarSearchBarHeight: 100px;
+    --navBarSearchClr: var(--color10);
     --navBarProfileOptLinkClr: #cdcdcd;
     --navFooterElemColor: #878787;
     --navFooterElemHoverColor: var(--genWhiteTypeLight);
@@ -84,10 +85,11 @@ html:root
     --basicSlideIconWidth: 16px;
     --slideCardPlayIconClr: var(--genGreenTypeLight);
     --slideCardPlayIconWidth: 35px;
+    --basicCatalogCardWidth: 175px;
     --footerTextClrGreen: var(--genGreenTypeLight);
-    --footerTxtClrBright: #e7e7e7;
+    --footerTxtClrBright: var(--color8);
     --footerTxtClrMid: #b7b7b7;
-    --footerTxtClrDark: #888888;
+    --footerTxtClrDark: var(--color10);
 }
 
 body
@@ -647,120 +649,6 @@ img
     overflow: hidden;
 }
 
-
-
-
-/* ====== Search Bar ========== */
-
-.searchBase
-{
-    position: absolute;
-    top: var(--navBarHeight);
-    left: 0;
-    right: 0;
-    height: 100px;
-}
-
-.searchBdr
-{
-    width: 100%;
-    max-width: 1000px;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-    transition: all 300ms ease;
-    z-index: 5;
-}
-
-.searchBdr .closeNavSearch_BtnBox
-{
-    display: none;
-    display: flex;
-}
-
-.searchBdr .searchBox
-{
-    width: calc(100% - var(--navBarIconBoxWidth));  
-    height: 100%;
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 10px;
-    padding: 0 10px;
-    border-bottom: 2px solid #666666;
-    transition: all 300ms ease;
-}
-
-.searchBdr .searchBox,
-.searchBox:focus-within
-{
-    --navBarSearchClr: #c1c1c1;
-    border-color: var(--navElementColor_green);
-    border-radius: 5px;
-    background-color: #111111;
-}
-
-.searchBox .searchInputBox
-{
-    position: relative;
-    width: calc(100% - var(--navBarIconBoxWidth));
-    height: 100%;
-}
-
-.searchInputBox .searchFieldClass
-{
-    font-family: 'Zen Dots' , sans-serif;
-    width: 100%;
-    height: 100%;
-    outline: none;
-    border: none;
-    padding: 10px calc(var(--navBarSearchWidth) + 15px) 10px 10px;
-    color: var(--navBarSearchClr);
-    font-size: 14px;
-    background-color: transparent;
-    transition: all 300ms ease;
-}
-
-.searchInputBox .clearSearchFieldIconBox
-{
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: var(--navBarIconBoxWidth);
-    height: 100%;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-.searchInputBox .clearSearchFieldIconBox.active
-{
-    display: flex;
-}
-
-.clearSearchFieldIconBox .clearSearchFieldIcon
-{
-    width: 12px;
-    fill: var(--navBarSearchClr);
-}
-
-.searchIconBox
-{
-    width: var(--navBarIconBoxWidth);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.searchIconBox .searchIcon
-{
-    width: var(--navBarIconWidth);
-    fill: var(--navBarSearchClr);
-}
 
 
 
@@ -2087,6 +1975,7 @@ img
     font-size: 14px;
     margin-left: 5px;
     text-wrap: nowrap;
+    overflow-wrap: break-word;
     overflow: hidden;
 }
 
@@ -2599,6 +2488,7 @@ img
 {
     position: relative;
     width: 100%;
+    max-width: 200px;
     max-height: 300px;
     display: flex;
     flex-direction: column;
@@ -2678,6 +2568,87 @@ img
     fill: var(--slideCardPlayIconClr);
     transform: translate(50% , 50%);
     transition: all 300ms ease-in-out;
+}
+
+
+/*  =========== Basic Catalog ============ */
+
+.basicCatalogBase
+{
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.basicCatalogBdr
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    background: transparent;
+}
+
+.basicCatalogBox
+{
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--basicCatalogCardWidth), 1fr));
+    grid-template-rows: auto;
+    justify-items: center;
+    padding: 20px 15px;
+    gap: 15px;
+    overflow-x: hidden;
+    transition: 100ms;
+}
+
+#basicLoadingIndicator
+{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #00000010;
+    transition:all 2s ease-out;
+    pointer-events: none;
+    z-index: 15;
+}
+
+#basicLoadingIndicator .basicSpinner
+{
+    width: 60px;
+    height: 50px;
+    border-right: 15px solid var(--genGreenTypeLight);
+    border-bottom: 10px solid var(--genWhiteTypeLight);
+    border-left: 15px solid var(--genGreenTypeLight);
+    border-top: 11px solid transparent;
+    border-radius: 10px;
+    animation: basicLoadingAni 2000ms linear infinite;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+
+@keyframes basicLoadingAni
+{
+    0%
+    {
+        transform: translateY(-50%);
+    }
+    50%
+    {
+        transform: translateY(0%);
+    }
+    100%
+    {
+        transform: translateY(-50%);
+    }
 }
 
 
@@ -3743,6 +3714,11 @@ img
         font-size: 11px;
     }
 
+    .basicCatalogBox
+    {
+        --basicCatalogCardWidth: 140px;
+    }
+
     .genAtnModalBdr .genAtnModalBox
     {
         max-width: none;
@@ -4007,6 +3983,11 @@ only screen and (max-width: 800px)
     .slide_card .cardinfo h3
     {
         font-size: 12px;
+    }
+
+    .basicCatalogBox
+    {
+        --basicCatalogCardWidth: 125px;
     }
 
     .specialEp_box .specialEp_SpImgBdr

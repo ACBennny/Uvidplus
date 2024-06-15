@@ -11,7 +11,7 @@
 // DECLARATIONS
 
     let search_query = '';
-    const docTitle = document.querySelector("title");
+    const searchTitle = document.querySelector(".srt_dynamic");
     const searchInput = document.getElementById('searchInput');
     const searchwall = document.querySelector("#catalogId");
 
@@ -749,19 +749,19 @@
             if((search_query.length > 0) && (search_query != undefined) && (search_query != null) && (search_query != " "))
             {
                 return `
-                <div class="srch_card_box">
-                    <a href="${show_link}" target="_self" title="Watch ${show_title}">
-                        <div class="srch-card">
-                            <div class="srch-card-img">
-                                <img src="${show_image}" alt="Image of ${show_title}">
-                            </div>
-                            <div class="srch-card-det">
-                                <h3>${show_title}</h3>
-                                <h6>${show_section}</h6>
-                            </div>
+                <a href="${show_link}" class="cardholder_bdr" title="Watch ${show_title}">
+                    <div class="slide_card">
+                        <div class="cardimg">
+                            <img src="${show_image}" alt="Image of the ${show_section}: ${show_title}">
                         </div>
-                    </a>
-                </div>
+                        <div class="cardinfo">
+                            <h3>${show_title}</h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
+                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
             `;
             }
             else
@@ -775,7 +775,7 @@
     searchInput.addEventListener('keyup', () => 
     {
         search_query = searchInput.value.trim().toLowerCase();
-        docTitle.textContent = `You searched for "${search_query}"`;
+        searchTitle.textContent = `"${search_query}"`;
         const filteredData = searchInventory.filter((item) => item.show_code.toLowerCase().includes(search_query));
         displayItem(filteredData);
     });
