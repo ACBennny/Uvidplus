@@ -3852,11 +3852,6 @@ only screen and (max-width: 800px)
         --switchProfOptImgBoxWidth: 100px;
     }
 
-    .nav_Opt_bcg
-    {
-        /* max-width: 100%; */
-    }
-
     .switchProfHeader .switchProfHeaderText
     {
         font-size: 30px;
@@ -4072,11 +4067,6 @@ only screen and (max-width: 800px)
     .userProfileScrollbar::-webkit-scrollbar-thumb:hover
     {
         background-color: #dfdfdf80;
-    }
-    .editProfileBase::-webkit-scrollbar-track
-    {
-        /* margin-block: 0px;
-        background-color: #000000; */
     }
 }
 
