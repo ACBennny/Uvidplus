@@ -537,6 +537,7 @@ img
 
 .navBarProfileOptBdr.active
 {
+    max-height: -moz-fit-content;
     max-height: fit-content;
     opacity: 1;
     visibility: visible;
