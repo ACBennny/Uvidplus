@@ -654,6 +654,7 @@ img
 .searchBdr
 {
     width: calc(100% / 2);
+    width: 100%;
     max-width: 1000px;
     height: 100%;
     display: flex;
@@ -2636,7 +2637,7 @@ img
 {
     width: 100%;
     height: 100%;
-    transition: all 700ms ease-in-out;
+    transition: all 300ms ease-in-out;
 }
 
 .slide_card .cardinfo
