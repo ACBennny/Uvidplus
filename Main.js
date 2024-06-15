@@ -805,15 +805,6 @@
                         
                         case 'my list': navOptLink[8].classList.add("active");
                         break;
-                        
-                        case 'help': navOptLink[9].classList.add("active");
-                        break;
-                        
-                        case 'feedback': navOptLink[10].classList.add("active");
-                        break;
-                        
-                        case 'support': navOptLink[11].classList.add("active");
-                        break;
 
                         default: console.log("Error: No corresponding navbar item found");
                         break;
