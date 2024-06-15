@@ -31,9 +31,9 @@
                 </div>
                 <div class="navBarCenter navBarSearchBdr"></div>
                 <div class="navBarRight">
-                    <div class="headname" title="Anime">
-                        <h1 class="hd1">A</h1>
-                        <h1 class="hd2">nime</h1>
+                    <div class="headname" title="">
+                        <h1 class="hd1"></h1>
+                        <h1 class="hd2"></h1>
                     </div>
                     <div class="navBarRightCtnt">
                         <div class="navBarIconBox openNavSearch_BtnBox">
