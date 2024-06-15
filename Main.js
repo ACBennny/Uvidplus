@@ -815,7 +815,7 @@
                         case 'support': navOptLink[11].classList.add("active");
                         break;
 
-                        default: console.log("Error");
+                        default: console.log("Error: No corresponding navbar item found");
                         break;
                     }
 
