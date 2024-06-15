@@ -755,6 +755,20 @@ html:root
 
 @media only screen and (max-width: 1600px)
 {
+}
+
+@media only screen and (max-width: 1100px)
+{
+
+    .feature_cardBaseBdr
+    {
+        width: 260px;
+        height: 300px;
+    }
+}
+
+@media only screen and (max-width: 884px)
+{
 
     .welcome_landTextMajorBox .welcome_landTextMajor
     {
@@ -771,22 +785,8 @@ html:root
         height: 50px;
         font-size: 13px;
     }
-}
 
-@media only screen and (max-width: 1100px)
-{
-
-    .feature_cardBaseBdr
-    {
-        width: 260px;
-        height: 300px;
-    }
-}
-
-@media only screen and (max-width: 884px)
-{
-
-    .welcome_landBdr .welcome_landBox
+    /* .welcome_landBdr .welcome_landBox
     {
         padding: 0 12px;
     }
@@ -799,7 +799,7 @@ html:root
     .welcome_landTextMinorBox .welcome_landTextMinor
     {
         font-size: 12px;
-    }
+    } */
 
     .propmpt_AccActionBdr .propmpt_AccActionBox
     {
