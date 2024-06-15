@@ -864,42 +864,6 @@
             instantiateSideNavBar();
 
 
-        // SEARCH BAR
-
-            // navBarSearchForm.forEach(form => 
-            // {
-
-            //     // Sets the destination of the search
-            //     form.action = locationOrigin +  "Search.html";
-
-            //     // Turns "xmark" visible once there is text in the field
-            //     const navBarSearchFormField = form.querySelectorAll("#navBarSearchFieldId");
-            //     const navBarSearchFormFieldXmark = form.querySelectorAll(".clearSearchFieldIconBox");
-                
-            //     navBarSearchFormField.forEach((field, f) => 
-            //     {
-            //         field.addEventListener("input" , () => 
-            //         {
-            //             if(field.value.length > 0)
-            //             {
-            //                 navBarSearchFormFieldXmark[f].classList.add("active");
-            //                 return;
-            //             }
-            //             navBarSearchFormFieldXmark[f].classList.remove("active");
-            //         });
-            //     });
-
-            //     // Clears search field
-            //     navBarSearchFormFieldXmark.forEach((xmark, x) => 
-            //     {
-            //         xmark.addEventListener("click" , () => 
-            //         {
-            //             navBarSearchFormField[x].value = "";
-            //             xmark.classList.remove("active");
-            //         });
-            //     });
-            // });
-
 
             // This will open the seearch page
             openNavSearchBar.addEventListener("click" , () => 
