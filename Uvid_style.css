@@ -345,7 +345,7 @@ body
     padding: 15px 10px;
     color: var(--color9);
     font-size: 15px;
-    line-height: 25px;
+    /* line-height: 25px; */
 }
 
 
@@ -525,6 +525,12 @@ body
     border-radius: 5px;
     background-color: var(--color3);
     overflow: hidden;
+    transition: all 300ms ease-in-out;
+}
+
+.questions_Card:active
+{
+    background-color: var(--color11);
 }
 
 .questions_Card .questions_CardBtn
@@ -541,11 +547,6 @@ body
     background-color: transparent;
     cursor: pointer;
     transition: all 300ms ease-in-out;
-}
-
-.questions_CardBtn:active
-{
-    background-color: var(--color11);
 }
 
 .questions_CardBtn .questions_CardAsk
@@ -617,21 +618,21 @@ body
     height: 0px;
     max-height: fit-content;
     padding: 0 25px;
-    transition: all 150ms ease-in-out;
     overflow: hidden;
+    transition: all 300ms ease-in-out;
 }
 
 .questions_Card.active .questions_CardTextBox
 {
     height: 100%;
-    padding: 25px;
+    padding: 0 25px 25px;
 }
 
 .questions_CardTextBox .questions_CardText
 {
     width: 100%;
     height: 100%;
-    color: var(--color10);
+    color: var(--genWhiteTypeMid);
     font-size: 15px;
     line-height: 22px;
 }
@@ -686,7 +687,7 @@ body
         background-color: #222222;
     }
 
-    .questions_CardBtn:hover
+    .questions_Card:hover
     {
         background-color: var(--color11);
     }
@@ -759,6 +760,12 @@ body
         height: 60px;
         font-size: 18px;
     }
+
+    .feature_cardBaseBdr
+    {
+        width: 260px;
+        height: 300px;
+    }
 }
 
 @media only screen and (max-width: 1100px)
@@ -781,7 +788,7 @@ body
     }
 }
 
-@media only screen and (max-width: 884px)
+@media only screen and (max-width: 768px)
 {
 
     .welcome_landTextMajorBox .welcome_landTextMajor
@@ -819,31 +826,31 @@ body
 
     .feature_header .fh_Major
     {
-        font-size: 22px;
+        font-size: 23px;
     }
     
     .feature_header .fh_Minor
     {
-        font-size: 17px;
+        font-size: 19px;
     }
     
     .feature_cardCtnt .feature_body
     {
         width: 100%;
-        font-size: 12px;
+        font-size: 14px;
         line-height: 20px;
     }
 
     .feature_TitleBox .ftrTitle,
     .streamHeader .streamTitle
     {
-        font-size: 18px;
+        font-size: 23px;
     }
 
     .feature_TitleBox .ftrSubTitle,
     .streamHeader .streamSubTitle
     {
-        font-size: 11px;
+        font-size: 13px;
     }
 
     .prompt_regBox .prompt_regText
