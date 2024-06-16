@@ -1168,7 +1168,7 @@
                             verCodeTimer.textContent = sec;
 
                             //
-                            if(sec == 200)
+                            if(sec == 250)
                             {
                                 let askIfNoCode = confirm("Haven't seen your code? \nWill you like to have it displayed? (for dev testing)");
                                 if(askIfNoCode == false)
