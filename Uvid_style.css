@@ -838,7 +838,6 @@ body
     {
         width: 100%;
         font-size: 14px;
-        line-height: 20px;
     }
 
     .feature_TitleBox .ftrTitle,
@@ -858,15 +857,15 @@ body
         font-size: 13px;
     }
 
-    .questions_CardAsk .qca_Major
-    {
-        font-size: 18px;
-    }
-
     .questions_box .questions_Header
     {
         font-size: 19px;
         padding: 10px;
+    }
+
+    .questions_CardAsk .qca_Major
+    {
+        font-size: 18px;
     }
 
     .questions_CardAsk .qca_Minor
@@ -903,6 +902,12 @@ body
         max-width: 300px;
     }
 
+    .feature_TitleBox .ftrTitle,
+    .streamHeader .streamTitle
+    {
+        font-size: 18px;
+    }
+
     .feature_cardBaseBdr
     {
         width: 100%;
@@ -921,9 +926,25 @@ body
         height: calc(100% - 20px);
         transform: translate(10px,10px);
     }
+    
+    .feature_cardCtnt .feature_body
+    {
+        padding: 5px 10px 10px;
+    }
+
     .questions_box .questions_Body
     {
         padding: 10px;
+    }
+
+    .questions_CardAsk .qca_Major
+    {
+        font-size: 15px;
+    }
+
+    .questions_CardAsk .qca_Minor
+    {
+        font-size: 14px;
     }
     
     .questions_Card .questions_CardTextBox
