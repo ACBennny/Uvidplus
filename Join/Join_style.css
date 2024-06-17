@@ -340,7 +340,6 @@ ul
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 8px;
     margin-bottom: 35px;
 }
 
@@ -348,6 +347,7 @@ ul
 {
     width: 100%;
     text-align: left;
+    margin-bottom: 5px;
 }
 
 .form_input_nameBox .form_input_name
@@ -360,7 +360,7 @@ ul
 {
     position: relative;
     width: 100%;
-    height: 25px;
+    height: 35px;
 }
 
 .form_input_box .form_input_field
@@ -395,9 +395,10 @@ ul
     margin: 0px 5px;
     color: var(--color5);
     font-size: calc(var(--fzIcon) - 3px);
-    cursor: pointer;
     opacity: 0;
     visibility: hidden;
+    transform: translateY(50%);
+    cursor: pointer;
     z-index: 4;
 }
 
