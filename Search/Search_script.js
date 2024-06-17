@@ -76,14 +76,14 @@
                     show_image: `/Library/Anime/img/1.jpg`,
                     show_title: `Jujutsu Kaisen`,
                     show_section: `Anime`,
-                    show_code: `Jujutsu Kaisen sorcery fight anime shows animation`,
+                    show_code: `Jujutsu Kaisen sorcery anime`,
                 },
                 {
                     show_link: `/Library/Anime/DemonSlayer.html`,
                     show_image: `/Library/Anime/img/2.jpg`,
                     show_title: `Demon Slayer`,
                     show_section: `Anime`,
-                    show_code: `Demon Slayer Kimetsu No Yaiba anime shows animation`,
+                    show_code: `Demon Slayer Kimetsu No Yaiba anime`,
                 },
                 {
                     show_link: `/Library/Anime/AttackOnTitan.html`,
