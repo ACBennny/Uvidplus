@@ -2490,7 +2490,7 @@ img
 {
     position: relative;
     width: 100%;
-    max-width: 200px;
+    /* max-width: 200px; */
     max-height: 300px;
     display: flex;
     flex-direction: column;
