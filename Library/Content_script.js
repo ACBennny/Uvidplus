@@ -4,12 +4,7 @@
     The sections include:
     - Anime
     - TV
-    - Documentaries
     - Movies
-    - Latest
-    - Upcoming
-    - News
-    - Cartoon
  * 
  * @author (Anyanwu Benedict Chukwuemeka)
  * @version (v0.01)
