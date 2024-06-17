@@ -29,7 +29,7 @@
                 break;
                 
             case 'movie':
-                contentScriptSrc = `/Library/Movie.js`;
+                contentScriptSrc = `/Library/Movies.js`;
                 break;
                 
             case 'tv':
