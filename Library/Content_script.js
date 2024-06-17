@@ -48,9 +48,17 @@
         contentScriptTag.addEventListener("load" , () => 
         {
             contentBody.insertAdjacentHTML(`afterbegin` , contentHTML);
-            document.body.insertAdjacentHTML(`beforeend` , `<script src="/basic_slider.js"></script>`);
-            startContentSection();
-            basicSlider();
+
+            let basicSliderScriptTag = document.createElement("script");
+            basicSliderScriptTag.setAttribute(`src` , `/basic_slider.js`);
+    
+            basicSliderScriptTag.addEventListener("load" , () => 
+            {
+                basicSlider();
+                startContentSection();
+            });
+            document.body.appendChild(basicSliderScriptTag);
+            
         });
 
         document.body.appendChild(contentScriptTag);
