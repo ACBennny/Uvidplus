@@ -8,7 +8,7 @@
 ****************************************************************/
 
 
-    const animeHTML = 
+    const contentHTML = 
     `
         <!-- Intro Slides -->
         <div class="intro_slide_bdr">

@@ -766,35 +766,45 @@
                     let switchElem = navBarHeadName.title.toLowerCase();
                     switch(switchElem)
                     {
-                        case 'search': navOptLink[0].classList.add("active");
-                        break;
+                        case 'search': 
+                            navOptLink[0].classList.add("active");
+                            break;
 
-                        case 'home': navOptLink[1].classList.add("active");
-                        break;
+                        case 'home': 
+                            navOptLink[1].classList.add("active");
+                            break;
                         
-                        case 'trending': navOptLink[2].classList.add("active");
-                        break;
+                        case 'trending': 
+                            navOptLink[2].classList.add("active");
+                            break;
                         
-                        case 'movies': navOptLink[3].classList.add("active");
-                        break;
+                        case 'movies': 
+                            navOptLink[3].classList.add("active");
+                            break;
                         
-                        case 'tv shows': navOptLink[4].classList.add("active");
-                        break;
+                        case 'tv shows': 
+                            navOptLink[4].classList.add("active");
+                            break;
                         
-                        case 'anime': navOptLink[5].classList.add("active");
-                        break;
+                        case 'anime': 
+                            navOptLink[5].classList.add("active");
+                            break;
                         
-                        case 'cartoon': navOptLink[6].classList.add("active");
-                        break;
+                        case 'cartoon': 
+                            navOptLink[6].classList.add("active");
+                            break;
                         
-                        case 'news': navOptLink[7].classList.add("active");
-                        break;
+                        case 'news': 
+                            navOptLink[7].classList.add("active");
+                            break;
                         
-                        case 'my list': navOptLink[8].classList.add("active");
-                        break;
+                        case 'my list': 
+                            navOptLink[8].classList.add("active");
+                            break;
 
-                        default: console.error("Error: No corresponding navbar item found");
-                        break;
+                        default: 
+                            console.error("Error: No corresponding navbar item found");
+                            break;
                     }
 
                     // Seting title for the footer the nav manu
