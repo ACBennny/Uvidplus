@@ -134,7 +134,7 @@
                             </p>
                         </div>
                         <div class="footer_Important_linksBox">
-                            <a href="/Policies/PrefCenter.html" title="Preferences" class="footerlinks footer_Important_links">Preferences</a>
+                            <a href="/Policies/Preference.html" title="Preferences" class="footerlinks footer_Important_links">Preferences</a>
                             <a href="/Policies/Privacy.html" title="Privacy" class="footerlinks footer_Important_links">Privacy</a>
                             <a href="/Policies/TOC.html" title="Terms of Use" class="footerlinks footer_Important_links">Terms of Use</a>
                         </div>
@@ -147,15 +147,15 @@
                         <div class="footer_UsefulLinksBdr">
                             <div class="footer_UsefulLinksBox">
                                 <a href="/FAQ.html" title="Frequently Asked Questions" class="footerlinks footer_UsefulLinks">FAQ</a>
-                                <a href="/Help.html" title="Help Center" class="footerlinks footer_UsefulLinks">Help Center</a>
+                                <a href="/Help.html" title="Help Center" class="footerlinks footer_UsefulLinks">Help</a>
                                 <a href="/Feeback.html" title="Feedback" class="footerlinks footer_UsefulLinks">Feedback</a>
-                                <a href="/Support.html" title="Support Us" class="footerlinks footer_UsefulLinks">Support Us</a>
+                                <a href="/Support.html" title="Support Us" class="footerlinks footer_UsefulLinks">Support</a>
                             </div>
                             <div class="footer_UsefulLinksBox">
-                                <a href="/About.html#contact" title="Contact Us" class="footerlinks footer_UsefulLinks">Contact Us</a>
+                                <a href="/About.html#contact" title="Contact Us" class="footerlinks footer_UsefulLinks">Contact</a>
                                 <a href="/Policies/Preference.html#cookies" title="Cookies" class="footerlinks footer_UsefulLinks">Cookies</a>
                                 <a href="/AdChoices.html" title="Ad Choices" class="footerlinks footer_UsefulLinks">Ad Choices</a>
-                                <a href="/Policies/CopyrightsAct.html" title="Copyrights Act" class="footerlinks footer_UsefulLinks">Copyrights Act</a>
+                                <a href="/Policies/Copyright.html" title="Copyright" class="footerlinks footer_UsefulLinks">Copyright</a>
                             </div>
                         </div>
                     </div>
