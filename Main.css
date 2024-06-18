@@ -2961,7 +2961,6 @@ img
     width: 100%;
     justify-content: center;
     align-content: center;
-    background-color: var(--genGreenTypeLight);
     overflow: hidden;
     opacity: 0;
     visibility: hidden;
@@ -2976,6 +2975,16 @@ img
     opacity: 1;
     visibility: visible;
     transform: translateY(0%);
+}
+
+.notifyBdr.goodNotify
+{
+    background-color: var(--genGreenTypeLight2);
+}
+
+.notifyBdr.badNotify
+{
+    background-color: var(--warningClr);
 }
 
 .notifyBdr .NotifyMe

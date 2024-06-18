@@ -205,8 +205,8 @@
             const btnNotifyBdr = document.createElement('div');
             const btnNotify = document.createElement('div');
             btnNotifyBdr.classList.add("notifyBdr");
+            btnNotifyBdr.classList.add(`${notifyState}`);
             btnNotify.classList.add("NotifyMe");
-            btnNotify.classList.add(`${notifyState}`);
             btnNotifyBdr.appendChild(btnNotify);
             btnNotify.textContent = notifyCtnt;
         
