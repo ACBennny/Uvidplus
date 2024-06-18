@@ -282,7 +282,7 @@
         // createProfile.addEventListener("click" , addProfile);
         createProfile.addEventListener("click" , () => 
         {
-            notification(`Error`);
+            notification(`badNotify` , `Error proceessing request`);
         });
 
 
@@ -2188,6 +2188,7 @@
                 }
                 else
                 {
+                    notification(`badNotify` , `Profile deleted`);
                     editProfOptTempName, editProfOptTempFrg, editProfOptTempBcg = null;
                     let profCurrBeignEdited = document.querySelector("#profile-is-curr-being-edited");
                     switchProfOptBdr.removeChild(profCurrBeignEdited);
@@ -2202,6 +2203,7 @@
         // Save Edits made to a profile and return back to the "Edits profile" modal
         function saveCurrProfEdits()
         {
+            notification(`gooddNotify` , `Changes saved`);
             let profCurrBeignEdited = document.querySelector("#profile-is-curr-being-edited");
             let profCurrName = profCurrBeignEdited.querySelector(".switchProfOptText");
             let profCurrFrgImg = profCurrBeignEdited.querySelector(".switchProfOptImg");

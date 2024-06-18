@@ -951,7 +951,7 @@
                 });
                 switchProfScript.onerror = function() 
                 {
-                    notification(`An error occurred`);
+                    notification(`badNotify` , `An error occurred`);
                 };
                 document.body.appendChild(switchProfScript);
             }
@@ -981,11 +981,11 @@
                     navigator.clipboard.writeText(developerLink)
                     .then(() => 
                     {
-                        notification(`Link copied to clipboard`);
+                        notification(`goodNotify` , `Link copied to clipboard`);
                     })
                     .catch((err) => 
                     {
-                        notification(`Could not copy link, ${err}`);
+                        notification(`badNotify` , `Could not copy link, ${err}`);
                     });
                 });
             });
@@ -1331,7 +1331,7 @@
                     // Send notification when show is added
                     item.addEventListener("click" , () => 
                     {
-                        notification(`Show successfully added to ${itemName}`);
+                        notification(`goodNotify` , `Show successfully added to ${itemName}`);
                         item.disabled = true;
                     });
                 });
@@ -1412,7 +1412,7 @@
 
                         if(plNameLC == playListItemText)
                         {
-                            notification(`${plName} already exists`);
+                            notification(`badNotify` , `${plName} already exists`);
                             return;
                         }
                     }
@@ -1430,7 +1430,7 @@
                         </button>
                     `;
                     playListItemBox.insertAdjacentHTML("beforeend" , newListHTML);
-                    notification(`Show successfully added to ${plName}`);
+                    notification(`goodNotify` , `Show successfully added to ${plName}`);
                     
                     closeNewPLModal();
                 }
