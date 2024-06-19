@@ -2203,7 +2203,7 @@
         // Save Edits made to a profile and return back to the "Edits profile" modal
         function saveCurrProfEdits()
         {
-            notification(`gooddNotify` , `Changes saved`);
+            notification(`goodNotify` , `Changes saved`);
             let profCurrBeignEdited = document.querySelector("#profile-is-curr-being-edited");
             let profCurrName = profCurrBeignEdited.querySelector(".switchProfOptText");
             let profCurrFrgImg = profCurrBeignEdited.querySelector(".switchProfOptImg");
