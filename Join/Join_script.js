@@ -1504,8 +1504,78 @@
                                 // Displays timer in page
                                 verCodeTimer.textContent = sec;
 
-                                //
-                                if(sec == 250)
+                                // Ask to show user their code since verification isn't ready
+                                if(sec == 275)
+                                {
+                                    let askIfNoCode = confirm("Haven't seen your code? \nWill you like to have it displayed? (for dev testing)");
+                                    if(askIfNoCode == false)
+                                    {
+                                        event.preventDefault();
+                                    }
+                                    else
+                                    {
+                                        askIfNoCode = "";
+                                        alert("Your code is : " + thisVercart);
+                                    }
+                                }
+
+                                if(sec == 200)
+                                {
+                                    let askIfNoCode = confirm("Haven't seen your code? \nWill you like to have it displayed? (for dev testing)");
+                                    if(askIfNoCode == false)
+                                    {
+                                        event.preventDefault();
+                                    }
+                                    else
+                                    {
+                                        askIfNoCode = "";
+                                        alert("Your code is : " + thisVercart);
+                                    }
+                                }
+
+                                if(sec == 150)
+                                {
+                                    let askIfNoCode = confirm("Haven't seen your code? \nWill you like to have it displayed? (for dev testing)");
+                                    if(askIfNoCode == false)
+                                    {
+                                        event.preventDefault();
+                                    }
+                                    else
+                                    {
+                                        askIfNoCode = "";
+                                        alert("Your code is : " + thisVercart);
+                                    }
+                                }
+
+                                if(sec == 100)
+                                {
+                                    let askIfNoCode = confirm("Haven't seen your code? \nWill you like to have it displayed? (for dev testing)");
+                                    if(askIfNoCode == false)
+                                    {
+                                        event.preventDefault();
+                                    }
+                                    else
+                                    {
+                                        askIfNoCode = "";
+                                        alert("Your code is : " + thisVercart);
+                                    }
+                                }
+
+                                if(sec == 50)
+                                {
+                                    let askIfNoCode = confirm("Haven't seen your code? \nWill you like to have it displayed? (for dev testing)");
+                                    if(askIfNoCode == false)
+                                    {
+                                        event.preventDefault();
+                                    }
+                                    else
+                                    {
+                                        askIfNoCode = "";
+                                        alert("Your code is : " + thisVercart);
+                                    }
+                                }
+
+                                if(sec == 10)
                                 {
                                     let askIfNoCode = confirm("Haven't seen your code? \nWill you like to have it displayed? (for dev testing)");
                                     if(askIfNoCode == false)

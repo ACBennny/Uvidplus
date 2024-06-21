@@ -83,6 +83,7 @@ html:root
     --editProfileBcgImgHeight: 200px;
     --basicSliderCardDivision: 4;
     --basicSlideIconWidth: 16px;
+    --slideCardSpacing: 12px;
     --slideCardPlayIconClr: var(--genGreenTypeLight);
     --slideCardPlayIconWidth: 35px;
     --basicCatalogCardWidth: 175px;
@@ -2490,7 +2491,7 @@ img
 {
     position: relative;
     width: 100%;
-    /* max-width: 200px; */
+    max-width: 200px;
     max-height: 300px;
     display: flex;
     flex-direction: column;
@@ -2533,7 +2534,25 @@ img
     transition: all 300ms ease-in-out;
 }
 
-.slide_card .cardinfo
+.slide_card .cardQualityBox
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: var(--slideCardSpacing);
+    z-index: 4;
+}
+
+.cardQualityBox .cardQualityText
+{
+    font-family: 'Poppins' , sans-serif;
+    color: var(--genWhiteTypeLight);
+    font-size: 20px;
+    text-shadow: 0 0 7px #000000;
+    letter-spacing: 1px;
+}
+
+.slide_card .cardInfoBdr
 {
     position: absolute;
     left: 0;
@@ -2543,13 +2562,44 @@ img
     display: flex;
     justify-content: space-between;
     align-items: end;
-    padding: 10px;
     background: #00000055;
     transition: 300ms;
     z-index: 3;
 }
 
-.slide_card .cardinfo h3
+.cardInfoBdr .cardInfoBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 var(--slideCardSpacing) var(--slideCardSpacing);
+    background: linear-gradient(to top, #000000de, #00000099, #00000000);
+}
+
+.cardInfoBox .cardInfo_tagBdr
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 0 0 7px;
+    gap: 4px;
+}
+
+.cardInfo_tagBdr .cardInfo_tagBox
+{
+    padding: 2px 5px;
+    border-radius: 4px;
+    background-color: #1da21675;
+}
+
+.cardInfo_tagBox .cardInfo_tagText
+{
+    color: var(--genGreenTypeLight);
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.cardInfo_titleBox .cardInfo_titleText
 {
     font-family: 'Poppins' , sans-serif;
     width: 100%;
@@ -2560,7 +2610,7 @@ img
     font-size: 14px;
 }
 
-.slide_card .cardinfo .slideCardIcon
+.slide_card .slideCardIcon
 {
     position: absolute;
     bottom: 25%;
@@ -2570,6 +2620,8 @@ img
     fill: var(--slideCardPlayIconClr);
     transform: translate(50% , 50%);
     transition: all 300ms ease-in-out;
+    pointer-events: none;
+    z-index: 4;
 }
 
 
@@ -3483,15 +3535,15 @@ img
         transform: scale(1.15);
     }
 
-    .slide_card:hover .cardinfo
+    .slide_card:hover .cardInfoBdr
     {
         background: #00000085;
     }
 
-    .slide_card:hover .cardinfo .slideCardIcon
+    .slide_card:hover .slideCardIcon
     {
         bottom: 50%;
-        opacity: 1;
+        opacity: 0.6;
     }
 
     .genAtnModalOptBdr .genAtnModalOptBox:hover
@@ -3613,7 +3665,7 @@ img
         display: block;
     }
 
-    .slide_card .cardinfo h3
+    .slide_card .cardInfoBdr h3
     {
         font-size: 14px;
     }
@@ -3986,7 +4038,7 @@ only screen and (max-width: 800px)
         font-size: 12px;
     }
 
-    .slide_card .cardinfo h3
+    .slide_card .cardInfoBdr h3
     {
         font-size: 12px;
     }
