@@ -56,6 +56,8 @@
             {
                 basicSlider();
                 startContentSection();
+                attachWatchListEventListeners();
+                attachAddToPLEventListeners();
             });
             document.body.appendChild(basicSliderScriptTag);
             
@@ -104,7 +106,7 @@
 
 
 
-        // MAIN CONTENT - INTRO SLIDES
+        // INTRO SLIDES
 
             // For transition (blur) effect when switching sides
             function flshBur()
