@@ -1159,46 +1159,46 @@
 
     // WATCHLIST
 
-    function attachWatchListEventListeners()
-    {
-        const addToWatchListBox = document.querySelectorAll(".add_to_WatchListBox");
-        
-            addToWatchListBox.forEach(box => 
-            {
-                if(box.action)
+        function attachWatchListEventListeners()
+        {
+            const addToWatchListBox = document.querySelectorAll(".add_to_WatchListBox");
+            
+                addToWatchListBox.forEach(box => 
                 {
-                    box.removeEventListener(`click` , box.action);
-                }
-            });
-            addToWatchListBox.forEach(box => 
-            {
-                const addToWatchListText = box.querySelector(".add_to_WatchListText");
-
-                const action = () => 
-                {
-                    if(box.classList.contains("active"))
+                    if(box.action)
                     {
-                        box.classList.remove("active");
-                        addToWatchListText.textContent = "Watchlist";
-                        box.title = "Add to Watchlist";
-                        box.ariaLabel = "Add to Watchlist";
-                        notification(`goodNotify` , `Show removed from Watchlist`);
-                        return;
+                        box.removeEventListener(`click` , box.action);
                     }
-                    box.classList.add("active");
-                    addToWatchListText.textContent = "In Watchlist";
-                    box.title = "Remove from Watchlist";
-                    box.ariaLabel = "Remove from Watchlist";
-                    notification(`goodNotify` , `Show added to Watchlist`);
-                }
+                });
+                addToWatchListBox.forEach(box => 
+                {
+                    const addToWatchListText = box.querySelector(".add_to_WatchListText");
 
-                box.addEventListener("click" , action);
-                box.action = action;
-            });
-    }
+                    const action = () => 
+                    {
+                        if(box.classList.contains("active"))
+                        {
+                            box.classList.remove("active");
+                            addToWatchListText.textContent = "Watchlist";
+                            box.title = "Add to Watchlist";
+                            box.ariaLabel = "Add to Watchlist";
+                            notification(`goodNotify` , `Show removed from Watchlist`);
+                            return;
+                        }
+                        box.classList.add("active");
+                        addToWatchListText.textContent = "In Watchlist";
+                        box.title = "Remove from Watchlist";
+                        box.ariaLabel = "Remove from Watchlist";
+                        notification(`goodNotify` , `Show added to Watchlist`);
+                    }
+
+                    box.addEventListener("click" , action);
+                    box.action = action;
+                });
+        }
 
 
-        // ADD TO PLAYLIST
+    // ADD TO PLAYLIST
     
         let addToPLHTML = 
         `
