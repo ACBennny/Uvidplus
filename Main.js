@@ -191,7 +191,7 @@
 
     // NOTIFICATION POPUP
 
-        function showNextNotification() 
+        function showNextNotification()
         {
             if (notificationQueue.length === 0) 
             {
@@ -234,7 +234,7 @@
                     resolve(); 
                     showNextNotification();
                 }, 300);
-            }, 6500);
+            }, 3500);
         }
 
         function notification(notifyState, notifyCtnt) 
