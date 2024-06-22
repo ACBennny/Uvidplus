@@ -861,7 +861,10 @@
                         return null;
                     }
                 }).join('');
+
+                // Reattaching listeners
                 attachWatchListEventListeners();
+                attachAddToPLEventListeners();
             };
     
             searchInput.addEventListener("keyup", filterInput);
