@@ -3704,7 +3704,7 @@ img
     .slide_card:hover .slideCardIcon
     {
         bottom: 50%;
-        opacity: 0.85;
+        /* opacity: 0.85; */
     }
 
     .genAtnModalOptBdr .genAtnModalOptBox:hover
