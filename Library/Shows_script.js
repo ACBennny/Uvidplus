@@ -327,7 +327,6 @@
     });
 
     // Closing the Selctor
-    
     document.addEventListener("click" , e => 
     {
         if((seasonSelectorBdr.classList.contains("active")))
