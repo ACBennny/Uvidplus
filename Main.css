@@ -2513,6 +2513,7 @@ img
     background-color: var(--genGreenTypeMid);
     transition: all 300ms ease-in-out;
     pointer-events: none;
+    z-index: -1;
 }
 
 .slide_card_bdr:active .slide_card_bcg
