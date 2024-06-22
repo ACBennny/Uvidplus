@@ -2367,18 +2367,19 @@ img
     flex-direction: row;
     align-items: center;
     text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .basic_slider_title_box h2 .big
 {
-    font-size: 25px;
     color: #14d60d;
+    font-size: 20px;
 }
 
 .basic_slider_title_box h2 .small
 {
-    font-size: 18px;
     color: #fff;
+    font-size: 18px;
 }
 
 .basic_slider_title_box p
@@ -3970,7 +3971,7 @@ img
 
     .basic_slider_title_box h2 .big
     {
-        font-size: 20px;
+        font-size: 17px;
     }
 
     .basic_slider_title_box h2 .small
@@ -4178,16 +4179,6 @@ only screen and (max-width: 800px)
     .selectPicCarouselGrid.selectBcgPicCarouselGrid
     {
         --selectBcgPicCarouselGridRowNo: 1;
-    }
-
-    .basic_slider_title_box h2 .big
-    {
-        font-size: 22px;
-    }
-
-    .basic_slider_title_box h2 .small
-    {
-        font-size: 15px;
     }
 
     .basic_slider_title_box p
