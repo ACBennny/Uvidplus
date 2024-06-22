@@ -4256,6 +4256,15 @@ only screen and (max-width: 800px)
 }
 
 
+@media only screen and (max-width: 250px)
+{
+    .basic_slider_card_box
+    {
+        grid-auto-columns: 100%;
+    }
+}
+
+
 /* =============== NON-TOUCH SCREENS ============== */
 
 @media(hover: hover)
