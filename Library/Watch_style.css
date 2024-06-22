@@ -241,22 +241,6 @@ html:root
     color: var(--genWhiteTypeBright);
 }
 
-.add_to_WatchListBox .remove_from_WatchListIcon
-{
-    display: none;
-    fill: var(--genGreenTypeLight) !important;
-}
-
-.add_to_WatchListBox.active .add_to_WatchListIcon
-{
-    display: none;
-}
-
-.add_to_WatchListBox.active .remove_from_WatchListIcon
-{
-    display: block;
-}
-
 .left_section_box.media_actions_box.active .open_fullMediaActionBox
 {
     position: absolute;

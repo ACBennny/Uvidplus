@@ -1262,12 +1262,14 @@
                         addToWatchListText.textContent = "Watchlist";
                         box.title = "Add to Watchlist";
                         box.ariaLabel = "Add to Watchlist";
+                        notification(`goodNotify` , `Show removed from Watchlist`);
                         return;
                     }
                     box.classList.add("active");
                     addToWatchListText.textContent = "In Watchlist";
                     box.title = "Remove from Watchlist";
                     box.ariaLabel = "Remove from Watchlist";
+                    notification(`goodNotify` , `Show added to Watchlist`);
                 });
             });
 

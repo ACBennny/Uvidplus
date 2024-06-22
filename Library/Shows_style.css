@@ -423,26 +423,7 @@ html:root
     height: 100%;
 }
 
-.add_to_WatchListBox .add_to_WatchListIcon
-{
-    display: block;
-}
 
-.add_to_WatchListBox .quickAtnModal_btnIcon.remove_from_WatchListIcon
-{
-    display: none;
-    fill: var(--genGreenTypeLight) !important;
-}
-
-.add_to_WatchListBox.active .add_to_WatchListIcon
-{
-    display: none;
-}
-
-.add_to_WatchListBox.active .remove_from_WatchListIcon
-{
-    display: block;
-}
 
 
 

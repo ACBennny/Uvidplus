@@ -62,7 +62,6 @@
 {
     --navBarSearchClr: var(--genWhiteTypeLight);
     border-color: var(--navElementColor_green);
-    background-color: #141414;
 }
 
 .searchBox .searchInputBox
@@ -127,7 +126,7 @@
 {
     width: 100%;
     min-height: 50vh;
-    padding: calc(var(--navBarHeight) + var(--navBarSearchBarHeight)) 10px 20px;
+    padding: calc(var(--navBarHeight) + var(--navBarSearchBarHeight) + 20px) 10px 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
