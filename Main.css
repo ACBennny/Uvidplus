@@ -2516,7 +2516,7 @@ img
     background-color: var(--genGreenTypeMid);
     transition: all 300ms ease-in-out;
     pointer-events: none;
-    z-index: -1;
+    z-index: 0;
 }
 
 .slide_card_bdr:active .slide_card_bcg
@@ -2546,6 +2546,7 @@ img
     cursor: pointer;
     transition: 300ms;
     overflow: hidden;
+    z-index: 4;
 }
 
 .slide_card .cardLinkCover
