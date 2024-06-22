@@ -434,10 +434,6 @@
                 console.log("done");
             });
             showAllEpBdr[b].classList.remove("active");
-
-            // Reattaching the event listeners
-            attachWatchListEventListeners();
-            attachAddToPLEventListeners();
         });
     });
 
