@@ -2484,10 +2484,6 @@ img
 .basic_slider_card_box .slide_card_base
 {
     scroll-snap-align: start;
-    -moz-user-select: -moz-none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
 }
 
 .slide_card_base .slide_card_bdr
@@ -2499,6 +2495,10 @@ img
     display: flex;
     justify-content: center;
     align-items: center;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .slide_card_bdr .slide_card_bcg
@@ -2513,6 +2513,12 @@ img
     background-color: var(--genGreenTypeMid);
     transition: all 300ms ease-in-out;
     pointer-events: none;
+}
+
+.slide_card_bdr:active .slide_card_bcg
+{
+    --slide_card_bcgW: 3px;
+    --slide_card_bcgH: 0px;
 }
 
 .slide_card_bdr .slide_card_box
