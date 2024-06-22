@@ -1183,7 +1183,6 @@
                         box.title = "Add to Watchlist";
                         box.ariaLabel = "Add to Watchlist";
                         notification(`goodNotify` , `Show removed from Watchlist`);
-                        console.log("count DOWN => ");
                         return;
                     }
                     box.classList.add("active");
@@ -1191,7 +1190,6 @@
                     box.title = "Remove from Watchlist";
                     box.ariaLabel = "Remove from Watchlist";
                     notification(`goodNotify` , `Show added to Watchlist`);
-                    console.log("count UP => ");
                 }
 
                 box.addEventListener("click" , action);
