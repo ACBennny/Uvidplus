@@ -411,10 +411,6 @@
                 setEpBox[i].classList.add("active");
             }
         }
-
-        // Attaching the event listeners
-        attachWatchListEventListeners();
-        attachAddToPLEventListeners();
     });
 
     // Showing all Episodes via onclick
