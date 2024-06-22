@@ -113,6 +113,10 @@
             }
             currentIndex = endIndex;
 
+            // Reattaching listeners
+            attachWatchListEventListeners();
+            attachAddToPLEventListeners();
+
             if (currentIndex >= catalogInventory.length)
             {
                 observer.unobserve(basicLoadingIndicator);

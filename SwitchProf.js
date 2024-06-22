@@ -321,7 +321,10 @@
                 opt.callOpenEditModal = callOpenEditModal;
             });
         }
-        addListener(editProfAtnBtn, `click`, switchToEditProf);
+        editProfAtnBtn.forEach((btn) => 
+        {
+            btn.addEventListener("click" , switchToEditProf);
+        });
 
 
         // Switch back to "Changing of Profiles" modal
