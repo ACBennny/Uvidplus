@@ -1485,6 +1485,7 @@
                     });
                 }
                 btn.addEventListener("click" , addToPLFunc);
+                btn.addToPLFunc = addToPLFunc;
             });
         }
     
