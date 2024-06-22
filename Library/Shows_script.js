@@ -411,6 +411,10 @@
                 setEpBox[i].classList.add("active");
             }
         }
+
+        // Attaching the event listeners
+        attachWatchListEventListeners();
+        attachAddToPLEventListeners();
     });
 
     // Showing all Episodes via onclick
@@ -430,6 +434,10 @@
                 console.log("done");
             });
             showAllEpBdr[b].classList.remove("active");
+
+            // Reattaching the event listeners
+            attachWatchListEventListeners();
+            attachAddToPLEventListeners();
         });
     });
 
