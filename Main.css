@@ -3136,7 +3136,7 @@ img
     cursor: pointer;
 }
 
-.notifyBdr.NotifyAtv
+.notifyBdr.notifyAtv
 {
     opacity: 1;
     visibility: visible;
@@ -3153,7 +3153,7 @@ img
     background-color: var(--warningClr);
 }
 
-.notifyBdr .NotifyMe
+.notifyBdr .notifyMe
 {
     width: -moz-fit-content;
     width: fit-content;

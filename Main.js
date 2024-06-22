@@ -204,20 +204,22 @@
         
             const btnNotifyBdr = document.createElement('div');
             const btnNotify = document.createElement('div');
+            const btnNotifyText = document.createElement('p');
             btnNotifyBdr.classList.add("notifyBdr");
             btnNotifyBdr.classList.add(`${notifyState}`);
-            btnNotify.classList.add("NotifyMe");
+            btnNotify.classList.add("notifyMe");
+            btnNotifyText.classList.add("notifyText");
             btnNotifyBdr.appendChild(btnNotify);
-            btnNotify.textContent = notifyCtnt;
+            btnNotifyText.textContent = notifyCtnt;
         
             document.body.appendChild(btnNotifyBdr);
             
             // Ensures the element is added to the DOM before adding the class
             requestAnimationFrame(() => 
-            { 
+            {
                 preNotifyTimer = setTimeout(() => 
                 {
-                    btnNotifyBdr.classList.add('NotifyAtv');
+                    btnNotifyBdr.classList.add('notifyAtv');
                     clearTimeout(preNotifyTimer);
                 }, 300);
             });
@@ -226,12 +228,12 @@
             endNotifyTimer = setTimeout(() => 
             {
                 clearTimeout(endNotifyTimer);
-                btnNotifyBdr.classList.remove('NotifyAtv');
+                btnNotifyBdr.classList.remove('notifyAtv');
                 midNotifyTimer = setTimeout(() => 
                 {
                     clearTimeout(midNotifyTimer);
                     document.body.removeChild(btnNotifyBdr);
-                    resolve(); 
+                    resolve();
                     showNextNotification();
                 }, 300);
             }, 3500);
