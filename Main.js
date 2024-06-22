@@ -184,6 +184,8 @@
     `;
     let notificationQueue = [];
     let isNotificationActive = false;
+    let notificationDuration = 6;
+    let notificationTransition = 300;
     let preNotifyTimer;
     let midNotifyTimer;
     let endNotifyTimer;
@@ -201,17 +203,23 @@
         
             // Get the next notification from the queue
             const { notifyState, notifyCtnt, resolve } = notificationQueue.shift();
-        
+
             const btnNotifyBdr = document.createElement('div');
-            const btnNotify = document.createElement('div');
-            const btnNotifyText = document.createElement('p');
+            btnNotifyBdr.innerHTML = 
+            `
+                <div class="notifyBox">
+                    <p class="notifyText">${notifyCtnt}</p>
+                </div>
+                <div class="notifyIconBox">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="notifyIcon">
+                        <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                    </svg>
+                </div>
+            `;
+
             btnNotifyBdr.classList.add("notifyBdr");
+            btnNotifyBdr.setAttribute(`style` , `--notifyTransitionStyle: ${notificationTransition}ms`);
             btnNotifyBdr.classList.add(`${notifyState}`);
-            btnNotify.classList.add("notifyMe");
-            btnNotifyText.classList.add("notifyText");
-            btnNotifyBdr.appendChild(btnNotify);
-            btnNotifyText.textContent = notifyCtnt;
-        
             document.body.appendChild(btnNotifyBdr);
             
             // Ensures the element is added to the DOM before adding the class
@@ -221,22 +229,35 @@
                 {
                     btnNotifyBdr.classList.add('notifyAtv');
                     clearTimeout(preNotifyTimer);
-                }, 300);
+                }, notificationTransition);
             });
-        
+
             isNotificationActive = true;
-            endNotifyTimer = setTimeout(() => 
+            let notifyIntervalDuration = notificationDuration;
+
+            endNotifyTimer = setInterval(() => 
             {
-                clearTimeout(endNotifyTimer);
-                btnNotifyBdr.classList.remove('notifyAtv');
-                midNotifyTimer = setTimeout(() => 
+                notifyIntervalDuration--;
+
+                if(notifyIntervalDuration <= 0)
                 {
-                    clearTimeout(midNotifyTimer);
-                    document.body.removeChild(btnNotifyBdr);
-                    resolve();
-                    showNextNotification();
-                }, 300);
-            }, 3500);
+                    clearInterval(endNotifyTimer);
+                    btnNotifyBdr.classList.remove('notifyAtv');
+                    midNotifyTimer = setTimeout(() => 
+                    {
+                        clearTimeout(midNotifyTimer);
+                        document.body.removeChild(btnNotifyBdr);
+                        resolve();
+                        showNextNotification();
+                    }, notificationTransition);
+                }
+            }, 1000);
+
+            const closeNotifyBdr = btnNotifyBdr.querySelector(".notifyIconBox");
+            closeNotifyBdr.addEventListener("click" , () => 
+            {
+                notifyIntervalDuration = 1;
+            });
         }
 
         function notification(notifyState, notifyCtnt) 
@@ -860,7 +881,7 @@
                 });
                 switchProfScript.onerror = function() 
                 {
-                    notification(`badNotify` , `An error occurred`);
+                    notification(`notifyBad` , `An error occurred`);
                 };
                 document.body.appendChild(switchProfScript);
             }
@@ -890,11 +911,11 @@
                     navigator.clipboard.writeText(developerLink)
                     .then(() => 
                     {
-                        notification(`goodNotify` , `Link copied to clipboard`);
+                        notification(`notifyGood` , `Link copied to clipboard`);
                     })
                     .catch((err) => 
                     {
-                        notification(`badNotify` , `Could not copy link, ${err}`);
+                        notification(`notifyBad` , `Could not copy link, ${err}`);
                     });
                 });
             });
@@ -1184,14 +1205,14 @@
                             addToWatchListText.textContent = "Watchlist";
                             box.title = "Add to Watchlist";
                             box.ariaLabel = "Add to Watchlist";
-                            notification(`goodNotify` , `Show removed from Watchlist`);
+                            notification(`notifyGood` , `Show removed from Watchlist`);
                             return;
                         }
                         box.classList.add("active");
                         addToWatchListText.textContent = "In Watchlist";
                         box.title = "Remove from Watchlist";
                         box.ariaLabel = "Remove from Watchlist";
-                        notification(`goodNotify` , `Show added to Watchlist`);
+                        notification(`notifyGood` , `Show added to Watchlist`);
                     }
 
                     box.addEventListener("click" , action);
@@ -1346,7 +1367,7 @@
                         // Send notification when show is added
                         item.addEventListener("click" , () => 
                         {
-                            notification(`goodNotify` , `Show successfully added to ${itemName}`);
+                            notification(`notifyGood` , `Show successfully added to ${itemName}`);
                             item.disabled = true;
                         });
                     });
@@ -1427,7 +1448,7 @@
         
                             if(plNameLC == playListItemText)
                             {
-                                notification(`badNotify` , `${plName} already exists`);
+                                notification(`notifyBad` , `${plName} already exists`);
                                 return;
                             }
                         }
@@ -1445,7 +1466,7 @@
                             </button>
                         `;
                         playListItemBox.insertAdjacentHTML("beforeend" , newListHTML);
-                        notification(`goodNotify` , `Show successfully added to ${plName}`);
+                        notification(`notifyGood` , `Show successfully added to ${plName}`);
                         
                         closeNewPLModal();
                     }

@@ -88,6 +88,9 @@ html:root
     --slideCardPlayIconClr: var(--genGreenTypeLight);
     --slideCardPlayIconWidth: 35px;
     --basicCatalogCardWidth: 175px;
+    --notifyGoodBcg: #42af56;
+    --notifyBadBcg: #d95a5a;
+    --notifyIconBoxWidth: 60px;
     --footerTextClrGreen: var(--genGreenTypeLight);
     --footerTxtClrBright: var(--color8);
     --footerTxtClrMid: #b7b7b7;
@@ -3131,9 +3134,8 @@ img
     opacity: 0;
     visibility: hidden;
     transform: translateY(-100%);
-    transition: all 300ms ease-in;
+    transition: all var(--notifyTransitionStyle) ease-in;
     z-index: 150;
-    cursor: pointer;
 }
 
 .notifyBdr.notifyAtv
@@ -3143,27 +3145,68 @@ img
     transform: translateY(0%);
 }
 
-.notifyBdr.goodNotify
+.notifyBdr.notifyGood
 {
-    background-color: var(--genGreenTypeLight2);
+    background-color: var(--notifyGoodBcg);
 }
 
-.notifyBdr.badNotify
+.notifyBdr.notifyBad
 {
-    background-color: var(--warningClr);
+    background-color: var(--notifyBadBcg);
 }
 
-.notifyBdr .notifyMe
+.notifyBdr .notifyBox
 {
     width: -moz-fit-content;
     width: fit-content;
+    width: calc(100% - var(--notifyIconBoxWidth));
     height: fit-content;
     padding: 20px 10px;
     color: #000000;
     font-size: 14px;
     text-align: center;
-    border-radius: 15px;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
 }
+
+.notifyBox .notifyText
+{
+    color: #000000;
+    font-size: 14px;
+    text-align: center;
+}
+
+.notifyBdr .notifyIconBox
+{
+    position: relative;
+    width: var(--notifyIconBoxWidth);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.notifyIconBox::after
+{
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 0;
+    width: 1px;
+    height: 60%;
+    border-radius: 10px;
+    background-color: #000000;
+}
+
+.notifyIconBox .notifyIcon
+{
+    width: 18px;
+}
+
+
 
 
 
@@ -4073,6 +4116,7 @@ only screen and (max-width: 800px)
     html:root
     {
         --switchProfOptImgBoxWidth: 100px;
+        --notifyIconBoxWidth: 50px;
     }
 
     .switchProfHeader .switchProfHeaderText
