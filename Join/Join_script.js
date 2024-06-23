@@ -1787,7 +1787,7 @@
                                                             setTimeout(() => 
                                                             {
                                                                 // preloaderBdr.style.display = "none";
-                                                                window.location.pathname = "/Library/Anime.html";
+                                                                window.location.pathname = "/Home.html";
                                                             }, 3000);
                                                         }
                                                     }
