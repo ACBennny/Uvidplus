@@ -161,7 +161,7 @@
             {
                 auto_slide_timer = setInterval(function()
                 {
-                    auto_slide_timer_count-- ;
+                    auto_slide_timer_count--;
                     if(auto_slide_timer_count == 0)
                     {
                         nextSlideSet();
