@@ -1786,7 +1786,6 @@
                                                             preloaderBdr.style.display = "flex";
                                                             setTimeout(() => 
                                                             {
-                                                                // preloaderBdr.style.display = "none";
                                                                 window.location.pathname = "/Home.html";
                                                             }, 3000);
                                                         }
