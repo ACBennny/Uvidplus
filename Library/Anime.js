@@ -7000,8 +7000,16 @@
                             <div class="watchHead">Another</div>
                             <div class="watchType">Series</div>
                             <p class="watchInfo">
-                                Another is a horror/mystery series that centers around a curse that plagues a small town in Japan.
-                                The story follows a transfer student named Kouichi Sakakibara who is drawn...
+                                In class 3-3 of Yomiyama North Junior High, transfer student Kouichi Sakakibara makes his return after 
+                                taking a sick leave for the first month of school. Among his new classmates, he is inexplicably drawn 
+                                toward Mei Misaki—a reserved girl with an eyepatch whom he met in the hospital during his absence. 
+                                But none of his classmates acknowledge her existence; they warn him not to acquaint himself with things 
+                                that do not exist. Against their words of caution, Kouichi befriends Mei—soon learning of the sinister 
+                                truth behind his friends' apprehension. The ominous rumors revolve around a former student of the class 3-3. 
+                                However, no one will share the full details of the grim event with Kouichi. Engrossed in the curse that 
+                                plagues his class, Kouichi sets out to discover its connection to his new friend. As a series of tragedies 
+                                arise around them, it is now up to Kouichi, Mei, and their classmates to unravel the eerie mystery—but doing 
+                                so will come at a hefty price.
                             </p>
                             <div class="watchActionBox">
                                 <a href="/Library/Anime/Watch/Another/S1/Ep1.html" class="watchAction watchEpLink lightSolidBtn" title="">
@@ -7043,9 +7051,16 @@
                             <div class="watchHead">Assassination Classroom</div>
                             <div class="watchType">Series</div>
                             <p class="watchInfo">
-                                The story  revolves around the daily life of an extraordinarily powerful octopus-like being 
-                                who works as a junior high homeroom teacher. His peculiar students are dedicated to a 
-                                rather unusual task...
+                                Tucked in the mountains near the elite Kunugigaoka Middle School lies a small derelict building that 
+                                houses the delinquents and dropouts of Class 3-E. Looked down upon by their peers, the students in 
+                                this class appear to have little hope in advancing their academic careers. That is, until the national 
+                                government tasks them with eliminating the greatest threat to their planet: their new teacher. Having 
+                                already destroyed the moon, the octopus-like professor—dubbed "Koro-sensei" — has now threatened to 
+                                destroy the Earth by March of the following year. In light of their mission, the students have found 
+                                that killing him is easier said than done. Training the class to excel in both their studies as students 
+                                and skills as assassins, Koro-sensei is confident that his students' ingenuity and indomitable will return 
+                                them to the main campus. Through trial and error, Nagisa Shiota, as well as the other students of Class 3-E, 
+                                must figure out Koro-sensei's weaknesses—and fast, for the very fate of the world depends upon it.
                             </p>
                             <div class="watchActionBox">
                                 <a href="/Library/Anime/Watch/AssassinationClassroom/S1/Ep1.html" class="watchAction watchEpLink lightSolidBtn" title="">
