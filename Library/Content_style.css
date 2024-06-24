@@ -681,8 +681,8 @@ body
     height: 350px;
     display: flex;
     flex-direction: row;
-    gap: 5px;
-    padding: 5px;
+    gap: 20px;
+    padding: 5px 20px;
     border-radius: 10px;
     background-color: #00000055;
 }
@@ -715,6 +715,8 @@ body
 .specialEp_box .specialEp_OtImgBdr
 {
     width: 30%;
+    width: 200px;
+    height: 300px;
     height: 100%;
 }
 
@@ -1373,6 +1375,11 @@ body
         width: 100%;
     }
 
+    .specialEp_bdr .specialEp_box
+    {
+        padding: 5px 10px;
+    }
+
     .specialEp_box .specialEp_SpImgBdr
     {
         top: -95px;
@@ -1565,6 +1572,11 @@ body
     .specialEp_bdr
     {
         padding: 10px 20px;
+    }
+
+    .specialEp_bdr .specialEp_box
+    {
+        padding: 5px;
     }
 
 }

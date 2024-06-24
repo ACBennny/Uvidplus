@@ -2564,6 +2564,105 @@
                 </div>
             </div>
 
+            <!-- Watch this Series: One Piece -->
+            <div class="watchSectionBdr">
+                <div class="watchSectionBox foreSectionBox">
+                    <div class="watchSection watchSectionDet">
+                        <div class="infoBox">
+                            <div class="watchHead">One Piece</div>
+                            <div class="watchType">Series</div>
+                            <p class="watchInfo">
+                                Barely surviving in a barrel after passing through a terrible whirlpool at sea, carefree Monkey D. Luffy ends up 
+                                aboard a ship under attack by fearsome pirates. Despite being a naive-looking teenager, he is not to be underestimated. 
+                                Unmatched in battle, Luffy is a pirate himself who resolutely pursues the coveted One Piece treasure and the King of the 
+                                Pirates title that comes with it. The late King of the Pirates, Gol D. Roger, stirred up the world before his death by 
+                                disclosing the whereabouts of his hoard of riches and daring everyone to obtain it. Ever since then, countless powerful 
+                                pirates have sailed dangerous seas for the prized One Piece only to never return. Although Luffy lacks a crew and a proper ship, 
+                                he is endowed with a superhuman ability and an unbreakable spirit that make him not only a formidable adversary but also an inspiration to many.
+                                As he faces numerous challenges with a big smile on his face, Luffy gathers one-of-a-kind companions to join him in his ambitious endeavor, 
+                                together embracing perils and wonders on their once-in-a-lifetime adventure.
+                            </p>
+                            <div class="watchActionBox">
+                                <a href="/Library/Anime/Watch/OnePiece/S1/Ep1.html" class="watchAction watchEpLink lightSolidBtn" title="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="watchActionIcon">
+                                        <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z"/>
+                                    </svg>
+                                    <span>Watch S1 Ep1</span>
+                                </a>
+                                <div class="watchAction addToWatchList hollowBtn" title="Add to Watchlist">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="watchListIcon">
+                                        <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
+                                    </svg>
+                                    <span>Add to Watchlist</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="watchSection watchSectionImgBdr">
+                        <div class="watchImgBox">
+                            <img src="/Library/Anime/Watch/OnePiece/img/1.jpg" alt="" class="watchImg">
+                            <a href="/Library/Anime/OnePiece.html" class="goToSeries" title="">
+                                <span class="goToSeries_iconBox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="goToSeries_icon">
+                                        <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
+                                    </svg>
+                                </span>
+                                <p class="goToSeries_text">Details</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Watch this Series: Naruto -->
+            <div class="watchSectionBdr">
+                <div class="watchSectionBox backSectionBox">
+                    <div class="watchSection watchSectionDet">
+                        <div class="infoBox">
+                            <div class="watchHead">Naruto</div>
+                            <div class="watchType">Series</div>
+                            <p class="watchInfo">
+                                Moments before Naruto Uzumaki's birth, a huge demon known as the Nine-Tailed Fox attacked Konohagakure, 
+                                the Hidden Leaf Village, and wreaked havoc. In order to put an end to the demon's rampage, the leader of 
+                                the village, the Fourth Hokage, sacrificed his life and sealed the monstrous beast inside the newborn Naruto.
+                                In the present, Naruto is a hyperactive and knuckle-headed ninja growing up within Konohagakure. 
+                                Shunned because of the demon inside him, Naruto struggles to find his place in the village. 
+                                His one burning desire to become the Hokage and be acknowledged by the villagers who despite him. 
+                                However, while his goal leads him to unbreakable bonds with lifelong friends, it also lands him 
+                                in the crosshairs of many deadly foes.
+                            </p>
+                            <div class="watchActionBox">
+                                <a href="/Library/Anime/Watch/Naruto/S1/Ep1.html" class="watchAction watchEpLink lightSolidBtn" title="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="watchActionIcon">
+                                        <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z"/>
+                                    </svg>
+                                    <span>Watch S1 Ep1</span>
+                                </a>
+                                <div class="watchAction addToWatchList hollowBtn" title="Add to Watchlist">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="watchListIcon">
+                                        <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
+                                    </svg>
+                                    <span>Add to Watchlist</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="watchSection watchSectionImgBdr">
+                        <div class="watchImgBox">
+                            <img src="/Library/Anime/Watch/Naruto/img/1.jpg" alt="" class="watchImg">
+                            <a href="/Library/Anime/Naruto.html" class="goToSeries" title="">
+                                <span class="goToSeries_iconBox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="goToSeries_icon">
+                                        <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
+                                    </svg>
+                                </span>
+                                <p class="goToSeries_text">Details</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Slice of Life -->
             <div class="basic_slider_bdr">
                 <div class="basic_slider_title_bdr">
@@ -3158,105 +3257,6 @@
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="basic_slide_arrowIcon basic_icon_Right">
                                 <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
                             </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Watch this Series: One Piece -->
-            <div class="watchSectionBdr">
-                <div class="watchSectionBox foreSectionBox">
-                    <div class="watchSection watchSectionDet">
-                        <div class="infoBox">
-                            <div class="watchHead">One Piece</div>
-                            <div class="watchType">Series</div>
-                            <p class="watchInfo">
-                                Barely surviving in a barrel after passing through a terrible whirlpool at sea, carefree Monkey D. Luffy ends up 
-                                aboard a ship under attack by fearsome pirates. Despite being a naive-looking teenager, he is not to be underestimated. 
-                                Unmatched in battle, Luffy is a pirate himself who resolutely pursues the coveted One Piece treasure and the King of the 
-                                Pirates title that comes with it. The late King of the Pirates, Gol D. Roger, stirred up the world before his death by 
-                                disclosing the whereabouts of his hoard of riches and daring everyone to obtain it. Ever since then, countless powerful 
-                                pirates have sailed dangerous seas for the prized One Piece only to never return. Although Luffy lacks a crew and a proper ship, 
-                                he is endowed with a superhuman ability and an unbreakable spirit that make him not only a formidable adversary but also an inspiration to many.
-                                As he faces numerous challenges with a big smile on his face, Luffy gathers one-of-a-kind companions to join him in his ambitious endeavor, 
-                                together embracing perils and wonders on their once-in-a-lifetime adventure.
-                            </p>
-                            <div class="watchActionBox">
-                                <a href="/Library/Anime/Watch/OnePiece/S1/Ep1.html" class="watchAction watchEpLink lightSolidBtn" title="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="watchActionIcon">
-                                        <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z"/>
-                                    </svg>
-                                    <span>Watch S1 Ep1</span>
-                                </a>
-                                <div class="watchAction addToWatchList hollowBtn" title="Add to Watchlist">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="watchListIcon">
-                                        <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                    </svg>
-                                    <span>Add to Watchlist</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="watchSection watchSectionImgBdr">
-                        <div class="watchImgBox">
-                            <img src="/Library/Anime/Watch/OnePiece/img/1.jpg" alt="" class="watchImg">
-                            <a href="/Library/Anime/OnePiece.html" class="goToSeries" title="">
-                                <span class="goToSeries_iconBox">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="goToSeries_icon">
-                                        <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
-                                    </svg>
-                                </span>
-                                <p class="goToSeries_text">Details</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Watch this Series: Naruto -->
-            <div class="watchSectionBdr">
-                <div class="watchSectionBox backSectionBox">
-                    <div class="watchSection watchSectionDet">
-                        <div class="infoBox">
-                            <div class="watchHead">Naruto</div>
-                            <div class="watchType">Series</div>
-                            <p class="watchInfo">
-                                Moments before Naruto Uzumaki's birth, a huge demon known as the Nine-Tailed Fox attacked Konohagakure, 
-                                the Hidden Leaf Village, and wreaked havoc. In order to put an end to the demon's rampage, the leader of 
-                                the village, the Fourth Hokage, sacrificed his life and sealed the monstrous beast inside the newborn Naruto.
-                                In the present, Naruto is a hyperactive and knuckle-headed ninja growing up within Konohagakure. 
-                                Shunned because of the demon inside him, Naruto struggles to find his place in the village. 
-                                His one burning desire to become the Hokage and be acknowledged by the villagers who despite him. 
-                                However, while his goal leads him to unbreakable bonds with lifelong friends, it also lands him 
-                                in the crosshairs of many deadly foes.
-                            </p>
-                            <div class="watchActionBox">
-                                <a href="/Library/Anime/Watch/Naruto/S1/Ep1.html" class="watchAction watchEpLink lightSolidBtn" title="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="watchActionIcon">
-                                        <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z"/>
-                                    </svg>
-                                    <span>Watch S1 Ep1</span>
-                                </a>
-                                <div class="watchAction addToWatchList hollowBtn" title="Add to Watchlist">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="watchListIcon">
-                                        <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                    </svg>
-                                    <span>Add to Watchlist</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="watchSection watchSectionImgBdr">
-                        <div class="watchImgBox">
-                            <img src="/Library/Anime/Watch/Naruto/img/1.jpg" alt="" class="watchImg">
-                            <a href="/Library/Anime/Naruto.html" class="goToSeries" title="">
-                                <span class="goToSeries_iconBox">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="goToSeries_icon">
-                                        <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
-                                    </svg>
-                                </span>
-                                <p class="goToSeries_text">Details</p>
-                            </a>
                         </div>
                     </div>
                 </div>
