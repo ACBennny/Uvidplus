@@ -1,6 +1,6 @@
  
 /***************************************************************
- * This will hold the code for the Home Page
+ * This will hold the HTML Struct code for the Home Page
  * 
  * @author (Anyanwu Benedict Chukwuemeka)
  * @version (v0.01)
@@ -4312,4 +4312,3 @@
 
         </div>
     `;
-    
