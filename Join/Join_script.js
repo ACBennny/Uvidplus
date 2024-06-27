@@ -13,6 +13,7 @@
 
     const bodyDoc = document.body;
     const preloaderBdr = document.querySelector('#preloader');
+    const f_dtn = `/Home.html`;
     const joinFormHTML = 
     `
         <!-- --------------- Navbar ------------ -->
@@ -840,7 +841,7 @@
                         logInWarn.classList.add("active");
                         testTimer = setTimeout(() => 
                         {
-                            window.location.pathname = "/Library/Anime.html";
+                            window.location.pathname = f_dtn;
                         }, 1500);
                     }
                     // If it is not correct, the user is required to try again
@@ -1786,7 +1787,7 @@
                                                             preloaderBdr.style.display = "flex";
                                                             setTimeout(() => 
                                                             {
-                                                                window.location.pathname = "/Home.html";
+                                                                window.location.pathname = f_dtn;
                                                             }, 3000);
                                                         }
                                                     }
