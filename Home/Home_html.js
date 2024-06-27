@@ -292,7 +292,7 @@
         <!-- Sub Slides -->
         <div class="more_content">
             
-            <!-- Popular -->
+            <!-- Top Picks -->
             <div class="basic_slider_bdr">
                 <div class="basic_slider_title_bdr">
                     <div class="basic_slider_title_box">
