@@ -227,22 +227,17 @@ body
     display: none;
 }
 
-.intro_info_bdr::after
+.intro_info_bdr::before
 {
     content: '';
     position: absolute;
-    top: 0;
+    top: 0%;
     left: 0;
     width: 100%;
     height: calc(100% + var(--introInfoHeightExtend));
-    background: linear-gradient(to bottom, 
-    transparent, transparent, transparent, 
-    transparent, transparent, transparent, 
-    #00000023,#0000004e, #00000055, 
-    #0000007b,#0000008c, #0000009a, 
-    #000000a9, #000000bd,#000000cc, 
-    #000000e1, #000000ef, #000000);
+    background-image: radial-gradient(100% 80% at 80% 20%, #00000000 0%, #000000 80%);
     z-index: 2;
+    pointer-events: none;
 }
 
 .intro_info_bdr img
@@ -1333,6 +1328,15 @@ body
     .intro_slide_box .intro_info_bdr
     {
         width: 100%;
+    }
+
+    .intro_info_bdr::before
+    {
+        top: 50%;
+        height: calc(50% + var(--introInfoHeightExtend));
+        background-image: linear-gradient(to top,
+        #000000ff, #000000ff, #000000ff, 
+        #000000ef, #000000cd, #00000075, #00000000);
     }
 
     .intro_info_bcg
