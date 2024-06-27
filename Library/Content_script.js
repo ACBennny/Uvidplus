@@ -108,6 +108,50 @@
             });
     }
 
+    
+    const bcgImgBdr = document.querySelector(".bcg_img_bdr");
+    const bcgImgBox = document.querySelector(".bcg_img_box");
+    const bcgImgGradient = document.querySelector(".bcg_img_gradient");
+    let bcgImgBdrBound;
+    let bcgImgBdrHeight;
+    let bcgImgBdrHalf;
+    let bcgImgBdr3Qarts;
+    let bcgImgBdr3QartsH;
+
+    function checkBcgImgBdrBounds()
+    {
+        bcgImgBdrBound = bcgImgBdr.getBoundingClientRect();
+        bcgImgBdrHeight = bcgImgBdrBound.height;
+        bcgImgBdrHalf = Math.round(bcgImgBdrHeight/2);
+        bcgImgBdr3Qarts = bcgImgBdrHeight + bcgImgBdrHalf;
+        bcgImgBdr3QartsH = bcgImgBdrHeight + bcgImgBdrHalf + 10;
+
+        bcgImgBox.setAttribute("style", `--ImgHeight:${bcgImgBdr3Qarts}px`);
+        bcgImgGradient.setAttribute("style", `--ImgHeight:${bcgImgBdr3QartsH}px`);
+
+        if(seasonSelectorBdr.classList.contains("active"))
+        {
+            if(window.innerWidth <= 768)
+            {
+                documentBody.classList.add("bodystop");
+                return;
+            }
+            documentBody.classList.remove("bodystop");
+        }
+    }
+    window.addEventListener("load" ,  () => 
+    {
+        checkBcgImgBdrBounds();
+    });
+    window.addEventListener("resize" , () => 
+    {
+        checkBcgImgBdrBounds();
+    });
+    window.addEventListener("change" , () => 
+    {
+        checkBcgImgBdrBounds();
+    });
+
 
 
 

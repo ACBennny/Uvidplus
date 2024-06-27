@@ -70,7 +70,7 @@
             </div>
         </div>
 
-        <div class="give_space"></div>
+        <!--<div class="give_space"></div>-->
 
         <!-- Sub Slides -->
         <div class="more_content">

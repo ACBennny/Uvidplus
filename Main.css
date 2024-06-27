@@ -3639,6 +3639,7 @@ img
     .profileNavBox.shorten
     {
         width: calc(100% - var(--scrollBarWidth));
+        width: calc(100% - 2px);
     }  
     
     .switchProfOptBox:hover::before
@@ -4330,6 +4331,10 @@ only screen and (max-width: 800px)
 
 
     /* --------- Switch Profiles Modal ---------- */
+    .editProfileBase::-webkit-scrollbar
+    {
+        width: 2px;
+    }
 
     .userProfileScrollbar::-webkit-scrollbar-thumb,
     .userProfileScrollbar::-webkit-scrollbar-thumb:active,

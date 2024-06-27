@@ -42,7 +42,6 @@
             let auto_slide_count = 0;
             let auto_slide_timer;
             let auto_slide_timer_count = 15;
-            const watchSectionBdr = document.querySelectorAll(".watchSectionBdr");
             const scheduleLink = document.querySelector(".schedule_link");
             const latestEpCards = document.querySelectorAll(".latestEp_card");
             const latestEp_ShowMoreCardsBtn = document.querySelector(".latestEp_view_more");
@@ -158,7 +157,7 @@
                 // Set the title of the Episode link
                 latestEpCard.title = "Watch " + showTitle.textContent + " " + showSubTitle.textContent;
 
-                // Setting the alt text of the
+                // Setting the alt text of the images
                 showImg.alt = "Image of the Anime " + showTitle.textContent;
             });
 
