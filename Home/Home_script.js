@@ -46,6 +46,7 @@
             const latestEpCards = document.querySelectorAll(".latestEp_card");
             const latestEp_ShowMoreCardsBtn = document.querySelector(".latestEp_view_more");
             const latestEp_ViewScheduleBtn = document.querySelector(".latestEp_schedule");
+            const watchSectionBdr = document.querySelectorAll(".watchSectionBdr");
             let noOfVisible_latestEpChildren = 6;
             const newsCard = document.querySelectorAll(".news_card");
 
@@ -197,5 +198,27 @@
 
                 // Setting the alt text of Image
                 newsCardImg.alt = "News image";
+            });
+
+        
+
+        // DOUBLE SIDED SHOWS
+
+            // Double Sided Show Details
+            watchSectionBdr.forEach(sectionBdr => 
+            {
+                const showHead = sectionBdr.querySelector(".watchHead");
+                const showEpLink = sectionBdr.querySelector(".watchEpLink");
+                const showImg = sectionBdr.querySelector(".watchImg");
+                const showToSeries = sectionBdr.querySelector(".goToSeries");
+
+                // Set the title of the Episode link
+                showEpLink.title = "Watch " + showHead.textContent + " Season 1 Episode 1";
+
+                // Setting the alt text of the
+                showImg.alt = "Image of the Anime " + showHead.textContent;
+
+                // Setting the title of the "To Series" link
+                showToSeries.title = "Go to " + showHead.textContent + " series";
             });
     }
