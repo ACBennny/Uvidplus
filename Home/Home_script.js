@@ -34,7 +34,6 @@
 
         // DEFINTION
 
-            let allContentImg = document.querySelectorAll('img');
             const slideCover = document.querySelector('.intro_slide_cover');
             const intro_Slide_radioBtn = document.querySelectorAll('.intro_rad');
             const intro_LeftSlide_btn = document.querySelector('.intro_slide_ctnt_box .left_slide_arrow .intro_icon_Left');
@@ -49,16 +48,6 @@
             const watchSectionBdr = document.querySelectorAll(".watchSectionBdr");
             let noOfVisible_latestEpChildren = 6;
             const newsCard = document.querySelectorAll(".news_card");
-
-
-
-        // ALL IMAGES
-                    
-            // Sets loading to lazy
-            allContentImg.forEach(eachImg => 
-            {
-                eachImg.loading = "lazy";
-            });
 
 
 
