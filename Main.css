@@ -530,7 +530,7 @@ img
     position: absolute;
     bottom: 0;
     right: calc(0% - 10px);
-    width: 220px;
+    width: 175px;
     height: fit-content;
     max-height: 0px;
     transform: translateY(calc(100% + 10px));
@@ -574,8 +574,7 @@ img
     background-color: #3d3d3d;
 }
 
-.navBarProfileOpt:first-child,
-.navBarProfileOpt:nth-child(2)
+.navBarProfileOpt:first-child
 {
     border-bottom: 1px solid var(--color5);
 }
@@ -628,9 +627,9 @@ img
     cursor: default;
 }
 
-.navBarProfileInfoBox .navBarProfileNameBox
+.navBarProfileNameBox
 {
-    width: calc(100% - 75px);
+    width: calc(100% - 20px);
 }
 
 .navBarProfileNameBox .navBarProfileName
@@ -647,9 +646,6 @@ img
     -webkit-hyphens: auto;
     hyphens: auto;
     text-align: left;
-    color: var(--navBarProfileOptLinkClr);
-    font-size: 13px;
-    font-weight: 500;
     overflow-wrap: break-word;
     overflow: hidden;
 }

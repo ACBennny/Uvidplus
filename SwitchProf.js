@@ -245,7 +245,7 @@
             });
 
             // Update the profile Name
-            navProfileName.textContent = `${name}`;
+            // navProfileName.textContent = `${name}`;
 
             // Close the switch profile modal
             closeswitchProfBdr(bcg);

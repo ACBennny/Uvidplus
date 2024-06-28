@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="navBarProfileOptBdr">
                                     <div class="navBarProfileOptBox">
-                                        <button class="navBarProfileOpt">
+                                        <!-- <button class="navBarProfileOpt">
                                             <div class="navBarProfileInfoBox">
                                                 <div class="navBarProfileBox">
                                                     <div class="navBarProfileImageBox">
@@ -67,13 +67,18 @@
                                                     <p class="navBarProfileName">acbennny</p>
                                                 </div>
                                             </div>
-                                        </button>
+                                        </button> -->
                                         <button class="navBarProfileOpt">
                                             <a href="javascript:void(0)" class="navBarProfileOptLink open_switchProf">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarProfileOptLinkIcon">
-                                                    <path d="M32 96l320 0V32c0-12.9 7.8-24.6 19.8-29.6s25.7-2.2 34.9 6.9l96 96c6 6 9.4 14.1 9.4 22.6s-3.4 16.6-9.4 22.6l-96 96c-9.2 9.2-22.9 11.9-34.9 6.9s-19.8-16.6-19.8-29.6V160L32 160c-17.7 0-32-14.3-32-32s14.3-32 32-32zM480 352c17.7 0 32 14.3 32 32s-14.3 32-32 32H160v64c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-96-96c-6-6-9.4-14.1-9.4-22.6s3.4-16.6 9.4-22.6l96-96c9.2-9.2 22.9-11.9 34.9-6.9s19.8 16.6 19.8 29.6l0 64H480z"/>
+                                                    <!-- <path d="M32 96l320 0V32c0-12.9 7.8-24.6 19.8-29.6s25.7-2.2 34.9 6.9l96 96c6 6 9.4 14.1 9.4 22.6s-3.4 16.6-9.4 22.6l-96 96c-9.2 9.2-22.9 11.9-34.9 6.9s-19.8-16.6-19.8-29.6V160L32 160c-17.7 0-32-14.3-32-32s14.3-32 32-32zM480 352c17.7 0 32 14.3 32 32s-14.3 32-32 32H160v64c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-96-96c-6-6-9.4-14.1-9.4-22.6s3.4-16.6 9.4-22.6l96-96c9.2-9.2 22.9-11.9 34.9-6.9s19.8 16.6 19.8 29.6l0 64H480z"/> -->
+                                                    <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/>
+                                                    <!-- <path d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"/> -->
                                                 </svg>
-                                                <p class="navBarProfileOptLinkText">Switch Profile</p>
+                                                <!-- <div class="navBarProfileNameBox">
+                                                    <p class="navBarProfileOptLinkText navBarProfileName">Jujutsu Kaisen is a popular anime series that um..</p>
+                                                </div> -->
+                                                <p class="navBarProfileOptLinkText">Profile</p>
                                             </a>
                                         </button>
                                         <button class="navBarProfileOpt">
