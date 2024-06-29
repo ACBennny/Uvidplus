@@ -667,92 +667,6 @@ body
 
 
 
-/* ========== Special Watch ===========  */
-
-.specialEp_bdr
-{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 50px;
-    background-image: url(../Images/Uvid_green_bcg1_dark.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    backface-visibility: hidden;
-    overflow: hidden;
-}
-
-.specialEp_box
-{
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
-    height: 350px;
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    padding: 5px 20px;
-    border-radius: 10px;
-    background-color: #00000055;
-}
-
-.specialEp_box .specialEp_SpImgBdr
-{
-    position: absolute;
-    top: -100px;
-    right: -10px;
-    width: 150px;
-    height: 300px;
-    transform: rotate(-20deg);
-    z-index: 1;
-}
-
-.specialEp_SpImgBdr .specialEp_SpImgBox
-{
-    width: 100%;
-    height: 100%;
-}
-
-.specialEp_SpImgBox .specialEp_SpImg
-{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-}
-
-.specialEp_box .specialEp_OtImgBdr
-{
-    width: 30%;
-    width: 200px;
-    height: 300px;
-    height: 100%;
-}
-
-.specialEp_OtImgBdr .specialEp_OtImgBox
-{
-    width: 100%;
-    height: 100%;
-}
-
-.specialEp_OtImgBox .specialEp_OtImg
-{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-}
-
-.specialEp_box .specialEp_DetBdr
-{
-    width: 70%;
-    height: 100%;
-    z-index: 6;
-}
-
-
 
 
 /* =========== TYPE 1 CTNT =========== */
@@ -1399,33 +1313,6 @@ body
         width: 100%;
     }
 
-    .specialEp_bdr .specialEp_box
-    {
-        padding: 5px 10px;
-    }
-
-    .specialEp_box .specialEp_SpImgBdr
-    {
-        top: -95px;
-        right: 0;
-        z-index: 7;
-    }
-
-    .specialEp_box .specialEp_OtImgBdr
-    {
-        display: none;
-    }
-
-    .specialEp_box .specialEp_DetBdr
-    {
-        width: 100%;
-    }
-
-    .specialEp_DetBdr .infoBox
-    {
-        padding: 10px;
-    }
-
 }
 
 
@@ -1592,17 +1479,6 @@ body
     {
         width: 100%;
     }
-
-    .specialEp_bdr
-    {
-        padding: 10px 20px;
-    }
-
-    .specialEp_bdr .specialEp_box
-    {
-        padding: 5px;
-    }
-
 }
 
 
@@ -1658,13 +1534,6 @@ body
     .intro_info_notes .playShow_box .btn
     {
         height: 35px;
-    }
-
-    .specialEp_box .specialEp_SpImgBdr
-    {
-        top: -55px;
-        width: 100px;
-        height: 200px;
     }
 
     .type1_Ctnt_box_HeadLeft h1 .firsttxt
