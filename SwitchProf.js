@@ -2191,7 +2191,7 @@
                 }
                 else
                 {
-                    notification(`badNotify` , `Profile deleted`);
+                    notification(`notifyBad` , `Profile deleted`);
                     editProfOptTempName, editProfOptTempFrg, editProfOptTempBcg = null;
                     let profCurrBeignEdited = document.querySelector("#profile-is-curr-being-edited");
                     switchProfOptBdr.removeChild(profCurrBeignEdited);
