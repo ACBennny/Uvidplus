@@ -410,7 +410,7 @@
                                         </div>
                                         <span class="navOptTitle">Home</span>
                                     </a>
-                                    <a href="/Library/Movies.html" class="navOptLink" id="moviesLink" title="Movies">
+                                    <a href="/Latest.html" class="navOptLink" id="moviesLink" title="Movies">
                                         <div class="navOptIconBox">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navOptIcon">
                                                 <path d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288H175.5L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7H272.5L349.4 44.6z"/>
@@ -418,7 +418,7 @@
                                         </div>
                                         <span class="navOptTitle">Recent</span>
                                     </a>
-                                    <a href="/Library/Movies.html" class="navOptLink" id="moviesLink" title="Movies">
+                                    <a href="/Trending.html" class="navOptLink" id="moviesLink" title="Movies">
                                         <div class="navOptIconBox">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="navOptIcon">
                                                 <path d="M384 160c-17.7 0-32-14.3-32-32s14.3-32 32-32H544c17.7 0 32 14.3 32 32V288c0 17.7-14.3 32-32 32s-32-14.3-32-32V205.3L342.6 374.6c-12.5 12.5-32.8 12.5-45.3 0L192 269.3 54.6 406.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160c12.5-12.5 32.8-12.5 45.3 0L320 306.7 466.7 160H384z"/>

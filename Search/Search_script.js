@@ -550,9 +550,9 @@
                 {
                     show_link: `/Library/Anime/HowNotToSummonADemonLord.html`,
                     show_image: `/Library/Anime/img/69.jpg`,
-                    show_title: `How Not TO Summon a Demon Lord`,
+                    show_title: `Go-Tobun no Hanayome`,
                     show_section: `Anime`,
-                    show_code: `Go-Tobun no Hanayome Go-Tōbun no Hanayome anime`,
+                    show_code: `Go-Tobun no Hanayome Go-Tōbun no Hanayome The Quintessential Quintuplets anime`,
                 },
                 {
                     show_link: `/Library/Anime/HowNotToSummonADemonLord.html`,
