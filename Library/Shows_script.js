@@ -344,10 +344,6 @@
                     documentBody.classList.remove("bodystop");
                 }
             }
-            window.addEventListener("load" ,  () => 
-            {
-                checkBcgImgBdrBounds();
-            });
             window.addEventListener("resize" , () => 
             {
                 checkBcgImgBdrBounds();
@@ -356,6 +352,7 @@
             {
                 checkBcgImgBdrBounds();
             });
+            checkBcgImgBdrBounds();
 
 
 
