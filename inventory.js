@@ -1708,7 +1708,7 @@
         {
             show_link: `/Library/Anime/VivyFluoriteEyesSong.html`,
             show_thumbnail: `/Library/Anime/img/66.jpg`,
-            show_title: `Vivy Fluorite Eye's Song`,
+            show_title: `Vivy: Fluorite Eye's Song`,
             show_type: `TV`,
             show_status: `N/A`,
             show_languages: `N/A`,
@@ -1786,7 +1786,7 @@
         {
             show_link: `/Library/Anime/GoTobunNoHanayome.html`,
             show_thumbnail: `/Library/Anime/img/69.jpg`,
-            show_title: `Go Tobun no Hanayome`,
+            show_title: `Go-Tobun no Hanayome`,
             show_type: `TV`,
             show_status: `N/A`,
             show_languages: `N/A`,

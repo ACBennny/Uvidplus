@@ -35,7 +35,9 @@
         thisHTMLData = searchInventory.filter((item) => 
         {
             let titleWithoutSpaces = item.show_title.replace(/\s+/g, '').toLowerCase();
-            return titleWithoutSpaces === pathFilenameLC;
+            let invFileName = item.show_link.split('/').pop().split('.').shift();
+            let invFileNameLC = invFileName.toLocaleLowerCase();
+            return invFileNameLC === pathFilenameLC;
         });
 
         // If no match, redirect to error page
