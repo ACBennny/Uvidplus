@@ -7,7 +7,9 @@
  *
 ****************************************************************/
 
-    let path;
+    let path = window.location.pathname;
+    let pathFilename = path.split('/').pop().split('.').shift();
+    let pathFilenameLC = pathFilename.toLocaleLowerCase();
     let thisHTMLData;
 
     window.addEventListener(`load` , () => 
@@ -30,15 +32,17 @@
 
     function preShowSection()
     {
-        path = window.location.pathname;
-        thisHTMLData = searchInventory.filter((item) => item.show_link === path);
+        thisHTMLData = searchInventory.filter((item) => 
+        {
+            let titleWithoutSpaces = item.show_title.replace(/\s+/g, '').toLowerCase();
+            return titleWithoutSpaces === pathFilenameLC;
+        });
 
         // If no match, redirect to error page
         if(thisHTMLData.length <= 0)
         {
             window.open(`/Error404.html` , `_self`);
             return;
-        
         }
         
         let showHTMLCtnt = thisHTMLData.map((item) => 
