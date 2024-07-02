@@ -38,6 +38,7 @@
         {
             window.open(`/Error404.html` , `_self`);
             return;
+        
         }
         
         let showHTMLCtnt = thisHTMLData.map((item) => 
@@ -254,7 +255,7 @@
 
         document.body.insertAdjacentHTML(`afterbegin` , showHTMLCtnt);
 
-
+        document.title = `Uvid • Watch ${thisHTMLData[0].show_title}`;
         let seasonOverlaySelectorBox = document.querySelector(".seasons_selectorBox");
         let showEpData = thisHTMLData[0].show_watch;
         let tvPlus = 1;
