@@ -408,7 +408,7 @@
         {
             show_link: `/Library/Anime/TomodachiGame.html`,
             show_thumbnail: `/Library/Anime/img/16.jpg`,
-            show_title: `>Tomodachi Game`,
+            show_title: `Tomodachi Game`,
             show_type: `Anime`,
             show_status: `Finished Airing`,
             show_languages: `Japanese`,
@@ -428,7 +428,9 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: 12,}],
             show_watch: [{show_wtp: `tv`, show_wep: 12,},],
-            show_description: `N/A`,
+            show_description: `High school student Yuuichi Katagiri cherishes his close circle of friends, composed of four classmates: Yutori Kokorogi, Shiho Sawaragi, Makoto Shibe, and Tenji Mikasa. However, when the funds for the upcoming school trip are stolen, the incident causes Shiho and Makoto—who had been tasked with collecting the money—to distance themselves from the rest of their class.
+            Soon after, Yuuichi and his friends are deceived into meeting up and knocked unconscious by unknown assailants. After waking, the group find themselves confined in a white room with controversial figure Manabu-kun, who reveals that one of the five has gathered them together to clear their personal debt of twenty million yen. To pay off the amount, they must participate in a variety of psychological games that will test the true nature of their friendship and humanity.
+            Distressed and isolated from the outside world, Yuuichi and his friends need to cooperate to complete the games. But as their concealed feelings and problematic pasts begin to surface, their seemingly unbreakable bond may soon shatter into irreparable pieces.`,
             show_searchKey: `Tomodachi Game Tomodachi Gemu anime`,
         },
         {
