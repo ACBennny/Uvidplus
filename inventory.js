@@ -19,7 +19,7 @@
             show_languages: `Japanese`,
             show_subtitles: `Japanese`,
             show_genre: ``,
-            show_theme: `School, sorcery, magical, battles`,
+            show_theme: `school, sorcery, magical, battles`,
             show_year: `2018`,
             show_aired: `Oct 03, 2020 to Dec 28, 2023`,
             show_studios: `MAPPA`,
@@ -32,6 +32,7 @@
             show_trailers: [{show_trl: `https://www.youtube.com/embed/4A_X-Dvl0ws`}],
             show_movies: [{show_mov: `JJK0`}],
             show_episodes: [{show_ep: 24,}, {show_ep: 23,}],
+            show_watch: [{show_wtp: `tv`, show_wep: 24,}, {show_wtp: `movie`, show_wep: `JJK0`,}, {show_wtp: `tv`, show_wep: 23,}, {show_wtp: `movie`, show_wep: `JJK1`,},],
             show_description: `Jujutsu Kaisen is a popular anime series that premiered in 2018. 
             It is based on the manga of the same name written and illustrated by Gege Akutami. 
             The story follows a high school student named Yuji Itadori who becomes a Jujutsu Sorcerer

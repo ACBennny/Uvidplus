@@ -3185,24 +3185,16 @@ img
 
 .notifyBdr .notifyIconBox
 {
-    position: relative;
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
     width: var(--notifyIconBoxWidth);
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px;
     cursor: pointer;
-}
-
-.notifyIconBox::after
-{
-    content: '';
-    position: absolute;
-    top: 20%;
-    left: 0;
-    width: 1px;
-    height: 60%;
-    border-radius: 10px;
-    background-color: #000000;
 }
 
 .notifyIconBox .notifyIcon

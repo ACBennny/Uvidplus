@@ -515,45 +515,19 @@ html:root
 .abt-stmt-detBdr .abt-stmt-detBox
 {
     width: 100%;
-    padding: 10px;
     display: flex;
     justify-content: start;
 }
 
 .abt-stmt-detBox .abt-stmt-detBtn
 {
-    --abtStmtDetBtnClrs: var(--genWhiteTypeMid);
+    --abtStmtDetBtnClrs: var(--genWhiteTypeLight);
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    padding: 8px 12px;
     outline: none;
     border: none;
-    border-radius: 10px;
-    background-color: var(--genGreenTypeDark2);
     cursor: pointer;
-    transition: all 150ms ease-in-out;
-}
-
-.abt-stmt-detBtn .read_more_btnIcon
-{
-    position: relative;
-    width: 10px;
-    height: 2px;
-    background-color: var(--abtStmtDetBtnClrs);
-    transition: all 150ms ease-in-out;
-}
-
-.read_more_btnIcon::before
-{
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 2px;
-    height: 10px;
-    background-color: var(--abtStmtDetBtnClrs);
-    transform: translate(-50%, -50%);
     transition: all 150ms ease-in-out;
 }
 
@@ -562,7 +536,6 @@ html:root
     -webkit-appearance: none;
     appearance: none;
     color: var(--abtStmtDetBtnClrs);
-    margin-left: 5px;
     outline: none;
     border: none;
     pointer-events: none;
@@ -572,25 +545,14 @@ html:root
 {
     content: 'Read More';
     font-family: 'Poppins' , sans-serif;
-    font-size:  11px;
+    font-size:  14px;
+    font-weight: 600;
     transition: all 150ms ease-in-out;
 }
 
 .abt-stmt-checkBoxCls:checked:before
 {
     content: 'Read Less';
-}
-
-.abt-stmt-checkBoxCls:checked ~ .read_more_btnIcon
-{
-    transform: rotate(180deg);
-}
-
-.abt-stmt-checkBoxCls:checked ~ .read_more_btnIcon::before
-{
-    content: none;
-    opacity: 0;
-    visibility: hidden;
 }
 
 .abt-stmtText:has(+ .abt-stmt-detBdr .abt-stmt-checkBoxCls:checked)
@@ -1069,12 +1031,6 @@ html:root
     .quickAtnModal_btn:hover .quickAtnModal_btnText
     {
         color: var(--genWhiteTypeLight);
-    }
-    
-    .abt-stmt-detBtn:hover
-    {
-        --abtStmtDetBtnClrs: var(--genWhiteTypeLight);
-        background-color: var(--genGreenTypeDark1);
     }
 
     .seasons_headerBox:hover
