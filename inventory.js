@@ -32,7 +32,7 @@
             show_trailers: [{show_trl: `https://www.youtube.com/embed/4A_X-Dvl0ws`}],
             show_movies: [{show_mov: `JJK0`}],
             show_episodes: [{show_ep: 24,}, {show_ep: 23,}],
-            show_watch: [{show_wtp: `tv`, show_wep: 24,}, {show_wtp: `movie`, show_wep: `JJK0`,}, {show_wtp: `tv`, show_wep: 23,}, {show_wtp: `movie`, show_wep: `JJK1`,},],
+            show_watch: [{show_wtp: `tv`, show_wep: 24,}, {show_wtp: `movie`, show_wep: `JJK0`,}, {show_wtp: `tv`, show_wep: 23,},],
             show_description: `Jujutsu Kaisen is a popular anime series that premiered in 2018. 
             It is based on the manga of the same name written and illustrated by Gege Akutami. 
             The story follows a high school student named Yuji Itadori who becomes a Jujutsu Sorcerer
@@ -60,9 +60,9 @@
             show_rating: `R17+`,
             show_scores: `8.5`,
             show_trailers: [{show_trl: `N/A`}],
-            show_movies: [{show_mov: `N/A`}],
-            show_episodes: [{show_ep: `N/A`,}],
-            show_watch: [{show_wtp: `tv`, show_wep: 24,}, {show_wtp: `movie`, show_wep: `JJK0`,}, {show_wtp: `tv`, show_wep: 23,}, {show_wtp: `movie`, show_wep: `JJK1`,},],
+            show_movies: [{show_mov: `Mugen Train`, show_mov: `To the Swordsmith village`, show_mov: `To the Hashira`, }],
+            show_episodes: [{show_ep: 26, show_ep: 18, show_ep: 11,}],
+            show_watch: [{show_wtp: `tv`, show_wep: 26,}, {show_wtp: `movie`, show_wep: `Mugen Train`,}, {show_wtp: `tv`, show_wep: 18,}, {show_wtp: `movie`, show_wep: `To the Swordsmith village`,}, {show_wtp: `tv`, show_wep: 11,}, {show_wtp: `movie`, show_wep: `To the Hashira`,},],
             show_description: `Ever since the death of his father, the burden of supporting the family has fallen upon Tanjirou Kamado's shoulders. Though living impoverished on a remote mountain, the Kamado family are able to enjoy a relatively peaceful and happy life. One day, Tanjirou decides to go down to the local village to make a little money selling charcoal. On his way back, night falls, forcing Tanjirou to take shelter in the house of a strange man, who warns him of the existence of flesh-eating demons that lurk in the woods at night.
             When he finally arrives back home the next day, he is met with a horrifying sight—his whole family has been slaughtered. Worse still, the sole survivor is his sister Nezuko, who has been turned into a bloodthirsty demon. Consumed by rage and hatred, Tanjirou swears to avenge his family and stay by his only remaining sibling. Alongside the mysterious group calling themselves the Demon Slayer Corps, Tanjirou will do whatever it takes to slay the demons and protect the remnants of his beloved sister's humanity`,
             show_searchKey: `Demon Slayer Kimetsu No Yaiba anime`,
