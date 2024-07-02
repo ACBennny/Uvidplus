@@ -315,7 +315,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="//Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <a href="/Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/Anime/img/5.jpg" alt="" class="cardImg">
                                             </div>
@@ -447,7 +447,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood The arch Nemesis</h3>
+                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood</h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -914,7 +914,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="//Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <a href="/Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/Anime/img/5.jpg" alt="" class="cardImg">
                                             </div>
@@ -1046,7 +1046,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood The arch Nemesis</h3>
+                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood</h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1823,7 +1823,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="//Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <a href="/Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/Anime/img/5.jpg" alt="" class="cardImg">
                                             </div>
@@ -1955,7 +1955,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood The arch Nemesis</h3>
+                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood</h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -2422,7 +2422,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="//Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <a href="/Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/Anime/img/5.jpg" alt="" class="cardImg">
                                             </div>
@@ -2554,7 +2554,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood The arch Nemesis</h3>
+                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood</h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -3114,7 +3114,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="//Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <a href="/Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/Anime/img/5.jpg" alt="" class="cardImg">
                                             </div>
@@ -3246,7 +3246,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood The arch Nemesis</h3>
+                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood</h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -3713,7 +3713,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="//Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <a href="/Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/Anime/img/5.jpg" alt="" class="cardImg">
                                             </div>
@@ -3845,7 +3845,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood The arch Nemesis</h3>
+                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood</h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -4312,7 +4312,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="//Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <a href="/Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/Anime/img/5.jpg" alt="" class="cardImg">
                                             </div>
@@ -4444,7 +4444,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood The arch Nemesis</h3>
+                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood</h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -4911,7 +4911,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="//Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <a href="/Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/Anime/img/5.jpg" alt="" class="cardImg">
                                             </div>
@@ -5043,7 +5043,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood The arch Nemesis</h3>
+                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood</h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -5609,7 +5609,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="//Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <a href="/Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/Anime/img/5.jpg" alt="" class="cardImg">
                                             </div>
@@ -5741,7 +5741,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood The arch Nemesis</h3>
+                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood</h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -6208,7 +6208,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="//Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <a href="/Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/Anime/img/5.jpg" alt="" class="cardImg">
                                             </div>
@@ -6340,7 +6340,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood The arch Nemesis</h3>
+                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood</h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -6809,7 +6809,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="//Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <a href="/Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/Anime/img/5.jpg" alt="" class="cardImg">
                                             </div>
@@ -6941,7 +6941,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood The arch Nemesis</h3>
+                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood</h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -7408,7 +7408,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="//Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <a href="/Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/Anime/img/5.jpg" alt="" class="cardImg">
                                             </div>
@@ -7540,7 +7540,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood The arch Nemesis</h3>
+                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood</h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -8099,7 +8099,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="//Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <a href="/Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/Anime/img/5.jpg" alt="" class="cardImg">
                                             </div>
@@ -8231,7 +8231,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood The arch Nemesis</h3>
+                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood</h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -8698,7 +8698,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="//Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <a href="/Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/Anime/img/5.jpg" alt="" class="cardImg">
                                             </div>
@@ -8830,7 +8830,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood The arch Nemesis</h3>
+                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood</h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -9412,7 +9412,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="//Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <a href="/Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/Anime/img/5.jpg" alt="" class="cardImg">
                                             </div>
@@ -9544,7 +9544,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood The arch Nemesis</h3>
+                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood</h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -10011,7 +10011,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="//Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <a href="/Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/Anime/img/5.jpg" alt="" class="cardImg">
                                             </div>
@@ -10143,7 +10143,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood The arch Nemesis</h3>
+                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood</h3>
                                                     </div>
                                                 </div>
                                             </div>
