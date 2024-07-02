@@ -38,7 +38,7 @@
             The story follows a high school student named Yuji Itadori who becomes a Jujutsu Sorcerer
             after swallowing a cursed object to protect his friends.
             He then joins the Tokyo Metropolitan Magic Technical College to learn more about Jujutsu and fight against cursed spirits.`,
-            show_searchKey: `Jujutsu Kaisen sorcery anime`,
+            show_searchKey: `JJK Jujutsu Kaisen sorcery anime`,
         },
         {
             show_link: `/Library/Anime/DemonSlayer.html`,
@@ -90,8 +90,8 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
-            show_searchKey: `Shingeki no Kyojin Attack On Titan anime`,
+            show_description: `N/A`,
+            show_searchKey: `AOT Shingeki no Kyojin Attack On Titan anime`,
         },
         {
             show_link: `/Library/Anime/Naruto.html`,
@@ -116,7 +116,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Naruto anime`,
         },
         {
@@ -133,8 +133,8 @@
             show_aired: `N/A`,
             show_studios: `N/A`,
             show_country: `N/A`,
-            show_foreground: `/Library/Anime/Watch/JujutsuKaisen/img/1.jpg`,
-            show_background: `/Library/Anime/Watch/JujutsuKaisen/img/2.jpg`,
+            show_foreground: `/Library/Anime/Watch/FullmetalPanic/img/1.jpg`,
+            show_background: `/Library/Anime/Watch/FullmetalPanic/img/2.jpg`,
             show_quality: `N/A`,
             show_rating: `N/A`,
             show_scores: `8.0`,
@@ -142,7 +142,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Furumetaru Panikku Fullmetal Panic anime`,
         },
         {
@@ -159,8 +159,8 @@
             show_aired: `N/A`,
             show_studios: `N/A`,
             show_country: `N/A`,
-            show_foreground: `/Library/Anime/Watch/JujutsuKaisen/img/1.jpg`,
-            show_background: `/Library/Anime/Watch/JujutsuKaisen/img/2.jpg`,
+            show_foreground: `/Library/Anime/Watch/FullmetalAlchemist/img/1.jpg`,
+            show_background: `/Library/Anime/Watch/FullmetalAlchemist/img/2.jpg`,
             show_quality: `N/A`,
             show_rating: `N/A`,
             show_scores: `8.1`,
@@ -168,7 +168,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Hagane no Renkinjutsushi Fullmetal Alchemist anime`,
         },
         {
@@ -185,8 +185,8 @@
             show_aired: `N/A`,
             show_studios: `N/A`,
             show_country: `N/A`,
-            show_foreground: `/Library/Anime/Watch/JujutsuKaisen/img/1.jpg`,
-            show_background: `/Library/Anime/Watch/JujutsuKaisen/img/2.jpg`,
+            show_foreground: `/Library/Anime/Watch/FullmetalAlchemistBrotherhood/img/1.jpg`,
+            show_background: `/Library/Anime/Watch/FullmetalAlchemistBrotherhood/img/2.jpg`,
             show_quality: `N/A`,
             show_rating: `N/A`,
             show_scores: `9.1`,
@@ -194,7 +194,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Hagane no Renkinjutsushi Fullmetal Alchemist Brotherhood anime`,
         },
         {
@@ -211,8 +211,8 @@
             show_aired: `N/A`,
             show_studios: `N/A`,
             show_country: `N/A`,
-            show_foreground: `/Library/Anime/Watch/JujutsuKaisen/img/1.jpg`,
-            show_background: `/Library/Anime/Watch/JujutsuKaisen/img/2.jpg`,
+            show_foreground: `/Library/Anime/Watch/ClassroomoftheElite/img/1.jpg`,
+            show_background: `/Library/Anime/Watch/ClassroomoftheElite/img/2.jpg`,
             show_quality: `N/A`,
             show_rating: `N/A`,
             show_scores: `8.0`,
@@ -220,7 +220,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Classroom of the Elite Yokoso Jitsuryoku Shijo Shugi no Kyoshitsu anime`,
         },
         {
@@ -237,8 +237,8 @@
             show_aired: `N/A`,
             show_studios: `N/A`,
             show_country: `N/A`,
-            show_foreground: `/Library/Anime/Watch/JujutsuKaisen/img/1.jpg`,
-            show_background: `/Library/Anime/Watch/JujutsuKaisen/img/2.jpg`,
+            show_foreground: `/Library/Anime/Watch/BlueExorcist/img/1.jpg`,
+            show_background: `/Library/Anime/Watch/BlueExorcist/img/2.jpg`,
             show_quality: `N/A`,
             show_rating: `N/A`,
             show_scores: `7.5`,
@@ -246,13 +246,13 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Ao no Ekusoshisuto Gekijoban Blue Exorcist anime`,
         },
         {
-            show_link: `/Library/Anime/RentaGirlfriend.html`,
+            show_link: `/Library/Anime/SpyXFamily.html`,
             show_thumbnail: `/Library/Anime/img/10.jpg`,
-            show_title: `Spy X Family`,
+            show_title: `SpyxFamily`,
             show_type: `TV`,
             show_status: `N/A`,
             show_languages: `N/A`,
@@ -263,8 +263,8 @@
             show_aired: `N/A`,
             show_studios: `N/A`,
             show_country: `N/A`,
-            show_foreground: `/Library/Anime/Watch/JujutsuKaisen/img/1.jpg`,
-            show_background: `/Library/Anime/Watch/JujutsuKaisen/img/2.jpg`,
+            show_foreground: `/Library/Anime/Watch/RentaGirlfriend/img/1.jpg`,
+            show_background: `/Library/Anime/Watch/RentaGirlfriend/img/2.jpg`,
             show_quality: `N/A`,
             show_rating: `N/A`,
             show_scores: `6.9`,
@@ -272,11 +272,11 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
-            show_searchKey: `Spy X Family anime`,
+            show_description: `N/A`,
+            show_searchKey: `SpyxFamily Spy X Family anime`,
         },
         {
-            show_link: `/Library/Anime/Naruto.html`,
+            show_link: `/Library/Anime/RentAGirlfriend.html`,
             show_thumbnail: `/Library/Anime/img/11.jpg`,
             show_title: `Rent a Girlfriend`,
             show_type: `TV`,
@@ -298,7 +298,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Rent a Girlfriend Kanojo Okarishimasu anime`,
         },
         {
@@ -324,7 +324,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Tokyo Ghoul Tokyo Guru anime`,
         },
         {
@@ -350,7 +350,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Inazuma Eleven Inazuma Irebun anime`,
         },
         {
@@ -376,7 +376,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Aoashi anime`,
         },
         {
@@ -402,7 +402,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Cyberpunk Edgerunners Saibapanku Edjirannazu anime`,
         },
         {
@@ -428,7 +428,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: 12,}],
             show_watch: [{show_wtp: `tv`, show_wep: 12,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Tomodachi Game Tomodachi Gemu anime`,
         },
         {
@@ -454,7 +454,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Kaguya-sama wa Kokurasetai Kaguya sama wa Kokurasetai Love is War anime`,
         },
         {
@@ -480,7 +480,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Kakegure Kakegurui anime`,
         },
         {
@@ -506,7 +506,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `That I recently got Reincarnated as a Slime Tensei Shitara Suraimu Datta Ken anime`,
         },
         {
@@ -532,7 +532,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Tate no Yūsha no Nariagari Rising of the Shield anime`,
         },
         {
@@ -558,7 +558,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Vaioretto Evagaden Violet Evergarden anime`,
         },
         {
@@ -584,7 +584,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Shigatsu wa Kimi no Uso Your lie in April anime`,
         },
         {
@@ -610,7 +610,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Kunoku no Basket Kuroko no Basuke anime`,
         },
         {
@@ -636,7 +636,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Enen no Shouboutai Fireforce no Basuke anime`,
         },
         {
@@ -662,7 +662,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Vinland Saga Vinrando Saga anime`,
         },
         {
@@ -688,7 +688,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Tokyo Revengers Tōkyō Ribenjāzu Tokyo Ribenjazu anime`,
         },
         {
@@ -714,7 +714,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `mha My Hero Academia Boku no Hīrō Akademia Boku no Hiro Akademia anime`,
         },
         {
@@ -740,7 +740,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Cowboy Bebop Kaubōi Bibappu Kauboi Bibappu anime`,
         },
         {
@@ -766,7 +766,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Death Note anime`,
         },
         {
@@ -792,7 +792,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `One Piece anime`,
         },
         {
@@ -818,7 +818,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `One Punch man Wanpanman anime`,
         },
         {
@@ -844,7 +844,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Hunter X Hunter anime`,
         },
         {
@@ -870,7 +870,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Steins Gate anime`,
         },
         {
@@ -896,7 +896,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Dragon ball Z anime`,
         },
         {
@@ -922,7 +922,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Bleach anime`,
         },
         {
@@ -948,7 +948,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Akame ga Kill! Akame ga Kiru! anime`,
         },
         {
@@ -974,7 +974,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Sword Art Online Sōdo Āto Onrain Sodo Ato Onrain anime`,
         },
         {
@@ -1000,7 +1000,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Bongou Stray Dogs Bungu Stray Dogs Bongu Stray Dogs Bungou Stray Dogs anime`,
         },
         {
@@ -1026,7 +1026,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Mob Psycho Mobu Saiko Hyaku anime`,
         },
         {
@@ -1052,7 +1052,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Samurai Champloo anime`,
         },
         {
@@ -1078,7 +1078,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `HellSing Hell Sing anime`,
         },
         {
@@ -1104,7 +1104,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Black Lagoon BlackLagoon anime`,
         },
         {
@@ -1130,7 +1130,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Future Diary anime`,
         },
         {
@@ -1156,7 +1156,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Another anime`,
         },
         {
@@ -1182,7 +1182,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Fairy Tale FairyTale anime`,
         },
         {
@@ -1208,7 +1208,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Afro Samurai AfroSamurai anime`,
         },
         {
@@ -1234,7 +1234,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Demon King Damaio anime`,
         },
         {
@@ -1260,7 +1260,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Paradise Kiss anime`,
         },
         {
@@ -1286,7 +1286,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Noragami anime`,
         },
         {
@@ -1312,7 +1312,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Goblin Slayer GoblinSlayer anime`,
         },
         {
@@ -1338,7 +1338,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Dr Stone DrStone anime`,
         },
         {
@@ -1364,7 +1364,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Blue Lock BlueLock anime`,
         },
         {
@@ -1390,7 +1390,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `SeishunButa Seishun Buta Yarō anime`,
         },
         {
@@ -1416,7 +1416,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Dark Gathering  Daku Gyazaringu Dāku Gyazaringu anime`,
         },
         {
@@ -1442,7 +1442,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Shy Teru Momijiyama anime`,
         },
         {
@@ -1468,7 +1468,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `MF Ghost MFGhost MF Gōsuto MF Gosuto anime`,
         },
         {
@@ -1494,7 +1494,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Yakusoku no neverland Promised Neverland anime`,
         },
         {
@@ -1520,7 +1520,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `SaikiK Saiki Kusuo no Sai-nan The Disastrous Life of Saiki K anime`,
         },
         {
@@ -1546,7 +1546,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `How A Realistic Hero RebuiltThe Kingdom Genjitsu Shugi Yusha no Okoku Saikenki Genjitsu Shugi Yūsha no Ōkoku Saikenki anime`,
         },
         {
@@ -1572,7 +1572,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `AsteriskWar Asterisk War Gakusen Toshi Asutarisuku anime`,
         },
         {
@@ -1598,7 +1598,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `BlackCover Black Cover Burakku Kurōbā Burakku Kuroba anime`,
         },
         {
@@ -1624,7 +1624,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Bullbuster Bull buster anime`,
         },
         {
@@ -1650,7 +1650,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `ChainsawMan Chainsaw man Chensō Man Chenso Man anime`,
         },
         {
@@ -1676,7 +1676,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Dororo anime`,
         },
         {
@@ -1702,7 +1702,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Erased Boku dake ga Inai Mach anime`,
         },
         {
@@ -1728,7 +1728,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Vivy Fluorite Eye's Song Vivy: Fluorite Eye's Song anime`,
         },
         {
@@ -1754,7 +1754,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Netoge no Yome wa Onna no Ko Janai to Omotta And You Thought There Is Never a Girl Online anime`,
         },
         {
@@ -1780,7 +1780,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Haikyū Haikyu Haikyuu anime`,
         },
         {
@@ -1806,7 +1806,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Go-Tobun no Hanayome Go-Tōbun no Hanayome The Quintessential Quintuplets anime`,
         },
         {
@@ -1832,7 +1832,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `HNTSADL Isekai Maō to Shōkan Shōjo no Dorei Majutsu Isekai Mao to Shokan Shojo no Dorei Majutsu How Not TO Summon a Demon Lord anime`,
         },
         {
@@ -1858,7 +1858,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Hori-san to Miyamura-kun Hori and Miyamura Horimiya anime`,
         },
         {
@@ -1884,7 +1884,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Kimi to boku anime`,
         },
         {
@@ -1910,7 +1910,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Tomo-chan Is a Girl! Tomo-chan wa Onnanoko! anime`,
         },
         {
@@ -1936,7 +1936,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Bocabyhi the Rock Hiroi Kikuri no Fukazake Nikki anime`,
         },
         {
@@ -1962,7 +1962,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Link Click Shíguāng Dàilǐrén Shiguang Dailiren anime`,
         },
         {
@@ -1988,7 +1988,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `My Life as Inu-san's dog Inu ni Nattara Suki na Hito ni Hirowareta anime`,
         },
         {
@@ -2014,7 +2014,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `My Stepmom's daughter is my Ex Irido Mizuto anime`,
         },
         {
@@ -2040,7 +2040,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Ōbārōdo Obarodo Overlord anime`,
         },
         {
@@ -2066,7 +2066,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `TalentlessNana Talentless Nana Munō na Nana Muno na Nana anime`,
         },
         {
@@ -2092,7 +2092,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Vanitasu no Karute Vanitas no Carte anime anime`,
         },
         {
@@ -2118,7 +2118,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `InitialD Initial D Inisharu Dī Inisharu Di anime`,
         },
         {
@@ -2144,7 +2144,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Assassination Classroom Ansatsu Kyōshitsu Ansatsu Kyoshitsu anime`,
         },
         {
@@ -2170,7 +2170,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Mashle Magic and Muscle Masshuru anime`,
         },
         {
@@ -2224,7 +2224,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Yatagarasu anime`,
         },
         {
@@ -2250,7 +2250,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Wind Breaker Uindo Bureikā Uindo Bureika anime`,
         },
         {
@@ -2276,7 +2276,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Apothecary Diaries Kusuriya no Hitorigoto anime`,
         },
         {
@@ -2302,7 +2302,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `A Sign Of Affection Hibike! Yūfoniamu Hibike! Yufoniamu anime`,
         },
         {
@@ -2328,7 +2328,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Sound! Euphonium anime`,
         },
         {
@@ -2354,7 +2354,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `The Witch And The Beast anime`,
         },
         {
@@ -2380,7 +2380,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Black Butler Kuroshitsuji anime`,
         },
         {
@@ -2406,7 +2406,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `High Speed Etoile HighSpeed Etoile HIGHSPEED Étoile anime`,
         },
         {
@@ -2432,7 +2432,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Metallic Rouge Metarikku Rūju Metarikku Ruju anime`,
         },
         {
@@ -2458,7 +2458,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Akuma Drive AkumaDrive anime`,
         },
         {
@@ -2484,7 +2484,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Astro Note Asutoro Nōto Asutoro Noto anime`,
         },
         {
@@ -2510,7 +2510,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Heaven Officials Blessings Heaven Official's Blessings Tiān Guān Cì Fú Tian Guan Ci Fu anime`,
         },
         {
@@ -2536,7 +2536,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `The Wrong Way To Use Healing Magic anime`,
         },
         {
@@ -2562,7 +2562,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Konosuba God's Blessing on This Wonderful World! KonoSuba: God's Blessing on This Wonderful World! anime`,
         },
         {
@@ -2588,7 +2588,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Kaiju No. 8 Kaiju No.8 Kaiju No8 KaijuNo8 Kaijū Hachigō Kaiju Hachigo anime`,
         },
         {
@@ -2614,7 +2614,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `The New Gate anime`,
         },
         {
@@ -2640,7 +2640,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `SoloLeveling Solo Leveling Na Honjaman Rebeleop anime`,
         },
         {
@@ -2666,7 +2666,7 @@
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: ``,
+            show_description: `N/A`,
             show_searchKey: `Daily Life Of An Immortal King Xiān Wáng de Rìcháng Shēnghuó Xian Wáng de Richang Shenghuo anime`,
         },
     ];
