@@ -75,7 +75,7 @@ html:root
     --navFooterElemColor: #878787;
     --navFooterElemHoverColor: var(--genWhiteTypeLight);
     --navFooterCompClr: #616060;
-    --navBarNotificationPosT: calc(var(--navBarHeight) + 10px);
+    --navBarNotificationPosT: calc(var(--navBarHeight) - 10px);
     --navBarNotificationPosR: -100%;
     --navBarNotificationTitleBoxHeight: 50px;
     --switchProfileFadeTranstion: 750ms;
