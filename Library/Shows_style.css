@@ -100,7 +100,6 @@ html:root
     transition: 500ms;
     padding: 20px 0px;
     transition: 300ms;
-    overflow: hidden;
 }
 
 .title-plate h1
@@ -597,7 +596,6 @@ html:root
 {
     width: 100%;
     transition: 300ms;
-    overflow: hidden;
 }
 
 .sect-ep .sect-controls
@@ -842,7 +840,7 @@ html:root
 {
     display: flex;
     width: 100%;
-    min-height: 75px;
+    min-height: 125px;
     margin-bottom: 50px;
     overflow: hidden;
 }
