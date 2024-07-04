@@ -771,7 +771,19 @@ html:root
 
 .seasons_selector .selectorMain
 {
+    --selectorMainTextNo: 1;
+    --selectorMainTextH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--selectorMainTextNo);
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    max-height: calc(var(--selectorMainTextNo) * 1em * var(--selectorMainTextH));
+    line-height: var(--selectorMainTextH);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    max-width: calc(100% - 85px);
     font-size: 12px;
+    overflow: hidden;
 }
 
 .seasons_selector .selectorMinor
