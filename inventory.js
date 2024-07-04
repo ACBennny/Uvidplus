@@ -751,7 +751,7 @@
             show_thumbnail: `/Library/Anime/img/27.jpg`,
             show_title: `My Hero Academia`,
             show_type: `TV`,
-            show_status: `N/A`,
+            show_status: `Finished Airing`,
             show_languages: `Japanese`,
             show_subtitles: `N/A`,
             show_genre: `Action`,
