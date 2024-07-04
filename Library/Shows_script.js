@@ -97,7 +97,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="quick_atnBox watchTrailer_box" src="${null}" title="Watch trailer">
+                                            <div class="quick_atnBox watchTrailer_box" src="N/A" title="Watch trailer">
                                                 <div class="quick_atnCtnt">
                                                     <div class="topCtnt">
                                                         <div class="topIconBox">
