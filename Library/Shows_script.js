@@ -449,6 +449,14 @@
             {
                 const trailerTitle = showHeaderName.textContent;
                 const trailerSrc = watchTrailerBox.getAttribute("src");
+
+                // if source is empty or not available(N/A) notify and return
+                if(((trailerSrc == undefined) || (trailerSrc == null) || (trailerSrc == ``) || (trailerSrc == `N/A`) || (trailerSrc == ` `)))
+                {
+                    notification(`notifyBad` , `No trailers available`);
+                    return;
+                }
+
                 const trailerBdr = document.createElement("div");
                 trailerBdr.classList.add("trailer_Bdr");
                 trailerBdr.innerHTML =
