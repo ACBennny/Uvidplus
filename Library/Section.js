@@ -52,7 +52,7 @@
                 const cardHTML = 
                 `
                     <div class="slide_card_base">
-                        <div class="slide_card_bdr max_sizing">
+                        <div class="slide_card_bdr">
                             <div class="slide_card_box">
                                 <div class="slide_card">
                                     <a href="${item.show_link}"  title="Watch ${item.show_title}" class="cardLinkCover"></a>
