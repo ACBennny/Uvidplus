@@ -716,7 +716,7 @@
                                         <div class="slide_card">
                                             <a href="/Library/Anime/Kakegurui.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/7.jpg" alt="" class="cardImg">
+                                                <img src="/Library/Anime/img/18.jpg" alt="" class="cardImg">
                                             </div>
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
@@ -1315,7 +1315,7 @@
                                         <div class="slide_card">
                                             <a href="/Library/Anime/Kakegurui.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/7.jpg" alt="" class="cardImg">
+                                                <img src="/Library/Anime/img/18.jpg" alt="" class="cardImg">
                                             </div>
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
@@ -2224,7 +2224,7 @@
                                         <div class="slide_card">
                                             <a href="/Library/Anime/Kakegurui.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/7.jpg" alt="" class="cardImg">
+                                                <img src="/Library/Anime/img/18.jpg" alt="" class="cardImg">
                                             </div>
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
@@ -2823,7 +2823,7 @@
                                         <div class="slide_card">
                                             <a href="/Library/Anime/Kakegurui.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/7.jpg" alt="" class="cardImg">
+                                                <img src="/Library/Anime/img/18.jpg" alt="" class="cardImg">
                                             </div>
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
@@ -3515,7 +3515,7 @@
                                         <div class="slide_card">
                                             <a href="/Library/Anime/Kakegurui.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/7.jpg" alt="" class="cardImg">
+                                                <img src="/Library/Anime/img/18.jpg" alt="" class="cardImg">
                                             </div>
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
@@ -4114,7 +4114,7 @@
                                         <div class="slide_card">
                                             <a href="/Library/Anime/Kakegurui.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/7.jpg" alt="" class="cardImg">
+                                                <img src="/Library/Anime/img/18.jpg" alt="" class="cardImg">
                                             </div>
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
@@ -4713,7 +4713,7 @@
                                         <div class="slide_card">
                                             <a href="/Library/Anime/Kakegurui.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/7.jpg" alt="" class="cardImg">
+                                                <img src="/Library/Anime/img/18.jpg" alt="" class="cardImg">
                                             </div>
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
@@ -5312,7 +5312,7 @@
                                         <div class="slide_card">
                                             <a href="/Library/Anime/Kakegurui.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/7.jpg" alt="" class="cardImg">
+                                                <img src="/Library/Anime/img/18.jpg" alt="" class="cardImg">
                                             </div>
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
@@ -6010,7 +6010,7 @@
                                         <div class="slide_card">
                                             <a href="/Library/Anime/Kakegurui.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/7.jpg" alt="" class="cardImg">
+                                                <img src="/Library/Anime/img/18.jpg" alt="" class="cardImg">
                                             </div>
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
@@ -6609,7 +6609,7 @@
                                         <div class="slide_card">
                                             <a href="/Library/Anime/Kakegurui.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/7.jpg" alt="" class="cardImg">
+                                                <img src="/Library/Anime/img/18.jpg" alt="" class="cardImg">
                                             </div>
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
@@ -7210,7 +7210,7 @@
                                         <div class="slide_card">
                                             <a href="/Library/Anime/Kakegurui.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/7.jpg" alt="" class="cardImg">
+                                                <img src="/Library/Anime/img/18.jpg" alt="" class="cardImg">
                                             </div>
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
@@ -7809,7 +7809,7 @@
                                         <div class="slide_card">
                                             <a href="/Library/Anime/Kakegurui.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/7.jpg" alt="" class="cardImg">
+                                                <img src="/Library/Anime/img/18.jpg" alt="" class="cardImg">
                                             </div>
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
@@ -8062,7 +8062,7 @@
                     </div>
                     <div class="watchSection watchSectionImgBdr">
                         <div class="watchImgBox">
-                            <img src="/Library/Anime/Watch/MFGhost/img/1.jpeg" alt="" class="watchImg">
+                            <img src="/Library/Anime/Watch/MFGhost/img/1.jpg" alt="" class="watchImg">
                             <a href="/Library/Anime/MFGhost.html" class="goToSeries" title="">
                                 <span class="goToSeries_iconBox">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="goToSeries_icon">
@@ -8500,7 +8500,7 @@
                                         <div class="slide_card">
                                             <a href="/Library/Anime/Kakegurui.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/7.jpg" alt="" class="cardImg">
+                                                <img src="/Library/Anime/img/18.jpg" alt="" class="cardImg">
                                             </div>
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
@@ -9099,7 +9099,7 @@
                                         <div class="slide_card">
                                             <a href="/Library/Anime/Kakegurui.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/7.jpg" alt="" class="cardImg">
+                                                <img src="/Library/Anime/img/18.jpg" alt="" class="cardImg">
                                             </div>
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
@@ -9813,7 +9813,7 @@
                                         <div class="slide_card">
                                             <a href="/Library/Anime/Kakegurui.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/7.jpg" alt="" class="cardImg">
+                                                <img src="/Library/Anime/img/18.jpg" alt="" class="cardImg">
                                             </div>
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
@@ -10412,7 +10412,7 @@
                                         <div class="slide_card">
                                             <a href="/Library/Anime/Kakegurui.html" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/7.jpg" alt="" class="cardImg">
+                                                <img src="/Library/Anime/img/18.jpg" alt="" class="cardImg">
                                             </div>
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
