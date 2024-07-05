@@ -178,7 +178,7 @@
             show_trailers: [{show_trl: `N/A`}],
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: 24,}],
-            show_watch: [{show_wtp: `N/A`, show_wep: 24,},],
+            show_watch: [{show_wtp: `tv`, show_wep: 24,},],
             show_description: `Mithril, a covert military institution using state-of-the-art technology to combat terrorist operations, assigns a specialized team to a sensitive mission. Under the command of superior officer Melissa Mao, sergeants Sousuke Sagara and Kurz Weber must secretly protect Kaname Chidori—a teenage girl who unconsciously holds breakthrough scientific knowledge and is considered a "Whispered"—from intelligence agencies and other organizations pursuing her abilities.
             </br></br>
             While Kurz and Melissa are to assist him remotely, Sousuke enrolls at Kaname's high school as one of her classmates to closely monitor her. However, his militaristic upbringing and poor social skills lead to a difficult adjustment to civilian life. Not only does he attract unnecessary attention, but his actions frequently make Kaname suspicious of him.
