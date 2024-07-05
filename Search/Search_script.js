@@ -798,10 +798,10 @@
                     {
                         return `
                         <div class="slide_card_base">
-                            <div class="slide_card_bdr">
+                            <div class="slide_card_bdr max_sizing">
                                 <div class="slide_card_box">
                                     <div class="slide_card">
-                                        <a href="${show_link}"  title="Watch ${show_title}" class="cardLinkCover"></a>
+                                        <a href="${show_link}" title="Watch ${show_title}" class="cardLinkCover"></a>
                                         <div class="cardImgBox">
                                             <img src="${show_image}" alt="Image of the ${show_section}: ${show_title}" class="cardImg">
                                         </div>
