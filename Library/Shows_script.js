@@ -211,7 +211,7 @@
                                             <div class="sect-controls">
                                                 <div class="seasons_headerBdr">
                                                     <div class="seasons_headerBox" title="Select Season" aria-label="Select Season">
-                                                        <div class="seasons_headerText">Season 1</div>
+                                                        <div class="seasons_headerText">N/A</div>
                                                     </div>
                                                     <div class="seasons_selectorBdr">
                                                         <div class="seasons_selectorHeader">
@@ -221,20 +221,7 @@
                                                             </div>
                                                             <div class="seasons_selectorHeaderIcon"></div>
                                                         </div>
-                                                        <div class="seasons_selectorBox">
-                                                            <!-- <div class="seasons_selector active" show-type="series" ep-length="24">
-                                                                <div class="selectorMain">Season 1</div>
-                                                                <p class="selectorMinor"></p>
-                                                            </div>
-                                                            <div class="seasons_selector" show-type="movie" ep-length="1">
-                                                                <div class="selectorMain">JJK 0</div>
-                                                                <p class="selectorMinor"></p>
-                                                            </div>
-                                                            <div class="seasons_selector" show-type="series" ep-length="23">
-                                                                <div class="selectorMain">Season 2</div>
-                                                                <p class="selectorMinor"></p>
-                                                            </div> -->
-                                                        </div>
+                                                        <div class="seasons_selectorBox"></div>
                                                     </div>
                                                 </div>
                                                 <div class="episode_sortBdr">
@@ -260,8 +247,8 @@
         }).join('');
 
         document.body.insertAdjacentHTML(`afterbegin` , showHTMLCtnt);
-
         document.title = `Uvid • Watch ${thisHTMLData[0].show_title}`;
+
         let seasonOverlaySelectorBox = document.querySelector(".seasons_selectorBox");
         let showEpData = thisHTMLData[0].show_watch;
         let tvPlus = 1;
@@ -294,9 +281,18 @@
             }
         });
 
+        setSeasonHeaderText();
         startShowSection();
     }
 
+    function setSeasonHeaderText()
+    {
+        let sns_hdrTxt = document.querySelector(".seasons_headerText");
+        let firstSnsSelector = document.querySelector(".seasons_selector .selectorMain");
+
+        if((firstSnsSelector == undefined) || (firstSnsSelector == null)) return;
+        sns_hdrTxt.textContent = firstSnsSelector.textContent;
+    }
 
     function startShowSection()
     {
@@ -450,7 +446,7 @@
                 const trailerSrc = watchTrailerBox.getAttribute("src");
 
                 // if source is empty or not available(N/A) notify and return
-                if(((trailerSrc == undefined) || (trailerSrc == null) || (trailerSrc == ``) || (trailerSrc == `N/A`) || (trailerSrc == ` `)))
+                if(((trailerSrc == undefined) || (trailerSrc == null) || (trailerSrc == ``) || (trailerSrc == `N/A`) || (trailerSrc == `null`) || (trailerSrc == ` `)))
                 {
                     notification(`notifyBad` , `No trailers available`);
                     return;
@@ -490,16 +486,6 @@
             });
 
 
-        // WATCH NOW
-
-            // Redirecting the user to first episode of the show
-            watchNowBtn.addEventListener("click" , () => 
-            {
-                watchNowLink = seasonSet[0].querySelectorAll(".episodes")[0].href;
-                window.open(watchNowLink , "_self");
-            });
-
-
         // CLOSING THE QUICK ACTION MODAL
 
             document.addEventListener("click" , e => 
@@ -516,6 +502,25 @@
             });
 
 
+        // Return if No Episodes Presessnt
+        if((seasonSelector.length === 0))
+        {
+            watchNowBtn.addEventListener("click" , () => 
+            {
+                notification(`notifyBad` , `Episode not available`);
+            });
+            return;
+        }
+
+
+        // WATCH NOW
+
+            // Redirecting the user to first episode of the show
+            watchNowBtn.addEventListener("click" , () => 
+            {
+                watchNowLink = seasonSet[0].querySelectorAll(".episodes")[0].href;
+                window.open(watchNowLink , "_self");
+            });
 
 
 
