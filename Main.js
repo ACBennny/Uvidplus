@@ -320,8 +320,6 @@
             let navNotificationBarTimer;
             let openSwitchProfBtn = document.querySelector(".open_switchProf");
             let switchProfScript;
-            let allImg = document.querySelectorAll('img');
-            let allImgTags = document.querySelectorAll('.allImgTags');
             let allLinks = document.querySelectorAll("a");
 
 
@@ -792,45 +790,6 @@
 
 
 
-        // ALL IMAGES
-            
-            allImg.forEach(eachImg => 
-            {
-                
-                // Remove filter once image has loaded
-                eachImg.style.filter = "blur(0px)";
-                eachImg.style.animation = "none";
-
-                // Prevents User from dragging Images
-                eachImg.draggable = false;
-
-                // Sets the alt text to image if none is set
-                if(eachImg.alt.valueOf() == "")
-                {
-                    eachImg.alt = "image";
-                }
-                
-            });
-
-            allImgTags.forEach(eachImg => 
-            {
-
-                // Remove filter once image has loaded
-                console.log("image number");
-                eachImg.addEventListener("load" , () => 
-                {
-                    eachImg.style.filter = "blur(0px)";
-                    if (eachImg.style.filter == "blur(0px)")
-                    {
-                        console.log("loadedd");
-                        return;
-                    }
-                    console.log("noot loadedd");
-                });
-            });
-
-
-
         // ALL LINKS
 
             allLinks.forEach(link => 
@@ -863,11 +822,56 @@
 
         // ATTACHMENTS
 
+            allImages();
             attachWatchListEventListeners();
             attachAddToPLEventListeners();
             attachSharePageEventListeners();
 
     }
+
+
+    // ALL IMAGES
+            
+        function allImages()
+        {
+            let allImg = document.querySelectorAll('img');
+            let allImgTags = document.querySelectorAll('.allImgTags');
+            
+            allImg.forEach(eachImg => 
+            {
+                
+                // Remove filter once image has loaded
+                eachImg.style.filter = "blur(0px)";
+                eachImg.style.animation = "none";
+    
+                // Prevents User from dragging Images
+                eachImg.draggable = false;
+    
+                // Sets the alt text to image if none is set
+                if(eachImg.alt.valueOf() == "")
+                {
+                    eachImg.alt = "image";
+                }
+                
+            });
+    
+            allImgTags.forEach(eachImg => 
+            {
+    
+                // Remove filter once image has loaded
+                console.log("image number");
+                eachImg.addEventListener("load" , () => 
+                {
+                    eachImg.style.filter = "blur(0px)";
+                    if (eachImg.style.filter == "blur(0px)")
+                    {
+                        console.log("loadedd");
+                        return;
+                    }
+                    console.log("noot loadedd");
+                });
+            });
+        }
 
 
     // WATCHLIST

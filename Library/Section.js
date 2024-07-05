@@ -114,6 +114,7 @@
             currentIndex = endIndex;
 
             // Reattaching listeners
+            allImages();
             attachWatchListEventListeners();
             attachAddToPLEventListeners();
 

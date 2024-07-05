@@ -863,6 +863,7 @@
                 }).join('');
 
                 // Reattaching listeners
+                allImages();
                 attachWatchListEventListeners();
                 attachAddToPLEventListeners();
             };

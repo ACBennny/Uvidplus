@@ -152,6 +152,7 @@
         // Append the fragment to DOM
         documentBody.appendChild(switchProfBdr);
         documentBody.classList.add("bodystop");
+        allImages();
 
         // Definitons
         let profileNavBox = switchProfBdr.querySelector(".profileNavBox");
