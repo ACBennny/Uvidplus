@@ -21,7 +21,7 @@
             <div class="navBar profileNavBar">
                 <div class="navBarLeft">
                     <div class="spacing"></div>
-                    <a href="/index.html" class="Companylogo navBarCompanylogo">
+                    <a href="/Home.html" class="Companylogo navBarCompanylogo">
                         <h1 class="lhead">U</h1>
                         <h1 class="lname">vid</h1>
                     </a>
