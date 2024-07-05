@@ -342,7 +342,7 @@
                             <div class="footer_UsefulLinksBox">
                                 <a href="/FAQ.html" title="Frequently Asked Questions" class="footerlinks footer_UsefulLinks">FAQ</a>
                                 <a href="/Help.html" title="Help Center" class="footerlinks footer_UsefulLinks">Help</a>
-                                <a href="/Feeback.html" title="Feedback" class="footerlinks footer_UsefulLinks">Feedback</a>
+                                <a href="/Feedback.html" title="Feedback" class="footerlinks footer_UsefulLinks">Feedback</a>
                                 <a href="/Support.html" title="Support Us" class="footerlinks footer_UsefulLinks">Support</a>
                             </div>
                             <div class="footer_UsefulLinksBox">

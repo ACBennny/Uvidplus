@@ -347,7 +347,6 @@
             let seasonEpOvf;
             let showAllEpBdr;
             let showAllEpBtn;
-            const watchEpBox = document.querySelectorAll(".episodes");
             const noOfEpShown = 12;
             const watchNowBtn = document.querySelector(".watchShowNowBtn");
             let watchNowLink;
@@ -712,6 +711,7 @@
                         setEpBox[i].classList.add("active");
                     }
                 }
+                redirectToJJkForDevTests();
             });
 
             // Showing all Episodes via onclick
@@ -733,23 +733,29 @@
                     showAllEpBdr[b].classList.remove("active");
                 });
             });
+    }
 
-            // Properties of the Episode Box (Button)
-            watchEpBox.forEach(epBox => 
-            {
-                // Get text content
-                const epBoxSpan = epBox.querySelector("span");
-                const epBoxSpanCtnt = epBoxSpan.textContent
+    // Redirects users to the JJK Episodes page as it's the only one currently active
+    function redirectToJJkForDevTests()
+    {
+        const watchEpBox = document.querySelectorAll(".episodes");
 
-                // Set the title
-                epBox.title = "Watch " +  epBoxSpanCtnt;
+        // Properties of the Episode Box (Button)
+        watchEpBox.forEach(epBox => 
+        {
+            // Get text content
+            const epBoxSpan = epBox.querySelector("span");
+            const epBoxSpanCtnt = epBoxSpan.textContent
 
-                /**
-                 * TESTING: This is a test link to the conly current active page to watch as it is being developed
-                 * All links in this department will be redierected to this page
-                 */
-                epBox.href = "/Library/Anime/Watch/JujutsuKaisen/S1/Ep1.html";
-            });
+            // Set the title
+            epBox.title = "Watch " +  epBoxSpanCtnt;
+
+            /**
+             * TESTING: This is a test link to the conly current active page to watch as it is being developed
+             * All links in this department will be redierected to this page
+             */
+            epBox.href = "/Library/Anime/Watch/JujutsuKaisen/S1/Ep1.html";
+        });
     }
 
 
