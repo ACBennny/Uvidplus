@@ -363,6 +363,7 @@
         
             attachWatchListEventListeners();
             attachAddToPLEventListeners();
+            attachSharePageEventListeners();
 
 
         // POSITIONING THE CONTENT
