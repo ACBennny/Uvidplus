@@ -907,7 +907,7 @@
                         addToWatchListText.textContent = "In Watchlist";
                         box.title = "Remove from Watchlist";
                         box.ariaLabel = "Remove from Watchlist";
-                        notification(`notifyGood` , `Show successfully added to Watchlist`);
+                        notification(`notifyGood` , `Show added to Watchlist`);
                     }
 
                     box.addEventListener("click" , action);
