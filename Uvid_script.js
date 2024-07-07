@@ -50,7 +50,7 @@
                     <div class="propmpt_AccActionBdr">
                         <div class="propmpt_AccActionBox">
                             <a href="/Join.html" target="_self" type="button" class="propmpt_AccActionBtnBox action_Join">Sign Up for Uvid</a>
-                            <a href="#" target="_self" type="button" class="propmpt_AccActionBtnBox action_GetPremium">Sign In with Uvid</a>
+                            <a href="/Join.html" target="_self" type="button" class="propmpt_AccActionBtnBox action_GetPremium">Sign In with Uvid</a>
                         </div>
                     </div>
                 </div>
