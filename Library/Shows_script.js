@@ -290,9 +290,10 @@
     {
         let sns_hdrTxt = document.querySelector(".seasons_headerText");
         let firstSnsSelector = document.querySelector(".seasons_selector");
-        let firstSnsSelectorMain = firstSnsSelector.querySelector(".selectorMain");
 
         if((firstSnsSelector == undefined) || (firstSnsSelector == null)) return;
+        let firstSnsSelectorMain = firstSnsSelector.querySelector(".selectorMain");
+        
         sns_hdrTxt.textContent = firstSnsSelectorMain.textContent;
         firstSnsSelector.classList.add("active");
     }
