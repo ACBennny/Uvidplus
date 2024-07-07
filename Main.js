@@ -890,24 +890,26 @@
 
                 addToWatchListBox.forEach(box => 
                 {
-                    const addToWatchListText = box.querySelector(".add_to_WatchListText");
-
                     const action = () => 
                     {
+                        const addToWatchListText = box.querySelector(".add_to_WatchListText");
+
                         if(box.classList.contains("active"))
                         {
                             box.classList.remove("active");
-                            addToWatchListText.textContent = "Watchlist";
                             box.title = "Add to Watchlist";
                             box.ariaLabel = "Add to Watchlist";
                             notification(`notifyGood` , `Show removed from Watchlist`);
+                            if((addToWatchListText == undefined) && (addToWatchListText == null)) return;
+                                addToWatchListText.textContent = "Watchlist";
                             return;
                         }
                         box.classList.add("active");
-                        addToWatchListText.textContent = "In Watchlist";
                         box.title = "Remove from Watchlist";
                         box.ariaLabel = "Remove from Watchlist";
                         notification(`notifyGood` , `Show added to Watchlist`);
+                        if((addToWatchListText == undefined) && (addToWatchListText == null)) return;
+                            addToWatchListText.textContent = "In Watchlist";
                     }
 
                     box.addEventListener("click" , action);
