@@ -261,7 +261,7 @@
             {
                 let seasonOverlaySelectorBoxInnerHTML = 
                 `
-                    <div class="seasons_selector active" show-type="${tp.show_wtp}" ep-length="${tp.show_wep}">
+                    <div class="seasons_selector" show-type="${tp.show_wtp}" ep-length="${tp.show_wep}">
                         <div class="selectorMain">Season ${tvPlus}</div>
                         <p class="selectorMinor">${tp.show_wep} episodes</p>
                     </div>
@@ -273,7 +273,7 @@
             {
                 let seasonOverlaySelectorBoxInnerHTML = 
                 `
-                    <div class="seasons_selector active" show-type="${tp.show_wtp}" ep-length="1">
+                    <div class="seasons_selector" show-type="${tp.show_wtp}" ep-length="1">
                         <div class="selectorMain">${tp.show_wep}</div>
                         <p class="selectorMinor">1 episode</p>
                     </div>
@@ -289,10 +289,12 @@
     function setSeasonHeaderText()
     {
         let sns_hdrTxt = document.querySelector(".seasons_headerText");
-        let firstSnsSelector = document.querySelector(".seasons_selector .selectorMain");
+        let firstSnsSelector = document.querySelector(".seasons_selector");
+        let firstSnsSelectorMain = firstSnsSelector.querySelector(".selectorMain");
 
         if((firstSnsSelector == undefined) || (firstSnsSelector == null)) return;
-        sns_hdrTxt.textContent = firstSnsSelector.textContent;
+        sns_hdrTxt.textContent = firstSnsSelectorMain.textContent;
+        firstSnsSelector.classList.add("active");
     }
 
     function startShowSection()
