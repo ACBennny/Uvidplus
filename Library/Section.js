@@ -15,27 +15,41 @@
 
 // LOADS THE ITEMS IN THE INVENTORY FOR EACH SECTION
 
-    let catalogHTML = 
-    `
-        <div class="give_space" id="top"></div>
+    
 
+    window.addEventListener("load" , loadInventory);
 
-        <!-- --------------body ------------ -->
-        <div class="basicCatalogBase">
-            <div class="basicCatalogBdr">
-                <div class="basicCatalogBox showCatalog"></div>
-                <div id="basicLoadingIndicator">
-                    <div class="basicSpinner"></div>
-                </div>
-            </div>
-        </div>
-    `;
+    function loadInventory()
+    {
+        let invScriptTag = document.createElement("script");
+        invScriptTag.setAttribute(`src` , `/inventory.js`);
 
-    window.addEventListener("load" , launchCatalog)
+        invScriptTag.addEventListener("load" , () => 
+        {
+            launchCatalog();
+        });
+
+        document.body.appendChild(invScriptTag);
+    }
 
     function launchCatalog()
     {
-        document.body.insertAdjacentHTML(`beforeend` , catalogHTML);
+        let catalogHTML = 
+        `
+            <div class="give_space" id="top"></div>
+
+
+            <!-- --------------body ------------ -->
+            <div class="basicCatalogBase">
+                <div class="basicCatalogBdr">
+                    <div class="basicCatalogBox showCatalog"></div>
+                    <div id="basicLoadingIndicator">
+                        <div class="basicSpinner"></div>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML(`afterbegin` , catalogHTML);
 
         const showCatalog = document.querySelector(".showCatalog");
         const basicLoadingIndicator = document.getElementById("basicLoadingIndicator");
@@ -45,31 +59,31 @@
 
         function loadItems() 
         {
-            const endIndex = Math.min(currentIndex + noOfItemsToLoad, catalogInventory.length);
+            const endIndex = Math.min(currentIndex + noOfItemsToLoad, searchInventory.length);
             for (let i = currentIndex; i < endIndex; i++)
             {
-                const item = catalogInventory[i];
+                const item = searchInventory[i];
                 const cardHTML = 
                 `
                     <div class="slide_card_base">
-                        <div class="slide_card_bdr">
+                        <div class="slide_card_bdr max_sizing">
                             <div class="slide_card_box">
                                 <div class="slide_card">
-                                    <a href="${item.show_link}"  title="Watch ${item.show_title}" class="cardLinkCover"></a>
+                                    <a href="${item.show_link}" title="Watch ${item.show_title}" class="cardLinkCover"></a>
                                     <div class="cardImgBox">
-                                        <img src="${item.show_image}" alt="Image of the ${item.show_section}: ${item.show_title}" class="cardImg">
+                                        <img src="${item.show_thumbnail}" alt="Thumbnail image of ${item.show_title}" class="cardImg">
                                     </div>
                                     <div class="cardQualityBox">
-                                        <h1 class="cardQualityText">HD</h1>
+                                        <h1 class="cardQualityText">${item.show_quality}</h1>
                                     </div>
                                     <div class="cardinfo cardInfoBdr">
                                         <div class="cardInfoBox">
                                             <div class="cardInfo_tagBdr">
                                                 <div class="cardInfo_tagBox">
-                                                    <p class="cardInfo_tagText">Anime</p>
+                                                    <p class="cardInfo_tagText">${item.show_type}</p>
                                                 </div>
                                                 <div class="cardInfo_tagBox">
-                                                    <p class="cardInfo_tagText">2024</p>
+                                                    <p class="cardInfo_tagText">${item.show_year}</p>
                                                 </div>
                                             </div>
                                             <div class="cardInfo_titleBox">
@@ -116,7 +130,7 @@
             attachWatchListEventListeners();
             attachAddToPLEventListeners();
 
-            if (currentIndex >= catalogInventory.length)
+            if (currentIndex >= searchInventory.length)
             {
                 observer.unobserve(basicLoadingIndicator);
                 basicLoadingIndicator.style.display = 'none';
