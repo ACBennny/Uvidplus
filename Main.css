@@ -707,6 +707,10 @@ img
     max-height: calc(90% - var(--navBarHeight));
     max-width: 400px;
     backface-visibility: hidden;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
     transition: all 150ms ease;
     z-index: 5;
 }
