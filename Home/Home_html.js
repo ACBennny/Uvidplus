@@ -4888,15 +4888,15 @@
                 </div>
             </div>
 
-            <!-- Romance -->
+            <!-- Action -->
             <div class="basic_slider_bdr">
                 <div class="basic_slider_title_bdr">
                     <div class="basic_slider_title_box">
                         <h2>
-                            <span class="big">R</span>
-                            <span class="small">omance</span>
+                            <span class="big">A</span>
+                            <span class="small">ction</span>
                         </h2>
-                        <p>Heartfelt and endearing stories</p>
+                        <p>Action packed shows wating for you</p>
                     </div>
                 </div>
                 <div class="basic_slider_ctnt">
@@ -5586,605 +5586,6 @@
                 </div>
             </div>
 
-            <!-- Action -->
-            <div class="basic_slider_bdr">
-                <div class="basic_slider_title_bdr">
-                    <div class="basic_slider_title_box">
-                        <h2>
-                            <span class="big">A</span>
-                            <span class="small">ction</span>
-                        </h2>
-                        <p>Action packed shows wating for you</p>
-                    </div>
-                </div>
-                <div class="basic_slider_ctnt">
-                    <div class="basic_slider_box">
-                        <div class="basic_slide_arrow left_slide_arrow hide">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="basic_slide_arrowIcon basic_icon_Left">
-                                <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/>
-                            </svg>
-                        </div>
-                        <div class="basic_slider_card_box">
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/5.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Fullmetal Panic</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/FullmetalAlchemist.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/6.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/FullmetalAlchemistBrotherhood.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/7.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/BlueExorcist.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/9.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Blue Exorcist</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/CyberpunkEdgerunners.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/15.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Cyberpunk Edgerunners</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/TomodachiGame.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/16.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Tomodachi Game</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/KaguyaSama.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/17.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Kaguya Sama</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/Kakegurui.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/18.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Kakegurui</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/ThatIRecentlyGotReincarnatedAsASlime.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/19.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">That I recently got Reincarnated as a Slime</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/RisingoftheShieldHero.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/20.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Rising of the Shield Hero</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="basic_slide_arrow right_slide_arrow">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="basic_slide_arrowIcon basic_icon_Right">
-                                <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <!-- Horror -->
             <div class="basic_slider_bdr">
                 <div class="basic_slider_title_bdr">
@@ -6784,8 +6185,6 @@
                 </div>
             </div>
 
-            <!-- Top Rated Shows -->
-
             <!-- Sci-fi -->
             <div class="basic_slider_bdr">
                 <div class="basic_slider_title_bdr">
@@ -6795,6 +6194,697 @@
                             <span class="small">ci-fi</span>
                         </h2>
                         <p>Explore the boundaries of science fiction</p>
+                    </div>
+                </div>
+                <div class="basic_slider_ctnt">
+                    <div class="basic_slider_box">
+                        <div class="basic_slide_arrow left_slide_arrow hide">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="basic_slide_arrowIcon basic_icon_Left">
+                                <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/>
+                            </svg>
+                        </div>
+                        <div class="basic_slider_card_box">
+                            <div class="slide_card_base">
+                                <div class="slide_card_bdr">
+                                    <div class="slide_card_box">
+                                        <div class="slide_card">
+                                            <a href="/Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <div class="cardImgBox">
+                                                <img src="/Library/Anime/img/5.jpg" alt="" class="cardImg">
+                                            </div>
+                                            <div class="cardQualityBox">
+                                                <h1 class="cardQualityText">HD</h1>
+                                            </div>
+                                            <div class="cardinfo cardInfoBdr">
+                                                <div class="cardInfoBox">
+                                                    <div class="cardInfo_tagBdr">
+                                                        <div class="cardInfo_tagBox">
+                                                            <p class="cardInfo_tagText">Anime</p>
+                                                        </div>
+                                                        <div class="cardInfo_tagBox">
+                                                            <p class="cardInfo_tagText">2024</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cardInfo_titleBox">
+                                                        <h3 class="cardInfo_titleText">Fullmetal Panic</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="cardAddToListBdr">
+                                                <div class="cardAddToListBox">
+                                                    <div class="cardAddToListIconBox">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
+                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
+                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
+                                                        </svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
+                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
+                                                        </svg>
+                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
+                                                    </div>
+                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
+                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
+                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="slide_card_bcg"></div>
+                                </div>
+                            </div>
+                            <div class="slide_card_base">
+                                <div class="slide_card_bdr">
+                                    <div class="slide_card_box">
+                                        <div class="slide_card">
+                                            <a href="/Library/Anime/FullmetalAlchemist.html" class="cardLinkCover"></a>
+                                            <div class="cardImgBox">
+                                                <img src="/Library/Anime/img/6.jpg" alt="" class="cardImg">
+                                            </div>
+                                            <div class="cardQualityBox">
+                                                <h1 class="cardQualityText">HD</h1>
+                                            </div>
+                                            <div class="cardinfo cardInfoBdr">
+                                                <div class="cardInfoBox">
+                                                    <div class="cardInfo_tagBdr">
+                                                        <div class="cardInfo_tagBox">
+                                                            <p class="cardInfo_tagText">Anime</p>
+                                                        </div>
+                                                        <div class="cardInfo_tagBox">
+                                                            <p class="cardInfo_tagText">2024</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cardInfo_titleBox">
+                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="cardAddToListBdr">
+                                                <div class="cardAddToListBox">
+                                                    <div class="cardAddToListIconBox">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
+                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
+                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
+                                                        </svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
+                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
+                                                        </svg>
+                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
+                                                    </div>
+                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
+                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
+                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="slide_card_bcg"></div>
+                                </div>
+                            </div>
+                            <div class="slide_card_base">
+                                <div class="slide_card_bdr">
+                                    <div class="slide_card_box">
+                                        <div class="slide_card">
+                                            <a href="/Library/Anime/FullmetalAlchemistBrotherhood.html" class="cardLinkCover"></a>
+                                            <div class="cardImgBox">
+                                                <img src="/Library/Anime/img/7.jpg" alt="" class="cardImg">
+                                            </div>
+                                            <div class="cardQualityBox">
+                                                <h1 class="cardQualityText">HD</h1>
+                                            </div>
+                                            <div class="cardinfo cardInfoBdr">
+                                                <div class="cardInfoBox">
+                                                    <div class="cardInfo_tagBdr">
+                                                        <div class="cardInfo_tagBox">
+                                                            <p class="cardInfo_tagText">Anime</p>
+                                                        </div>
+                                                        <div class="cardInfo_tagBox">
+                                                            <p class="cardInfo_tagText">2024</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cardInfo_titleBox">
+                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="cardAddToListBdr">
+                                                <div class="cardAddToListBox">
+                                                    <div class="cardAddToListIconBox">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
+                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
+                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
+                                                        </svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
+                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
+                                                        </svg>
+                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
+                                                    </div>
+                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
+                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
+                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="slide_card_bcg"></div>
+                                </div>
+                            </div>
+                            <div class="slide_card_base">
+                                <div class="slide_card_bdr">
+                                    <div class="slide_card_box">
+                                        <div class="slide_card">
+                                            <a href="/Library/Anime/BlueExorcist.html" class="cardLinkCover"></a>
+                                            <div class="cardImgBox">
+                                                <img src="/Library/Anime/img/9.jpg" alt="" class="cardImg">
+                                            </div>
+                                            <div class="cardQualityBox">
+                                                <h1 class="cardQualityText">HD</h1>
+                                            </div>
+                                            <div class="cardinfo cardInfoBdr">
+                                                <div class="cardInfoBox">
+                                                    <div class="cardInfo_tagBdr">
+                                                        <div class="cardInfo_tagBox">
+                                                            <p class="cardInfo_tagText">Anime</p>
+                                                        </div>
+                                                        <div class="cardInfo_tagBox">
+                                                            <p class="cardInfo_tagText">2024</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cardInfo_titleBox">
+                                                        <h3 class="cardInfo_titleText">Blue Exorcist</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="cardAddToListBdr">
+                                                <div class="cardAddToListBox">
+                                                    <div class="cardAddToListIconBox">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
+                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
+                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
+                                                        </svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
+                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
+                                                        </svg>
+                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
+                                                    </div>
+                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
+                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
+                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="slide_card_bcg"></div>
+                                </div>
+                            </div>
+                            <div class="slide_card_base">
+                                <div class="slide_card_bdr">
+                                    <div class="slide_card_box">
+                                        <div class="slide_card">
+                                            <a href="/Library/Anime/CyberpunkEdgerunners.html" class="cardLinkCover"></a>
+                                            <div class="cardImgBox">
+                                                <img src="/Library/Anime/img/15.jpg" alt="" class="cardImg">
+                                            </div>
+                                            <div class="cardQualityBox">
+                                                <h1 class="cardQualityText">HD</h1>
+                                            </div>
+                                            <div class="cardinfo cardInfoBdr">
+                                                <div class="cardInfoBox">
+                                                    <div class="cardInfo_tagBdr">
+                                                        <div class="cardInfo_tagBox">
+                                                            <p class="cardInfo_tagText">Anime</p>
+                                                        </div>
+                                                        <div class="cardInfo_tagBox">
+                                                            <p class="cardInfo_tagText">2024</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cardInfo_titleBox">
+                                                        <h3 class="cardInfo_titleText">Cyberpunk Edgerunners</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="cardAddToListBdr">
+                                                <div class="cardAddToListBox">
+                                                    <div class="cardAddToListIconBox">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
+                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
+                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
+                                                        </svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
+                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
+                                                        </svg>
+                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
+                                                    </div>
+                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
+                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
+                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="slide_card_bcg"></div>
+                                </div>
+                            </div>
+                            <div class="slide_card_base">
+                                <div class="slide_card_bdr">
+                                    <div class="slide_card_box">
+                                        <div class="slide_card">
+                                            <a href="/Library/Anime/TomodachiGame.html" class="cardLinkCover"></a>
+                                            <div class="cardImgBox">
+                                                <img src="/Library/Anime/img/16.jpg" alt="" class="cardImg">
+                                            </div>
+                                            <div class="cardQualityBox">
+                                                <h1 class="cardQualityText">HD</h1>
+                                            </div>
+                                            <div class="cardinfo cardInfoBdr">
+                                                <div class="cardInfoBox">
+                                                    <div class="cardInfo_tagBdr">
+                                                        <div class="cardInfo_tagBox">
+                                                            <p class="cardInfo_tagText">Anime</p>
+                                                        </div>
+                                                        <div class="cardInfo_tagBox">
+                                                            <p class="cardInfo_tagText">2024</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cardInfo_titleBox">
+                                                        <h3 class="cardInfo_titleText">Tomodachi Game</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="cardAddToListBdr">
+                                                <div class="cardAddToListBox">
+                                                    <div class="cardAddToListIconBox">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
+                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
+                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
+                                                        </svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
+                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
+                                                        </svg>
+                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
+                                                    </div>
+                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
+                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
+                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="slide_card_bcg"></div>
+                                </div>
+                            </div>
+                            <div class="slide_card_base">
+                                <div class="slide_card_bdr">
+                                    <div class="slide_card_box">
+                                        <div class="slide_card">
+                                            <a href="/Library/Anime/KaguyaSama.html" class="cardLinkCover"></a>
+                                            <div class="cardImgBox">
+                                                <img src="/Library/Anime/img/17.jpg" alt="" class="cardImg">
+                                            </div>
+                                            <div class="cardQualityBox">
+                                                <h1 class="cardQualityText">HD</h1>
+                                            </div>
+                                            <div class="cardinfo cardInfoBdr">
+                                                <div class="cardInfoBox">
+                                                    <div class="cardInfo_tagBdr">
+                                                        <div class="cardInfo_tagBox">
+                                                            <p class="cardInfo_tagText">Anime</p>
+                                                        </div>
+                                                        <div class="cardInfo_tagBox">
+                                                            <p class="cardInfo_tagText">2024</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cardInfo_titleBox">
+                                                        <h3 class="cardInfo_titleText">Kaguya Sama</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="cardAddToListBdr">
+                                                <div class="cardAddToListBox">
+                                                    <div class="cardAddToListIconBox">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
+                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
+                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
+                                                        </svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
+                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
+                                                        </svg>
+                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
+                                                    </div>
+                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
+                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
+                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="slide_card_bcg"></div>
+                                </div>
+                            </div>
+                            <div class="slide_card_base">
+                                <div class="slide_card_bdr">
+                                    <div class="slide_card_box">
+                                        <div class="slide_card">
+                                            <a href="/Library/Anime/Kakegurui.html" class="cardLinkCover"></a>
+                                            <div class="cardImgBox">
+                                                <img src="/Library/Anime/img/18.jpg" alt="" class="cardImg">
+                                            </div>
+                                            <div class="cardQualityBox">
+                                                <h1 class="cardQualityText">HD</h1>
+                                            </div>
+                                            <div class="cardinfo cardInfoBdr">
+                                                <div class="cardInfoBox">
+                                                    <div class="cardInfo_tagBdr">
+                                                        <div class="cardInfo_tagBox">
+                                                            <p class="cardInfo_tagText">Anime</p>
+                                                        </div>
+                                                        <div class="cardInfo_tagBox">
+                                                            <p class="cardInfo_tagText">2024</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cardInfo_titleBox">
+                                                        <h3 class="cardInfo_titleText">Kakegurui</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="cardAddToListBdr">
+                                                <div class="cardAddToListBox">
+                                                    <div class="cardAddToListIconBox">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
+                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
+                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
+                                                        </svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
+                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
+                                                        </svg>
+                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
+                                                    </div>
+                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
+                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
+                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="slide_card_bcg"></div>
+                                </div>
+                            </div>
+                            <div class="slide_card_base">
+                                <div class="slide_card_bdr">
+                                    <div class="slide_card_box">
+                                        <div class="slide_card">
+                                            <a href="/Library/Anime/ThatIRecentlyGotReincarnatedAsASlime.html" class="cardLinkCover"></a>
+                                            <div class="cardImgBox">
+                                                <img src="/Library/Anime/img/19.jpg" alt="" class="cardImg">
+                                            </div>
+                                            <div class="cardQualityBox">
+                                                <h1 class="cardQualityText">HD</h1>
+                                            </div>
+                                            <div class="cardinfo cardInfoBdr">
+                                                <div class="cardInfoBox">
+                                                    <div class="cardInfo_tagBdr">
+                                                        <div class="cardInfo_tagBox">
+                                                            <p class="cardInfo_tagText">Anime</p>
+                                                        </div>
+                                                        <div class="cardInfo_tagBox">
+                                                            <p class="cardInfo_tagText">2024</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cardInfo_titleBox">
+                                                        <h3 class="cardInfo_titleText">That I recently got Reincarnated as a Slime</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="cardAddToListBdr">
+                                                <div class="cardAddToListBox">
+                                                    <div class="cardAddToListIconBox">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
+                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
+                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
+                                                        </svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
+                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
+                                                        </svg>
+                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
+                                                    </div>
+                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
+                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
+                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="slide_card_bcg"></div>
+                                </div>
+                            </div>
+                            <div class="slide_card_base">
+                                <div class="slide_card_bdr">
+                                    <div class="slide_card_box">
+                                        <div class="slide_card">
+                                            <a href="/Library/Anime/RisingoftheShieldHero.html" class="cardLinkCover"></a>
+                                            <div class="cardImgBox">
+                                                <img src="/Library/Anime/img/20.jpg" alt="" class="cardImg">
+                                            </div>
+                                            <div class="cardQualityBox">
+                                                <h1 class="cardQualityText">HD</h1>
+                                            </div>
+                                            <div class="cardinfo cardInfoBdr">
+                                                <div class="cardInfoBox">
+                                                    <div class="cardInfo_tagBdr">
+                                                        <div class="cardInfo_tagBox">
+                                                            <p class="cardInfo_tagText">Anime</p>
+                                                        </div>
+                                                        <div class="cardInfo_tagBox">
+                                                            <p class="cardInfo_tagText">2024</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cardInfo_titleBox">
+                                                        <h3 class="cardInfo_titleText">Rising of the Shield Hero</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="cardAddToListBdr">
+                                                <div class="cardAddToListBox">
+                                                    <div class="cardAddToListIconBox">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
+                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
+                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
+                                                        </svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
+                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
+                                                        </svg>
+                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
+                                                    </div>
+                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
+                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
+                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="slide_card_bcg"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="basic_slide_arrow right_slide_arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="basic_slide_arrowIcon basic_icon_Right">
+                                <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Watch this Series: Initial D -->
+            <div class="watchSectionBdr">
+                <div class="watchSectionBox backSectionBox">
+                    <div class="watchSection watchSectionDet">
+                        <div class="infoBox">
+                            <div class="watchHead">Initial D</div>
+                            <div class="watchType">Series</div>
+                            <p class="watchInfo">
+                                Initial D is a Japanese street racing manga series written 
+                                and illustrated by Shuichi Shigeno. The story follows Takumi Fujiwara, 
+                                a high school student working as a gas station attendant during the day and a...
+                            </p>
+                            <div class="watchActionBox">
+                                <a href="/Library/Anime/Watch/InitialD/S1/Ep1.html" class="watchAction watchEpLink lightSolidBtn" title="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="watchActionIcon">
+                                        <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z"/>
+                                    </svg>
+                                    <span>Watch S1 Ep1</span>
+                                </a>
+                                <div class="watchAction addToWatchList hollowBtn" title="Add to Watchlist hollowBtn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="watchListIcon">
+                                        <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
+                                    </svg>
+                                    <span>Add to Watchlist</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="watchSection watchSectionImgBdr">
+                        <div class="watchImgBox">
+                            <img src="/Library/Anime/Watch/InitialD/img/1.jpg" alt="" class="watchImg">
+                            <a href="/Library/Anime/InitialD.html" class="goToSeries" title="">
+                                <span class="goToSeries_iconBox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="goToSeries_icon">
+                                        <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
+                                    </svg>
+                                </span>
+                                <p class="goToSeries_text">Details</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Watch this Series: MF Ghost -->
+            <div class="watchSectionBdr">
+                <div class="watchSectionBox foreSectionBox">
+                    <div class="watchSection watchSectionDet">
+                        <div class="infoBox">
+                            <div class="watchHead">MF Ghost</div>
+                            <div class="watchType">Series</div>
+                            <p class="watchInfo">
+                                As electric vehicles dominate everyday life in the 2020s, interest in traditional combustion engine cars is maintained through a motorsports series 
+                                known as the MFG. Hundreds of ambitious drivers, with a staggering 30 million viewers online, fiercely compete for a spot in the Godly Fifteen — 
+                                the leading 15 racers — and a chance at the grand prize of 100 million yen. Among these individuals aiming for the top is 19-year-old Kanata Rivington. 
+                                Having attended a famous racing school in England, Kanata sets his sights on the upcoming MFG tournament and enrolls in the competition under the alias 
+                                "Kanata Katagiri." In comparison to his opponents' flashy vehicles, Kanata's Toyota 86 GT, passed down from a former MFG contestant, puts him at a 
+                                considerable disadvantage. Kanata receives guidance from a Godly Fifteen member, but he still treats the MFG as only a stepping stone for his true goal: 
+                                locating his estranged father. Meanwhile, Kanata's appearance sends shockwaves through the scene as his driving style eerily resembles that of a once legendary racer.
+                            </p>
+                            <div class="watchActionBox">
+                                <a href="/Library/Anime/Watch/MFGhost/S1/1.html" class="watchAction watchEpLink lightSolidBtn" title="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="watchActionIcon">
+                                        <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z"/>
+                                    </svg>
+                                    <span>Watch S1 Ep1</span>
+                                </a>
+                                <div class="watchAction addToWatchList hollowBtn" title="Add to Watchlist">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="watchListIcon">
+                                        <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
+                                    </svg>
+                                    <span>Add to Watchlist</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="watchSection watchSectionImgBdr">
+                        <div class="watchImgBox">
+                            <img src="/Library/Anime/Watch/MFGhost/img/1.jpg" alt="" class="watchImg">
+                            <a href="/Library/Anime/MFGhost.html" class="goToSeries" title="">
+                                <span class="goToSeries_iconBox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="goToSeries_icon">
+                                        <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
+                                    </svg>
+                                </span>
+                                <p class="goToSeries_text">Details</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Romance -->
+            <div class="basic_slider_bdr">
+                <div class="basic_slider_title_bdr">
+                    <div class="basic_slider_title_box">
+                        <h2>
+                            <span class="big">R</span>
+                            <span class="small">omance</span>
+                        </h2>
+                        <p>Heartfelt and endearing stories</p>
                     </div>
                 </div>
                 <div class="basic_slider_ctnt">
@@ -7984,97 +8074,121 @@
                 </div>
             </div>
 
-            <!-- Watch this Series: Initial D -->
-            <div class="watchSectionBdr">
-                <div class="watchSectionBox backSectionBox">
-                    <div class="watchSection watchSectionDet">
-                        <div class="infoBox">
-                            <div class="watchHead">Initial D</div>
-                            <div class="watchType">Series</div>
-                            <p class="watchInfo">
-                                Initial D is a Japanese street racing manga series written 
-                                and illustrated by Shuichi Shigeno. The story follows Takumi Fujiwara, 
-                                a high school student working as a gas station attendant during the day and a...
-                            </p>
-                            <div class="watchActionBox">
-                                <a href="/Library/Anime/Watch/InitialD/S1/Ep1.html" class="watchAction watchEpLink lightSolidBtn" title="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="watchActionIcon">
-                                        <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z"/>
-                                    </svg>
-                                    <span>Watch S1 Ep1</span>
-                                </a>
-                                <div class="watchAction addToWatchList hollowBtn" title="Add to Watchlist hollowBtn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="watchListIcon">
-                                        <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                    </svg>
-                                    <span>Add to Watchlist</span>
-                                </div>
-                            </div>
+
+            <!-- ------- NEWS ------- -->
+            <div class="type1_Ctnt_bdr">
+                <div class="type1_Ctnt_box">
+                    <div class="type1_Ctnt_boxHead">
+                        <div class="type1_Ctnt_box_HeadLeft">
+                            <h1>
+                                <span class="firsttxt">U</span>
+                                <span class="secondtxt">vid News</span>
+                            </h1>
+                        </div>
+                        <div class="type1_Ctnt_box_HeadRight">
+                            <a href="#" class="seeAll">See All ›</a>
                         </div>
                     </div>
-                    <div class="watchSection watchSectionImgBdr">
-                        <div class="watchImgBox">
-                            <img src="/Library/Anime/Watch/InitialD/img/1.jpg" alt="" class="watchImg">
-                            <a href="/Library/Anime/InitialD.html" class="goToSeries" title="">
-                                <span class="goToSeries_iconBox">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="goToSeries_icon">
-                                        <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
-                                    </svg>
-                                </span>
-                                <p class="goToSeries_text">Details</p>
-                            </a>
+                    <div class="news_grid">
+                        <div class="news_gridSect">
+                            <div class="news_Ctnt">
+                                <a href="#" class="news_card type1_ctntCard">
+                                    <div class="news_cardImgBox">
+                                        <img src="/Library/Images/other_images/Anime_images/chainsawman4.jpg" alt="Image of a news" class="news_cardImg">
+                                        <div class="type1_ctntImg_hover">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="type1_ctntImg_hoverIcon" viewBox="0 0 512 512">
+                                                <path d="M464 48c-67.61.29-117.87 9.6-154.24 25.69-27.14 12-37.76 21.08-37.76 51.84V448c41.57-37.5 78.46-48 224-48V48zM48 48c67.61.29 117.87 9.6 154.24 25.69 27.14 12 37.76 21.08 37.76 51.84V448c-41.57-37.5-78.46-48-224-48V48z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="news_cardDet">
+                                        <div class="news_cardTitleBox">
+                                            <h3 class="news_cardTitle">Chainsaw Becoming one of the most watched Anime</h3>
+                                        </div>
+                                        <div class="news_cardPostBox">
+                                            <h5 class="news_cardPost">19th March 2024</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="news_card type1_ctntCard">
+                                    <div class="news_cardImgBox">
+                                        <img src="/Library/Images/other_images/Anime_images/ASignOFAffection.jpg" alt="Image of a news" class="news_cardImg">
+                                        <div class="type1_ctntImg_hover">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="type1_ctntImg_hoverIcon" viewBox="0 0 512 512">
+                                                <path d="M464 48c-67.61.29-117.87 9.6-154.24 25.69-27.14 12-37.76 21.08-37.76 51.84V448c41.57-37.5 78.46-48 224-48V48zM48 48c67.61.29 117.87 9.6 154.24 25.69 27.14 12 37.76 21.08 37.76 51.84V448c-41.57-37.5-78.46-48-224-48V48z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="news_cardDet">
+                                        <div class="news_cardTitleBox">
+                                            <h3 class="news_cardTitle">"Anime hits on a differrent level.."</h3>
+                                        </div>
+                                        <div class="news_cardPostBox">
+                                            <h5 class="news_cardPost">14th February 2024</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="news_card type1_ctntCard">
+                                    <div class="news_cardImgBox">
+                                        <img src="/Library/Images/other_images/Anime_images/DemonSlayer_RoarOfVictory.jpg" alt="Image of a news" class="news_cardImg">
+                                        <div class="type1_ctntImg_hover">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="type1_ctntImg_hoverIcon" viewBox="0 0 512 512">
+                                                <path d="M464 48c-67.61.29-117.87 9.6-154.24 25.69-27.14 12-37.76 21.08-37.76 51.84V448c41.57-37.5 78.46-48 224-48V48zM48 48c67.61.29 117.87 9.6 154.24 25.69 27.14 12 37.76 21.08 37.76 51.84V448c-41.57-37.5-78.46-48-224-48V48z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="news_cardDet">
+                                        <div class="news_cardTitleBox">
+                                            <h3 class="news_cardTitle">Watch Demon Slayer Roar of Victory in theatres</h3>
+                                        </div>
+                                        <div class="news_cardPostBox">
+                                            <h5 class="news_cardPost">2nd February 2024</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="news_card type1_ctntCard">
+                                    <div class="news_cardImgBox">
+                                        <img src="/Library/Images/other_images/Anime_images/Goku.jpg" alt="Image of a news" class="news_cardImg">
+                                        <div class="type1_ctntImg_hover">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="type1_ctntImg_hoverIcon" viewBox="0 0 512 512">
+                                                <path d="M464 48c-67.61.29-117.87 9.6-154.24 25.69-27.14 12-37.76 21.08-37.76 51.84V448c41.57-37.5 78.46-48 224-48V48zM48 48c67.61.29 117.87 9.6 154.24 25.69 27.14 12 37.76 21.08 37.76 51.84V448c-41.57-37.5-78.46-48-224-48V48z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="news_cardDet">
+                                        <div class="news_cardTitleBox">
+                                            <h3 class="news_cardTitle">Goku Never dies? Why?</h3>
+                                        </div>
+                                        <div class="news_cardPostBox">
+                                            <h5 class="news_cardPost">21st January 2024</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="news_card type1_ctntCard">
+                                    <div class="news_cardImgBox">
+                                        <img src="/Library/Images/other_images/Anime_images/MashleMAgicAndMuscle.jpg" alt="Image of a news" class="news_cardImg">
+                                        <div class="type1_ctntImg_hover">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="type1_ctntImg_hoverIcon" viewBox="0 0 512 512">
+                                                <path d="M464 48c-67.61.29-117.87 9.6-154.24 25.69-27.14 12-37.76 21.08-37.76 51.84V448c41.57-37.5 78.46-48 224-48V48zM48 48c67.61.29 117.87 9.6 154.24 25.69 27.14 12 37.76 21.08 37.76 51.84V448c-41.57-37.5-78.46-48-224-48V48z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="news_cardDet">
+                                        <div class="news_cardTitleBox">
+                                            <h3 class="news_cardTitle">Anime lineups for the year</h3>
+                                        </div>
+                                        <div class="news_cardPostBox">
+                                            <h5 class="news_cardPost">2nd January 2024</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Watch this Series: MF Ghost -->
-            <div class="watchSectionBdr">
-                <div class="watchSectionBox foreSectionBox">
-                    <div class="watchSection watchSectionDet">
-                        <div class="infoBox">
-                            <div class="watchHead">MF Ghost</div>
-                            <div class="watchType">Series</div>
-                            <p class="watchInfo">
-                                As electric vehicles dominate everyday life in the 2020s, interest in traditional combustion engine cars is maintained through a motorsports series 
-                                known as the MFG. Hundreds of ambitious drivers, with a staggering 30 million viewers online, fiercely compete for a spot in the Godly Fifteen — 
-                                the leading 15 racers — and a chance at the grand prize of 100 million yen. Among these individuals aiming for the top is 19-year-old Kanata Rivington. 
-                                Having attended a famous racing school in England, Kanata sets his sights on the upcoming MFG tournament and enrolls in the competition under the alias 
-                                "Kanata Katagiri." In comparison to his opponents' flashy vehicles, Kanata's Toyota 86 GT, passed down from a former MFG contestant, puts him at a 
-                                considerable disadvantage. Kanata receives guidance from a Godly Fifteen member, but he still treats the MFG as only a stepping stone for his true goal: 
-                                locating his estranged father. Meanwhile, Kanata's appearance sends shockwaves through the scene as his driving style eerily resembles that of a once legendary racer.
-                            </p>
-                            <div class="watchActionBox">
-                                <a href="/Library/Anime/Watch/MFGhost/S1/1.html" class="watchAction watchEpLink lightSolidBtn" title="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="watchActionIcon">
-                                        <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z"/>
-                                    </svg>
-                                    <span>Watch S1 Ep1</span>
-                                </a>
-                                <div class="watchAction addToWatchList hollowBtn" title="Add to Watchlist">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="watchListIcon">
-                                        <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                    </svg>
-                                    <span>Add to Watchlist</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="watchSection watchSectionImgBdr">
-                        <div class="watchImgBox">
-                            <img src="/Library/Anime/Watch/MFGhost/img/1.jpg" alt="" class="watchImg">
-                            <a href="/Library/Anime/MFGhost.html" class="goToSeries" title="">
-                                <span class="goToSeries_iconBox">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="goToSeries_icon">
-                                        <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
-                                    </svg>
-                                </span>
-                                <p class="goToSeries_text">Details</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
 
             <!-- Musical -->
             <div class="basic_slider_bdr">
@@ -8684,1319 +8798,6 @@
                             <span class="small">rama</span>
                         </h2>
                         <p>Shows that go deeper than you think</p>
-                    </div>
-                </div>
-                <div class="basic_slider_ctnt">
-                    <div class="basic_slider_box">
-                        <div class="basic_slide_arrow left_slide_arrow hide">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="basic_slide_arrowIcon basic_icon_Left">
-                                <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/>
-                            </svg>
-                        </div>
-                        <div class="basic_slider_card_box">
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/5.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Fullmetal Panic</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/FullmetalAlchemist.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/6.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/FullmetalAlchemistBrotherhood.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/7.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/BlueExorcist.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/9.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Blue Exorcist</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/CyberpunkEdgerunners.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/15.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Cyberpunk Edgerunners</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/TomodachiGame.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/16.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Tomodachi Game</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/KaguyaSama.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/17.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Kaguya Sama</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/Kakegurui.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/18.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Kakegurui</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/ThatIRecentlyGotReincarnatedAsASlime.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/19.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">That I recently got Reincarnated as a Slime</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/RisingoftheShieldHero.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/20.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Rising of the Shield Hero</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="basic_slide_arrow right_slide_arrow">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="basic_slide_arrowIcon basic_icon_Right">
-                                <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- ------- NEWS ------- -->
-            <div class="type1_Ctnt_bdr">
-                <div class="type1_Ctnt_box">
-                    <div class="type1_Ctnt_boxHead">
-                        <div class="type1_Ctnt_box_HeadLeft">
-                            <h1>
-                                <span class="firsttxt">U</span>
-                                <span class="secondtxt">vid News</span>
-                            </h1>
-                        </div>
-                        <div class="type1_Ctnt_box_HeadRight">
-                            <a href="#" class="seeAll">See All ›</a>
-                        </div>
-                    </div>
-                    <div class="news_grid">
-                        <div class="news_gridSect">
-                            <div class="news_Ctnt">
-                                <a href="#" class="news_card type1_ctntCard">
-                                    <div class="news_cardImgBox">
-                                        <img src="/Library/Images/other_images/Anime_images/chainsawman4.jpg" alt="Image of a news" class="news_cardImg">
-                                        <div class="type1_ctntImg_hover">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="type1_ctntImg_hoverIcon" viewBox="0 0 512 512">
-                                                <path d="M464 48c-67.61.29-117.87 9.6-154.24 25.69-27.14 12-37.76 21.08-37.76 51.84V448c41.57-37.5 78.46-48 224-48V48zM48 48c67.61.29 117.87 9.6 154.24 25.69 27.14 12 37.76 21.08 37.76 51.84V448c-41.57-37.5-78.46-48-224-48V48z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="news_cardDet">
-                                        <div class="news_cardTitleBox">
-                                            <h3 class="news_cardTitle">Chainsaw Becoming one of the most watched Anime</h3>
-                                        </div>
-                                        <div class="news_cardPostBox">
-                                            <h5 class="news_cardPost">19th March 2024</h5>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="#" class="news_card type1_ctntCard">
-                                    <div class="news_cardImgBox">
-                                        <img src="/Library/Images/other_images/Anime_images/ASignOFAffection.jpg" alt="Image of a news" class="news_cardImg">
-                                        <div class="type1_ctntImg_hover">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="type1_ctntImg_hoverIcon" viewBox="0 0 512 512">
-                                                <path d="M464 48c-67.61.29-117.87 9.6-154.24 25.69-27.14 12-37.76 21.08-37.76 51.84V448c41.57-37.5 78.46-48 224-48V48zM48 48c67.61.29 117.87 9.6 154.24 25.69 27.14 12 37.76 21.08 37.76 51.84V448c-41.57-37.5-78.46-48-224-48V48z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="news_cardDet">
-                                        <div class="news_cardTitleBox">
-                                            <h3 class="news_cardTitle">"Anime hits on a differrent level.."</h3>
-                                        </div>
-                                        <div class="news_cardPostBox">
-                                            <h5 class="news_cardPost">14th February 2024</h5>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="#" class="news_card type1_ctntCard">
-                                    <div class="news_cardImgBox">
-                                        <img src="/Library/Images/other_images/Anime_images/DemonSlayer_RoarOfVictory.jpg" alt="Image of a news" class="news_cardImg">
-                                        <div class="type1_ctntImg_hover">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="type1_ctntImg_hoverIcon" viewBox="0 0 512 512">
-                                                <path d="M464 48c-67.61.29-117.87 9.6-154.24 25.69-27.14 12-37.76 21.08-37.76 51.84V448c41.57-37.5 78.46-48 224-48V48zM48 48c67.61.29 117.87 9.6 154.24 25.69 27.14 12 37.76 21.08 37.76 51.84V448c-41.57-37.5-78.46-48-224-48V48z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="news_cardDet">
-                                        <div class="news_cardTitleBox">
-                                            <h3 class="news_cardTitle">Watch Demon Slayer Roar of Victory in theatres</h3>
-                                        </div>
-                                        <div class="news_cardPostBox">
-                                            <h5 class="news_cardPost">2nd February 2024</h5>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="#" class="news_card type1_ctntCard">
-                                    <div class="news_cardImgBox">
-                                        <img src="/Library/Images/other_images/Anime_images/Goku.jpg" alt="Image of a news" class="news_cardImg">
-                                        <div class="type1_ctntImg_hover">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="type1_ctntImg_hoverIcon" viewBox="0 0 512 512">
-                                                <path d="M464 48c-67.61.29-117.87 9.6-154.24 25.69-27.14 12-37.76 21.08-37.76 51.84V448c41.57-37.5 78.46-48 224-48V48zM48 48c67.61.29 117.87 9.6 154.24 25.69 27.14 12 37.76 21.08 37.76 51.84V448c-41.57-37.5-78.46-48-224-48V48z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="news_cardDet">
-                                        <div class="news_cardTitleBox">
-                                            <h3 class="news_cardTitle">Goku Never dies? Why?</h3>
-                                        </div>
-                                        <div class="news_cardPostBox">
-                                            <h5 class="news_cardPost">21st January 2024</h5>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="#" class="news_card type1_ctntCard">
-                                    <div class="news_cardImgBox">
-                                        <img src="/Library/Images/other_images/Anime_images/MashleMAgicAndMuscle.jpg" alt="Image of a news" class="news_cardImg">
-                                        <div class="type1_ctntImg_hover">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="type1_ctntImg_hoverIcon" viewBox="0 0 512 512">
-                                                <path d="M464 48c-67.61.29-117.87 9.6-154.24 25.69-27.14 12-37.76 21.08-37.76 51.84V448c41.57-37.5 78.46-48 224-48V48zM48 48c67.61.29 117.87 9.6 154.24 25.69 27.14 12 37.76 21.08 37.76 51.84V448c-41.57-37.5-78.46-48-224-48V48z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="news_cardDet">
-                                        <div class="news_cardTitleBox">
-                                            <h3 class="news_cardTitle">Anime lineups for the year</h3>
-                                        </div>
-                                        <div class="news_cardPostBox">
-                                            <h5 class="news_cardPost">2nd January 2024</h5>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Sport -->
-            <div class="basic_slider_bdr">
-                <div class="basic_slider_title_bdr">
-                    <div class="basic_slider_title_box">
-                        <h2>
-                            <span class="big">S</span>
-                            <span class="small">ports</span>
-                        </h2>
-                        <p>Not your ordinary sport</p>
-                    </div>
-                </div>
-                <div class="basic_slider_ctnt">
-                    <div class="basic_slider_box">
-                        <div class="basic_slide_arrow left_slide_arrow hide">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="basic_slide_arrowIcon basic_icon_Left">
-                                <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/>
-                            </svg>
-                        </div>
-                        <div class="basic_slider_card_box">
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/5.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Fullmetal Panic</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/FullmetalAlchemist.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/6.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/FullmetalAlchemistBrotherhood.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/7.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/BlueExorcist.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/9.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Blue Exorcist</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/CyberpunkEdgerunners.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/15.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Cyberpunk Edgerunners</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/TomodachiGame.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/16.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Tomodachi Game</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/KaguyaSama.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/17.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Kaguya Sama</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/Kakegurui.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/18.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Kakegurui</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/ThatIRecentlyGotReincarnatedAsASlime.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/19.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">That I recently got Reincarnated as a Slime</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                            <div class="slide_card_base">
-                                <div class="slide_card_bdr">
-                                    <div class="slide_card_box">
-                                        <div class="slide_card">
-                                            <a href="/Library/Anime/RisingoftheShieldHero.html" class="cardLinkCover"></a>
-                                            <div class="cardImgBox">
-                                                <img src="/Library/Anime/img/20.jpg" alt="" class="cardImg">
-                                            </div>
-                                            <div class="cardQualityBox">
-                                                <h1 class="cardQualityText">HD</h1>
-                                            </div>
-                                            <div class="cardinfo cardInfoBdr">
-                                                <div class="cardInfoBox">
-                                                    <div class="cardInfo_tagBdr">
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">Anime</p>
-                                                        </div>
-                                                        <div class="cardInfo_tagBox">
-                                                            <p class="cardInfo_tagText">2024</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cardInfo_titleBox">
-                                                        <h3 class="cardInfo_titleText">Rising of the Shield Hero</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardAddToListBdr">
-                                                <div class="cardAddToListBox">
-                                                    <div class="cardAddToListIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="cardAddToListIcon plusIcon">
-                                                            <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox add_to_WatchListBox" title="Add to watchlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon add_to_WatchListIcon cardAddToListIcon">
-                                                            <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
-                                                        </svg>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon hiddenIcon remove_from_WatchListIcon">
-                                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                        </svg>
-                                                        <p style=" display: none !important;" class="add_to_WatchListText"></p>
-                                                    </div>
-                                                    <div class="cardAddToListIconBox hiddenIconBox openAddToPLBtn" title="Add to Playlist">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
-                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="slide_card_bcg"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="basic_slide_arrow right_slide_arrow">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="basic_slide_arrowIcon basic_icon_Right">
-                                <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Fantasy -->
-            <div class="basic_slider_bdr">
-                <div class="basic_slider_title_bdr">
-                    <div class="basic_slider_title_box">
-                        <h2>
-                            <span class="big">F</span>
-                            <span class="small">antasy</span>
-                        </h2>
-                        <p>Travel into parallel realities</p>
                     </div>
                 </div>
                 <div class="basic_slider_ctnt">
