@@ -408,21 +408,21 @@
                                         </div>
                                         <span class="navOptTitle">Home</span>
                                     </a>
-                                    <a href="/Latest.html" class="navOptLink" id="moviesLink" title="Movies">
+                                    <!-- <a href="/Latest.html" class="navOptLink" id="moviesLink" title="Movies">
                                         <div class="navOptIconBox">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navOptIcon">
                                                 <path d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288H175.5L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7H272.5L349.4 44.6z"/>
                                             </svg>
                                         </div>
                                         <span class="navOptTitle">Recent</span>
-                                    </a>
+                                    </a> -->
                                     <a href="/Trending.html" class="navOptLink" id="moviesLink" title="Movies">
                                         <div class="navOptIconBox">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="navOptIcon">
                                                 <path d="M384 160c-17.7 0-32-14.3-32-32s14.3-32 32-32H544c17.7 0 32 14.3 32 32V288c0 17.7-14.3 32-32 32s-32-14.3-32-32V205.3L342.6 374.6c-12.5 12.5-32.8 12.5-45.3 0L192 269.3 54.6 406.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160c12.5-12.5 32.8-12.5 45.3 0L320 306.7 466.7 160H384z"/>
                                             </svg>
                                         </div>
-                                        <span class="navOptTitle">Popular</span>
+                                        <span class="navOptTitle">Trending</span>
                                     </a>
                                     <a href="/Library/Movies.html" class="navOptLink" id="moviesLink" title="Movies">
                                         <div class="navOptIconBox">
@@ -440,23 +440,15 @@
                                         </div>
                                         <span class="navOptTitle">TV</span>
                                     </a>
-                                    <a href="/MyList.html" class="navOptLink" id="tvShowsLink" title="TV Shows">
+                                    <!-- <a href="/MyList.html" class="navOptLink" id="tvShowsLink" title="TV Shows">
                                         <div class="navOptIconBox">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navOptIcon">
                                                 <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
                                             </svg>
                                         </div>
                                         <span class="navOptTitle">My List</span>
-                                    </a>
-                                    <a href="/News/Home.html" class="navOptLink" id="newsLink" title="News">
-                                        <div class="navOptIconBox">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navOptIcon">
-                                                <path d="M96 96c0-35.3 28.7-64 64-64H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H80c-44.2 0-80-35.8-80-80V128c0-17.7 14.3-32 32-32s32 14.3 32 32V400c0 8.8 7.2 16 16 16s16-7.2 16-16V96zm64 24v80c0 13.3 10.7 24 24 24H296c13.3 0 24-10.7 24-24V120c0-13.3-10.7-24-24-24H184c-13.3 0-24 10.7-24 24zm208-8c0 8.8 7.2 16 16 16h48c8.8 0 16-7.2 16-16s-7.2-16-16-16H384c-8.8 0-16 7.2-16 16zm0 96c0 8.8 7.2 16 16 16h48c8.8 0 16-7.2 16-16s-7.2-16-16-16H384c-8.8 0-16 7.2-16 16zM160 304c0 8.8 7.2 16 16 16H432c8.8 0 16-7.2 16-16s-7.2-16-16-16H176c-8.8 0-16 7.2-16 16zm0 96c0 8.8 7.2 16 16 16H432c8.8 0 16-7.2 16-16s-7.2-16-16-16H176c-8.8 0-16 7.2-16 16z"/>
-                                            </svg>
-                                        </div>
-                                        <span class="navOptTitle">News</span>
-                                    </a>
-                                    <!-- <a href="/MyList.html?list=watchlist" class="navOptLink" id="prem" title="Help">
+                                    </a> -->
+                                    <a href="/MyList.html?list=watchlist" class="navOptLink" id="prem" title="Help">
                                         <div class="navOptIconBox">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navOptIcon">
                                             <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
@@ -479,7 +471,15 @@
                                             </svg>
                                         </div>
                                         <span class="navOptTitle">History</span>
-                                    </a> -->
+                                    </a>
+                                    <a href="/News/Home.html" class="navOptLink" id="newsLink" title="News">
+                                        <div class="navOptIconBox">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navOptIcon">
+                                                <path d="M96 96c0-35.3 28.7-64 64-64H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H80c-44.2 0-80-35.8-80-80V128c0-17.7 14.3-32 32-32s32 14.3 32 32V400c0 8.8 7.2 16 16 16s16-7.2 16-16V96zm64 24v80c0 13.3 10.7 24 24 24H296c13.3 0 24-10.7 24-24V120c0-13.3-10.7-24-24-24H184c-13.3 0-24 10.7-24 24zm208-8c0 8.8 7.2 16 16 16h48c8.8 0 16-7.2 16-16s-7.2-16-16-16H384c-8.8 0-16 7.2-16 16zm0 96c0 8.8 7.2 16 16 16h48c8.8 0 16-7.2 16-16s-7.2-16-16-16H384c-8.8 0-16 7.2-16 16zM160 304c0 8.8 7.2 16 16 16H432c8.8 0 16-7.2 16-16s-7.2-16-16-16H176c-8.8 0-16 7.2-16 16zm0 96c0 8.8 7.2 16 16 16H432c8.8 0 16-7.2 16-16s-7.2-16-16-16H176c-8.8 0-16 7.2-16 16z"/>
+                                            </svg>
+                                        </div>
+                                        <span class="navOptTitle">News</span>
+                                    </a>
                                 </section>
 
                                 <div class="navOptDivider"></div>
