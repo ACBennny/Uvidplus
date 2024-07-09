@@ -69,7 +69,7 @@
                                             </div>
                                         </button> -->
                                         <button class="navBarProfileOpt">
-                                            <a href="javascript:void(0)" class="navBarProfileOptLink open_switchProf">
+                                            <a href="javascript:;" class="navBarProfileOptLink open_switchProf">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarProfileOptLinkIcon">
                                                     <!-- <path d="M32 96l320 0V32c0-12.9 7.8-24.6 19.8-29.6s25.7-2.2 34.9 6.9l96 96c6 6 9.4 14.1 9.4 22.6s-3.4 16.6-9.4 22.6l-96 96c-9.2 9.2-22.9 11.9-34.9 6.9s-19.8-16.6-19.8-29.6V160L32 160c-17.7 0-32-14.3-32-32s14.3-32 32-32zM480 352c17.7 0 32 14.3 32 32s-14.3 32-32 32H160v64c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-96-96c-6-6-9.4-14.1-9.4-22.6s3.4-16.6 9.4-22.6l96-96c9.2-9.2 22.9-11.9 34.9-6.9s19.8 16.6 19.8 29.6l0 64H480z"/> -->
                                                     <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/>
@@ -98,7 +98,7 @@
                                             </a>
                                         </button>
                                         <button class="navBarProfileOpt">
-                                            <a href="javascript:void(0)" class="navBarProfileOptLink">
+                                            <a href="javascript:;" class="navBarProfileOptLink">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarProfileOptLinkIcon">
                                                     <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 17.7 14.3 32 32 32s32-14.3 32-32V32zM143.5 120.6c13.6-11.3 15.4-31.5 4.1-45.1s-31.5-15.4-45.1-4.1C49.7 115.4 16 181.8 16 256c0 132.5 107.5 240 240 240s240-107.5 240-240c0-74.2-33.8-140.6-86.6-184.6c-13.6-11.3-33.8-9.4-45.1 4.1s-9.4 33.8 4.1 45.1c38.9 32.3 63.5 81 63.5 135.4c0 97.2-78.8 176-176 176s-176-78.8-176-176c0-54.4 24.7-103.1 63.5-135.4z"/>
                                                 </svg>
