@@ -6690,8 +6690,8 @@
                     <div class="type1_Ctnt_boxHead">
                         <div class="type1_Ctnt_box_HeadLeft">
                             <h1>
-                                <span class="firsttxt">U</span>
-                                <span class="secondtxt">vid News</span>
+                                <span class="firsttxt">N</span>
+                                <span class="secondtxt">ews</span>
                             </h1>
                         </div>
                         <div class="type1_Ctnt_box_HeadRight">
