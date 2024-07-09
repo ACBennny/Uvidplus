@@ -36,6 +36,7 @@ html:root
     --genWhiteTypeMid: #ababab;
     --genWhiteTypeMid2: #cecece;
     --genWhiteTypeDark: #6b6a6a;
+    --genMaxContainerWidth: 1200px;
     --scrollBarWidth: 7px;
     --scrollbarClr: #282828;
     --scrollbarHoverClr: #333333;
@@ -2775,7 +2776,7 @@ img
 .basicCatalogBox
 {
     width: 100%;
-    max-width: 1200px;
+    max-width: var(--genMaxContainerWidth);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(var(--basicCatalogCardWidth), 1fr));
     grid-template-rows: auto;

@@ -1,0 +1,97 @@
+/*************************************************************
+ * This is the style for the search page of Trending page
+ * 
+ * @author (Anyanwu Benedict Chukwuemeka)
+ * @version (v0.01)
+ *************************************************************/
+
+
+
+html:root
+{
+    --trendingImgBdrWidth: 150px;
+    --trendingImgBdrHeight: 250px;
+}
+
+
+
+.trendingBase
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: var(--navBarHeight) 0 0;
+}
+
+.trendingBase .trendingBdr
+{
+    width: 100%;
+    max-width: var(--genMaxContainerWidth);
+    display: flex;
+    flex-direction: column;
+}
+
+.trendingBdr .trendingSiteNameBdr
+{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.trendingSiteNameBdr .trendingSiteNameBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.trendingBdr .trendingBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+}
+
+.trendingBox .trendingCardBdr
+{
+    width: 100%;
+}
+
+.trendingCardBdr .trendingCardBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.trendingCardBox .trendingImgBdr
+{
+    width: var(--trendingImgBdrWidth);
+    height: var(--trendingImgBdrHeight);
+}
+
+.trendingImgBdr .trendingImgBox
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.trendingImgBox .trendingImg
+{
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-position: center;
+    object-fit: cover;
+}
+
+.trendingCardBox .trendingDetBdr
+{
+    width: calc(100% - var(--trendingImgBdrWidth));
+}
+

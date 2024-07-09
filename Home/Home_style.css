@@ -483,7 +483,7 @@ body
 .watchSectionBdr .watchSectionBox
 {
     width: calc(100% - 60px);
-    max-width: 1200px;
+    max-width: var(--genMaxContainerWidth);
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -689,7 +689,7 @@ body
 .type1_Ctnt_bdr .type1_Ctnt_box
 {
     width: 100%;
-    max-width: 1200px;
+    max-width: var(--genMaxContainerWidth);
     display: flex;
     flex-direction: column;
     gap: 25px;

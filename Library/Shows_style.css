@@ -95,7 +95,7 @@ html:root
 .title-plate
 {
     width: 100%;
-    max-width: 1200px;
+    max-width: var(--genMaxContainerWidth);
     height: fit-content;
     transition: 500ms;
     padding: 20px 0px;
