@@ -62,7 +62,7 @@ html:root
     --navBarBcgSolid: #2f2e2e;
     --navBarBcgTransparency: #2f2e2eef;
     --navElementColor_green: var(--genGreenTypeLight);
-    --navMenuPageActiveElementClr: #888888;
+    --navMenuPageActiveElementClr: var(--color10);
     --navOptionColor: #a1a1a1;
     --navBarDividerThickness: 2px;
     --navMenuBcgClr: #1d1c1c;
@@ -2724,6 +2724,7 @@ img
     --cardInfoTitleTextH: 1.4;
     position: relative;
     -webkit-line-clamp: var(--cardInfoTitleTextNo);
+    line-clamp:  var(--cardInfoTitleTextNo);
     -webkit-box-orient: vertical;
     display: -webkit-box;
     max-height: calc(var(--cardInfoTitleTextNo) * 1em * var(--cardInfoTitleTextH));
@@ -3305,6 +3306,10 @@ img
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 30%;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .footer_base .footer_bdr

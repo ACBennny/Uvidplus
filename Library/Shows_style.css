@@ -213,12 +213,12 @@ html:root
     border-radius: 5px;
 }
 
-.quick_atnCtnt .ratingBox
+.quick_atnCtnt .scoreBox
 {
     width: 100%;
 }
 
-.ratingBdr .ratingBox
+.scoreBdr .scoreBox
 {
     width: 100%;
     display: flex;
@@ -227,18 +227,18 @@ html:root
     align-items: center;
 }
 
-.ratingBox .ratingIconBox
+.scoreBox .scoreIconBox
 {
     width: 18px;
 }
 
-.ratingIconBox .ratingIcon
+.scoreIconBox .scoreIcon
 {
     width: 100%;
     fill: #14d60d;
 }
 
-.ratingBox .ratingIconNo
+.scoreBox .scoreIconNo
 {
     color: #dfdfdf;
     font-size: 12px;
@@ -1071,7 +1071,7 @@ html:root
     }
 }
 
-.rating_btn.active
+.score_btn.active
 {
     width: -moz-fit-content;
     width: fit-content;

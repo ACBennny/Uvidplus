@@ -50,7 +50,7 @@
         let showHTMLCtnt = thisHTMLData.map((item) => 
         {
             const { show_foreground, show_background, show_title, show_scores, show_trailers, show_languages, show_status, 
-                    show_aired, show_genre, show_theme, show_subtitles, show_studios, show_rating, show_description, 
+                    show_aired, show_genre, show_theme, show_subtitles, show_studios, show_score, show_description, 
                     show_type, } = item;
             return `
                 <div class="watch_base" id="top">
@@ -78,22 +78,22 @@
                                     <!-- Quick Actions -->
                                     <div class="quick_atnBcg">
                                         <div class="quick_atnBdr">
-                                            <div class="quick_atnBox open_quickAtnModalBdr like_buttonsBox" title="View ratings" aria-label="View ratings">
+                                            <div class="quick_atnBox open_quickAtnModalBdr like_buttonsBox" title="View scores" aria-label="View scores">
                                                 <div class="quick_atnCtnt">
                                                     <div class="topCtnt">
-                                                        <div class="ratingBdr">
-                                                            <div class="ratingBox">
-                                                                <div class="ratingIconBox">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="ratingIcon">
+                                                        <div class="scoreBdr">
+                                                            <div class="scoreBox">
+                                                                <div class="scoreIconBox">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="scoreIcon">
                                                                         <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/>
                                                                     </svg>
                                                                 </div>
-                                                                <div class="ratingIconNo">${show_scores}</div>
+                                                                <div class="scoreIconNo">${show_scores}</div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="btmCtnt">
-                                                        <p class="btmText">Rating</p>
+                                                        <p class="btmText">score</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -126,26 +126,26 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="quickAtnModalBdr ratingActionBdr">
-                                            <div class="quickAtnModalBox ratingActionBox">
-                                                <button class="quickAtnModal_btn rating_btn like_buttons add_to_LikedShowsBox" title="I like this epsidoe" aria-label="I like this epsidoe">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="quickAtnModal_btnIcon rating_btnIcon add_to_LikedShows">
+                                        <div class="quickAtnModalBdr scoreActionBdr">
+                                            <div class="quickAtnModalBox scoreActionBox">
+                                                <button class="quickAtnModal_btn score_btn like_buttons add_to_LikedShowsBox" title="I like this epsidoe" aria-label="I like this epsidoe">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="quickAtnModal_btnIcon score_btnIcon add_to_LikedShows">
                                                         <path d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75.2H464c26.5 0 48 21.5 48 48c0 18.5-10.5 34.6-25.9 42.6C497 275.4 504 288.9 504 304c0 23.4-16.8 42.9-38.9 47.1c4.4 7.3 6.9 15.8 6.9 24.9c0 21.3-13.9 39.4-33.1 45.6c.7 3.3 1.1 6.8 1.1 10.4c0 26.5-21.5 48-48 48H294.5c-19 0-37.5-5.6-53.3-16.1l-38.5-25.7C176 420.4 160 390.4 160 358.3V320 272 247.1c0-29.2 13.3-56.7 36-75l7.4-5.9c26.5-21.2 44.6-51 51.2-84.2l2.3-11.4c5.2-26 30.5-42.9 56.5-37.7zM32 192H96c17.7 0 32 14.3 32 32V448c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V224c0-17.7 14.3-32 32-32z"/>
                                                     </svg>
-                                                    <p class="quickAtnModal_btnText rating_btnText">I like this</p>
+                                                    <p class="quickAtnModal_btnText score_btnText">I like this</p>
                                                 </button>
-                                                <button class="quickAtnModal_btn rating_btn like_buttons add_to_DislikedShowsBox" title="I don't like this episode" aria-label="I don't like this episode">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="quickAtnModal_btnIcon rating_btnIcon add_to_DislikedShows">
+                                                <button class="quickAtnModal_btn score_btn like_buttons add_to_DislikedShowsBox" title="I don't like this episode" aria-label="I don't like this episode">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="quickAtnModal_btnIcon score_btnIcon add_to_DislikedShows">
                                                         <path d="M313.4 479.1c26-5.2 42.9-30.5 37.7-56.5l-2.3-11.4c-5.3-26.7-15.1-52.1-28.8-75.2H464c26.5 0 48-21.5 48-48c0-18.5-10.5-34.6-25.9-42.6C497 236.6 504 223.1 504 208c0-23.4-16.8-42.9-38.9-47.1c4.4-7.3 6.9-15.8 6.9-24.9c0-21.3-13.9-39.4-33.1-45.6c.7-3.3 1.1-6.8 1.1-10.4c0-26.5-21.5-48-48-48H294.5c-19 0-37.5 5.6-53.3 16.1L202.7 73.8C176 91.6 160 121.6 160 153.7V192v48 24.9c0 29.2 13.3 56.7 36 75l7.4 5.9c26.5 21.2 44.6 51 51.2 84.2l2.3 11.4c5.2 26 30.5 42.9 56.5 37.7zM32 384H96c17.7 0 32-14.3 32-32V128c0-17.7-14.3-32-32-32H32C14.3 96 0 110.3 0 128V352c0 17.7 14.3 32 32 32z"/>
                                                     </svg>
-                                                    <p class="quickAtnModal_btnText rating_btnText">I don't like this</p>
+                                                    <p class="quickAtnModal_btnText score_btnText">I don't like this</p>
                                                 </button>
                                             </div>
                                         </div>
                                         <div class="quickAtnModalBdr">
                                             <div class="quickAtnModalBox">
                                                 <button class="quickAtnModal_btn watchShowNowBtn" title="Watch Now" aria-label="Watch Now">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="quickAtnModal_btnIcon rating_btnIcon add_to_LikedShows">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="quickAtnModal_btnIcon score_btnIcon add_to_LikedShows">
                                                         <path d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9V344c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"/>
                                                     </svg>
                                                     <p class="quickAtnModal_btnText">Watch Now</p>
@@ -160,13 +160,13 @@
                                                     <p class="quickAtnModal_btnText add_to_WatchListText">WatchList</p>
                                                 </button>
                                                 <button class="quickAtnModal_btn add_to_Playlist openAddToPLBtn" title="Add to Playlist" aria-label="Add to Playlist">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="quickAtnModal_btnIcon rating_btnIcon add_to_LikedShows">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="quickAtnModal_btnIcon score_btnIcon add_to_LikedShows">
                                                         <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
                                                     </svg>
                                                     <p class="quickAtnModal_btnText">Playlist</p>
                                                 </button>
                                                 <button class="quickAtnModal_btn shareShowBtn" title="Share this show" aria-label="Share this show">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="quickAtnModal_btnIcon rating_btnIcon add_to_LikedShows">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="quickAtnModal_btnIcon score_btnIcon add_to_LikedShows">
                                                         <path xmlns="http://www.w3.org/2000/svg" d="M384 336a63.78 63.78 0 00-46.12 19.7l-148-83.27a63.85 63.85 0 000-32.86l148-83.27a63.8 63.8 0 10-15.73-27.87l-148 83.27a64 64 0 100 88.6l148 83.27A64 64 0 10384 336z"/>
                                                     </svg>
                                                     <p class="quickAtnModal_btnText">Share</p>
@@ -421,7 +421,7 @@
 
 
 
-        // RATINGS
+        // ScoreS
 
             // Like the show
             likeTheEp.addEventListener("click" , () => 
@@ -495,7 +495,7 @@
 
             document.addEventListener("click" , e => 
             {
-                // Close the Ratings Action Box
+                // Close the Scores Action Box
                 if(    ((openQuickAtnModalBdr[0].matches(":hover")) || (quickAtnModalBdr[0].matches(":hover")))
                     || ((openQuickAtnModalBdr[1].matches(":hover")) || (quickAtnModalBdr[1].matches(":hover")))
                 )
