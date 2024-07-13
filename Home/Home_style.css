@@ -1084,6 +1084,7 @@ body
     height: 100%;
     border-radius: 10px;
     overflow: hidden;
+    transition: all 300ms ease-in-out;
 }
 
 .mostViewedRankNo1Bdr .mostViewedRankNo1Box
@@ -1362,6 +1363,11 @@ body
     {
         --mostViewedRankOthersImgbdrWidthDivider: 5;
         --mostViewedRankOthersDetBdrBeforeBorderClr: #171717;
+    }
+
+    .mostViewedRankNo1Bdr:hover
+    {
+        filter: brightness(1.125);
     }
     
     .mostViewedRankOthersCardBdr:hover .mostViewedRankOthersImgBdr
