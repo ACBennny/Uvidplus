@@ -15,6 +15,11 @@ html:root
     --introInfoNotesMargin: 20px;
     --watchActionIconWidth: 18px;
     --watchListIconWidth: 15px;
+    --mostViewedRankOthersBdrWidth: 465px;
+    --mostViewedRankOthersBoxGap: 10px;
+    --mostViewedRankOthersImgbdrWidth: 125px;
+    --mostViewedRankOthersImgbdrWidthDivider: 3.5;
+    --mostViewedRankOthersDetBdrBeforeBorderClr: #242424;
 }
 
 html
@@ -678,12 +683,16 @@ body
     width: 100%;
     display: flex;
     justify-content: center;
+    padding: 25px;
     background-image: url(../Images/Uvid_green_bcg1_dark.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     backface-visibility: hidden;
-    padding: 25px;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .type1_Ctnt_bdr .type1_Ctnt_box
@@ -1003,11 +1012,13 @@ body
 {
     font-size: 15px;
     color: #dddddd;
+    letter-spacing: 0.5px;
 }
 
 .news_cardPostBox .news_cardPost
 {
-    font-size: 11px;
+    font-family: 'Poppins' , sans-serif;
+    font-size: 12px;
     color: #aaaaaa;
 }
 
@@ -1015,97 +1026,299 @@ body
 
 
 
-/* =========== GO To Library ============= */
+/* =========== Most Viewed Shows ============= */
 
-.seeAllCat_bdr
+.mostViewedCategoryBox
 {
-    width: 100%;
-}
-
-.seeAllCat_box
-{
-    width: 100%;
-    height: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 5px;
-    gap: 10px;
-    text-align: center;
-}
-
-.seeAllCat_box .seaAllCat_text
-{
-    color: #fff;
-    font-size: 16px;
-}
-
-.seeAllCat_box .seeAllCat_btn
-{
-    width: 200px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    color: #fff;
-    font-size: 14px;
-    background-color: #14750f;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 150ms;
-}
-
-.seeAllCat_btn:active
-{
-    background-color: #1b9415;
-    transform: scale(0.95);
-}
-
-
-
-
-
-
-/* ========= Not used in this page -> Starts <- ===== */
-
-.view_more_bdr .view_more_box
-{
-    background-color: #202020;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.view_more_box .view_more_name
-{
-    font-size: 16px;
-    color: #fff;
-}
-
-.view_more_box .view_more_dot_box
-{
+    flex-direction: row;
+    gap: 3px;
     padding: 5px;
+    border-radius: 10px;
+    background-color: #333333;
+}
+
+.mostViewedCategoryBox .mostViewedCategoryItem
+{
+    font-family: 'Poppins' , sans-serif;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    padding: 5px 7px;
+    color: var(--genWhiteTypeMid);
+    font-size: 14px;
+    border-radius: 10px;
+    transition: all 150ms ease-in-out;
+    cursor: pointer;
 }
 
-.view_more_dot_box .view_more_dots
+.mostViewedCategoryItem.active
 {
-    border: 5px solid #e1e1e1;
-    border-radius: 50%;
-    transition: 300ms;
+    color: var(--genWhiteTypeLight) !important;
+    background-color: var(--genGreenTypeMid) !important;
 }
 
-/* ========= Not used in this page -> Ends <- ===== */
+.mostViewedCategoryItem:active
+{
+    background-color: #444444;
+}
+
+.mostViewedBox .mostViewedRankBdr
+{
+    width: 100%;
+    height: 400px;
+}
+
+.mostViewedRankBdr .mostViewedRankBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.mostViewedRankBox .mostViewedRankNo1Bdr
+{
+    width: calc(100% - var(--mostViewedRankOthersBdrWidth));
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.mostViewedRankNo1Bdr .mostViewedRankNo1Box
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.mostViewedRankNo1Box .mostViewedRankNo1ImgBdr
+{
+    width: 100%;
+    height: 100%;
+}
+
+.mostViewedRankNo1ImgBdr .mostViewedRankNo1ImgBox
+{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.mostViewedRankNo1ImgBox .mostViewedRankNo1Img
+{
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-position: center;
+    object-fit: cover;
+}
+
+.mostViewedRankNo1Box .mostViewedRankNo1DetBdr
+{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #000000b2;
+}
+
+.mostViewedRankNo1DetBdr .mostViewedRankNo1DetBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.mostViewedRankNo1DetBox .mostViewedRankNo1SignBdr
+{
+    height: 100%;
+    padding: 15px;
+}
+
+.mostViewedRankNo1SignBdr .mostViewedRankNo1SignBox
+{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+    border-radius: 10px;
+    background-color: var(--genGreenTypeMid);
+}
+
+.mostViewedRankNo1SignBox .mostViewedRankNo1SignText
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.mostViewedRankDetBdr .mostViewedRankDetBox
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.mostViewedRankDetBox .mostViewedRankDetTitleBox
+{
+    width: 100%;
+}
+
+.mostViewedRankDetTitleBox .mostViewedRankDetTitleText
+{
+    --mostViewedRankDetTitleTextNo: 1;
+    --mostViewedRankDetTitleTextH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--mostViewedRankDetTitleTextNo);
+    -webkit-box-orient: vertical;
+    line-clamp: var(--mostViewedRankDetTitleTextNo);
+    display: -webkit-box;
+    max-height: calc(var(--mostViewedRankDetTitleTextNo) * 1em * var(--mostViewedRankDetTitleTextH));
+    line-height: var(--mostViewedRankDetTitleTextH);
+    font-size: 18px;
+    text-align: justify;
+    color: var(--genWhiteTypeLight);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+.mostViewedRankDetBox .mostViewedRankDetTagBdr
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.mostViewedRankDetTagBox .mostViewedRankDetTagText
+{
+    font-family: 'Poppins' , sans-serif;
+    color: var(--color10);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.mostViewedRankDetTagText.mostViewedRankDetTagTextDivider
+{
+    font-size: 10px;
+}
+
+
+
+.mostViewedRankBox .mostViewedRankOthersBdr
+{
+    width: var(--mostViewedRankOthersBdrWidth);
+    height: 100%;
+}
+
+.mostViewedRankOthersBdr .mostViewedRankOthersBox
+{
+    width: 100%;
+    height: 100%;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--mostViewedRankOthersBoxGap);
+}
+
+.mostViewedRankOthersBox .mostViewedRankOthersCardBdr
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.mostViewedRankOthersCardBdr .mostViewedRankOthersCardBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+
+.mostViewedRankOthersCardBox .mostViewedRankOthersImgBdr
+{
+    width: var(--mostViewedRankOthersImgbdrWidth);
+    height: 100%;
+    filter: brightness(0.75);
+    transition: all 300ms ease-in-out;
+    z-index: 2;
+}
+
+.mostViewedRankOthersImgBdr .mostViewedRankOthersImgBox
+{
+    width: 100%;
+    height: 100%;
+}
+
+.mostViewedRankOthersImgBox .mostViewedRankOthersImg
+{
+    width: clamp(100%, 100%, 100%);
+    height: clamp(100%, 100%, 100%);
+    object-position: center;
+    object-fit: cover;
+}
+
+.mostViewedRankOthersBox .mostViewedRankOthersDetBdr
+{
+    position: relative;
+    width: calc((100% - var(--mostViewedRankOthersImgbdrWidth)));
+    z-index: 3;
+}
+
+.mostViewedRankOthersDetBdr::before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: calc((100%) + (var(--mostViewedRankOthersImgbdrWidth) / var(--mostViewedRankOthersImgbdrWidthDivider)));
+    border-top: 100px solid var(--mostViewedRankOthersDetBdrBeforeBorderClr);
+    border-right: 20px solid transparent;
+    transition: all 300ms ease-in-out;
+    z-index: -1;
+}
+
+.mostViewedRankOthersCardBdr::backdrop
+{
+    --mostViewedRankOthersImgbdrWidthDivider: 5;
+    --mostViewedRankOthersDetBdrBeforeBorderClr: #171717;
+}
+
+.mostViewedRankOthersCardBdr:active .mostViewedRankOthersImgBdr
+{
+    filter: brightness(0.9);
+}
+
+.mostViewedRankOthersDetBdr .mostViewedRankOthersDetBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 15px 0 15px 15px;
+}
+
+
+
+
+
+
 
 
 
@@ -1140,9 +1353,20 @@ body
         background-color: #000000cf;
     }
 
-    .seeAllCat_btn:hover
+    .mostViewedCategoryItem:hover
     {
-        background-color: #1b9415;
+        background-color: #444444;
+    }
+
+    .mostViewedRankOthersCardBdr:hover
+    {
+        --mostViewedRankOthersImgbdrWidthDivider: 5;
+        --mostViewedRankOthersDetBdrBeforeBorderClr: #171717;
+    }
+    
+    .mostViewedRankOthersCardBdr:hover .mostViewedRankOthersImgBdr
+    {
+        filter: brightness(0.9);
     }
 }
 
@@ -1154,7 +1378,7 @@ body
 /*  ================ RESPONSIVE ============== */
 
 
-/* -------- height ------------ */
+/* ---------- height ------------ */
 
 
 
@@ -1168,6 +1392,42 @@ body
     .intro_info_notes .intro_desc
     {
         --introDescLineNo: 3;
+    }
+
+    .mostViewedBox .mostViewedRankBdr
+    {
+        height: -moz-fit-content;
+        height: fit-content;
+    }
+
+    .mostViewedRankBdr .mostViewedRankBox
+    {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .mostViewedRankBox .mostViewedRankNo1Bdr,
+    .mostViewedRankBox .mostViewedRankOthersBdr
+    {
+        width: 100%;
+    }
+
+    .mostViewedRankBox .mostViewedRankNo1Bdr
+    {
+        height: 400px;
+    }
+
+    .mostViewedRankBox .mostViewedRankOthersBdr
+    {
+        height: 200px;
+    }
+
+    .mostViewedRankOthersBdr .mostViewedRankOthersBox
+    {
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
     }
 }
 
@@ -1384,11 +1644,31 @@ body
     {
         flex-direction: row;
     }
+
+    .mostViewedRankBox .mostViewedRankNo1Bdr
+    {
+        height: 300px;
+    }
+
+    .mostViewedRankBox .mostViewedRankOthersBdr
+    {
+        height: 400px;
+    }
+
+    .mostViewedRankOthersBdr .mostViewedRankOthersBox
+    {
+        grid-template-columns: 100%;
+    }
 }
 
 
 @media only screen and (max-width: 600px)
 {
+    html:root
+    {
+        --mostViewedRankOthersImgbdrWidth: 100px;
+    }
+
     .watchSectionBdr .watchSectionBox
     {
         width: calc(100% - 40px);
@@ -1444,6 +1724,56 @@ body
     .news_cardPostBox .news_cardPost
     {
         font-size: 9px;
+    }
+
+    .mostViewedRankBox .mostViewedRankNo1Bdr
+    {
+        height: 250px;
+    }
+
+    .mostViewedRankNo1Box .mostViewedRankNo1DetBdr
+    {
+        height: 65px;
+    }
+
+    .mostViewedRankNo1DetBox .mostViewedRankNo1SignBdr
+    {
+        padding: 10px;
+    }
+
+    .mostViewedRankNo1SignBdr .mostViewedRankNo1SignBox
+    {
+        padding: 0 10px;
+    }
+
+    .mostViewedRankDetTitleBox .mostViewedRankDetTitleText
+    {
+        font-size: 15px;
+    }
+
+    .mostViewedRankDetTagBox .mostViewedRankDetTagText
+    {
+        font-size: 12px;
+    }
+
+    .mostViewedRankNo1SignBox .mostViewedRankNo1SignText
+    {
+        font-size: 14px;
+    }
+
+    .mostViewedRankDetBox .mostViewedRankDetTagBdr
+    {
+        gap: 5px;
+    }
+
+    .mostViewedRankDetTagText.mostViewedRankDetTagTextDivider
+    {
+        font-weight: 400;
+    }
+
+    .mostViewedRankBox .mostViewedRankOthersBdr
+    {
+        height: 350px;
     }
     
 }
@@ -1512,6 +1842,14 @@ body
         grid-template-columns: 100%;
     }
 
+    .mostViewedBox .type1_Ctnt_boxHead
+    {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
 }
 
 
@@ -1576,6 +1914,19 @@ body
     .news_cardPostBox .news_cardPost
     {
         font-size: 9px;
+    }
+
+    .mostViewedCategoryBox
+    {
+        gap: 5px;
+        padding: 3px;
+        border-radius: 10px;
+    }
+    
+    .mostViewedCategoryBox .mostViewedCategoryItem
+    {
+        padding: 5px 7px;
+        font-size: 12px;
     }
 
 }

@@ -4228,6 +4228,205 @@
                 </div>
             </div>
 
+            
+            <div class="mostViewedBdr type1_Ctnt_bdr">
+                <div class="mostViewedBox type1_Ctnt_box">
+                    <div class="type1_Ctnt_boxHead">
+                        <div class="type1_Ctnt_box_HeadLeft">
+                            <h1>
+                                <span class="firsttxt">M</span>
+                                <span class="secondtxt">ost Viewed</span>
+                            </h1>
+                        </div>
+                        <div class="type1_Ctnt_box_HeadRight">
+                            <div class="mostViewedCategoryBox">
+                                <div class="mostViewedCategoryItem active">
+                                    <span class="mostViewedCategoryItemInitial">D</span>
+                                    <span class="mostViewedCategoryItemEnding">ay</span>
+                                </div>
+                                <div class="mostViewedCategoryItem">
+                                    <span class="mostViewedCategoryItemInitial">W</span>
+                                    <span class="mostViewedCategoryItemEnding">eek</span>
+                                </div>
+                                <div class="mostViewedCategoryItem">
+                                    <span class="mostViewedCategoryItemInitial">M</span>
+                                    <span class="mostViewedCategoryItemEnding">onth</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mostViewedRankBdr">
+                        <div class="mostViewedRankBox">
+                            <div class="mostViewedRankNo1Bdr">
+                                <a href="/Library/Anime/DemonSlayer.html" class="mostViewedRankNo1Box">
+                                    <div class="mostViewedRankNo1ImgBdr">
+                                        <div class="mostViewedRankNo1ImgBox">
+                                            <img src="/Library/Anime/Watch/DemonSlayer/img/2.jpg" alt="" class="mostViewedRankNo1Img">
+                                        </div>
+                                    </div>
+                                    <div class="mostViewedRankNo1DetBdr">
+                                        <div class="mostViewedRankNo1DetBox">
+                                            <div class="mostViewedRankNo1SignBdr">
+                                                <div class="mostViewedRankNo1SignBox">
+                                                    <h2 class="mostViewedRankNo1SignText">01</h2>
+                                                </div>
+                                            </div>
+                                            <div class="mostViewedRankDetBdr">
+                                                <div class="mostViewedRankDetBox">
+                                                    <div class="mostViewedRankDetTitleBox">
+                                                        <div class="mostViewedRankDetTitleText">Demon Slayer</div>
+                                                    </div>
+                                                    <div class="mostViewedRankDetTagBdr">
+                                                        <div class="mostViewedRankDetTagBox">
+                                                            <div class="mostViewedRankDetTagText">TV</div>
+                                                        </div>
+                                                        <div class="mostViewedRankDetTagBox">
+                                                            <div class="mostViewedRankDetTagText mostViewedRankDetTagTextDivider">/</div>
+                                                        </div>
+                                                        <div class="mostViewedRankDetTagBox">
+                                                            <div class="mostViewedRankDetTagText">2019</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="mostViewedRankOthersBdr">
+                                <div class="mostViewedRankOthersBox">
+                                    <a href="/Library/Anime/OnePiece.html" class="mostViewedRankOthersCardBdr">
+                                        <div class="mostViewedRankOthersCardBox">
+                                            <div class="mostViewedRankOthersImgBdr">
+                                                <div class="mostViewedRankOthersImgBox">
+                                                    <img src="/Library/Anime/Watch/OnePiece/img/2.jpg" alt="" class="mostViewedRankOthersImg">
+                                                </div>
+                                            </div>
+                                            <div class="mostViewedRankOthersDetBdr">
+                                                <div class="mostViewedRankOthersDetBox">
+                                                    <div class="mostViewedRankDetBdr">
+                                                        <div class="mostViewedRankDetBox">
+                                                            <div class="mostViewedRankDetTitleBox">
+                                                                <div class="mostViewedRankDetTitleText">One Piece</div>
+                                                            </div>
+                                                            <div class="mostViewedRankDetTagBdr">
+                                                                <div class="mostViewedRankDetTagBox">
+                                                                    <div class="mostViewedRankDetTagText">TV</div>
+                                                                </div>
+                                                                <div class="mostViewedRankDetTagBox">
+                                                                    <div class="mostViewedRankDetTagText mostViewedRankDetTagTextDivider">/</div>
+                                                                </div>
+                                                                <div class="mostViewedRankDetTagBox">
+                                                                    <div class="mostViewedRankDetTagText">1999</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="/Library/Anime/JujutsuKaisen.html" class="mostViewedRankOthersCardBdr">
+                                        <div class="mostViewedRankOthersCardBox">
+                                            <div class="mostViewedRankOthersImgBdr">
+                                                <div class="mostViewedRankOthersImgBox">
+                                                    <img src="/Library/Anime/Watch/JujutsuKaisen/img/2.jpg" alt="" class="mostViewedRankOthersImg">
+                                                </div>
+                                            </div>
+                                            <div class="mostViewedRankOthersDetBdr">
+                                                <div class="mostViewedRankOthersDetBox">
+                                                    <div class="mostViewedRankDetBdr">
+                                                        <div class="mostViewedRankDetBox">
+                                                            <div class="mostViewedRankDetTitleBox">
+                                                                <div class="mostViewedRankDetTitleText">Jujutsu Kaisen</div>
+                                                            </div>
+                                                            <div class="mostViewedRankDetTagBdr">
+                                                                <div class="mostViewedRankDetTagBox">
+                                                                    <div class="mostViewedRankDetTagText">TV</div>
+                                                                </div>
+                                                                <div class="mostViewedRankDetTagBox">
+                                                                    <div class="mostViewedRankDetTagText mostViewedRankDetTagTextDivider">/</div>
+                                                                </div>
+                                                                <div class="mostViewedRankDetTagBox">
+                                                                    <div class="mostViewedRankDetTagText">2018</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="/Library/Anime/Naruto.html" class="mostViewedRankOthersCardBdr">
+                                        <div class="mostViewedRankOthersCardBox">
+                                            <div class="mostViewedRankOthersImgBdr">
+                                                <div class="mostViewedRankOthersImgBox">
+                                                    <img src="/Library/Anime/Watch/Naruto/img/2.jpg" alt="" class="mostViewedRankOthersImg">
+                                                </div>
+                                            </div>
+                                            <div class="mostViewedRankOthersDetBdr">
+                                                <div class="mostViewedRankOthersDetBox">
+                                                    <div class="mostViewedRankDetBdr">
+                                                        <div class="mostViewedRankDetBox">
+                                                            <div class="mostViewedRankDetTitleBox">
+                                                                <div class="mostViewedRankDetTitleText">Naruto</div>
+                                                            </div>
+                                                            <div class="mostViewedRankDetTagBdr">
+                                                                <div class="mostViewedRankDetTagBox">
+                                                                    <div class="mostViewedRankDetTagText">TV</div>
+                                                                </div>
+                                                                <div class="mostViewedRankDetTagBox">
+                                                                    <div class="mostViewedRankDetTagText mostViewedRankDetTagTextDivider">/</div>
+                                                                </div>
+                                                                <div class="mostViewedRankDetTagBox">
+                                                                    <div class="mostViewedRankDetTagText">2002</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="/Library/Anime/ChainsawMan.html" class="mostViewedRankOthersCardBdr">
+                                        <div class="mostViewedRankOthersCardBox">
+                                            <div class="mostViewedRankOthersImgBdr">
+                                                <div class="mostViewedRankOthersImgBox">
+                                                    <img src="/Library/Anime/Watch/ChainsawMan/img/2.jpg" alt="" class="mostViewedRankOthersImg">
+                                                </div>
+                                            </div>
+                                            <div class="mostViewedRankOthersDetBdr">
+                                                <div class="mostViewedRankOthersDetBox">
+                                                    <div class="mostViewedRankDetBdr">
+                                                        <div class="mostViewedRankDetBox">
+                                                            <div class="mostViewedRankDetTitleBox">
+                                                                <div class="mostViewedRankDetTitleText">Chainsaw man</div>
+                                                            </div>
+                                                            <div class="mostViewedRankDetTagBdr">
+                                                                <div class="mostViewedRankDetTagBox">
+                                                                    <div class="mostViewedRankDetTagText">TV</div>
+                                                                </div>
+                                                                <div class="mostViewedRankDetTagBox">
+                                                                    <div class="mostViewedRankDetTagText mostViewedRankDetTagTextDivider">/</div>
+                                                                </div>
+                                                                <div class="mostViewedRankDetTagBox">
+                                                                    <div class="mostViewedRankDetTagText">2022</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
             <!-- Action -->
             <div class="basic_slider_bdr">
                 <div class="basic_slider_title_bdr">

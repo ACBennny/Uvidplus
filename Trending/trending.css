@@ -164,8 +164,8 @@ html:root
     --trendingDetTitleTextH: 1.4;
     position: relative;
     -webkit-line-clamp: var(--trendingDetTitleTextNo);
-    line-clamp:  var(--trendingDetTitleTextNo);
     -webkit-box-orient: vertical;
+    line-clamp:  var(--trendingDetTitleTextNo);
     display: -webkit-box;
     max-height: calc(var(--trendingDetTitleTextNo) * 1em * var(--trendingDetTitleTextH));
     line-height: var(--trendingDetTitleTextH);
@@ -227,8 +227,8 @@ html:root
     --trendingDetAboutTextH: 1.4;
     position: relative;
     -webkit-line-clamp: var(--trendingDetAboutTextNo);
-    line-clamp:  var(--trendingDetAboutTextNo);
     -webkit-box-orient: vertical;
+    line-clamp:  var(--trendingDetAboutTextNo);
     display: -webkit-box;
     max-height: calc(var(--trendingDetAboutTextNo) * 1em * var(--trendingDetAboutTextH));
     line-height: var(--trendingDetAboutTextH);
@@ -265,7 +265,7 @@ html:root
     background-color: var(--genGreenTypeMid2);
 }
 
-.trendingDetWatchBtn:hover
+.trendingDetWatchBtn:active
 {
     background-color: var(--genGreenTypeMid);
 }
@@ -281,6 +281,16 @@ html:root
     margin-left: 5px;
     color: var(--genWhiteTypeLight);
     font-size: 14px;
+}
+
+
+@media(hover: hover)
+{
+
+    .trendingDetWatchBtn:hover
+    {
+        background-color: var(--genGreenTypeMid);
+    }
 }
 
 

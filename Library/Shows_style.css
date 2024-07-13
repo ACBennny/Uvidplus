@@ -776,6 +776,7 @@ html:root
     position: relative;
     -webkit-line-clamp: var(--selectorMainTextNo);
     -webkit-box-orient: vertical;
+    line-clamp: var(--selectorMainTextNo);
     display: -webkit-box;
     max-height: calc(var(--selectorMainTextNo) * 1em * var(--selectorMainTextH));
     line-height: var(--selectorMainTextH);

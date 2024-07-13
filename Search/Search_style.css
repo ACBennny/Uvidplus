@@ -185,6 +185,7 @@
     max-width: calc(100% - var(--srt_staticWidth));
     -webkit-line-clamp: var(--srt_dynamicLineNo);
     -webkit-box-orient: vertical;
+    line-clamp: var(--srt_dynamicLineNo);
     display: -webkit-box;
     max-height: calc(var(--srt_dynamicLineNo) * 1em * var(--srt_dynamicLineH));
     line-height: var(--srt_dynamicLineH);
