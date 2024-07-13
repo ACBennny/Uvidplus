@@ -1294,7 +1294,7 @@ body
     z-index: -1;
 }
 
-.mostViewedRankOthersCardBdr::backdrop
+.mostViewedRankOthersCardBdr:active
 {
     --mostViewedRankOthersImgbdrWidthDivider: 5;
     --mostViewedRankOthersDetBdrBeforeBorderClr: #171717;
