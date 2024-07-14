@@ -440,15 +440,15 @@
                                         </div>
                                         <span class="navOptTitle">TV</span>
                                     </a>
-                                    <!-- <a href="/MyList.html" class="navOptLink" id="tvShowsLink" title="TV Shows">
+                                    <a href="/MyList.html" class="navOptLink" id="tvShowsLink" title="TV Shows">
                                         <div class="navOptIconBox">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navOptIcon">
                                                 <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
                                             </svg>
                                         </div>
                                         <span class="navOptTitle">My List</span>
-                                    </a> -->
-                                    <a href="/MyList.html?list=watchlist" class="navOptLink" id="prem" title="Help">
+                                    </a>
+                                    <!-- <a href="/MyList.html?list=watchlist" class="navOptLink" id="prem" title="Help">
                                         <div class="navOptIconBox">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navOptIcon">
                                             <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
@@ -471,7 +471,7 @@
                                             </svg>
                                         </div>
                                         <span class="navOptTitle">History</span>
-                                    </a>
+                                    </a> -->
                                     <a href="/News/Home.html" class="navOptLink" id="newsLink" title="News">
                                         <div class="navOptIconBox">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navOptIcon">
@@ -479,6 +479,14 @@
                                             </svg>
                                         </div>
                                         <span class="navOptTitle">News</span>
+                                    </a>
+                                    <a href="/.html" class="navOptLink" id="newsLink" title="Schedule">
+                                        <div class="navOptIconBox">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navOptIcon">
+                                                <path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"/>
+                                            </svg>
+                                        </div>
+                                        <span class="navOptTitle">Schedule</span>
                                     </a>
                                 </section>
 
