@@ -682,7 +682,7 @@
         {
             show_link: `/Library/Anime/KurokonoBasket.html`,
             show_thumbnail: `/Library/Anime/img/23.jpg`,
-            show_title: `Kuroko no Basuke`,
+            show_title: `Kuroko no Basket`,
             show_type: `TV`,
             show_status: `Finished Airing`,
             show_languages: `Japanese`,
