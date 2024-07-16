@@ -19,4 +19,5 @@ Along with this action, I have made some other important changes:
 3. The repository is now private.
 4. I have also included a link to my Github page so viewers can easily identify the author
 
-I believe these changes will aid in further preventing scenarios like this. I sincerely apologize for any inconveniences caused.
+Although I cannot do anything about the code he has copied into his, I believe these changes will aid in further preventing scenarios like this. 
+I sincerely apologize for any inconveniences caused.
