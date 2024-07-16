@@ -1,5 +1,5 @@
 # Uvid-acbennny
- This repository contains the elements of a streaming site
+ This repository contains the elements that make up the User Interface of Uvid(Uvid-acbennny).
 
 Demo: https://uvid-acbennny.netlify.app
 
