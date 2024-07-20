@@ -338,7 +338,7 @@ img
     height: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 0 10px;
+    padding: 0 20px;
     background: -o-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
     background: -moz-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
     background: -webkit-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
@@ -461,6 +461,127 @@ img
     fill: var(--navElementColor_green);
 }
 
+.navBarIconBox.open_nav_menuBox
+{
+    display: none;
+}
+
+.pc_navlinkBdr
+{
+    --pc_navlinkClr: var(--genWhiteTypeMid2);
+    width: -moz-fit-content;
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.pc_navlinkBdr .pc_navlinkBox
+{
+    position: relative;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.pc_navlinkBox.active
+{
+    --pc_navlinkClr: var(--navElementColor_green);
+}
+
+.pc_navlinkBox .pc_navlinkCard
+{
+    display: flex;
+    flex-direction: row;
+    padding: 15px 10px;
+    cursor: pointer;
+}
+
+.pc_navlinkBox.active .pc_navlinkCard
+{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: var(--navMenuBcgClr);
+}
+
+.pc_navlinkBox .pc_navlinkCardText
+{
+    color: var(--pc_navlinkClr);
+    font-size: 14px;
+    transition: all 300ms ease-in-out;
+}
+
+.pc_navlinkBox .pc_navlinkCardIconBox
+{
+    --pc_navlinkIconDimensions: 6px;
+    --pc_navlinkIconDimensionsHalf: calc((var(--pc_navlinkIconDimensions) / 1.25));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 7px;
+}
+
+.pc_navlinkCardIconBox .pc_navlinkCardIcon
+{
+    width: 0;
+    height: 0;
+    border-top: var(--pc_navlinkIconDimensions) solid var(--pc_navlinkClr);
+    border-left: var(--pc_navlinkIconDimensionsHalf) solid transparent;
+    border-right: var(--pc_navlinkIconDimensionsHalf) solid transparent;
+    transition: all 300ms ease-in-out;
+}
+
+.pc_navlinkBox.active .pc_navlinkCardIcon
+{
+    transform: rotate(-180deg);
+}
+
+.pc_navlinkCard:hover,
+.pc_navlinkCard.pc_navlinkOptBdr_isVisible
+{
+    --pc_navlinkClr: var(--navElementColor_green);
+}
+
+.pc_navlinkBox .pc_navlinkOptBdr
+{
+    --pc_navlinkOptBdrSpacing: 12px;
+    position: absolute;
+    min-width: 250px;
+    max-height: 0;
+    left: 0%;
+    bottom: calc((0% + (var(--pc_navlinkOptBdrSpacing))));
+    border-radius: 10px;
+    border-top-left-radius: 0px;
+    background-color: var(--navMenuBcgClr);
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-0% , 100%);
+    transition: all 150ms ease-in-out;
+}
+
+.pc_navlinkBox.active .pc_navlinkOptBdr
+{
+    max-height: none;
+    opacity: 1;
+    visibility: visible;
+}
+
+.pc_navlinkOptBdr .pc_navlinkOptBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
 .navBarRight
 {
     height: 100%;
@@ -492,6 +613,32 @@ img
     user-select: none;
 }
 
+/* ---- Underlayer for Navbar --- */
+.navbar_UnderLayer
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000075;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    z-index: 90;
+    display: none;
+}
+
+.navbar_UnderLayer.active
+{
+    display: flex;
+}
 
 
 /* =============== Profile ================ */
@@ -556,7 +703,7 @@ img
     flex-direction: column;
     border-radius: 10px;
     border-bottom: 1px solid var(--genGreenTypeLight);
-    background-color: #1d1c1c;
+    background-color: var(--navMenuBcgClr);
     overflow: hidden;
 }
 
@@ -699,9 +846,9 @@ img
     z-index: 3;
 }
 
-.navBarNotificationBdr .navBarNotificationMain
+.navBarNotificationMain
 {
-    position: absolute;
+    position: fixed;
     top: calc(0% + var(--navBarNotificationPosT));
     right: calc(0% + var(--navBarNotificationPosR));
     width: calc(100% - 10px);
@@ -714,7 +861,7 @@ img
     -webkit-user-select: none;
     user-select: none;
     transition: all 150ms ease;
-    z-index: 5;
+    z-index: 95;
 }
 
 .navBarNotificationMain.notify_atv
@@ -734,7 +881,7 @@ img
     gap: 5px;
     padding: 0 0 10px 0;
     border-radius: 10px;
-    background-color: #1d1c1c;
+    background-color: var(--navMenuBcgClr);
     overflow: hidden;
 }
 
@@ -900,7 +1047,8 @@ img
 
 .navOptIconBox .navOptIcon
 {
-    width: 16px;
+    width: 15px;
+    height: 15px;
     fill: var(--navMenuPageActiveElementClr);
     cursor: pointer;
     transition: 300ms;
@@ -919,14 +1067,16 @@ img
     width: 100%;
     display: flex;
     justify-content: space-between;
-    gap: 15px;
+    align-items: center;
+    gap: 7px;
     font-size: 14px;
     padding: 15px 10px;
     cursor: pointer;
     position: relative;
 }
 
-.navOptLink.active{
+.navOptLink.active
+{
     --navMenuPageActiveElementClr: var(--genGreenTypeLight);
     background-color: #334334b8;
     border-radius: 10px;
@@ -2822,6 +2972,7 @@ img
     grid-template-columns: repeat(auto-fit, minmax(var(--basicCatalogCardWidth), 1fr));
     grid-template-rows: auto;
     justify-items: center;
+    /* align-content: start; */
     padding: 20px 15px;
     gap: 15px;
     overflow-x: hidden;
@@ -3341,7 +3492,7 @@ img
 {
     width: 100%;
     padding: 0 20px;
-    background-color: #1d1c1c;
+    background-color: var(--navMenuBcgClr);
     background-image: url(/Images/bcg_footer.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -4107,6 +4258,21 @@ img
     {
         --basicSlideIconWidth: 15px;
         --slideCardPlayIconWidth: 27px;
+    }
+
+    .navBar
+    {
+        padding: 0 10px;
+    }
+
+    .navBarIconBox.open_nav_menuBox
+    {
+        display: flex;
+    }
+
+    .pc_navlinkBdr
+    {
+        display: none;
     }
 
     .basic_slider_box  .basic_slide_arrow,
