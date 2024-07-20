@@ -532,7 +532,7 @@
 
                     function checkpcNavLinkBoxDropdown()
                     {
-                        if((window.innerWidth <= 600))
+                        if((curr.classList.contains("active")) && (window.innerWidth <= 600))
                         {
                             document.removeEventListener("click" , closepcNavLinkBoxDropdown);
                             curr.classList.remove("active");
