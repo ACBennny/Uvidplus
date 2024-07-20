@@ -1054,6 +1054,17 @@ img
     transition: 300ms;
 }
 
+.navOptHeaderBdr .navOptIconBox:hover .navOptIcon
+{
+    fill: var(--genWhiteTypeLight);
+}
+
+.navOptHeaderBdr .navOptIcon
+{
+    width: 20px;
+    height: 20px;
+}
+
 .navOptBox .navOptHead
 {
     width: 100%;
