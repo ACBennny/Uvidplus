@@ -702,7 +702,7 @@
                 {
                     
                     // Open Nav Menu
-                    function openNavMenu()
+                    function openNavSideMenu()
                     {
                         navMenuBdr.classList.add("bdr_atv");
                         document.body.classList.add('bodystop');
@@ -710,11 +710,11 @@
 
                     navMenuIcon.forEach(btn => 
                     {
-                        btn.addEventListener("click" , openNavMenu);
+                        btn.addEventListener("click" , openNavSideMenu);
                     });
 
                     // Close Nav Menu
-                    function closesearch()
+                    function closeNavSideMenu()
                     {
                         navMenuBdr.classList.remove("bdr_atv");
                         document.body.classList.remove('bodystop');
@@ -722,7 +722,7 @@
 
                     const closeNavMenu = document.querySelectorAll('.close_nav_Menu');
                     closeNavMenu.forEach(btn => {
-                        btn.addEventListener("click" , closesearch);
+                        btn.addEventListener("click" , closeNavSideMenu);
                     });
 
                     // Setting the title of the elements
@@ -783,6 +783,24 @@
                     navfooterBoxSect1.forEach(footerlink => 
                     {
                         footerlink.title = footerlink.textContent;
+                    });
+
+                    function checkNavMenu()
+                    {
+                        if((window.innerWidth > 600))
+                        {
+                            closeNavSideMenu();
+                        }
+                    }
+
+                    // Listener to remove the nav menu for larger devices (600px)
+                    window.addEventListener("change" , () => 
+                    {
+                        checkNavMenu();
+                    });
+                    window.addEventListener("resize" , () => 
+                    {
+                        checkNavMenu();
                     });
 
                     // clear timer once time runs out
