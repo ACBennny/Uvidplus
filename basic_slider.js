@@ -95,7 +95,7 @@
     // Slide Card details (title, alt etc)
     ctntLinks.forEach(ctntLink => {
         const showCards = ctntLink.querySelector('.slide_card');
-        const showCardImgs = ctntLink.querySelector('.cardimg img');
+        const showCardImgs = ctntLink.querySelector('.cardImg');
         const showCardInfoName = showCards.querySelector('.cardinfo h3');
 
         // Slide Card Base
