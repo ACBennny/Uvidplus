@@ -499,7 +499,6 @@
                     if((curr.classList.contains("active")))
                     {
                         closepcNavLinkBoxDropdown();
-                        return;
                     }
                     else
                     {
