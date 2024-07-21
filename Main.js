@@ -499,7 +499,8 @@
                 {
                     if((curr.classList.contains("active")))
                     {
-                        closepcNavLinkBoxDropdown();
+                        curr.classList.remove("active");
+                        removeNavbarUnderLayer();
                     }
                     else
                     {
