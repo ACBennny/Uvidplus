@@ -410,6 +410,7 @@
 
             let navBar = document.querySelector(".navBar");
             let navBarHeadName = document.querySelector(".navBar .headname");
+            let navbarUnderlayer = document.body.querySelector(".navbar_UnderLayer");
             let goToHomePage = document.querySelectorAll(".Companylogo");
             let goToNewsPage = document.body.querySelector(".pc_navlinkNews");
             let goToSearchPage = document.querySelector(".openNavSearch_Btn");
@@ -786,7 +787,7 @@
 
                     function checkNavMenu()
                     {
-                        if((window.innerWidth > 600))
+                        if(((navMenuBdr.classList.contains("bdr_atv")) && (window.innerWidth > 600)))
                         {
                             closeNavSideMenu();
                         }
@@ -811,6 +812,26 @@
             instantiateSideNavBar();
 
 
+
+        // NAVBAR UNDERLAYER
+
+            function toggleNavbarUnderLayer()
+            {
+                document.body.classList.toggle("bodystop");
+                navbarUnderlayer.classList.toggle("active");
+            }
+
+            function addNavbarUnderLayer()
+            {
+                document.body.classList.add("bodystop");
+                navbarUnderlayer.classList.add("active");
+            }
+
+            function removeNavbarUnderLayer()
+            {
+                document.body.classList.remove("bodystop");
+                navbarUnderlayer.classList.remove("active");
+            }
 
 
         // NAVBAR  NOTIFICATIONS
@@ -1023,30 +1044,6 @@
             attachSharePageEventListeners();
 
     }
-
-
-    // NAVBAR UNDERLAYER
-
-        function toggleNavbarUnderLayer()
-        {
-            const navbarUnderlayer = document.body.querySelector(".navbar_UnderLayer");
-            document.body.classList.toggle("bodystop");
-            navbarUnderlayer.classList.toggle("active");
-        }
-
-        function addNavbarUnderLayer()
-        {
-            const navbarUnderlayer = document.body.querySelector(".navbar_UnderLayer");
-            document.body.classList.add("bodystop");
-            navbarUnderlayer.classList.add("active");
-        }
-
-        function removeNavbarUnderLayer()
-        {
-            const navbarUnderlayer = document.body.querySelector(".navbar_UnderLayer");
-            document.body.classList.remove("bodystop");
-            navbarUnderlayer.classList.remove("active");
-        }
 
 
     // ALL IMAGES
