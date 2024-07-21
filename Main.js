@@ -29,107 +29,31 @@
                         <h1 class="lname">vid</h1>
                     </div>
                     <div class="pc_navlinkBdr">
-                        <div class="pc_navlinkBox pc_navlinkBoxDropdown">
-                            <div class="pc_navlinkCard">
-                                <div class="pc_navlinkCardText">Explore</div>
-                                <div class="pc_navlinkCardIconBox">
-                                    <div class="pc_navlinkCardIcon"></div>
-                                </div>
+                        <a href="/Trending.html" class="pc_navlinkBox">
+                            <div class="pc_navlinkCard ">
+                                <div class="pc_navlinkCardText">Trending</div>
                             </div>
-                            <div class="pc_navlinkOptBdr">
-                                <div class="pc_navlinkOptBox">
-                                    <a href="/Latest.html" class="navOptLink" id="moviesLink" title="Movies">
-                                        <div class="navOptIconBox">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navOptIcon">
-                                                <path d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288H175.5L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7H272.5L349.4 44.6z"/>
-                                            </svg>
-                                        </div>
-                                        <span class="navOptTitle">Recent</span>
-                                    </a>
-                                    <a href="/Trending.html" class="navOptLink" id="moviesLink" title="Movies">
-                                        <div class="navOptIconBox">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="navOptIcon">
-                                                <path d="M384 160c-17.7 0-32-14.3-32-32s14.3-32 32-32H544c17.7 0 32 14.3 32 32V288c0 17.7-14.3 32-32 32s-32-14.3-32-32V205.3L342.6 374.6c-12.5 12.5-32.8 12.5-45.3 0L192 269.3 54.6 406.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160c12.5-12.5 32.8-12.5 45.3 0L320 306.7 466.7 160H384z"/>
-                                            </svg>
-                                        </div>
-                                        <span class="navOptTitle">Trending</span>
-                                    </a>
-                                    <a href="/Library/Movies.html" class="navOptLink" id="moviesLink" title="Movies">
-                                        <div class="navOptIconBox">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navOptIcon">
-                                                <path d="M448 32H361.9l-1 1-127 127h92.1l1-1L453.8 32.3c-1.9-.2-3.8-.3-5.8-.3zm64 128V96c0-15.1-5.3-29.1-14-40l-104 104H512zM294.1 32H201.9l-1 1L73.9 160h92.1l1-1 127-127zM64 32C28.7 32 0 60.7 0 96v64H6.1l1-1 127-127H64zM512 192H0V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V192z"/>
-                                            </svg>
-                                        </div>
-                                        <span class="navOptTitle">Movies</span>
-                                    </a>
-                                    <a href="/Library/Tv.html" class="navOptLink" id="tvShowsLink" title="TV Shows">
-                                        <div class="navOptIconBox">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="navOptIcon">
-                                                <path d="M64 64V352H576V64H64zM0 64C0 28.7 28.7 0 64 0H576c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zM128 448H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H128c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/>
-                                            </svg>
-                                        </div>
-                                        <span class="navOptTitle">TV</span>
-                                    </a>
-                                    <a href="/MyList.html" class="navOptLink" id="tvShowsLink" title="TV Shows">
-                                        <div class="navOptIconBox">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navOptIcon">
-                                                <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
-                                            </svg>
-                                        </div>
-                                        <span class="navOptTitle">My List</span>
-                                    </a>
-                                    <a href="/Schedule.html" class="navOptLink" id="newsLink" title="Schedule">
-                                        <div class="navOptIconBox">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navOptIcon">
-                                                <path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"/>
-                                            </svg>
-                                        </div>
-                                        <span class="navOptTitle">Schedule</span>
-                                    </a>
-                                </div>
+                        </a>
+                        <a href="/Movies.html" class="pc_navlinkBox">
+                            <div class="pc_navlinkCard ">
+                                <div class="pc_navlinkCardText">Movies</div>
                             </div>
-                        </div>
-                        <!-- <div class="pc_navlinkBox pc_navlinkBoxDropdown">
-                            <div class="pc_navlinkCard">
-                                <div class="pc_navlinkCardText">My Lists</div>
-                                <div class="pc_navlinkCardIconBox">
-                                    <div class="pc_navlinkCardIcon"></div>
-                                </div>
+                        </a>
+                        <a href="/Tv.html" class="pc_navlinkBox">
+                            <div class="pc_navlinkCard ">
+                                <div class="pc_navlinkCardText">Tv Shows</div>
                             </div>
-                            <div class="pc_navlinkOptBdr">
-                                <div class="pc_navlinkOptBox">
-                                    <a href="/MyList.html?list=watchlist" class="navOptLink" id="prem" title="Help">
-                                        <div class="navOptIconBox">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 348 512" class="navOptIcon">
-                                            <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                            </svg>
-                                        </div>
-                                        <span class="navOptTitle">Watchlist</span>
-                                    </a>
-                                    <a href="/MyList.html?list=playlist" class="navOptLink" id="feedback" title="Feedback">
-                                        <div class="navOptIconBox">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="navOptIcon">
-                                                <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                            </svg>
-                                        </div>
-                                        <span class="navOptTitle">Playlist</span>
-                                    </a>
-                                    <a href="/MyList.html?list=history" class="navOptLink" id="supp" title="Support">
-                                        <div class="navOptIconBox">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navOptIcon">
-                                                <path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/>
-                                            </svg>
-                                        </div>
-                                        <span class="navOptTitle">History</span>
-                                    </a>
-                                </div>
+                        </a>
+                        <a href="/Schedule.html" class="pc_navlinkBox">
+                            <div class="pc_navlinkCard ">
+                                <div class="pc_navlinkCardText">Schedule</div>
                             </div>
-                        </div> -->
-                        <div class="pc_navlinkBox">
-                            <div class="pc_navlinkCard pc_navlinkNews">
+                        </a>
+                        <a href="/News.html" class="pc_navlinkBox">
+                            <div class="pc_navlinkCard ">
                                 <div class="pc_navlinkCardText">News</div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class="navBarCenter navBarSearchBdr"></div>
@@ -412,9 +336,7 @@
             let navBarHeadName = document.querySelector(".navBar .headname");
             let navbarUnderlayer = document.body.querySelector(".navbar_UnderLayer");
             let goToHomePage = document.querySelectorAll(".Companylogo");
-            let goToNewsPage = document.body.querySelector(".pc_navlinkNews");
             let goToSearchPage = document.querySelector(".openNavSearch_Btn");
-            let pcNavLinkBoxDropdown = documentBody.querySelectorAll(".pc_navlinkBoxDropdown");
             let openNavProfileOptions = document.querySelector(".open_nav_profileOptions");
             let navProfileOptionsBdr = document.querySelector(".navBarProfileOptBdr");
             let navMenuIcon = document.querySelectorAll(".open_nav_menu");
@@ -461,12 +383,6 @@
                 });
             });
 
-            // Go to News Page
-            goToNewsPage.addEventListener("click" , () => 
-            {
-                window.open("/News/Home.html" , "_self");
-            });
-
             // Go to Search Page
             goToSearchPage.addEventListener("click" , () => 
             {
@@ -490,60 +406,6 @@
                         toggleNavbarUnderLayer();
                     }
                 }
-            });
-
-            // Desktop (PC) NavLinks
-            pcNavLinkBoxDropdown.forEach((curr, oth) => 
-            {
-                curr.addEventListener("click" , () => 
-                {
-                    if((curr.classList.contains("active")))
-                    {
-                        curr.classList.remove("active");
-                        removeNavbarUnderLayer();
-                    }
-                    else
-                    {
-                        pcNavLinkBoxDropdown.forEach((activeBox) => 
-                        {
-                            activeBox.classList.remove("active");
-                            toggleNavbarUnderLayer();
-                        });
-                        curr.classList.add("active");
-                        document.addEventListener("click" , closepcNavLinkBoxDropdown);
-
-                        window.addEventListener("change" , () => 
-                        {
-                            checkpcNavLinkBoxDropdown();
-                        });
-                        window.addEventListener("resize" , () => 
-                        {
-                            checkpcNavLinkBoxDropdown();
-                        });
-                    }
-
-                    function closepcNavLinkBoxDropdown()
-                    {
-                        if((!(curr.matches(":hover"))))
-                        {
-                            document.removeEventListener("click" , closepcNavLinkBoxDropdown);
-                            curr.classList.remove("active");
-                            toggleNavbarUnderLayer();
-                        }
-                    }
-
-                    function checkpcNavLinkBoxDropdown()
-                    {
-                        if((curr.classList.contains("active")) && (window.innerWidth <= 600))
-                        {
-                            document.removeEventListener("click" , closepcNavLinkBoxDropdown);
-                            curr.classList.remove("active");
-                            removeNavbarUnderLayer();
-                        }
-                    }
-                });
-                
-                
             });
 
 
@@ -587,14 +449,14 @@
                                         </div>
                                         <span class="navOptTitle">Home</span>
                                     </a>
-                                    <a href="/Latest.html" class="navOptLink" id="moviesLink" title="Movies">
+                                    <!-- <a href="/Latest.html" class="navOptLink" id="moviesLink" title="Movies">
                                         <div class="navOptIconBox">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navOptIcon">
                                                 <path d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288H175.5L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7H272.5L349.4 44.6z"/>
                                             </svg>
                                         </div>
                                         <span class="navOptTitle">Recent</span>
-                                    </a>
+                                    </a> -->
                                     <a href="/Trending.html" class="navOptLink" id="moviesLink" title="Movies">
                                         <div class="navOptIconBox">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="navOptIcon">
@@ -619,7 +481,7 @@
                                         </div>
                                         <span class="navOptTitle">TV</span>
                                     </a>
-                                    <a href="/MyList.html" class="navOptLink" id="tvShowsLink" title="TV Shows">
+                                    <!-- <a href="/MyList.html" class="navOptLink" id="tvShowsLink" title="TV Shows">
                                         <div class="navOptIconBox">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navOptIcon">
                                                 <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
@@ -627,7 +489,7 @@
                                         </div>
                                         <span class="navOptTitle">My List</span>
                                     </a>
-                                    <!-- <a href="/MyList.html?list=watchlist" class="navOptLink" id="prem" title="Help">
+                                    <a href="/MyList.html?list=watchlist" class="navOptLink" id="prem" title="Help">
                                         <div class="navOptIconBox">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navOptIcon">
                                             <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
@@ -788,7 +650,7 @@
 
                     function checkNavMenu()
                     {
-                        if(((navMenuBdr.classList.contains("bdr_atv")) && (window.innerWidth > 600)))
+                        if(((navMenuBdr.classList.contains("bdr_atv")) && (window.innerWidth > 884)))
                         {
                             closeNavSideMenu();
                         }

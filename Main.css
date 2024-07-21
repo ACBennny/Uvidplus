@@ -4080,6 +4080,16 @@ img
 @media only screen and (max-width: 884px)
 {
 
+    .navBarIconBox.open_nav_menuBox
+    {
+        display: flex;
+    }
+
+    .pc_navlinkBdr
+    {
+        display: none;
+    }
+
     .editProfAtnBtn_Pc
     {
         display: none;
@@ -4276,16 +4286,6 @@ img
         padding: 0 10px;
     }
 
-    .navBarIconBox.open_nav_menuBox
-    {
-        display: flex;
-    }
-
-    .pc_navlinkBdr
-    {
-        display: none;
-    }
-
     .basic_slider_box  .basic_slide_arrow,
     .selectPicSectCarouselBox .selectPicCarouselArrBox
     {
@@ -4453,11 +4453,6 @@ only screen and (max-width: 800px)
 
 @media only screen and (max-width: 350px)
 {
-
-    /* .navBarRightCtnt .openNavSearch_BtnBox
-    {
-        display: none;
-    } */
 
     .addNewProfIconBox .addNewProfIcon
     {
