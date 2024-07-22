@@ -366,6 +366,8 @@
             let goToHomePage = document.querySelectorAll(".Companylogo");
             let goToSearchPage = document.querySelector(".openNavSearch_Btn");
             let openNavProfileOptions = document.querySelector(".open_nav_profileOptions");
+            let navBarSignOutBtn = document.querySelector(".navBarSignOutBtn");
+            let accountSignOutTimer;
             let navProfileOptionsBdr = document.querySelector(".navBarProfileOptBdr");
             let navMenuIcon = document.querySelectorAll(".open_nav_menu");
             let navMenuTimer;
@@ -435,6 +437,17 @@
                     }
                 }
             });
+
+            // Signing Out of your Account
+            function accountSignOut()
+            {
+                notification(`notifyBad` , `Logging Out`);
+                toggleNavbarUnderLayer();
+
+                accountSignOutTimer = setTimeout(() => window.open(`/` , `_self`), 3000);
+            }
+
+            navBarSignOutBtn.addEventListener("click" , accountSignOut);
 
 
         // NAVBAR SIDE MENU
