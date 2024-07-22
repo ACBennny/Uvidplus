@@ -29,6 +29,11 @@
                         <h1 class="lname">vid</h1>
                     </div>
                     <div class="pc_navlinkBdr">
+                        <a href="/Home.html" class="pc_navlinkBox">
+                            <div class="pc_navlinkCard ">
+                                <div class="pc_navlinkCardText">Home</div>
+                            </div>
+                        </a>
                         <a href="/Trending.html" class="pc_navlinkBox">
                             <div class="pc_navlinkCard ">
                                 <div class="pc_navlinkCardText">Trending</div>
