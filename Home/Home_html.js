@@ -65,9 +65,9 @@
                                                     </svg>
                                                     <span>Watch Now</span>
                                                 </a>
-                                                <div class="save_to_PList btn hollowBtn" title="Add to Watchlist">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="watchListIcon">
-                                                        <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
+                                                <div class="addToListBtn save_to_List btn hollowBtn" title="Add to List">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="addToListBtnIcon">
+                                                        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
                                                     </svg>
                                                 </div>
                                             </div>
@@ -105,9 +105,9 @@
                                                     </svg>
                                                     <span>Watch Now</span>
                                                 </a>
-                                                <div class="save_to_PList btn hollowBtn" title="Add to Watchlist">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="watchListIcon">
-                                                        <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
+                                                <div class="addToListBtn save_to_List btn hollowBtn" title="Add to List">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="addToListBtnIcon">
+                                                        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
                                                     </svg>
                                                 </div>
                                             </div>
@@ -140,9 +140,9 @@
                                                     </svg>
                                                     <span>Watch Now</span>
                                                 </a>
-                                                <div class="save_to_PList btn hollowBtn" title="Add to Watchlist">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="watchListIcon">
-                                                        <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
+                                                <div class="addToListBtn save_to_List btn hollowBtn" title="Add to List">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="addToListBtnIcon">
+                                                        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
                                                     </svg>
                                                 </div>
                                             </div>
@@ -179,9 +179,9 @@
                                                     </svg>
                                                     <span>Watch Now</span>
                                                 </a>
-                                                <div class="save_to_PList btn hollowBtn" title="Add to Watchlist">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="watchListIcon">
-                                                        <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
+                                                <div class="addToListBtn save_to_List btn hollowBtn" title="Add to List">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="addToListBtnIcon">
+                                                        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
                                                     </svg>
                                                 </div>
                                             </div>
@@ -216,9 +216,9 @@
                                                     </svg>
                                                     <span>Watch Now</span>
                                                 </a>
-                                                <div class="save_to_PList btn hollowBtn" title="Add to Watchlist">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="watchListIcon">
-                                                        <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
+                                                <div class="addToListBtn save_to_List btn hollowBtn" title="Add to List">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="addToListBtnIcon">
+                                                        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
                                                     </svg>
                                                 </div>
                                             </div>
@@ -254,9 +254,9 @@
                                                     </svg>
                                                     <span>Watch Now</span>
                                                 </a>
-                                                <div class="save_to_PList btn hollowBtn" title="Add to Watchlist">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="watchListIcon">
-                                                        <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
+                                                <div class="addToListBtn save_to_List btn hollowBtn" title="Add to List">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="addToListBtnIcon">
+                                                        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
                                                     </svg>
                                                 </div>
                                             </div>
@@ -2979,11 +2979,11 @@
                                     </svg>
                                     <span>Watch S1 Ep1</span>
                                 </a>
-                                <div class="watchAction addToWatchList hollowBtn" title="Add to Watchlist">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="watchListIcon">
-                                        <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
+                                <div class="watchAction addToListBtn hollowBtn" title="Add to List">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="addToListBtnIcon">
+                                        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
                                     </svg>
-                                    <span>Add to Watchlist</span>
+                                    <span>Add to List</span>
                                 </div>
                             </div>
                         </div>
@@ -3025,11 +3025,11 @@
                                     </svg>
                                     <span>Watch S1 Ep1</span>
                                 </a>
-                                <div class="watchAction addToWatchList hollowBtn" title="Add to Watchlist">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="watchListIcon">
-                                        <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
+                                <div class="watchAction addToListBtn hollowBtn" title="Add to List">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="addToListBtnIcon">
+                                        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
                                     </svg>
-                                    <span>Add to Watchlist</span>
+                                    <span>Add to List</span>
                                 </div>
                             </div>
                         </div>
@@ -5630,11 +5630,11 @@
                                     </svg>
                                     <span>Watch S1 Ep1</span>
                                 </a>
-                                <div class="watchAction addToWatchList hollowBtn" title="Add to Watchlist">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="watchListIcon">
-                                        <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
+                                <div class="watchAction addToListBtn hollowBtn" title="Add to List">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="addToListBtnIcon">
+                                        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
                                     </svg>
-                                    <span>Add to Watchlist</span>
+                                    <span>Add to List</span>
                                 </div>
                             </div>
                         </div>
@@ -5679,11 +5679,11 @@
                                     </svg>
                                     <span>Watch S1 Ep1</span>
                                 </a>
-                                <div class="watchAction addToWatchList hollowBtn" title="Add to Watchlist">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="watchListIcon">
-                                        <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
+                                <div class="watchAction addToListBtn hollowBtn" title="Add to List">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="addToListBtnIcon">
+                                        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
                                     </svg>
-                                    <span>Add to Watchlist</span>
+                                    <span>Add to List</span>
                                 </div>
                             </div>
                         </div>

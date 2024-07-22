@@ -14,7 +14,7 @@ html:root
     --introSlideIconWidth: 18px;
     --introInfoNotesMargin: 20px;
     --watchActionIconWidth: 18px;
-    --watchListIconWidth: 15px;
+    --addToListBtnIconWidth: 15px;
     --mostViewedRankOthersBdrWidth: 465px;
     --mostViewedRankOthersBoxGap: 10px;
     --mostViewedRankOthersImgbdrWidth: 125px;
@@ -61,11 +61,13 @@ body
 .watchActionIcon
 {
     width: var(--watchActionIconWidth);
+    height: var(--watchActionIconWidth);
 }
 
-.watchListIcon
+.addToListBtnIcon
 {
-    width: var(--watchListIconWidth);
+    width: var(--addToListBtnIconWidth);
+    height: var(--addToListBtnIconWidth);
 }
 
 
@@ -378,7 +380,7 @@ body
     transition: 150ms;
 }
 
-.playShow_box .save_to_PList
+.playShow_box .save_to_List
 {
     margin-left: 5px;
 }
@@ -388,7 +390,7 @@ body
     width: 100%;
 }
 
-.intro_info_notes .playShow_box .save_to_PList
+.intro_info_notes .playShow_box .save_to_List
 {
     width: 50px;
 }
@@ -1833,12 +1835,12 @@ body
         width: calc((100% - var(--watchActionIconWidth)) + var(--addTOWatchListSmallWidth));
     }
 
-    .watchAction.addToWatchList
+    .watchAction.addToListBtn
     {
         width: calc(var(--watchActionIconWidth) + var(--addTOWatchListSmallWidth));
     }
 
-    .addToWatchList span
+    .addToListBtn span
     {
         display: none;
     }

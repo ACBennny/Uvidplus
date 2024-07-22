@@ -34,6 +34,11 @@
                                 <div class="pc_navlinkCardText">Home</div>
                             </div>
                         </a>
+                        <a href="/Latest.html" class="pc_navlinkBox">
+                            <div class="pc_navlinkCard ">
+                                <div class="pc_navlinkCardText">Recent</div>
+                            </div>
+                        </a>
                         <a href="/Trending.html" class="pc_navlinkBox">
                             <div class="pc_navlinkCard ">
                                 <div class="pc_navlinkCardText">Trending</div>
@@ -47,6 +52,11 @@
                         <a href="/Tv.html" class="pc_navlinkBox">
                             <div class="pc_navlinkCard ">
                                 <div class="pc_navlinkCardText">Tv Shows</div>
+                            </div>
+                        </a>
+                        <a href="/Genres.html" class="pc_navlinkBox">
+                            <div class="pc_navlinkCard ">
+                                <div class="pc_navlinkCardText">Genres</div>
                             </div>
                         </a>
                         <a href="/Schedule.html" class="pc_navlinkBox">
@@ -490,14 +500,14 @@
                                         </div>
                                         <span class="navOptTitle">Home</span>
                                     </a>
-                                    <!-- <a href="/Latest.html" class="navOptLink" id="moviesLink" title="Movies">
+                                    <a href="/Latest.html" class="navOptLink" id="moviesLink" title="Movies">
                                         <div class="navOptIconBox">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navOptIcon">
                                                 <path d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288H175.5L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7H272.5L349.4 44.6z"/>
                                             </svg>
                                         </div>
                                         <span class="navOptTitle">Recent</span>
-                                    </a> -->
+                                    </a>
                                     <a href="/Trending.html" class="navOptLink" id="moviesLink" title="Movies">
                                         <div class="navOptIconBox">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="navOptIcon">
@@ -522,15 +532,18 @@
                                         </div>
                                         <span class="navOptTitle">TV Shows</span>
                                     </a>
-                                    <!-- <a href="/MyList.html" class="navOptLink" id="tvShowsLink" title="TV Shows">
+                                    <a href="/Genres.html" class="navOptLink" id="tvShowsLink" title="TV Shows">
                                         <div class="navOptIconBox">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navOptIcon">
+                                            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navOptIcon">
                                                 <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
+                                            </svg> -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navOptIcon">
+                                                <path d="M192 64l0 64c0 17.7 14.3 32 32 32l64 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32zM82.7 207c-15.3 8.8-20.5 28.4-11.7 43.7l32 55.4c8.8 15.3 28.4 20.5 43.7 11.7l55.4-32c15.3-8.8 20.5-28.4 11.7-43.7l-32-55.4c-8.8-15.3-28.4-20.5-43.7-11.7L82.7 207zM288 192c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l64 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-64 0zm64 160c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l64 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-64 0zM160 384l0 64c0 17.7 14.3 32 32 32l64 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32zM32 352c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l64 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-64 0z"/>
                                             </svg>
                                         </div>
-                                        <span class="navOptTitle">My List</span>
+                                        <span class="navOptTitle">Genres</span>
                                     </a>
-                                    <a href="/MyList.html?list=watchlist" class="navOptLink" id="prem" title="Help">
+                                    <!-- <a href="/MyList.html?list=watchlist" class="navOptLink" id="prem" title="Help">
                                         <div class="navOptIconBox">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navOptIcon">
                                                 

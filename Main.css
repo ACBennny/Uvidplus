@@ -4125,7 +4125,7 @@ img
     }
 }
 
-@media only screen and (max-width: 884px)
+@media only screen and (max-width: 1025px)
 {
 
     .navBarIconBox.open_nav_menuBox
@@ -4137,6 +4137,10 @@ img
     {
         display: none;
     }
+}
+
+@media only screen and (max-width: 884px)
+{
 
     .editProfAtnBtn_Pc
     {
