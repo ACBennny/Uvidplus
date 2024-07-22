@@ -8,7 +8,7 @@
 
 
     let navProfleImg = document.querySelectorAll(".navBarProfileImage");
-    let navProfileName = document.querySelector(".navBarProfileName");
+    let navProfileName = document.querySelector(".navBarProfileNameWatching");
     let switchProfTimer;
     let switchProfTimer2;
     let currProfOpt = `profile-is-curr-being-edited`;
@@ -246,7 +246,7 @@
             });
 
             // Update the profile Name
-            // navProfileName.textContent = `${name}`;
+            navProfileName.textContent = `${name}`;
 
             // Close the switch profile modal
             closeswitchProfBdr(bcg);
@@ -268,7 +268,7 @@
             opt.callEffectProfChange = callEffectProfChange;
         });
 
-        // Creating a new profile ***** NOT WORKING - Elemments added to DOM dont respond to code or inputs *****
+        // Creating a new profile ***** NOT WORKING - Elemments added after Initial DOM Insertion dont respond to code or inputs *****
         // function addProfile()
         // {
         //     createProfile.insertAdjacentHTML(`beforebegin`, `${switchProfOptHTML}`);

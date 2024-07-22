@@ -89,8 +89,8 @@
                                 <div class="navBarProfileOptBdr">
                                     <div class="navBarProfileOptBox">
                                         <div class="navBarProfileNameBox">
-                                            <p class="navBarProfileNameText navBarProfileNameTextMajor">acbennny</p>
-                                            <p class="navBarProfileNameText navBarProfileNameTextMinor">uvidtestuser</p>
+                                            <p class="navBarProfileNameText navBarProfileNameTextMajor navBarProfileNameWatching">acbennny</p>
+                                            <p class="navBarProfileNameText navBarProfileNameTextMinor navBarProfileNameUser">uvidtestuser</p>
                                         </div>
                                         <div class="navBarProfileCardBox">
                                             <button class="navBarProfileCard">
