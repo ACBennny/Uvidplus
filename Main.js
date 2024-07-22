@@ -362,7 +362,7 @@
 
             let navBar = document.querySelector(".navBar");
             let navBarHeadName = document.querySelector(".navBar .headname");
-            let navbarUnderlayer = document.body.querySelector(".navbar_UnderLayer");
+            let navbarUnderlayer = document.querySelector(".navbar_UnderLayer");
             let goToHomePage = document.querySelectorAll(".Companylogo");
             let goToSearchPage = document.querySelector(".openNavSearch_Btn");
             let openNavProfileOptions = document.querySelector(".open_nav_profileOptions");
