@@ -343,6 +343,7 @@ body
     position: relative;
     -webkit-line-clamp: var(--introDescLineNo);
     -webkit-box-orient: vertical;
+    line-clamp: var(--introDescLineNo);
     display: -webkit-box;
     max-height: calc(var(--introDescLineNo) * 1em * var(--introDescLineH));
     line-height: var(--introDescLineH);
@@ -531,7 +532,7 @@ body
 .infoBox .watchHead
 {
     font-size: 20px;
-    color: #ffffff;
+    color: #a39f9f;
 }
 
 .infoBox .watchType
@@ -547,6 +548,7 @@ body
     position: relative;
     -webkit-line-clamp: var(--watchInfoLineNo);
     -webkit-box-orient: vertical;
+    line-clamp: var(--watchInfoLineNo);
     display: -webkit-box;
     max-height: calc(var(--watchInfoLineNo) * 1em * var(--watchInfoLineH));
     line-height: var(--watchInfoLineH);
