@@ -451,7 +451,7 @@
             // Signing Out of your Account
             function accountSignOut()
             {
-                notification(`notifyBad` , `Logging Out`);
+                notification(`notifyBad` , `Signing Out`);
                 toggleNavbarUnderLayer();
 
                 accountSignOutTimer = setTimeout(() => window.open(`/` , `_self`), 3000);
@@ -516,7 +516,7 @@
                                         </div>
                                         <span class="navOptTitle">Trending</span>
                                     </a>
-                                    <a href="/Library/Movies.html" class="navOptLink" id="moviesLink" title="Movies">
+                                    <a href="/Movies.html" class="navOptLink" id="moviesLink" title="Movies">
                                         <div class="navOptIconBox">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navOptIcon">
                                                 <path d="M448 32H361.9l-1 1-127 127h92.1l1-1L453.8 32.3c-1.9-.2-3.8-.3-5.8-.3zm64 128V96c0-15.1-5.3-29.1-14-40l-104 104H512zM294.1 32H201.9l-1 1L73.9 160h92.1l1-1 127-127zM64 32C28.7 32 0 60.7 0 96v64H6.1l1-1 127-127H64zM512 192H0V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V192z"/>
@@ -524,7 +524,7 @@
                                         </div>
                                         <span class="navOptTitle">Movies</span>
                                     </a>
-                                    <a href="/Library/Tv.html" class="navOptLink" id="tvShowsLink" title="TV Shows">
+                                    <a href="/Tv.html" class="navOptLink" id="tvShowsLink" title="TV Shows">
                                         <div class="navOptIconBox">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="navOptIcon">
                                                 <path d="M64 64V352H576V64H64zM0 64C0 28.7 28.7 0 64 0H576c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zM128 448H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H128c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/>
