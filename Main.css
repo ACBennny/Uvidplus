@@ -2997,6 +2997,14 @@ img
     transition: 300ms;
 }
 
+/* ====== Multititude of Basic Slider carousels ==== */
+.more_content
+{
+    display: grid;
+    grid-template-columns: minmax(0, auto);
+    gap: 35px;
+    z-index: 10;
+}
 
 
 

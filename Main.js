@@ -704,7 +704,7 @@
 
                     function checkNavMenu()
                     {
-                        if(((navMenuBdr.classList.contains("bdr_atv")) && (window.innerWidth > 884)))
+                        if(((navMenuBdr.classList.contains("bdr_atv")) && (window.innerWidth > 1025)))
                         {
                             closeNavSideMenu();
                         }
