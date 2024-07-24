@@ -120,7 +120,7 @@
                                                 </a>
                                             </button>
                                             <button class="navBarProfileCard">
-                                                <a href="/Settings.html" class="navBarProfileCardLink">
+                                                <a href="/History.html" class="navBarProfileCardLink">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarProfileCardLinkIcon">
                                                         <path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/>
                                                     </svg>
@@ -128,7 +128,7 @@
                                                 </a>
                                             </button>
                                             <button class="navBarProfileCard">
-                                                <a href="/Settings.html" class="navBarProfileCardLink">
+                                                <a href="/Notifications.html" class="navBarProfileCardLink">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarProfileCardLinkIcon">
                                                         <path d="M224 0c-17.7 0-32 14.3-32 32V51.2C119 66 64 130.6 64 208v18.8c0 47-17.3 92.4-48.5 127.6l-7.4 8.3c-8.4 9.4-10.4 22.9-5.3 34.4S19.4 416 32 416H416c12.6 0 24-7.4 29.2-18.9s3.1-25-5.3-34.4l-7.4-8.3C401.3 319.2 384 273.9 384 226.8V208c0-77.4-55-142-128-156.8V32c0-17.7-14.3-32-32-32zm45.3 493.3c12-12 18.7-28.3 18.7-45.3H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7z"/>
                                                     </svg>
