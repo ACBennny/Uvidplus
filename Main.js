@@ -112,19 +112,11 @@
                                                 </a>
                                             </button>
                                             <button class="navBarProfileCard">
-                                                <a href="/MyList/WatchList.html" class="navBarProfileCardLink">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navBarProfileCardLinkIcon">
-                                                        <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
-                                                    </svg>
-                                                    <p class="navBarProfileCardLinkText">Watchlist</p>
-                                                </a>
-                                            </button>
-                                            <button class="navBarProfileCard">
                                                 <a href="/Playlist.html" class="navBarProfileCardLink">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="navBarProfileCardLinkIcon">
                                                         <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
                                                     </svg>
-                                                    <p class="navBarProfileCardLinkText">Playlist</p>
+                                                    <p class="navBarProfileCardLinkText">Watchlist</p>
                                                 </a>
                                             </button>
                                             <button class="navBarProfileCard">
@@ -151,14 +143,14 @@
                                                     <p class="navBarProfileCardLinkText">Settings</p>
                                                 </a>
                                             </button>
-                                            <!-- <button class="navBarProfileCard">
+                                            <button class="navBarProfileCard">
                                                 <a href="/Help.html" class="navBarProfileCardLink">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarProfileCardLinkIcon">
                                                         <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm169.8-90.7c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24V250.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1H222.6c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/>
                                                     </svg>
                                                     <p class="navBarProfileCardLinkText">Help</p>
                                                 </a>
-                                            </button> -->
+                                            </button>
                                         </div>
                                         <div class="navBarSignOutBdr">
                                             <div class="navBarSignOutBox">
@@ -957,7 +949,7 @@
 
             allImages();
             attachWatchListEventListeners();
-            attachAddToPLEventListeners();
+            attachAddToWLEventListeners();
             attachSharePageEventListeners();
 
     }
@@ -1007,96 +999,52 @@
         }
 
 
-    // WATCHLIST
-
-        function attachWatchListEventListeners()
-        {
-            const addToWatchListBox = document.querySelectorAll(".add_to_WatchListBox");
-            
-                addToWatchListBox.forEach(box => 
-                {
-                    if(box.action)
-                    {
-                        box.removeEventListener(`click` , box.action);
-                    }
-                });
-
-                addToWatchListBox.forEach(box => 
-                {
-                    const action = () => 
-                    {
-                        const addToWatchListText = box.querySelector(".add_to_WatchListText");
-
-                        if(box.classList.contains("active"))
-                        {
-                            box.classList.remove("active");
-                            box.title = "Add to Watchlist";
-                            box.ariaLabel = "Add to Watchlist";
-                            notification(`notifyGood` , `Show removed from Watchlist`);
-                            if((addToWatchListText == undefined) && (addToWatchListText == null)) return;
-                                addToWatchListText.textContent = "Watchlist";
-                            return;
-                        }
-                        box.classList.add("active");
-                        box.title = "Remove from Watchlist";
-                        box.ariaLabel = "Remove from Watchlist";
-                        notification(`notifyGood` , `Show added to Watchlist`);
-                        if((addToWatchListText == undefined) && (addToWatchListText == null)) return;
-                            addToWatchListText.textContent = "In Watchlist";
-                    }
-
-                    box.addEventListener("click" , action);
-                    box.action = action;
-                });
-        }
-
-
-    // ADD TO PLAYLIST
+    // ADD TO WATCHLIST
     
-        let addToPLHTML = 
+        let addToWLHTML = 
         `
-            <div class="genAtnModalBcg closeAddToPL"></div>
-            <div class="genAtnModalBox addToPLBox">
+            <div class="genAtnModalBcg closeAddToWL"></div>
+            <div class="genAtnModalBox addToWLBox">
                 <div class="genAtnModalCtnt">
                     <div class="genAtnModalHeader">
-                        <div class="genAtnModalHeaderIconBox closeAddToPL">
+                        <div class="genAtnModalHeaderIconBox closeAddToWL">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="genAtnModalHeaderIcon">
                                 <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
                             </svg>
                         </div>
                         <h3 class="genAtnModalHeaderText">
                             <span class="large">A</span>
-                            <span class="small">dd to Playlist</span>
+                            <span class="small">dd to Watchlist</span>
                         </h3>
                     </div>
-                    <div class="genAtnModalOptBcg addToPLItemBcg">
-                        <div class="genAtnModalOptBdr addToPLItemBox">
-                            <div class="genAtnModalOptBox newPLBtn" title="Create new playlist" aria-label="Create new playlist">
+                    <div class="genAtnModalOptBcg addToWLItemBcg">
+                        <div class="genAtnModalOptBdr addToWLItemBox">
+                            <div class="genAtnModalOptBox newWLBtn" title="Create new playlist" aria-label="Create new playlist">
                                 <div class="genAtnModalOptIconBox">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="genAtnModalOptIcon">
                                         <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
                                     </svg>
                                 </div>
                                 <div class="genAtnModalOptTextBox ">
-                                    <span class="genAtnModalOptText ">Create new playlist</span>
+                                    <span class="genAtnModalOptText ">Create new Watchlist</span>
                                 </div>
                             </div>
-                            <div class="newPLBdr">
-                                <div class="newPLBox">
-                                    <div class="newPLInputBdr">
-                                        <div class="newPLInputBox">
-                                            <input type="text" name="newPlayListInputField" id="newPLInputId" class="newPLInputClass" placeholder="Name your playlist" disabled />
+                            <div class="newWLBdr">
+                                <div class="newWLBox">
+                                    <div class="newWLInputBdr">
+                                        <div class="newWLInputBox">
+                                            <input type="text" name="newPlayListInputField" id="newWLInputId" class="newWLInputClass" placeholder="Name your playlist" disabled />
                                         </div>
                                     </div>
-                                    <div class="newPLWarnBdr">
-                                        <div class="newPLWarnBox">
-                                            <p id="newPLWarnId" class="newPLWarnText" tabindex="-1"></p>
+                                    <div class="newWLWarnBdr">
+                                        <div class="newWLWarnBox">
+                                            <p id="newWLWarnId" class="newWLWarnText" tabindex="-1"></p>
                                         </div>
                                     </div>
-                                    <div class="newPLAtnBdr">
-                                        <div class="newPLAtnBox">
-                                            <button type="button" id="createNewPL" class="newPLAtnBtn midSolidBtn" disabled>Create</button>
-                                            <button type="button" id="cancelNewPL" class="newPLAtnBtn hollowBtn" disabled>Cancel</button>
+                                    <div class="newWLAtnBdr">
+                                        <div class="newWLAtnBox">
+                                            <button type="button" id="createNewWL" class="newWLAtnBtn midSolidBtn" disabled>Create</button>
+                                            <button type="button" id="cancelNewWL" class="newWLAtnBtn hollowBtn" disabled>Cancel</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1108,7 +1056,7 @@
                                     </svg>
                                 </div>
                                 <div class="genAtnModalOptTextBox ">
-                                    <span class="genAtnModalOptText ">Favourites</span>
+                                    <span class="genAtnModalOptText ">Plan to Watch</span>
                                 </div>
                             </button>
                             <button data-list="" class="genAtnModalOptBox plItem" title="" aria-label="">
@@ -1118,7 +1066,7 @@
                                     </svg>
                                 </div>
                                 <div class="genAtnModalOptTextBox ">
-                                    <span class="genAtnModalOptText ">Old Shows</span>
+                                    <span class="genAtnModalOptText ">Watching</span>
                                 </div>
                             </button>
                             <button data-list="" class="genAtnModalOptBox plItem" title="" aria-label="">
@@ -1128,7 +1076,17 @@
                                     </svg>
                                 </div>
                                 <div class="genAtnModalOptTextBox ">
-                                    <span class="genAtnModalOptText ">Quests</span>
+                                    <span class="genAtnModalOptText ">Completed</span>
+                                </div>
+                            </button>
+                            <button data-list="" class="genAtnModalOptBox plItem" title="" aria-label="">
+                                <div class="genAtnModalOptIconBox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="genAtnModalOptIcon">
+                                        <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
+                                    </svg>
+                                </div>
+                                <div class="genAtnModalOptTextBox ">
+                                    <span class="genAtnModalOptText ">Dropped</span>
                                 </div>
                             </button>
                         </div>
@@ -1136,49 +1094,49 @@
                 </div>
             </div>
         `;
-        let addToPLTimer;
+        let addToWLTimer;
 
-        function attachAddToPLEventListeners()
+        function attachAddToWLEventListeners()
         {
-            let openAddToPLBtn = document.querySelectorAll(".openAddToPLBtn");
+            let openAddToWLBtn = document.querySelectorAll(".openAddToWLBtn");
 
-            openAddToPLBtn.forEach(btn => 
+            openAddToWLBtn.forEach(btn => 
             {
-                if(btn.addToPLFunc)
+                if(btn.addToWLFunc)
                 {
-                    btn.removeEventListener(`click` , btn.addToPLFunc);
+                    btn.removeEventListener(`click` , btn.addToWLFunc);
                 }
             });
 
-            openAddToPLBtn.forEach(btn => 
+            openAddToWLBtn.forEach(btn => 
             {
-                const addToPLFunc = () =>
+                const addToWLFunc = () =>
                 {
                     const playListBdr = document.createElement("div");
                     playListBdr.classList.add("genAtnModalBdr");
-                    playListBdr.innerHTML = addToPLHTML;
+                    playListBdr.innerHTML = addToWLHTML;
                     documentBody.appendChild(playListBdr);
         
-                    const playListCloseBtn = document.querySelectorAll(".closeAddToPL");
-                    const playListBox = document.querySelector(".addToPLBox");
-                    const playListItemBcg = document.querySelector(".addToPLItemBcg");
-                    const playListItemBox = document.querySelector(".addToPLItemBox");
+                    const playListCloseBtn = document.querySelectorAll(".closeAddToWL");
+                    const playListBox = document.querySelector(".addToWLBox");
+                    const playListItemBcg = document.querySelector(".addToWLItemBcg");
+                    const playListItemBox = document.querySelector(".addToWLItemBox");
                     const playListItem = document.querySelectorAll(".plItem");
-                    const newPLBtn = document.querySelector(".newPLBtn");
-                    const newPLModal = document.querySelector(".newPLBdr");
-                    const newPLInput = document.querySelector("#newPLInputId");
-                    const newPLWarn = document.querySelector("#newPLWarnId");
-                    const createPLBtn = document.querySelector("#createNewPL");
-                    const cancelPLBtn = document.querySelector("#cancelNewPL");
+                    const newWLBtn = document.querySelector(".newWLBtn");
+                    const newWLModal = document.querySelector(".newWLBdr");
+                    const newWLInput = document.querySelector("#newWLInputId");
+                    const newWLWarn = document.querySelector("#newWLWarnId");
+                    const createWLBtn = document.querySelector("#createNewWL");
+                    const cancelWLBtn = document.querySelector("#cancelNewWL");
                     let inputUppBnd = 50;
                     let inputLowBnd = 2;
                     let plArr = [];
-                    let lastPLArr;
-                    let lastPLArrLength = 0;
+                    let lastWLArr;
+                    let lastWLArrLength = 0;
                     let currLength = 0;
                     let wordCount = inputUppBnd;
         
-                    openAddToPLBtn.forEach(btn => 
+                    openAddToWLBtn.forEach(btn => 
                     {
                         btn.addEventListener("click" , () => 
                         {
@@ -1186,12 +1144,12 @@
                         });
                     });
         
-                    addToPLTimer = setTimeout(() => 
+                    addToWLTimer = setTimeout(() => 
                     {
                         documentBody.classList.add("bodystop");
                         playListBdr.classList.add("active");
                         playListBox.classList.add("active");
-                        clearTimeout(addToPLTimer);
+                        clearTimeout(addToWLTimer);
                     }, 100);
         
         
@@ -1213,50 +1171,50 @@
                     });
         
                     // Opens the Create playList modal
-                    newPLBtn.addEventListener("click" , () => 
+                    newWLBtn.addEventListener("click" , () => 
                     {
                         playListItemBcg.scrollTo(0 , 0);
-                        newPLBtn.classList.add("inactive");
-                        newPLModal.classList.add("active");
+                        newWLBtn.classList.add("inactive");
+                        newWLModal.classList.add("active");
         
-                        newPLInput.disabled = false;
-                        cancelPLBtn.disabled = false;
+                        newWLInput.disabled = false;
+                        cancelWLBtn.disabled = false;
                     });
         
         
-                    function closeNewPLModal()
+                    function closeNewWLModal()
                     {
-                        newPLBtn.classList.remove("inactive");
-                        newPLModal.classList.remove("active");
-                        newPLWarn.classList.remove("active");
-                        newPLWarn.classList.remove("empty");
+                        newWLBtn.classList.remove("inactive");
+                        newWLModal.classList.remove("active");
+                        newWLWarn.classList.remove("active");
+                        newWLWarn.classList.remove("empty");
         
-                        newPLInput.value = "";
-                        newPLWarn.textContent = "";
+                        newWLInput.value = "";
+                        newWLWarn.textContent = "";
         
-                        newPLInput.disabled = true;
-                        cancelPLBtn.disabled = true;
-                        createPLBtn.disabled = true;
+                        newWLInput.disabled = true;
+                        cancelWLBtn.disabled = true;
+                        createWLBtn.disabled = true;
                     }
         
                     // Closes the Create playList modal
-                    cancelPLBtn.addEventListener("click" , closeNewPLModal);
+                    cancelWLBtn.addEventListener("click" , closeNewWLModal);
         
                     // checking input length
                     function getWordCount(input)
                     {
                         plArr.push(input);
-                        lastPLArr = plArr.at(-1);
-                        lastPLArrLength = lastPLArr.length;
+                        lastWLArr = plArr.at(-1);
+                        lastWLArrLength = lastWLArr.length;
         
                         // update warn label
-                        currLength = wordCount - lastPLArrLength;
-                        newPLWarn.textContent = currLength;
+                        currLength = wordCount - lastWLArrLength;
+                        newWLWarn.textContent = currLength;
         
-                        newPLWarn.classList.toggle("active" , currLength < 16);
-                        newPLWarn.classList.toggle("empty" , currLength < 1);
+                        newWLWarn.classList.toggle("active" , currLength < 16);
+                        newWLWarn.classList.toggle("empty" , currLength < 1);
         
-                        checkBeforeCreate(lastPLArr);
+                        checkBeforeCreate(lastWLArr);
                     }
         
                     // Check if name is valid (3 - 64 characters)
@@ -1264,15 +1222,15 @@
                     {
                         if(val.length < inputLowBnd || (val.length > inputUppBnd))
                         {
-                            createPLBtn.disabled = true;
+                            createWLBtn.disabled = true;
                             return;
                         }
-                        createPLBtn.disabled = false;
+                        createWLBtn.disabled = false;
                     }
         
-                    newPLInput.addEventListener("input" , () => 
+                    newWLInput.addEventListener("input" , () => 
                     {
-                        getWordCount(newPLInput.value);
+                        getWordCount(newWLInput.value);
                     });
         
                     // Ensures playlist doesnt exist before creating a new one
@@ -1308,26 +1266,26 @@
                         playListItemBox.insertAdjacentHTML("beforeend" , newListHTML);
                         notification(`notifyGood` , `Show successfully added to ${plName}`);
                         
-                        closeNewPLModal();
+                        closeNewWLModal();
                     }
         
-                    createPLBtn.addEventListener("click" , () => 
+                    createWLBtn.addEventListener("click" , () => 
                     {
-                        matchNames(newPLInput.value);
+                        matchNames(newWLInput.value);
                     });
         
         
                     // Closes the Playlist modal
-                    function closeAddToPL()
+                    function closeAddToWL()
                     {
                         documentBody.classList.remove("bodystop");
                         playListBdr.classList.remove("active");
                         playListBox.classList.remove("active");
         
-                        addToPLTimer = setTimeout(() => 
+                        addToWLTimer = setTimeout(() => 
                         {
                             documentBody.removeChild(playListBdr);
-                            openAddToPLBtn.forEach(btn => 
+                            openAddToWLBtn.forEach(btn => 
                             {
                                 btn.addEventListener("click" , () => 
                                 {
@@ -1335,18 +1293,74 @@
                                 });
                             });
                             documentBody.classList.remove("bodystop");
-                            clearTimeout(addToPLTimer);
+                            clearTimeout(addToWLTimer);
         
                         }, 300);
                     }
         
                     playListCloseBtn.forEach(one => 
                     {
-                        one.addEventListener("mousedown" , closeAddToPL);
+                        one.addEventListener("mousedown" , closeAddToWL);
                     });
                 }
-                btn.addEventListener("click" , addToPLFunc);
-                btn.addToPLFunc = addToPLFunc;
+                btn.addEventListener("click" , addToWLFunc);
+                btn.addToWLFunc = addToWLFunc;
+            });
+        }
+
+
+    // WATCHLIST (OLD)
+
+        function attachWatchListEventListeners()
+        {
+            const addToWatchListHTML = 
+            `
+                <button class="quickAtnModal_btn add_to_WatchListBox" title="Add to Watchlist" aria-label="Add to Watchlist">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="quickAtnModal_btnIcon add_to_WatchListIcon">
+                        <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="quickAtnModal_btnIcon remove_from_WatchListIcon">
+                        <path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/>
+                    </svg>
+                    <p class="quickAtnModal_btnText add_to_WatchListText">WatchList</p>
+                </button>
+            `;
+            const addToWatchListBox = document.querySelectorAll(".add_to_WatchListBox");
+            
+            addToWatchListBox.forEach(box => 
+            {
+                if(box.action)
+                {
+                    box.removeEventListener(`click` , box.action);
+                }
+            });
+
+            addToWatchListBox.forEach(box => 
+            {
+                const action = () => 
+                {
+                    const addToWatchListText = box.querySelector(".add_to_WatchListText");
+
+                    if(box.classList.contains("active"))
+                    {
+                        box.classList.remove("active");
+                        box.title = "Add to Watchlist";
+                        box.ariaLabel = "Add to Watchlist";
+                        notification(`notifyGood` , `Show removed from Watchlist`);
+                        if((addToWatchListText == undefined) && (addToWatchListText == null)) return;
+                            addToWatchListText.textContent = "Watchlist";
+                        return;
+                    }
+                    box.classList.add("active");
+                    box.title = "Remove from Watchlist";
+                    box.ariaLabel = "Remove from Watchlist";
+                    notification(`notifyGood` , `Show added to Watchlist`);
+                    if((addToWatchListText == undefined) && (addToWatchListText == null)) return;
+                        addToWatchListText.textContent = "In Watchlist";
+                }
+
+                box.addEventListener("click" , action);
+                box.action = action;
             });
         }
 
@@ -1354,9 +1368,6 @@
 
     // SHARE
         
-        let socialShareLink = encodeURI(window.location.href);
-        let socialShareTitle = encodeURIComponent(documentTitle);
-        let socialShareMsg = `Check out ${socialShareTitle}`;
         let socialShareHTML = 
         `
             <div class="genAtnModalBcg closeSclShare"></div>
@@ -1503,6 +1514,9 @@
         // Fallback called if "navigator.share" is not supported
         function customSclShareModal()
         {
+            let socialShareLink = encodeURI(window.location.href);
+            let socialShareTitle = encodeURIComponent(documentTitle);
+            let socialShareMsg = `Check out ${socialShareTitle}`;
             const sclShareBdr = document.createElement("div");
             sclShareBdr.classList.add("genAtnModalBdr");
             sclShareBdr.innerHTML = socialShareHTML;
@@ -1641,6 +1655,9 @@
 
         function attachSharePageEventListeners()
         {
+            let socialShareLink = encodeURI(window.location.href);
+            let socialShareTitle = encodeURIComponent(documentTitle);
+            let socialShareMsg = `Check out ${socialShareTitle}`;
             let shareShowBtn = document.querySelectorAll(".shareShowBtn");
 
             shareShowBtn.forEach((btn) => 

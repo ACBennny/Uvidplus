@@ -3401,32 +3401,32 @@ img
 
 
 
-/* ------------ Create New Playlist Modal ------------ */
-.newPLBtn.inactive
+/* ------------ Create New Watchlist Modal ------------ */
+.newWLBtn.inactive
 {
     display: none;
 }
 
-.newPLBdr
+.newWLBdr
 {
     width: 100%;
     display: none;
     margin-bottom: 40px;
 }
 
-.newPLBdr.active
+.newWLBdr.active
 {
     display: block;
 }
 
-.newPLBdr .newPLBox
+.newWLBdr .newWLBox
 {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.newPLBox .newPLInputBdr
+.newWLBox .newWLInputBdr
 {
     width: 100%;
     display: flex;
@@ -3435,7 +3435,7 @@ img
     padding: 20px 10px 0;
 }
 
-.newPLInputBdr .newPLInputBox
+.newWLInputBdr .newWLInputBox
 {
     width: 80%;
     height: 40px;
@@ -3444,12 +3444,12 @@ img
     overflow: hidden;
 }
 
-.newPLInputBox:focus-within
+.newWLInputBox:focus-within
 {
     border-color: var(--genGreenTypeDark1);
 }
 
-.newPLInputBox .newPLInputClass
+.newWLInputBox .newWLInputClass
 {
     font-family: 'Zen dots' , sans-serif;   
     width: 100%;
@@ -3462,12 +3462,12 @@ img
     background-color: transparent;
 }
 
-.newPLBox .newPLWarnBdr
+.newWLBox .newWLWarnBdr
 {
     width: 100%;
 }
 
-.newPLWarnBdr .newPLWarnBox
+.newWLWarnBdr .newWLWarnBox
 {
     width: 100%;
     display: flex;
@@ -3476,7 +3476,7 @@ img
     padding: 10px;
 }
 
-.newPLWarnBox .newPLWarnText
+.newWLWarnBox .newWLWarnText
 {
     width: 80%;
     display: none;
@@ -3489,22 +3489,22 @@ img
     pointer-events: none;
 }
 
-.newPLWarnText.active
+.newWLWarnText.active
 {
     display: block;
 }
 
-.newPLWarnText.empty
+.newWLWarnText.empty
 {
     color: var(--warningClr);
 }
 
-.newPLBox .newPLAtnBdr
+.newWLBox .newWLAtnBdr
 {
     width: 100%;
 }
 
-.newPLAtnBdr .newPLAtnBox
+.newWLAtnBdr .newWLAtnBox
 {
     width: 100%;
     display: flex;
@@ -3518,7 +3518,7 @@ img
     user-select: none;
 }
 
-.newPLAtnBox .newPLAtnBtn
+.newWLAtnBox .newWLAtnBtn
 {
     display: flex;
     justify-content: center;
@@ -3531,9 +3531,9 @@ img
     cursor: pointer;
 }
 
-.newPLAtnBtn:disabled,
-.newPLAtnBtn:disabled:active,
-.newPLAtnBtn:disabled:hover
+.newWLAtnBtn:disabled,
+.newWLAtnBtn:disabled:active,
+.newWLAtnBtn:disabled:hover
 {
     color: var(--genWhiteTypeMid) !important;
     background-color: var(--genGreenTypeDark2);
@@ -4367,7 +4367,7 @@ img
         scroll-padding-right: 10px;
     }
 
-    .newPLInputBdr .newPLInputBox
+    .newWLInputBdr .newWLInputBox
     {
         width: 100%;
     }
