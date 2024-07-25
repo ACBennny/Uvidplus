@@ -2798,12 +2798,10 @@ img
 
 .cardAddToListBdr .cardAddToListBox
 {
+    width: -moz-fit-content;
+    width: fit-content;
     height: -moz-fit-content;
     height: fit-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     border-radius: 50%;
     background-color: #000000b4;
     transition: border-radius 0ms 300ms ease-in-out;
@@ -2811,19 +2809,12 @@ img
 
 .cardAddToListBox .cardAddToListIconBox
 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: var(--slideCardSpacing);
-    border-radius: 50%;
     overflow: hidden;
     transition: all 300ms ease-in-out;
-}
-
-.cardAddToListIconBox.hiddenIconBox
-{
-    height: 0;
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(0);
-    padding: 0;
 }
 
 .cardAddToListIconBox .cardAddToListIcon
@@ -2832,12 +2823,6 @@ img
     height: var(--basicSlideIconWidth);
     fill: var(--genWhiteTypeLight);
     transition: all 300ms ease-in-out;
-}
-
-.cardAddToListIconBox.hiddenIconBox .cardAddToListIcon
-{
-    width: var(--cardAddToListIconWidth);
-    height: var(--cardAddToListIconWidth);
 }
 
 .slide_card .cardImgBox
@@ -3994,22 +3979,6 @@ img
         opacity: 1;
         visibility: visible;
     }
-    
-    .cardAddToListBox:hover
-    {
-        --cardAddToListIconWidth: var(--basicSlideIconWidth);
-        border-radius: 40px;
-        transition: 0ms;
-    }
-
-    .cardAddToListBox:hover .cardAddToListIconBox.hiddenIconBox
-    {
-        height: fit-content;
-        opacity: 1;
-        visibility: visible;
-        transform: scale(1);
-        padding: var(--slideCardSpacing);
-    }
 
     .cardAddToListIconBox:hover .cardAddToListIcon
     {
@@ -4024,7 +3993,6 @@ img
     .slide_card:hover .slideCardIcon
     {
         bottom: 50%;
-        /* opacity: 0.85; */
     }
 
     .genAtnModalOptBdr .genAtnModalOptBox:hover
