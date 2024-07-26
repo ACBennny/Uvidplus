@@ -13,8 +13,12 @@ html:root
     --introInfoHeightExtend: 250px;
     --introSlideIconWidth: 18px;
     --introInfoNotesMargin: 20px;
-    --watchActionIconWidth: 18px;
+    --showActionBtnWidth: 40px;
+    --showActionBtnSpacing: 5px;
+    --addToListBtnIconBoxWidth: 45px;
     --addToListBtnIconWidth: 16px;
+    --watchActionBoxWidth: calc((100% - (var(--addToListBtnIconBoxWidth) + var(--showActionBtnSpacing))));
+    --watchActionIconWidth: 18px;
     --mostViewedRankOthersBdrWidth: 465px;
     --mostViewedRankOthersBoxGap: 10px;
     --mostViewedRankOthersImgbdrWidth: 125px;
@@ -361,39 +365,35 @@ body
 .playShow_box
 {
     width: 100%;
-    height: 40px;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    gap: var(--showActionBtnSpacing);
+    padding: 0 10px;
 }
 
 .playShow_box .btn
 {
-    height: 100%;
+    height: var(--showActionBtnWidth);
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 5px;
-    padding: 5px;
+    padding: 0px;
     font-size: 15px;
     border-radius: 5px;
     cursor: pointer;
     transition: 150ms;
 }
 
+.playShow_box .play_Now
+{
+    width: var(--watchActionBoxWidth);
+}
+
 .playShow_box .save_to_List
 {
-    margin-left: 5px;
-}
-
-.intro_info_notes .playShow_box .play_Now
-{
-    width: 100%;
-}
-
-.intro_info_notes .playShow_box .save_to_List
-{
-    width: 50px;
+    width: var(--addToListBtnIconBoxWidth);
 }
 
 .intro_slide_nav_box
@@ -573,7 +573,7 @@ body
 .watchActionBox .watchAction
 {
     width: 50%;
-    height: 40px;
+    height: var(--showActionBtnWidth);
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -1554,7 +1554,7 @@ body
         display: none;
     }
 
-    .intro_info_notes .playShow_box .play_Now
+    .playShow_box .play_Now
     {
         width: 40%;
     }
@@ -1803,14 +1803,9 @@ body
         align-items: center;
     }
 
-    .intro_info_notes .playShow_box .btn
+    .playShow_box .play_Now
     {
-        height: 40px;
-    }
-
-    .intro_info_notes .playShow_box .play_Now
-    {
-        width: 75%;
+        width: var(--watchActionBoxWidth);
     }
     
     .extImgBox
@@ -1824,7 +1819,7 @@ body
 {
     html
     {
-        --addTOWatchListSmallWidth: 20px;
+        --addTOWatchListSmallWidth: 40px;
     }
 
     .infoBox .watchActionBox
@@ -1834,12 +1829,12 @@ body
 
     .watchAction.watchEpLink
     {
-        width: calc((100% - var(--watchActionIconWidth)) + var(--addTOWatchListSmallWidth));
+        width: var(--watchActionBoxWidth);
     }
 
     .watchAction.addToListBtn
     {
-        width: calc(var(--watchActionIconWidth) + var(--addTOWatchListSmallWidth));
+        width: var(--addToListBtnIconBoxWidth);
     }
 
     .addToListBtn span
