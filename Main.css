@@ -36,8 +36,6 @@ html:root
     --genWhiteTypeMid: #ababab;
     --genWhiteTypeMid2: #cecece;
     --genWhiteTypeDark: #6b6a6a;
-    --genMaxContainerWidth: 1200px;
-    --scrollBarWidth: 7px;
     --scrollbarClr: #282828;
     --scrollbarHoverClr: #333333;
     --scrollbarActiveClr: #444444;
@@ -54,6 +52,9 @@ html:root
     --color10: #888888;
     --color11: #252525;
     --warningClr: #ff0000;
+    --genMaxContainerWidth: 1200px;
+    --scrollBarWidth: 7px;
+    --genBorderSpacing: 30px;
     --fzTxt: 12px;
     --fzIcon: 20px;
     --bcgFilt: 2px;
@@ -338,7 +339,7 @@ img
     height: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0 var(--genBorderSpacing);
     background: -o-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
     background: -moz-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
     background: -webkit-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
@@ -2561,7 +2562,7 @@ img
 {
     width: 100%;
     height: 75px;
-    padding: 10px 10px 10px 30px;
+    padding: 10px var(--genBorderSpacing);
 }
 
 .basic_slider_title_box
@@ -2681,9 +2682,9 @@ img
     grid-auto-flow: column;
     gap: 10px;
     margin-bottom: 10px;
-    padding: 5px 30px;
-    scroll-padding-left: 30px;
-    scroll-padding-right: 30px;
+    padding: 5px var(--genBorderSpacing);
+    scroll-padding-left: var(--genBorderSpacing);
+    scroll-padding-right: var(--genBorderSpacing);
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     scrollbar-color: #00000000 #00000000;
@@ -2982,7 +2983,8 @@ img
     transition: 300ms;
 }
 
-/* ====== Multititude of Basic Slider carousels ==== */
+
+/* ====== Multitude of Basic Slider carousels ==== */
 .more_content
 {
     display: grid;
@@ -4307,6 +4309,7 @@ img
     {
         --basicSlideIconWidth: 15px;
         --slideCardPlayIconWidth: 27px;
+        --genBorderSpacing: 15px;
     }
 
     .navBar
@@ -4319,20 +4322,11 @@ img
     {
         width: 30px;
     }
-    
-    .basic_slider_title_bdr
-    {
-        padding: 10px 10px 10px 20px;
-    }
 
     .basic_slider_card_box
     {
         --basicSliderCardDivision: 3;
-        grid-auto-columns: calc((100% / var(--basicSliderCardDivision)) - 5px);
         gap: 5px;
-        padding: 5px 10px 5px 20px;
-        scroll-padding-left: 20px;
-        scroll-padding-right: 10px;
     }
 
     .newWLInputBdr .newWLInputBox
@@ -4481,6 +4475,15 @@ only screen and (max-width: 800px)
 
 @media only screen and (max-width: 350px)
 {
+    html:root
+    {
+        --genBorderSpacing: 10px;
+    }
+
+    .navBarProfileBox .navBarProfileOptBdr
+    {
+        width: 260px;
+    }
 
     .addNewProfIconBox .addNewProfIcon
     {

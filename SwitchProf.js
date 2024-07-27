@@ -169,6 +169,7 @@
         let editProfOptTempFrg;
         let editProfOptTempBcg;
         let editProfFence;
+        let editProfTimer;
 
         // Function to position the navbar based on the scrollbar
         function setProfileNavbarPos()
@@ -709,7 +710,7 @@
                                                 </div>
                                                 <div class="editProfileDetSectBody">
                                                     <p class="editProfileDetSectBodyText deleteProfile">
-                                                        Delete Account
+                                                        Delete Profile
                                                     </p>
                                                 </div>
                                             </div>

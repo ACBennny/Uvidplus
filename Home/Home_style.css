@@ -10,6 +10,7 @@
 html:root
 {
     --introSlideIconClr: #b8b8b8;
+    --introBdrSpacing: 40px;
     --introInfoHeightExtend: 250px;
     --introSlideIconWidth: 18px;
     --introInfoNotesMargin: 20px;
@@ -106,7 +107,7 @@ body
 {
     position: absolute;
     bottom: 0;
-    width: 50px;
+    width: var(--introBdrSpacing);
     height: 100%;
     display: flex;
     justify-content: center;
@@ -149,7 +150,7 @@ body
 .intro_slide_box
 {
     width: 100%;
-    aspect-ratio: 16/9;
+    aspect-ratio: 16/7;
     background-color: transparent;
     display: flex;
     flex-direction: column;
@@ -233,6 +234,7 @@ body
 {
     position: relative;
     width: 100%;
+    height: 100%;
     display: none;
 }
 
@@ -292,11 +294,11 @@ body
 
 .intro_info_bcg .intro_info_box
 {
-    width: 30%;
+    width: calc((100% / 3));
     max-width: 600px;
     display: flex;
     flex-direction: column;
-    margin-left: 50px;
+    margin-left: var(--introBdrSpacing);
     opacity: 1;
     visibility: visible;
 }
@@ -490,7 +492,7 @@ body
 
 .watchSectionBdr .watchSectionBox
 {
-    width: calc(100% - 60px);
+    width: calc(100% - ((var(--genBorderSpacing)) * 2));
     max-width: var(--genMaxContainerWidth);
     display: flex;
     justify-content: center;
@@ -532,13 +534,13 @@ body
 .infoBox .watchHead
 {
     font-size: 20px;
-    color: #a39f9f;
+    color: var(--genWhiteTypeMid2);
 }
 
 .infoBox .watchType
 {
     font-size: 12px;
-    color: #8f8f8f;
+    color: var(--color10);
 }
 
 .infoBox .watchInfo
@@ -555,7 +557,7 @@ body
     padding-right: 10px;
     font-size: 13px;
     text-align: justify;
-    color: var(--genWhiteTypeLight);
+    color: var(--genWhiteTypeMid);
     -webkit-hyphens: auto;
     hyphens: auto;
     overflow-wrap: break-word;
@@ -687,7 +689,7 @@ body
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 25px;
+    padding: var(--genBorderSpacing);
     background-image: url(../Images/Uvid_green_bcg1_dark.jpg);
     background-position: center;
     background-repeat: no-repeat;
@@ -706,7 +708,7 @@ body
     display: flex;
     flex-direction: column;
     gap: 25px;
-    padding: 25px;
+    padding: var(--genBorderSpacing);
     border-radius: 10px;
     background-color: #00000099;
 }
@@ -1473,6 +1475,12 @@ body
         margin: 0 0 50px;
     }
 
+    .intro_slide_box
+    {
+        aspect-ratio: 10/11;
+        min-width: 250px;
+    }
+
     .intro_slide_cover,
     .intro_slide_cover.active
     {
@@ -1490,11 +1498,9 @@ body
     .intro_info_bdr .bcg_less700
     {
         width: 100%;
-        min-width: 250px;
         display: flex;
         object-fit: cover;
         object-position: top;
-        aspect-ratio: 3.25/4;
     }
 
     .intro_slide_ctnt_box
@@ -1556,7 +1562,7 @@ body
 
     .playShow_box .play_Now
     {
-        width: 40%;
+        width: 50%;
     }
 
     .intro_slide_box .intro_slide_nav_box
@@ -1679,11 +1685,6 @@ body
         --mostViewedRankOthersImgbdrWidth: 100px;
     }
 
-    .watchSectionBdr .watchSectionBox
-    {
-        width: calc(100% - 40px);
-    }
-
     .type1_Ctnt_bdr
     {
         padding: 10px;
@@ -1802,11 +1803,6 @@ body
     {
         align-items: center;
     }
-
-    .playShow_box .play_Now
-    {
-        width: var(--watchActionBoxWidth);
-    }
     
     .extImgBox
     {
@@ -1820,6 +1816,11 @@ body
     html
     {
         --addTOWatchListSmallWidth: 40px;
+    }
+
+    .playShow_box .play_Now
+    {
+        width: var(--watchActionBoxWidth);
     }
 
     .infoBox .watchActionBox
