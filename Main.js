@@ -465,7 +465,7 @@
             openNavProfileOptions.addEventListener("click" , () => 
             {
                 navProfileOptionsBdr.classList.toggle("active");
-                addNavbarUnderLayer();
+                toggleNavbarUnderLayer();
 
                 document.addEventListener("click" , closeNavProfileOptions);
 
@@ -867,7 +867,7 @@
 
                 switchProfScript.addEventListener("load" , () => 
                 {
-                    openSwitchProfBtn.addEventListener("click" , preSwitchProfBdr);
+                    openSwitchProfBtn.addEventListener("click" , instantiateSwitchProfBdr);
 
                 });
                 switchProfScript.onerror = function() 
@@ -877,15 +877,6 @@
                 document.body.appendChild(switchProfScript);
             }
             insertSwitchProfJS();
-
-            function preSwitchProfBdr()
-            {
-                document.removeEventListener("click" , closeNavProfileOptions);
-                navProfileOptionsBdr.classList.remove("active");
-
-                console.log("done");
-                instantiateSwitchProfBdr();
-            }
 
 
 

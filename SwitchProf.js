@@ -138,7 +138,7 @@
         </div>
     `;
 
-    
+    let setSwitchBodyStop;
     function instantiateSwitchProfBdr()
     {
         // The border holding the elements of the Switch Profile Modal
@@ -151,8 +151,13 @@
 
         // Append the fragment to DOM
         documentBody.appendChild(switchProfBdr);
-        documentBody.classList.add("bodystop");
+        setSwitchBodyStop = setTimeout(() => 
+        {
+            documentBody.classList.add("bodystop");
+            clearTimeout(setSwitchBodyStop);
+        }, 10);
         allImages();
+
 
         // Definitons
         let profileNavBox = switchProfBdr.querySelector(".profileNavBox");
