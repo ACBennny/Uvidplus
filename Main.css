@@ -1734,6 +1734,8 @@ img
     justify-content: center;
     padding: calc(var(--switchProfHeaderHeight) * 2) var(--switchProfHeaderHeight) 0;
     background-color: #00000055;
+    scrollbar-width: 0;
+    scrollbar-color: #00000000 #00000000;
     overflow: hidden;
     overflow-y: visible;
 }
@@ -4585,7 +4587,9 @@ only screen and (max-width: 800px)
     /* --------- Switch Profiles Modal ---------- */
     .editProfileBase::-webkit-scrollbar
     {
-        width: 2px;
+        width: 0;
+        height: 0;
+        display: none;
     }
 
     .userProfileScrollbar::-webkit-scrollbar-thumb,
@@ -4593,15 +4597,5 @@ only screen and (max-width: 800px)
     .userProfileScrollbar::-webkit-scrollbar-thumb:hover
     {
         background-color: #dfdfdf80;
-    }
-}
-
-
-@media only screen and (max-width: 768px) and (hover: hover)
-{
-    .editProfileBase::-webkit-scrollbar-track
-    {
-        margin-block: 0px;
-        background-color: #000000;
     }
 }

@@ -176,21 +176,6 @@
         let editProfFence;
         let editProfTimer;
 
-        // Function to position the navbar based on the scrollbar
-        function setProfileNavbarPos()
-        {
-            if((switchProfBoxCtnt.scrollHeight > switchProfBoxCtnt.clientHeight) 
-                && (switchProfBoxCtnt.scrollTop < navbarHeight)
-                && (window.matchMedia("(hover: hover)").matches))
-            {
-                profileNavBox.classList.add("shorten");
-                return;
-            }
-            profileNavBox.classList.remove("shorten");
-        }
-        setProfileNavbarPos();
-        switchProfBoxCtnt.addEventListener("scroll" , setProfileNavbarPos);
-
         // Function to change the eventlistener of the action button
         function changeEditProfAtnListener(theAtnEv, theOldFunc, theNewFunc, theTxtCtnt)
         {
@@ -1953,21 +1938,6 @@
             let selectFrgPicCarouselCard = document.querySelectorAll(".selectFrgPicCarouselCard");
             let selectBcgPicCarouselCard = document.querySelectorAll(".selectBcgPicCarouselCard");
             let deleteProfile = document.querySelector(".deleteProfile");
-
-            // Adjust navabr based on scrollbar position
-            function setEditProfileNavbarPos()
-            {
-                if((editProfileBase.scrollHeight > editProfileBase.clientHeight) 
-                    && (editProfileBase.scrollTop < navbarHeight)
-                    && (window.matchMedia("(hover: hover)").matches))
-                {
-                    profileNavBox.classList.add("shorten");
-                    return;
-                }
-                profileNavBox.classList.remove("shorten");
-            }
-            setEditProfileNavbarPos();
-            editProfileBase.addEventListener("scroll" , setEditProfileNavbarPos);
 
             // The slider for select pic modals
             function selectPicSlider()
