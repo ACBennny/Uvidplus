@@ -3022,7 +3022,7 @@ img
     grid-template-rows: auto;
     justify-items: center;
     /* align-content: start; */
-    padding: 20px 15px;
+    padding: 20px var(--genBorderSpacing);
     gap: 15px;
     overflow-x: hidden;
     transition: 100ms;
@@ -4310,11 +4310,6 @@ img
         --basicSlideIconWidth: 15px;
         --slideCardPlayIconWidth: 27px;
         --genBorderSpacing: 15px;
-    }
-
-    .navBar
-    {
-        padding: 0 10px;
     }
 
     .basic_slider_box  .basic_slide_arrow,
