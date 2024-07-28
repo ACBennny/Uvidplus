@@ -1052,7 +1052,7 @@
                                 <div class="newWLBox">
                                     <div class="newWLInputBdr">
                                         <div class="newWLInputBox">
-                                            <input type="text" name="newPlayListInputField" id="newWLInputId" class="newWLInputClass" placeholder="Name your playlist" disabled />
+                                            <input type="text" name="newPlayListInputField" id="newWLInputId" class="newWLInputClass" placeholder="Name your watchlist" disabled />
                                         </div>
                                     </div>
                                     <div class="newWLWarnBdr">
