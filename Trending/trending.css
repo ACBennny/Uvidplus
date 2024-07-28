@@ -31,7 +31,7 @@ html:root
     max-width: var(--genMaxContainerWidth);
     display: flex;
     flex-direction: column;
-    padding: 20px 40px;
+    padding: 20px var(--genBorderSpacing);
 }
 
 .trendingBdr .trendingSiteNameBdr
@@ -304,11 +304,6 @@ html:root
     {
         --trendingCardBdrPseudoInset: -15px;
     }
-
-    .trendingBase .trendingBdr
-    {
-        padding: 20px 25px;
-    }
 }
 
 
@@ -371,11 +366,6 @@ html:root
     {
         --trendingImgBdrWidth: 100px;
         --trendingImgBdrHeight: 150px;
-    }
-
-    .trendingBase .trendingBdr
-    {
-        padding: 20px 10px;
     }
 
     .trendingDetBdr .trendingDetBox
