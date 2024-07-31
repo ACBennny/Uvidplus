@@ -3541,7 +3541,7 @@ img
 .footer_base
 {
     width: 100%;
-    padding: 0 20px;
+    padding: 0 var(--genBorderSpacing);
     background-color: var(--navMenuBcgClr);
     background-image: url(/Images/bcg_footer.jpg);
     background-repeat: no-repeat;
