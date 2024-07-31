@@ -354,7 +354,6 @@ body
     max-height: calc(var(--introDescLineNo) * 1em * var(--introDescLineH));
     line-height: var(--introDescLineH);
     margin-bottom: var(--introInfoNotesMargin);
-    padding-right: 10px;
     font-size: 14px;
     text-align: justify;
     color: var(--genWhiteTypeLight);
@@ -371,7 +370,6 @@ body
     flex-direction: row;
     justify-content: center;
     gap: var(--showActionBtnSpacing);
-    padding: 0 10px;
 }
 
 .playShow_box .btn
