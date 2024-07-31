@@ -1734,7 +1734,7 @@ img
     justify-content: center;
     padding: calc(var(--switchProfHeaderHeight) * 2) var(--switchProfHeaderHeight) 0;
     background-color: #00000055;
-    scrollbar-width: 0;
+    scrollbar-width: none;
     scrollbar-color: #00000000 #00000000;
     overflow: hidden;
     overflow-y: visible;
@@ -3023,7 +3023,6 @@ img
     grid-template-columns: repeat(auto-fit, minmax(var(--basicCatalogCardWidth), 1fr));
     grid-template-rows: auto;
     justify-items: center;
-    /* align-content: start; */
     padding: 20px var(--genBorderSpacing);
     gap: 15px;
     overflow-x: hidden;
@@ -4585,10 +4584,17 @@ only screen and (max-width: 800px)
 
 
     /* --------- Switch Profiles Modal ---------- */
-    .editProfileBase::-webkit-scrollbar
+
+    .editProfileFence *
     {
-        width: 0;
-        height: 0;
+        scrollbar-width: none;
+        scrollbar-color: #00000000 #00000000;
+    }
+
+    .editProfileFence *::-webkit-scrollbar
+    {
+        width: 0px;
+        height: 0px;
         display: none;
     }
 

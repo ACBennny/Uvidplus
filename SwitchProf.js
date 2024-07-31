@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="switchProfBox">
-            <div class="switchProfBoxCtnt userProfileScrollbar">
+            <div class="switchProfBoxCtnt">
                 <div class="switchProfHeader">
                     <span class="switchProfHeaderText">Who's watching?</span>
                 </div>
@@ -364,7 +364,7 @@
                             <img src="${bcgPic}" alt="" class="editProfileBcgImg">
                         </div>
                     </div>
-                    <div class="editProfileBase userProfileScrollbar">
+                    <div class="editProfileBase">
                         <div class="editProfileBdr">
                             <div class="editBcgImgBtnBdr openSelectBcgPicModal">
                                 <button type="button" class="editBcgImgBtnBox">
