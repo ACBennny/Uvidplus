@@ -199,9 +199,8 @@
                         </div>
                         <div class="footer_abt_textBox">
                             <p class="footer_abt_text">
-                                Uvid is an online streaming platform tailored with providing the best streaming experience.
-                                <br><br>
-                                Here you can watch from a vast library of movies, tv shows, anime and even cartoon shows for the kids.
+                                <span>Uvid is an online streaming platform tailored with providing the best streaming experience.</span>
+                                <span>Here you can watch from a vast library of movies, tv shows, anime and even cartoon shows for the kids.</span>
                             </p>
                         </div>
                         <div class="footer_Important_linksBox">

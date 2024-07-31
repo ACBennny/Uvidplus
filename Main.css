@@ -3637,13 +3637,13 @@ img
 .footer_abt_titleBox .footer_abt_title.front
 {
     color: var(--footerTextClrGreen);
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .footer_abt_titleBox .footer_abt_title.back
 {
     color: var(--footerTxtClrBright);
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .footer_abt_titleBox .footer_abt_textBox
@@ -3654,9 +3654,12 @@ img
 .footer_abt_textBox .footer_abt_text
 {
     width: 100%;
-    color: var(--footerTxtClrMid);
-    font-size: 11px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     margin: 0 0 40px 0;
+    color: var(--footerTxtClrMid);
+    font-size: 13px;
 }
 
 .footer_abt .footer_Important_linksBox
@@ -3673,7 +3676,7 @@ img
     display: flex;
     align-items: center;
     color: var(--footerTextClrGreen);
-    font-size: 10px;
+    font-size: 12px;
     text-align: left;
     transition: 200ms ease-in-out;
 }
@@ -3706,14 +3709,15 @@ img
     width: 100px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
 }
 
 .footer_UsefulLinksBox .footer_UsefulLinks
 {
+    font-family: 'Poppins' , sans-serif;
     width: 100%;
     color: var(--footerTxtClrMid);
-    font-size: 10px;
+    font-size: 13px;
     transition: 200ms ease-in-out;
 }
 
@@ -4149,6 +4153,7 @@ img
 
     .footer_abt_textBox .footer_abt_text
     {
+        gap: 0;
         margin: 0 0 20px 0;
     }
 }
