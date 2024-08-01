@@ -103,7 +103,6 @@ html:root
 {
     width: calc((100% - var(--titleImgBdrWidth)));
     height: fit-content;
-    padding: 20px 0px;
     transition: 300ms;
 }
 
