@@ -573,15 +573,17 @@ html:root
 {
     color: var(--genWhiteTypeLight);
     display: flex;
+    flex-direction: row;
+    align-items: center;
     gap: 3px;
-    font-size: 10px;
+    font-size: 11px;
     transition: 300ms;
 }
 
 .abt-cardText span
 {
     color: var(--genGreenTypeLight);
-    font-size: 11px;
+    font-size: 12px;
     transition: 300ms;
 }
 
