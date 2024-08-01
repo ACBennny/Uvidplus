@@ -466,7 +466,7 @@ html:root
 .sect-dv
 {
     display: flex;
-    gap: 5px;
+    gap: 15px;
     transition: 300ms;
 }
 
