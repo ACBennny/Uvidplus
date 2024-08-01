@@ -85,10 +85,13 @@ html:root
 
 .main_box
 {
+    position: relative;
     width: 100%;
     height: fit-content;
     display: flex;
-    position: relative;
+    flex-direction: row;
+    gap: 20px;
+    padding: 0 var(--genBorderSpacing);
     transition: 300ms;
 }
 
@@ -117,7 +120,6 @@ html:root
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    padding: 0px 20px;
     transition: 300ms;
 }
 
@@ -446,14 +448,13 @@ html:root
 .sect-head
 {
     width: 100%;
-    padding: 5px;
+    padding: 5px 0;
 }
 
 .sect-headText
 {
     font-size: 17px;
     color: var(--genWhiteTypeBright);
-    padding: 0 10px;
 }
 
 .sect-headText span
@@ -475,7 +476,7 @@ html:root
     height: fit-content;
     display: flex;
     flex-direction: column;
-    padding: 6px 15px 12px 15px;
+    /* padding: 6px 15px 12px 15px; */
     transition: 300ms;
 }
 
@@ -489,7 +490,7 @@ html:root
     color: var(--genWhiteTypeMid);
     max-height: calc(var(--lineNo) * 1em * var(--lineHeight));
     line-height: var(--lineHeight);
-    margin-bottom: 10px;
+    margin: 10px 0;
     overflow: hidden;
     transition: 300ms;
 }
@@ -604,7 +605,6 @@ html:root
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0 10px;
 }
 
 .sect-controls .seasons_headerBdr,
@@ -829,7 +829,6 @@ html:root
     justify-content: center;
     align-items: center;
     margin-left: 5px;
-    margin-right: 15px;
 }
 
 .episode_sortText::after
@@ -866,7 +865,6 @@ html:root
     max-height: fit-content;
     display: flex;
     flex-direction: column;
-    padding: 0;
     opacity: 0;
     visibility: hidden;
     transition: opacity 500ms 500ms;
@@ -895,7 +893,6 @@ html:root
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(var(--episodesBoxWidth), 1fr));
     grid-template-rows: auto;
-    padding: 10px;
     gap: 10px;
     transition: 500ms;
 }
@@ -991,7 +988,7 @@ html:root
 .showall_EpBdr .showall_EpBox
 {
     width: 100%;
-    padding: 20px 10px;
+    margin: 20px 0 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1146,7 +1143,7 @@ html:root
 
     .abt-stmt .abt-stmtText
     {
-        --lineNo: 4;
+        --lineNo: 5;
     }
 
     .abt-card
@@ -1168,7 +1165,7 @@ html:root
 
     .show-sub.showsub-atv
     {
-        width: calc(100% - 50px);   
+        width: 100%;  
     }
 
 }
