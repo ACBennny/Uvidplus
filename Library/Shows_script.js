@@ -186,10 +186,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="abt-card">
-                                                    <p class="abt-cardText"><span>Languages</span>${show_languages}</p>
-                                                    <p class="abt-cardText"><span>Status</span>${show_status}</p>
-                                                    <p class="abt-cardText"><span>Studios</span>${show_studios}</p>
-                                                    <p class="abt-cardText"><span>Theme</span>${show_theme}</p>
+                                                    <p class="abt-cardText"><span class="abt-cardText-major">Languages</span><span class="abt-cardText-minor">${show_languages}</span></p>
+                                                    <p class="abt-cardText"><span class="abt-cardText-major">Status</span><span class="abt-cardText-minor">${show_status}</span></p>
+                                                    <p class="abt-cardText"><span class="abt-cardText-major">Studios</span><span class="abt-cardText-minor">${show_studios}</span></p>
+                                                    <p class="abt-cardText"><span class="abt-cardText-major">Theme</span><span class="abt-cardText-minor">${show_theme}</span></p>
                                                 </div>
                                             </div>
                                         </div>
