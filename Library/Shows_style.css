@@ -81,9 +81,6 @@ html:root
     justify-content: center;
 }
 
-
-/* --------- title ----------- */
-
 .main_box
 {
     position: relative;
@@ -97,6 +94,10 @@ html:root
     padding: 0 var(--genBorderSpacing);
     transition: 300ms;
 }
+
+
+
+/* --------- Title ----------- */
 
 .title-plate
 {
