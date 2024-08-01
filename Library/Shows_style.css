@@ -476,7 +476,6 @@ html:root
     height: fit-content;
     display: flex;
     flex-direction: column;
-    /* padding: 6px 15px 12px 15px; */
     transition: 300ms;
 }
 
