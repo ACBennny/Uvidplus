@@ -134,8 +134,8 @@ html:root
     width: 100%;
     height: 250px;
     border-radius: 15px;
-    overflow: hidden;
     transition: 300ms;
+    overflow: hidden;
 }
 
 .title_ImgBox .title_Img
