@@ -24,6 +24,7 @@ html
 
 html:root
 {   
+    --genGreenTypeBright: #0ee806;
     --genGreenTypeLight: #14d60d;
     --genGreenTypeLight2: #1fc316;
     --genGreenTypeMid: #1da216;
