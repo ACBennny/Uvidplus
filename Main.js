@@ -1085,7 +1085,7 @@
                                     </svg>
                                 </div>
                                 <div class="genAtnModalOptTextBox ">
-                                    <span class="genAtnModalOptText ">On-Hold/span>
+                                    <span class="genAtnModalOptText ">On-Hold</span>
                                 </div>
                             </button>
                             <button data-list="" class="genAtnModalOptBox plItem" title="" aria-label="">
