@@ -1065,7 +1065,7 @@
                                     </svg>
                                 </div>
                                 <div class="genAtnModalOptTextBox ">
-                                    <span class="genAtnModalOptText ">Plan to Watch</span>
+                                    <span class="genAtnModalOptText ">Planned/span>
                                 </div>
                             </button>
                             <button data-list="" class="genAtnModalOptBox plItem" title="" aria-label="">
