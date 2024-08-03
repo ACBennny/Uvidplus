@@ -11,6 +11,7 @@ html:root
     --userHeaderBdrHeight: 225px;
     --userHeaderNavLinkClr: var(--genWhiteTypeMid);
     --userHeaderNavLinkIconSizing: 16px;
+    --userBodyTitleClr: var(--genWhiteTypeLight);
 }
 
 .userMainBdr
@@ -27,6 +28,8 @@ html:root
     flex-direction: column;
 }
 
+
+/* ============= USER HEADER ============= */
 .userMainBox .userHeaderBdr
 {
     width: 100%;
@@ -165,6 +168,60 @@ html:root
     margin-left: 7px;
     color: var(--userHeaderNavLinkClr);
     transition: all 300ms ease-in-out;
+}
+
+
+
+/* =========== USER BODY ========= */
+.userMainBox .userBodyBdr
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.userBodyBdr .userBodyBox
+{
+    width: 100%;
+    max-width: var(--genMaxContainerWidth);
+    max-width: calc((var(--genMaxContainerWidth) / 1.25));
+    display: flex;
+    flex-direction: column;
+    padding: 35px var(--genBorderSpacing);
+}
+
+.userBodyBox .userBodyTitleBdr
+{
+    width: 100%;
+}
+
+.userBodyTitleBdr .userBodyTitleBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+.userBodyTitleBox .userBodyTitleIconBox
+{
+    width: 24px;
+    height: 24px;
+}
+
+.userBodyTitleIconBox .userBodyTitleIconSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--userBodyTitleClr);
+}
+
+.userBodyTitleBox .userBodyTitleText
+{
+    margin-left: 7px;
+    color: var(--userBodyTitleClr);
+    font-size: 24px;
 }
 
 
