@@ -841,7 +841,7 @@
                     const openNotificationSett = document.querySelector(".openNotificationSettings");
                     openNotificationSett.addEventListener("click" , () => 
                     {
-                        window.location.href = locationOrigin + "Settings/Notifications.html";
+                        window.location.href = locationOrigin + "User/Settings.html?section=Notifications";
                     });
 
                     // clear timer once time runs out
