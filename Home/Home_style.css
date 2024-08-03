@@ -379,7 +379,6 @@ body
     justify-content: center;
     align-items: center;
     gap: 5px;
-    padding: 0px;
     font-size: 15px;
     border-radius: 5px;
     cursor: pointer;
@@ -1814,6 +1813,11 @@ body
     html
     {
         --addTOWatchListSmallWidth: 40px;
+    }
+
+    .playShow_box
+    {
+        padding: var(--genBorderSpacing);
     }
 
     .playShow_box .play_Now
