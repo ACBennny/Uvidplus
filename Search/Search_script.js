@@ -62,7 +62,7 @@
                 </div>
                 <div class="basicCatalogBase">
                     <div class="basicCatalogBdr">
-                        <div class="basicCatalogBox" id="catalogId"></div>
+                        <div class="basicCatalogBox max_sizing" id="catalogId"></div>
                     </div>
                 </div>
             </div>

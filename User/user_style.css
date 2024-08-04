@@ -187,7 +187,7 @@ html:root
     max-width: calc((var(--genMaxContainerWidth) / 1.25));
     display: flex;
     flex-direction: column;
-    padding: 35px var(--genBorderSpacing);
+    padding: 35px 0;
 }
 
 .userBodyBox .userBodyTitleBdr
@@ -202,6 +202,7 @@ html:root
     flex-direction: row;
     justify-content: start;
     align-items: center;
+    padding: 0 var(--genBorderSpacing);
 }
 
 .userBodyTitleBox .userBodyTitleIconBox
@@ -222,6 +223,16 @@ html:root
     margin-left: 10px;
     color: var(--userBodyTitleClr);
     font-size: 24px;
+}
+
+.userBodyBox .userBodyCtntBdr
+{
+    width: 100%;
+}
+
+.userBodyCtntBdr .userBodyCtntBox
+{
+    width: 100%;
 }
 
 

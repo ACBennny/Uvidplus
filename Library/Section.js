@@ -42,7 +42,7 @@
             <!-- --------------body ------------ -->
             <div class="basicCatalogBase">
                 <div class="basicCatalogBdr">
-                    <div class="basicCatalogBox showCatalog"></div>
+                    <div class="basicCatalogBox max_sizing showCatalog"></div>
                     <div id="basicLoadingIndicator">
                         <div class="basicSpinner"></div>
                     </div>

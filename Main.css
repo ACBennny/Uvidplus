@@ -90,7 +90,7 @@ html:root
     --slideCardSpacing: 12px;
     --slideCardPlayIconClr: var(--genGreenTypeLight);
     --slideCardPlayIconWidth: 35px;
-    --basicCatalogCardWidth: 175px;
+    --basicCatalogCardWidth: 200px;
     --notifyGoodBcg: #42af56;
     --notifyBadBcg: #d95a5a;
     --notifyIconBoxWidth: 60px;
@@ -3007,7 +3007,6 @@ img
 .basicCatalogBase
 {
     width: 100%;
-    overflow-x: hidden;
 }
 
 .basicCatalogBdr
@@ -3023,15 +3022,18 @@ img
 .basicCatalogBox
 {
     width: 100%;
-    max-width: var(--genMaxContainerWidth);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(var(--basicCatalogCardWidth), 1fr));
     grid-template-rows: auto;
     justify-items: center;
-    padding: 20px var(--genBorderSpacing);
+    padding: 0 var(--genBorderSpacing);
     gap: 15px;
-    overflow-x: hidden;
     transition: 100ms;
+}
+
+.basicCatalogBox.max_sizing
+{
+    max-width: var(--genMaxContainerWidth);
 }
 
 #basicLoadingIndicator
@@ -4255,7 +4257,7 @@ img
 
     .basicCatalogBox
     {
-        --basicCatalogCardWidth: 140px;
+        --basicCatalogCardWidth: 165px;
     }
 
     .genAtnModalBdr .genAtnModalBox
@@ -4476,6 +4478,12 @@ only screen and (max-width: 800px)
     {
         --basicSliderCardDivision: 2;
     }
+
+    .basicCatalogBox
+    {
+        --basicCatalogCardWidth: 150px;
+        gap: 12px 7px;
+    }
 }
 
 
@@ -4509,6 +4517,8 @@ only screen and (max-width: 800px)
     .basicCatalogBox
     {
         --basicCatalogCardWidth: 125px;
+        grid-template-columns: 100%;
+        padding: 0 50px;
     }
 
     .specialEp_box .specialEp_SpImgBdr
