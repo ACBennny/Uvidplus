@@ -2719,6 +2719,9 @@ img
     max-height: 300px;
 }
 
+.slide_card_base.history_card
+{}
+
 .slide_card_base .slide_card_bdr
 {
     position: relative;
@@ -2785,7 +2788,7 @@ img
     z-index: 4;
 }
 
-.slide_card.history_card
+.history_card .slide_card
 {
     aspect-ratio: 18/30;
 }
