@@ -87,10 +87,12 @@ html:root
     --editProfileBcgImgHeight: 200px;
     --basicSliderCardDivision: 4;
     --basicSlideIconWidth: 16px;
+    --slideCardBorderRadius: 25px;
     --slideCardSpacing: 12px;
     --slideCardPlayIconClr: var(--genGreenTypeLight);
     --slideCardPlayIconWidth: 35px;
-    --basicCatalogCardWidth: 200px;
+    --slideCardProgress_currClr: var(--genGreenTypeBright);
+    --basicCatalogCardWidth: 175px;
     --notifyGoodBcg: #42af56;
     --notifyBadBcg: #d95a5a;
     --notifyIconBoxWidth: 60px;
@@ -2711,10 +2713,17 @@ img
     scroll-snap-align: start;
 }
 
+.slide_card_base.max_sizing
+{
+    max-width: 200px;
+    max-height: 300px;
+}
+
 .slide_card_base .slide_card_bdr
 {
     position: relative;
     width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2738,7 +2747,7 @@ img
     top: calc(0% + var(--slide_card_bcgH));
     width: calc(100% + var(--slide_card_bcgW));
     height: 100%;
-    border-radius: 25px;
+    border-radius: var(--slideCardBorderRadius);
     background-color: var(--genGreenTypeMid);
     transition: all 300ms ease-in-out;
     pointer-events: none;
@@ -2767,13 +2776,18 @@ img
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 25px;
+    border-radius: var(--slideCardBorderRadius);
     background: #000000;
     aspect-ratio: 18/27;
     cursor: pointer;
     transition: 300ms;
     overflow: hidden;
     z-index: 4;
+}
+
+.slide_card.history_card
+{
+    aspect-ratio: 18/30;
 }
 
 .slide_card .cardLinkCover
@@ -2788,6 +2802,20 @@ img
     height: 100%;
     background: #00000000;
     z-index: 5;
+}
+
+.slide_card .slideCardIcon
+{
+    position: absolute;
+    bottom: 25%;
+    right: 50%;
+    opacity: 0;
+    width: var(--slideCardPlayIconWidth);
+    fill: var(--slideCardPlayIconClr);
+    transform: translate(50% , 50%);
+    transition: all 300ms ease-in-out;
+    pointer-events: none;
+    z-index: 3;
 }
 
 .slide_card .cardAddToListBdr
@@ -2843,8 +2871,11 @@ img
 
 .cardImgBox .cardImg
 {
-    width: 100%;
-    height: 100%;
+    width: clamp(100%, 100%, 100%);
+    height: clamp(100%, 100%, 100%);
+    object-fit: cover;
+    object-position: center;
+    border-radius: var(--slideCardBorderRadius);
     transition: all 300ms ease-in-out;
 }
 
@@ -2939,21 +2970,86 @@ img
     overflow: hidden;
 }
 
-.slide_card .slideCardIcon
+
+
+/* ======== History (Continue Watching) ======== */
+.cardProgressBox
 {
-    position: absolute;
-    bottom: 25%;
-    right: 50%;
-    opacity: 0;
-    width: var(--slideCardPlayIconWidth);
-    fill: var(--slideCardPlayIconClr);
-    transform: translate(50% , 50%);
-    transition: all 300ms ease-in-out;
-    pointer-events: none;
-    z-index: 3;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-/* ========= View More Items ===== */
+.cardProgressBox .cardProgressHeader
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 7px 0;
+}
+
+.cardProgressHeader .cardProgressName
+{
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.cardProgressName .cardProgressName_text
+{
+    color: var(--genWhiteTypeMid);
+    font-size: 11px;
+}
+
+.cardProgressHeader .cardProgressTime
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2px;
+    font-size: 11px;
+    color: var(--genWhiteTypeMid);
+}
+
+.cardProgressTime .cardProgressTime_current
+{
+    color: var(--slideCardProgress_currClr);
+}
+
+.cardProgressTime .cardProgressTime_divider
+{
+    font-size: 10px;
+}
+
+.cardProgressBox .cardProgressBarBdr
+{
+    width: 100%;
+    height: 3px;
+    border-radius: var(--slideCardBorderRadius);
+    overflow: hidden;
+}
+
+.cardProgressBarBdr .cardProgressBarBox
+{
+    width: 100%;
+    height: 100%;
+    background-color: var(--genWhiteTypeDark);
+}
+
+.cardProgressBarBox .cardProgressBar_currLength
+{
+    width: var(--cardProgressBarCurrLengthWidth);
+    height: 100%;
+    border-radius: var(--slideCardBorderRadius);
+    background-color: var(--slideCardProgress_currClr);
+}
+
+
+
+
+
+
+/* ========= View More Items ========= */
 
 .view_more_bdr .view_more_box
 {
