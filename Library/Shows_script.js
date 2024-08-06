@@ -727,9 +727,7 @@
                     let chosenSetEpBox = seasonEpOvf[b].querySelectorAll(".episodes");
                     chosenSetEpBox.forEach(box => 
                     {
-                        box.classList.remove("inactive");
-                        box.classList.add("active");
-                        console.log("done");
+                        box.classList.replace("inactive" , "active");
                     });
                     showAllEpBdr[b].classList.remove("active");
                 });
