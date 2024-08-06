@@ -4183,11 +4183,6 @@ img
 {
     .basic_slider_card_box
     {
-        --basicSliderCardDivision: 10;
-    }
-
-    .basic_slider_card_box.basic_history_slider_card_box
-    {
         --basicSliderCardDivision: 9;
     }
 }
@@ -4198,11 +4193,6 @@ img
 
     .basic_slider_card_box
     {
-        --basicSliderCardDivision: 7;
-    }
-
-    .basic_slider_card_box.basic_history_slider_card_box
-    {
         --basicSliderCardDivision: 6;
     }
 }
@@ -4211,11 +4201,6 @@ img
 {
 
     .basic_slider_card_box
-    {
-        --basicSliderCardDivision: 6;
-    }
-
-    .basic_slider_card_box.basic_history_slider_card_box
     {
         --basicSliderCardDivision: 5;
     }
@@ -4229,11 +4214,6 @@ img
     }
 
     .basic_slider_card_box
-    {
-        --basicSliderCardDivision: 5;
-    }
-
-    .basic_slider_card_box.basic_history_slider_card_box
     {
         --basicSliderCardDivision: 4;
     }
@@ -4360,11 +4340,6 @@ img
     }
 
     .basic_slider_card_box
-    {
-        --basicSliderCardDivision: 4;
-    }
-
-    .basic_slider_card_box.basic_history_slider_card_box
     {
         --basicSliderCardDivision: 3;
     }
@@ -4577,11 +4552,6 @@ only screen and (max-width: 800px)
         --basicSliderCardDivision: 3;
         gap: 5px;
     }
-
-    .basic_slider_card_box.basic_history_slider_card_box
-    {
-        --basicSliderCardDivision: 2;
-    }
 }
 
 
@@ -4589,12 +4559,6 @@ only screen and (max-width: 800px)
 {
 
     .basic_slider_card_box
-    {
-        --basicSliderCardDivision: 2;
-        gap: 5px;
-    }
-
-    .basic_slider_card_box.basic_history_slider_card_box
     {
         --basicSliderCardDivision: 2;
     }
@@ -4622,11 +4586,6 @@ only screen and (max-width: 800px)
     .selectPicCarouselGrid.selectFrgPicCarouselGrid
     {
         --selectFrgPicCarouselGridRowNo: 3;
-    }
-
-    .basic_slider_card_box
-    {
-        --basicSliderCardDivision: 2;
     }
 
     .basicCatalogBox
@@ -4693,8 +4652,7 @@ only screen and (max-width: 800px)
 
 @media only screen and (max-width: 250px)
 {
-    .basic_slider_card_box,
-    .basic_slider_card_box.basic_history_slider_card_box
+    .basic_slider_card_box
     {
         grid-auto-columns: 100%;
     }
