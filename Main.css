@@ -64,7 +64,7 @@ html:root
     --navBarBcgSolid: #2f2e2e;
     --navBarBcgTransparency: #2f2e2eef;
     --navElementColor_green: var(--genGreenTypeLight);
-    --navMenuPageActiveElementClr: var(--color10);
+    --navMenuPageActiveElementClr: var(--genWhiteTypeMid);
     --navOptionColor: #a1a1a1;
     --navBarDividerThickness: 2px;
     --navMenuBcgClr: #1d1c1c;
