@@ -2793,11 +2793,6 @@ img
     z-index: 4;
 }
 
-.history_card .slide_card
-{
-    aspect-ratio: 18/32;
-}
-
 .slide_card .cardLinkCover
 {
     position: absolute;
