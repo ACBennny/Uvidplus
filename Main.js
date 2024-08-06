@@ -994,16 +994,13 @@
             {
     
                 // Remove filter once image has loaded
-                console.log("image number");
                 eachImg.addEventListener("load" , () => 
                 {
                     eachImg.style.filter = "blur(0px)";
                     if (eachImg.style.filter == "blur(0px)")
                     {
-                        console.log("loadedd");
                         return;
                     }
-                    console.log("noot loadedd");
                 });
             });
         }
@@ -1257,12 +1254,10 @@
                     function matchNames(plName)
                     {
         
-                        console.log("the curr list length => " + playListItem.length);
                         for(let m = 0; m < playListItem.length; m++)
                         {
                             let plNameLC = plName.toLowerCase();
                             let playListItemText = playListItem[m].querySelector(".genAtnModalOptText").textContent.toLowerCase();
-                            console.log("the curr list length => " + playListItem.length);
         
                             if(plNameLC == playListItemText)
                             {
@@ -1703,7 +1698,7 @@
                         })
                         .then(() => 
                         {
-                            console.log("Thanks for sharing");
+                            notification(`notifyGood` , `Thanks for sharing`);
                         })
                         .catch(console.error);
                     }
