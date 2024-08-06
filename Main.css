@@ -3054,6 +3054,12 @@ img
 
 /* ========= View More Items ========= */
 
+.view_more_bdr
+{
+    width: 100%;
+    height: 100%;
+}
+
 .view_more_bdr .view_more_box
 {
     background-color: #202020;

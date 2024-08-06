@@ -1070,6 +1070,26 @@
                                     <div class="slide_card_bcg"></div>
                                 </div>
                             </div>
+                            <div class="slide_card_base history_card">
+                                <div class="slide_card_bdr">
+                                    <div class="slide_card_box">
+                                        <div class="slide_card ">
+                                            <a href="/User/History.html" class="cardLinkCover"></a>
+                                            <div class="view_more_bdr">
+                                                <div class="view_more_box">
+                                                    <p class="view_more_name">View more</p>
+                                                    <div class="view_more_dot_box">
+                                                        <span class="view_more_dots"></span>
+                                                        <span class="view_more_dots"></span>
+                                                        <span class="view_more_dots"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slide_card_bcg"></div>
+                                </div>
+                            </div>
                         </div>
                         <div class="basic_slide_arrow right_slide_arrow">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="basic_slide_arrowIcon basic_icon_Right">
