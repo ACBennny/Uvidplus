@@ -32,30 +32,57 @@
     {
         basic_slider_CardBox.forEach((item, i) => 
         {
+            let boxErrorMargin = 10;
             let boxDimension = item.getBoundingClientRect();
             let boxWidth = boxDimension.width;
-            let boxW = boxWidth - 10;
+            let boxW = boxWidth - boxErrorMargin;
+            let multiCardSlide = boxW;
+            let boxChildrenDimension = ctntLinks[0].getBoundingClientRect();
+            let boxChildrenWidth = boxChildrenDimension.width;
+            let singleCardSlide = boxChildrenWidth;
 
             // Slides Right
-            basic_slider_RightArrBox[i].addEventListener("click" , () => {
-                item.scrollLeft += boxW;
+            basic_slider_RightArrBox[i].addEventListener("click" , () => 
+            {
+                // Slides by total cards visible
+                // item.scrollLeft += multiCardSlide;
+
+                // Slides by one card
+                item.scrollLeft += singleCardSlide;
             });
 
             // Slides Left
-            basic_slider_LeftArrBox[i].addEventListener("click" , () => {
-                item.scrollLeft -= boxW;
+            basic_slider_LeftArrBox[i].addEventListener("click" , () => 
+            {
+                // Slides by total cards visible
+                // item.scrollLeft -= multiCardSlide;
+
+                // Slides by one card
+                item.scrollLeft -= singleCardSlide;
             });
 
+            // Unhide right arrow if content is overflowing
+            if((item.scrollWidth) > (Math.ceil((item.clientWidth)) + boxErrorMargin))
+            {
+                basic_slider_RightArrBox[i].classList.remove("hide");
+            }
+            else
+            {
+                basic_slider_LeftArrBox[i].classList.add("hide");
+                basic_slider_RightArrBox[i].classList.add("hide");
+            }
+
             // Hides button  when boundary is reached
-            item.addEventListener("scroll" , () => {
-                let scrollStart = 0;
+            item.addEventListener("scroll" , () => 
+            {
+                let scrollStart = boxErrorMargin;
                 let scrollEnd = item.scrollWidth;
                 let scrollOffWidth = Math.ceil(item.offsetWidth);
                 let currScrollLeft = Math.ceil(item.scrollLeft);
                 let currScroll = Math.ceil((scrollOffWidth + currScrollLeft));
 
                 // Hides Right button
-                if(!(((currScroll) >= scrollEnd) || ((currScroll) >= (scrollEnd - 10))))
+                if(!(((currScroll) >= scrollEnd) || ((currScroll) >= (scrollEnd - boxErrorMargin))))
                 {
                     basic_slider_RightArrBox[i].classList.remove("hide");
                 }
@@ -93,7 +120,8 @@
 
    
     // Slide Card details (title, alt etc)
-    ctntLinks.forEach(ctntLink => {
+    ctntLinks.forEach(ctntLink => 
+    {
         const showCards = ctntLink.querySelector('.slide_card');
         const showCardImgs = ctntLink.querySelector('.cardImg');
         const showCardInfoName = showCards.querySelector('.cardinfo h3');
