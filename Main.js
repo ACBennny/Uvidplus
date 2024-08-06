@@ -960,6 +960,7 @@
             attachWatchListEventListeners();
             attachAddToWLEventListeners();
             attachSharePageEventListeners();
+            attachRemoveShowFromHistoryEventListeners();
 
     }
 
@@ -1714,6 +1715,33 @@
 
                 btn.addEventListener("click" , navigatorSclShareModal);
                 btn.navigatorSclShareModal = navigatorSclShareModal;
+            });
+        }
+
+
+    // CONTINUE (HISTORY)
+
+        function attachRemoveShowFromHistoryEventListeners()
+        {
+            const removeFromHistBtn = document.querySelectorAll(".removeShowFromHistory");
+
+            removeFromHistBtn.forEach((btn) => 
+            {
+                if(btn.action)
+                {
+                    btn.removeEventListener("click" , btn.action);
+                }
+            });
+
+            removeFromHistBtn.forEach((btn) => 
+            {
+                const action = () =>
+                {
+                    notification(`notifyBad` , `Error processing request`);
+                }
+
+                btn.addEventListener("click" , action);
+                btn.action = action;
             });
         }
     
