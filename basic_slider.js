@@ -61,7 +61,7 @@
                 item.scrollLeft -= singleCardSlide;
             });
 
-            // Unhide right arrow if content is overflowing
+            // Unhide/hide arrow if content is overflowing
             if((item.scrollWidth) > (Math.ceil((item.clientWidth)) + boxErrorMargin))
             {
                 basic_slider_RightArrBox[i].classList.remove("hide");
