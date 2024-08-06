@@ -551,7 +551,7 @@ img
     transform: rotate(-180deg);
 }
 
-.pc_navlinkCard:hover
+.pc_navlinkCard:active
 {
     --pc_navlinkClr: var(--navElementColor_green);
 }
@@ -844,7 +844,7 @@ img
     transition: 300ms;
 }
 
-.navBarSignOutBtn:hover
+.navBarSignOutBtn:active
 {
     --navBarProfileOptLinkClr: var(--navElementColor_green);
 }
@@ -1105,7 +1105,7 @@ img
     transition: 300ms;
 }
 
-.navOptHeaderBdr .navOptIconBox:hover .navOptIcon
+.navOptHeaderBdr .navOptIconBox:active .navOptIcon
 {
     fill: var(--genWhiteTypeLight);
 }
@@ -2703,11 +2703,6 @@ img
     overflow-y: hidden;
 }
 
-.basic_slider_card_box.basic_history_slider_card_box
-{
-
-}
-
 .basic_slider_card_box::-webkit-scrollbar
 {
     display: none;
@@ -2723,9 +2718,6 @@ img
     max-width: 200px;
     max-height: 300px;
 }
-
-.slide_card_base.history_card
-{}
 
 .slide_card_base .slide_card_bdr
 {
@@ -3632,8 +3624,7 @@ img
 }
 
 .newWLAtnBtn:disabled,
-.newWLAtnBtn:disabled:active,
-.newWLAtnBtn:disabled:hover
+.newWLAtnBtn:disabled:active
 {
     color: var(--genWhiteTypeMid) !important;
     background-color: var(--genGreenTypeDark2);
@@ -3793,7 +3784,7 @@ img
     transition: 200ms ease-in-out;
 }
 
-.footer_Important_links:hover
+.footer_Important_links:active
 {
     color: var(--footerTxtClrBright);
 }
@@ -3960,6 +3951,11 @@ img
         fill: var(--navElementColor_green);
     }
 
+    .pc_navlinkCard:hover
+    {
+        --pc_navlinkClr: var(--navElementColor_green);
+    }
+
     .navBarProfileCard:hover
     {
         --navBarProfileCardLinkClr: var(--navElementColor_green);
@@ -3974,6 +3970,11 @@ img
     .nav_Opt_bcg:hover
     {
         overflow-y: visible;
+    }
+
+    .navOptHeaderBdr .navOptIconBox:hover .navOptIcon
+    {
+        fill: var(--genWhiteTypeLight);
     }
 
     .navOptLink:hover
@@ -4117,6 +4118,18 @@ img
     .genAtnModalOptBdr .genAtnModalOptBox:hover
     {
         background-color: #222222;
+    }
+    
+    .newWLAtnBtn:disabled:hover
+    {
+        color: var(--genWhiteTypeMid) !important;
+        background-color: var(--genGreenTypeDark2);
+        cursor: not-allowed;
+    }
+
+    .footer_Important_links:hover
+    {
+        color: var(--footerTxtClrBright);
     }
 
     .footer_UsefulLinks:hover
