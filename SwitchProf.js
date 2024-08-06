@@ -1946,21 +1946,45 @@
                 {
                     let leftArrBox = [...document.querySelectorAll('.selectPicCarouselArrLeftBox')];
                     let rightArrBox = [...document.querySelectorAll('.selectPicCarouselArrRightBox')];
+                    let boxErrorMargin = 10;
                     let boxDimension = item.getBoundingClientRect();
                     let boxWidth = boxDimension.width;
-                    let boxW = boxWidth - 10;
+                    let boxW = boxWidth - boxErrorMargin;
+                    let multiCardSlide = boxW;
+                    let boxChildrenDimension = ctntLinks[0].getBoundingClientRect();
+                    let boxChildrenWidth = boxChildrenDimension.width;
+                    let singleCardSlide = boxChildrenWidth;
 
                     // Slides Right
                     rightArrBox[i].addEventListener("click" , () => 
                     {
-                        item.scrollLeft += boxW;
+                        // Slides by total cards visible
+                        // item.scrollLeft += multiCardSlide;
+        
+                        // Slides by one card
+                        item.scrollLeft += singleCardSlide;
                     });
 
                     // Slides Left
                     leftArrBox[i].addEventListener("click" , () => 
                     {
-                        item.scrollLeft -= boxW;
+                        // Slides by total cards visible
+                        // item.scrollLeft -= multiCardSlide;
+        
+                        // Slides by one card
+                        item.scrollLeft -= singleCardSlide;
                     });
+
+                    // Unhide right arrow if content is overflowing
+                    if((item.scrollWidth) > (Math.ceil((item.clientWidth)) + boxErrorMargin))
+                    {
+                        basic_slider_RightArrBox[i].classList.remove("hide");
+                    }
+                    else
+                    {
+                        basic_slider_LeftArrBox[i].classList.add("hide");
+                        basic_slider_RightArrBox[i].classList.add("hide");
+                    }
 
                     // Hides button  when boundary is reached
                     item.addEventListener("scroll" , () => {
