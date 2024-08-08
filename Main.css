@@ -986,6 +986,89 @@ img
 
 
 
+
+/* ============== NOTIFICATION STATUS BAR ============= */
+.notifyBdr
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: calc((var(--navBarHeight) - 15px));
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-100%);
+    transition: all var(--notifyTransitionStyle) ease-in;
+    z-index: 150;
+}
+
+.notifyBdr.notifyAtv
+{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0%);
+}
+
+.notifyBdr.notifyGood
+{
+    background-color: var(--notifyGoodBcg);
+}
+
+.notifyBdr.notifyBad
+{
+    background-color: var(--notifyBadBcg);
+}
+
+.notifyBdr .notifyBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+.notifyBox .notifyText
+{
+    color: #000000;
+    font-size: 14px;
+    text-align: center;
+}
+
+.notifyBdr .notifyIconBox
+{
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    width: var(--notifyIconBoxWidth);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.notifyIconBox .notifyIcon
+{
+    width: 18px;
+    height: 18px;
+}
+
+
+
+
+
+
+
+
 /* ======== NAV SIDE MENU ======== */
 
 .nav_Menu_bdr
@@ -3180,87 +3263,6 @@ img
     {
         transform: translateY(-50%);
     }
-}
-
-
-
-
-
-
-
-/* ============== NOTIFICATIONS STATUS BAR ============= */
-.notifyBdr
-{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: calc((var(--navBarHeight) - 15px));
-    overflow: hidden;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-100%);
-    transition: all var(--notifyTransitionStyle) ease-in;
-    z-index: 150;
-}
-
-.notifyBdr.notifyAtv
-{
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0%);
-}
-
-.notifyBdr.notifyGood
-{
-    background-color: var(--notifyGoodBcg);
-}
-
-.notifyBdr.notifyBad
-{
-    background-color: var(--notifyBadBcg);
-}
-
-.notifyBdr .notifyBox
-{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 20px;
-    -moz-user-select: -moz-none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    pointer-events: none;
-}
-
-.notifyBox .notifyText
-{
-    color: #000000;
-    font-size: 14px;
-    text-align: center;
-}
-
-.notifyBdr .notifyIconBox
-{
-    position: absolute;
-    right: 0px;
-    top: 50%;
-    width: var(--notifyIconBoxWidth);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    transform: translateY(-50%);
-    cursor: pointer;
-}
-
-.notifyIconBox .notifyIcon
-{
-    width: 18px;
-    height: 18px;
 }
 
 
