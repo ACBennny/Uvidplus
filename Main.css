@@ -3195,7 +3195,7 @@ img
     top: 0;
     left: 0;
     width: 100%;
-    height: calc((var(--navBarHeight) - 15px));
+    min-height: calc((var(--navBarHeight) - 15px));
     overflow: hidden;
     opacity: 0;
     visibility: hidden;
