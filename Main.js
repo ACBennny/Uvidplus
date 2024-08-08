@@ -375,9 +375,10 @@
             let goToHomePage = document.querySelectorAll(".Companylogo");
             let goToSearchPage = document.querySelector(".openNavSearch_Btn");
             let openNavProfileOptions = document.querySelector(".open_nav_profileOptions");
+            let navProfileOptionsBdr = document.querySelector(".navBarProfileOptBdr");
+            let navProfileOptionsBox = document.querySelector(".navBarProfileOptBox");
             let navBarSignOutBtn = document.querySelector(".navBarSignOutBtn");
             let accountSignOutTimer;
-            let navProfileOptionsBdr = document.querySelector(".navBarProfileOptBdr");
             let navMenuIcon = document.querySelectorAll(".open_nav_menu");
             let navMenuTimer;
             let locationOrigin;
@@ -457,6 +458,7 @@
                 {
                     document.removeEventListener("click" , closeNavProfileOptions);
                     navProfileOptionsBdr.classList.remove("active");
+                    navProfileOptionsBox.scrollTo(null , 0);
                     toggleNavbarUnderLayer();
                 }
             }
