@@ -68,7 +68,7 @@
             }
 
             // Unhide/hide left arrow if content is overflowing
-            if((item.scrollWidth) > (Math.ceil(singleCardSlide) + boxErrorMargin))
+            if((Math.ceil(item.scrollLeft)) > (Math.ceil(singleCardSlide) + boxErrorMargin))
             {
                 basic_slider_LeftArrBox[i].classList.remove("hide");
             }
