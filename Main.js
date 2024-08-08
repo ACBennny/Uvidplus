@@ -607,7 +607,7 @@
                                     </a>
                                 </section>
 
-                                <div class="navOptDivider"></div>
+                                <!-- div class="navOptDivider"></div>
 
                                 <section class="navOptBox navOptFooter">
                                     <div class="navOptFooterBox">
@@ -627,7 +627,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </section>
+                                </section> -->
                             </div>
                         </div>
                     </div>
