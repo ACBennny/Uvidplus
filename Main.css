@@ -654,6 +654,8 @@ img
     right: -300px;
     width: 300px;
     height: fit-content;
+    height: 400px;
+    max-height: calc(100vh - ((var(--navBarHeight))));
     opacity: 0;
     visibility: hidden;
     transform: translateY(calc(100% + 10px));
@@ -679,7 +681,17 @@ img
     border-radius: 15px;
     border-bottom: 1px solid var(--genGreenTypeLight);
     background-color: var(--navMenuBcgClr);
+    scrollbar-width: none;
+    scrollbar-color: #00000000 #00000000;
     overflow: hidden;
+    overflow-y: visible;
+}
+
+.navBarProfileOptBox::-webkit-scrollbar
+{
+    width: 0;
+    height: 0;
+    display: none;
 }
 
 
