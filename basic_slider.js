@@ -61,15 +61,16 @@
                 item.scrollLeft -= singleCardSlide;
             });
 
-            // Unhide/hide arrow if content is overflowing
+            // Unhide/hide right arrow if content is overflowing
             if((item.scrollWidth) > (Math.ceil((item.clientWidth)) + boxErrorMargin))
             {
                 basic_slider_RightArrBox[i].classList.remove("hide");
             }
-            else
+
+            // Unhide/hide left arrow if content is overflowing
+            if((item.scrollWidth) > (Math.ceil(singleCardSlide) + boxErrorMargin))
             {
-                basic_slider_LeftArrBox[i].classList.add("hide");
-                basic_slider_RightArrBox[i].classList.add("hide");
+                basic_slider_LeftArrBox[i].classList.remove("hide");
             }
 
             // Hides button  when boundary is reached
