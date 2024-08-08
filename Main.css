@@ -3462,8 +3462,11 @@ img
 
 .genAtnModalOptTextBox .genAtnModalOptText
 {
+    width: 100%;
+    height: 100%;
     color: #cdcdcd;
     font-size: 14px;
+    text-align: left;
 }
 
 
