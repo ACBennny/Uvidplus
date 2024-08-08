@@ -4277,10 +4277,15 @@ img
         width: 100%;
     }
 
+    .footer_boxCtnt .footer_abt_titleBox
+    {
+        padding-bottom: 0;
+    }
+
     .footer_abt_textBox .footer_abt_text
     {
         gap: 0;
-        margin: 0 0 10px 0;
+        margin: 0 0 10px;
     }
 }
 
@@ -4573,6 +4578,11 @@ only screen and (max-width: 800px)
 @media only screen and (max-width: 485px)
 {
 
+    .basic_slider_title_bdr .basic_slider_title_box
+    {
+        align-items: center;
+    }
+
     .basic_slider_card_box
     {
         --basicSliderCardDivision: 2;
@@ -4631,11 +4641,6 @@ only screen and (max-width: 800px)
     .switchProfOptTextBox .switchProfOptText
     {
         font-size: 12px;
-    }
-
-    .basic_slider_title_bdr .basic_slider_title_box
-    {
-        align-items: center;
     }
 
     .basic_slider_card_box
