@@ -3194,11 +3194,8 @@ img
     position: fixed;
     top: 0;
     left: 0;
-    display: flex;
     width: 100%;
-    height: var(--navBarHeight);
-    justify-content: center;
-    align-content: center;
+    height: calc((var(--navBarHeight) - 15px));
     overflow: hidden;
     opacity: 0;
     visibility: hidden;
@@ -3228,7 +3225,10 @@ img
 {
     width: 100%;
     height: 100%;
-    padding: 20px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
     -moz-user-select: -moz-none;
     -moz-user-select: none;
     -webkit-user-select: none;
