@@ -1182,7 +1182,7 @@
                         // Send notification when show is added
                         item.addEventListener("click" , () => 
                         {
-                            notification(`notifyGood` , `Show successfully added to ${itemName}`);
+                            notification(`notifyGood` , `Show successfully added to "${itemName}"`);
                             item.disabled = true;
                         });
                     });
@@ -1261,7 +1261,7 @@
         
                             if(plNameLC == playListItemText)
                             {
-                                notification(`notifyBad` , `${plName} already exists`);
+                                notification(`notifyBad` , `"${plName}" already exists`);
                                 return;
                             }
                         }
@@ -1279,7 +1279,7 @@
                             </button>
                         `;
                         playListItemBox.insertAdjacentHTML("beforeend" , newListHTML);
-                        notification(`notifyGood` , `Show successfully added to ${plName}`);
+                        notification(`notifyGood` , `Show successfully added to "${plName}"`);
                         
                         closeNewWLModal();
                     }
