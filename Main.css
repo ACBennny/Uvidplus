@@ -93,6 +93,7 @@ html:root
     --slideCardPlayIconWidth: 35px;
     --slideCardProgress_currClr: var(--genGreenTypeBright);
     --basicCatalogCardWidth: 175px;
+    --basicSingleColPadding: 50px;
     --notifyGoodBcg: #42af56;
     --notifyBadBcg: #d95a5a;
     --notifyIconBoxWidth: 60px;
@@ -3786,7 +3787,6 @@ img
 {
     width: 100%;
     display: flex;
-    flex-direction: column;
     flex-direction: row;
     gap: 10px;
 }
@@ -4224,7 +4224,7 @@ img
 
     .basic_slider_card_box
     {
-        --basicSliderCardDivision: 6;
+        --basicSliderCardDivision: 7;
     }
 }
 
@@ -4233,7 +4233,7 @@ img
 
     .basic_slider_card_box
     {
-        --basicSliderCardDivision: 5;
+        --basicSliderCardDivision: 6;
     }
 }
 
@@ -4246,7 +4246,7 @@ img
 
     .basic_slider_card_box
     {
-        --basicSliderCardDivision: 4;
+        --basicSliderCardDivision: 5;
     }
 }
 
@@ -4275,6 +4275,11 @@ img
     .editProfAtnBtn_Mob
     {
         display: block;
+    }
+
+    .basic_slider_card_box
+    {
+        --basicSliderCardDivision: 4;
     }
 
     .slide_card .cardInfoBdr h3
@@ -4671,6 +4676,11 @@ only screen and (max-width: 800px)
         font-size: 12px;
     }
 
+    .basic_slider_bdr
+    {
+        padding: 0 var(--basicSingleColPadding);
+    }
+
     .basic_slider_card_box
     {
         grid-auto-columns: 100%;
@@ -4685,7 +4695,7 @@ only screen and (max-width: 800px)
     {
         --basicCatalogCardWidth: 125px;
         grid-template-columns: 100%;
-        padding: 0 50px;
+        padding: 0 var(--basicSingleColPadding);
     }
 
     .specialEp_box .specialEp_SpImgBdr
