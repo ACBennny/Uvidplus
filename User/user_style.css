@@ -311,7 +311,7 @@ html:root
 }
 
 
-@media only screen and (max-width: 350px)
+@media only screen and (max-width: 485px)
 {
 
     .userBodyTitleBdr .userBodyTitleBox
@@ -321,7 +321,7 @@ html:root
 
     .userClearAllBdr
     {
-        margin-top: 25px;
+        margin: 25px 0;
     }
 
     .userClearAllBdr .userClearAllBox
