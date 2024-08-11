@@ -95,24 +95,11 @@ html:root
 
 .notification_MainTopic_box .notification_MainTopic_text
 {
-    --notification_SubTopic_textNo: 2;
-    --notification_SubTopic_textH: 1.2;
-    position: relative;
-    -webkit-line-clamp: var(--notification_SubTopic_textNo);
-    -webkit-box-orient: vertical;
-    line-clamp: var(--notification_SubTopic_textNo);
-    display: -webkit-box;
     width: -moz-fit-content;
     width: fit-content;
-    max-height: calc(var(--notification_SubTopic_textNo) * 1em * var(--notification_SubTopic_textH));
-    line-height: var(--notification_SubTopic_textH);
     color: var(--genWhiteTypeLight);
     font-size: 22px;
     text-align: left;
-    -webkit-hyphens: auto;
-    hyphens: auto;
-    overflow-wrap: break-word;
-    overflow: hidden;
 }
 
 .notification_detail_box .notification_SubTopic_bdr
@@ -128,24 +115,11 @@ html:root
 
 .notification_SubTopic_box .notification_SubTopic_text
 {
-    --notification_SubTopic_textNo: 2;
-    --notification_SubTopic_textH: 1.2;
-    position: relative;
-    -webkit-line-clamp: var(--notification_SubTopic_textNo);
-    -webkit-box-orient: vertical;
-    line-clamp: var(--notification_SubTopic_textNo);
-    display: -webkit-box;
     width: -moz-fit-content;
     width: fit-content;
-    max-height: calc(var(--notification_SubTopic_textNo) * 1em * var(--notification_SubTopic_textH));
-    line-height: var(--notification_SubTopic_textH);
     color: var(--genWhiteTypeMid);
     font-size: 14px;
     text-align: left;
-    -webkit-hyphens: auto;
-    hyphens: auto;
-    overflow-wrap: break-word;
-    overflow: hidden;
 }
 
 .notification_detail_box .notification_action_bdr
