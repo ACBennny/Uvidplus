@@ -6,4 +6,205 @@
  *************************************************************/
 
 
+
+html:root
+{
+    --noitification_thumbnail_width: 100px;
+    --noitification_thumbnail_height: 150px;
+    --notification_SubTopic_margin: 10px;
+}
+
+
+
+.notification_ctnt_bdr
+{
+    width: 100%;
+}
+
+.notification_ctnt_bdr .notification_ctnt_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 var(--genBorderSpacing);
+}
+
+.notification_ctnt_box .noitification_card_bdr
+{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.noitification_card_bdr .noitification_card_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.noitification_card_box .noitification_thumbnail_bdr
+{
+    width: var(--noitification_thumbnail_width);
+    height: var(--noitification_thumbnail_height);
+}
+
+.noitification_thumbnail_bdr .noitification_thumbnail_box
+{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.noitification_thumbnail_box .noitification_thumbnail_img
+{
+    width: clamp(100% , 100% , 100%);
+    height: clamp(100% , 100% , 100%);
+    object-fit: cover;
+    object-position: center;
+}
+
+.noitification_card_box .notification_detail_bdr
+{
+    width: calc(100% - var(--noitification_thumbnail_width));
+    height: 100%;
+    margin-left: 10px;
+}
+
+.notification_detail_bdr .notification_detail_box
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.notification_detail_box .notification_MainTopic_bdr
+{
+    width: 100%;
+}
+
+.notification_MainTopic_bdr .notification_MainTopic_box
+{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+}
+
+.notification_MainTopic_box .notification_MainTopic_text
+{
+    --notification_SubTopic_textNo: 2;
+    --notification_SubTopic_textH: 1.2;
+    position: relative;
+    -webkit-line-clamp: var(--notification_SubTopic_textNo);
+    -webkit-box-orient: vertical;
+    line-clamp: var(--notification_SubTopic_textNo);
+    display: -webkit-box;
+    width: -moz-fit-content;
+    width: fit-content;
+    max-height: calc(var(--notification_SubTopic_textNo) * 1em * var(--notification_SubTopic_textH));
+    line-height: var(--notification_SubTopic_textH);
+    color: var(--genWhiteTypeLight);
+    font-size: 22px;
+    text-align: left;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+.notification_detail_box .notification_SubTopic_bdr
+{
+    width: 100%;
+    margin: var(--notification_SubTopic_margin) 0;
+}
+
+.notification_SubTopic_bdr .notification_SubTopic_box
+{
+    width: 100%;
+}
+
+.notification_SubTopic_box .notification_SubTopic_text
+{
+    --notification_SubTopic_textNo: 2;
+    --notification_SubTopic_textH: 1.2;
+    position: relative;
+    -webkit-line-clamp: var(--notification_SubTopic_textNo);
+    -webkit-box-orient: vertical;
+    line-clamp: var(--notification_SubTopic_textNo);
+    display: -webkit-box;
+    width: -moz-fit-content;
+    width: fit-content;
+    max-height: calc(var(--notification_SubTopic_textNo) * 1em * var(--notification_SubTopic_textH));
+    line-height: var(--notification_SubTopic_textH);
+    color: var(--genWhiteTypeMid);
+    font-size: 14px;
+    text-align: left;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+.notification_detail_box .notification_action_bdr
+{
+    width: 100%;
+}
+
+.notification_action_bdr .notification_action_box
+{
+    width: 100%;
+}
+
+.notification_action_box .notification_action_text
+{
+    font-family: 'Poppins' , sans-serif;
+    color: var(--genGreenTypeMid);
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all 300ms ease-in-out;
+}
+
+.notification_action_text:hover
+{
+    color: var(--genGreenTypeLight);
+}
+
+
+
+
+
+
+
+
+
+/* ================== RESPONSIVENESS ================ */
+
+@media only screen and (max-width: 565px)
+{
+    html:root
+    {
+        --noitification_thumbnail_width: 85px;
+        --noitification_thumbnail_height: 125px;
+        --notification_SubTopic_margin: 7px;
+    }
+
+    .notification_MainTopic_box .notification_MainTopic_text
+    {
+        font-size: 18px;
+    }
+
+    .notification_SubTopic_box .notification_SubTopic_text
+    {
+        font-size: 13px;
+    }
+
+    .notification_action_box .notification_action_text
+    {
+        font-size: 13px;
+    }
+}
  
