@@ -34,6 +34,14 @@ html:root
 {
     width: 100%;
     margin-bottom: 20px;
+    transition: all 300ms ease-in-out;
+    overflow: hidden;
+}
+
+.noitification_card_bdr:active
+{
+    border-radius: 10px;
+    background-color: #171717;
 }
 
 .noitification_card_bdr .noitification_card_box
@@ -142,12 +150,28 @@ html:root
     transition: all 300ms ease-in-out;
 }
 
-.notification_action_text:hover
+.notification_action_text:active
 {
     color: var(--genGreenTypeLight);
 }
 
 
+
+
+@media(hover: hover)
+{
+
+    .noitification_card_bdr:hover
+    {
+        border-radius: 10px;
+        background-color: #171717;
+    }
+
+    .notification_action_text:hover
+    {
+        color: var(--genGreenTypeLight);
+    }
+}
 
 
 
@@ -162,7 +186,6 @@ html:root
     html:root
     {
         --noitification_thumbnail_width: 85px;
-        --noitification_thumbnail_height: 125px;
         --notification_SubTopic_margin: 7px;
     }
 
