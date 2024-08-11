@@ -656,7 +656,7 @@ img
     width: 300px;
     height: fit-content;
     height: 400px;
-    max-height: calc(100vh - ((var(--navBarHeight))));
+    max-height: calc(90vh - ((var(--navBarHeight))));
     opacity: 0;
     visibility: hidden;
     transform: translateY(calc(100% + 10px));
