@@ -580,19 +580,13 @@ img
     display: flex;
 }
 
-.navBarRightCtnt .navBarProfileBdr
-{
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    -moz-user-select: -moz-none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-}
 
-/* ---- Underlayer for Navbar --- */
+
+
+
+
+/* ========= NAVBAR UNDERLAYER ========== */
+
 .navbar_UnderLayer
 {
     position: fixed;
@@ -623,18 +617,52 @@ img
 
 
 
+
+
 /* ============= NAVBAR NOTIFICATION MENU  ============= */
 
-.openNavNotifyBox .navBarIcon
+.navBarIconBox.openNavNotifyBox
 {
-    display: none;
+    position: relative;
 }
 
-.openNavNotifyBox .openNavNotify.notify_atv,
-.openNavNotifyBox .closeNavNotify.notify_atv
+.openNavNotifyBox .openNavNotify.notify_atv
 {
-    display: flex;
+    fill: var(--navElementColor_green);
 }
+
+
+
+/* ------ NOTIFICATION STATUS NUMBER ------ */
+.navBarNotificationStatusNo_bdr
+{
+    --navBarNotificationStatusNo_sizing: 23px;
+    position: absolute;
+    bottom: 50%;
+    left: 100%;
+    transform: translate(-50% ,0);
+}
+
+.navBarNotificationStatusNo_bdr .navBarNotificationStatusNo_box
+{
+    width: var(--navBarNotificationStatusNo_sizing);
+    height: var(--navBarNotificationStatusNo_sizing);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #ce2a2a;
+}
+
+.navBarNotificationStatusNo_box .navBarNotificationStatusNo_text
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 10px;
+}
+
+
+
+/* ------ MENU ------- */
 
 .navBarNotificationMain
 {
@@ -906,6 +934,18 @@ img
 
 
 /* =============== NAVBAR PROFILE MENU ================ */
+
+.navBarRightCtnt .navBarProfileBdr
+{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
 
 .navBarProfileBdr .navBarProfileBox
 {
