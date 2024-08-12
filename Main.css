@@ -620,6 +620,291 @@ img
 }
 
 
+
+
+
+/* ============= NAVBAR NOTIFICATION MENU  ============= */
+
+.openNavNotifyBox .navBarIcon
+{
+    display: none;
+}
+
+.openNavNotifyBox .openNavNotify.notify_atv,
+.openNavNotifyBox .closeNavNotify.notify_atv
+{
+    display: flex;
+}
+
+.navBarNotificationMain
+{
+    position: fixed;
+    top: calc(0% + var(--navBarNotificationPosT));
+    right: calc(0% + var(--navBarNotificationPosR));
+    width: calc(100% - 10px);
+    max-width: 275px;
+    height: 400px;
+    height: fit-content;
+    max-height: 200px;
+    max-height: calc(90% - var(--navBarHeight));
+    /* max-height: 400px; */
+    backface-visibility: hidden;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    transition: all 300ms ease;
+    z-index: 95;
+}
+
+.navBarNotificationMain.notify_atv
+{
+    --navBarNotificationPosR: var(--genBorderSpacing);
+    opacity: 1;
+    visibility: visible;
+}
+
+.navBarNotificationMain .navBarNotificationMinor
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: var(--navMenuBorderRadius);
+    border-bottom: var(--navMenuBorderThickness) solid var(--navMenuBorderClr);
+    background-color: var(--navMenuBcgClr);
+    background-color: var(--navBarBcgSolid);
+    scrollbar-width: none;
+    scrollbar-color: #00000000 #00000000;
+    overflow: hidden;
+    overflow-y: visible;
+}
+
+.navBarNotificationMinor::-webkit-scrollbar
+{
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+.navBarNotificationMinor .navBarNotificationHeaderBdr
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: var(--navMenuBcgClr);
+}
+
+.navBarNotificationHeaderBdr .navBarNotificationHeaderBox
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.navBarNotificationHeaderBox .navBarNotificationHeaderIconBox
+{
+    width: 14px;
+    height: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navBarNotificationHeaderIconBox .navBarNotificationHeaderIconSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--genWhiteTypeMid);
+    transition: all 300ms ease-in-out;
+}
+
+.navBarNotificationHeaderBox .navBarNotificationHeaderText
+{
+    color: var(--genWhiteTypeMid);
+    font-size: 13px;
+    margin-left: 5px;
+    transition: all 300ms ease-in-out;
+}
+
+.navBarNotificationMinor .navBarNotificationFooterBdr
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    background-color: var(--navMenuBcgClr);
+}
+
+.navBarNotificationFooterBdr .navBarNotificationFooterBdr
+{
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.navBarNotificationFooterBox .navBarNotificationFooterText
+{
+    font-size: 14px;
+    color: var(--genWhiteTypeLight);
+    transition: all 300ms ease-in-out;
+}
+
+.navBarNotificationHeaderBox:active .navBarNotificationHeaderIconSvg,
+.navBarNotificationHeaderBox:active .navBarNotificationHeaderText,
+.navBarNotificationFooterBox:active .navBarNotificationFooterText
+{
+    fill: var(--genGreenTypeLight2);
+    color: var(--genGreenTypeLight2);
+}
+
+.navBarNotificationMinor .navBarNotificationCtntBdr
+{
+    width: 100%;
+    overflow: hidden;
+    overflow-y: visible;
+}
+
+.navBarNotificationCtntBdr .navBarNotificationCtntBox
+{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.navBarNotificationCtntBox .navBarNotificationCardBdr
+{
+    width: 100%;
+    min-height: 75px;
+    padding: 15px;
+    background-color: var(--navBarBcgSolid);
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+}
+
+.navBarNotificationCardBdr:active
+{
+    background-color: #3d3d3d;
+}
+
+.navBarNotificationCardBdr:first-child
+{
+    border-bottom: 1px solid #444444;
+}
+
+.navBarNotificationCardBdr:last-child
+{
+    border-top: 1px solid #444444;
+}
+
+.navBarNotificationCardBdr .navBarNotificationCardBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.navBarNotificationCardBox .navBarNotificationCard_ImgBdr
+{
+    width: var(--navBarNotificationImgWidth);
+    height: var(--navBarNotificationImgHeight);
+}
+
+.navBarNotificationCard_ImgBdr .navBarNotificationCard_ImgBox
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.navBarNotificationCard_ImgBox .navBarNotificationCard_ImgSrc
+{
+    width: clamp(100% , 100% , 100%);
+    height: clamp(100% , 100% , 100%);
+    object-fit: cover;
+    object-position: center;
+}
+
+.navBarNotificationCardBox .navBarNotificationCard_DetBdr
+{
+    width: calc((100% - var(--navBarNotificationImgWidth)));
+    margin-left: 10px;
+}
+
+.navBarNotificationCard_DetBdr .navBarNotificationCard_DetBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.navBarNotificationCard_DetBox .navBarNotificationCard_MainTopicBdr
+{
+    width: 100%;
+}
+
+.navBarNotificationCard_MainTopicBdr .navBarNotificationCard_MainTopicBox
+{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.navBarNotificationCard_MainTopicBox .navBarNotificationCard_MainTopicText
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    color: var(--genGreenTypeBright);
+    font-size: 14px;
+    font-family: 'Poppins';
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.navBarNotificationCard_DetBox .navBarNotificationCard_SubTopicBdr
+{
+    width: 100%;
+}
+
+.navBarNotificationCard_SubTopicBdr .navBarNotificationCard_SubTopicBox
+{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.navBarNotificationCard_SubTopicBox .navBarNotificationCard_SubTopicText
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    color: var(--genWhiteTypeMid2);
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+
 /* =============== NAVBAR PROFILE MENU ================ */
 
 .navBarProfileBdr .navBarProfileBox
@@ -864,284 +1149,6 @@ img
 .navBarSignOutBtn:active
 {
     --navBarProfileOptLinkClr: var(--navElementColor_green);
-}
-
-
-
-
-
-/* ===== NAVBAR NOTIFICATION MENU  ===== */
-
-.openNavNotifyBox .navBarIcon
-{
-    display: none;
-}
-
-.openNavNotifyBox .openNavNotify.notify_atv,
-.openNavNotifyBox .closeNavNotify.notify_atv
-{
-    display: flex;
-}
-
-.navBarNotificationMain
-{
-    position: fixed;
-    top: calc(0% + var(--navBarNotificationPosT));
-    right: calc(0% + var(--navBarNotificationPosR));
-    width: calc(100% - 10px);
-    max-width: 275px;
-    height: 400px;
-    height: fit-content;
-    max-height: 200px;
-    max-height: calc(90% - var(--navBarHeight));
-    /* max-height: 400px; */
-    backface-visibility: hidden;
-    -moz-user-select: -moz-none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    transition: all 300ms ease;
-    z-index: 95;
-}
-
-.navBarNotificationMain.notify_atv
-{
-    --navBarNotificationPosR: var(--genBorderSpacing);
-    opacity: 1;
-    visibility: visible;
-}
-
-.navBarNotificationMain .navBarNotificationMinor
-{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border-radius: var(--navMenuBorderRadius);
-    border-bottom: var(--navMenuBorderThickness) solid var(--navMenuBorderClr);
-    background-color: var(--navMenuBcgClr);
-    background-color: var(--navBarBcgSolid);
-    scrollbar-width: none;
-    scrollbar-color: #00000000 #00000000;
-    overflow: hidden;
-    overflow-y: visible;
-}
-
-.navBarNotificationMinor::-webkit-scrollbar
-{
-    width: 0;
-    height: 0;
-    display: none;
-}
-
-.navBarNotificationMinor .navBarNotificationHeaderBdr
-{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 15px;
-    background-color: var(--navMenuBcgClr);
-}
-
-.navBarNotificationHeaderBdr .navBarNotificationHeaderBox
-{
-    width: -moz-fit-content;
-    width: fit-content;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-.navBarNotificationHeaderBox .navBarNotificationHeaderIconBox
-{
-    width: 14px;
-    height: 14px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.navBarNotificationHeaderIconBox .navBarNotificationHeaderIconSvg
-{
-    width: 100%;
-    height: 100%;
-    fill: var(--genWhiteTypeMid);
-    transition: all 300ms ease-in-out;
-}
-
-.navBarNotificationHeaderBox .navBarNotificationHeaderText
-{
-    color: var(--genWhiteTypeMid);
-    font-size: 13px;
-    margin-left: 5px;
-    transition: all 300ms ease-in-out;
-}
-
-.navBarNotificationMinor .navBarNotificationFooterBdr
-{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 12px;
-    background-color: var(--navMenuBcgClr);
-}
-
-.navBarNotificationFooterBdr .navBarNotificationFooterBdr
-{
-    width: -moz-fit-content;
-    width: fit-content;
-}
-
-.navBarNotificationFooterBox .navBarNotificationFooterText
-{
-    font-size: 14px;
-    color: var(--genWhiteTypeLight);
-    transition: all 300ms ease-in-out;
-}
-
-.navBarNotificationHeaderBox:hover .navBarNotificationHeaderIconSvg,
-.navBarNotificationHeaderBox:hover .navBarNotificationHeaderText,
-.navBarNotificationFooterBox:hover .navBarNotificationFooterText
-{
-    fill: var(--genGreenTypeLight2);
-    color: var(--genGreenTypeLight2);
-}
-
-.navBarNotificationMinor .navBarNotificationCtntBdr
-{
-    width: 100%;
-    overflow: hidden;
-    overflow-y: visible;
-}
-
-.navBarNotificationCtntBdr .navBarNotificationCtntBox
-{
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-}
-
-.navBarNotificationCtntBox .navBarNotificationCardBdr
-{
-    width: 100%;
-    min-height: 75px;
-    padding: 15px;
-    background-color: var(--navBarBcgSolid);
-    /* background-color: #2a2a2a; */
-    transition: all 300ms ease-in-out;
-    cursor: pointer;
-}
-
-.navBarNotificationCardBdr:hover
-{
-    background-color: #3d3d3d;
-}
-
-.navBarNotificationCardBdr:first-child
-{
-    border-bottom: 1px solid #444444;
-}
-
-.navBarNotificationCardBdr:last-child
-{
-    border-top: 1px solid #444444;
-}
-
-.navBarNotificationCardBdr .navBarNotificationCardBox
-{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.navBarNotificationCardBox .navBarNotificationCard_ImgBdr
-{
-    width: var(--navBarNotificationImgWidth);
-    height: var(--navBarNotificationImgHeight);
-}
-
-.navBarNotificationCard_ImgBdr .navBarNotificationCard_ImgBox
-{
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.navBarNotificationCard_ImgBox .navBarNotificationCard_ImgSrc
-{
-    width: clamp(100% , 100% , 100%);
-    height: clamp(100% , 100% , 100%);
-    object-fit: cover;
-    object-position: center;
-}
-
-.navBarNotificationCardBox .navBarNotificationCard_DetBdr
-{
-    width: calc((100% - var(--navBarNotificationImgWidth)));
-    margin-left: 10px;
-}
-
-.navBarNotificationCard_DetBdr .navBarNotificationCard_DetBox
-{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.navBarNotificationCard_DetBox .navBarNotificationCard_MainTopicBdr
-{
-    width: 100%;
-}
-
-.navBarNotificationCard_MainTopicBdr .navBarNotificationCard_MainTopicBox
-{
-    width: 100%;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-}
-
-.navBarNotificationCard_MainTopicBox .navBarNotificationCard_MainTopicText
-{
-    width: -moz-fit-content;
-    width: fit-content;
-    color: var(--genGreenTypeBright);
-    font-size: 14px;
-    font-family: 'Poppins';
-    text-transform: uppercase;
-    font-weight: 500;
-}
-
-.navBarNotificationCard_DetBox .navBarNotificationCard_SubTopicBdr
-{
-    width: 100%;
-}
-
-.navBarNotificationCard_SubTopicBdr .navBarNotificationCard_SubTopicBox
-{
-    width: 100%;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-}
-
-.navBarNotificationCard_SubTopicBox .navBarNotificationCard_SubTopicText
-{
-    width: -moz-fit-content;
-    width: fit-content;
-    color: var(--genWhiteTypeMid2);
-    font-size: 12px;
 }
 
 
@@ -4121,6 +4128,19 @@ img
     .pc_navlinkCard:hover
     {
         --pc_navlinkClr: var(--navElementColor_green);
+    }
+
+    .navBarNotificationHeaderBox:hover .navBarNotificationHeaderIconSvg,
+    .navBarNotificationHeaderBox:hover .navBarNotificationHeaderText,
+    .navBarNotificationFooterBox:hover .navBarNotificationFooterText
+    {
+        fill: var(--genGreenTypeLight2);
+        color: var(--genGreenTypeLight2);
+    }
+
+    .navBarNotificationCardBdr:hover
+    {
+        background-color: #3d3d3d;
     }
 
     .navBarProfileCard:hover
