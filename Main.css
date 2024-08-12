@@ -641,6 +641,7 @@ img
     bottom: 50%;
     left: 100%;
     transform: translate(-50% ,0);
+    pointer-events: none;
 }
 
 .navBarNotificationStatusNo_bdr .navBarNotificationStatusNo_box
