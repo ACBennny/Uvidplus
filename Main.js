@@ -942,11 +942,11 @@
                 switchProfScript.addEventListener("load" , () => 
                 {
                     openSwitchProfBtn.addEventListener("click" , instantiateSwitchProfBdr);
-
                 });
                 switchProfScript.onerror = function() 
                 {
-                    notification(`notifyBad` , `An error occurred`);
+                    notification(`notifyBad` , `An error occurred during loading`);
+                    openSwitchProfBtn.addEventListener("click" , failedLoadInstantiateSwitchProfBdr);
                 };
                 document.body.appendChild(switchProfScript);
             }
@@ -1037,6 +1037,13 @@
             attachSharePageEventListeners();
             attachRemoveShowFromHistoryEventListeners();
 
+    }
+
+
+    // FAILED TO LOAD SWITCHMODAL SCRIPT
+    function failedLoadInstantiateSwitchProfBdr()
+    {
+        notification(`notifyBad` , `Error processing request`);
     }
 
 
