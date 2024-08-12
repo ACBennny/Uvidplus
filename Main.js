@@ -769,26 +769,99 @@
                 navBarNotificationMain.innerHTML = 
                 `
                     <div class="navBarNotificationMinor">
-                        <div class="navBarNotificationTitleBox">
-                            <div class="navBarnotificationTitle">Notifications</div>
-                            <div class="navBarIconBox">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarIcon openNotificationSettings">
-                                    <path d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"/>
-                                </svg>
+                        <div class="navBarNotificationHeaderBdr">
+                            <div class="navBarNotificationHeaderBox">
+                                <div class="navBarNotificationHeaderIconBox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navBarNotificationHeaderIconSvg">
+                                        <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
+                                    </svg>
+                                </div>
+                                <p class="navBarNotificationHeaderText">Mark all as read</p>
                             </div>
                         </div>
-                        <div class="navBarNotificationSub">
-                            <div class="navBarNotificationBox">
-                                <div class="notifyCtntBox"></div>
-                                <div class="notifyCtntBox"></div>
-                                <div class="notifyCtntBox"></div>
-                                <div class="notifyCtntBox"></div>
-                                <div class="notifyCtntBox"></div>
-                                <div class="notifyCtntBox"></div>
-                                <div class="notifyCtntBox"></div>
-                                <div class="notifyCtntBox"></div>
-                                <div class="notifyCtntBox"></div>
+                        <div class="navBarNotificationCtntBdr">
+                            <div class="navBarNotificationCtntBox">
+                                <a href="" class="navBarNotificationCardBdr">
+                                    <div class="navBarNotificationCardBox">
+                                        <div class="navBarNotificationCard_ImgBdr">
+                                            <div class="navBarNotificationCard_ImgBox">
+                                                <img src="/Images/Uvid_bcg1.jpg" class="navBarNotificationCard_ImgSrc">
+                                            </div>
+                                        </div>
+                                        <div class="navBarNotificationCard_DetBdr">
+                                            <div class="navBarNotificationCard_DetBox">
+                                                <div class="navBarNotificationCard_MainTopicBdr">
+                                                    <div class="navBarNotificationCard_MainTopicBox">
+                                                        <div class="navBarNotificationCard_MainTopicText">Welcome to Uvid</div>
+                                                    </div>
+                                                </div>
+                                                <div class="navBarNotificationCard_SubTopicBdr">
+                                                    <div class="navBarNotificationCard_SubTopicBox">
+                                                        <p class="navBarNotificationCard_SubTopicText">
+                                                            We are glad you joined us. Browse and watch your favourite movies and tv shows.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href=""  class="navBarNotificationCardBdr">
+                                    <div class="navBarNotificationCardBox">
+                                        <div class="navBarNotificationCard_ImgBdr">
+                                            <div class="navBarNotificationCard_ImgBox">
+                                                <img src="/Images/Uvid_bcg2.jpg" class="navBarNotificationCard_ImgSrc">
+                                            </div>
+                                        </div>
+                                        <div class="navBarNotificationCard_DetBdr">
+                                            <div class="navBarNotificationCard_DetBox">
+                                                <div class="navBarNotificationCard_MainTopicBdr">
+                                                    <div class="navBarNotificationCard_MainTopicBox">
+                                                        <div class="navBarNotificationCard_MainTopicText">Switch Profiles</div>
+                                                    </div>
+                                                </div>
+                                                <div class="navBarNotificationCard_SubTopicBdr">
+                                                    <div class="navBarNotificationCard_SubTopicBox">
+                                                        <p class="navBarNotificationCard_SubTopicText">
+                                                            You can now create and customize up to five different profiles.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href=""  class="navBarNotificationCardBdr">
+                                    <div class="navBarNotificationCardBox">
+                                        <div class="navBarNotificationCard_ImgBdr">
+                                            <div class="navBarNotificationCard_ImgBox">
+                                                <img src="/Library/Anime/Watch/OnePiece/img/1.jpg" class="navBarNotificationCard_ImgSrc">
+                                            </div>
+                                        </div>
+                                        <div class="navBarNotificationCard_DetBdr">
+                                            <div class="navBarNotificationCard_DetBox">
+                                                <div class="navBarNotificationCard_MainTopicBdr">
+                                                    <div class="navBarNotificationCard_MainTopicBox">
+                                                        <div class="navBarNotificationCard_MainTopicText">One Piece</div>
+                                                    </div>
+                                                </div>
+                                                <div class="navBarNotificationCard_SubTopicBdr">
+                                                    <div class="navBarNotificationCard_SubTopicBox">
+                                                        <p class="navBarNotificationCard_SubTopicText">
+                                                            Episode 1115 is now available.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
+                        </div>
+                        <div class="navBarNotificationFooterBdr">
+                            <a href="/User/Notification.html" class="navBarNotificationFooterBox">
+                                <p class="navBarNotificationFooterText">View all</p>
+                            </a>
                         </div>
                     </div>
                 `;
