@@ -8,4 +8,702 @@
 
 
     const userPagesStruct =
-    ``;
+    `
+        <!-- body -->
+        <div class="userMainBdr">
+            <div class="userMainBox">
+                <div class="userHeaderBdr">
+                    <div class="userHeaderBox">
+                        <div class="userHeaderBcgBdr">
+                            <div class="userHeaderBcgBox">
+                                <img src="/Images/Uvid_green_bcg1_dark.jpg" alt="" class="userHeaderBcgImg">
+                            </div>
+                        </div>
+                        <div class="userHeaderDetBdr">
+                            <div class="userHeaderDetBox">
+                                <div class="userHeaderTitleBdr">
+                                    <div class="userHeaderTitleBox">
+                                        <h1 class="userHeaderTitleText">
+                                            <span class="userHeaderTitleText_intro">Hi,</span>
+                                            <span class="userHeaderTitleText_userName">uvidtestuser</span>
+                                        </h1>
+                                    </div>
+                                </div>
+                                <div class="userHeaderNavBdr">
+                                    <div class="userHeaderNavBox">
+                                        <a href="/User/Profile.html" class="userHeaderNavLink ">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="userHeaderNavLinkIcon">
+                                                <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/>
+                                            </svg>
+                                            <span class="userHeaderNavLinkText">Profile</span>
+                                        </a>
+                                        <a href="/User/Watchlist.html" class="userHeaderNavLink ">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="userHeaderNavLinkIcon">
+                                                <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
+                                            </svg>
+                                            <span class="userHeaderNavLinkText">Watchlist</span>
+                                        </a>
+                                        <a href="/User/History.html" class="userHeaderNavLink active">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="userHeaderNavLinkIcon">
+                                                <path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/>
+                                            </svg>
+                                            <span class="userHeaderNavLinkText">History</span>
+                                        </a>
+                                        <a href="/User/Notification.html" class="userHeaderNavLink ">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="userHeaderNavLinkIcon">
+                                                <path d="M224 0c-17.7 0-32 14.3-32 32V51.2C119 66 64 130.6 64 208v18.8c0 47-17.3 92.4-48.5 127.6l-7.4 8.3c-8.4 9.4-10.4 22.9-5.3 34.4S19.4 416 32 416H416c12.6 0 24-7.4 29.2-18.9s3.1-25-5.3-34.4l-7.4-8.3C401.3 319.2 384 273.9 384 226.8V208c0-77.4-55-142-128-156.8V32c0-17.7-14.3-32-32-32zm45.3 493.3c12-12 18.7-28.3 18.7-45.3H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7z"/>
+                                            </svg>
+                                            <span class="userHeaderNavLinkText">Notification</span>
+                                        </a>
+                                        <a href="/User/Settings.html" class="userHeaderNavLink ">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="userHeaderNavLinkIcon">
+                                                <path d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"/>
+                                            </svg>
+                                            <span class="userHeaderNavLinkText">Settings</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="userBodyBdr">
+                    <div class="userBodyBox">
+                        <div class="userBodyTitleBdr">
+                            <div class="userBodyTitleBox">
+                                <div class="userBodyTitleIconBox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="userBodyTitleIconSvg">
+                                        <path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/>
+                                    </svg>
+                                </div>
+                                <span class="userBodyTitleText">History</span>
+                            </div>
+                            <div class="userClearAllBdr">
+                                <div class="userClearAllBox ">
+                                    <button class="userClearAllBtn removeShowFromHistory darkSolidBtn" title="Clear all">
+                                        <p>Clear all</p>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="userBodyCtntBdr">
+                            <div class="userBodyCtntBox">
+                                
+                                <!-- Continue watching -->
+                                <div class="basicCatalogBase">
+                                    <div class="basicCatalogBdr">
+                                        <div class="basicCatalogBox showCatalog">
+                                            
+                                            <div class="slide_card_base history_card">
+                                                <div class="slide_card_bdr">
+                                                    <div class="slide_card_box">
+                                                        <div class="slide_card ">
+                                                            <a href="/Library/Anime/FullmetalPanic.html" class="cardLinkCover"></a>
+                                                            <div class="cardImgBox">
+                                                                <img src="/Library/Anime/img/5.jpg" alt="" class="cardImg">
+                                                            </div>
+                                                            <div class="cardQualityBox">
+                                                                <h1 class="cardQualityText">HD</h1>
+                                                            </div>
+                                                            <div class="cardinfo cardInfoBdr">
+                                                                <div class="cardInfoBox">
+                                                                    <div class="cardInfo_tagBdr">
+                                                                        <div class="cardInfo_tagBox">
+                                                                            <p class="cardInfo_tagText">Anime</p>
+                                                                        </div>
+                                                                        <div class="cardInfo_tagBox">
+                                                                            <p class="cardInfo_tagText">2024</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="cardInfo_titleBox">
+                                                                        <h3 class="cardInfo_titleText">Fullmetal Panic</h3>
+                                                                    </div>
+                                                                    <div class="cardProgressBox" style="--cardProgressBarCurrLengthWidth: 15%">
+                                                                        <div class="cardProgressHeader">
+                                                                            <div class="cardProgressName">
+                                                                                <p class="cardProgressName_text">S1 EP18</p>
+                                                                            </div>
+                                                                            <div class="cardProgressTime">
+                                                                                <p class="cardProgressTime_current">05:06</p>
+                                                                                <p class="cardProgressTime_divider">/</p>
+                                                                                <p class="cardProgressTime_total">24:00</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="cardProgressBarBdr">
+                                                                            <div class="cardProgressBarBox cardProgressBar_totalLength">
+                                                                                <div class="cardProgressBar_currLength"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="cardAddToListBdr">
+                                                                <div class="cardAddToListBox">
+                                                                    <div class="cardAddToListIconBox removeShowFromHistory" title="Remove">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon">
+                                                                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path>
+                                                                        </svg>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
+                                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide_card_bcg"></div>
+                                                </div>
+                                            </div>
+                                            <div class="slide_card_base history_card">
+                                                <div class="slide_card_bdr">
+                                                    <div class="slide_card_box">
+                                                        <div class="slide_card ">
+                                                            <a href="/Library/Anime/FullmetalAlchemist.html" class="cardLinkCover"></a>
+                                                            <div class="cardImgBox">
+                                                                <img src="/Library/Anime/img/6.jpg" alt="" class="cardImg">
+                                                            </div>
+                                                            <div class="cardQualityBox">
+                                                                <h1 class="cardQualityText">HD</h1>
+                                                            </div>
+                                                            <div class="cardinfo cardInfoBdr">
+                                                                <div class="cardInfoBox">
+                                                                    <div class="cardInfo_tagBdr">
+                                                                        <div class="cardInfo_tagBox">
+                                                                            <p class="cardInfo_tagText">Anime</p>
+                                                                        </div>
+                                                                        <div class="cardInfo_tagBox">
+                                                                            <p class="cardInfo_tagText">2024</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="cardInfo_titleBox">
+                                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist</h3>
+                                                                    </div>
+                                                                    <div class="cardProgressBox" style="--cardProgressBarCurrLengthWidth: 92%">
+                                                                        <div class="cardProgressHeader">
+                                                                            <div class="cardProgressName">
+                                                                                <p class="cardProgressName_text">S1 EP8</p>
+                                                                            </div>
+                                                                            <div class="cardProgressTime">
+                                                                                <p class="cardProgressTime_current">21:12</p>
+                                                                                <p class="cardProgressTime_divider">/</p>
+                                                                                <p class="cardProgressTime_total">24:00</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="cardProgressBarBdr">
+                                                                            <div class="cardProgressBarBox cardProgressBar_totalLength">
+                                                                                <div class="cardProgressBar_currLength"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="cardAddToListBdr">
+                                                                <div class="cardAddToListBox">
+                                                                    <div class="cardAddToListIconBox removeShowFromHistory" title="Remove">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon">
+                                                                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path>
+                                                                        </svg>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
+                                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide_card_bcg"></div>
+                                                </div>
+                                            </div>
+                                            <div class="slide_card_base history_card">
+                                                <div class="slide_card_bdr">
+                                                    <div class="slide_card_box">
+                                                        <div class="slide_card ">
+                                                            <a href="/Library/Anime/FullmetalAlchemistBrotherhood.html" class="cardLinkCover"></a>
+                                                            <div class="cardImgBox">
+                                                                <img src="/Library/Anime/img/7.jpg" alt="" class="cardImg">
+                                                            </div>
+                                                            <div class="cardQualityBox">
+                                                                <h1 class="cardQualityText">HD</h1>
+                                                            </div>
+                                                            <div class="cardinfo cardInfoBdr">
+                                                                <div class="cardInfoBox">
+                                                                    <div class="cardInfo_tagBdr">
+                                                                        <div class="cardInfo_tagBox">
+                                                                            <p class="cardInfo_tagText">Anime</p>
+                                                                        </div>
+                                                                        <div class="cardInfo_tagBox">
+                                                                            <p class="cardInfo_tagText">2024</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="cardInfo_titleBox">
+                                                                        <h3 class="cardInfo_titleText">Fullmetal Alchemist: Brotherhood</h3>
+                                                                    </div>
+                                                                    <div class="cardProgressBox" style="--cardProgressBarCurrLengthWidth: 52%">
+                                                                        <div class="cardProgressHeader">
+                                                                            <div class="cardProgressName">
+                                                                                <p class="cardProgressName_text">S1 EP56</p>
+                                                                            </div>
+                                                                            <div class="cardProgressTime">
+                                                                                <p class="cardProgressTime_current">11:57</p>
+                                                                                <p class="cardProgressTime_divider">/</p>
+                                                                                <p class="cardProgressTime_total">23:58</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="cardProgressBarBdr">
+                                                                            <div class="cardProgressBarBox cardProgressBar_totalLength">
+                                                                                <div class="cardProgressBar_currLength"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="cardAddToListBdr">
+                                                                <div class="cardAddToListBox">
+                                                                    <div class="cardAddToListIconBox removeShowFromHistory" title="Remove">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon">
+                                                                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path>
+                                                                        </svg>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
+                                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide_card_bcg"></div>
+                                                </div>
+                                            </div>
+                                            <div class="slide_card_base history_card">
+                                                <div class="slide_card_bdr">
+                                                    <div class="slide_card_box">
+                                                        <div class="slide_card ">
+                                                            <a href="/Library/Anime/BlueExorcist.html" class="cardLinkCover"></a>
+                                                            <div class="cardImgBox">
+                                                                <img src="/Library/Anime/img/9.jpg" alt="" class="cardImg">
+                                                            </div>
+                                                            <div class="cardQualityBox">
+                                                                <h1 class="cardQualityText">HD</h1>
+                                                            </div>
+                                                            <div class="cardinfo cardInfoBdr">
+                                                                <div class="cardInfoBox">
+                                                                    <div class="cardInfo_tagBdr">
+                                                                        <div class="cardInfo_tagBox">
+                                                                            <p class="cardInfo_tagText">Anime</p>
+                                                                        </div>
+                                                                        <div class="cardInfo_tagBox">
+                                                                            <p class="cardInfo_tagText">2024</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="cardInfo_titleBox">
+                                                                        <h3 class="cardInfo_titleText">Blue Exorcist</h3>
+                                                                    </div>
+                                                                    <div class="cardProgressBox" style="--cardProgressBarCurrLengthWidth: 4%">
+                                                                        <div class="cardProgressHeader">
+                                                                            <div class="cardProgressName">
+                                                                                <p class="cardProgressName_text">S1 EP 10</p>
+                                                                            </div>
+                                                                            <div class="cardProgressTime">
+                                                                                <p class="cardProgressTime_current">01:22</p>
+                                                                                <p class="cardProgressTime_divider">/</p>
+                                                                                <p class="cardProgressTime_total">24:00</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="cardProgressBarBdr">
+                                                                            <div class="cardProgressBarBox cardProgressBar_totalLength">
+                                                                                <div class="cardProgressBar_currLength"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="cardAddToListBdr">
+                                                                <div class="cardAddToListBox">
+                                                                    <div class="cardAddToListIconBox removeShowFromHistory" title="Remove">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon">
+                                                                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path>
+                                                                        </svg>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
+                                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide_card_bcg"></div>
+                                                </div>
+                                            </div>
+                                            <div class="slide_card_base history_card">
+                                                <div class="slide_card_bdr">
+                                                    <div class="slide_card_box">
+                                                        <div class="slide_card ">
+                                                            <a href="/Library/Anime/CyberpunkEdgerunners.html" class="cardLinkCover"></a>
+                                                            <div class="cardImgBox">
+                                                                <img src="/Library/Anime/img/15.jpg" alt="" class="cardImg">
+                                                            </div>
+                                                            <div class="cardQualityBox">
+                                                                <h1 class="cardQualityText">HD</h1>
+                                                            </div>
+                                                            <div class="cardinfo cardInfoBdr">
+                                                                <div class="cardInfoBox">
+                                                                    <div class="cardInfo_tagBdr">
+                                                                        <div class="cardInfo_tagBox">
+                                                                            <p class="cardInfo_tagText">Anime</p>
+                                                                        </div>
+                                                                        <div class="cardInfo_tagBox">
+                                                                            <p class="cardInfo_tagText">2024</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="cardInfo_titleBox">
+                                                                        <h3 class="cardInfo_titleText">Cyberpunk Edgerunners</h3>
+                                                                    </div>
+                                                                    <div class="cardProgressBox" style="--cardProgressBarCurrLengthWidth: 79%">
+                                                                        <div class="cardProgressHeader">
+                                                                            <div class="cardProgressName">
+                                                                                <p class="cardProgressName_text">S1 EP10</p>
+                                                                            </div>
+                                                                            <div class="cardProgressTime">
+                                                                                <p class="cardProgressTime_current">17:17</p>
+                                                                                <p class="cardProgressTime_divider">/</p>
+                                                                                <p class="cardProgressTime_total">22:59</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="cardProgressBarBdr">
+                                                                            <div class="cardProgressBarBox cardProgressBar_totalLength">
+                                                                                <div class="cardProgressBar_currLength"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="cardAddToListBdr">
+                                                                <div class="cardAddToListBox">
+                                                                    <div class="cardAddToListIconBox removeShowFromHistory" title="Remove">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon">
+                                                                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path>
+                                                                        </svg>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
+                                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide_card_bcg"></div>
+                                                </div>
+                                            </div>
+                                            <div class="slide_card_base history_card">
+                                                <div class="slide_card_bdr">
+                                                    <div class="slide_card_box">
+                                                        <div class="slide_card ">
+                                                            <a href="/Library/Anime/TomodachiGame.html" class="cardLinkCover"></a>
+                                                            <div class="cardImgBox">
+                                                                <img src="/Library/Anime/img/16.jpg" alt="" class="cardImg">
+                                                            </div>
+                                                            <div class="cardQualityBox">
+                                                                <h1 class="cardQualityText">HD</h1>
+                                                            </div>
+                                                            <div class="cardinfo cardInfoBdr">
+                                                                <div class="cardInfoBox">
+                                                                    <div class="cardInfo_tagBdr">
+                                                                        <div class="cardInfo_tagBox">
+                                                                            <p class="cardInfo_tagText">Anime</p>
+                                                                        </div>
+                                                                        <div class="cardInfo_tagBox">
+                                                                            <p class="cardInfo_tagText">2024</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="cardInfo_titleBox">
+                                                                        <h3 class="cardInfo_titleText">Tomodachi Game</h3>
+                                                                    </div>
+                                                                    <div class="cardProgressBox" style="--cardProgressBarCurrLengthWidth: 99%">
+                                                                        <div class="cardProgressHeader">
+                                                                            <div class="cardProgressName">
+                                                                                <p class="cardProgressName_text">S1 EP12</p>
+                                                                            </div>
+                                                                            <div class="cardProgressTime">
+                                                                                <p class="cardProgressTime_current">23:51</p>
+                                                                                <p class="cardProgressTime_divider">/</p>
+                                                                                <p class="cardProgressTime_total">23:58</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="cardProgressBarBdr">
+                                                                            <div class="cardProgressBarBox cardProgressBar_totalLength">
+                                                                                <div class="cardProgressBar_currLength"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="cardAddToListBdr">
+                                                                <div class="cardAddToListBox">
+                                                                    <div class="cardAddToListIconBox removeShowFromHistory" title="Remove">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon">
+                                                                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path>
+                                                                        </svg>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
+                                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide_card_bcg"></div>
+                                                </div>
+                                            </div>
+                                            <div class="slide_card_base history_card">
+                                                <div class="slide_card_bdr">
+                                                    <div class="slide_card_box">
+                                                        <div class="slide_card ">
+                                                            <a href="/Library/Anime/KaguyaSama.html" class="cardLinkCover"></a>
+                                                            <div class="cardImgBox">
+                                                                <img src="/Library/Anime/img/17.jpg" alt="" class="cardImg">
+                                                            </div>
+                                                            <div class="cardQualityBox">
+                                                                <h1 class="cardQualityText">HD</h1>
+                                                            </div>
+                                                            <div class="cardinfo cardInfoBdr">
+                                                                <div class="cardInfoBox">
+                                                                    <div class="cardInfo_tagBdr">
+                                                                        <div class="cardInfo_tagBox">
+                                                                            <p class="cardInfo_tagText">Anime</p>
+                                                                        </div>
+                                                                        <div class="cardInfo_tagBox">
+                                                                            <p class="cardInfo_tagText">2024</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="cardInfo_titleBox">
+                                                                        <h3 class="cardInfo_titleText">Kaguya Sama</h3>
+                                                                    </div>
+                                                                    <div class="cardProgressBox" style="--cardProgressBarCurrLengthWidth: 52%">
+                                                                        <div class="cardProgressHeader">
+                                                                            <div class="cardProgressName">
+                                                                                <p class="cardProgressName_text">S2 EP5</p>
+                                                                            </div>
+                                                                            <div class="cardProgressTime">
+                                                                                <p class="cardProgressTime_current">11:57</p>
+                                                                                <p class="cardProgressTime_divider">/</p>
+                                                                                <p class="cardProgressTime_total">23:58</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="cardProgressBarBdr">
+                                                                            <div class="cardProgressBarBox cardProgressBar_totalLength">
+                                                                                <div class="cardProgressBar_currLength"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="cardAddToListBdr">
+                                                                <div class="cardAddToListBox">
+                                                                    <div class="cardAddToListIconBox removeShowFromHistory" title="Remove">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon">
+                                                                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path>
+                                                                        </svg>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
+                                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide_card_bcg"></div>
+                                                </div>
+                                            </div>
+                                            <div class="slide_card_base history_card">
+                                                <div class="slide_card_bdr">
+                                                    <div class="slide_card_box">
+                                                        <div class="slide_card ">
+                                                            <a href="/Library/Anime/Kakegurui.html" class="cardLinkCover"></a>
+                                                            <div class="cardImgBox">
+                                                                <img src="/Library/Anime/img/18.jpg" alt="" class="cardImg">
+                                                            </div>
+                                                            <div class="cardQualityBox">
+                                                                <h1 class="cardQualityText">HD</h1>
+                                                            </div>
+                                                            <div class="cardinfo cardInfoBdr">
+                                                                <div class="cardInfoBox">
+                                                                    <div class="cardInfo_tagBdr">
+                                                                        <div class="cardInfo_tagBox">
+                                                                            <p class="cardInfo_tagText">Anime</p>
+                                                                        </div>
+                                                                        <div class="cardInfo_tagBox">
+                                                                            <p class="cardInfo_tagText">2024</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="cardInfo_titleBox">
+                                                                        <h3 class="cardInfo_titleText">Kakegurui</h3>
+                                                                    </div>
+                                                                    <div class="cardProgressBox" style="--cardProgressBarCurrLengthWidth: 21%">
+                                                                        <div class="cardProgressHeader">
+                                                                            <div class="cardProgressName">
+                                                                                <p class="cardProgressName_text">S1 EP3</p>
+                                                                            </div>
+                                                                            <div class="cardProgressTime">
+                                                                                <p class="cardProgressTime_current">04:46</p>
+                                                                                <p class="cardProgressTime_divider">/</p>
+                                                                                <p class="cardProgressTime_total">23:59</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="cardProgressBarBdr">
+                                                                            <div class="cardProgressBarBox cardProgressBar_totalLength">
+                                                                                <div class="cardProgressBar_currLength"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="cardAddToListBdr">
+                                                                <div class="cardAddToListBox">
+                                                                    <div class="cardAddToListIconBox removeShowFromHistory" title="Remove">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon">
+                                                                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path>
+                                                                        </svg>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
+                                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide_card_bcg"></div>
+                                                </div>
+                                            </div>
+                                            <div class="slide_card_base history_card">
+                                                <div class="slide_card_bdr">
+                                                    <div class="slide_card_box">
+                                                        <div class="slide_card ">
+                                                            <a href="/Library/Anime/ThatIRecentlyGotReincarnatedAsASlime.html" class="cardLinkCover"></a>
+                                                            <div class="cardImgBox">
+                                                                <img src="/Library/Anime/img/19.jpg" alt="" class="cardImg">
+                                                            </div>
+                                                            <div class="cardQualityBox">
+                                                                <h1 class="cardQualityText">HD</h1>
+                                                            </div>
+                                                            <div class="cardinfo cardInfoBdr">
+                                                                <div class="cardInfoBox">
+                                                                    <div class="cardInfo_tagBdr">
+                                                                        <div class="cardInfo_tagBox">
+                                                                            <p class="cardInfo_tagText">Anime</p>
+                                                                        </div>
+                                                                        <div class="cardInfo_tagBox">
+                                                                            <p class="cardInfo_tagText">2024</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="cardInfo_titleBox">
+                                                                        <h3 class="cardInfo_titleText">That I recently got Reincarnated as a Slime</h3>
+                                                                    </div>
+                                                                    <div class="cardProgressBox" style="--cardProgressBarCurrLengthWidth: 3%">
+                                                                        <div class="cardProgressHeader">
+                                                                            <div class="cardProgressName">
+                                                                                <p class="cardProgressName_text">S4 EP9</p>
+                                                                            </div>
+                                                                            <div class="cardProgressTime">
+                                                                                <p class="cardProgressTime_current">01:06</p>
+                                                                                <p class="cardProgressTime_divider">/</p>
+                                                                                <p class="cardProgressTime_total">23:00</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="cardProgressBarBdr">
+                                                                            <div class="cardProgressBarBox cardProgressBar_totalLength">
+                                                                                <div class="cardProgressBar_currLength"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="cardAddToListBdr">
+                                                                <div class="cardAddToListBox">
+                                                                    <div class="cardAddToListIconBox removeShowFromHistory" title="Remove">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon">
+                                                                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path>
+                                                                        </svg>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
+                                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide_card_bcg"></div>
+                                                </div>
+                                            </div>
+                                            <div class="slide_card_base history_card">
+                                                <div class="slide_card_bdr">
+                                                    <div class="slide_card_box">
+                                                        <div class="slide_card ">
+                                                            <a href="/Library/Anime/RisingoftheShieldHero.html" class="cardLinkCover"></a>
+                                                            <div class="cardImgBox">
+                                                                <img src="/Library/Anime/img/20.jpg" alt="" class="cardImg">
+                                                            </div>
+                                                            <div class="cardQualityBox">
+                                                                <h1 class="cardQualityText">HD</h1>
+                                                            </div>
+                                                            <div class="cardinfo cardInfoBdr">
+                                                                <div class="cardInfoBox">
+                                                                    <div class="cardInfo_tagBdr">
+                                                                        <div class="cardInfo_tagBox">
+                                                                            <p class="cardInfo_tagText">Anime</p>
+                                                                        </div>
+                                                                        <div class="cardInfo_tagBox">
+                                                                            <p class="cardInfo_tagText">2024</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="cardInfo_titleBox">
+                                                                        <h3 class="cardInfo_titleText">Rising of the Shield Hero</h3>
+                                                                    </div>
+                                                                    <div class="cardProgressBox" style="--cardProgressBarCurrLengthWidth: 56%">
+                                                                        <div class="cardProgressHeader">
+                                                                            <div class="cardProgressName">
+                                                                                <p class="cardProgressName_text">S2 EP8</p>
+                                                                            </div>
+                                                                            <div class="cardProgressTime">
+                                                                                <p class="cardProgressTime_current">14:01</p>
+                                                                                <p class="cardProgressTime_divider">/</p>
+                                                                                <p class="cardProgressTime_total">24:00</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="cardProgressBarBdr">
+                                                                            <div class="cardProgressBarBox cardProgressBar_totalLength">
+                                                                                <div class="cardProgressBar_currLength"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="cardAddToListBdr">
+                                                                <div class="cardAddToListBox">
+                                                                    <div class="cardAddToListIconBox removeShowFromHistory" title="Remove">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="cardAddToListIcon">
+                                                                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path>
+                                                                        </svg>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
+                                                                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide_card_bcg"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+
+    
