@@ -49,9 +49,9 @@
         
         let showHTMLCtnt = thisHTMLData.map((item) => 
         {
-            const { show_foreground, show_background, show_title, show_scores, show_trailers, show_languages, show_status, 
+            const { show_foreground, show_background, show_title, show_scores, show_trailers, show_year, show_status, 
                     show_aired, show_genre, show_theme, show_subtitles, show_studios, show_score, show_description, 
-                    show_type, } = item;
+                    show_languages, show_type, } = item;
             return `
                 <div class="watch_base" id="top">
 
@@ -187,10 +187,10 @@
                                                 </div>
                                                 <div class="abt-card">
                                                     <p class="abt-cardText"><span class="abt-cardText-major">Languages</span><span class="abt-cardText-minor">${show_languages}</span></p>
+                                                    <p class="abt-cardText"><span class="abt-cardText-major">Release Year</span><span class="abt-cardText-minor">${show_year}</span></p>
                                                     <p class="abt-cardText"><span class="abt-cardText-major">Status</span><span class="abt-cardText-minor">${show_status}</span></p>
                                                     <p class="abt-cardText"><span class="abt-cardText-major">Studios</span><span class="abt-cardText-minor">${show_studios}</span></p>
                                                     <p class="abt-cardText"><span class="abt-cardText-major">Genres</span><span class="abt-cardText-minor">${show_genre}</span></p>
-                                                    <p class="abt-cardText"><span class="abt-cardText-major">Theme</span><span class="abt-cardText-minor">${show_theme}</span></p>
                                                 </div>
                                             </div>
                                         </div>
