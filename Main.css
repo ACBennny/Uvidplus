@@ -636,11 +636,11 @@ img
 /* ------ NOTIFICATION STATUS NUMBER ------ */
 .navBarNotificationStatusNo_bdr
 {
-    --navBarNotificationStatusNo_sizing: 23px;
+    --navBarNotificationStatusNo_sizing: 20px;
     position: absolute;
     bottom: 50%;
     left: 100%;
-    transform: translate(-65% ,0);
+    transform: translate(-75% ,0);
     pointer-events: none;
 }
 
@@ -657,8 +657,10 @@ img
 
 .navBarNotificationStatusNo_box .navBarNotificationStatusNo_text
 {
+    font-family: 'Poppins' ,sans-serif;
     color: var(--genWhiteTypeLight);
-    font-size: 10px;
+    font-size: 11px;
+    font-weight: 500;
 }
 
 
