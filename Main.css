@@ -373,6 +373,7 @@ img
     height: 100%;
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 10px;
 }
 
@@ -385,7 +386,8 @@ img
 {
     width: -moz-fit-content;
     width: fit-content;
-    height: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
     display: flex;
     flex-direction: row;
     align-items: center;
