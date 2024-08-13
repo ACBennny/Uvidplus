@@ -29,46 +29,46 @@
                         <h1 class="lname">vid</h1>
                     </div>
                     <div class="pc_navlinkBdr">
-                        <a href="/Home.html" class="pc_navlinkBox">
-                            <div class="pc_navlinkCard ">
+                        <div class="pc_navlinkBox">
+                            <a href="/Home.html" class="pc_navlinkCard ">
                                 <div class="pc_navlinkCardText">Home</div>
-                            </div>
-                        </a>
-                        <a href="/Latest.html" class="pc_navlinkBox">
-                            <div class="pc_navlinkCard ">
+                            </a>
+                        </div>
+                        <div class="pc_navlinkBox">
+                            <a href="/Latest.html" class="pc_navlinkCard ">
                                 <div class="pc_navlinkCardText">Recent</div>
-                            </div>
-                        </a>
-                        <a href="/Trending.html" class="pc_navlinkBox">
-                            <div class="pc_navlinkCard ">
+                            </a>
+                        </div>
+                        <div class="pc_navlinkBox">
+                            <a href="/Trending.html" class="pc_navlinkCard ">
                                 <div class="pc_navlinkCardText">Trending</div>
-                            </div>
-                        </a>
-                        <a href="/Movies.html" class="pc_navlinkBox">
-                            <div class="pc_navlinkCard ">
+                            </a>
+                        </div>
+                        <div class="pc_navlinkBox">
+                            <a href="/Movies.html" class="pc_navlinkCard ">
                                 <div class="pc_navlinkCardText">Movies</div>
-                            </div>
-                        </a>
-                        <a href="/Tv.html" class="pc_navlinkBox">
-                            <div class="pc_navlinkCard ">
+                            </a>
+                        </div>
+                        <div class="pc_navlinkBox">
+                            <a href="/Tv.html" class="pc_navlinkCard ">
                                 <div class="pc_navlinkCardText">Tv Shows</div>
-                            </div>
-                        </a>
-                        <a href="/Genres.html" class="pc_navlinkBox">
-                            <div class="pc_navlinkCard ">
+                            </a>
+                        </div>
+                        <div class="pc_navlinkBox">
+                            <a href="/Genres.html" class="pc_navlinkCard ">
                                 <div class="pc_navlinkCardText">Genres</div>
-                            </div>
-                        </a>
-                        <a href="/Schedule.html" class="pc_navlinkBox">
-                            <div class="pc_navlinkCard ">
+                            </a>
+                        </div>
+                        <div class="pc_navlinkBox">
+                            <a href="/Schedule.html" class="pc_navlinkCard ">
                                 <div class="pc_navlinkCardText">Schedule</div>
-                            </div>
-                        </a>
-                        <a href="/News.html" class="pc_navlinkBox">
-                            <div class="pc_navlinkCard ">
+                            </a>
+                        </div>
+                        <div class="pc_navlinkBox">
+                            <a href="/News.html" class="pc_navlinkCard ">
                                 <div class="pc_navlinkCardText">News</div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="navBarCenter navBarSearchBdr"></div>
