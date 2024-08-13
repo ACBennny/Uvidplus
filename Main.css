@@ -640,7 +640,7 @@ img
     position: absolute;
     bottom: 50%;
     left: 100%;
-    transform: translate(-75% ,0);
+    transform: translate(-50% ,0);
     pointer-events: none;
 }
 
