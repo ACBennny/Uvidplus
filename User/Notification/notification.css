@@ -9,8 +9,8 @@
 
 html:root
 {
-    --noitification_thumbnail_width: 100px;
-    --noitification_thumbnail_height: 150px;
+    --notification_thumbnail_width: 100px;
+    --notification_thumbnail_height: 150px;
     --notification_SubTopic_margin: 10px;
 }
 
@@ -30,7 +30,7 @@ html:root
     padding: 0 var(--genBorderSpacing);
 }
 
-.notification_ctnt_box .noitification_card_bdr
+.notification_ctnt_box .notification_card_bdr
 {
     width: 100%;
     margin-bottom: 20px;
@@ -38,13 +38,13 @@ html:root
     overflow: hidden;
 }
 
-.noitification_card_bdr:active
+.notification_card_bdr:active
 {
     border-radius: 10px;
     background-color: #171717;
 }
 
-.noitification_card_bdr .noitification_card_box
+.notification_card_bdr .notification_card_box
 {
     width: 100%;
     display: flex;
@@ -52,20 +52,20 @@ html:root
     align-items: center;
 }
 
-.noitification_card_box .noitification_thumbnail_bdr
+.notification_card_box .notification_thumbnail_bdr
 {
-    width: var(--noitification_thumbnail_width);
-    height: var(--noitification_thumbnail_height);
+    width: var(--notification_thumbnail_width);
+    height: var(--notification_thumbnail_height);
 }
 
-.noitification_thumbnail_bdr .noitification_thumbnail_box
+.notification_thumbnail_bdr .notification_thumbnail_box
 {
     width: 100%;
     height: 100%;
     overflow: hidden;
 }
 
-.noitification_thumbnail_box .noitification_thumbnail_img
+.notification_thumbnail_box .notification_thumbnail_img
 {
     width: clamp(100% , 100% , 100%);
     height: clamp(100% , 100% , 100%);
@@ -73,9 +73,9 @@ html:root
     object-position: center;
 }
 
-.noitification_card_box .notification_detail_bdr
+.notification_card_box .notification_detail_bdr
 {
-    width: calc(100% - var(--noitification_thumbnail_width));
+    width: calc(100% - var(--notification_thumbnail_width));
     height: 100%;
     margin-left: 10px;
 }
@@ -161,7 +161,7 @@ html:root
 @media(hover: hover)
 {
 
-    .noitification_card_bdr:hover
+    .notification_card_bdr:hover
     {
         border-radius: 10px;
         background-color: #171717;
@@ -185,7 +185,7 @@ html:root
 {
     html:root
     {
-        --noitification_thumbnail_width: 85px;
+        --notification_thumbnail_width: 85px;
         --notification_SubTopic_margin: 7px;
     }
 
