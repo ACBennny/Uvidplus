@@ -636,6 +636,7 @@ img
 
 
 /* ------ NOTIFICATION STATUS NUMBER ------ */
+
 .navBarNotificationStatusNo_bdr
 {
     --navBarNotificationStatusNo_sizing: 20px;
@@ -925,6 +926,21 @@ img
     width: fit-content;
     color: var(--genWhiteTypeMid2);
     font-size: 12px;
+}
+
+
+/* -------- NOTIFICATIONS: EMPTY  ---------- */
+.noNavBarNotifications_box
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.noNavBarNotifications_box .noNavBarNotifications_text
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 14px;
 }
 
 

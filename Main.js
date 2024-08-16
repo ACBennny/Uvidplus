@@ -782,6 +782,9 @@
                         </div>
                         <div class="navBarNotificationCtntBdr">
                             <div class="navBarNotificationCtntBox">
+                                <div class="navBarNotificationCardBdr noNavBarNotifications_box">
+                                    <p class="noNavBarNotifications_text">No new notifications</p>
+                                </div>
                                 <a href="" class="navBarNotificationCardBdr">
                                     <div class="navBarNotificationCardBox">
                                         <div class="navBarNotificationCard_ImgBdr">
