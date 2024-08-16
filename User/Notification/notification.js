@@ -66,6 +66,12 @@
 
 
     function assignNotificationListeners()
-    {}
+    {
+        let markAllNotificationsAsRead = document.querySelector(".markAllNotificationsAsRead");
+        markAllNotificationsAsRead.addEventListener("click" , () => 
+        {
+            notification(`notifyGood` , `All notifications marked as read`);
+        });
+    }
 
 
