@@ -109,7 +109,7 @@
                                                                 <div class="cardInfoBox">
                                                                     <div class="cardInfo_tagBdr">
                                                                         <div class="cardInfo_tagBox">
-                                                                            <p class="cardInfo_tagText">Anime</p>
+                                                                            <p class="cardInfo_tagText">TV</p>
                                                                         </div>
                                                                         <div class="cardInfo_tagBox">
                                                                             <p class="cardInfo_tagText">2024</p>
@@ -169,7 +169,7 @@
                                                                 <div class="cardInfoBox">
                                                                     <div class="cardInfo_tagBdr">
                                                                         <div class="cardInfo_tagBox">
-                                                                            <p class="cardInfo_tagText">Anime</p>
+                                                                            <p class="cardInfo_tagText">TV</p>
                                                                         </div>
                                                                         <div class="cardInfo_tagBox">
                                                                             <p class="cardInfo_tagText">2024</p>
@@ -229,7 +229,7 @@
                                                                 <div class="cardInfoBox">
                                                                     <div class="cardInfo_tagBdr">
                                                                         <div class="cardInfo_tagBox">
-                                                                            <p class="cardInfo_tagText">Anime</p>
+                                                                            <p class="cardInfo_tagText">TV</p>
                                                                         </div>
                                                                         <div class="cardInfo_tagBox">
                                                                             <p class="cardInfo_tagText">2024</p>
@@ -289,7 +289,7 @@
                                                                 <div class="cardInfoBox">
                                                                     <div class="cardInfo_tagBdr">
                                                                         <div class="cardInfo_tagBox">
-                                                                            <p class="cardInfo_tagText">Anime</p>
+                                                                            <p class="cardInfo_tagText">TV</p>
                                                                         </div>
                                                                         <div class="cardInfo_tagBox">
                                                                             <p class="cardInfo_tagText">2024</p>
@@ -349,7 +349,7 @@
                                                                 <div class="cardInfoBox">
                                                                     <div class="cardInfo_tagBdr">
                                                                         <div class="cardInfo_tagBox">
-                                                                            <p class="cardInfo_tagText">Anime</p>
+                                                                            <p class="cardInfo_tagText">TV</p>
                                                                         </div>
                                                                         <div class="cardInfo_tagBox">
                                                                             <p class="cardInfo_tagText">2024</p>
@@ -409,7 +409,7 @@
                                                                 <div class="cardInfoBox">
                                                                     <div class="cardInfo_tagBdr">
                                                                         <div class="cardInfo_tagBox">
-                                                                            <p class="cardInfo_tagText">Anime</p>
+                                                                            <p class="cardInfo_tagText">TV</p>
                                                                         </div>
                                                                         <div class="cardInfo_tagBox">
                                                                             <p class="cardInfo_tagText">2024</p>
@@ -469,7 +469,7 @@
                                                                 <div class="cardInfoBox">
                                                                     <div class="cardInfo_tagBdr">
                                                                         <div class="cardInfo_tagBox">
-                                                                            <p class="cardInfo_tagText">Anime</p>
+                                                                            <p class="cardInfo_tagText">TV</p>
                                                                         </div>
                                                                         <div class="cardInfo_tagBox">
                                                                             <p class="cardInfo_tagText">2024</p>
@@ -529,7 +529,7 @@
                                                                 <div class="cardInfoBox">
                                                                     <div class="cardInfo_tagBdr">
                                                                         <div class="cardInfo_tagBox">
-                                                                            <p class="cardInfo_tagText">Anime</p>
+                                                                            <p class="cardInfo_tagText">TV</p>
                                                                         </div>
                                                                         <div class="cardInfo_tagBox">
                                                                             <p class="cardInfo_tagText">2024</p>
@@ -589,7 +589,7 @@
                                                                 <div class="cardInfoBox">
                                                                     <div class="cardInfo_tagBdr">
                                                                         <div class="cardInfo_tagBox">
-                                                                            <p class="cardInfo_tagText">Anime</p>
+                                                                            <p class="cardInfo_tagText">TV</p>
                                                                         </div>
                                                                         <div class="cardInfo_tagBox">
                                                                             <p class="cardInfo_tagText">2024</p>
@@ -649,7 +649,7 @@
                                                                 <div class="cardInfoBox">
                                                                     <div class="cardInfo_tagBdr">
                                                                         <div class="cardInfo_tagBox">
-                                                                            <p class="cardInfo_tagText">Anime</p>
+                                                                            <p class="cardInfo_tagText">TV</p>
                                                                         </div>
                                                                         <div class="cardInfo_tagBox">
                                                                             <p class="cardInfo_tagText">2024</p>
@@ -702,8 +702,4 @@
                     </div>
                 </div>
             </div>
-        </div>
-    `;
-
-
-    
+        </div>`;
