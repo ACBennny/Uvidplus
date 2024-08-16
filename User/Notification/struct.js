@@ -89,98 +89,7 @@
                         <div class="userBodyCtntBdr">
                             <div class="userBodyCtntBox">
                                 <div class="notification_ctnt_bdr">
-                                    <div class="notification_ctnt_box">
-                                        <div class="noitification_card_bdr">
-                                            <div class="noitification_card_box">
-                                                <div class="noitification_thumbnail_bdr">
-                                                    <div class="noitification_thumbnail_box">
-                                                        <img src="/Images/Uvid_bcg1.jpg" alt="" class="noitification_thumbnail_img">
-                                                    </div>
-                                                </div>
-                                                <div class="notification_detail_bdr">
-                                                    <div class="notification_detail_box">
-                                                        <div class="notification_MainTopic_bdr">
-                                                            <div class="notification_MainTopic_box">
-                                                                <div class="notification_MainTopic_text">Welcome to Uvid</div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="notification_SubTopic_bdr">
-                                                            <div class="notification_SubTopic_box">
-                                                                <p class="notification_SubTopic_text">
-                                                                    We are glad you joined us. Browse and watch your favourite movies and tv shows.
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="notification_action_bdr">
-                                                            <div class="notification_action_box">
-                                                                <a href="" class="notification_action_text">Explore →</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="noitification_card_bdr">
-                                            <div class="noitification_card_box">
-                                                <div class="noitification_thumbnail_bdr">
-                                                    <div class="noitification_thumbnail_box">
-                                                        <img src="/Images/Uvid_bcg2.jpg" alt="" class="noitification_thumbnail_img">
-                                                    </div>
-                                                </div>
-                                                <div class="notification_detail_bdr">
-                                                    <div class="notification_detail_box">
-                                                        <div class="notification_MainTopic_bdr">
-                                                            <div class="notification_MainTopic_box">
-                                                                <div class="notification_MainTopic_text">Switch Profiles</div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="notification_SubTopic_bdr">
-                                                            <div class="notification_SubTopic_box">
-                                                                <p class="notification_SubTopic_text">
-                                                                    You can now create and customize up to five different profiles.
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="notification_action_bdr">
-                                                            <div class="notification_action_box">
-                                                                <a href="" class="notification_action_text">Try it Out →</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="noitification_card_bdr">
-                                            <div class="noitification_card_box">
-                                                <div class="noitification_thumbnail_bdr">
-                                                    <div class="noitification_thumbnail_box">
-                                                        <img src="/Library/Anime/Watch/OnePiece/img/1.jpg" alt="" class="noitification_thumbnail_img">
-                                                    </div>
-                                                </div>
-                                                <div class="notification_detail_bdr">
-                                                    <div class="notification_detail_box">
-                                                        <div class="notification_MainTopic_bdr">
-                                                            <div class="notification_MainTopic_box">
-                                                                <div class="notification_MainTopic_text">One Piece</div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="notification_SubTopic_bdr">
-                                                            <div class="notification_SubTopic_box">
-                                                                <p class="notification_SubTopic_text">
-                                                                    Episode 1115 is now available.
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="notification_action_bdr">
-                                                            <div class="notification_action_box">
-                                                                <a href="" class="notification_action_text">Watch Now →</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <div class="notification_ctnt_box"></div>
                                 </div>
                             </div>
                         </div>
@@ -191,4 +100,3 @@
     `;
 
 
-    
