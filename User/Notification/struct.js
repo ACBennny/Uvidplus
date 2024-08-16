@@ -80,7 +80,7 @@
                             </div>
                             <div class="userClearAllBdr">
                                 <div class="userClearAllBox ">
-                                    <button class="userClearAllBtn removeShowFromHistory darkSolidBtn" title="Mark all as read">
+                                    <button class="userClearAllBtn markAllNotificationsAsRead darkSolidBtn" title="Mark all as read">
                                         <p>Mark all as read</p>
                                     </button>
                                 </div>
