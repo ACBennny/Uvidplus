@@ -22,18 +22,22 @@
 
         userPageStructScriptTag.addEventListener("load" , () => 
         {
-            document.body.insertAdjacentHTML(`afterbegin` , userPagesStruct);
-            console.log("phase 1");
-            let userPageSpecificScriptTag = document.createElement("script");
-            userPageSpecificScriptTag.setAttribute(`src` , `${userPageSpecificPath}`);
-            userPageSpecificScriptTag.addEventListener("load" , () => 
-            {
-                console.log("phase 2");
-                // startUserPage();
-            });
-
-            document.body.appendChild(userPageSpecificScriptTag);
+            insertUserPageStruct(userPageSpecificPath);
         });
 
         document.body.appendChild(userPageStructScriptTag);
+    }
+
+    function insertUserPageStruct(path)
+    {
+        document.body.insertAdjacentHTML(`afterbegin` , userPagesStruct);
+
+        let userPageSpecificScriptTag = document.createElement("script");
+        userPageSpecificScriptTag.setAttribute(`src` , `${path}`);
+        userPageSpecificScriptTag.addEventListener("load" , () => 
+        {
+            startUserPage();
+        });
+
+        document.body.appendChild(userPageSpecificScriptTag);
     }
