@@ -58,7 +58,6 @@
                 </div>
             `;
             notificationCtntBox.insertAdjacentHTML('beforeend', notificationCardStruct);
-            console.log(`Count ${i}`);
         }
 
         assignNotificationListeners();
