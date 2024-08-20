@@ -682,9 +682,8 @@ img
     max-width: 275px;
     height: 400px;
     height: fit-content;
-    max-height: 200px;
-    max-height: calc(90% - var(--navBarHeight));
-    /* max-height: 400px; */
+    height: var(--navBarNotificaionsMenuHeight);
+    max-height: calc(100% - ((var(--navBarNotificationPosT)) + 10px));
     backface-visibility: hidden;
     -moz-user-select: -moz-none;
     -moz-user-select: none;
@@ -723,6 +722,12 @@ img
     width: 0;
     height: 0;
     display: none;
+}
+
+.navBarNotificationHeaderBdr,
+.navBarNotificationFooterBdr
+{
+    height: 45px;
 }
 
 .navBarNotificationMinor .navBarNotificationHeaderBdr
@@ -1009,7 +1014,7 @@ img
     width: 280px;
     height: fit-content;
     height: 400px;
-    max-height: calc(90vh - ((var(--navBarHeight))));
+    max-height: calc(90vh - (calc((var(--navBarHeight)) * 0.5)));
     opacity: 0;
     visibility: hidden;
     transform: translateY(calc(100% + 10px));

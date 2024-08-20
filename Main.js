@@ -881,8 +881,22 @@
                         notification(`notifyGood` , `All notifications marked as read`);
                     });
 
+                    // Calibrate the Menu
+                    caliberateNavBarNotificationsMenu()
+
                     // Add Listener to view the Notifications
                     openNavBarNotificationBtn.addEventListener("click" , openNavBarNotification);
+                }
+
+                // Menu Sizing Calibration
+                function caliberateNavBarNotificationsMenu()
+                {
+                    let bodyRect = documentBody.getBoundingClientRect();
+                    let bodyHeight = bodyRect.height;
+                    let menuMainRect = navBarNotificationMain.getBoundingClientRect();
+                    let menuMainHeight = menuMainRect.height;
+
+                    navBarNotificationMain.setAttribute(`style` , `--navBarNotificaionsMenuHeight:${menuMainHeight}px`)
                 }
 
                 // Opens the Notification Box
