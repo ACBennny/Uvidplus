@@ -680,11 +680,9 @@ img
     position: fixed;
     top: calc(0% + var(--navBarNotificationPosT));
     right: calc(0% + var(--navBarNotificationPosR));
-    width: calc(100% - 10px);
-    max-width: 275px;
-    height: 400px;
-    height: fit-content;
+    width: 275px;
     height: var(--navBarNotificaionsMenuHeight);
+    max-width: calc(100% - (var(--navBarNotificationPosR) * 2));
     max-height: calc(100% - ((var(--navBarNotificationPosT)) + 10px));
     backface-visibility: hidden;
     -moz-user-select: -moz-none;
