@@ -891,12 +891,17 @@
                 // Menu Sizing Calibration
                 function caliberateNavBarNotificationsMenu()
                 {
-                    let bodyRect = documentBody.getBoundingClientRect();
-                    let bodyHeight = bodyRect.height;
-                    let menuMainRect = navBarNotificationMain.getBoundingClientRect();
-                    let menuMainHeight = menuMainRect.height;
+                    let menuHeader = document.querySelector(".navBarNotificationHeaderBdr");
+                    let menuHeaderRect = menuHeader.getBoundingClientRect();
+                    let menuHeaderHeight = menuHeaderRect.height;
+                    let menuFooter = document.querySelector(".navBarNotificationFooterBdr");
+                    let menuFooterRect = menuFooter.getBoundingClientRect();
+                    let menuFooterHeight = menuFooterRect.height;
+                    let menuCtntBoxRect = navBarNotificationCtntBox.getBoundingClientRect();
+                    let menuCtntBoxHeight = menuCtntBoxRect.height;
+                    let menuFinalHeight = Math.ceil((menuHeaderHeight + menuFooterHeight + menuCtntBoxHeight));
 
-                    navBarNotificationMain.setAttribute(`style` , `--navBarNotificaionsMenuHeight:${menuMainHeight}px`)
+                    navBarNotificationMain.setAttribute(`style` , `--navBarNotificaionsMenuHeight:${menuFinalHeight}px`)
                 }
 
                 // Opens the Notification Box

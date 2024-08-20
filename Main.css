@@ -83,6 +83,8 @@ html:root
     --navFooterCompClr: #616060;
     --navBarNotificationPosT: calc(var(--navBarHeight) - 10px);
     --navBarNotificationPosR: -100%;
+    --navBarNotificationHeaderHeight: 40px;
+    --navBarNotificationFooterHeight: 45px;
     --navBarNotificationImgWidth: 40px;
     --navBarNotificationImgHeight: 55px;
     --switchProfileFadeTranstion: 750ms;
@@ -724,15 +726,10 @@ img
     display: none;
 }
 
-.navBarNotificationHeaderBdr,
-.navBarNotificationFooterBdr
-{
-    height: 45px;
-}
-
 .navBarNotificationMinor .navBarNotificationHeaderBdr
 {
     width: 100%;
+    height: var(--navBarNotificationHeaderHeight);
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -745,6 +742,7 @@ img
 {
     width: -moz-fit-content;
     width: fit-content;
+    height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -780,6 +778,7 @@ img
 .navBarNotificationMinor .navBarNotificationFooterBdr
 {
     width: 100%;
+    height: var(--navBarNotificationFooterHeight);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -791,6 +790,7 @@ img
 {
     width: -moz-fit-content;
     width: fit-content;
+    height: 100%;
 }
 
 .navBarNotificationFooterBox .navBarNotificationFooterText
