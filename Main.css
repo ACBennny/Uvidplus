@@ -651,11 +651,16 @@ img
 {
     width: var(--navBarNotificationStatusNo_sizing);
     height: var(--navBarNotificationStatusNo_sizing);
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
     background-color: #ce2a2a;
+}
+
+.navBarNotificationStatusNo_box.active
+{
+    display: flex;
 }
 
 .navBarNotificationStatusNo_box .navBarNotificationStatusNo_text
