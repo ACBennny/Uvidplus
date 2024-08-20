@@ -77,16 +77,18 @@ html:root
     --navBarSearchWidth: 12px;
     --navBarSearchBarHeight: 100px;
     --navBarSearchClr: var(--color10);
-    --navBarProfileCardLinkClr: #cdcdcd;
-    --navFooterElemColor: #878787;
-    --navFooterElemHoverColor: var(--genWhiteTypeLight);
-    --navFooterCompClr: #616060;
     --navBarNotificationPosT: calc(var(--navBarHeight) - 10px);
-    --navBarNotificationPosR: -100%;
+    --navBarNotificationPosR: -300px;
     --navBarNotificationHeaderHeight: 40px;
     --navBarNotificationFooterHeight: 45px;
     --navBarNotificationImgWidth: 40px;
     --navBarNotificationImgHeight: 55px;
+    --navBarProfilePosT: calc(var(--navBarHeight) - 10px);
+    --navBarProfilePosR: -300px;
+    --navBarProfileCardLinkClr: #cdcdcd;
+    --navFooterElemHoverColor: var(--genWhi
+    --navFooterElemColor: #878787;teTypeLight);
+    --navFooterCompClr: #616060;
     --switchProfileFadeTranstion: 750ms;
     --switchProfHeaderHeight: 60px;
     --switchProfOptImgBoxWidth: 125px;
@@ -689,6 +691,8 @@ img
     -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
+    opacity: 0;
+    visibility: hidden;
     transition: all 300ms ease;
     z-index: 95;
 }
@@ -1006,23 +1010,22 @@ img
 
 .navBarProfileBox .navBarProfileOptBdr
 {
-    position: absolute;
-    bottom: 0;
-    right: -300px;
-    width: 280px;
-    height: fit-content;
+    position: fixed;
+    top: calc(0% + var(--navBarProfilePosT));
+    right: calc(0% + var(--navBarProfilePosR));
+    width: 275px;
     height: 400px;
-    max-height: calc(90vh - (calc((var(--navBarHeight)) * 0.5)));
+    max-width: calc(100% - (var(--navBarProfilePosR) * 2));
+    max-height: calc(100% - ((var(--navBarProfilePosT)) + 10px));
     opacity: 0;
     visibility: hidden;
-    transform: translateY(calc(100% + 10px));
     transition: all 300ms ease-in-out;
     overflow: hidden;
 }
 
 .navBarProfileOptBdr.active
 {
-    right: 0%;
+    --navBarProfilePosR: var(--genBorderSpacing);
     opacity: 1;
     visibility: visible;
 }
@@ -4933,16 +4936,6 @@ only screen and (max-width: 800px)
         height: 200px;
     }
 
-}
-
-
-@media only screen and (max-width: 300px)
-{
-
-    .navBarProfileBox .navBarProfileOptBdr
-    {
-        width: 250px;
-    }
 }
 
 
