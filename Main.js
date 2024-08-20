@@ -89,7 +89,7 @@
                             </svg>
                             <div class="navBarNotificationStatusNo_bdr">
                                 <div class="navBarNotificationStatusNo_box">
-                                    <div class="navBarNotificationStatusNo_text">3</div>
+                                    <div class="navBarNotificationStatusNo_text"></div>
                                 </div>
                             </div>
                         </div>
@@ -377,6 +377,38 @@
             let goToHomePage = document.querySelectorAll(".Companylogo");
             let goToSearchPage = document.querySelector(".openNavSearch_Btn");
             let openNavProfileOptions = document.querySelector(".open_nav_profileOptions");
+            let navBarNotificationStatusNoBox = document.querySelector(".navBarNotificationStatusNo_box");
+            let navBarNotificationStatusNoText = navBarNotificationStatusNoBox.querySelector(".navBarNotificationStatusNo_text");
+            let navBarNotificationMainHTML = 
+            `
+                <div class="navBarNotificationMinor">
+                    <div class="navBarNotificationHeaderBdr">
+                        <div class="navBarNotificationHeaderBox">
+                            <div class="navBarNotificationHeaderIconBox">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navBarNotificationHeaderIconSvg">
+                                    <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
+                                </svg>
+                            </div>
+                            <p class="navBarNotificationHeaderText markAllNotificationsAsRead">Mark all as read</p>
+                        </div>
+                    </div>
+                    <div class="navBarNotificationCtntBdr">
+                        <div class="navBarNotificationCtntBox"></div>
+                    </div>
+                    <div class="navBarNotificationFooterBdr">
+                        <a href="/User/Notification.html" class="navBarNotificationFooterBox">
+                            <p class="navBarNotificationFooterText">View all</p>
+                        </a>
+                    </div>
+                </div>
+            `;
+            let noNavBarNotificationBoxHTML = 
+            `
+                <div class="navBarNotificationCardBdr noNavBarNotifications_box">
+                    <p class="noNavBarNotifications_text">No new notifications</p>
+                </div>
+            `;
+            let navBarNotificationTimer;
             let navProfileOptionsBdr = document.querySelector(".navBarProfileOptBdr");
             let navProfileOptionsBox = document.querySelector(".navBarProfileOptBox");
             let navBarSignOutBtn = document.querySelector(".navBarSignOutBtn");
@@ -384,10 +416,9 @@
             let navMenuIcon = document.querySelectorAll(".open_nav_menu");
             let navMenuTimer;
             let locationOrigin;
-            let openNavNotificationBarBtn = document.querySelector(".openNavNotify");
+            let openNavBarNotificationBtn = document.querySelector(".openNavNotify");
             let backtotopBtn = document.querySelectorAll(".backtotop_btn");
             let developerProfile = document.querySelectorAll(".developer_profile");
-            let navNotificationBarTimer;
             let openSwitchProfBtn = document.querySelector(".open_switchProf");
             let switchProfScript;
             let allLinks = document.querySelectorAll("a");
@@ -758,172 +789,142 @@
 
             function instantiateNavBarNotificationBox()
             {
-                // change active state of the notification icon
-                openNavNotificationBarBtn.classList.add("notify_atv");
-                openNavNotificationBarBtn.removeEventListener("click" , instantiateNavBarNotificationBox);
-
                 // The border holding the elements of the notification box
                 const navBarNotificationMain = document.createElement("div");
                 navBarNotificationMain.classList.add("navBarNotificationMain");
 
                 // The Notification Bar Structure
-                navBarNotificationMain.innerHTML = 
-                `
-                    <div class="navBarNotificationMinor">
-                        <div class="navBarNotificationHeaderBdr">
-                            <div class="navBarNotificationHeaderBox">
-                                <div class="navBarNotificationHeaderIconBox">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navBarNotificationHeaderIconSvg">
-                                        <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
-                                    </svg>
-                                </div>
-                                <p class="navBarNotificationHeaderText">Mark all as read</p>
-                            </div>
-                        </div>
-                        <div class="navBarNotificationCtntBdr">
-                            <div class="navBarNotificationCtntBox">
-                                <div class="navBarNotificationCardBdr noNavBarNotifications_box">
-                                    <p class="noNavBarNotifications_text">No new notifications</p>
-                                </div>
-                                <a href="" class="navBarNotificationCardBdr">
-                                    <div class="navBarNotificationCardBox">
-                                        <div class="navBarNotificationCard_ImgBdr">
-                                            <div class="navBarNotificationCard_ImgBox">
-                                                <img src="/Images/Uvid_bcg1.jpg" class="navBarNotificationCard_ImgSrc">
-                                            </div>
-                                        </div>
-                                        <div class="navBarNotificationCard_DetBdr">
-                                            <div class="navBarNotificationCard_DetBox">
-                                                <div class="navBarNotificationCard_MainTopicBdr">
-                                                    <div class="navBarNotificationCard_MainTopicBox">
-                                                        <div class="navBarNotificationCard_MainTopicText">Welcome to Uvid</div>
-                                                    </div>
-                                                </div>
-                                                <div class="navBarNotificationCard_SubTopicBdr">
-                                                    <div class="navBarNotificationCard_SubTopicBox">
-                                                        <p class="navBarNotificationCard_SubTopicText">
-                                                            We are glad you joined us. Browse and watch your favourite movies and tv shows.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href=""  class="navBarNotificationCardBdr">
-                                    <div class="navBarNotificationCardBox">
-                                        <div class="navBarNotificationCard_ImgBdr">
-                                            <div class="navBarNotificationCard_ImgBox">
-                                                <img src="/Images/Uvid_bcg2.jpg" class="navBarNotificationCard_ImgSrc">
-                                            </div>
-                                        </div>
-                                        <div class="navBarNotificationCard_DetBdr">
-                                            <div class="navBarNotificationCard_DetBox">
-                                                <div class="navBarNotificationCard_MainTopicBdr">
-                                                    <div class="navBarNotificationCard_MainTopicBox">
-                                                        <div class="navBarNotificationCard_MainTopicText">Switch Profiles</div>
-                                                    </div>
-                                                </div>
-                                                <div class="navBarNotificationCard_SubTopicBdr">
-                                                    <div class="navBarNotificationCard_SubTopicBox">
-                                                        <p class="navBarNotificationCard_SubTopicText">
-                                                            You can now create and customize up to five different profiles.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href=""  class="navBarNotificationCardBdr">
-                                    <div class="navBarNotificationCardBox">
-                                        <div class="navBarNotificationCard_ImgBdr">
-                                            <div class="navBarNotificationCard_ImgBox">
-                                                <img src="/Library/Anime/Watch/OnePiece/img/1.jpg" class="navBarNotificationCard_ImgSrc">
-                                            </div>
-                                        </div>
-                                        <div class="navBarNotificationCard_DetBdr">
-                                            <div class="navBarNotificationCard_DetBox">
-                                                <div class="navBarNotificationCard_MainTopicBdr">
-                                                    <div class="navBarNotificationCard_MainTopicBox">
-                                                        <div class="navBarNotificationCard_MainTopicText">One Piece</div>
-                                                    </div>
-                                                </div>
-                                                <div class="navBarNotificationCard_SubTopicBdr">
-                                                    <div class="navBarNotificationCard_SubTopicBox">
-                                                        <p class="navBarNotificationCard_SubTopicText">
-                                                            Episode 1115 is now available.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="navBarNotificationFooterBdr">
-                            <a href="/User/Notification.html" class="navBarNotificationFooterBox">
-                                <p class="navBarNotificationFooterText">View all</p>
-                            </a>
-                        </div>
-                    </div>
-                `;
+                navBarNotificationMain.innerHTML = navBarNotificationMainHTML;
 
                 // Append the fragment to navBarRightCtnt of the navbar
                 documentBody.appendChild(navBarNotificationMain);
-                toggleNavbarUnderLayer();
-                
-                navNotificationBarTimer = setTimeout(() => 
+                let navBarNotificationCtntBox = document.querySelector(".navBarNotificationCtntBox");
+
+                // Fetch the Notifications
+                let notificationLibraryScriptTag = document.createElement("script");
+                notificationLibraryScriptTag.setAttribute(`src` , `/User/Notification/library.js`);
+                document.body.appendChild(notificationLibraryScriptTag);
+                notificationLibraryScriptTag.addEventListener("load" , () => 
                 {
+                    fetchNavbarNotifications();
+                });
+                notificationLibraryScriptTag.onerror = function() 
+                {
+                    errorLoadingNavbarNotifications();
+                };
 
-                    // Adds style class
-                    navBarNotificationMain.classList.add("notify_atv");
-
-                    // Slides in the Notification box
-                    const navNotificationMain = document.querySelector(".navBarNotificationMain");
-                    navNotificationMain.classList.add("notify_atv");
-
-                    document.addEventListener("click" , closeNavBarNotificationBox);
-
-                    // Closes the Notification box
-                    function closeNavBarNotificationBox()
+                // For error events
+                function errorLoadingNavbarNotifications()
+                {
+                    notification(`notifyBad` , `An error occurred while loading notifications`);
+                    openNavBarNotificationBtn.addEventListener("click" , failedLoadErrorMsg);
+                }
+  
+                function fetchNavbarNotifications()
+                {
+                    // Chekc if content of library is available
+                    if(((notificationInventory === undefined) || (notificationInventory.length <= 0)))
                     {
-                        if((!(navBarNotificationMain.matches(":hover"))))
-                        {
-                            document.removeEventListener("click" , closeNavBarNotificationBox);
-                            openNavNotificationBarBtn.addEventListener("click" , instantiateNavBarNotificationBox);
-                            toggleNavbarUnderLayer();
-
-                            // change active state of the notification icon
-                            openNavNotificationBarBtn.classList.remove("notify_atv");
-
-                            // Removes style classes
-                            navNotificationMain.classList.remove("notify_atv");
-
-                            navNotificationBarTimer = setTimeout(() => 
-                            {
-                                // Remove Child Nodes
-                                documentBody.removeChild(navBarNotificationMain);
-
-                                // clear timer once time runs out
-                                clearTimeout(navNotificationBarTimer);
-                            },200);
-                        }
-                    
+                        errorLoadingNavbarNotifications();
+                        return;
                     }
 
-                    // const navNotificationBarBcg = document.querySelector(".navBarNotificationBcg");
-                    // navNotificationBarBcg.addEventListener("click" , closeNavBarNotificationBox);
+                    // If available, insert the new notifications
+                    for(let i = 0; i < notificationInventory.length; i++)
+                    {
+                        const item = notificationInventory[i];
+                        const notificationCardStruct = 
+                        `
+                            <a href="${item.action_link}" title="${item.action_text}" class="navBarNotificationCardBdr">
+                                <div class="navBarNotificationCardBox">
+                                    <div class="navBarNotificationCard_ImgBdr">
+                                        <div class="navBarNotificationCard_ImgBox">
+                                            <img src="${item.thumbnail}" alt="The thumbnail image of the '${item.main_topic}' notification"  class="navBarNotificationCard_ImgSrc">
+                                        </div>
+                                    </div>
+                                    <div class="navBarNotificationCard_DetBdr">
+                                        <div class="navBarNotificationCard_DetBox">
+                                            <div class="navBarNotificationCard_MainTopicBdr">
+                                                <div class="navBarNotificationCard_MainTopicBox">
+                                                    <div class="navBarNotificationCard_MainTopicText">${item.main_topic}</div>
+                                                </div>
+                                            </div>
+                                            <div class="navBarNotificationCard_SubTopicBdr">
+                                                <div class="navBarNotificationCard_SubTopicBox">
+                                                    <p class="navBarNotificationCard_SubTopicText">${item.sub_topic}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        `;
+                        navBarNotificationCtntBox.insertAdjacentHTML('beforeend', notificationCardStruct);
+                    }
+                    let navBarNotificationCardBdr = document.querySelectorAll(".navBarNotificationCardBdr");
 
-                    // clear timer once time runs out
-                    clearTimeout(navNotificationBarTimer);
+                    // Update the notification status
+                    navBarNotificationStatusNoText.textContent = navBarNotificationCardBdr.length;
 
-                } , 100);
+                    // Make The Status number visible
+                    navBarNotificationStatusNoBox.classList.add("active");
+
+                    // Add listener for "Mark all as read" button
+                    let markAllNotificationsAsRead = document.querySelector(".markAllNotificationsAsRead");
+                    markAllNotificationsAsRead.addEventListener("click" , () => 
+                    {
+                        navBarNotificationCardBdr.forEach((bdr) => 
+                        {
+                            bdr.remove();
+                        });
+                        navBarNotificationCtntBox.insertAdjacentHTML('beforeend' , noNavBarNotificationBoxHTML);
+                        notification(`notifyGood` , `All notifications marked as read`);
+                    });
+
+                    // Add Listener to view the Notifications
+                    openNavBarNotificationBtn.addEventListener("click" , openNavBarNotification);
+                }
+
+                // Opens the Notification Box
+                function openNavBarNotification()
+                {
+                    // change active state of the notification icon
+                    openNavBarNotificationBtn.classList.add("notify_atv");
+                    openNavBarNotificationBtn.removeEventListener("click" , openNavBarNotification);
+
+                    // Slides in the Notification box
+                    navBarNotificationMain.classList.add("notify_atv");
+                    toggleNavbarUnderLayer();
+
+                    // Preset to close the Navbar Notifications
+                    navBarNotificationTimer = setTimeout(() => 
+                    {
+                        document.addEventListener("click" , closeNavBarNotificationBox);
+                    },100);
+                    
+                }
+
+                // Closes the Notification box
+                function closeNavBarNotificationBox()
+                {
+                    if((!(navBarNotificationMain.matches(":hover"))))
+                    {
+                        document.removeEventListener("click" , closeNavBarNotificationBox);
+
+                        // Add the function to open the Notifications
+                        openNavBarNotificationBtn.addEventListener("click" , openNavBarNotification);
+                        toggleNavbarUnderLayer();
+
+                        // change active state of the notification icon
+                        openNavBarNotificationBtn.classList.remove("notify_atv");
+
+                        // Removes style classes
+                        navBarNotificationMain.classList.remove("notify_atv");
+                    }
+                }
             }
+            instantiateNavBarNotificationBox()
 
-            // Opens the Notification Box
-            openNavNotificationBarBtn.addEventListener("click" , instantiateNavBarNotificationBox);
 
 
             
@@ -943,7 +944,7 @@
                 switchProfScript.onerror = function() 
                 {
                     notification(`notifyBad` , `An error occurred during loading`);
-                    openSwitchProfBtn.addEventListener("click" , failedLoadInstantiateSwitchProfBdr);
+                    openSwitchProfBtn.addEventListener("click" , failedLoadErrorMsg);
                 };
                 document.body.appendChild(switchProfScript);
             }
@@ -1038,7 +1039,7 @@
 
 
     // FAILED TO LOAD SWITCHMODAL SCRIPT
-    function failedLoadInstantiateSwitchProfBdr()
+    function failedLoadErrorMsg()
     {
         notification(`notifyBad` , `Error processing request`);
     }
