@@ -787,7 +787,7 @@
 
         // NAVBAR  NOTIFICATIONS
 
-            function instantiateNavBarNotificationBox()
+            function instantiateNavBarNotificationMenu()
             {
                 // The border holding the elements of the notification box
                 const navBarNotificationMain = document.createElement("div");
@@ -835,23 +835,23 @@
                         const item = notificationInventory[i];
                         const notificationCardStruct = 
                         `
-                            <a href="${item.action_link}" title="${item.action_text}" class="navBarNotificationCardBdr">
+                            <a href="${item.notify_actionLink}" title="${item.notify_actionText}" class="navBarNotificationCardBdr">
                                 <div class="navBarNotificationCardBox">
                                     <div class="navBarNotificationCard_ImgBdr">
                                         <div class="navBarNotificationCard_ImgBox">
-                                            <img src="${item.thumbnail}" alt="The thumbnail image of the '${item.main_topic}' notification"  class="navBarNotificationCard_ImgSrc">
+                                            <img src="${item.notify_thumbnail}" alt="The thumbnail image of the '${item.notify_mainTopic}' notification"  class="navBarNotificationCard_ImgSrc">
                                         </div>
                                     </div>
                                     <div class="navBarNotificationCard_DetBdr">
                                         <div class="navBarNotificationCard_DetBox">
                                             <div class="navBarNotificationCard_MainTopicBdr">
                                                 <div class="navBarNotificationCard_MainTopicBox">
-                                                    <div class="navBarNotificationCard_MainTopicText">${item.main_topic}</div>
+                                                    <div class="navBarNotificationCard_MainTopicText">${item.notify_mainTopic}</div>
                                                 </div>
                                             </div>
                                             <div class="navBarNotificationCard_SubTopicBdr">
                                                 <div class="navBarNotificationCard_SubTopicBox">
-                                                    <p class="navBarNotificationCard_SubTopicText">${item.sub_topic}</p>
+                                                    <p class="navBarNotificationCard_SubTopicText">${item.notify_subTopic}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -885,7 +885,7 @@
                     caliberateNavBarNotificationsMenu()
 
                     // Add Listener to view the Notifications
-                    openNavBarNotificationBtn.addEventListener("click" , openNavBarNotification);
+                    openNavBarNotificationBtn.addEventListener("click" , openNavBarNotificationMenu);
                 }
 
                 // Menu Sizing Calibration
@@ -905,11 +905,11 @@
                 }
 
                 // Opens the Notification Box
-                function openNavBarNotification()
+                function openNavBarNotificationMenu()
                 {
                     // change active state of the notification icon
                     openNavBarNotificationBtn.classList.add("notify_atv");
-                    openNavBarNotificationBtn.removeEventListener("click" , openNavBarNotification);
+                    openNavBarNotificationBtn.removeEventListener("click" , openNavBarNotificationMenu);
 
                     // Slides in the Notification box
                     navBarNotificationMain.classList.add("notify_atv");
@@ -918,20 +918,20 @@
                     // Preset to close the Navbar Notifications
                     navBarNotificationTimer = setTimeout(() => 
                     {
-                        document.addEventListener("click" , closeNavBarNotificationBox);
+                        document.addEventListener("click" , closeNavBarNotificationMenu);
                     },100);
                     
                 }
 
                 // Closes the Notification box
-                function closeNavBarNotificationBox()
+                function closeNavBarNotificationMenu()
                 {
                     if((!(navBarNotificationMain.matches(":hover"))))
                     {
-                        document.removeEventListener("click" , closeNavBarNotificationBox);
+                        document.removeEventListener("click" , closeNavBarNotificationMenu);
 
                         // Add the function to open the Notifications
-                        openNavBarNotificationBtn.addEventListener("click" , openNavBarNotification);
+                        openNavBarNotificationBtn.addEventListener("click" , openNavBarNotificationMenu);
                         toggleNavbarUnderLayer();
 
                         // change active state of the notification icon
@@ -942,7 +942,7 @@
                     }
                 }
             }
-            instantiateNavBarNotificationBox()
+            instantiateNavBarNotificationMenu()
 
 
 
