@@ -13,6 +13,8 @@
         
         let notificationLibraryScriptTag = document.createElement("script");
         notificationLibraryScriptTag.setAttribute(`src` , `/User/Notification/library.js`);
+        document.body.appendChild(notificationLibraryScriptTag);
+        
         notificationLibraryScriptTag.addEventListener("load" , () => 
         {
             fetchUserNotification();
@@ -28,7 +30,6 @@
             notification(`notifyBad` , `An error occurred while loading notifications`);
         }
 
-        document.body.appendChild(notificationLibraryScriptTag);
 
         function fetchUserNotification()
         {
