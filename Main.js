@@ -804,7 +804,7 @@
                 let notificationLibraryScriptTag = document.createElement("script");
                 notificationLibraryScriptTag.setAttribute(`src` , `/User/Notification/library.js`);
                 document.body.appendChild(notificationLibraryScriptTag);
-                
+
                 notificationLibraryScriptTag.addEventListener("load" , () => 
                 {
                     fetchNavbarNotifications();
@@ -945,9 +945,7 @@
             }
             instantiateNavBarNotificationMenu()
 
-
-
-            
+      
 
         // SWITCH PROFILES
 
@@ -1053,16 +1051,15 @@
             attachWatchListEventListeners();
             attachAddToWLEventListeners();
             attachSharePageEventListeners();
-            attachRemoveShowFromHistoryEventListeners();
 
     }
 
 
     // GENERAL MESSAGE FOR FAILED REQUESTS
-    function failedLoadErrorMsg()
-    {
-        notification(`notifyBad` , `Error processing request`);
-    }
+        function failedLoadErrorMsg()
+        {
+            notification(`notifyBad` , `Error processing request`);
+        }
 
 
     // ALL IMAGES
@@ -1810,33 +1807,6 @@
 
                 btn.addEventListener("click" , navigatorSclShareModal);
                 btn.navigatorSclShareModal = navigatorSclShareModal;
-            });
-        }
-
-
-    // CONTINUE (HISTORY)
-
-        function attachRemoveShowFromHistoryEventListeners()
-        {
-            const removeFromHistBtn = document.querySelectorAll(".removeShowFromHistory");
-
-            removeFromHistBtn.forEach((btn) => 
-            {
-                if(btn.action)
-                {
-                    btn.removeEventListener("click" , btn.action);
-                }
-            });
-
-            removeFromHistBtn.forEach((btn) => 
-            {
-                const action = () =>
-                {
-                    notification(`notifyBad` , `Error processing request`);
-                }
-
-                btn.addEventListener("click" , action);
-                btn.action = action;
             });
         }
     
