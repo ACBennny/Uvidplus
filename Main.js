@@ -873,28 +873,31 @@
                     navBarNotificationStatusNoBox.classList.add("active");
 
                     // Add listener for "Mark all as read" button
-                    let markAllNotificationsAsRead = document.querySelector(".markAllNotificationsAsRead");
-                    markAllNotificationsAsRead.addEventListener("click" , () => 
+                    let markAllNotificationsAsRead = document.querySelectorAll(".markAllNotificationsAsRead");
+                    markAllNotificationsAsRead.forEach((btn) => 
                     {
-                        // Disable the button
-                        markAllNotificationsAsRead.disabled = true;
-
-                        // Remove the notification status no.
-                        navBarNotificationStatusNoText.textContent = "";
-                        navBarNotificationStatusNoBox.classList.remove("active");
-                        
-                        // Remove all Notifications
-                        navBarNotificationCardBdr.forEach((bdr) => 
+                        btn.addEventListener("click" , () => 
                         {
-                            bdr.remove();
+                            // Disable the button
+                            markAllNotificationsAsRead.disabled = true;
+    
+                            // Remove the notification status no.
+                            navBarNotificationStatusNoText.textContent = "";
+                            navBarNotificationStatusNoBox.classList.remove("active");
+    
+                            // Remove all Notifications
+                            navBarNotificationCardBdr.forEach((bdr) => 
+                            {
+                                bdr.remove();
+                            });
+    
+                            // Insert the default notification
+                            navBarNotificationCtntBox.insertAdjacentHTML('beforeend' , noNavBarNotificationBoxHTML);
+    
+                            // Recalibrate the Menu
+                            caliberateNavBarNotificationsMenu();
+                            notification(`notifyGood` , `All notifications marked as read`);
                         });
-
-                        // Insert the default notification
-                        navBarNotificationCtntBox.insertAdjacentHTML('beforeend' , noNavBarNotificationBoxHTML);
-
-                        // Recalibrate the Menu
-                        caliberateNavBarNotificationsMenu();
-                        notification(`notifyGood` , `All notifications marked as read`);
                     });
 
                     // Calibrate the Menu

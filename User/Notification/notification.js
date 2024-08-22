@@ -14,7 +14,7 @@
         let notificationLibraryScriptTag = document.createElement("script");
         notificationLibraryScriptTag.setAttribute(`src` , `/User/Notification/library.js`);
         document.body.appendChild(notificationLibraryScriptTag);
-        
+
         notificationLibraryScriptTag.addEventListener("load" , () => 
         {
             fetchUserNotification();
@@ -79,14 +79,17 @@
             let notificationCardBdr = document.querySelectorAll(".notification_card_bdr");
 
             // Add listener for "Mark all as read" button
-            let markAllNotificationsAsRead = document.querySelector(".markAllNotificationsAsRead");
-            markAllNotificationsAsRead.addEventListener("click" , () => 
+            let markAllNotificationsAsRead = document.querySelectorAll(".markAllNotificationsAsRead");
+            markAllNotificationsAsRead.forEach((btn) => 
             {
-                notificationCardBdr.forEach((bdr) => 
+                btn.addEventListener("click" , () => 
                 {
-                    bdr.remove();
+                    notificationCardBdr.forEach((bdr) => 
+                    {
+                        bdr.remove();
+                    });
+                    notification(`notifyGood` , `All notifications marked as read`);
                 });
-                notification(`notifyGood` , `All notifications marked as read`);
             });
     
         }
