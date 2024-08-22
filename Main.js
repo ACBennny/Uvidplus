@@ -1057,7 +1057,7 @@
     }
 
 
-    // FAILED TO LOAD SWITCHMODAL SCRIPT
+    // GENERAL MESSAGE FOR FAILED REQUESTS
     function failedLoadErrorMsg()
     {
         notification(`notifyBad` , `Error processing request`);
