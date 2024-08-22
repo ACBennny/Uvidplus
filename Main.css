@@ -742,13 +742,24 @@ img
 
 .navBarNotificationHeaderBdr .navBarNotificationHeaderBox
 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navBarNotificationHeaderBox .navBarNotificationHeaderBtn
+{
     width: -moz-fit-content;
     width: fit-content;
-    height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    border: none;
+    outline: none;
+    background-color: #00000000;
     cursor: pointer;
 }
 
@@ -4213,8 +4224,8 @@ img
         --pc_navlinkClr: var(--navElementColor_green);
     }
 
-    .navBarNotificationHeaderBox:hover .navBarNotificationHeaderIconSvg,
-    .navBarNotificationHeaderBox:hover .navBarNotificationHeaderText,
+    .navBarNotificationHeaderBtn:hover .navBarNotificationHeaderIconSvg,
+    .navBarNotificationHeaderBtn:hover .navBarNotificationHeaderText,
     .navBarNotificationFooterBox:hover .navBarNotificationFooterText
     {
         fill: var(--genGreenTypeLight2);
