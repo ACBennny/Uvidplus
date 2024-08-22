@@ -883,7 +883,7 @@
                     });
 
                     // Calibrate the Menu
-                    caliberateNavBarNotificationsMenu()
+                    caliberateNavBarNotificationsMenu();
 
                     // Add Listener to view the Notifications
                     openNavBarNotificationBtn.addEventListener("click" , openNavBarNotificationMenu);
