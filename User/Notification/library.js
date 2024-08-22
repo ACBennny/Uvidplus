@@ -1,5 +1,5 @@
 /***************************************************************
- * This will hold the information for the Notification page
+ * This will serve as a data library for the Notification page
  * 
  * @author (Anyanwu Benedict Chukwuemeka)
  * @version (v0.01)
