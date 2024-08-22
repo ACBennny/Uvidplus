@@ -879,6 +879,7 @@
                             bdr.remove();
                         });
                         navBarNotificationCtntBox.insertAdjacentHTML('beforeend' , noNavBarNotificationBoxHTML);
+                        caliberateNavBarNotificationsMenu();
                         notification(`notifyGood` , `All notifications marked as read`);
                     });
 
