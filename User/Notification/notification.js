@@ -26,7 +26,6 @@
         function errorLoadingUserNotifications()
         {
             notification(`notifyBad` , `An error occurred while loading notifications`);
-            openNavBarNotificationBtn.addEventListener("click" , failedLoadErrorMsg);
         }
 
         document.body.appendChild(notificationLibraryScriptTag);
