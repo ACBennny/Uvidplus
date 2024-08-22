@@ -804,6 +804,7 @@
                 let notificationLibraryScriptTag = document.createElement("script");
                 notificationLibraryScriptTag.setAttribute(`src` , `/User/Notification/library.js`);
                 document.body.appendChild(notificationLibraryScriptTag);
+                
                 notificationLibraryScriptTag.addEventListener("load" , () => 
                 {
                     fetchNavbarNotifications();
