@@ -876,12 +876,23 @@
                     let markAllNotificationsAsRead = document.querySelector(".markAllNotificationsAsRead");
                     markAllNotificationsAsRead.addEventListener("click" , () => 
                     {
+                        // Disable the button
                         markAllNotificationsAsRead.disabled = true;
+
+                        // Remove the notification status no.
+                        navBarNotificationStatusNoText.textContent = "";
+                        navBarNotificationStatusNoBox.classList.remove("active");
+                        
+                        // Remove all Notifications
                         navBarNotificationCardBdr.forEach((bdr) => 
                         {
                             bdr.remove();
                         });
+
+                        // Insert the default notification
                         navBarNotificationCtntBox.insertAdjacentHTML('beforeend' , noNavBarNotificationBoxHTML);
+
+                        // Recalibrate the Menu
                         caliberateNavBarNotificationsMenu();
                         notification(`notifyGood` , `All notifications marked as read`);
                     });
