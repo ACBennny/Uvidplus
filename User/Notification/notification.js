@@ -84,6 +84,10 @@
             {
                 btn.addEventListener("click" , () => 
                 {
+                    // Disable the butto
+                    btn.disabled = true;
+
+                    // Remove all Notifications
                     notificationCardBdr.forEach((bdr) => 
                     {
                         bdr.remove();
