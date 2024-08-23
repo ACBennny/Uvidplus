@@ -125,13 +125,13 @@
     {
         const showCards = ctntLink.querySelector('.slide_card');
         const showCardImgs = ctntLink.querySelector('.cardImg');
-        const showCardInfoName = showCards.querySelector('.cardinfo h3');
+        const showCardInfoName = showCards.querySelector('.cardInfo_titleText');
 
         // Slide Card Base
         ctntLink.draggable = false;
         ctntLink.style.userSelect = "none";
 
-        // Slide card
+        // Slide card Title
         showCards.title = "Watch " + showCardInfoName.textContent;
         showCards.draggable = false;
         showCards.style.userSelect = "none";
