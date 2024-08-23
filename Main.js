@@ -879,7 +879,7 @@
                         btn.addEventListener("click" , () => 
                         {
                             // Disable the button
-                            markAllNotificationsAsRead.disabled = true;
+                            btn.disabled = true;
     
                             // Remove the notification status no.
                             navBarNotificationStatusNoText.textContent = "";
@@ -896,6 +896,7 @@
     
                             // Recalibrate the Menu
                             caliberateNavBarNotificationsMenu();
+                            
                             notification(`notifyGood` , `All notifications marked as read`);
                         });
                     });
