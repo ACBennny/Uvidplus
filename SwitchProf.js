@@ -164,6 +164,7 @@
         let navbarHeight = (document.querySelector(".profileNavBar").getBoundingClientRect().height * 2) + 10;
         let mainHeader = switchProfBdr.querySelector(".switchProfHeaderText");
         let mainProfileBcg = switchProfBdr.querySelector(".switchProfBcgImg");
+        let switchProfBcgImg = switchProfBdr.querySelector(".switchProfBcgImg");
         let switchProfBoxCtnt = switchProfBdr.querySelector(".switchProfBoxCtnt");
         let switchProfOptBdr = switchProfBdr.querySelector(".switchProfOptBdr");
         let createProfile = switchProfBdr.querySelector(".createProfile");
@@ -2227,6 +2228,7 @@
             if(((editProfOptTempBcg != null) || (editProfOptTempBcg != undefined)))
             {
                 profCurrBeignEdited.setAttribute(`data-background-image` , `${editProfOptTempBcg}`);
+                switchProfBcgImg.setAttribute(`src` , `${editProfOptTempBcg}`);
             }
             // Clear the variables after updating
             editProfOptTempName, editProfOptTempFrg, editProfOptTempBcg = null;
