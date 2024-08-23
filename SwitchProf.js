@@ -1954,7 +1954,6 @@
                     let multiCardSlide = boxW;
                     let boxChildrenDimension = selectPicCarouselCardBox[0].getBoundingClientRect();
                     let boxChildrenWidth = boxChildrenDimension.width;
-                    console.log(`the width is: ${boxChildrenWidth}`)
                     let singleCardSlide = boxChildrenWidth;
 
                     // Slides Right
