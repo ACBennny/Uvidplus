@@ -1970,7 +1970,7 @@
                     leftArrBox[i].addEventListener("click" , () => 
                     {
                         // Slides by total cards visible
-                        // item.scrollLeft -= multiCardSlide;
+                        item.scrollLeft -= multiCardSlide;
         
                         // Slides by one card
                         // item.scrollLeft -= singleCardSlide;
