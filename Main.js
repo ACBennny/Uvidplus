@@ -384,7 +384,7 @@
                 <div class="navBarNotificationMinor">
                     <div class="navBarNotificationHeaderBdr">
                         <div class="navBarNotificationHeaderBox">
-                            <button class="navBarNotificationHeaderBtn markAllNotificationsAsRead">
+                            <button class="navBarNotificationHeaderBtn markAllNavBarNotificationsAsRead">
                                 <div class="navBarNotificationHeaderIconBox">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navBarNotificationHeaderIconSvg">
                                         <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
@@ -803,18 +803,27 @@
                 let navBarNotificationCtntBox = document.querySelector(".navBarNotificationCtntBox");
 
                 // Fetch the Notifications
-                let notificationLibraryScriptTag = document.createElement("script");
-                notificationLibraryScriptTag.setAttribute(`src` , `/User/Notification/library.js`);
-                document.body.appendChild(notificationLibraryScriptTag);
-
-                notificationLibraryScriptTag.addEventListener("load" , () => 
+                let notificationLibraryScriptId = document.querySelector("#notificationLibraryScriptId");
+                if((notificationLibraryScriptId == undefined))
+                {
+                    let notificationLibraryScriptTag = document.createElement("script");
+                    notificationLibraryScriptTag.setAttribute(`id` , `notificationLibraryScriptId`);
+                    notificationLibraryScriptTag.setAttribute(`src` , `/User/Notification/library.js`);
+                    document.body.appendChild(notificationLibraryScriptTag);
+    
+                    notificationLibraryScriptTag.addEventListener("load" , () => 
+                    {
+                        fetchNavbarNotifications();
+                    });
+                    notificationLibraryScriptTag.onerror = function() 
+                    {
+                        errorLoadingNavbarNotifications();
+                    };
+                }
+                else
                 {
                     fetchNavbarNotifications();
-                });
-                notificationLibraryScriptTag.onerror = function() 
-                {
-                    errorLoadingNavbarNotifications();
-                };
+                }
 
                 // For error events
                 function errorLoadingNavbarNotifications()
@@ -825,8 +834,8 @@
   
                 function fetchNavbarNotifications()
                 {
-                    // Chekc if content of library is available
-                    if(((notificationInventory === undefined) || (notificationInventory.length <= 0)))
+                    // Check if content of library is available
+                    if(((notificationInventory == undefined) || (notificationInventory.length <= 0)))
                     {
                         errorLoadingNavbarNotifications();
                         return;
@@ -873,32 +882,29 @@
                     navBarNotificationStatusNoBox.classList.add("active");
 
                     // Add listener for "Mark all as read" button
-                    let markAllNotificationsAsRead = document.querySelectorAll(".markAllNotificationsAsRead");
-                    markAllNotificationsAsRead.forEach((btn) => 
+                    let markAllNavBarNotificationsAsRead = document.querySelector(".markAllNavBarNotificationsAsRead");
+                    markAllNavBarNotificationsAsRead.addEventListener("click" , () => 
                     {
-                        btn.addEventListener("click" , () => 
+                        // Disable the button
+                        markAllNavBarNotificationsAsRead.disabled = true;
+
+                        // Remove the notification status no.
+                        navBarNotificationStatusNoText.textContent = "";
+                        navBarNotificationStatusNoBox.classList.remove("active");
+
+                        // Remove all Notifications
+                        navBarNotificationCardBdr.forEach((bdr) => 
                         {
-                            // Disable the button
-                            btn.disabled = true;
-    
-                            // Remove the notification status no.
-                            navBarNotificationStatusNoText.textContent = "";
-                            navBarNotificationStatusNoBox.classList.remove("active");
-    
-                            // Remove all Notifications
-                            navBarNotificationCardBdr.forEach((bdr) => 
-                            {
-                                bdr.remove();
-                            });
-    
-                            // Insert the default notification
-                            navBarNotificationCtntBox.insertAdjacentHTML('beforeend' , noNavBarNotificationBoxHTML);
-    
-                            // Recalibrate the Menu
-                            caliberateNavBarNotificationsMenu();
-                            
-                            notification(`notifyGood` , `All notifications marked as read`);
+                            bdr.remove();
                         });
+
+                        // Insert the default notification
+                        navBarNotificationCtntBox.insertAdjacentHTML('beforeend' , noNavBarNotificationBoxHTML);
+
+                        // Recalibrate the Menu
+                        caliberateNavBarNotificationsMenu();
+
+                        notification(`notifyGood` , `All notifications marked as read`);
                     });
 
                     // Calibrate the Menu

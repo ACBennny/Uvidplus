@@ -10,19 +10,27 @@
 
     function startUserPage()
     {
-        
-        let notificationLibraryScriptTag = document.createElement("script");
-        notificationLibraryScriptTag.setAttribute(`src` , `/User/Notification/library.js`);
-        document.body.appendChild(notificationLibraryScriptTag);
+        let notificationLibraryScriptId = document.querySelector("#notificationLibraryScriptId");
+        if((notificationLibraryScriptId == undefined))
+        {
+            let notificationLibraryScriptTag = document.createElement("script");
+            notificationLibraryScriptTag.setAttribute(`id` , `notificationLibraryScriptId`);
+            notificationLibraryScriptTag.setAttribute(`src` , `/User/Notification/library.js`);
+            document.body.appendChild(notificationLibraryScriptTag);
 
-        notificationLibraryScriptTag.addEventListener("load" , () => 
+            notificationLibraryScriptTag.addEventListener("load" , () => 
+            {
+                fetchUserNotification();
+            });
+            notificationLibraryScriptTag.onerror = function() 
+            {
+                errorLoadingUserNotifications();
+            };
+        }
+        else
         {
             fetchUserNotification();
-        });
-        notificationLibraryScriptTag.onerror = function() 
-        {
-            errorLoadingUserNotifications();
-        };
+        }
 
         // For error events
         function errorLoadingUserNotifications()
@@ -34,7 +42,7 @@
         function fetchUserNotification()
         {
             // Chekc if content of library is available
-            if(((notificationInventory === undefined) || (notificationInventory.length <= 0)))
+            if(((notificationInventory == undefined) || (notificationInventory.length <= 0)))
             {
                 errorLoadingUserNotifications();
                 return;
@@ -79,21 +87,25 @@
             let notificationCardBdr = document.querySelectorAll(".notification_card_bdr");
 
             // Add listener for "Mark all as read" button
-            let markAllNotificationsAsRead = document.querySelectorAll(".markAllNotificationsAsRead");
-            markAllNotificationsAsRead.forEach((btn) => 
+            let markAllUserNotificationsAsRead = document.querySelector(".markAllUserNotificationsAsRead");
+            markAllUserNotificationsAsRead.addEventListener("click" , () => 
             {
-                btn.addEventListener("click" , () => 
-                {
-                    // Disable the butto
-                    btn.disabled = true;
+                // Disable the button
+                markAllUserNotificationsAsRead.disabled = true;
 
-                    // Remove all Notifications
-                    notificationCardBdr.forEach((bdr) => 
-                    {
-                        bdr.remove();
-                    });
-                    notification(`notifyGood` , `All notifications marked as read`);
+                // Remove all Notifications
+                notificationCardBdr.forEach((bdr) => 
+                {
+                    bdr.remove();
                 });
+
+                let markAllNavBarNotificationsAsRead = document.querySelector(".markAllNavBarNotificationsAsRead");
+                if(markAllNavBarNotificationsAsRead.disabled === true) 
+                {
+                    notification(`notifyGood` , `All notifications marked as read`);
+                    return;
+                }
+                markAllNavBarNotificationsAsRead.click();
             });
     
         }
