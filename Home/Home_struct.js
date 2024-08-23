@@ -322,7 +322,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -365,7 +365,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -408,7 +408,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -451,7 +451,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -494,7 +494,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -537,7 +537,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -580,7 +580,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -623,7 +623,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -666,7 +666,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -709,7 +709,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -1120,7 +1120,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -1163,7 +1163,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -1206,7 +1206,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -1249,7 +1249,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -1292,7 +1292,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -1335,7 +1335,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -1378,7 +1378,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -1421,7 +1421,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -1464,7 +1464,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -1507,7 +1507,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -1579,7 +1579,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -1622,7 +1622,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -1665,7 +1665,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -1708,7 +1708,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -1751,7 +1751,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -1794,7 +1794,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -1837,7 +1837,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -1880,7 +1880,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -1923,7 +1923,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -1966,7 +1966,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -2131,7 +2131,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -2174,7 +2174,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -2217,7 +2217,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -2260,7 +2260,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -2303,7 +2303,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -2346,7 +2346,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -2389,7 +2389,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -2432,7 +2432,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -2475,7 +2475,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -2518,7 +2518,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -2590,7 +2590,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -2633,7 +2633,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -2676,7 +2676,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -2719,7 +2719,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -2762,7 +2762,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -2805,7 +2805,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -2848,7 +2848,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -2891,7 +2891,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -2934,7 +2934,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -2977,7 +2977,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -3248,7 +3248,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -3291,7 +3291,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -3334,7 +3334,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -3377,7 +3377,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -3420,7 +3420,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -3463,7 +3463,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -3506,7 +3506,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -3549,7 +3549,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -3592,7 +3592,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -3635,7 +3635,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -3707,7 +3707,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -3750,7 +3750,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -3793,7 +3793,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -3836,7 +3836,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -3879,7 +3879,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -3922,7 +3922,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -3965,7 +3965,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -4008,7 +4008,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -4051,7 +4051,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -4094,7 +4094,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -4265,7 +4265,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -4308,7 +4308,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -4351,7 +4351,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -4394,7 +4394,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -4437,7 +4437,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -4480,7 +4480,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -4523,7 +4523,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -4566,7 +4566,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -4609,7 +4609,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -4652,7 +4652,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -4724,7 +4724,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -4767,7 +4767,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -4810,7 +4810,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -4853,7 +4853,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -4896,7 +4896,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -4939,7 +4939,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -4982,7 +4982,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -5025,7 +5025,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -5068,7 +5068,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -5111,7 +5111,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -5298,7 +5298,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -5341,7 +5341,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -5384,7 +5384,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -5427,7 +5427,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -5470,7 +5470,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -5513,7 +5513,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -5556,7 +5556,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -5599,7 +5599,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -5642,7 +5642,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -5685,7 +5685,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -5757,7 +5757,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -5800,7 +5800,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -5843,7 +5843,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -5886,7 +5886,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -5929,7 +5929,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -5972,7 +5972,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -6015,7 +6015,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -6058,7 +6058,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -6101,7 +6101,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
@@ -6144,7 +6144,7 @@
                                             <div class="cardQualityBox">
                                                 <h1 class="cardQualityText">HD</h1>
                                             </div>
-                                            <div class="cardinfo cardInfoBdr">
+                                            <div class="cardInfoBdr">
                                                 <div class="cardInfoBox">
                                                     <div class="cardInfo_tagBdr">
                                                         <div class="cardInfo_tagBox">
