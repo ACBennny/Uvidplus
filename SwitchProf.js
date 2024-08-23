@@ -156,7 +156,6 @@
             documentBody.classList.add("bodystop");
             clearTimeout(setSwitchBodyStop);
         }, 10);
-        allImages();
 
 
         // Definitons
