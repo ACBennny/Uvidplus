@@ -675,26 +675,6 @@
                                         <div class="editProfileDetSect">
                                             <div class="editProfileDetSectCtnt">
                                                 <div class="editProfileDetSectHead">
-                                                    <div class="editProfileDetSectHeadText">Mature Content</div>
-                                                    <div class="editProfileDetSectToggle">
-                                                        <div class="genCheckBoxBase">
-                                                            <input type="checkbox" id="matureCtntId" class="genCheckBoxInput" tabindex="-1">
-                                                            <label for="matureCtntId" class="genCheckBoxToggle">
-                                                                <span class="genCheckBoxToggleCircle"></span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="editProfileDetSectBody">
-                                                    <p class="editProfileDetSectBodyText">
-                                                        By enabling this, you confirm that you are at least 18 years of age.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="editProfileDetSect">
-                                            <div class="editProfileDetSectCtnt">
-                                                <div class="editProfileDetSectHead">
                                                     <div class="editProfileDetSectHeadText">Danger Zone</div>
                                                 </div>
                                                 <div class="editProfileDetSectBody">
