@@ -218,15 +218,15 @@
                         </div>
                         <div class="footer_UsefulLinksBdr">
                             <div class="footer_UsefulLinksBox">
-                                <a href="/FAQ.html" title="Frequently Asked Questions" class="footerlinks footer_UsefulLinks">FAQ</a>
+                                <a href="/Help.html#faq" title="Frequently Asked Questions" class="footerlinks footer_UsefulLinks">FAQ</a>
                                 <a href="/Help.html" title="Help Center" class="footerlinks footer_UsefulLinks">Help</a>
                                 <a href="/Feedback.html" title="Feedback" class="footerlinks footer_UsefulLinks">Feedback</a>
                                 <a href="/Support.html" title="Support Us" class="footerlinks footer_UsefulLinks">Support</a>
                             </div>
                             <div class="footer_UsefulLinksBox">
-                                <a href="/About.html#contact" title="Contact Us" class="footerlinks footer_UsefulLinks">Contact</a>
-                                <a href="/Policies/Preference.html#cookies" title="Cookies" class="footerlinks footer_UsefulLinks">Cookies</a>
-                                <a href="/AdChoices.html" title="Ad Choices" class="footerlinks footer_UsefulLinks">Ad Choices</a>
+                                <a href="/Careers.html" title="Careers" class="footerlinks footer_UsefulLinks">Careers</a>
+                                <a href="/Policies/Cookies.html" title="Cookies" class="footerlinks footer_UsefulLinks">Cookies</a>
+                                <a href="/Policies/AdChoices.html" title="Ad Choices" class="footerlinks footer_UsefulLinks">Ad Choices</a>
                                 <a href="/Policies/Copyright.html" title="Copyright" class="footerlinks footer_UsefulLinks">Copyright</a>
                             </div>
                         </div>
