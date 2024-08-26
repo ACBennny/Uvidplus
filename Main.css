@@ -93,6 +93,7 @@ html:root
     --switchProfHeaderHeight: 60px;
     --switchProfOptImgBoxWidth: 125px;
     --editProfileBcgImgHeight: 200px;
+    --editProfileBcgImgHeightPlus: calc((var(--editProfileBcgImgHeight) + var(--navBarHeight)));
     --basicSliderCardDivision: 4;
     --basicSlideIconWidth: 16px;
     --slideCardBorderRadius: 25px;
@@ -2078,11 +2079,12 @@ img
 
 .editProfileFence .editProfileBase
 {
+    position: relative;
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
-    padding: calc(var(--switchProfHeaderHeight) * 2) var(--switchProfHeaderHeight) 0;
+    padding: calc(var(--switchProfHeaderHeight) * 2) var(--switchProfHeaderHeight) var(--switchProfHeaderHeight);
     background-color: #00000055;
     scrollbar-width: none;
     scrollbar-color: #00000000 #00000000;
@@ -2129,13 +2131,12 @@ img
     position: relative;
     width: 100%;
     height: fit-content;
+    max-width: 700px;
     max-height: -moz-fit-content;
     max-height: fit-content;
-    max-width: 700px;
     padding: 10px;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    background: linear-gradient(#111111,#1f1d1d,#222222);
+    border-radius: 25px;
+    background-color: #181818;
 }
 
 .editProfileBdr .editProfileBox
@@ -2381,6 +2382,7 @@ img
     width: 100%;
     border-radius: 5px;
     background-color: #111111;
+    overflow: hidden;
 }
 
 .editProfileDetBdr .editProfileDetBox
@@ -2401,6 +2403,11 @@ img
     width: 100%;
     padding: 20px 0;
     border-bottom: 1px solid #333333;
+}
+
+.editProfileDetSect:last-child
+{
+    border: none;
 }
 
 .editProfileDetSect .editProfileDetSectCtnt
@@ -2439,7 +2446,7 @@ img
     font-size: 14px;
 }
 
-.editProfileDetSectBodyText.deleteProfile
+.deleteProfile
 {
     color: var(--warningClr);
     cursor: pointer;
@@ -4599,19 +4606,21 @@ img
 
     .editProfileFence .editProfileBase
     {
-        padding: calc(var(--editProfileBcgImgHeight)) 0 0;
+        padding: calc(var(--editProfileBcgImgHeightPlus)) 0 0;
     }
 
     .editProfileBcgImgBdr
     {
-        max-height: var(--editProfileBcgImgHeight);
+        max-height: var(--editProfileBcgImgHeightPlus);
     }
 
     .editProfileBase .editProfileBdr
     {
+        min-height: 100%;
         max-width: none;
-        padding: 0;
+        padding: 10px 0 0;
         border-radius: 0px;
+        overflow-y: visible;
     }
 
     .editProfileBcgImgOverlayBdr
@@ -4774,8 +4783,9 @@ only screen and (max-width: 800px)
 {
     html:root
     {
-        --switchProfOptImgBoxWidth: 100px;
         --notifyIconBoxWidth: 50px;
+        --switchProfOptImgBoxWidth: 100px;
+        --editProfileBcgImgHeight: 150px;
     }
 
     .switchProfHeader .switchProfHeaderText
@@ -4882,7 +4892,7 @@ only screen and (max-width: 800px)
 {
     html:root
     {
-        --editProfileBcgImgHeight: 150px;
+        --editProfileBcgImgHeight: 120px;
     }
 
     .signUpBdr .signUpBox

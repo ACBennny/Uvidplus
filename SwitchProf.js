@@ -427,6 +427,39 @@
                                         <div class="editProfileDetSect">
                                             <div class="editProfileDetSectCtnt">
                                                 <div class="editProfileDetSectHead">
+                                                    <div class="editProfileDetSectHeadText">Kid's Profile</div>
+                                                    <div class="editProfileDetSectToggle">
+                                                        <div class="genCheckBoxBase">
+                                                            <input type="checkbox" id="thisIsKidsProfile" class="genCheckBoxInput" tabindex="-1">
+                                                            <label for="thisIsKidsProfile" class="genCheckBoxToggle">
+                                                                <span class="genCheckBoxToggleCircle"></span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="editProfileDetSectBody">
+                                                    <p class="editProfileDetSectBodyText">
+                                                        By enabling this, the interface is changed to a kid friendly design and only content suitable for kids is shown.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="editProfileDetSect">
+                                            <div class="editProfileDetSectCtnt">
+                                                <div class="editProfileDetSectHead">
+                                                    <div class="editProfileDetSectHeadText">Delete Profile</div>
+                                                </div>
+                                                <div class="editProfileDetSectBody">
+                                                    <p class="editProfileDetSectBodyText ">
+                                                        <!-- You can not undo this action. -->
+                                                        <span class="deleteProfile">Delete Profile</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="editProfileDetSect">
+                                            <div class="editProfileDetSectCtnt">
+                                                <div class="editProfileDetSectHead">
                                                     <div class="editProfileDetSectHeadText">App Language</div>
                                                     <div class="editProfileLangSelectBdr" id="appLangSelect">
                                                         <div class="editProfileLangSelectBox">
@@ -651,39 +684,7 @@
                                                     </p>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="editProfileDetSect">
-                                            <div class="editProfileDetSectCtnt">
-                                                <div class="editProfileDetSectHead">
-                                                    <div class="editProfileDetSectHeadText">Kid's Profile</div>
-                                                    <div class="editProfileDetSectToggle">
-                                                        <div class="genCheckBoxBase">
-                                                            <input type="checkbox" id="thisIsKidsProfile" class="genCheckBoxInput" tabindex="-1">
-                                                            <label for="thisIsKidsProfile" class="genCheckBoxToggle">
-                                                                <span class="genCheckBoxToggleCircle"></span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="editProfileDetSectBody">
-                                                    <p class="editProfileDetSectBodyText">
-                                                        By enabling this, the interface is changed to a kid friendly design and only content suitable for kids is shown.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="editProfileDetSect">
-                                            <div class="editProfileDetSectCtnt">
-                                                <div class="editProfileDetSectHead">
-                                                    <div class="editProfileDetSectHeadText">Danger Zone</div>
-                                                </div>
-                                                <div class="editProfileDetSectBody">
-                                                    <p class="editProfileDetSectBodyText deleteProfile">
-                                                        Delete Profile
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <div class="selectPicBdr selectFrgPicBdr">
@@ -1152,425 +1153,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="selectPicSect">
-                                            <div class="selectPicSectHeader">
-                                                <p class="selectPicSectHeaderText">Anime</p>
-                                            </div>
-                                            <div class="selectPicSectCarouselBdr">
-                                                <div class="selectPicSectCarouselBox">
-
-                                                    <!-- Arrows -->
-                                                    <div class="selectPicCarouselArrBox selectPicCarouselArrLeftBox hide">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="selectPicCarouselArr selectPicCarouselArrLeft selectFrgPicCarouselArrLeft">
-                                                            <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="selectPicCarouselArrBox selectPicCarouselArrRightBox hide">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="selectPicCarouselArr selectPicCarouselArrRight selectFrgPicCarouselArrRight">
-                                                            <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
-                                                        </svg>
-                                                    </div>
-
-                                                    <!-- Grid -->
-                                                    <div class="selectPicCarouselGrid selectFrgPicCarouselGrid">
-                                                        <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox">
-                                                            <div class="selectFrgPicCarouselCard">
-                                                                <div class="selectFrgPicCarouselImgBox">
-                                                                    <img src="/Images/pfp/pfp_0.jpg" alt="" class="selectFrgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox">
-                                                            <div class="selectFrgPicCarouselCard">
-                                                                <div class="selectFrgPicCarouselImgBox">
-                                                                    <img src="/Images/pfp/pfp_1.jpg" alt="" class="selectFrgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox">
-                                                            <div class="selectFrgPicCarouselCard">
-                                                                <div class="selectFrgPicCarouselImgBox">
-                                                                    <img src="/Images/pfp/pfp_2.jpg" alt="" class="selectFrgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox">
-                                                            <div class="selectFrgPicCarouselCard">
-                                                                <div class="selectFrgPicCarouselImgBox">
-                                                                    <img src="/Images/pfp/pfp_3.jpg" alt="" class="selectFrgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox">
-                                                            <div class="selectFrgPicCarouselCard">
-                                                                <div class="selectFrgPicCarouselImgBox">
-                                                                    <img src="/Images/pfp/pfp_4.jpg" alt="" class="selectFrgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox">
-                                                            <div class="selectFrgPicCarouselCard">
-                                                                <div class="selectFrgPicCarouselImgBox">
-                                                                    <img src="/Images/pfp/pfp_5.jpg" alt="" class="selectFrgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox">
-                                                            <div class="selectFrgPicCarouselCard">
-                                                                <div class="selectFrgPicCarouselImgBox">
-                                                                    <img src="/Images/pfp/pfp_6.jpg" alt="" class="selectFrgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox">
-                                                            <div class="selectFrgPicCarouselCard">
-                                                                <div class="selectFrgPicCarouselImgBox">
-                                                                    <img src="/Images/pfp/pfp_7.jpg" alt="" class="selectFrgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox">
-                                                            <div class="selectFrgPicCarouselCard">
-                                                                <div class="selectFrgPicCarouselImgBox">
-                                                                    <img src="/Images/pfp/pfp_8.jpg" alt="" class="selectFrgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox">
-                                                            <div class="selectFrgPicCarouselCard">
-                                                                <div class="selectFrgPicCarouselImgBox">
-                                                                    <img src="/Images/pfp/pfp_9.jpg" alt="" class="selectFrgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox">
-                                                            <div class="selectFrgPicCarouselCard">
-                                                                <div class="selectFrgPicCarouselImgBox">
-                                                                    <img src="/Images/pfp/pfp_10.jpg" alt="" class="selectFrgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox">
-                                                            <div class="selectFrgPicCarouselCard">
-                                                                <div class="selectFrgPicCarouselImgBox">
-                                                                    <img src="/Images/pfp/pfp_11.jpg" alt="" class="selectFrgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox">
-                                                            <div class="selectFrgPicCarouselCard">
-                                                                <div class="selectFrgPicCarouselImgBox">
-                                                                    <img src="/Images/pfp/pfp_12.jpg" alt="" class="selectFrgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="selectPicSect">
-                                            <div class="selectPicSectHeader">
-                                                <p class="selectPicSectHeaderText">Cartoon</p>
-                                            </div>
-                                            <div class="selectPicSectCarouselBdr">
-                                                <div class="selectPicSectCarouselBox">
-
-                                                    <!-- Arrows -->
-                                                    <div class="selectPicCarouselArrBox selectPicCarouselArrLeftBox hide">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="selectPicCarouselArr selectPicCarouselArrLeft selectFrgPicCarouselArrLeft">
-                                                            <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="selectPicCarouselArrBox selectPicCarouselArrRightBox hide">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="selectPicCarouselArr selectPicCarouselArrRight selectFrgPicCarouselArrRight">
-                                                            <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
-                                                        </svg>
-                                                    </div>
-
-                                                    <!-- Grid -->
-                                                    <div class="selectPicCarouselGrid selectFrgPicCarouselGrid">
-                                                        <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox">
-                                                            <div class="selectFrgPicCarouselCard">
-                                                                <div class="selectFrgPicCarouselImgBox">
-                                                                    <img src="/Images/pfp/pfp_10.jpg" alt="" class="selectFrgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox">
-                                                            <div class="selectFrgPicCarouselCard">
-                                                                <div class="selectFrgPicCarouselImgBox">
-                                                                    <img src="/Images/pfp/pfp_11.jpg" alt="" class="selectFrgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox">
-                                                            <div class="selectFrgPicCarouselCard">
-                                                                <div class="selectFrgPicCarouselImgBox">
-                                                                    <img src="/Images/pfp/pfp_12.jpg" alt="" class="selectFrgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox">
-                                                            <div class="selectFrgPicCarouselCard">
-                                                                <div class="selectFrgPicCarouselImgBox">
-                                                                    <img src="/Images/pfp/pfp_3.jpg" alt="" class="selectFrgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox">
-                                                            <div class="selectFrgPicCarouselCard">
-                                                                <div class="selectFrgPicCarouselImgBox">
-                                                                    <img src="/Images/pfp/pfp_1.jpg" alt="" class="selectFrgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox">
-                                                            <div class="selectFrgPicCarouselCard">
-                                                                <div class="selectFrgPicCarouselImgBox">
-                                                                    <img src="/Images/pfp/pfp_4.jpg" alt="" class="selectFrgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox">
-                                                            <div class="selectFrgPicCarouselCard">
-                                                                <div class="selectFrgPicCarouselImgBox">
-                                                                    <img src="/Images/pfp/pfp_6.jpg" alt="" class="selectFrgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox">
-                                                            <div class="selectFrgPicCarouselCard">
-                                                                <div class="selectFrgPicCarouselImgBox">
-                                                                    <img src="/Images/pfp/pfp_5.jpg" alt="" class="selectFrgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox">
-                                                            <div class="selectFrgPicCarouselCard">
-                                                                <div class="selectFrgPicCarouselImgBox">
-                                                                    <img src="/Images/pfp/pfp_8.jpg" alt="" class="selectFrgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox">
-                                                            <div class="selectFrgPicCarouselCard">
-                                                                <div class="selectFrgPicCarouselImgBox">
-                                                                    <img src="/Images/pfp/pfp_7.jpg" alt="" class="selectFrgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox">
-                                                            <div class="selectFrgPicCarouselCard">
-                                                                <div class="selectFrgPicCarouselImgBox">
-                                                                    <img src="/Images/pfp/pfp_2.jpg" alt="" class="selectFrgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox">
-                                                            <div class="selectFrgPicCarouselCard">
-                                                                <div class="selectFrgPicCarouselImgBox">
-                                                                    <img src="/Images/pfp/pfp_9.jpg" alt="" class="selectFrgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox">
-                                                            <div class="selectFrgPicCarouselCard">
-                                                                <div class="selectFrgPicCarouselImgBox">
-                                                                    <img src="/Images/pfp/pfp_0.jpg" alt="" class="selectFrgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="selectPicBdr selectBcgPicBdr">
                                     <div class="selectPicBox">
-                                        <div class="selectPicSect">
-                                            <div class="selectPicSectHeader">
-                                                <p class="selectPicSectHeaderText">Featured</p>
-                                            </div>
-                                            <div class="selectPicSectCarouselBdr">
-                                                <div class="selectPicSectCarouselBox">
-
-                                                    <!-- Arrows -->
-                                                    <div class="selectPicCarouselArrBox selectPicCarouselArrLeftBox hide">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="selectPicCarouselArr selectPicCarouselArrLeft selectFrgPicCarouselArrLeft">
-                                                            <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="selectPicCarouselArrBox selectPicCarouselArrRightBox hide">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="selectPicCarouselArr selectPicCarouselArrRight selectFrgPicCarouselArrRight">
-                                                            <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
-                                                        </svg>
-                                                    </div>
-
-                                                    <!-- Grid -->
-                                                    <div class="selectPicCarouselGrid selectBcgPicCarouselGrid">
-                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
-                                                            <div class="selectBcgPicCarouselCard">
-                                                                <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/Uvid_green_bcg1_light.jpg" alt="" class="selectBcgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
-                                                            <div class="selectBcgPicCarouselCard">
-                                                                <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/bcg/blue.jpg" alt="" class="selectBcgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
-                                                            <div class="selectBcgPicCarouselCard">
-                                                                <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/Uvid_bcg0.jpg" alt="" class="selectBcgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
-                                                            <div class="selectBcgPicCarouselCard">
-                                                                <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/bcg/green.jpg" alt="" class="selectBcgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
-                                                            <div class="selectBcgPicCarouselCard">
-                                                                <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/bcg/grey.jpg" alt="" class="selectBcgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
-                                                            <div class="selectBcgPicCarouselCard">
-                                                                <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/Uvid_green_bcg1_dark.jpg" alt="" class="selectBcgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
-                                                            <div class="selectBcgPicCarouselCard">
-                                                                <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/bcg/orange.jpg" alt="" class="selectBcgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
-                                                            <div class="selectBcgPicCarouselCard">
-                                                                <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/bcg/purple.jpg" alt="" class="selectBcgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
-                                                            <div class="selectBcgPicCarouselCard">
-                                                                <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/bcg/default.jpg" alt="" class="selectBcgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
-                                                            <div class="selectBcgPicCarouselCard">
-                                                                <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/bcg/pink.jpg" alt="" class="selectBcgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="selectPicSect">
-                                            <div class="selectPicSectHeader">
-                                                <p class="selectPicSectHeaderText">Solid</p>
-                                            </div>
-                                            <div class="selectPicSectCarouselBdr">
-                                                <div class="selectPicSectCarouselBox">
-
-                                                    <!-- Arrows -->
-                                                    <div class="selectPicCarouselArrBox selectPicCarouselArrLeftBox hide">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="selectPicCarouselArr selectPicCarouselArrLeft selectFrgPicCarouselArrLeft">
-                                                            <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="selectPicCarouselArrBox selectPicCarouselArrRightBox hide">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="selectPicCarouselArr selectPicCarouselArrRight selectFrgPicCarouselArrRight">
-                                                            <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
-                                                        </svg>
-                                                    </div>
-
-                                                    <!-- Grid -->
-                                                    <div class="selectPicCarouselGrid selectBcgPicCarouselGrid">
-                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
-                                                            <div class="selectBcgPicCarouselCard">
-                                                                <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/bcg/default.jpg" alt="" class="selectBcgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
-                                                            <div class="selectBcgPicCarouselCard">
-                                                                <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/bcg/red.jpg" alt="" class="selectBcgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
-                                                            <div class="selectBcgPicCarouselCard">
-                                                                <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/bcg/blue.jpg" alt="" class="selectBcgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
-                                                            <div class="selectBcgPicCarouselCard">
-                                                                <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/bcg/green.jpg" alt="" class="selectBcgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
-                                                            <div class="selectBcgPicCarouselCard">
-                                                                <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/bcg/grey.jpg" alt="" class="selectBcgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
-                                                            <div class="selectBcgPicCarouselCard">
-                                                                <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/bcg/pink.jpg" alt="" class="selectBcgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
-                                                            <div class="selectBcgPicCarouselCard">
-                                                                <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/bcg/orange.jpg" alt="" class="selectBcgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
-                                                            <div class="selectBcgPicCarouselCard">
-                                                                <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/bcg/yellow.jpg" alt="" class="selectBcgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
-                                                            <div class="selectBcgPicCarouselCard">
-                                                                <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/bcg/purple.jpg" alt="" class="selectBcgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div class="selectPicSect">
                                             <div class="selectPicSectHeader">
                                                 <p class="selectPicSectHeaderText">Uvid</p>
@@ -1683,6 +1269,13 @@
                                                         <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
                                                             <div class="selectBcgPicCarouselCard">
                                                                 <div class="selectBcgPicCarouselImgBox">
+                                                                    <img src="/Images/uvid_red_velvet0.png" alt="" class="selectBcgPicCarouselImg">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
+                                                            <div class="selectBcgPicCarouselCard">
+                                                                <div class="selectBcgPicCarouselImgBox">
                                                                     <img src="/Images/Uvid_bcg1.jpg" alt="" class="selectBcgPicCarouselImg">
                                                                 </div>
                                                             </div>
@@ -1690,7 +1283,7 @@
                                                         <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
                                                             <div class="selectBcgPicCarouselCard">
                                                                 <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/Uvid_movies1.jpg" alt="" class="selectBcgPicCarouselImg">
+                                                                    <img src="/Images/uvid_red_velvet1.jpg" alt="" class="selectBcgPicCarouselImg">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1698,6 +1291,13 @@
                                                             <div class="selectBcgPicCarouselCard">
                                                                 <div class="selectBcgPicCarouselImgBox">
                                                                     <img src="/Images/Uvid_bcg3.jpg" alt="" class="selectBcgPicCarouselImg">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
+                                                            <div class="selectBcgPicCarouselCard">
+                                                                <div class="selectBcgPicCarouselImgBox">
+                                                                    <img src="/Images/Uvid_movies1.jpg" alt="" class="selectBcgPicCarouselImg">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1736,45 +1336,6 @@
                                                         <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
                                                             <div class="selectBcgPicCarouselCard">
                                                                 <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/Uvid_documentary.png" alt="" class="selectBcgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
-                                                            <div class="selectBcgPicCarouselCard">
-                                                                <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/Uvid_bcg2.jpg" alt="" class="selectBcgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="selectPicSect">
-                                            <div class="selectPicSectHeader">
-                                                <p class="selectPicSectHeaderText">Anime</p>
-                                            </div>
-                                            <div class="selectPicSectCarouselBdr">
-                                                <div class="selectPicSectCarouselBox">
-
-                                                    <!-- Arrows -->
-                                                    <div class="selectPicCarouselArrBox selectPicCarouselArrLeftBox hide">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="selectPicCarouselArr selectPicCarouselArrLeft selectFrgPicCarouselArrLeft">
-                                                            <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="selectPicCarouselArrBox selectPicCarouselArrRightBox hide">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="selectPicCarouselArr selectPicCarouselArrRight selectFrgPicCarouselArrRight">
-                                                            <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
-                                                        </svg>
-                                                    </div>
-
-                                                    <!-- Grid -->
-                                                    <div class="selectPicCarouselGrid selectBcgPicCarouselGrid">
-                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
-                                                            <div class="selectBcgPicCarouselCard">
-                                                                <div class="selectBcgPicCarouselImgBox">
                                                                     <img src="/Images/Uvid_Anime.jpg" alt="" class="selectBcgPicCarouselImg">
                                                                 </div>
                                                             </div>
@@ -1782,63 +1343,10 @@
                                                         <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
                                                             <div class="selectBcgPicCarouselCard">
                                                                 <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/uvid_red_velvet0.png" alt="" class="selectBcgPicCarouselImg">
+                                                                    <img src="/Images/Uvid_documentary.png" alt="" class="selectBcgPicCarouselImg">
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
-                                                            <div class="selectBcgPicCarouselCard">
-                                                                <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/uvid_red_velvet1.jpg" alt="" class="selectBcgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
-                                                            <div class="selectBcgPicCarouselCard">
-                                                                <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/bcg/red.jpg" alt="" class="selectBcgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
-                                                            <div class="selectBcgPicCarouselCard">
-                                                                <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/bcg/grey.jpg" alt="" class="selectBcgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
-                                                            <div class="selectBcgPicCarouselCard">
-                                                                <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/bcg/purple.jpg" alt="" class="selectBcgPicCarouselImg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="selectPicSect">
-                                            <div class="selectPicSectHeader">
-                                                <p class="selectPicSectHeaderText">Cartoon</p>
-                                            </div>
-                                            <div class="selectPicSectCarouselBdr">
-                                                <div class="selectPicSectCarouselBox">
-
-                                                    <!-- Arrows -->
-                                                    <div class="selectPicCarouselArrBox selectPicCarouselArrLeftBox hide">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="selectPicCarouselArr selectPicCarouselArrLeft selectFrgPicCarouselArrLeft">
-                                                            <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="selectPicCarouselArrBox selectPicCarouselArrRightBox hide">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="selectPicCarouselArr selectPicCarouselArrRight selectFrgPicCarouselArrRight">
-                                                            <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
-                                                        </svg>
-                                                    </div>
-
-                                                    <!-- Grid -->
-                                                    <div class="selectPicCarouselGrid selectBcgPicCarouselGrid">
                                                         <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
                                                             <div class="selectBcgPicCarouselCard">
                                                                 <div class="selectBcgPicCarouselImgBox">
@@ -1860,6 +1368,73 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="selectPicSect">
+                                            <div class="selectPicSectHeader">
+                                                <p class="selectPicSectHeaderText">Solid</p>
+                                            </div>
+                                            <div class="selectPicSectCarouselBdr">
+                                                <div class="selectPicSectCarouselBox">
+
+                                                    <!-- Arrows -->
+                                                    <div class="selectPicCarouselArrBox selectPicCarouselArrLeftBox hide">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="selectPicCarouselArr selectPicCarouselArrLeft selectFrgPicCarouselArrLeft">
+                                                            <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="selectPicCarouselArrBox selectPicCarouselArrRightBox hide">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="selectPicCarouselArr selectPicCarouselArrRight selectFrgPicCarouselArrRight">
+                                                            <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
+                                                        </svg>
+                                                    </div>
+
+                                                    <!-- Grid -->
+                                                    <div class="selectPicCarouselGrid selectBcgPicCarouselGrid">
+                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
+                                                            <div class="selectBcgPicCarouselCard">
+                                                                <div class="selectBcgPicCarouselImgBox">
+                                                                    <img src="/Images/bcg/default.jpg" alt="" class="selectBcgPicCarouselImg">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
+                                                            <div class="selectBcgPicCarouselCard">
+                                                                <div class="selectBcgPicCarouselImgBox">
+                                                                    <img src="/Images/bcg/red.jpg" alt="" class="selectBcgPicCarouselImg">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
+                                                            <div class="selectBcgPicCarouselCard">
+                                                                <div class="selectBcgPicCarouselImgBox">
+                                                                    <img src="/Images/bcg/blue.jpg" alt="" class="selectBcgPicCarouselImg">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
+                                                            <div class="selectBcgPicCarouselCard">
+                                                                <div class="selectBcgPicCarouselImgBox">
+                                                                    <img src="/Images/bcg/green.jpg" alt="" class="selectBcgPicCarouselImg">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
+                                                            <div class="selectBcgPicCarouselCard">
+                                                                <div class="selectBcgPicCarouselImgBox">
+                                                                    <img src="/Images/bcg/grey.jpg" alt="" class="selectBcgPicCarouselImg">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
+                                                            <div class="selectBcgPicCarouselCard">
+                                                                <div class="selectBcgPicCarouselImgBox">
+                                                                    <img src="/Images/bcg/pink.jpg" alt="" class="selectBcgPicCarouselImg">
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                         <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
                                                             <div class="selectBcgPicCarouselCard">
                                                                 <div class="selectBcgPicCarouselImgBox">
@@ -1877,7 +1452,7 @@
                                                         <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
                                                             <div class="selectBcgPicCarouselCard">
                                                                 <div class="selectBcgPicCarouselImgBox">
-                                                                    <img src="/Images/bcg/pink.jpg" alt="" class="selectBcgPicCarouselImg">
+                                                                    <img src="/Images/bcg/purple.jpg" alt="" class="selectBcgPicCarouselImg">
                                                                 </div>
                                                             </div>
                                                         </div>
