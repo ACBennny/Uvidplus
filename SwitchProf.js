@@ -187,6 +187,26 @@
             });
         }
 
+        // Justifying postion for Switch Modal
+        function justifySwitchModalCtntPos()
+        {
+            if((switchProfBoxCtnt.scrollHeight) > (Math.ceil((switchProfBoxCtnt.clientHeight))))
+            {
+                switchProfBoxCtnt.classList.add("has_scrollbar");
+                return;
+            }
+            switchProfBoxCtnt.classList.remove("has_scrollbar");
+        }
+        justifySwitchModalCtntPos();
+        window.addEventListener("change" , () => 
+        {
+            justifySwitchModalCtntPos();
+        });
+        window.addEventListener("resize" , () => 
+        {
+            justifySwitchModalCtntPos();
+        });
+
         // Opens the Switch Profile Modal
         switchProfTimer = setTimeout(() => 
         {

@@ -1804,6 +1804,11 @@ img
     overflow-y: visible;
 }
 
+.switchProfBoxCtnt.has_scrollbar
+{
+    justify-content: unset;
+}
+
 .switchProfBoxCtnt .switchProfHeader
 {
     position: relative;
@@ -4536,12 +4541,12 @@ img
 
     .editProfAtnBtn_Pc
     {
-        display: none;
+        /* display: none; */
     }
 
     .editProfAtnBtn_Mob
     {
-        display: block;
+        /* display: block; */
     }
 
     .basic_slider_card_box
@@ -4765,16 +4770,6 @@ img
         cursor: none;
         pointer-events: none;
 
-    }
-}
-
-
-@media only screen and (max-height: 600px),
-only screen and (max-width: 800px)
-{
-    .switchProfBox .switchProfBoxCtnt
-    {
-        justify-content: unset;
     }
 }
 
