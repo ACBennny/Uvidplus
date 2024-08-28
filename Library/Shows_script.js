@@ -198,7 +198,7 @@
                                         <!-- Seasons List -->
                                         <div class="sect-ep">
                                             <div class="sect-head">
-                                                <div class="sect-headText"><span class="1">W</span>atch</div>
+                                                <div class="sect-headText"><span class="1">E</span>pisodes</div>
                                             </div>
                                             <div class="sect-controls">
                                                 <div class="seasons_headerBdr">
