@@ -175,7 +175,7 @@
                     {
                         card.remove();
                     });
-                    notification(`notifyGood` , `All Shows have been cleared successfully `);
+                    notification(`notifyGood` , `Your History has been cleared successfully`);
                 });
             });
         }
