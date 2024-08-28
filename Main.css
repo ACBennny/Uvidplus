@@ -5037,12 +5037,14 @@ img
 
     /* --------- Switch Profiles Modal ---------- */
 
+    .switchProfBdr *,
     .editProfileFence *
     {
         scrollbar-width: none;
         scrollbar-color: #00000000 #00000000;
     }
 
+    .switchProfBdr *::-webkit-scrollbar,
     .editProfileFence *::-webkit-scrollbar
     {
         width: 0px;
