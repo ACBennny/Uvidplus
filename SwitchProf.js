@@ -467,11 +467,10 @@
                                         <div class="editProfileDetSect">
                                             <div class="editProfileDetSectCtnt">
                                                 <div class="editProfileDetSectHead">
-                                                    <div class="editProfileDetSectHeadText">Delete Profile</div>
+                                                    <div class="editProfileDetSectHeadText">Configure Profile</div>
                                                 </div>
                                                 <div class="editProfileDetSectBody">
                                                     <p class="editProfileDetSectBodyText ">
-                                                        <!-- You can not undo this action. -->
                                                         <span class="deleteProfile">Delete Profile</span>
                                                     </p>
                                                 </div>
