@@ -93,7 +93,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="btmCtnt">
-                                                        <p class="btmText">score</p>
+                                                        <p class="btmText">Score</p>
                                                     </div>
                                                 </div>
                                             </div>
