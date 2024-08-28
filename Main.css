@@ -2089,12 +2089,18 @@ img
     height: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: calc(var(--switchProfHeaderHeight) * 2) var(--switchProfHeaderHeight) var(--switchProfHeaderHeight);
     background-color: #00000055;
     scrollbar-width: none;
     scrollbar-color: #00000000 #00000000;
     overflow: hidden;
     overflow-y: visible;
+}
+
+.editProfileBase.has_scrollbar
+{
+    align-items: unset;
 }
 
 .editProfileBcgImgBdr

@@ -1375,6 +1375,26 @@
             let selectBcgPicCarouselCard = document.querySelectorAll(".selectBcgPicCarouselCard");
             let deleteProfile = document.querySelector(".deleteProfile");
 
+            // Justifying postion for Switch Modal
+            function justifyEditModalCtntPos()
+            {
+                if((editProfileBase.scrollHeight) > (Math.ceil((editProfileBase.clientHeight))))
+                {
+                    editProfileBase.classList.add("has_scrollbar");
+                    return;
+                }
+                editProfileBase.classList.remove("has_scrollbar");
+            }
+            justifyEditModalCtntPos();
+            window.addEventListener("change" , () => 
+            {
+                justifyEditModalCtntPos();
+            });
+            window.addEventListener("resize" , () => 
+            {
+                justifyEditModalCtntPos();
+            });
+
             // The slider for select pic modals
             function selectPicSlider()
             {
@@ -1537,6 +1557,8 @@
                     selectFrgPicBdr.classList.add("active");
                     editProfileDetBox.classList.add("inactive");
                     editProfileTitle.textContent = `Choose your Avatar`;
+
+                    justifyEditModalCtntPos();
                     selectPicSlider();
                     // Calls the function again if window changes size
                     window.addEventListener("resize" , selectPicSlider);
@@ -1562,6 +1584,8 @@
                     selectBcgPicBdr.classList.add("active");
                     editProfileDetBox.classList.add("inactive");
                     editProfileTitle.textContent = `Choose your Background Image`;
+
+                    justifyEditModalCtntPos();
                     selectPicSlider();
                     // Calls the function again if window changes size
                     window.addEventListener("resize" , selectPicSlider);
@@ -1581,6 +1605,7 @@
                     editProfileFrgImg.setAttribute(`src` , `${imgSrc}`);
                     editProfOptTempFrg = imgSrc;
                     closeSelectPicModals();
+                    justifyEditModalCtntPos();
                 });
             });
 
@@ -1595,6 +1620,7 @@
                     editProfileBcgImg.setAttribute(`src` , `${imgSrc}`);
                     editProfOptTempBcg = imgSrc;
                     closeSelectPicModals();
+                    justifyEditModalCtntPos();
                 });
             });
 
@@ -1613,6 +1639,9 @@
                 selectBcgPicBdr.classList.remove("active");
                 editProfileDetBox.classList.remove("inactive");
 
+                justifyEditModalCtntPos();
+                selectPicSlider();
+                // Calls the function again if window changes size
                 window.removeEventListener("resize" , selectPicSlider);
                 window.removeEventListener("change" , selectPicSlider);
                 editProfileTitle.textContent = `Edit Profile`;
