@@ -488,40 +488,15 @@
                                                         <div class="editProfileLangOptBdr">
                                                             <div class="editProfileLangOptBox">
                                                                 <p class="editProfileLangOptItems">Arabic</p>
-                                                                <p class="editProfileLangOptItems">Bulgarian</p>
                                                                 <p class="editProfileLangOptItems">Chinese (Simplified)</p>
                                                                 <p class="editProfileLangOptItems">Chinese (Traditional)</p>
-                                                                <p class="editProfileLangOptItems">Croatian</p>
-                                                                <p class="editProfileLangOptItems">Czech</p>
-                                                                <p class="editProfileLangOptItems">Danish</p>
-                                                                <p class="editProfileLangOptItems">Dutch</p>
                                                                 <p class="editProfileLangOptItems active">English</p>
                                                                 <p class="editProfileLangOptItems">Finnish</p>
                                                                 <p class="editProfileLangOptItems">French (France)</p>
                                                                 <p class="editProfileLangOptItems">German</p>
-                                                                <p class="editProfileLangOptItems">Greek</p>
-                                                                <p class="editProfileLangOptItems">Gurajati</p>
-                                                                <p class="editProfileLangOptItems">Hebrew</p>
-                                                                <p class="editProfileLangOptItems">Hindi</p>
-                                                                <p class="editProfileLangOptItems">Hungarian</p>
-                                                                <p class="editProfileLangOptItems">Indonesia</p>
                                                                 <p class="editProfileLangOptItems">Italian</p>
                                                                 <p class="editProfileLangOptItems">Japanese</p>
                                                                 <p class="editProfileLangOptItems">Korean</p>
-                                                                <p class="editProfileLangOptItems">Norwegian</p>
-                                                                <p class="editProfileLangOptItems">Polish</p>
-                                                                <p class="editProfileLangOptItems">Portugese (Brazil)</p>
-                                                                <p class="editProfileLangOptItems">Portugese (Portugal)</p>
-                                                                <p class="editProfileLangOptItems">Punjabi</p>
-                                                                <p class="editProfileLangOptItems">Romanian</p>
-                                                                <p class="editProfileLangOptItems">Russian</p>
-                                                                <p class="editProfileLangOptItems">Spanish</p>
-                                                                <p class="editProfileLangOptItems">Swedish</p>
-                                                                <p class="editProfileLangOptItems">Tamil</p>
-                                                                <p class="editProfileLangOptItems">Thai</p>
-                                                                <p class="editProfileLangOptItems">Turkish</p>
-                                                                <p class="editProfileLangOptItems">Vietnamese</p>
-                                                                <p class="editProfileLangOptItems">Ukrainian</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -529,118 +504,6 @@
                                                 <div class="editProfileDetSectBody">
                                                     <p class="editProfileDetSectBodyText">
                                                         Set your preferred language for all contents of the app.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="editProfileDetSect">
-                                            <div class="editProfileDetSectCtnt">
-                                                <div class="editProfileDetSectHead">
-                                                    <div class="editProfileDetSectHeadText">Audio Language</div>
-                                                    <div class="editProfileLangSelectBdr" id="audioLangSelect">
-                                                        <div class="editProfileLangSelectBox">
-                                                            <p class="editProfileLangSelectText">English</p>
-                                                        </div>
-                                                        <div class="editProfileLangOptBdr">
-                                                            <div class="editProfileLangOptBox">
-                                                                <p class="editProfileLangOptItems">Arabic</p>
-                                                                <p class="editProfileLangOptItems">Bulgarian</p>
-                                                                <p class="editProfileLangOptItems">Chinese (Simplified)</p>
-                                                                <p class="editProfileLangOptItems">Chinese (Traditional)</p>
-                                                                <p class="editProfileLangOptItems">Croatian</p>
-                                                                <p class="editProfileLangOptItems">Czech</p>
-                                                                <p class="editProfileLangOptItems">Danish</p>
-                                                                <p class="editProfileLangOptItems">Dutch</p>
-                                                                <p class="editProfileLangOptItems active">English</p>
-                                                                <p class="editProfileLangOptItems">Finnish</p>
-                                                                <p class="editProfileLangOptItems">French (France)</p>
-                                                                <p class="editProfileLangOptItems">German</p>
-                                                                <p class="editProfileLangOptItems">Greek</p>
-                                                                <p class="editProfileLangOptItems">Gurajati</p>
-                                                                <p class="editProfileLangOptItems">Hebrew</p>
-                                                                <p class="editProfileLangOptItems">Hindi</p>
-                                                                <p class="editProfileLangOptItems">Hungarian</p>
-                                                                <p class="editProfileLangOptItems">Indonesia</p>
-                                                                <p class="editProfileLangOptItems">Italian</p>
-                                                                <p class="editProfileLangOptItems">Japanese</p>
-                                                                <p class="editProfileLangOptItems">Korean</p>
-                                                                <p class="editProfileLangOptItems">Norwegian</p>
-                                                                <p class="editProfileLangOptItems">Polish</p>
-                                                                <p class="editProfileLangOptItems">Portugese (Brazil)</p>
-                                                                <p class="editProfileLangOptItems">Portugese (Portugal)</p>
-                                                                <p class="editProfileLangOptItems">Punjabi</p>
-                                                                <p class="editProfileLangOptItems">Romanian</p>
-                                                                <p class="editProfileLangOptItems">Russian</p>
-                                                                <p class="editProfileLangOptItems">Spanish</p>
-                                                                <p class="editProfileLangOptItems">Swedish</p>
-                                                                <p class="editProfileLangOptItems">Tamil</p>
-                                                                <p class="editProfileLangOptItems">Thai</p>
-                                                                <p class="editProfileLangOptItems">Turkish</p>
-                                                                <p class="editProfileLangOptItems">Vietnamese</p>
-                                                                <p class="editProfileLangOptItems">Ukrainian</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="editProfileDetSectBody">
-                                                    <p class="editProfileDetSectBodyText">
-                                                        Set your preferred language for the audio of your shows.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="editProfileDetSect">
-                                            <div class="editProfileDetSectCtnt">
-                                                <div class="editProfileDetSectHead">
-                                                    <div class="editProfileDetSectHeadText">Subtitle/CC Language</div>
-                                                    <div class="editProfileLangSelectBdr" id="subCCLangSelect">
-                                                        <div class="editProfileLangSelectBox">
-                                                            <p class="editProfileLangSelectText">English</p>
-                                                        </div>
-                                                        <div class="editProfileLangOptBdr">
-                                                            <div class="editProfileLangOptBox">
-                                                                <p class="editProfileLangOptItems">Arabic</p>
-                                                                <p class="editProfileLangOptItems">Bulgarian</p>
-                                                                <p class="editProfileLangOptItems">Chinese (Simplified)</p>
-                                                                <p class="editProfileLangOptItems">Chinese (Traditional)</p>
-                                                                <p class="editProfileLangOptItems">Croatian</p>
-                                                                <p class="editProfileLangOptItems">Czech</p>
-                                                                <p class="editProfileLangOptItems">Danish</p>
-                                                                <p class="editProfileLangOptItems">Dutch</p>
-                                                                <p class="editProfileLangOptItems active">English</p>
-                                                                <p class="editProfileLangOptItems">Finnish</p>
-                                                                <p class="editProfileLangOptItems">French (France)</p>
-                                                                <p class="editProfileLangOptItems">German</p>
-                                                                <p class="editProfileLangOptItems">Greek</p>
-                                                                <p class="editProfileLangOptItems">Gurajati</p>
-                                                                <p class="editProfileLangOptItems">Hebrew</p>
-                                                                <p class="editProfileLangOptItems">Hindi</p>
-                                                                <p class="editProfileLangOptItems">Hungarian</p>
-                                                                <p class="editProfileLangOptItems">Indonesia</p>
-                                                                <p class="editProfileLangOptItems">Italian</p>
-                                                                <p class="editProfileLangOptItems">Japanese</p>
-                                                                <p class="editProfileLangOptItems">Korean</p>
-                                                                <p class="editProfileLangOptItems">Norwegian</p>
-                                                                <p class="editProfileLangOptItems">Polish</p>
-                                                                <p class="editProfileLangOptItems">Portugese (Brazil)</p>
-                                                                <p class="editProfileLangOptItems">Portugese (Portugal)</p>
-                                                                <p class="editProfileLangOptItems">Punjabi</p>
-                                                                <p class="editProfileLangOptItems">Romanian</p>
-                                                                <p class="editProfileLangOptItems">Russian</p>
-                                                                <p class="editProfileLangOptItems">Spanish</p>
-                                                                <p class="editProfileLangOptItems">Swedish</p>
-                                                                <p class="editProfileLangOptItems">Tamil</p>
-                                                                <p class="editProfileLangOptItems">Thai</p>
-                                                                <p class="editProfileLangOptItems">Turkish</p>
-                                                                <p class="editProfileLangOptItems">Vietnamese</p>
-                                                                <p class="editProfileLangOptItems">Ukrainian</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="editProfileDetSectBody">
-                                                    <p class="editProfileDetSectBodyText">
-                                                        Set your preferred language for your subtitles/CC.
                                                     </p>
                                                 </div>
                                             </div>
