@@ -32,7 +32,7 @@
         function fetchUserHistory()
         {
             // Chekc if content of library is available
-            if(((historyInventory === undefined) || (historyInventory.length <= 0)))
+            if(((historyInventory == undefined) || (historyInventory.length <= 0)))
             {
                 errorLoadingUserHistory();
                 return;

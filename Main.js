@@ -982,7 +982,7 @@
 
                 switchProfScript.addEventListener("load" , () => 
                 {
-                    openSwitchProfBtn.addEventListener("click" , instantiateSwitchProfBdr);
+                    openSwitchProfBtn.addEventListener("click" , loadProfInfo);
                 });
                 switchProfScript.onerror = function() 
                 {
