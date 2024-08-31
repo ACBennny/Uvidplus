@@ -11,7 +11,7 @@ const frgImgInv =
 [
     {
         frg_sectname: `Featured`,
-        frg_ImgSrces: [
+        frg_ImgSrcSet: [
             {img_src: `/Images/pfp/pfp_0.jpg`,},
             {img_src: `/Images/pfp/pfp_1.jpg`,},
             {img_src: `/Images/pfp/pfp_2.jpg`,},
@@ -28,7 +28,7 @@ const frgImgInv =
     },
     {
         frg_sectname: `Uvid`,
-        frg_ImgSrces: [
+        frg_ImgSrcSet: [
             {img_src: `/Images/pfp/pfp_0.jpg`,},
             {img_src: `/Images/pfp/pfp_1.jpg`,},
             {img_src: `/Images/pfp/pfp_2.jpg`,},
@@ -45,7 +45,7 @@ const frgImgInv =
     },
     {
         frg_sectname: `Movies`,
-        frg_ImgSrces: [
+        frg_ImgSrcSet: [
             {img_src: `/Images/pfp/pfp_0.jpg`,},
             {img_src: `/Images/pfp/pfp_1.jpg`,},
             {img_src: `/Images/pfp/pfp_2.jpg`,},
@@ -62,7 +62,7 @@ const frgImgInv =
     },
     {
         frg_sectname: `Tv Shows`,
-        frg_ImgSrces: [
+        frg_ImgSrcSet: [
             {img_src: `/Images/pfp/pfp_0.jpg`,},
             {img_src: `/Images/pfp/pfp_1.jpg`,},
             {img_src: `/Images/pfp/pfp_2.jpg`,},

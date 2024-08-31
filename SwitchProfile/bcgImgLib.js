@@ -11,10 +11,9 @@ const bcgImgInv =
 [
     {
         bcg_sectname: `Uvid`,
-        bcg_ImgSrces: [
+        bcg_ImgSrcSet: [
             {img_src: `/Images/Uvid_bcg0.jpg`,},
             {img_src: `/Images/Uvid_green_bcg2.jpg`,},
-            {img_src: `/Images/Uvid_bcg1.jpg`,},
             {img_src: `/Images/Uvid_bcg1.jpg`,},
             {img_src: `/Images/Uvid_bcg2.jpg`,},
             {img_src: `/Images/Uvid_green_bcg1_light.jpg`,},
@@ -24,7 +23,7 @@ const bcgImgInv =
     },
     {
         bcg_sectname: `Movies`,
-        bcg_ImgSrces: [
+        bcg_ImgSrcSet: [
             {img_src: `/Images/Uvid_movies0.jpg`,},
             {img_src: `/Images/uvid_red_velvet0.png`,},
             {img_src: `/Images/Uvid_bcg1.jpg`,},
@@ -35,7 +34,7 @@ const bcgImgInv =
     },
     {
         bcg_sectname: `Tv Shows`,
-        bcg_ImgSrces: [
+        bcg_ImgSrcSet: [
             {img_src: `/Images/Uvid_TVShows.jpg`,},
             {img_src: `/Images/Uvid_Anime.jpg`,},
             {img_src: `/Images/Uvid_documentary.png`,},
@@ -46,7 +45,7 @@ const bcgImgInv =
     },
     {
         bcg_sectname: `Solid`,
-        bcg_ImgSrces: [
+        bcg_ImgSrcSet: [
             {img_src: `/Images/bcg/default.jpg`,},
             {img_src: `/Images/bcg/red.jpg`,},
             {img_src: `/Images/bcg/blue.jpg`,},
