@@ -744,6 +744,21 @@
 
                     selectFrgPicBdr = document.querySelector(".selectFrgPicBdr");
                     selectFrgPicCarouselCard = document.querySelectorAll(".selectFrgPicCarouselCard");
+
+                    // Updating the Profile (Frg) Pic
+                    selectFrgPicCarouselCard.forEach((card) => 
+                    {
+                        let img = card.querySelector(".selectFrgPicCarouselImg");
+                        let imgSrc = img.getAttribute("src");
+    
+                        card.addEventListener("click" , () => 
+                        {
+                            editProfileFrgImg.setAttribute(`src` , `${imgSrc}`);
+                            editProfOptTempFrg = imgSrc;
+                            closeSelectPicModals();
+                            justifyEditModalCtntPos();
+                        });
+                    });
                 }
                 loadFrgImgLib();
 
@@ -843,8 +858,48 @@
 
                     selectBcgPicBdr = document.querySelector(".selectBcgPicBdr");
                     selectBcgPicCarouselCard = document.querySelectorAll(".selectBcgPicCarouselCard");
+
+                    // Updating the Background (Bcg) Pic
+                    selectBcgPicCarouselCard.forEach((card) => 
+                    {
+                        let img = card.querySelector(".selectBcgPicCarouselImg");
+                        let imgSrc = img.getAttribute("src");
+    
+                        card.addEventListener("click" , () => 
+                        {
+                            editProfileBcgImg.setAttribute(`src` , `${imgSrc}`);
+                            editProfOptTempBcg = imgSrc;
+                            closeSelectPicModals();
+                            justifyEditModalCtntPos();
+                        });
+                    });
                 }
                 loadBcgImgLib();
+
+                // Closing the select Pic Modals
+                function closeSelectPicModals()
+                {
+
+                    openSelectFrgPicModal.forEach(currFrgModal => 
+                    {
+                        currFrgModal.classList.remove("inactive");
+                    });
+                    openSelectBcgPicModal.forEach(currBcgModal => 
+                    {
+                        currBcgModal.classList.remove("inactive");
+                    });
+                    selectFrgPicBdr.classList.remove("active");
+                    selectBcgPicBdr.classList.remove("active");
+                    editProfileDetBox.classList.remove("inactive");
+
+                    justifyEditModalCtntPos();
+                    selectPicSlider();
+                    // Calls the function again if window changes size
+                    window.removeEventListener("resize" , selectPicSlider);
+                    window.removeEventListener("change" , selectPicSlider);
+                    editProfileTitle.textContent = `Edit Profile`;
+                    changeEditProfAtnListener(`click` , closeSelectPicModals , saveCurrProfEdits , `Save`);
+                }
                 
 
                 // The slider for select pic modals
@@ -1046,61 +1101,6 @@
                         changeEditProfAtnListener(`click` , saveCurrProfEdits , closeSelectPicModals , `Back`);
                     });
                 });
-
-                // Updating the Profile (Frg) Pic
-                selectFrgPicCarouselCard.forEach((card) => 
-                {
-                    let img = card.querySelector(".selectFrgPicCarouselImg");
-                    let imgSrc = img.getAttribute("src");
-
-                    card.addEventListener("click" , () => 
-                    {
-                        editProfileFrgImg.setAttribute(`src` , `${imgSrc}`);
-                        editProfOptTempFrg = imgSrc;
-                        closeSelectPicModals();
-                        justifyEditModalCtntPos();
-                    });
-                });
-
-                // Updating the Background (Bcg) Pic
-                selectBcgPicCarouselCard.forEach((card) => 
-                {
-                    let img = card.querySelector(".selectBcgPicCarouselImg");
-                    let imgSrc = img.getAttribute("src");
-
-                    card.addEventListener("click" , () => 
-                    {
-                        editProfileBcgImg.setAttribute(`src` , `${imgSrc}`);
-                        editProfOptTempBcg = imgSrc;
-                        closeSelectPicModals();
-                        justifyEditModalCtntPos();
-                    });
-                });
-
-                // Closing the select Pic Modals
-                function closeSelectPicModals()
-                {
-
-                    openSelectFrgPicModal.forEach(currFrgModal => 
-                    {
-                        currFrgModal.classList.remove("inactive");
-                    });
-                    openSelectBcgPicModal.forEach(currBcgModal => 
-                    {
-                        currBcgModal.classList.remove("inactive");
-                    });
-                    selectFrgPicBdr.classList.remove("active");
-                    selectBcgPicBdr.classList.remove("active");
-                    editProfileDetBox.classList.remove("inactive");
-
-                    justifyEditModalCtntPos();
-                    selectPicSlider();
-                    // Calls the function again if window changes size
-                    window.removeEventListener("resize" , selectPicSlider);
-                    window.removeEventListener("change" , selectPicSlider);
-                    editProfileTitle.textContent = `Edit Profile`;
-                    changeEditProfAtnListener(`click` , closeSelectPicModals , saveCurrProfEdits , `Save`);
-                }
 
                 // Deleting a profile
                 deleteProfile.addEventListener("click" , () => 
