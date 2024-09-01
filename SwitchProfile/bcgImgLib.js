@@ -15,6 +15,7 @@ const bcgImgInv =
             {img_src: `/Images/Uvid_bcg0.jpg`,},
             {img_src: `/Images/Uvid_green_bcg2.jpg`,},
             {img_src: `/Images/Uvid_bcg1.jpg`,},
+            {img_src: `/Images/Uvid_bcg1.jpg`,},
             {img_src: `/Images/Uvid_bcg2.jpg`,},
             {img_src: `/Images/Uvid_green_bcg1_light.jpg`,},
             {img_src: `/Images/Uvid_bcg3.jpg`,},
