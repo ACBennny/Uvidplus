@@ -1787,7 +1787,7 @@ img
 {
     width: 100%;
     height: 100%;
-    background-color: #00000065;
+    background-color: #00000095;
     z-index: 2;
 }
 
@@ -2187,7 +2187,7 @@ img
     top: 0;
     left: 0;
     width: 100%;
-    height: var(--editProfileBcgImgHeight);
+    height: var(--editProfileBcgImgHeightPlus);
     display: none;
     transform: translateY(-100%);
     cursor: pointer;
