@@ -31,8 +31,15 @@
             show_scores: `8.6`,
             show_trailers: [{show_trl: `https://www.youtube.com/embed/4A_X-Dvl0ws`}],
             show_movies: [{show_mov: `JJK0`}],
-            show_episodes: [{show_ep: 24,}, {show_ep: 23,}],
-            show_watch: [{show_wtp: `tv`, show_wep: 24,}, {show_wtp: `movie`, show_wep: `JJK0`,}, {show_wtp: `tv`, show_wep: 23,},],
+            show_episodes: [
+                {show_ep: 24,}, 
+                {show_ep: 23,}
+            ],
+            show_watch: [
+                {show_wtp: `tv`, show_wep: 24,}, 
+                {show_wtp: `movie`, show_wep: `JJK0`,}, 
+                {show_wtp: `tv`, show_wep: 23,},
+            ],
             show_description: `Jujutsu Kaisen is a popular anime series that premiered in 2018. 
             It is based on the manga of the same name written and illustrated by Gege Akutami. 
             The story follows a high school student named Yuji Itadori who becomes a Jujutsu Sorcerer
@@ -90,7 +97,12 @@
             show_trailers: [{show_trl: `https://www.youtube.com/embed/LHtdKWJdif4?enablejsapi=1&wmode=opaque&autoplay=1`}],
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: 25, show_ep: 12, show_ep: 22, show_ep: 30,}],
-            show_watch: [{show_wtp: `tv`, show_wep: 25,}, {show_wtp: `tv`, show_wep: 12,}, {show_wtp: `tv`, show_wep: 22,}, {show_wtp: `tv`, show_wep: 30,},],
+            show_watch: [
+                {show_wtp: `tv`, show_wep: 25,}, 
+                {show_wtp: `tv`, show_wep: 12,}, 
+                {show_wtp: `tv`, show_wep: 22,}, 
+                {show_wtp: `tv`, show_wep: 30,},
+            ],
             show_description: `Centuries ago, mankind was slaughtered to near extinction by monstrous humanoid creatures called Titans, forcing humans to hide in fear behind enormous concentric walls. What makes these giants truly terrifying is that their taste for human flesh is not born out of hunger but what appears to be out of pleasure. To ensure their survival, the remnants of humanity began living within defensive barriers, resulting in one hundred years without a single titan encounter. However, that fragile calm is soon shattered when a colossal Titan manages to breach the supposedly impregnable outer wall, reigniting the fight for survival against the man-eating abominations.
             </br></br>
             After witnessing a horrific personal loss at the hands of the invading creatures, Eren Yeager dedicates his life to their eradication by enlisting into the Survey Corps, an elite military unit that combats the merciless humanoids outside the protection of the walls. Eren, his adopted sister Mikasa Ackerman, and his childhood friend Armin Arlert join the brutal war against the Titans and race to discover a way of defeating them before the last walls are breached.`,
@@ -116,9 +128,31 @@
             show_rating: `PG13`,
             show_scores: `8.3`,
             show_trailers: [{show_trl: `https://www.youtube.com/embed/1dy2zPPrKD0?enablejsapi=1&wmode=opaque&autoplay=1`}],
-            show_movies: [{show_mov: `Dai Katsugeki Yuki Hime Shinobu Houjou Dattebayo`, show_mov: `Dai Gekitotsu Maboroshi no Chiteiiseki Dattebayo`, show_mov: `Naruto Shippuuden Movie 1`, show_mov: `Naruto Shippuuden Movie 2`, show_mov: `Naruto Shippuuden Movie 3`, show_mov: `Naruto Shippuuden Movie 4`, show_mov: `Naruto Shippuuden Movie 5`, show_mov: `Naruto Shippuuden Movie 6`, }],
+            show_movies: [
+                {
+                    show_mov: `Dai Katsugeki Yuki Hime Shinobu Houjou Dattebayo`, 
+                    show_mov: `Dai Gekitotsu Maboroshi no Chiteiiseki Dattebayo`, 
+                    show_mov: `Naruto Shippuuden Movie 1`, 
+                    show_mov: `Naruto Shippuuden Movie 2`, 
+                    show_mov: `Naruto Shippuuden Movie 3`, 
+                    show_mov: `Naruto Shippuuden Movie 4`, 
+                    show_mov: `Naruto Shippuuden Movie 5`, 
+                    show_mov: `Naruto Shippuuden Movie 6`, 
+                }
+            ],
             show_episodes: [{show_ep: 220, show_ep: 500,}],
-            show_watch: [{show_wtp: `tv`, show_wep: 220,}, {show_wtp: `tv`, show_wep: 500,}, {show_wtp: `movie`, show_wep: `Dai Katsugeki Yuki Hime Shinobu Houjou Dattebayo`,}, {show_wtp: `movie`, show_wep: `Dai Gekitotsu Maboroshi no Chiteiiseki Dattebayo`,}, {show_wtp: `movie`, show_wep: `Naruto Shippuuden Movie 1`,}, {show_wtp: `movie`, show_wep: `Naruto Shippuuden Movie 2`,}, {show_wtp: `movie`, show_wep: `Naruto Shippuuden Movie 3`,}, {show_wtp: `movie`, show_wep: `Naruto Shippuuden Movie 4`,}, {show_wtp: `movie`, show_wep: `Naruto Shippuuden Movie 5`,}, {show_wtp: `movie`, show_wep: `Naruto Shippuuden Movie 6`,},],
+            show_watch: [
+                {show_wtp: `tv`, show_wep: 220,}, 
+                {show_wtp: `tv`, show_wep: 500,}, 
+                {show_wtp: `movie`, show_wep: `Dai Katsugeki Yuki Hime Shinobu Houjou Dattebayo`,}, 
+                {show_wtp: `movie`, show_wep: `Dai Gekitotsu Maboroshi no Chiteiiseki Dattebayo`,}, 
+                {show_wtp: `movie`, show_wep: `Naruto Shippuuden Movie 1`,}, 
+                {show_wtp: `movie`, show_wep: `Naruto Shippuuden Movie 2`,}, 
+                {show_wtp: `movie`, show_wep: `Naruto Shippuuden Movie 3`,}, 
+                {show_wtp: `movie`, show_wep: `Naruto Shippuuden Movie 4`,}, 
+                {show_wtp: `movie`, show_wep: `Naruto Shippuuden Movie 5`,}, 
+                {show_wtp: `movie`, show_wep: `Naruto Shippuuden Movie 6`,},
+            ],
             show_description: `Moments before Naruto Uzumaki's birth, a huge demon known as the Nine-Tailed Fox attacked Konohagakure, the Hidden Leaf Village, and wreaked havoc. In order to put an end to the demon's rampage, the leader of the village, the Fourth Hokage, sacrificed his life and sealed the monstrous beast inside the newborn Naruto...
             </br></br>
             It has been two and a half years since Naruto Uzumaki left Konohagakure, the Hidden Leaf Village, for intense training following events which fueled his desire to be stronger. Now Akatsuki, the mysterious organization of elite rogue ninja, is closing in on their grand plan which may threaten the safety of the entire shinobi world
@@ -235,8 +269,18 @@
             show_scores: `8.0`,
             show_trailers: [{show_trl: `https://www.youtube.com/embed/iYsx6w5PNno?enablejsapi=1&wmode=opaque&autoplay=1`}],
             show_movies: [{show_mov: `N/A`}],
-            show_episodes: [{show_ep: 12, show_ep: 13, show_ep: 13,}],
-            show_watch: [{show_wtp: `tv`, show_wep: 12,}, {show_wtp: `tv`, show_wep: 13,}, {show_wtp: `tv`, show_wep: 13,},],
+            show_episodes: [
+                {
+                    show_ep: 12, 
+                    show_ep: 13, 
+                    show_ep: 13,
+                }
+            ],
+            show_watch: [
+                {show_wtp: `tv`, show_wep: 12,}, 
+                {show_wtp: `tv`, show_wep: 13,}, 
+                {show_wtp: `tv`, show_wep: 13,},
+            ],
             show_description: `On the surface, Koudo Ikusei Senior High School is a utopia. The students enjoy an unparalleled amount of freedom, and it is ranked highly in Japan. However, the reality is less than ideal. Four classes, A through D, are ranked in order of merit, and only the top classes receive favorable treatment.
             </br></br>
             Kiyotaka Ayanokouji is a student of Class D, where the school dumps its worst. There he meets the unsociable Suzune Horikita, who believes she was placed in Class D by mistake and desires to climb all the way to Class A, and the seemingly amicable class idol Kikyou Kushida, whose aim is to make as many friends as possible.
@@ -263,14 +307,24 @@
             show_quality: `HD`,
             show_rating: `PG13`,
             show_scores: `7.5`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/ayLq7BKjQZU?enablejsapi=1&wmode=opaque&autoplay=1`},
+            show_trailers: [
+                {show_trl: `https://www.youtube.com/embed/ayLq7BKjQZU?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/b1Y0FcyKdJ8?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/IV6BY5w9b9o?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/eFtUkrxqRaM?enablejsapi=1&wmode=opaque&autoplay=1`},
             ],
             show_movies: [{show_mov: `Ao no Exorcist Movie`}],
-            show_episodes: [{show_ep: 25}, {show_ep: 12,}, {show_ep: 12,}],
-            show_watch: [{show_wtp: `tv`, show_wep: 25,}, {show_wtp: `movie`, show_wep: `Ao no Exorcist Movie`,}, {show_wtp: `tv`, show_wep: 12,}, {show_wtp: `tv`, show_wep: 12,},],
+            show_episodes: [
+                {show_ep: 25}, 
+                {show_ep: 12,}, 
+                {show_ep: 12,}
+            ],
+            show_watch: [
+                {show_wtp: `tv`, show_wep: 25,}, 
+                {show_wtp: `movie`, show_wep: `Ao no Exorcist Movie`,}, 
+                {show_wtp: `tv`, show_wep: 12,}, 
+                {show_wtp: `tv`, show_wep: 12,},
+            ],
             show_description: `Humans and demons are two sides of the same coin, as are Assiah and Gehenna, their respective worlds. The only way to travel between the realms is by the means of possession, like in ghost stories. However, Satan, the ruler of Gehenna, cannot find a suitable host to possess and therefore, remains imprisoned in his world. In a desperate attempt to conquer Assiah, he sends his son instead, intending for him to eventually grow into a vessel capable of possession by the demon king.
             </br></br>
             Ao no Exorcist follows Rin Okumura who appears to be an ordinary, somewhat troublesome teenager—that is until one day he is ambushed by demons. His world turns upside down when he discovers that he is in fact the very son of Satan and that his demon father wishes for him to return so they can conquer Assiah together. Not wanting to join the king of Gehenna, Rin decides to begin training to become an exorcist so that he can fight to defend Assiah alongside his brother Yukio.`,
@@ -301,8 +355,17 @@
                 {show_trl: `https://www.youtube.com/embed/EpUAso8ITVw?enablejsapi=1&wmode=opaque&autoplay=1`},
             ],
             show_movies: [{show_mov: `Code White`}],
-            show_episodes: [{show_ep: 25, show_ep: 12,}],
-            show_watch: [{show_wtp: `tv`, show_wep: 25,}, {show_wtp: `tv`, show_wep: 12,}, {show_wtp: `movie`, show_wep: `Code White`,},],
+            show_episodes: [
+                {
+                    show_ep: 25, 
+                    show_ep: 12,
+                }
+            ],
+            show_watch: [
+                {show_wtp: `tv`, show_wep: 25,}, 
+                {show_wtp: `tv`, show_wep: 12,}, 
+                {show_wtp: `movie`, show_wep: `Code White`,},
+            ],
             show_description: `Corrupt politicians, frenzied nationalists, and other warmongering forces constantly jeopardize the thin veneer of peace between neighboring countries Ostania and Westalis. In spite of their plots, renowned spy and master of disguise "Twilight" fulfills dangerous missions one after another in the hope that no child will have to experience the horrors of war.
             </br></br>
             In the bustling Ostanian city of Berlint, Twilight dons the alias of "Loid Forger," an esteemed psychiatrist. However, his true intention is to gather intelligence on prominent politician Donovan Desmond, who only appears rarely in public at his sons' school: the prestigious Eden Academy. Enlisting the help of unmarried city hall clerk Yor Briar to act as his wife and adopting the curious six-year-old orphan Anya as his daughter, Loid enacts his master plan. He will enroll Anya in Eden Academy, where Loid hopes she will excel and give him the opportunity to meet Donovan without arousing suspicion.
@@ -329,13 +392,22 @@
             show_quality: `HD`,
             show_rating: `PG13`,
             show_scores: `8.0`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/uIfxrlJg0Jw?enablejsapi=1&wmode=opaque&autoplay=1`},
+            show_trailers: [
+                {show_trl: `https://www.youtube.com/embed/uIfxrlJg0Jw?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/EwbHVNLPM4g?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/-jZWHwztqlk?enablejsapi=1&wmode=opaque&autoplay=1`},
             ],
             show_movies: [{show_mov: `N/A`}],
-            show_episodes: [{show_ep: 12,}, {show_ep: 12,}, {show_ep: 12,},],
-            show_watch: [{show_wtp: `tv`, show_wep: 12,}, {show_wtp: `tv`, show_wep: 12,}, {show_wtp: `tv`, show_wep: 12,},],
+            show_episodes: [
+                {show_ep: 12,}, 
+                {show_ep: 12,}, 
+                {show_ep: 12,},
+            ],
+            show_watch: [
+                {show_wtp: `tv`, show_wep: 12,}, 
+                {show_wtp: `tv`, show_wep: 12,}, 
+                {show_wtp: `tv`, show_wep: 12,},
+            ],
             show_description: `Kazuya Kinoshita is a 20-year-old college student who has a wonderful girlfriend: the bright and sunny Mami Nanami. But suddenly, he doesn't. Without warning, Mami breaks up with him, leaving him utterly heartbroken and lonely. Seeking to soothe the pain, he hires a rental girlfriend through an online app. His partner is Chizuru Mizuhara, who through her unparalleled beauty and cute demeanor, manages to gain Kazuya's affection.
             </br></br>
             But after reading similar experiences other customers had had with Chizuru, Kazuya believes her warm smile and caring personality were all just an act to toy with his heart, and he rates her poorly. Aggravated, Chizuru lambastes him for his shameless hypocrisy, revealing her true pert and hot-tempered self. This one-sided exchange is cut short, however, when Kazuya finds out that his grandmother has collapsed.
@@ -508,14 +580,24 @@
             show_quality: `HD`,
             show_rating: `PG13`,
             show_scores: `8.7`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/Ti2kJ-GYO68?enablejsapi=1&wmode=opaque&autoplay=1`},
+            show_trailers: [
+                {show_trl: `https://www.youtube.com/embed/Ti2kJ-GYO68?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/_NkxM_uLUpw?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/vFN5K-iAyV0?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/8Zy8-00-Pls?enablejsapi=1&wmode=opaque&autoplay=1`},
             ],
             show_movies: [{show_mov: `The First Kiss That Never Ends`}],
-            show_episodes: [{show_ep: 12,}, {show_ep: 12,}, {show_ep: 13,},],
-            show_watch: [{show_wtp: `tv`, show_wep: 12,}, {show_wtp: `tv`, show_wep: 12,}, {show_wtp: `tv`, show_wep: 13,}, {show_wtp: `movie`, show_wep: `The First Kiss That Never Ends`,},],
+            show_episodes: [
+                {show_ep: 12,}, 
+                {show_ep: 12,}, 
+                {show_ep: 13,},
+            ],
+            show_watch: [
+                {show_wtp: `tv`, show_wep: 12,}, 
+                {show_wtp: `tv`, show_wep: 12,}, 
+                {show_wtp: `tv`, show_wep: 13,}, 
+                {show_wtp: `movie`, show_wep: `The First Kiss That Never Ends`,},
+            ],
             show_description: `At the renowned Shuchiin Academy, Miyuki Shirogane and Kaguya Shinomiya are the student body's top representatives. Ranked the top student in the nation and respected by peers and mentors alike, Miyuki serves as the student council president. Alongside him, the vice president Kaguya—eldest daughter of the wealthy Shinomiya family—excels in every field imaginable. They are the envy of the entire student body, regarded as the perfect couple.
             </br></br>
             However, despite both having already developed feelings for the other, neither are willing to admit them. The first to confess loses, will be looked down upon, and will be considered the lesser. With their honor and pride at stake, Miyuki and Kaguya are both equally determined to be the one to emerge victorious on the battlefield of love!`,
@@ -769,7 +851,8 @@
             show_quality: `HD`,
             show_rating: `R17+`,
             show_scores: `8.8`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/f8JrZ7Q_p-8?enablejsapi=1&wmode=opaque&autoplay=1`},
+            show_trailers: [
+                {show_trl: `https://www.youtube.com/embed/f8JrZ7Q_p-8?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/jBetoIlnDIM?enablejsapi=1&wmode=opaque&autoplay=1`},
             ],
             show_movies: [{show_mov: `N/A`}],
@@ -830,15 +913,32 @@
             show_quality: `HD`,
             show_rating: `PG13`,
             show_scores: `7.8`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/D5fYOnwYkj4?enablejsapi=1&wmode=opaque&autoplay=1`}, 
+            show_trailers: [
+                {show_trl: `https://www.youtube.com/embed/D5fYOnwYkj4?enablejsapi=1&wmode=opaque&autoplay=1`}, 
                 {show_trl: `https://www.youtube.com/embed/HoIOW6no_Ew?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/wMCeFIPwrHE?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/5VQwDC5jqzQ?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/kkmW-tppFPM?enablejsapi=1&wmode=opaque&autoplay=1`},
             ],
-            show_movies: [{show_mov: `My Hero Academia the Movie 1`}, {show_mov: `My Hero Academia the Movie 2`},],
-            show_episodes: [{show_ep: 13,}, {show_ep: 25,}, {show_ep: 25,}, {show_ep: 25,}, {show_ep: 25,},],
-            show_watch: [{show_wtp: `tv`, show_wep: 13,}, {show_wtp: `tv`, show_wep: 25,}, {show_wtp: `tv`, show_wep: 25,}, {show_wtp: `movie`, show_wep: `My Hero Academia the Movie 1`,}, {show_wtp: `tv`, show_wep: 25,}, {show_wtp: `movie`, show_wep: `My Hero Academia the Movie 2`,}, {show_wtp: `tv`, show_wep: 25,},],
+            show_movies: [
+                {show_mov: `My Hero Academia the Movie 1`}, 
+                {show_mov: `My Hero Academia the Movie 2`},
+            ],
+            show_episodes: [
+                {show_ep: 13,}, 
+                {show_ep: 25,}, 
+                {show_ep: 25,}, 
+                {show_ep: 25,}, 
+                {show_ep: 25,},
+            ],
+            show_watch: [
+                {show_wtp: `tv`, show_wep: 13,}, 
+                {show_wtp: `tv`, show_wep: 25,}, 
+                {show_wtp: `tv`, show_wep: 25,}, 
+                {show_wtp: `movie`, show_wep: `My Hero Academia the Movie 1`,}, 
+                {show_wtp: `tv`, show_wep: 25,}, 
+                {show_wtp: `movie`, show_wep: `My Hero Academia the Movie 2`,}, 
+                {show_wtp: `tv`, show_wep: 25,},],
             show_description: `The appearance of "quirks," newly discovered super powers, has been steadily increasing over the years, with 80 percent of humanity possessing various abilities from manipulation of elements to shapeshifting. This leaves the remainder of the world completely powerless, and Izuku Midoriya is one such individual.
             </br></br>
             Since he was a child, the ambitious middle schooler has wanted nothing more than to be a hero. Izuku's unfair fate leaves him admiring heroes and taking notes on them whenever he can. But it seems that his persistence has borne some fruit: Izuku meets the number one hero and his personal idol, All Might. All Might's quirk is a unique ability that can be inherited, and he has chosen Izuku to be his successor!
@@ -868,7 +968,10 @@
             show_trailers: [{show_trl: `https://www.youtube.com/embed/gY5nDXOtv_o?enablejsapi=1&wmode=opaque&autoplay=1`}],
             show_movies: [{show_mov: `Tengoku no Tobira`}],
             show_episodes: [{show_ep: 26,}],
-            show_watch: [{show_wtp: `tv`, show_wep: 26,}, {show_wtp: `movie`, show_wep: `Tengoku no Tobira`,}, ],
+            show_watch: [
+                {show_wtp: `tv`, show_wep: 26,}, 
+                {show_wtp: `movie`, show_wep: `Tengoku no Tobira`,}, 
+            ],
             show_description: `Crime is timeless. By the year 2071, humanity has expanded across the galaxy, filling the surface of other planets with settlements like those on Earth. These new societies are plagued by murder, drug use, and theft, and intergalactic outlaws are hunted by a growing number of tough bounty hunters.
             </br></br>
             Spike Spiegel and Jet Black pursue criminals throughout space to make a humble living. Beneath his goofy and aloof demeanor, Spike is haunted by the weight of his violent past. Meanwhile, Jet manages his own troubled memories while taking care of Spike and the Bebop, their ship. The duo is joined by the beautiful con artist Faye Valentine, odd child Edward Wong Hau Pepelu Tivrusky IV, and Ein, a bioengineered Welsh Corgi.
@@ -944,9 +1047,24 @@
             show_movies: [{show_mov: `One Piece Movie 1`}, {show_mov: `One Piece Movie 2`}, {show_mov: `One Piece Movie 3`}, {show_mov: `One Piece Movie 4`}, {show_mov: `One Piece Movie 5`}, {show_mov: `One Piece Movie 6`}, {show_mov: `One Piece Movie 7`}, {show_mov: `One Piece Movie 8`},
                 {show_mov: `One Piece Movie 9`}, {show_mov: `One Piece Movie 10`}, {show_mov: `One Piece Movie 11`}, {show_mov: `One Piece Movie 12`}, {show_mov: `One Piece Movie 13`}, {show_mov: `One Piece Movie 14`}, {show_mov: `One Piece Movie 15`},
             ],
-            show_episodes: [{show_ep: 1115,}],
-            show_watch: [{show_wtp: `tv`, show_wep: 1115,}, {show_wtp: `movie`, show_wep: `One Piece Movie 1`,}, {show_wtp: `movie`, show_wep: `One Piece Movie 2`,}, {show_wtp: `movie`, show_wep: `One Piece Movie 3`,}, {show_wtp: `movie`, show_wep: `One Piece Movie 4`,}, {show_wtp: `movie`, show_wep: `One Piece Movie 5`,}, {show_wtp: `movie`, show_wep: `One Piece Movie 6`,}, {show_wtp: `movie`, show_wep: `One Piece Movie 7`,},
-                {show_wtp: `movie`, show_wep: `One Piece Movie 8`,}, {show_wtp: `movie`, show_wep: `One Piece Movie 9`,}, {show_wtp: `movie`, show_wep: `One Piece Movie 10`,}, {show_wtp: `movie`, show_wep: `One Piece Movie 11`,}, {show_wtp: `movie`, show_wep: `One Piece Movie 12`,}, {show_wtp: `movie`, show_wep: `One Piece Movie 13`,}, {show_wtp: `movie`, show_wep: `One Piece Movie 14`,}, {show_wtp: `movie`, show_wep: `One Piece Movie 15`,},
+            show_episodes: [{show_ep: 1116,}],
+            show_watch: [
+                {show_wtp: `tv`, show_wep: 1116,}, 
+                {show_wtp: `movie`, show_wep: `One Piece Movie 1`,}, 
+                {show_wtp: `movie`, show_wep: `One Piece Movie 2`,}, 
+                {show_wtp: `movie`, show_wep: `One Piece Movie 3`,}, 
+                {show_wtp: `movie`, show_wep: `One Piece Movie 4`,}, 
+                {show_wtp: `movie`, show_wep: `One Piece Movie 5`,}, 
+                {show_wtp: `movie`, show_wep: `One Piece Movie 6`,}, 
+                {show_wtp: `movie`, show_wep: `One Piece Movie 7`,},
+                {show_wtp: `movie`, show_wep: `One Piece Movie 8`,}, 
+                {show_wtp: `movie`, show_wep: `One Piece Movie 9`,}, 
+                {show_wtp: `movie`, show_wep: `One Piece Movie 10`,}, 
+                {show_wtp: `movie`, show_wep: `One Piece Movie 11`,}, 
+                {show_wtp: `movie`, show_wep: `One Piece Movie 12`,}, 
+                {show_wtp: `movie`, show_wep: `One Piece Movie 13`,}, 
+                {show_wtp: `movie`, show_wep: `One Piece Movie 14`,}, 
+                {show_wtp: `movie`, show_wep: `One Piece Movie 15`,},
             ],
             show_description: `Barely surviving in a barrel after passing through a terrible whirlpool at sea, carefree Monkey D. Luffy ends up aboard a ship under attack by fearsome pirates. Despite being a naive-looking teenager, he is not to be underestimated. Unmatched in battle, Luffy is a pirate himself who resolutely pursues the coveted One Piece treasure and the King of the Pirates title that comes with it.
             </br></br>
@@ -960,7 +1078,7 @@
             show_thumbnail: `/Library/Anime/img/31.jpg`,
             show_title: `One Punch man`,
             show_type: `TV`,
-            show_status: `N/A`,
+            show_status: `Finished Airing`,
             show_languages: `N/A`,
             show_subtitles: `N/A`,
             show_genre: `N/A`,
