@@ -49,9 +49,25 @@
         
         let showHTMLCtnt = thisHTMLData.map((item) => 
         {
-            const { show_foreground, show_background, show_title, show_scores, show_trailers, show_year, show_status, 
-                    show_aired, show_genre, show_theme, show_subtitles, show_studios, show_score, show_description, 
-                    show_languages, show_type, } = item;
+            const { 
+                show_foreground, 
+                show_background, 
+                show_title, 
+                show_type, 
+                show_rating, 
+                show_scores, 
+                show_trailers, 
+                show_year, 
+                show_status, 
+                show_aired, 
+                show_genre, 
+                show_theme, 
+                show_subtitles, 
+                show_studios, 
+                show_country, 
+                show_description, 
+                show_languages, 
+            } = item;
             return `
                 <div class="watch_base" id="top">
 
@@ -172,7 +188,7 @@
                                         <!-- About the Show -->
                                         <div class="sect-abt" id="abt">
                                             <div class="sect-head">
-                                                <div class="sect-headText"><span class="1">A</span>bout</div>
+                                                <div class="sect-headText"><span class="1">S</span>ynopsis</div>
                                             </div>
                                             <div class="sect-dv">
                                                 <div class="abt-stmt">
@@ -187,10 +203,14 @@
                                                 </div>
                                                 <div class="abt-card">
                                                     <p class="abt-cardText"><span class="abt-cardText-major">Languages</span><span class="abt-cardText-minor">${show_languages}</span></p>
+                                                    <p class="abt-cardText"><span class="abt-cardText-major">Subtitles</span><span class="abt-cardText-minor">${show_subtitles}</span></p>
                                                     <p class="abt-cardText"><span class="abt-cardText-major">Release Year</span><span class="abt-cardText-minor">${show_year}</span></p>
                                                     <p class="abt-cardText"><span class="abt-cardText-major">Status</span><span class="abt-cardText-minor">${show_status}</span></p>
+                                                    <p class="abt-cardText"><span class="abt-cardText-major">Aired</span><span class="abt-cardText-minor">${show_aired}</span></p>
                                                     <p class="abt-cardText"><span class="abt-cardText-major">Studios</span><span class="abt-cardText-minor">${show_studios}</span></p>
+                                                    <p class="abt-cardText"><span class="abt-cardText-major">Country</span><span class="abt-cardText-minor">${show_country}</span></p>
                                                     <p class="abt-cardText"><span class="abt-cardText-major">Genres</span><span class="abt-cardText-minor">${show_genre}</span></p>
+                                                    <p class="abt-cardText"><span class="abt-cardText-major">Theme</span><span class="abt-cardText-minor">${show_theme}</span></p>
                                                 </div>
                                             </div>
                                         </div>

@@ -9,6 +9,7 @@ html:root
 {
     --titleImgBdrWidth: 200px;
     --titleImgBdrHeight: 300px;
+    --abtCardTextMajorW: 100px;
     --seasons_BdrHeight: var(--switchProfHeaderHeight);
     --episodesBoxWidth: 150px;
 }
@@ -471,13 +472,14 @@ html:root
 .sect-dv
 {
     display: flex;
-    gap: 15px;
+    flex-direction: column;
+    gap: 25px;
     transition: 300ms;
 }
 
 .abt-stmt
 {
-    width: 60%;
+    width: 100%;
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -486,7 +488,7 @@ html:root
 
 .abt-stmt .abt-stmtText
 {
-    --lineNo: 5;
+    --lineNo: 4;
     --lineHeight: 1.4;
     position: relative;
     width: 100%;
@@ -567,7 +569,7 @@ html:root
 
 .abt-card
 {
-    width: 40%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -576,23 +578,28 @@ html:root
 
 .abt-cardText
 {
+    width: 100%;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     gap: 3px;
-    font-size: 12px;
     transition: 300ms;
 }
 
 .abt-cardText .abt-cardText-major
 {
-    color: var(--genGreenTypeLight);
+    width: var(--abtCardTextMajorW);
+    color: var(--genGreenTypeMid);
+    font-size: 13px;
+    font-weight: 500;
     transition: 300ms;
 }
 
 .abt-cardText .abt-cardText-minor
 {
+    width: calc((100% - var(--abtCardTextMajorW)));
     color: var(--genWhiteTypeLight);
+    font-size: 13px;
     transition: 300ms;
 }
 
@@ -1146,26 +1153,9 @@ html:root
         transform: translate(-50%, 100%);
     }
 
-    .abt-stmt
-    {
-        width: 65%;
-    }
-
     .abt-stmt .abt-stmtText
     {
         --lineNo: 5;
-    }
-
-    .abt-card
-    {
-        width: 35%;
-    }
-
-    .abt-cardText
-    {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
     }
 
     .show-home
@@ -1254,19 +1244,6 @@ html:root
     .abt-stmt-detBdr .abt-stmt-detBox
     {
         justify-content: center;
-    }
-
-    .abt-card
-    {
-        width: 100%;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .abt-cardText
-    {
-        width: 100%;
     }
 
     .episode_sortBox .episode_sortIcon
