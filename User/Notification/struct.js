@@ -25,7 +25,7 @@
                                     <div class="userHeaderTitleBox">
                                         <h1 class="userHeaderTitleText">
                                             <span class="userHeaderTitleText_intro">Hi,</span>
-                                            <span class="userHeaderTitleText_userName">uvidtestuser</span>
+                                            <span class="userHeaderTitleText_userName">acbennny</span>
                                         </h1>
                                     </div>
                                 </div>
