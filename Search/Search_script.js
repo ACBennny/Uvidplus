@@ -87,7 +87,7 @@
                     if((search_query.length > 0) && (search_query != undefined) && (search_query != null) && (search_query != " "))
                     {
                         return `
-                            <div class="slide_card_base ">
+                            <div class="slide_card_base max_sizing">
                                 <div class="slide_card_bdr ">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
