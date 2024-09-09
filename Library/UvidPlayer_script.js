@@ -600,7 +600,7 @@
             function toggleFullScreenMode()
             {
                 video_player.classList.toggle("fullscreen");
-                if(document.fullscreenElement) 
+                if(document.fullscreenElement)
                 {
                     fullScreenContractBtn.classList.add("hide");
                     fullScreenExpandBtn.classList.remove("hide");
@@ -611,6 +611,39 @@
                     });
                     return document.exitFullscreen();
                 }
+                else if(document.mozFullscreenElement)
+                {
+                    fullScreenContractBtn.classList.add("hide");
+                    fullScreenExpandBtn.classList.remove("hide");
+                    fullScreenBtnBox.forEach(box => 
+                    {
+                        box.title = "enter fullscreen";
+                        box.ariaLabel = "enter fullscreen";
+                    });
+                    return document.mozExitFullscreen();
+                }
+                else if(document.webkitFullscreenElement)
+                {
+                    fullScreenContractBtn.classList.add("hide");
+                    fullScreenExpandBtn.classList.remove("hide");
+                    fullScreenBtnBox.forEach(box => 
+                    {
+                        box.title = "enter fullscreen";
+                        box.ariaLabel = "enter fullscreen";
+                    });
+                    return document.webkitExitFullscreen();
+                }
+                else if(document.msFullscreenElement)
+                {
+                    fullScreenContractBtn.classList.add("hide");
+                    fullScreenExpandBtn.classList.remove("hide");
+                    fullScreenBtnBox.forEach(box => 
+                    {
+                        box.title = "enter fullscreen";
+                        box.ariaLabel = "enter fullscreen";
+                    });
+                    return document.msExitFullscreen();
+                }
                 fullScreenExpandBtn.classList.add("hide");
                 fullScreenContractBtn.classList.remove("hide");
                 fullScreenBtnBox.forEach(box => 
@@ -619,6 +652,9 @@
                     box.ariaLabel = "exit fullscreen";
                 });
                 video_player.requestFullscreen();
+                video_player.mozRequestFullscreen();
+                video_player.webkitRequestFullscreen();
+                video_player.msRequestFullscreen();
             }
 
             document.addEventListener("fullscreenchange", () => 
