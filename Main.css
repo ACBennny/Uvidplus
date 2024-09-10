@@ -2290,7 +2290,6 @@ img
 .basicCatalogBox
 {
     width: 100%;
-    /* width: fit-content; */
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(var(--basicCatalogCardWidth), 1fr));
     grid-template-rows: auto;
