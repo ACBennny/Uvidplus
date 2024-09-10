@@ -12,7 +12,7 @@ html:root
     --userHeaderNavLinkClr: var(--genWhiteTypeMid);
     --userHeaderNavLinkIconSizing: 16px;
     --userBodyTitleClr: var(--genWhiteTypeLight);
-    --emptyUserPageIconSize: 75px;
+    --emptyUserPageIconSize: 50px;
 }
 
 .userMainBdr
@@ -304,7 +304,7 @@ html:root
 
 .emptyUserPageNoteBox .emptyUserPageNoteText
 {
-    font-size: 16px;
+    font-size: 14px;
     color: var(--genWhiteTypeDark);
     text-align: center;
 }
