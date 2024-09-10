@@ -12,6 +12,7 @@ html:root
     --userHeaderNavLinkClr: var(--genWhiteTypeMid);
     --userHeaderNavLinkIconSizing: 16px;
     --userBodyTitleClr: var(--genWhiteTypeLight);
+    --emptyUserPageIconSize: 75px;
 }
 
 .userMainBdr
@@ -254,6 +255,60 @@ html:root
     font-size: 12px;
     border-radius: 10px;
 }
+
+
+
+/* ============= Empty USer Page (When ctnt cleared) ============= */
+
+.emptyUserPageBdr
+{
+    width: 100%;
+}
+
+.emptyUserPageBdr .emptyUserPageBox
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.emptyUserPageBox .emptyUserPageCtnt
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.emptyUserPageCtnt .emptyUserPageIconBox
+{
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.emptyUserPageIconBox .emptyUserPageIconSvg
+{
+    width: clamp(var(--emptyUserPageIconSize) , var(--emptyUserPageIconSize) , var(--emptyUserPageIconSize));
+    height: clamp(var(--emptyUserPageIconSize) , var(--emptyUserPageIconSize) , var(--emptyUserPageIconSize));
+    fill: var(--genWhiteTypeDark);
+}
+
+.emptyUserPageCtnt .emptyUserPageNoteBox
+{
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.emptyUserPageNoteBox .emptyUserPageNoteText
+{
+    font-size: 16px;
+    color: var(--genWhiteTypeDark);
+    text-align: center;
+}
+
 
 
 
