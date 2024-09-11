@@ -14,7 +14,7 @@ const profileInfoInv =
         prof_name: `acbennny`,
         prof_type: `normal`,
         prof_frgImg: `/Images/Uvid_profilebase.png`,
-        prof_bcgImg: `/Images/Uvid_green_bcg1_dark.jpg`,
+        prof_bcgImg: `/Images/Uvid_green_bcg1_light.jpg`,
     },
     {
         prof_name: `Alvare`,
