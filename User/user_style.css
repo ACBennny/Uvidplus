@@ -240,6 +240,7 @@ html:root
 .userClearAllBdr
 {
     width: 100%;
+    margin: 0 0 25px;
 }
 
 .userClearAllBdr .userClearAllBox
@@ -264,11 +265,13 @@ html:root
 .emptyUserPageBdr
 {
     width: 100%;
+    height: 50vh;
 }
 
 .emptyUserPageBdr .emptyUserPageBox
 {
     width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -308,6 +311,7 @@ html:root
     font-size: 14px;
     color: var(--genWhiteTypeDark);
     text-align: center;
+    margin-top: 10px;
 }
 
 
