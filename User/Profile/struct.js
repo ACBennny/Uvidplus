@@ -16,7 +16,7 @@
                     <div class="userHeaderBox">
                         <div class="userHeaderBcgBdr">
                             <div class="userHeaderBcgBox">
-                                <img src="/Images/Uvid_green_bcg1_dark.jpg" alt="" class="userHeaderBcgImg">
+                                <img src="/Images/Uvid_green_bcg1_light.jpg" alt="" class="userHeaderBcgImg">
                             </div>
                         </div>
                         <div class="userHeaderDetBdr">
@@ -67,7 +67,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="userBodyBdr">
+                <div class="userBodyBdr userProfBodyBdr">
                     <div class="userBodyBox">
                         <div class="userBodyTitleBdr">
                             <div class="userBodyTitleBox">
@@ -80,7 +80,102 @@
                             </div>
                         </div>
                         <div class="userBodyCtntBdr">
-                            <div class="userBodyCtntBox"></div>
+                            <div class="userBodyCtntBox">
+                                <div class="userProfInfoBdr">
+                                    <div class="userProfInfoBox">
+                                        <div class="userProfInfoSect userProfFrgSect">
+                                            <div class="userProfFrgBase">
+                                                <label for="toggleUserProfEditOptBdr" class="userProfFrgBdr">
+                                                    <div class="userProfFrgBox">
+                                                        <img class="userProfFrgImg" src="/Images/Uvid_profilebase.png">
+                                                    </div>
+                                                    <div class="editProfileBadgeBdr">
+                                                        <div class="editProfileBadgeBox">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="editProfileBadgeIcon">
+                                                                <path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"></path>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="userProfEditOptBdr">
+                                                        <div class="userProfEditOptBox">
+                                                            <div class="userProfEditOptTab openUserProfEditFrgModal">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="userProfEditOptIcon">
+                                                                    <path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"></path>
+                                                                </svg>
+                                                                <p class="userProfEditOptText">Change Avatar</p>
+                                                            </div>
+                                                            <div class="userProfEditOptTab openUserProfEditBcgModal">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="userProfEditOptIcon">
+                                                                    <path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"></path>
+                                                                </svg>
+                                                                <p class="userProfEditOptText">Change Background</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <input type="checkbox" id="toggleUserProfEditOptBdr">
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="userProfInfoSect userProfDetSect">
+                                            <div class="userProfDetBdr">
+                                                <div class="userProfDetBox">
+                                                    <div class="userProfDetTab">
+                                                        <div class="userProfDetMajorBox">
+                                                            <div class="userProfDetMajorText">Profile Name</div>
+                                                        </div>
+                                                        <input class="userProfDetMinorBox userProfDetMinorInputField" id="userProfNameField" value="acbennny" disabled="true"/>
+                                                    </div>
+                                                    <div class="userProfDetTab">
+                                                        <div class="userProfDetMajorBox">
+                                                            <div class="userProfDetMajorText">Username</div>
+                                                        </div>
+                                                        <div class="userProfDetMinorBox">
+                                                            <div class="userProfDetMinorText">uvidtestuser</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="userProfDetTab">
+                                                        <div class="userProfDetMajorBox">
+                                                            <div class="userProfDetMajorText">Email</div>
+                                                        </div>
+                                                        <div class="userProfDetMinorBox">
+                                                            <div class="userProfDetMinorText">example@gmail.com</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="userProfDetTab">
+                                                        <div class="userProfDetMajorBox">
+                                                            <div class="userProfDetMajorText">Joined</div>
+                                                        </div>
+                                                        <div class="userProfDetMinorBox">
+                                                            <div class="userProfDetMinorText userProfJoinText">N/A</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="userProfDetTab">
+                                                        <div class="userProfDetOthBdr">
+                                                            <a href="/User/Settings/Account.html" class="userProfDetOthBox">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="userProfDetOthIcon">
+                                                                    <path d="M336 352c97.2 0 176-78.8 176-176S433.2 0 336 0S160 78.8 160 176c0 18.7 2.9 36.8 8.3 53.7L7 391c-4.5 4.5-7 10.6-7 17l0 80c0 13.3 10.7 24 24 24l80 0c13.3 0 24-10.7 24-24l0-40 40 0c13.3 0 24-10.7 24-24l0-40 40 0c6.4 0 12.5-2.5 17-7l33.3-33.3c16.9 5.4 35 8.3 53.7 8.3zM376 96a40 40 0 1 1 0 80 40 40 0 1 1 0-80z"/>
+                                                                </svg>
+                                                                <div class="userProfDetOthText">Change email and password</div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="userProfDetOthBdr">
+                                                            <a href="/User/Settings/Preferences.html" class="userProfDetOthBox">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="userProfDetOthIcon">
+                                                                    <path d="M78.6 5C69.1-2.4 55.6-1.5 47 7L7 47c-8.5 8.5-9.4 22-2.1 31.6l80 104c4.5 5.9 11.6 9.4 19 9.4l54.1 0 109 109c-14.7 29-10 65.4 14.3 89.6l112 112c12.5 12.5 32.8 12.5 45.3 0l64-64c12.5-12.5 12.5-32.8 0-45.3l-112-112c-24.2-24.2-60.6-29-89.6-14.3l-109-109 0-54.1c0-7.5-3.5-14.5-9.4-19L78.6 5zM19.9 396.1C7.2 408.8 0 426.1 0 444.1C0 481.6 30.4 512 67.9 512c18 0 35.3-7.2 48-19.9L233.7 374.3c-7.8-20.9-9-43.6-3.6-65.1l-61.7-61.7L19.9 396.1zM512 144c0-10.5-1.1-20.7-3.2-30.5c-2.4-11.2-16.1-14.1-24.2-6l-63.9 63.9c-3 3-7.1 4.7-11.3 4.7L352 176c-8.8 0-16-7.2-16-16l0-57.4c0-4.2 1.7-8.3 4.7-11.3l63.9-63.9c8.1-8.1 5.2-21.8-6-24.2C388.7 1.1 378.5 0 368 0C288.5 0 224 64.5 224 144l0 .8 85.3 85.3c36-9.1 75.8 .5 104 28.7L429 274.5c49-23 83-72.8 83-130.5zM56 432a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/>
+                                                                </svg>
+                                                                <div class="userProfDetOthText">Manage preferences</div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <button class="userProfDetEditBtnBox darkSolidBtn">
+                                                        <div class="userProfDetEditBtnText">Edit Profile</div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
