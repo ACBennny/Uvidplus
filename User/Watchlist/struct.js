@@ -16,7 +16,7 @@
                     <div class="userHeaderBox">
                         <div class="userHeaderBcgBdr">
                             <div class="userHeaderBcgBox">
-                                <img src="/Images/Uvid_green_bcg1_dark.jpg" alt="" class="userHeaderBcgImg">
+                                <img src="/Images/Uvid_green_bcg1_light.jpg" alt="" class="userHeaderBcgImg">
                             </div>
                         </div>
                         <div class="userHeaderDetBdr">
