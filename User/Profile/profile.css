@@ -19,13 +19,19 @@ html:root
 }
 
 
-.userProfInfoBox
+.userProfInfoBdr
+{
+    width: 100%;
+    padding: 0 var(--genBorderSpacing);
+}
+
+.userProfInfoBdr .userProfInfoBox
 {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 30px;
-    padding: 30px;
+    padding: 30px 20px;
     background: linear-gradient(to bottom, #171717 , #151515 , #111111);
 }
 
@@ -190,7 +196,7 @@ html:root
     width: 225px;
     opacity: 0;
     visibility: hidden;
-    transform: translate(-50% , -50%) scale(0);
+    transform: translate(-50% , -50%) scale(0.00);
     transition: all 300ms ease-in-out;
 }
 
@@ -232,8 +238,8 @@ html:root
     padding: 10px;
 }
 
-.userProfEditOptTab:hover,
-.userProfDetOthBox:hover
+.userProfEditOptTab:active,
+.userProfDetOthBox:active
 {
     --userProfDetOthClrs: var(--genWhiteTypeMid);
 }
@@ -257,6 +263,72 @@ html:root
     color: var(--userProfDetOthClrs);
     margin-left: 10px;
     transition: all 300ms ease-in-out;
+}
+
+
+
+/* ---------- Mouse hover on pc -------- */
+@media(hover: hover)
+{
+
+    .userProfEditOptTab:hover,
+    .userProfDetOthBox:hover
+    {
+        --userProfDetOthClrs: var(--genWhiteTypeMid);
+    }
+}
+
+
+
+
+
+/* =================== RESPONSIVENESS =============== */
+
+
+@media only screen and (max-width: 485px)
+{
+    .userProfInfoBdr
+    {
+        padding: 0;
+    }
+
+    .userProfInfoBdr .userProfInfoBox
+    {
+        padding: 30px var(--genBorderSpacing);
+    }
+    
+    .userProfDetBox .userProfDetTab
+    {
+        margin-bottom: 20px;
+    }
+
+    .userProfDetTab .userProfDetMajorBox
+    {
+        margin-bottom: 10px;
+    }
+
+    .userProfFrgBdr .userProfEditOptBdr
+    {
+        transform: translate(-50% , -50%) scale(0.00);
+    }
+
+    .userProfEditOptBdr:has(+ #toggleUserProfEditOptBdr:checked)
+    {
+        transform: translate(-50% , 0%) scale(1.00);
+    }
+
+    .userProfEditOptTab .userProfEditOptIcon,
+    .userProfDetOthBox .userProfDetOthIcon
+    {
+        width: 14px;
+    }
+
+    .userProfEditOptTab .userProfEditOptText,
+    .userProfDetOthBox .userProfDetOthText
+    {
+        font-size: 13px;
+        margin-left: 7px;
+    }
 }
 
 
