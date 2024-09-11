@@ -2752,7 +2752,7 @@ img
     justify-content: center;
     align-items: center;
     padding: calc(var(--switchProfHeaderHeight) * 2) var(--switchProfHeaderHeight) var(--switchProfHeaderHeight);
-    background-color: #00000055;
+    background-color: #00000095;
     scrollbar-width: none;
     scrollbar-color: #00000000 #00000000;
     overflow: hidden;
@@ -3116,6 +3116,11 @@ img
     width: 100%;
     color: var(--genWhiteTypeMid);
     font-size: 14px;
+}
+
+.openSelectBcgPicModal
+{
+    cursor: pointer;
 }
 
 .deleteProfile
