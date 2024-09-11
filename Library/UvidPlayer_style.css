@@ -31,12 +31,13 @@ svg.hide
     align-items: center;
     aspect-ratio: 16 / 9;
     max-height: 900px;
+    max-height: 75vh;
 }
 
 .vid_bdr .vid_box
 {
     width: 100%;
-    max-width: var(--genMaxWidth);
+    max-width: var(--genMaxContainerWidth);
     height: 100%;
     display: flex;
     justify-content: center;
@@ -54,7 +55,8 @@ svg.hide
 {
     position: relative;
     width: 98%;
-    max-width: var(--genMaxWidth);
+    max-width: var(--genMaxContainerWidth);
+    height: 100%;
     border-radius: 5px;
     background: #000;
     aspect-ratio: 16 / 9;

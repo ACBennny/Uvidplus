@@ -8,7 +8,6 @@
 
 html:root
 {
-    --genMaxWidth: 1340px;
     --leftColWidth: calc(100% - var(--rightColWidth));
     --rightColWidth: 35%;
     --next_epImgBoxWidth: 150px;
@@ -37,7 +36,7 @@ html:root
 .section_Base .section_Bdr
 {
     width: 100%;
-    max-width: var(--genMaxWidth);
+    max-width: var(--genMaxContainerWidth);
 }
 
 .section_Bdr .section_Box
