@@ -284,9 +284,9 @@ html:root
 
 /* =================== RESPONSIVENESS =============== */
 
-
 @media only screen and (max-width: 485px)
 {
+
     .userProfInfoBdr
     {
         padding: 0;
