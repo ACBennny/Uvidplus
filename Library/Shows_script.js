@@ -94,7 +94,7 @@
                                     <!-- Quick Actions -->
                                     <div class="quick_atnBcg">
                                         <div class="quick_atnBdr">
-                                            <div class="quick_atnBox open_quickAtnModalBdr like_buttonsBox" title="View scores" aria-label="View scores">
+                                            <div class="quick_atnBox like_buttonsBox" title="show cores" aria-label="scores">
                                                 <div class="quick_atnCtnt">
                                                     <div class="topCtnt">
                                                         <div class="scoreBdr">
@@ -113,17 +113,17 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="quick_atnBox watchTrailer_box" src="N/A" title="Watch trailer">
+                                            <div class="quick_atnBox watchShowNowBtn" src="N/A" title="Watch trailer">
                                                 <div class="quick_atnCtnt">
                                                     <div class="topCtnt">
                                                         <div class="topIconBox">
                                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="topIcon">
-                                                                <path d="M0 96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM48 368v32c0 8.8 7.2 16 16 16H96c8.8 0 16-7.2 16-16V368c0-8.8-7.2-16-16-16H64c-8.8 0-16 7.2-16 16zm368-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V368c0-8.8-7.2-16-16-16H416zM48 240v32c0 8.8 7.2 16 16 16H96c8.8 0 16-7.2 16-16V240c0-8.8-7.2-16-16-16H64c-8.8 0-16 7.2-16 16zm368-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V240c0-8.8-7.2-16-16-16H416zM48 112v32c0 8.8 7.2 16 16 16H96c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H64c-8.8 0-16 7.2-16 16zM416 96c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H416zM160 128v64c0 17.7 14.3 32 32 32H320c17.7 0 32-14.3 32-32V128c0-17.7-14.3-32-32-32H192c-17.7 0-32 14.3-32 32zm32 160c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32H320c17.7 0 32-14.3 32-32V320c0-17.7-14.3-32-32-32H192z"/>
+                                                                <path d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9V344c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"/>                                                                
                                                             </svg>
                                                         </div>
                                                     </div>
                                                     <div class="btmCtnt">
-                                                        <p class="btmText">Trailer</p>
+                                                        <p class="btmText">Watch Now</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -142,8 +142,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="quickAtnModalBdr scoreActionBdr">
-                                            <div class="quickAtnModalBox scoreActionBox">
+                                        <div class="quickAtnModalBdr">
+                                            <div class="quickAtnModalBox">
                                                 <button class="quickAtnModal_btn score_btn like_buttons add_to_LikedShowsBox" title="I like this epsidoe" aria-label="I like this epsidoe">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="quickAtnModal_btnIcon score_btnIcon add_to_LikedShows">
                                                         <path d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75.2H464c26.5 0 48 21.5 48 48c0 18.5-10.5 34.6-25.9 42.6C497 275.4 504 288.9 504 304c0 23.4-16.8 42.9-38.9 47.1c4.4 7.3 6.9 15.8 6.9 24.9c0 21.3-13.9 39.4-33.1 45.6c.7 3.3 1.1 6.8 1.1 10.4c0 26.5-21.5 48-48 48H294.5c-19 0-37.5-5.6-53.3-16.1l-38.5-25.7C176 420.4 160 390.4 160 358.3V320 272 247.1c0-29.2 13.3-56.7 36-75l7.4-5.9c26.5-21.2 44.6-51 51.2-84.2l2.3-11.4c5.2-26 30.5-42.9 56.5-37.7zM32 192H96c17.7 0 32 14.3 32 32V448c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V224c0-17.7 14.3-32 32-32z"/>
@@ -156,16 +156,18 @@
                                                     </svg>
                                                     <p class="quickAtnModal_btnText score_btnText">I don't like this</p>
                                                 </button>
-                                            </div>
-                                        </div>
-                                        <div class="quickAtnModalBdr">
-                                            <div class="quickAtnModalBox">
-                                                <button class="quickAtnModal_btn watchShowNowBtn" title="Watch Now" aria-label="Watch Now">
+                                                <button class="quickAtnModal_btn watchTrailer_box" title="Watch Now" aria-label="Watch Now">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="quickAtnModal_btnIcon score_btnIcon add_to_LikedShows">
+                                                        <path d="M0 96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM48 368v32c0 8.8 7.2 16 16 16H96c8.8 0 16-7.2 16-16V368c0-8.8-7.2-16-16-16H64c-8.8 0-16 7.2-16 16zm368-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V368c0-8.8-7.2-16-16-16H416zM48 240v32c0 8.8 7.2 16 16 16H96c8.8 0 16-7.2 16-16V240c0-8.8-7.2-16-16-16H64c-8.8 0-16 7.2-16 16zm368-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V240c0-8.8-7.2-16-16-16H416zM48 112v32c0 8.8 7.2 16 16 16H96c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H64c-8.8 0-16 7.2-16 16zM416 96c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H416zM160 128v64c0 17.7 14.3 32 32 32H320c17.7 0 32-14.3 32-32V128c0-17.7-14.3-32-32-32H192c-17.7 0-32 14.3-32 32zm32 160c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32H320c17.7 0 32-14.3 32-32V320c0-17.7-14.3-32-32-32H192z"/>
+                                                    </svg>
+                                                    <p class="quickAtnModal_btnText">Watch Trailer</p>
+                                                </button>
+                                                <!-- <button class="quickAtnModal_btn watchShowNowBtn" title="Watch Now" aria-label="Watch Now">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="quickAtnModal_btnIcon score_btnIcon add_to_LikedShows">
                                                         <path d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9V344c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"/>
                                                     </svg>
                                                     <p class="quickAtnModal_btnText">Watch Now</p>
-                                                </button>
+                                                </button> -->
                                                 <button class="quickAtnModal_btn add_to_Playlist openAddToWLBtn" title="Add to Watchlist" aria-label="Add to Watchlist">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="quickAtnModal_btnIcon score_btnIcon add_to_LikedShows">
                                                         <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
@@ -323,8 +325,8 @@
             let bcgImgBdrHalf;
             let bcgImgBdr3Qarts;
             let bcgImgBdr3QartsH;
-            const openQuickAtnModalBdr = document.querySelectorAll(".open_quickAtnModalBdr");
-            const quickAtnModalBdr = document.querySelectorAll(".quickAtnModalBdr");
+            const openQuickAtnModalBdr = document.querySelector(".open_quickAtnModalBdr");
+            const quickAtnModalBdr = document.querySelector(".quickAtnModalBdr");
             const likeTheEp = document.querySelector(".add_to_LikedShowsBox");
             const dontLikeTheEp = document.querySelector(".add_to_DislikedShowsBox");
             const showHeaderName = document.querySelector("#show_Header_Name");
@@ -417,17 +419,22 @@
 
         // QUICK ACTIONS
 
-            // Open QuickActions Box
-            openQuickAtnModalBdr.forEach((btn, b) => 
+            // Open Quick Actions Box
+            openQuickAtnModalBdr.addEventListener("click" , () => 
             {
-                btn.addEventListener("click" , () => 
+                quickAtnModalBdr.classList.toggle("active");
+            });
+
+            // Closing the Quick Actions Box
+            document.addEventListener("click" , e => 
+            {
+                // Close the Scores Action Box
+                if(((openQuickAtnModalBdr.matches(":hover")) || (quickAtnModalBdr.matches(":hover")))
+                )
                 {
-                    quickAtnModalBdr.forEach(bdr => 
-                    {
-                        bdr.classList.remove("active");
-                    });
-                    quickAtnModalBdr[b].classList.add("active");
-                });
+                    return;
+                }
+                quickAtnModalBdr.classList.remove("active");
             });
 
 
@@ -502,20 +509,6 @@
             });
 
 
-        // CLOSING THE QUICK ACTION MODAL
-
-            document.addEventListener("click" , e => 
-            {
-                // Close the Scores Action Box
-                if(    ((openQuickAtnModalBdr[0].matches(":hover")) || (quickAtnModalBdr[0].matches(":hover")))
-                    || ((openQuickAtnModalBdr[1].matches(":hover")) || (quickAtnModalBdr[1].matches(":hover")))
-                )
-                {
-                    return;
-                }
-                quickAtnModalBdr[0].classList.remove("active");
-                quickAtnModalBdr[1].classList.remove("active");
-            });
 
 
         // Return if No Episodes Presessnt
