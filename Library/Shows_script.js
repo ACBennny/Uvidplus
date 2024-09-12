@@ -198,6 +198,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="abt-card">
+                                                    <p class="abt-cardText"><span class="abt-cardText-major">Type</span><span class="abt-cardText-minor">${show_type}</span></p>
+                                                    <p class="abt-cardText"><span class="abt-cardText-major">Rating</span><span class="abt-cardText-minor">${show_rating}</span></p>
                                                     <p class="abt-cardText"><span class="abt-cardText-major">Languages</span><span class="abt-cardText-minor">${show_languages}</span></p>
                                                     <p class="abt-cardText"><span class="abt-cardText-major">Subtitles</span><span class="abt-cardText-minor">${show_subtitles}</span></p>
                                                     <p class="abt-cardText"><span class="abt-cardText-major">Release Year</span><span class="abt-cardText-minor">${show_year}</span></p>
