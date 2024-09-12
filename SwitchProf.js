@@ -1065,6 +1065,7 @@
                 let loadFrgImgLibId = document.querySelector("#loadFrgImgLibId");
                 let loadBcgImgLibId = document.querySelector("#loadBcgImgLibId");
 
+                // Remove the image library scripts
                 loadFrgImgLibId.remove();
                 loadBcgImgLibId.remove();
                 
