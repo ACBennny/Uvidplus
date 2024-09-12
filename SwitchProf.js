@@ -141,7 +141,7 @@
                 const item = profileInfoInv[i];
                 const switchProfCardStruct = 
                 `
-                    <div class="switchProfOptBox profileOpt" data-profile-type="${item.prof_type}" data-background-image="${item.prof_bcgImg}">
+                    <div class="switchProfOptBox profileOpt" data-profile-index="${i}" data-profile-type="${item.prof_type}" data-background-image="${item.prof_bcgImg}">
                         <div class="switchProfOptImgBdr">
                             <div class="switchProfOptImgBox">
                                 <img src="${item.prof_frgImg}" alt="profile image" class="switchProfOptImg">
@@ -1059,6 +1059,8 @@
                 let profCurrBeignEdited = document.querySelector("#profile-is-curr-being-edited");
                 let profCurrName = profCurrBeignEdited.querySelector(".switchProfOptText");
                 let profCurrFrgImg = profCurrBeignEdited.querySelector(".switchProfOptImg");
+                let profCurrIndex = parseInt(profCurrBeignEdited.getAttribute("data-profile-index"));
+                let profLibCurrObj = profileInfoInv[profCurrIndex];
 
                 let loadFrgImgLibId = document.querySelector("#loadFrgImgLibId");
                 let loadBcgImgLibId = document.querySelector("#loadBcgImgLibId");
@@ -1069,24 +1071,40 @@
                 // Update the Profile Name
                 if(((editProfOptTempName != null) || (editProfOptTempName != undefined)))
                 {
+                    // Update profile name in the switchProf modal
                     profCurrName.textContent = `${editProfOptTempName}`;
+
+                    // Update profile name in the "profInfolib" library
+                    profLibCurrObj.prof_name = `${editProfOptTempName}`;
                 }
                 // Update the Foreground (Frg) pic
                 if(((editProfOptTempFrg != null) || (editProfOptTempFrg != undefined)))
                 {
+                    // Update profile frg in the switchProf modal
                     profCurrFrgImg.setAttribute(`src` , `${editProfOptTempFrg}`);
+
+                    // Update profile frg in the "profInfolib" library
+                    profLibCurrObj.prof_frgImg = `${editProfOptTempFrg}`;
                 }
                 // Update the Background (Bcg) pic
                 if(((editProfOptTempBcg != null) || (editProfOptTempBcg != undefined)))
                 {
+                    // Update the profile bcg in the switchProf modal
                     profCurrBeignEdited.setAttribute(`data-background-image` , `${editProfOptTempBcg}`);
+
+                    // Update the background pic of the switchProf modal
                     switchProfBcgImg.setAttribute(`src` , `${editProfOptTempBcg}`);
+
+                    // Update profile bcg in the "profInfolib" library
+                    profLibCurrObj.prof_bcgImg = `${editProfOptTempBcg}`;
                 }
                 // Clear the variables after updating
                 editProfOptTempName, editProfOptTempFrg, editProfOptTempBcg = null;
 
+                // Remove the id from the profile
                 profCurrBeignEdited.removeAttribute("id");
 
+                // Remove the editProf modal from DOm
                 switchProfBdr.removeChild(editProfFence);
                 editProfAtnBtnMob.classList.remove("active");
                 changeEditProfAtnListener(`click` , saveCurrProfEdits , switchToChangeProf , `Done`);
