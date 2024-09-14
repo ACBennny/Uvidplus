@@ -995,7 +995,7 @@
             show_country: `Japan`,
             show_foreground: `/Library/Anime/Watch/DeathNote/img/1.jpg`,
             show_background: `/Library/Anime/Watch/DeathNote/img/2.jpg`,
-            show_quality: `N/A`,
+            show_quality: `HD`,
             show_rating: `R17+`,
             show_scores: `8.6`,
             show_trailers: [{show_trl: `https://www.youtube.com/embed/Vt_3c8BgxV4?enablejsapi=1&wmode=opaque&autoplay=1`}],
