@@ -11,6 +11,38 @@
     let pathFilename = path.split('/').pop().split('.').shift();
     let pathFilenameLC = pathFilename.toLocaleLowerCase();
     let thisHTMLData;
+    let moreShowsToWatchStruct = 
+    `
+        <!-- More Shows -->
+        <div class="moreShows_slider_base">
+            <div class="basic_slider_bdr">
+                <div class="basic_slider_title_bdr">
+                    <div class="basic_slider_title_box">
+                        <h2>
+                            <span class="big">R</span>
+                            <span class="small">ecommended</span>
+                        </h2>
+                        <p>More shows to try out</p>
+                    </div>
+                </div>
+                <div class="basic_slider_ctnt">
+                    <div class="basic_slider_box">
+                        <div class="basic_slide_arrow left_slide_arrow hide">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="basic_slide_arrowIcon basic_icon_Left">
+                                <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/>
+                            </svg>
+                        </div>
+                        <div class="basic_slider_card_box"></div>
+                        <div class="basic_slide_arrow right_slide_arrow hide">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="basic_slide_arrowIcon basic_icon_Right">
+                                <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div>
+    `;
 
     window.addEventListener(`load` , () => 
     {
@@ -292,8 +324,89 @@
             }
         });
 
+        insertMoreShowsToWatch();
         setSeasonHeaderText();
         startShowSection();
+    }
+
+    function postInsertMoreShowsToWatch()
+    {
+        let moreShowsSliderBase = document.querySelector(".moreShows_slider_base");
+        let basicSliderScriptTag = document.createElement("script");
+        basicSliderScriptTag.setAttribute(`src` , `/basic_slider.js`);
+        document.body.appendChild(basicSliderScriptTag);
+
+        basicSliderScriptTag.addEventListener("load" , () => 
+        {
+            moreShowsSliderBase.classList.add("has_loaded");
+            basicSlider();
+        });
+
+        basicSliderScriptTag.addEventListener("error" , () => 
+        {
+            moreShowsSliderBase.remove();
+            notification(`notifyBad` , `Failed to load recommended shows`);
+        });
+    }
+
+    function insertMoreShowsToWatch()
+    {
+        let watchBase = document.querySelector(".watch_base");
+        watchBase.insertAdjacentHTML(`afterend` , moreShowsToWatchStruct);
+        
+        let moreShowsSliderCardBox = document.querySelector(".moreShows_slider_base .basic_slider_card_box");
+        for(let i = 0; i < 30; i++)
+        {
+            let item = searchInventory[i];
+            let struct = 
+            `
+                <div class="slide_card_base">
+                    <div class="slide_card_bdr">
+                        <div class="slide_card_box">
+                            <div class="slide_card">
+                                <a href="${item.show_link}" class="cardLinkCover"></a>
+                                <div class="cardImgBox">
+                                    <img src="${item.show_thumbnail}" alt="" class="cardImg">
+                                </div>
+                                <div class="cardQualityBox">
+                                    <h1 class="cardQualityText">${item.show_quality}</h1>
+                                </div>
+                                <div class="cardInfoBdr">
+                                    <div class="cardInfoBox">
+                                        <div class="cardInfo_tagBdr">
+                                            <div class="cardInfo_tagBox">
+                                                <p class="cardInfo_tagText">${item.show_type}</p>
+                                            </div>
+                                            <div class="cardInfo_tagBox">
+                                                <p class="cardInfo_tagText">${item.show_year}</p>
+                                            </div>
+                                        </div>
+                                        <div class="cardInfo_titleBox">
+                                            <h3 class="cardInfo_titleText">${item.show_title}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardAddToListBdr">
+                                    <div class="cardAddToListBox">
+                                        <div class="cardAddToListIconBox  openAddToWLBtn" title="Add to Watchlist">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon">
+                                                <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
+                                    <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="slide_card_bcg"></div>
+                    </div>
+                </div>
+            `;
+            moreShowsSliderCardBox.insertAdjacentHTML(`beforeend` , struct);
+        }
+        postInsertMoreShowsToWatch();
     }
 
     function setSeasonHeaderText()

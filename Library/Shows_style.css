@@ -1032,6 +1032,22 @@ html:root
 
 
 
+/* --------- More Shows ----------- */
+.moreShows_slider_base
+{
+    width: 100%;
+    display: none;
+    padding: 50px 0;
+    background-color: #171717;
+}
+
+.moreShows_slider_base.has_loaded
+{
+    display: block;
+}
+
+
+
 
 
 @media(hover: hover)
