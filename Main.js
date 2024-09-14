@@ -14,6 +14,7 @@
     const documentTitle = document.title;
     const preload = document.querySelector("#preloader");
     const developerLink = "https://acbennny.netlify.app";
+    const basicSliderScriptPath = "/basic_slider.js";
     const navBarHTML = 
     `
         <div class="navBox">
