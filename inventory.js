@@ -11,7 +11,7 @@
     [
         // Anime content
         {
-            show_link: `/Library/Anime/JujutsuKaisen.html`,
+            show_link: `/Library.html?info=JujutsuKaisen`,
             show_thumbnail: `/Library/Anime/img/1.jpg`,
             show_title: `Jujutsu Kaisen`,
             show_type: `TV`,
@@ -29,13 +29,21 @@
             show_quality: `HD`,
             show_rating: `R17+`,
             show_scores: `8.6`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/4A_X-Dvl0ws`}],
-            show_movies: [{show_mov: `JJK0`}],
-            show_episodes: [
-                {show_ep: 24,}, 
-                {show_ep: 23,}
+            show_trailers: 
+            [
+                {show_trl: `https://www.youtube.com/embed/4A_X-Dvl0ws`},
             ],
-            show_watch: [
+            show_movies: 
+            [
+                {show_mov: `JJK0`},
+            ],
+            show_episodes: 
+            [
+                {show_ep: 24,}, 
+                {show_ep: 23,},
+            ],
+            show_watch: 
+            [
                 {show_wtp: `tv`, show_wep: 24,}, 
                 {show_wtp: `movie`, show_wep: `JJK0`,}, 
                 {show_wtp: `tv`, show_wep: 23,},
@@ -48,7 +56,7 @@
             show_searchKey: `JJK Jujutsu Kaisen sorcery anime`,
         },
         {
-            show_link: `/Library/Anime/DemonSlayer.html`,
+            show_link: `/Library.html?info=DemonSlayer`,
             show_thumbnail: `/Library/Anime/img/2.jpg`,
             show_title: `Demon Slayer`,
             show_type: `TV`,
@@ -67,16 +75,37 @@
             show_rating: `R17+`,
             show_scores: `8.5`,
             show_trailers: [{show_trl: `N/A`}],
-            show_movies: [{show_mov: `Mugen Train`, show_mov: `To the Swordsmith village`, show_mov: `To the Hashira`, }],
-            show_episodes: [{show_ep: 26, show_ep: 18, show_ep: 11,}],
-            show_watch: [{show_wtp: `tv`, show_wep: 26,}, {show_wtp: `movie`, show_wep: `Mugen Train`,}, {show_wtp: `tv`, show_wep: 18,}, {show_wtp: `movie`, show_wep: `To the Swordsmith village`,}, {show_wtp: `tv`, show_wep: 11,}, {show_wtp: `movie`, show_wep: `To the Hashira`,},],
-            show_description: `Ever since the death of his father, the burden of supporting the family has fallen upon Tanjirou Kamado's shoulders. Though living impoverished on a remote mountain, the Kamado family are able to enjoy a relatively peaceful and happy life. One day, Tanjirou decides to go down to the local village to make a little money selling charcoal. On his way back, night falls, forcing Tanjirou to take shelter in the house of a strange man, who warns him of the existence of flesh-eating demons that lurk in the woods at night.
-            </br></br>
-            When he finally arrives back home the next day, he is met with a horrifying sight—his whole family has been slaughtered. Worse still, the sole survivor is his sister Nezuko, who has been turned into a bloodthirsty demon. Consumed by rage and hatred, Tanjirou swears to avenge his family and stay by his only remaining sibling. Alongside the mysterious group calling themselves the Demon Slayer Corps, Tanjirou will do whatever it takes to slay the demons and protect the remnants of his beloved sister's humanity`,
+            show_movies: 
+            [
+                {show_mov: `Mugen Train`,},
+                {show_mov: `To the Swordsmith village`,}, 
+                {show_mov: `To the Hashira`,},
+            ],
+            show_episodes: 
+            [
+                {show_ep: 26,}, 
+                {show_ep: 18,}, 
+                {show_ep: 11,},
+            ],
+            show_watch: 
+            [
+                {show_wtp: `tv`, show_wep: 26,}, 
+                {show_wtp: `movie`, show_wep: `Mugen Train`,}, 
+                {show_wtp: `tv`, show_wep: 18,}, 
+                {show_wtp: `movie`, show_wep: `To the Swordsmith village`,}, 
+                {show_wtp: `tv`, show_wep: 11,}, 
+                {show_wtp: `movie`, show_wep: `To the Hashira`,},
+            ],
+            show_description: 
+            `
+                Ever since the death of his father, the burden of supporting the family has fallen upon Tanjirou Kamado's shoulders. Though living impoverished on a remote mountain, the Kamado family are able to enjoy a relatively peaceful and happy life. One day, Tanjirou decides to go down to the local village to make a little money selling charcoal. On his way back, night falls, forcing Tanjirou to take shelter in the house of a strange man, who warns him of the existence of flesh-eating demons that lurk in the woods at night.
+                </br></br>
+                When he finally arrives back home the next day, he is met with a horrifying sight—his whole family has been slaughtered. Worse still, the sole survivor is his sister Nezuko, who has been turned into a bloodthirsty demon. Consumed by rage and hatred, Tanjirou swears to avenge his family and stay by his only remaining sibling. Alongside the mysterious group calling themselves the Demon Slayer Corps, Tanjirou will do whatever it takes to slay the demons and protect the remnants of his beloved sister's humanity
+            `,
             show_searchKey: `Demon Slayer Kimetsu No Yaiba anime`,
         },
         {
-            show_link: `/Library/Anime/AttackOnTitan.html`,
+            show_link: `/Library.html?info=AttackOnTitan`,
             show_thumbnail: `/Library/Anime/img/3.jpg`,
             show_title: `Attack On Titan`,
             show_type: `TV`,
@@ -94,22 +123,38 @@
             show_quality: `HD`,
             show_rating: `R17+`,
             show_scores: `8.6`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/LHtdKWJdif4?enablejsapi=1&wmode=opaque&autoplay=1`}],
-            show_movies: [{show_mov: `N/A`}],
-            show_episodes: [{show_ep: 25, show_ep: 12, show_ep: 22, show_ep: 30,}],
-            show_watch: [
+            show_trailers: 
+            [
+                {show_trl: `https://www.youtube.com/embed/LHtdKWJdif4?enablejsapi=1&wmode=opaque&autoplay=1`},
+            ],
+            show_movies: 
+            [
+                {show_mov: `N/A`},
+            ],
+            show_episodes: 
+            [
+                {show_ep: 25,},
+                {show_ep: 12,},
+                {show_ep: 22,},
+                {show_ep: 30,},
+            ],
+            show_watch: 
+            [
                 {show_wtp: `tv`, show_wep: 25,}, 
                 {show_wtp: `tv`, show_wep: 12,}, 
                 {show_wtp: `tv`, show_wep: 22,}, 
                 {show_wtp: `tv`, show_wep: 30,},
             ],
-            show_description: `Centuries ago, mankind was slaughtered to near extinction by monstrous humanoid creatures called Titans, forcing humans to hide in fear behind enormous concentric walls. What makes these giants truly terrifying is that their taste for human flesh is not born out of hunger but what appears to be out of pleasure. To ensure their survival, the remnants of humanity began living within defensive barriers, resulting in one hundred years without a single titan encounter. However, that fragile calm is soon shattered when a colossal Titan manages to breach the supposedly impregnable outer wall, reigniting the fight for survival against the man-eating abominations.
-            </br></br>
-            After witnessing a horrific personal loss at the hands of the invading creatures, Eren Yeager dedicates his life to their eradication by enlisting into the Survey Corps, an elite military unit that combats the merciless humanoids outside the protection of the walls. Eren, his adopted sister Mikasa Ackerman, and his childhood friend Armin Arlert join the brutal war against the Titans and race to discover a way of defeating them before the last walls are breached.`,
+            show_description: 
+            `
+                Centuries ago, mankind was slaughtered to near extinction by monstrous humanoid creatures called Titans, forcing humans to hide in fear behind enormous concentric walls. What makes these giants truly terrifying is that their taste for human flesh is not born out of hunger but what appears to be out of pleasure. To ensure their survival, the remnants of humanity began living within defensive barriers, resulting in one hundred years without a single titan encounter. However, that fragile calm is soon shattered when a colossal Titan manages to breach the supposedly impregnable outer wall, reigniting the fight for survival against the man-eating abominations.
+                </br></br>
+                After witnessing a horrific personal loss at the hands of the invading creatures, Eren Yeager dedicates his life to their eradication by enlisting into the Survey Corps, an elite military unit that combats the merciless humanoids outside the protection of the walls. Eren, his adopted sister Mikasa Ackerman, and his childhood friend Armin Arlert join the brutal war against the Titans and race to discover a way of defeating them before the last walls are breached.
+            `,
             show_searchKey: `AOT Shingeki no Kyojin Attack On Titan anime`,
         },
         {
-            show_link: `/Library/Anime/Naruto.html`,
+            show_link: `/Library.html?info=Naruto`,
             show_thumbnail: `/Library/Anime/img/4.jpg`,
             show_title: `Naruto`,
             show_type: `TV`,
@@ -127,21 +172,28 @@
             show_quality: `HD`,
             show_rating: `PG13`,
             show_scores: `8.3`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/1dy2zPPrKD0?enablejsapi=1&wmode=opaque&autoplay=1`}],
-            show_movies: [
-                {
-                    show_mov: `Dai Katsugeki Yuki Hime Shinobu Houjou Dattebayo`, 
-                    show_mov: `Dai Gekitotsu Maboroshi no Chiteiiseki Dattebayo`, 
-                    show_mov: `Naruto Shippuuden Movie 1`, 
-                    show_mov: `Naruto Shippuuden Movie 2`, 
-                    show_mov: `Naruto Shippuuden Movie 3`, 
-                    show_mov: `Naruto Shippuuden Movie 4`, 
-                    show_mov: `Naruto Shippuuden Movie 5`, 
-                    show_mov: `Naruto Shippuuden Movie 6`, 
-                }
+            show_trailers: 
+            [
+                {show_trl: `https://www.youtube.com/embed/1dy2zPPrKD0?enablejsapi=1&wmode=opaque&autoplay=1`},
             ],
-            show_episodes: [{show_ep: 220, show_ep: 500,}],
-            show_watch: [
+            show_movies: 
+            [
+                {show_mov: `Dai Katsugeki Yuki Hime Shinobu Houjou Dattebayo`,}, 
+                {show_mov: `Dai Gekitotsu Maboroshi no Chiteiiseki Dattebayo`,}, 
+                {show_mov: `Naruto Shippuuden Movie 1`,}, 
+                {show_mov: `Naruto Shippuuden Movie 2`,}, 
+                {show_mov: `Naruto Shippuuden Movie 3`,}, 
+                {show_mov: `Naruto Shippuuden Movie 4`,}, 
+                {show_mov: `Naruto Shippuuden Movie 5`,}, 
+                {show_mov: `Naruto Shippuuden Movie 6`,}, 
+            ],
+            show_episodes: 
+            [
+                {show_ep: 220,}, 
+                {show_ep: 500,},
+            ],
+            show_watch: 
+            [
                 {show_wtp: `tv`, show_wep: 220,}, 
                 {show_wtp: `tv`, show_wep: 500,}, 
                 {show_wtp: `movie`, show_wep: `Dai Katsugeki Yuki Hime Shinobu Houjou Dattebayo`,}, 
@@ -153,15 +205,18 @@
                 {show_wtp: `movie`, show_wep: `Naruto Shippuuden Movie 5`,}, 
                 {show_wtp: `movie`, show_wep: `Naruto Shippuuden Movie 6`,},
             ],
-            show_description: `Moments before Naruto Uzumaki's birth, a huge demon known as the Nine-Tailed Fox attacked Konohagakure, the Hidden Leaf Village, and wreaked havoc. In order to put an end to the demon's rampage, the leader of the village, the Fourth Hokage, sacrificed his life and sealed the monstrous beast inside the newborn Naruto...
-            </br></br>
-            It has been two and a half years since Naruto Uzumaki left Konohagakure, the Hidden Leaf Village, for intense training following events which fueled his desire to be stronger. Now Akatsuki, the mysterious organization of elite rogue ninja, is closing in on their grand plan which may threaten the safety of the entire shinobi world
-            </br></br>
-            Although Naruto is older and sinister events loom on the horizon, he has changed little in personality—still rambunctious and childish—though he is now far more confident and possesses an even greater determination to protect his friends and home. Come whatever may, Naruto will carry on with the fight for what is important to him, even at the expense of his own body, in the continuation of the saga about the boy who wishes to become Hokage..`,
+            show_description: 
+            `
+                Moments before Naruto Uzumaki's birth, a huge demon known as the Nine-Tailed Fox attacked Konohagakure, the Hidden Leaf Village, and wreaked havoc. In order to put an end to the demon's rampage, the leader of the village, the Fourth Hokage, sacrificed his life and sealed the monstrous beast inside the newborn Naruto...
+                </br></br>
+                It has been two and a half years since Naruto Uzumaki left Konohagakure, the Hidden Leaf Village, for intense training following events which fueled his desire to be stronger. Now Akatsuki, the mysterious organization of elite rogue ninja, is closing in on their grand plan which may threaten the safety of the entire shinobi world
+                </br></br>
+                Although Naruto is older and sinister events loom on the horizon, he has changed little in personality—still rambunctious and childish—though he is now far more confident and possesses an even greater determination to protect his friends and home. Come whatever may, Naruto will carry on with the fight for what is important to him, even at the expense of his own body, in the continuation of the saga about the boy who wishes to become Hokage..
+            `,
             show_searchKey: `Naruto anime`,
         },
         {
-            show_link: `/Library/Anime/FullmetalPanic.html`,
+            show_link: `/Library.html?info=FullmetalPanic`,
             show_thumbnail: `/Library/Anime/img/5.jpg`,
             show_title: `Fullmetal Panic`,
             show_type: `TV`,
@@ -179,19 +234,34 @@
             show_quality: `SD`,
             show_rating: `R17+`,
             show_scores: `7.6`,
-            show_trailers: [{show_trl: `N/A`}],
-            show_movies: [{show_mov: `N/A`}],
-            show_episodes: [{show_ep: 24,}],
-            show_watch: [{show_wtp: `tv`, show_wep: 24,},],
-            show_description: `Mithril, a covert military institution using state-of-the-art technology to combat terrorist operations, assigns a specialized team to a sensitive mission. Under the command of superior officer Melissa Mao, sergeants Sousuke Sagara and Kurz Weber must secretly protect Kaname Chidori—a teenage girl who unconsciously holds breakthrough scientific knowledge and is considered a "Whispered"—from intelligence agencies and other organizations pursuing her abilities.
-            </br></br>
-            While Kurz and Melissa are to assist him remotely, Sousuke enrolls at Kaname's high school as one of her classmates to closely monitor her. However, his militaristic upbringing and poor social skills lead to a difficult adjustment to civilian life. Not only does he attract unnecessary attention, but his actions frequently make Kaname suspicious of him.
-            </br></br>
-            Despite the earnest attempts to fulfill his duty, a terrorist ambush further complicates Sousuke's task. Recognizing the vicious mastermind behind the assault, Sousuke abandons his orders to ensure Kaname's safety`,
+            show_trailers: 
+            [
+                {show_trl: `N/A`},
+            ],
+            show_movies: 
+            [
+                {show_mov: `N/A`},
+            ],
+            show_episodes: 
+            [
+                {show_ep: 24,},
+            ],
+            show_watch: 
+            [
+                {show_wtp: `tv`, show_wep: 24,},
+            ],
+            show_description: 
+            `
+                Mithril, a covert military institution using state-of-the-art technology to combat terrorist operations, assigns a specialized team to a sensitive mission. Under the command of superior officer Melissa Mao, sergeants Sousuke Sagara and Kurz Weber must secretly protect Kaname Chidori—a teenage girl who unconsciously holds breakthrough scientific knowledge and is considered a "Whispered"—from intelligence agencies and other organizations pursuing her abilities.
+                </br></br>
+                While Kurz and Melissa are to assist him remotely, Sousuke enrolls at Kaname's high school as one of her classmates to closely monitor her. However, his militaristic upbringing and poor social skills lead to a difficult adjustment to civilian life. Not only does he attract unnecessary attention, but his actions frequently make Kaname suspicious of him.
+                </br></br>
+                Despite the earnest attempts to fulfill his duty, a terrorist ambush further complicates Sousuke's task. Recognizing the vicious mastermind behind the assault, Sousuke abandons his orders to ensure Kaname's safety
+            `,
             show_searchKey: `Furumetaru Panikku Fullmetal Panic anime`,
         },
         {
-            show_link: `/Library/Anime/FullmetalAlchemist.html`,
+            show_link: `/Library.html?info=FullmetalAlchemist`,
             show_thumbnail: `/Library/Anime/img/6.jpg`,
             show_title: `Fullmetal Alchemist`,
             show_type: `TV`,
@@ -211,15 +281,24 @@
             show_scores: `8.1`,
             show_trailers: [{show_trl: `N/A`}],
             show_movies: [{show_mov: `N/A`}],
-            show_episodes: [{show_ep: 51,}],
-            show_watch: [{show_wtp: `tv`, show_wep: 51,},],
-            show_description: `Edward Elric, a young, brilliant alchemist, has lost much in his twelve-year life: when he and his brother Alphonse try to resurrect their dead mother through the forbidden act of human transmutation, Edward loses his brother as well as two of his limbs. With his supreme alchemy skills, Edward binds Alphonse's soul to a large suit of armor.
-            </br></br>
-            A year later, Edward, now promoted to the fullmetal alchemist of the state, embarks on a journey with his younger brother to obtain the Philosopher's Stone. The fabled mythical object is rumored to be capable of amplifying an alchemist's abilities by leaps and bounds, thus allowing them to override the fundamental law of alchemy: to gain something, an alchemist must sacrifice something of equal value. Edward hopes to draw into the military's resources to find the fabled stone and restore his and Alphonse's bodies to normal. However, the Elric brothers soon discover that there is more to the legendary stone than meets the eye, as they are led to the epicenter of a far darker battle than they could have ever imagined`,
+            show_episodes: 
+            [
+                {show_ep: 51,},
+            ],
+            show_watch: 
+            [
+                {show_wtp: `tv`, show_wep: 51,},
+            ],
+            show_description: 
+            `
+                Edward Elric, a young, brilliant alchemist, has lost much in his twelve-year life: when he and his brother Alphonse try to resurrect their dead mother through the forbidden act of human transmutation, Edward loses his brother as well as two of his limbs. With his supreme alchemy skills, Edward binds Alphonse's soul to a large suit of armor.
+                </br></br>
+                A year later, Edward, now promoted to the fullmetal alchemist of the state, embarks on a journey with his younger brother to obtain the Philosopher's Stone. The fabled mythical object is rumored to be capable of amplifying an alchemist's abilities by leaps and bounds, thus allowing them to override the fundamental law of alchemy: to gain something, an alchemist must sacrifice something of equal value. Edward hopes to draw into the military's resources to find the fabled stone and restore his and Alphonse's bodies to normal. However, the Elric brothers soon discover that there is more to the legendary stone than meets the eye, as they are led to the epicenter of a far darker battle than they could have ever imagined
+            `,
             show_searchKey: `Hagane no Renkinjutsushi Fullmetal Alchemist anime`,
         },
         {
-            show_link: `/Library/Anime/FullmetalAlchemistBrotherhood.html`,
+            show_link: `/Library.html?info=FullmetalAlchemistBrotherhood`,
             show_thumbnail: `/Library/Anime/img/7.jpg`,
             show_title: `Fullmetal Alchemist Brotherhood`,
             show_type: `TV`,
@@ -237,19 +316,34 @@
             show_quality: `HD`,
             show_rating: `R17+`,
             show_scores: `9.1`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/--IcmZkvL0Q?enablejsapi=1&wmode=opaque&autoplay=1`}],
-            show_movies: [{show_mov: `N/A`}],
-            show_episodes: [{show_ep: 64,}],
-            show_watch: [{show_wtp: `tv`, show_wep: 64,},],
-            show_description: `After a horrific alchemy experiment goes wrong in the Elric household, brothers Edward and Alphonse are left in a catastrophic new reality. Ignoring the alchemical principle banning human transmutation, the boys attempted to bring their recently deceased mother back to life. Instead, they suffered brutal personal loss: Alphonse's body disintegrated while Edward lost a leg and then sacrificed an arm to keep Alphonse's soul in the physical realm by binding it to a hulking suit of armor.
-            </br></br>
-            The brothers are rescued by their neighbor Pinako Rockbell and her granddaughter Winry. Known as a bio-mechanical engineering prodigy, Winry creates prosthetic limbs for Edward by utilizing "automail," a tough, versatile metal used in robots and combat armor. After years of training, the Elric brothers set off on a quest to restore their bodies by locating the Philosopher's Stone—a powerful gem that allows an alchemist to defy the traditional laws of Equivalent Exchange.
-            </br></br>
-            As Edward becomes an infamous alchemist and gains the nickname "Fullmetal," the boys' journey embroils them in a growing conspiracy that threatens the fate of the world.`,
+            show_trailers: 
+            [
+                {show_trl: `https://www.youtube.com/embed/--IcmZkvL0Q?enablejsapi=1&wmode=opaque&autoplay=1`},
+            ],
+            show_movies: 
+            [
+                {show_mov: `N/A`}
+            ],
+            show_episodes: 
+            [
+                {show_ep: 64,}
+            ],
+            show_watch: 
+            [
+                {show_wtp: `tv`, show_wep: 64,},
+            ],
+            show_description: 
+            `
+                After a horrific alchemy experiment goes wrong in the Elric household, brothers Edward and Alphonse are left in a catastrophic new reality. Ignoring the alchemical principle banning human transmutation, the boys attempted to bring their recently deceased mother back to life. Instead, they suffered brutal personal loss: Alphonse's body disintegrated while Edward lost a leg and then sacrificed an arm to keep Alphonse's soul in the physical realm by binding it to a hulking suit of armor.
+                </br></br>
+                The brothers are rescued by their neighbor Pinako Rockbell and her granddaughter Winry. Known as a bio-mechanical engineering prodigy, Winry creates prosthetic limbs for Edward by utilizing "automail," a tough, versatile metal used in robots and combat armor. After years of training, the Elric brothers set off on a quest to restore their bodies by locating the Philosopher's Stone—a powerful gem that allows an alchemist to defy the traditional laws of Equivalent Exchange.
+                </br></br>
+                As Edward becomes an infamous alchemist and gains the nickname "Fullmetal," the boys' journey embroils them in a growing conspiracy that threatens the fate of the world.
+            `,
             show_searchKey: `Hagane no Renkinjutsushi Fullmetal Alchemist Brotherhood anime`,
         },
         {
-            show_link: `/Library/Anime/ClassroomoftheElite.html`,
+            show_link: `/Library.html?info=ClassroomoftheElite`,
             show_thumbnail: `/Library/Anime/img/8.jpg`,
             show_title: `Classroom of the Elite`,
             show_type: `TV`,
@@ -267,29 +361,35 @@
             show_quality: `HD`,
             show_rating: `PG13`,
             show_scores: `8.0`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/iYsx6w5PNno?enablejsapi=1&wmode=opaque&autoplay=1`}],
-            show_movies: [{show_mov: `N/A`}],
-            show_episodes: [
-                {
-                    show_ep: 12, 
-                    show_ep: 13, 
-                    show_ep: 13,
-                }
+            show_trailers: 
+            [
+                {show_trl: `https://www.youtube.com/embed/iYsx6w5PNno?enablejsapi=1&wmode=opaque&autoplay=1`},
             ],
-            show_watch: [
+            show_movies: [{show_mov: `N/A`}],
+            show_episodes: 
+            [
+                {show_ep: 12,},
+                {show_ep: 13,},
+                {show_ep: 13,},
+            ],
+            show_watch: 
+            [
                 {show_wtp: `tv`, show_wep: 12,}, 
                 {show_wtp: `tv`, show_wep: 13,}, 
                 {show_wtp: `tv`, show_wep: 13,},
             ],
-            show_description: `On the surface, Koudo Ikusei Senior High School is a utopia. The students enjoy an unparalleled amount of freedom, and it is ranked highly in Japan. However, the reality is less than ideal. Four classes, A through D, are ranked in order of merit, and only the top classes receive favorable treatment.
-            </br></br>
-            Kiyotaka Ayanokouji is a student of Class D, where the school dumps its worst. There he meets the unsociable Suzune Horikita, who believes she was placed in Class D by mistake and desires to climb all the way to Class A, and the seemingly amicable class idol Kikyou Kushida, whose aim is to make as many friends as possible.
-            </br></br>
-            While class membership is permanent, class rankings are not; students in lower ranked classes can rise in rankings if they score better than those in the top ones. Additionally, in Class D, there are no bars on what methods can be used to get ahead. In this cutthroat school, can they prevail against the odds and reach the top?`,
+            show_description: 
+            `
+                On the surface, Koudo Ikusei Senior High School is a utopia. The students enjoy an unparalleled amount of freedom, and it is ranked highly in Japan. However, the reality is less than ideal. Four classes, A through D, are ranked in order of merit, and only the top classes receive favorable treatment.
+                </br></br>
+                Kiyotaka Ayanokouji is a student of Class D, where the school dumps its worst. There he meets the unsociable Suzune Horikita, who believes she was placed in Class D by mistake and desires to climb all the way to Class A, and the seemingly amicable class idol Kikyou Kushida, whose aim is to make as many friends as possible.
+                </br></br>
+                While class membership is permanent, class rankings are not; students in lower ranked classes can rise in rankings if they score better than those in the top ones. Additionally, in Class D, there are no bars on what methods can be used to get ahead. In this cutthroat school, can they prevail against the odds and reach the top
+            `,
             show_searchKey: `Classroom of the Elite Yokoso Jitsuryoku Shijo Shugi no Kyoshitsu anime`,
         },
         {
-            show_link: `/Library/Anime/BlueExorcist.html`,
+            show_link: `/Library.html?info=BlueExorcist`,
             show_thumbnail: `/Library/Anime/img/9.jpg`,
             show_title: `Blue Exorcist`,
             show_type: `TV`,
@@ -307,31 +407,40 @@
             show_quality: `HD`,
             show_rating: `PG13`,
             show_scores: `7.5`,
-            show_trailers: [
+            show_trailers: 
+            [
                 {show_trl: `https://www.youtube.com/embed/ayLq7BKjQZU?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/b1Y0FcyKdJ8?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/IV6BY5w9b9o?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/eFtUkrxqRaM?enablejsapi=1&wmode=opaque&autoplay=1`},
             ],
-            show_movies: [{show_mov: `Ao no Exorcist Movie`}],
-            show_episodes: [
+            show_movies: 
+            [
+                {show_mov: `Ao no Exorcist Movie`},
+            ],
+            show_episodes: 
+            [
                 {show_ep: 25}, 
                 {show_ep: 12,}, 
                 {show_ep: 12,}
             ],
-            show_watch: [
+            show_watch: 
+            [
                 {show_wtp: `tv`, show_wep: 25,}, 
                 {show_wtp: `movie`, show_wep: `Ao no Exorcist Movie`,}, 
                 {show_wtp: `tv`, show_wep: 12,}, 
                 {show_wtp: `tv`, show_wep: 12,},
             ],
-            show_description: `Humans and demons are two sides of the same coin, as are Assiah and Gehenna, their respective worlds. The only way to travel between the realms is by the means of possession, like in ghost stories. However, Satan, the ruler of Gehenna, cannot find a suitable host to possess and therefore, remains imprisoned in his world. In a desperate attempt to conquer Assiah, he sends his son instead, intending for him to eventually grow into a vessel capable of possession by the demon king.
-            </br></br>
-            Ao no Exorcist follows Rin Okumura who appears to be an ordinary, somewhat troublesome teenager—that is until one day he is ambushed by demons. His world turns upside down when he discovers that he is in fact the very son of Satan and that his demon father wishes for him to return so they can conquer Assiah together. Not wanting to join the king of Gehenna, Rin decides to begin training to become an exorcist so that he can fight to defend Assiah alongside his brother Yukio.`,
+            show_description: 
+            `
+                Humans and demons are two sides of the same coin, as are Assiah and Gehenna, their respective worlds. The only way to travel between the realms is by the means of possession, like in ghost stories. However, Satan, the ruler of Gehenna, cannot find a suitable host to possess and therefore, remains imprisoned in his world. In a desperate attempt to conquer Assiah, he sends his son instead, intending for him to eventually grow into a vessel capable of possession by the demon king.
+                </br></br>
+                Ao no Exorcist follows Rin Okumura who appears to be an ordinary, somewhat troublesome teenager—that is until one day he is ambushed by demons. His world turns upside down when he discovers that he is in fact the very son of Satan and that his demon father wishes for him to return so they can conquer Assiah together. Not wanting to join the king of Gehenna, Rin decides to begin training to become an exorcist so that he can fight to defend Assiah alongside his brother Yukio.
+            `,
             show_searchKey: `Ao no Ekusoshisuto Gekijoban Blue Exorcist anime`,
         },
         {
-            show_link: `/Library/Anime/SpyXFamily.html`,
+            show_link: `/Library.html?info=SpyXFamily`,
             show_thumbnail: `/Library/Anime/img/10.jpg`,
             show_title: `SpyxFamily`,
             show_type: `TV`,
@@ -349,32 +458,40 @@
             show_quality: `HD`,
             show_rating: `PG13`,
             show_scores: `8.3`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/JP6vBnazpWI?enablejsapi=1&wmode=opaque&autoplay=1`},
+            show_trailers: 
+            [
+                {show_trl: `https://www.youtube.com/embed/JP6vBnazpWI?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/WFVY88Urzuc?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/75LyKY6AV4U?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/EpUAso8ITVw?enablejsapi=1&wmode=opaque&autoplay=1`},
             ],
-            show_movies: [{show_mov: `Code White`}],
-            show_episodes: [
-                {
-                    show_ep: 25, 
-                    show_ep: 12,
-                }
+            show_movies: 
+            [
+                {show_mov: `Code White`},
             ],
-            show_watch: [
+            show_episodes: 
+            [
+                {show_ep: 25,},
+                {show_ep: 12,},
+            ],
+            show_watch: 
+            [
                 {show_wtp: `tv`, show_wep: 25,}, 
                 {show_wtp: `tv`, show_wep: 12,}, 
                 {show_wtp: `movie`, show_wep: `Code White`,},
             ],
-            show_description: `Corrupt politicians, frenzied nationalists, and other warmongering forces constantly jeopardize the thin veneer of peace between neighboring countries Ostania and Westalis. In spite of their plots, renowned spy and master of disguise "Twilight" fulfills dangerous missions one after another in the hope that no child will have to experience the horrors of war.
-            </br></br>
-            In the bustling Ostanian city of Berlint, Twilight dons the alias of "Loid Forger," an esteemed psychiatrist. However, his true intention is to gather intelligence on prominent politician Donovan Desmond, who only appears rarely in public at his sons' school: the prestigious Eden Academy. Enlisting the help of unmarried city hall clerk Yor Briar to act as his wife and adopting the curious six-year-old orphan Anya as his daughter, Loid enacts his master plan. He will enroll Anya in Eden Academy, where Loid hopes she will excel and give him the opportunity to meet Donovan without arousing suspicion.
-            </br></br>
-            Unfortunately for Loid, even a man of his talents has trouble playing the figure of a loving father and husband. And just like Loid is hiding his true identity, Yor—who is an underground assassin known as "Thorn Princess"—and Anya—an esper who can read people's minds—have no plans to disclose their own secrets either. Although this picture-perfect family is founded on deception, the Forgers gradually come to understand that the love they share for one another trumps all else.`,
+            show_description: 
+            `
+                Corrupt politicians, frenzied nationalists, and other warmongering forces constantly jeopardize the thin veneer of peace between neighboring countries Ostania and Westalis. In spite of their plots, renowned spy and master of disguise "Twilight" fulfills dangerous missions one after another in the hope that no child will have to experience the horrors of war.
+                </br></br>
+                In the bustling Ostanian city of Berlint, Twilight dons the alias of "Loid Forger," an esteemed psychiatrist. However, his true intention is to gather intelligence on prominent politician Donovan Desmond, who only appears rarely in public at his sons' school: the prestigious Eden Academy. Enlisting the help of unmarried city hall clerk Yor Briar to act as his wife and adopting the curious six-year-old orphan Anya as his daughter, Loid enacts his master plan. He will enroll Anya in Eden Academy, where Loid hopes she will excel and give him the opportunity to meet Donovan without arousing suspicion.
+                </br></br>
+                Unfortunately for Loid, even a man of his talents has trouble playing the figure of a loving father and husband. And just like Loid is hiding his true identity, Yor—who is an underground assassin known as "Thorn Princess"—and Anya—an esper who can read people's minds—have no plans to disclose their own secrets either. Although this picture-perfect family is founded on deception, the Forgers gradually come to understand that the love they share for one another trumps all else.
+            `,
             show_searchKey: `SpyxFamily Spy X Family anime`,
         },
         {
-            show_link: `/Library/Anime/RentAGirlfriend.html`,
+            show_link: `/Library.html?info=RentAGirlfriend`,
             show_thumbnail: `/Library/Anime/img/11.jpg`,
             show_title: `Rent a Girlfriend`,
             show_type: `TV`,
@@ -392,31 +509,37 @@
             show_quality: `HD`,
             show_rating: `PG13`,
             show_scores: `8.0`,
-            show_trailers: [
+            show_trailers: 
+            [
                 {show_trl: `https://www.youtube.com/embed/uIfxrlJg0Jw?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/EwbHVNLPM4g?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/-jZWHwztqlk?enablejsapi=1&wmode=opaque&autoplay=1`},
             ],
             show_movies: [{show_mov: `N/A`}],
-            show_episodes: [
+            show_episodes: 
+            [
                 {show_ep: 12,}, 
                 {show_ep: 12,}, 
                 {show_ep: 12,},
             ],
-            show_watch: [
+            show_watch: 
+            [
                 {show_wtp: `tv`, show_wep: 12,}, 
                 {show_wtp: `tv`, show_wep: 12,}, 
                 {show_wtp: `tv`, show_wep: 12,},
             ],
-            show_description: `Kazuya Kinoshita is a 20-year-old college student who has a wonderful girlfriend: the bright and sunny Mami Nanami. But suddenly, he doesn't. Without warning, Mami breaks up with him, leaving him utterly heartbroken and lonely. Seeking to soothe the pain, he hires a rental girlfriend through an online app. His partner is Chizuru Mizuhara, who through her unparalleled beauty and cute demeanor, manages to gain Kazuya's affection.
-            </br></br>
-            But after reading similar experiences other customers had had with Chizuru, Kazuya believes her warm smile and caring personality were all just an act to toy with his heart, and he rates her poorly. Aggravated, Chizuru lambastes him for his shameless hypocrisy, revealing her true pert and hot-tempered self. This one-sided exchange is cut short, however, when Kazuya finds out that his grandmother has collapsed.
-            </br></br>
-            They dash toward the hospital and find Kazuya's grandmother already in good condition. Baffled by Chizuru's presence, she asks who this girl might be. On impulse, Kazuya promptly declares that they are lovers, forcing Chizuru to play the part. But with Kazuya still hung up on his previous relationship with Mami, how long can this difficult client and reluctant rental girlfriend keep up their act?`,
+            show_description: 
+            `
+                Kazuya Kinoshita is a 20-year-old college student who has a wonderful girlfriend: the bright and sunny Mami Nanami. But suddenly, he doesn't. Without warning, Mami breaks up with him, leaving him utterly heartbroken and lonely. Seeking to soothe the pain, he hires a rental girlfriend through an online app. His partner is Chizuru Mizuhara, who through her unparalleled beauty and cute demeanor, manages to gain Kazuya's affection.
+                </br></br>
+                But after reading similar experiences other customers had had with Chizuru, Kazuya believes her warm smile and caring personality were all just an act to toy with his heart, and he rates her poorly. Aggravated, Chizuru lambastes him for his shameless hypocrisy, revealing her true pert and hot-tempered self. This one-sided exchange is cut short, however, when Kazuya finds out that his grandmother has collapsed.
+                </br></br>
+                They dash toward the hospital and find Kazuya's grandmother already in good condition. Baffled by Chizuru's presence, she asks who this girl might be. On impulse, Kazuya promptly declares that they are lovers, forcing Chizuru to play the part. But with Kazuya still hung up on his previous relationship with Mami, how long can this difficult client and reluctant rental girlfriend keep up their act?
+            `,
             show_searchKey: `Rent a Girlfriend Kanojo Okarishimasu anime`,
         },
         {
-            show_link: `/Library/Anime/TokyoGhoul.html`,
+            show_link: `/Library.html?info=TokyoGhoul`,
             show_thumbnail: `/Library/Anime/img/12.jpg`,
             show_title: `Tokyo Ghoul`,
             show_type: `TV`,
@@ -434,19 +557,34 @@
             show_quality: `HD`,
             show_rating: `R17+`,
             show_scores: `7.8`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/vGuQeQsoRgU?enablejsapi=1&wmode=opaque&autoplay=1`}],
-            show_movies: [{show_mov: `N/A`}],
-            show_episodes: [{show_ep: 12,}],
-            show_watch: [{show_wtp: `tv`, show_wep: 12,},],
-            show_description: `A sinister threat is invading Tokyo: flesh-eating "ghouls" who appear identical to humans and blend into their population. Reserved college student Ken Kaneki buries his nose in books and avoids the news of the growing crisis. However, the appearance of an attractive woman named Rize Kamishiro shatters his solitude when she forwardly asks him on a date.
-            </br></br>
-            While walking Rize home, Kaneki discovers she isn't as kind as she first appeared, and she has led him on with sinister intent. After a tragic struggle, he later awakens in a hospital to learn his life was saved by transplanting the now deceased Rize's organs into his own body.
-            </br></br>
-            Kaneki's body begins to change in horrifying ways, and he transforms into a human-ghoul hybrid. As he embarks on his new dreadful journey, Kaneki clings to his humanity in the evolving bloody conflict between society's new monsters and the government agents who hunt them.`,
+            show_trailers: 
+            [
+                {show_trl: `https://www.youtube.com/embed/vGuQeQsoRgU?enablejsapi=1&wmode=opaque&autoplay=1`},
+            ],
+            show_movies: 
+            [
+                {show_mov: `N/A`},
+            ],
+            show_episodes: 
+            [
+                {show_ep: 12,},
+            ],
+            show_watch: 
+            [
+                {show_wtp: `tv`, show_wep: 12,},
+            ],
+            show_description: 
+            `
+                A sinister threat is invading Tokyo: flesh-eating "ghouls" who appear identical to humans and blend into their population. Reserved college student Ken Kaneki buries his nose in books and avoids the news of the growing crisis. However, the appearance of an attractive woman named Rize Kamishiro shatters his solitude when she forwardly asks him on a date.
+                </br></br>
+                While walking Rize home, Kaneki discovers she isn't as kind as she first appeared, and she has led him on with sinister intent. After a tragic struggle, he later awakens in a hospital to learn his life was saved by transplanting the now deceased Rize's organs into his own body.
+                </br></br>
+                Kaneki's body begins to change in horrifying ways, and he transforms into a human-ghoul hybrid. As he embarks on his new dreadful journey, Kaneki clings to his humanity in the evolving bloody conflict between society's new monsters and the government agents who hunt them.
+            `,
             show_searchKey: `Tokyo Ghoul Tokyo Guru anime`,
         },
         {
-            show_link: `/Library/Anime/InazumaEleven.html`,
+            show_link: `/Library.html?info=InazumaEleven`,
             show_thumbnail: `/Library/Anime/img/13.jpg`,
             show_title: `Inazuma Eleven`,
             show_type: `TV`,
@@ -464,17 +602,32 @@
             show_quality: `HD`,
             show_rating: `PG13`,
             show_scores: `7.7`,
-            show_trailers: [{show_trl: `N/A`}],
-            show_movies: [{show_mov: `N/A`}],
-            show_episodes: [{show_ep: 127,}],
-            show_watch: [{show_wtp: `tv`, show_wep: 127,},],
-            show_description: `While other schools in Japan compete for the title of being the best soccer team in the country, Raimon Middle School's soccer club, Inazuma Eleven, struggles to rise from the verge of being disbanded. The grandson of Inazuma Eleven's first generation goalkeeper and captain of the team, Mamoru Endou, takes the challenge of kicking the long neglected club back into shape. To do this, he'll need a little help and more than a little luck.
-            </br></br>
-            Mamoru Endou finds hope in the hands of Shuuya Gouenji, a brilliant young player who has given up on soccer. Mamoru is determined to get Shuuya and other new recruits to join his team, no matter what the cost. Is his passion and determination enough to treat the ailing club? Or is there no more hope for the team?`,
+            show_trailers: 
+            [
+                {show_trl: `N/A`},
+            ],
+            show_movies: 
+            [
+                {show_mov: `N/A`},
+            ],
+            show_episodes: 
+            [
+                {show_ep: 127,},
+            ],
+            show_watch: 
+            [
+                {show_wtp: `tv`, show_wep: 127,},
+            ],
+            show_description: 
+            `
+                While other schools in Japan compete for the title of being the best soccer team in the country, Raimon Middle School's soccer club, Inazuma Eleven, struggles to rise from the verge of being disbanded. The grandson of Inazuma Eleven's first generation goalkeeper and captain of the team, Mamoru Endou, takes the challenge of kicking the long neglected club back into shape. To do this, he'll need a little help and more than a little luck.
+                </br></br>
+                Mamoru Endou finds hope in the hands of Shuuya Gouenji, a brilliant young player who has given up on soccer. Mamoru is determined to get Shuuya and other new recruits to join his team, no matter what the cost. Is his passion and determination enough to treat the ailing club? Or is there no more hope for the team?
+            `,
             show_searchKey: `Inazuma Eleven Inazuma Irebun anime`,
         },
         {
-            show_link: `/Library/Anime/Aoashi.html`,
+            show_link: `/Library.html?info=Aoashi`,
             show_thumbnail: `/Library/Anime/img/14.jpg`,
             show_title: `Aoashi`,
             show_type: `TV`,
@@ -492,17 +645,32 @@
             show_quality: `HD`,
             show_rating: `PG13`,
             show_scores: `8.2`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/PQbCVl_CDzI?enablejsapi=1&wmode=opaque&autoplay=1`}],
-            show_movies: [{show_mov: `N/A`}],
-            show_episodes: [{show_ep: 24,}],
-            show_watch: [{show_wtp: `tv`, show_wep: 24,},],
-            show_description: `In a quiet rural town, the spotlight of a local junior high school football team rests on one player: Ashito Aoi. Known for his unpredictable moves and self-centered playing style, Ashito is the sole powerhouse pushing his team through an important high school preliminary tournament. However, their win streak is short-lived—an opponent causes Ashito to lose his temper and act violently, resulting in his removal from the rest of the game.
-            </br></br>
-            Without their star player, the team is quickly eliminated from the tournament. Just as he believes all hope is lost, Ashito is approached by a youth team coach named Tatsuya Fukuda who senses potential in him, and Fukuda invites him for tryouts in Tokyo. In an unfamiliar setting surrounded by talent, Ashito must bring out the best of his ability to prove himself and secure what could be a life-changing career.`,
+            show_trailers: 
+            [
+                {show_trl: `https://www.youtube.com/embed/PQbCVl_CDzI?enablejsapi=1&wmode=opaque&autoplay=1`},
+            ],
+            show_movies: 
+            [
+                {show_mov: `N/A`},
+            ],
+            show_episodes: 
+            [
+                {show_ep: 24,},
+            ],
+            show_watch: 
+            [
+                {show_wtp: `tv`, show_wep: 24,},
+            ],
+            show_description: 
+            `
+                In a quiet rural town, the spotlight of a local junior high school football team rests on one player: Ashito Aoi. Known for his unpredictable moves and self-centered playing style, Ashito is the sole powerhouse pushing his team through an important high school preliminary tournament. However, their win streak is short-lived—an opponent causes Ashito to lose his temper and act violently, resulting in his removal from the rest of the game.
+                </br></br>
+                Without their star player, the team is quickly eliminated from the tournament. Just as he believes all hope is lost, Ashito is approached by a youth team coach named Tatsuya Fukuda who senses potential in him, and Fukuda invites him for tryouts in Tokyo. In an unfamiliar setting surrounded by talent, Ashito must bring out the best of his ability to prove himself and secure what could be a life-changing career.
+            `,
             show_searchKey: `Aoashi anime`,
         },
         {
-            show_link: `/Library/Anime/CyberpunkEdgerunners.html`,
+            show_link: `/Library.html?info=CyberpunkEdgerunners`,
             show_thumbnail: `/Library/Anime/img/15.jpg`,
             show_title: `Cyberpunk Edgerunners`,
             show_type: `TV`,
@@ -520,19 +688,34 @@
             show_quality: `HD`,
             show_rating: `R+`,
             show_scores: `8.6`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/JtqIas3bYhg?enablejsapi=1&wmode=opaque&autoplay=1`}],
-            show_movies: [{show_mov: `N/A`}],
-            show_episodes: [{show_ep: 10,}],
-            show_watch: [{show_wtp: `tv`, show_wep: 10,},],
-            show_description: `Dreams are doomed to die in Night City, a futuristic Californian metropolis. As a teenager living in the city's slums, David Martinez is trying to fulfill his mother's lifelong wish for him to reach the top of Arasaka, the world's leading security corporation. To this end, he attends the prestigious Arasaka Academy while his mother works tirelessly to keep their family afloat.
-            </br></br>
-            When an incident with a street gang leaves David's life in tatters, he stumbles upon Sandevistan cyberware—a prosthetic that grants its wearer superhuman speed. Fueled by rage, David implants the device in his back, using it to exact revenge on one of his tormentors. This gets him expelled from the academy, shattering his hopes of ever making his mother proud.
-            </br></br>
-            After witnessing David's newfound abilities, the beautiful data thief Lucyna "Lucy" Kushinada offers to team up with him, handing him a ticket to salvation. However, associating with Lucy introduces David to the world of Edgerunners—cyborg criminals who will break any law for money. Edgerunners often lose their lives, if the cyberware does not break their minds first; but in his fight for survival inside a corrupt system, David is ready to risk it all.`,
+            show_trailers: 
+            [
+                {show_trl: `https://www.youtube.com/embed/JtqIas3bYhg?enablejsapi=1&wmode=opaque&autoplay=1`},
+            ],
+            show_movies: 
+            [
+                {show_mov: `N/A`},
+            ],
+            show_episodes: 
+            [
+                {show_ep: 10,},
+            ],
+            show_watch: 
+            [
+                {show_wtp: `tv`, show_wep: 10,},
+            ],
+            show_description: 
+            `
+                Dreams are doomed to die in Night City, a futuristic Californian metropolis. As a teenager living in the city's slums, David Martinez is trying to fulfill his mother's lifelong wish for him to reach the top of Arasaka, the world's leading security corporation. To this end, he attends the prestigious Arasaka Academy while his mother works tirelessly to keep their family afloat.
+                </br></br>
+                When an incident with a street gang leaves David's life in tatters, he stumbles upon Sandevistan cyberware—a prosthetic that grants its wearer superhuman speed. Fueled by rage, David implants the device in his back, using it to exact revenge on one of his tormentors. This gets him expelled from the academy, shattering his hopes of ever making his mother proud.
+                </br></br>
+                After witnessing David's newfound abilities, the beautiful data thief Lucyna "Lucy" Kushinada offers to team up with him, handing him a ticket to salvation. However, associating with Lucy introduces David to the world of Edgerunners—cyborg criminals who will break any law for money. Edgerunners often lose their lives, if the cyberware does not break their minds first; but in his fight for survival inside a corrupt system, David is ready to risk it all.
+            `,
             show_searchKey: `Cyberpunk CyberpunkEdgerunners Saibapanku Edjirannazu anime`,
         },
         {
-            show_link: `/Library/Anime/TomodachiGame.html`,
+            show_link: `/Library.html?info=TomodachiGame`,
             show_thumbnail: `/Library/Anime/img/16.jpg`,
             show_title: `Tomodachi Game`,
             show_type: `TV`,
@@ -550,19 +733,31 @@
             show_quality: `HD`,
             show_rating: `R17+`,
             show_scores: `7.7`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/eP2FlJtfwL8?enablejsapi=1&wmode=opaque&autoplay=1`}],
+            show_trailers: 
+            [
+                {show_trl: `https://www.youtube.com/embed/eP2FlJtfwL8?enablejsapi=1&wmode=opaque&autoplay=1`},
+            ],
             show_movies: [{show_mov: `N/A`}],
-            show_episodes: [{show_ep: 12,}],
-            show_watch: [{show_wtp: `tv`, show_wep: 12,},],
-            show_description: `High school student Yuuichi Katagiri cherishes his close circle of friends, composed of four classmates: Yutori Kokorogi, Shiho Sawaragi, Makoto Shibe, and Tenji Mikasa. However, when the funds for the upcoming school trip are stolen, the incident causes Shiho and Makoto—who had been tasked with collecting the money—to distance themselves from the rest of their class.
-            </br></br>
-            Soon after, Yuuichi and his friends are deceived into meeting up and knocked unconscious by unknown assailants. After waking, the group find themselves confined in a white room with controversial figure Manabu-kun, who reveals that one of the five has gathered them together to clear their personal debt of twenty million yen. To pay off the amount, they must participate in a variety of psychological games that will test the true nature of their friendship and humanity.
-            </br></br>
-            Distressed and isolated from the outside world, Yuuichi and his friends need to cooperate to complete the games. But as their concealed feelings and problematic pasts begin to surface, their seemingly unbreakable bond may soon shatter into irreparable pieces.`,
+            show_episodes: 
+            [
+                {show_ep: 12,}
+            ],
+            show_watch: 
+            [
+                {show_wtp: `tv`, show_wep: 12,},
+            ],
+            show_description: 
+            `
+                High school student Yuuichi Katagiri cherishes his close circle of friends, composed of four classmates: Yutori Kokorogi, Shiho Sawaragi, Makoto Shibe, and Tenji Mikasa. However, when the funds for the upcoming school trip are stolen, the incident causes Shiho and Makoto—who had been tasked with collecting the money—to distance themselves from the rest of their class.
+                </br></br>
+                Soon after, Yuuichi and his friends are deceived into meeting up and knocked unconscious by unknown assailants. After waking, the group find themselves confined in a white room with controversial figure Manabu-kun, who reveals that one of the five has gathered them together to clear their personal debt of twenty million yen. To pay off the amount, they must participate in a variety of psychological games that will test the true nature of their friendship and humanity.
+                </br></br>
+                Distressed and isolated from the outside world, Yuuichi and his friends need to cooperate to complete the games. But as their concealed feelings and problematic pasts begin to surface, their seemingly unbreakable bond may soon shatter into irreparable pieces.
+            `,
             show_searchKey: `Tomodachi Game Tomodachi Gemu anime`,
         },
         {
-            show_link: `/Library/Anime/KaguyaSama.html`,
+            show_link: `/Library.html?info=KaguyaSama`,
             show_thumbnail: `/Library/Anime/img/17.jpg`,
             show_title: `Kaguya-Sama`,
             show_type: `TV`,
@@ -580,31 +775,40 @@
             show_quality: `HD`,
             show_rating: `PG13`,
             show_scores: `8.7`,
-            show_trailers: [
+            show_trailers: 
+            [
                 {show_trl: `https://www.youtube.com/embed/Ti2kJ-GYO68?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/_NkxM_uLUpw?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/vFN5K-iAyV0?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/8Zy8-00-Pls?enablejsapi=1&wmode=opaque&autoplay=1`},
             ],
-            show_movies: [{show_mov: `The First Kiss That Never Ends`}],
-            show_episodes: [
+            show_movies: 
+            [
+                {show_mov: `The First Kiss That Never Ends`},
+            ],
+            show_episodes: 
+            [
                 {show_ep: 12,}, 
                 {show_ep: 12,}, 
                 {show_ep: 13,},
             ],
-            show_watch: [
+            show_watch: 
+            [
                 {show_wtp: `tv`, show_wep: 12,}, 
                 {show_wtp: `tv`, show_wep: 12,}, 
                 {show_wtp: `tv`, show_wep: 13,}, 
                 {show_wtp: `movie`, show_wep: `The First Kiss That Never Ends`,},
             ],
-            show_description: `At the renowned Shuchiin Academy, Miyuki Shirogane and Kaguya Shinomiya are the student body's top representatives. Ranked the top student in the nation and respected by peers and mentors alike, Miyuki serves as the student council president. Alongside him, the vice president Kaguya—eldest daughter of the wealthy Shinomiya family—excels in every field imaginable. They are the envy of the entire student body, regarded as the perfect couple.
-            </br></br>
-            However, despite both having already developed feelings for the other, neither are willing to admit them. The first to confess loses, will be looked down upon, and will be considered the lesser. With their honor and pride at stake, Miyuki and Kaguya are both equally determined to be the one to emerge victorious on the battlefield of love!`,
+            show_description: 
+            `
+                At the renowned Shuchiin Academy, Miyuki Shirogane and Kaguya Shinomiya are the student body's top representatives. Ranked the top student in the nation and respected by peers and mentors alike, Miyuki serves as the student council president. Alongside him, the vice president Kaguya—eldest daughter of the wealthy Shinomiya family—excels in every field imaginable. They are the envy of the entire student body, regarded as the perfect couple.
+                </br></br>
+                However, despite both having already developed feelings for the other, neither are willing to admit them. The first to confess loses, will be looked down upon, and will be considered the lesser. With their honor and pride at stake, Miyuki and Kaguya are both equally determined to be the one to emerge victorious on the battlefield of love!
+            `,
             show_searchKey: `Kaguya-sama wa Kokurasetai Kaguya sama wa Kokurasetai Love is War anime`,
         },
         {
-            show_link: `/Library/Anime/Kakegurui.html`,
+            show_link: `/Library.html?info=Kakegurui`,
             show_thumbnail: `/Library/Anime/img/18.jpg`,
             show_title: `Kakegurui`,
             show_type: `TV`,
@@ -614,7 +818,7 @@
             show_genre: `Drama, Mystery, Suspense`,
             show_theme: `High Stakes Game, Strategy Game, Psychological, School`,
             show_year: `2017`,
-            show_aired: ` Jul 1, 2017 to`,
+            show_aired: ` Jul 1, 2017 to Mar 27, 2019`,
             show_studios: `MAPPA`,
             show_country: `Japan`,
             show_foreground: `/Library/Anime/Watch/Kakegurui/img/1.jpg`,
@@ -622,19 +826,32 @@
             show_quality: `HD`,
             show_rating: `R17+`,
             show_scores: `7.2`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/v2xJDuM9ZDM?enablejsapi=1&wmode=opaque&autoplay=1`},
+            show_trailers: 
+            [
+                {show_trl: `https://www.youtube.com/embed/v2xJDuM9ZDM?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/8fCIcho7N4k?enablejsapi=1&wmode=opaque&autoplay=1`},
             ],
             show_movies: [{show_mov: `N/A`}],
-            show_episodes: [{show_ep: 12,}, {show_ep: 12,},],
-            show_watch: [{show_wtp: `tv`, show_wep: 12,}, {show_wtp: `tv`, show_wep: 12,},],
-            show_description: `Unlike many schools, attending Hyakkaou Private Academy prepares students for their time in the real world. Since many of the students are the children of the richest people in the world, the academy has its quirks that separate it from all the others. By day, it is a normal school, educating its pupils in history, languages, and the like. But at night, it turns into a gambling den, educating them in the art of dealing with money and manipulating people. Money is power; those who come out on top in the games stand at the top of the school.
-            </br></br>
-            As Yumeko Jabami's fame grows and the reputation of the student council dwindles, Kirari Momobami decides to revolutionize the group. To this end, she announces an election for its next president. The rules are simple: each student in the school receives one chip. Whoever has the most chips by the end of thirty days becomes both the new president and the head of the Momobami clan.`,
+            show_episodes: 
+            [
+                {show_ep: 12,}, 
+                {show_ep: 12,},
+            ],
+            show_watch: 
+            [
+                {show_wtp: `tv`, show_wep: 12,}, 
+                {show_wtp: `tv`, show_wep: 12,},
+            ],
+            show_description: 
+            `
+                Unlike many schools, attending Hyakkaou Private Academy prepares students for their time in the real world. Since many of the students are the children of the richest people in the world, the academy has its quirks that separate it from all the others. By day, it is a normal school, educating its pupils in history, languages, and the like. But at night, it turns into a gambling den, educating them in the art of dealing with money and manipulating people. Money is power; those who come out on top in the games stand at the top of the school.
+                </br></br>
+                As Yumeko Jabami's fame grows and the reputation of the student council dwindles, Kirari Momobami decides to revolutionize the group. To this end, she announces an election for its next president. The rules are simple: each student in the school receives one chip. Whoever has the most chips by the end of thirty days becomes both the new president and the head of the Momobami clan.
+            `,
             show_searchKey: `Kakegure Kakegurui anime`,
         },
         {
-            show_link: `/Library/Anime/ThatIRecentlyGotReincarnatedAsASlime.html`,
+            show_link: `/Library.html?info=ThatIRecentlyGotReincarnatedAsASlime`,
             show_thumbnail: `/Library/Anime/img/19.jpg`,
             show_title: `That I recently got Reincarnated as a Slime`,
             show_type: `TV`,
@@ -652,24 +869,45 @@
             show_quality: `HD`,
             show_rating: `PG13`,
             show_scores: `8.1`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/bkQkyzXEXKE?enablejsapi=1&wmode=opaque&autoplay=1`},
+            show_trailers: 
+            [
+                {show_trl: `https://www.youtube.com/embed/bkQkyzXEXKE?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/Lk3fJsIOnKw?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/nle-73CcG1k?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/nJEGXG_vXbo?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/kM2m7GcF6W0?enablejsapi=1&wmode=opaque&autoplay=1`},
             ],
-            show_movies: [{show_mov: `Guren no Kizuna hen`}],
-            show_episodes: [{show_ep: 24,}, {show_ep: 12,}, {show_ep: 12,}, {show_ep: 24,},],
-            show_watch: [{show_wtp: `tv`, show_wep: 24,}, {show_wtp: `tv`, show_wep: 12,}, {show_wtp: `tv`, show_wep: 12,}, {show_wtp: `movie`, show_wep: `Guren no Kizuna hen`,}, {show_wtp: `tv`, show_wep: 12,},],
-            show_description: `Thirty-seven-year-old Satoru Mikami is a typical corporate worker, who is perfectly content with his monotonous lifestyle in Tokyo, other than failing to nail down a girlfriend even once throughout his life. In the midst of a casual encounter with his colleague, he falls victim to a random assailant on the streets and is stabbed. However, while succumbing to his injuries, a peculiar voice echoes in his mind, and recites a bunch of commands which the dying man cannot make sense of.
-            </br></br>
-            When Satoru regains consciousness, he discovers that he has reincarnated as a goop of slime in an unfamiliar realm. In doing so, he acquires newfound skills—notably, the power to devour anything and mimic its appearance and abilities. He then stumbles upon the sealed Catastrophe-level monster "Storm Dragon" Veldora who had been sealed away for the past 300 years for devastating a town to ashes. Sympathetic to his predicament, Satoru befriends him, promising to assist in destroying the seal. In return, Veldora bestows upon him the name Rimuru Tempest to grant him divine protection.
-            </br></br>
-            Now, liberated from the mundanities of his past life, Rimuru embarks on a fresh journey with a distinct goal in mind. As he grows accustomed to his new physique, his gooey antics ripple throughout the world, gradually altering his fate.`,
+            show_movies: 
+            [
+                {show_mov: `Guren no Kizuna hen`}
+            ],
+            show_episodes: 
+            [
+                {show_ep: 24,}, 
+                {show_ep: 12,}, 
+                {show_ep: 12,}, 
+                {show_ep: 24,},
+            ],
+            show_watch: 
+            [
+                {show_wtp: `tv`, show_wep: 24,}, 
+                {show_wtp: `tv`, show_wep: 12,}, 
+                {show_wtp: `tv`, show_wep: 12,}, 
+                {show_wtp: `movie`, show_wep: `Guren no Kizuna hen`,}, 
+                {show_wtp: `tv`, show_wep: 12,},
+            ],
+            show_description: 
+            `
+                Thirty-seven-year-old Satoru Mikami is a typical corporate worker, who is perfectly content with his monotonous lifestyle in Tokyo, other than failing to nail down a girlfriend even once throughout his life. In the midst of a casual encounter with his colleague, he falls victim to a random assailant on the streets and is stabbed. However, while succumbing to his injuries, a peculiar voice echoes in his mind, and recites a bunch of commands which the dying man cannot make sense of.
+                </br></br>
+                When Satoru regains consciousness, he discovers that he has reincarnated as a goop of slime in an unfamiliar realm. In doing so, he acquires newfound skills—notably, the power to devour anything and mimic its appearance and abilities. He then stumbles upon the sealed Catastrophe-level monster "Storm Dragon" Veldora who had been sealed away for the past 300 years for devastating a town to ashes. Sympathetic to his predicament, Satoru befriends him, promising to assist in destroying the seal. In return, Veldora bestows upon him the name Rimuru Tempest to grant him divine protection.
+                </br></br>
+                Now, liberated from the mundanities of his past life, Rimuru embarks on a fresh journey with a distinct goal in mind. As he grows accustomed to his new physique, his gooey antics ripple throughout the world, gradually altering his fate.
+            `,
             show_searchKey: `That I recently got Reincarnated as a Slime Tensei Shitara Suraimu Datta Ken anime`,
         },
         {
-            show_link: `/Library/Anime/RisingoftheShieldHero.html`,
+            show_link: `/Library.html?info=RisingoftheShieldHero`,
             show_thumbnail: `/Library/Anime/img/20.jpg`,
             show_title: `Rising of the Shield hero`,
             show_type: `TV`,
@@ -679,7 +917,7 @@
             show_genre: `Action, Adventure, Drama, Fantasy`,
             show_theme: `Isekai`,
             show_year: `2022`,
-            show_aired: `Apr 6, 2022 to DEC 2023`,
+            show_aired: `Apr 6, 2022 to Dec 2023`,
             show_studios: `Kinema Citrus, DR Movie`,
             show_country: `Japan`,
             show_foreground: `/Library/Anime/Watch/RisingoftheShieldHero/img/1.jpg`,
@@ -687,22 +925,37 @@
             show_quality: `HD`,
             show_rating: `PG13`,
             show_scores: `7.2`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/h3n-chI028E?enablejsapi=1&wmode=opaque&autoplay=1`},
+            show_trailers: 
+            [
+                {show_trl: `https://www.youtube.com/embed/h3n-chI028E?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/TA4OjH-RSeA?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/VW_LxM4tt-o?enablejsapi=1&wmode=opaque&autoplay=1`},
             ],
             show_movies: [{show_mov: `N/A`}],
-            show_episodes: [{show_ep: 25,}, {show_ep: 13,}, {show_ep: 12,},],
-            show_watch: [{show_wtp: `tv`, show_wep: 25,}, {show_wtp: `tv`, show_wep: 13,}, {show_wtp: `tv`, show_wep: 12,},],
-            show_description: `The Four Cardinal Heroes are a group of ordinary men from modern-day Japan summoned to the kingdom of Melromarc to become its saviors. Melromarc is a country plagued by the Waves of Catastrophe that have repeatedly ravaged the land and brought disaster to its citizens for centuries. The four heroes are respectively bestowed a sword, spear, bow, and shield to vanquish these Waves. Naofumi Iwatani, an otaku, becomes cursed with the fate of being the "Shield Hero." Armed with only a measly shield, Naofumi is belittled and ridiculed by his fellow heroes and the kingdom's people due to his weak offensive capabilities and lackluster personality
-            </br></br>
-            When the heroes are provided with resources and comrades to train with, Naofumi sets out with the only person willing to train alongside him, Malty Melromarc. He is soon betrayed by her, however, and becomes falsely accused of taking advantage of her. Naofumi then becomes heavily discriminated against and hated by the people of Melromarc for something he didn't do. With a raging storm of hurt and mistrust in his heart, Naofumi begins his journey of strengthening himself and his reputation. Further along however, the difficulty of being on his own sets in, so Naofumi buys a demi-human slave on the verge of death named Raphtalia to accompany him on his travels.
-            </br></br>
-            As the Waves approach the kingdom, Naofumi and Raphtalia must fight for the survival of the kingdom and protect the people of Melromarc from their ill-fated future.`,
+            show_episodes: 
+            [
+                {show_ep: 25,}, 
+                {show_ep: 13,}, 
+                {show_ep: 12,},
+            ],
+            show_watch: 
+            [
+                {show_wtp: `tv`, show_wep: 25,}, 
+                {show_wtp: `tv`, show_wep: 13,}, 
+                {show_wtp: `tv`, show_wep: 12,},
+            ],
+            show_description: 
+            `
+                The Four Cardinal Heroes are a group of ordinary men from modern-day Japan summoned to the kingdom of Melromarc to become its saviors. Melromarc is a country plagued by the Waves of Catastrophe that have repeatedly ravaged the land and brought disaster to its citizens for centuries. The four heroes are respectively bestowed a sword, spear, bow, and shield to vanquish these Waves. Naofumi Iwatani, an otaku, becomes cursed with the fate of being the "Shield Hero." Armed with only a measly shield, Naofumi is belittled and ridiculed by his fellow heroes and the kingdom's people due to his weak offensive capabilities and lackluster personality
+                </br></br>
+                When the heroes are provided with resources and comrades to train with, Naofumi sets out with the only person willing to train alongside him, Malty Melromarc. He is soon betrayed by her, however, and becomes falsely accused of taking advantage of her. Naofumi then becomes heavily discriminated against and hated by the people of Melromarc for something he didn't do. With a raging storm of hurt and mistrust in his heart, Naofumi begins his journey of strengthening himself and his reputation. Further along however, the difficulty of being on his own sets in, so Naofumi buys a demi-human slave on the verge of death named Raphtalia to accompany him on his travels.
+                </br></br>
+                As the Waves approach the kingdom, Naofumi and Raphtalia must fight for the survival of the kingdom and protect the people of Melromarc from their ill-fated future.
+            `,
             show_searchKey: `Tate no Yūsha no Nariagari Rising of the Shield anime`,
         },
         {
-            show_link: `/Library/Anime/VioletEvergarden.html`,
+            show_link: `/Library.html?info=VioletEvergarden`,
             show_thumbnail: `/Library/Anime/img/21.jpg`,
             show_title: `Violet Evergarden`,
             show_type: `TV`,
@@ -720,21 +973,36 @@
             show_quality: `HD`,
             show_rating: `PG13`,
             show_scores: `8.8`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/g5xWqjFglsk?enablejsapi=1&wmode=opaque&autoplay=1`},
+            show_trailers: 
+            [
+                {show_trl: `https://www.youtube.com/embed/g5xWqjFglsk?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/NSIzsFOfd8M?enablejsapi=1&wmode=opaque&autoplay=1`},
             ],
-            show_movies: [{show_mov: `Violet Evergarden: The Movie`}],
-            show_episodes: [{show_ep: 13,}],
-            show_watch: [{show_wtp: `tv`, show_wep: 13,}, {show_wtp: `movie`, show_wep: `Violet Evergarden: The Movie`,},],
-            show_description: `The Great War finally came to an end after four long years of conflict; fractured in two, the continent of Telesis slowly began to flourish once again. Caught up in the bloodshed was Violet Evergarden, a young girl raised for the sole purpose of decimating enemy lines. Hospitalized and maimed in a bloody skirmish during the War's final leg, she was left with only words from the person she held dearest, but with no understanding of their meaning.
-            </br></br>
-            Recovering from her wounds, Violet starts a new life working at CH Postal Services after a falling out with her new intended guardian family. There, she witnesses by pure chance the work of an "Auto Memory Doll," amanuenses that transcribe people's thoughts and feelings into words on paper. Moved by the notion, Violet begins work as an Auto Memory Doll, a trade that will take her on an adventure, one that will reshape the lives of her clients and hopefully lead to self-discovery..
-            <br></br>
-            The Violet Evergarden Movie follows Violet as she continues to comprehend the concept of emotion and the meaning of love. At the same time, she pursues a glimmer of hope that the man who once told her, "I love you," may still be alive even after the many years that have passed.`,
+            show_movies: 
+            [
+                {show_mov: `Violet Evergarden: The Movie`,},
+            ],
+            show_episodes: 
+            [
+                {show_ep: 13,},
+            ],
+            show_watch: 
+            [
+                {show_wtp: `tv`, show_wep: 13,}, 
+                {show_wtp: `movie`, show_wep: `Violet Evergarden: The Movie`,},
+            ],
+            show_description: 
+            `
+                The Great War finally came to an end after four long years of conflict; fractured in two, the continent of Telesis slowly began to flourish once again. Caught up in the bloodshed was Violet Evergarden, a young girl raised for the sole purpose of decimating enemy lines. Hospitalized and maimed in a bloody skirmish during the War's final leg, she was left with only words from the person she held dearest, but with no understanding of their meaning.
+                </br></br>
+                Recovering from her wounds, Violet starts a new life working at CH Postal Services after a falling out with her new intended guardian family. There, she witnesses by pure chance the work of an "Auto Memory Doll," amanuenses that transcribe people's thoughts and feelings into words on paper. Moved by the notion, Violet begins work as an Auto Memory Doll, a trade that will take her on an adventure, one that will reshape the lives of her clients and hopefully lead to self-discovery..
+                <br></br>
+                The Violet Evergarden Movie follows Violet as she continues to comprehend the concept of emotion and the meaning of love. At the same time, she pursues a glimmer of hope that the man who once told her, "I love you," may still be alive even after the many years that have passed.
+            `,
             show_searchKey: `Vaioretto Evagaden Violet Evergarden anime`,
         },
         {
-            show_link: `/Library/Anime/YourLieinApril.html`,
+            show_link: `/Library.html?info=YourLieinApril`,
             show_thumbnail: `/Library/Anime/img/22.jpg`,
             show_title: `Your lie in April`,
             show_type: `TV`,
@@ -752,17 +1020,32 @@
             show_quality: `HD`,
             show_rating: `PG13`,
             show_scores: `8.6`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/Sk39zsayK_0?enablejsapi=1&wmode=opaque&autoplay=1`}],
-            show_movies: [{show_mov: `N/A`}],
-            show_episodes: [{show_ep: 22,}],
-            show_watch: [{show_wtp: `tv`, show_wep: 22,},],
-            show_description: `Kousei Arima is a child prodigy known as the "Human Metronome" for playing the piano with precision and perfection. Guided by a strict mother and rigorous training, Kousei dominates every competition he enters, earning the admiration of his musical peers and praise from audiences. When his mother suddenly passes away, the subsequent trauma makes him unable to hear the sound of a piano, and he never takes the stage thereafter.
-            </br></br>
-            Nowadays, Kousei lives a quiet and unassuming life as a junior high school student alongside his friends Tsubaki Sawabe and Ryouta Watari. While struggling to get over his mother's death, he continues to cling to music. His monochrome life turns upside down the day he encounters the eccentric violinist Kaori Miyazono, who thrusts him back into the spotlight as her accompanist. Through a little lie, these two young musicians grow closer together as Kaori tries to fill Kousei's world with color.`,
+            show_trailers: 
+            [
+                {show_trl: `https://www.youtube.com/embed/Sk39zsayK_0?enablejsapi=1&wmode=opaque&autoplay=1`},
+            ],
+            show_movies: 
+            [
+                {show_mov: `N/A`},
+            ],
+            show_episodes: 
+            [
+                {show_ep: 22,},
+            ],
+            show_watch: 
+            [
+                {show_wtp: `tv`, show_wep: 22,},
+            ],
+            show_description: 
+            `
+                Kousei Arima is a child prodigy known as the "Human Metronome" for playing the piano with precision and perfection. Guided by a strict mother and rigorous training, Kousei dominates every competition he enters, earning the admiration of his musical peers and praise from audiences. When his mother suddenly passes away, the subsequent trauma makes him unable to hear the sound of a piano, and he never takes the stage thereafter.
+                </br></br>
+                Nowadays, Kousei lives a quiet and unassuming life as a junior high school student alongside his friends Tsubaki Sawabe and Ryouta Watari. While struggling to get over his mother's death, he continues to cling to music. His monochrome life turns upside down the day he encounters the eccentric violinist Kaori Miyazono, who thrusts him back into the spotlight as her accompanist. Through a little lie, these two young musicians grow closer together as Kaori tries to fill Kousei's world with color.
+            `,
             show_searchKey: `Shigatsu wa Kimi no Uso Your lie in April anime`,
         },
         {
-            show_link: `/Library/Anime/KurokonoBasket.html`,
+            show_link: `/Library.html?info=KurokonoBasket`,
             show_thumbnail: `/Library/Anime/img/23.jpg`,
             show_title: `Kuroko no Basket`,
             show_type: `TV`,
@@ -780,7 +1063,9 @@
             show_quality: `HD`,
             show_rating: `PG13`,
             show_scores: `8.2`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/FTUIs_SuQfw?enablejsapi=1&wmode=opaque&autoplay=1`},
+            show_trailers: 
+            [
+                {show_trl: `https://www.youtube.com/embed/FTUIs_SuQfw?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/11ROABkyews?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/H1TvpW04Oxs?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/mRxq1kA2cwU?enablejsapi=1&wmode=opaque&autoplay=1`},
@@ -788,20 +1073,41 @@
                 {show_trl: `https://www.youtube.com/embed/sO_40NQ4Kus?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/LpJ3LY1ZIoE?enablejsapi=1&wmode=opaque&autoplay=1`},
             ],
-            show_movies: [{show_mov: `Shadow and Light`,}, {show_mov: `Beyond The Tears`,}, {show_mov: `Crossing The Door`,}, {show_mov: `Last Game`,},],
-            show_episodes: [{show_ep: 25,}, {show_ep: 25,}, {show_ep: 25,}, ],
-            show_watch: [{show_wtp: `tv`, show_wep: 25,}, {show_wtp: `tv`, show_wep: 25,}, {show_wtp: `tv`, show_wep: 25,},
-                {show_wtp: `movie`, show_wep: `Shadow and Light`,}, {show_wtp: `movie`, show_wep: `Beyond The Tears`,}, {show_wtp: `movie`, show_wep: `Crossing The Door`,}, {show_wtp: `movie`, show_wep: `Last Game`,},
+            show_movies: 
+            [
+                {show_mov: `Shadow and Light`,}, 
+                {show_mov: `Beyond The Tears`,}, 
+                {show_mov: `Crossing The Door`,}, 
+                {show_mov: `Last Game`,},
             ],
-            show_description: `For the last three years, Teikou Middle School has dominated the national basketball scene with its legendary lineup: the "Generation of Miracles." It consisted of five prodigies who excelled at the sport, but a "Phantom Sixth Man" lurked in the shadows and helped earn the team their revered status. Eventually, their monstrous growth jaded them from the sport they loved and made them go their separate ways in high school.
-            </br></br>
-            In search of new members, the Seirin High School basketball team recruits Taiga Kagami and Tetsuya Kuroko, two freshmen who seem to have significant differences in abilities. Having returned recently from America, Kagami has both a natural aptitude and relentless love for the sport. Meanwhile, Kuroko lacks presence and exhibits no outstanding athletic talent. However, it is later revealed that he is Teikou's Phantom Sixth Man—the player once part of the Generation of Miracles.
-            </br></br>
-            Kuroko wants to prove to the Seirin team that he is strong in his own way. Seeing his conviction, Kagami forms a dynamic partnership with Kuroko, the latter promising to support Kagami's "light" as his "shadow." Alongside their new Seirin teammates, they aim to conquer the upcoming Interhigh championship, but the reappearance of Kuroko's former teammates complicates their plan.`,
+            show_episodes: 
+            [
+                {show_ep: 25,}, 
+                {show_ep: 25,}, 
+                {show_ep: 25,}, 
+            ],
+            show_watch: 
+            [
+                {show_wtp: `tv`, show_wep: 25,}, 
+                {show_wtp: `tv`, show_wep: 25,}, 
+                {show_wtp: `tv`, show_wep: 25,},
+                {show_wtp: `movie`, show_wep: `Shadow and Light`,}, 
+                {show_wtp: `movie`, show_wep: `Beyond The Tears`,}, 
+                {show_wtp: `movie`, show_wep: `Crossing The Door`,}, 
+                {show_wtp: `movie`, show_wep: `Last Game`,},
+            ],
+            show_description: 
+            `
+                For the last three years, Teikou Middle School has dominated the national basketball scene with its legendary lineup: the "Generation of Miracles." It consisted of five prodigies who excelled at the sport, but a "Phantom Sixth Man" lurked in the shadows and helped earn the team their revered status. Eventually, their monstrous growth jaded them from the sport they loved and made them go their separate ways in high school.
+                </br></br>
+                In search of new members, the Seirin High School basketball team recruits Taiga Kagami and Tetsuya Kuroko, two freshmen who seem to have significant differences in abilities. Having returned recently from America, Kagami has both a natural aptitude and relentless love for the sport. Meanwhile, Kuroko lacks presence and exhibits no outstanding athletic talent. However, it is later revealed that he is Teikou's Phantom Sixth Man—the player once part of the Generation of Miracles.
+                </br></br>
+                Kuroko wants to prove to the Seirin team that he is strong in his own way. Seeing his conviction, Kagami forms a dynamic partnership with Kuroko, the latter promising to support Kagami's "light" as his "shadow." Alongside their new Seirin teammates, they aim to conquer the upcoming Interhigh championship, but the reappearance of Kuroko's former teammates complicates their plan.
+            `,
             show_searchKey: `Kunoku no Basket Kuroko no Basuke anime`,
         },
         {
-            show_link: `/Library/Anime/EnenNoShouboutai.html`,
+            show_link: `/Library.html?info=EnenNoShouboutai`,
             show_thumbnail: `/Library/Anime/img/24.jpg`,
             show_title: `Enen no Shouboutai`,
             show_type: `TV`,
@@ -819,21 +1125,34 @@
             show_quality: `HD`,
             show_rating: `PG13`,
             show_scores: `7.8`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/iUqX-IQ3t-U?enablejsapi=1&wmode=opaque&autoplay=1`},
+            show_trailers: 
+            [
+                {show_trl: `https://www.youtube.com/embed/iUqX-IQ3t-U?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/NpDvoopi0AE?enablejsapi=1&wmode=opaque&autoplay=1`},
             ],
             show_movies: [{show_mov: `N/A`}],
-            show_episodes: [{show_ep: 24,}, {show_ep: 24,},],
-            show_watch: [{show_wtp: `tv`, show_wep: 24,}, {show_wtp: `tv`, show_wep: 24,},],
-            show_description: `Spontaneous Human Combustion: a chaotic phenomenon that has plagued humanity for years, randomly transforming ordinary people into flaming, violent creatures known as Infernals. While Infernals make up the first-generation accounts of Human Combustion, the second and third generations became known as pyrokinetics—people gifted with the ability to manipulate and control their flames while remaining human. To combat the Infernal threat and discover the cause, the Tokyo Armed Forces, Fire Defense Agency, and Holy Church of Sol produced their answer: the Special Fire Force.
-            </br></br>
-            Young and eager third-generation pyrokinetic Shinra Kusakabe, nicknamed Devil's Footprints for his explosive ability to ignite his feet at will, becomes a member of the lively Special Fire Force Company 8. Upholding the brigade's duty to extinguish the blazing Infernals and lay their souls to rest, Shinra is determined to become a hero who will save the lives of those threatened by the flame terror.
-            </br></br>
-            However, this is not the hero's game Shinra imagined. The Fire Force is a fractured mess of feuding brigades, abnormal Infernal sightings are increasing all over Tokyo, and a shadowy group is claiming to have answers to the strange fire that caused the death of Shinra's family 12 years ago. Faced with many obstacles within and outside the Fire Force, Shinra fights to uncover the truth behind the burning mysteries that have kept him in the dark.`,
+            show_episodes: 
+            [
+                {show_ep: 24,}, 
+                {show_ep: 24,},
+            ],
+            show_watch: 
+            [
+                {show_wtp: `tv`, show_wep: 24,}, 
+                {show_wtp: `tv`, show_wep: 24,},
+            ],
+            show_description: 
+            `
+                Spontaneous Human Combustion: a chaotic phenomenon that has plagued humanity for years, randomly transforming ordinary people into flaming, violent creatures known as Infernals. While Infernals make up the first-generation accounts of Human Combustion, the second and third generations became known as pyrokinetics—people gifted with the ability to manipulate and control their flames while remaining human. To combat the Infernal threat and discover the cause, the Tokyo Armed Forces, Fire Defense Agency, and Holy Church of Sol produced their answer: the Special Fire Force.
+                </br></br>
+                Young and eager third-generation pyrokinetic Shinra Kusakabe, nicknamed Devil's Footprints for his explosive ability to ignite his feet at will, becomes a member of the lively Special Fire Force Company 8. Upholding the brigade's duty to extinguish the blazing Infernals and lay their souls to rest, Shinra is determined to become a hero who will save the lives of those threatened by the flame terror.
+                </br></br>
+                However, this is not the hero's game Shinra imagined. The Fire Force is a fractured mess of feuding brigades, abnormal Infernal sightings are increasing all over Tokyo, and a shadowy group is claiming to have answers to the strange fire that caused the death of Shinra's family 12 years ago. Faced with many obstacles within and outside the Fire Force, Shinra fights to uncover the truth behind the burning mysteries that have kept him in the dark.
+            `,
             show_searchKey: `Enen no Shouboutai Fireforce no Basuke anime`,
         },
         {
-            show_link: `/Library/Anime/VinlandSaga.html`,
+            show_link: `/Library.html?info=VinlandSaga`,
             show_thumbnail: `/Library/Anime/img/25.jpg`,
             show_title: `Vinland Saga`,
             show_type: `TV`,
@@ -851,20 +1170,32 @@
             show_quality: `HD`,
             show_rating: `R17+`,
             show_scores: `8.8`,
-            show_trailers: [
+            show_trailers: 
+            [
                 {show_trl: `https://www.youtube.com/embed/f8JrZ7Q_p-8?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/jBetoIlnDIM?enablejsapi=1&wmode=opaque&autoplay=1`},
             ],
             show_movies: [{show_mov: `N/A`}],
-            show_episodes: [{show_ep: 24,}, {show_ep: 24,},],
-            show_watch: [{show_wtp: `tv`, show_wep: 24,}, {show_wtp: `tv`, show_wep: 24,},],
-            show_description: `Young Thorfinn grew up listening to the stories of old sailors that had traveled the ocean and reached the place of legend, Vinland. It's said to be warm and fertile, a place where there would be no need for fighting—not at all like the frozen village in Iceland where he was born, and certainly not like his current life as a mercenary. War is his home now. Though his father once told him, "You have no enemies, nobody does. There is nobody who it's okay to hurt," as he grew, Thorfinn knew that nothing was further from the truth.
-            </br></br>
-            The war between England and the Danes grows worse with each passing year. Death has become commonplace, and the viking mercenaries are loving every moment of it. Allying with either side will cause a massive swing in the balance of power, and the vikings are happy to make names for themselves and take any spoils they earn along the way. Among the chaos, Thorfinn must take his revenge and kill Askeladd, the man who murdered his father. The only paradise for the vikings, it seems, is the era of war and death that rages on.`,
+            show_episodes: 
+            [
+                {show_ep: 24,}, 
+                {show_ep: 24,},
+            ],
+            show_watch: 
+            [
+                {show_wtp: `tv`, show_wep: 24,}, 
+                {show_wtp: `tv`, show_wep: 24,},
+            ],
+            show_description: 
+            `
+                Young Thorfinn grew up listening to the stories of old sailors that had traveled the ocean and reached the place of legend, Vinland. It's said to be warm and fertile, a place where there would be no need for fighting—not at all like the frozen village in Iceland where he was born, and certainly not like his current life as a mercenary. War is his home now. Though his father once told him, "You have no enemies, nobody does. There is nobody who it's okay to hurt," as he grew, Thorfinn knew that nothing was further from the truth.
+                </br></br>
+                The war between England and the Danes grows worse with each passing year. Death has become commonplace, and the viking mercenaries are loving every moment of it. Allying with either side will cause a massive swing in the balance of power, and the vikings are happy to make names for themselves and take any spoils they earn along the way. Among the chaos, Thorfinn must take his revenge and kill Askeladd, the man who murdered his father. The only paradise for the vikings, it seems, is the era of war and death that rages on.
+            `,
             show_searchKey: `Vinland Saga Vinrando Saga anime`,
         },
         {
-            show_link: `/Library/Anime/TokyoRevengers.html`,
+            show_link: `/Library.html?info=TokyoRevengers`,
             show_thumbnail: `/Library/Anime/img/26.jpg`,
             show_title: `Tokyo Revengers`,
             show_type: `TV`,
@@ -882,20 +1213,35 @@
             show_quality: `HD`,
             show_rating: `R17+`,
             show_scores: `7.8`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/r9M34VgTfzY?enablejsapi=1&wmode=opaque&autoplay=1`},
+            show_trailers: 
+            [
+                {show_trl: `https://www.youtube.com/embed/r9M34VgTfzY?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/hfj7HaTbMSQ?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/OTlNyYfkM1s?enablejsapi=1&wmode=opaque&autoplay=1`},
             ],
             show_movies: [{show_mov: `N/A`}],
-            show_episodes: [{show_ep: 24,}, {show_ep: 13,}, {show_ep: 13,},],
-            show_watch: [{show_wtp: `tv`, show_wep: 24,}, {show_wtp: `tv`, show_wep: 13,}, {show_wtp: `tv`, show_wep: 13,},],
-            show_description: `Takemichi Hanagaki's second year of middle school was the highest point in his life. He had respect, a gang of friends he could count on, and even a girlfriend. But that was twelve years ago. Today, he's a nobody: a washed-up nonentity made fun of by children and always forced to apologize to his younger boss. A sudden news report on the Tokyo Manji Gang's cruel murder of the only girlfriend he ever had alongside her brother only adds insult to injury. Half a second before a train ends his pitiful life for good, Takemichi flashes back to that same day 12 years ago, when he was still dating Hinata Tachibana.
-            </br></br>
-            After being forced to relive the very same day that began his downward spiral, Takemichi meets Hinata's younger brother. Without thinking, he admits to his seeming death before flashing back to the past. Takemichi urges him to protect his sister before inexplicably returning to the future. Miraculously, he is not dead. Stranger still, the future has changed. It seems as though Takemichi can alter the flow of time. Given the chance to prevent his ex-girlfriend's tragic death at the hands of the Tokyo Manji Gang, Takemichi decides to fly through time to change the course of the future.`,
+            show_episodes: 
+            [
+                {show_ep: 24,}, 
+                {show_ep: 13,}, 
+                {show_ep: 13,},
+            ],
+            show_watch: 
+            [
+                {show_wtp: `tv`, show_wep: 24,}, 
+                {show_wtp: `tv`, show_wep: 13,}, 
+                {show_wtp: `tv`, show_wep: 13,},
+            ],
+            show_description: 
+            `
+                Takemichi Hanagaki's second year of middle school was the highest point in his life. He had respect, a gang of friends he could count on, and even a girlfriend. But that was twelve years ago. Today, he's a nobody: a washed-up nonentity made fun of by children and always forced to apologize to his younger boss. A sudden news report on the Tokyo Manji Gang's cruel murder of the only girlfriend he ever had alongside her brother only adds insult to injury. Half a second before a train ends his pitiful life for good, Takemichi flashes back to that same day 12 years ago, when he was still dating Hinata Tachibana.
+                </br></br>
+                After being forced to relive the very same day that began his downward spiral, Takemichi meets Hinata's younger brother. Without thinking, he admits to his seeming death before flashing back to the past. Takemichi urges him to protect his sister before inexplicably returning to the future. Miraculously, he is not dead. Stranger still, the future has changed. It seems as though Takemichi can alter the flow of time. Given the chance to prevent his ex-girlfriend's tragic death at the hands of the Tokyo Manji Gang, Takemichi decides to fly through time to change the course of the future.
+            `,
             show_searchKey: `Tokyo Revengers Tōkyō Ribenjāzu Tokyo Ribenjazu anime`,
         },
         {
-            show_link: `/Library/Anime/MyHeroAcademia.html`,
+            show_link: `/Library.html?info=MyHeroAcademia`,
             show_thumbnail: `/Library/Anime/img/27.jpg`,
             show_title: `My Hero Academia`,
             show_type: `TV`,
@@ -913,41 +1259,49 @@
             show_quality: `HD`,
             show_rating: `PG13`,
             show_scores: `7.8`,
-            show_trailers: [
+            show_trailers: 
+            [
                 {show_trl: `https://www.youtube.com/embed/D5fYOnwYkj4?enablejsapi=1&wmode=opaque&autoplay=1`}, 
                 {show_trl: `https://www.youtube.com/embed/HoIOW6no_Ew?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/wMCeFIPwrHE?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/5VQwDC5jqzQ?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/kkmW-tppFPM?enablejsapi=1&wmode=opaque&autoplay=1`},
             ],
-            show_movies: [
+            show_movies: 
+            [
                 {show_mov: `My Hero Academia the Movie 1`}, 
                 {show_mov: `My Hero Academia the Movie 2`},
             ],
-            show_episodes: [
+            show_episodes: 
+            [
                 {show_ep: 13,}, 
                 {show_ep: 25,}, 
                 {show_ep: 25,}, 
                 {show_ep: 25,}, 
                 {show_ep: 25,},
             ],
-            show_watch: [
+            show_watch: 
+            [
                 {show_wtp: `tv`, show_wep: 13,}, 
                 {show_wtp: `tv`, show_wep: 25,}, 
                 {show_wtp: `tv`, show_wep: 25,}, 
                 {show_wtp: `movie`, show_wep: `My Hero Academia the Movie 1`,}, 
                 {show_wtp: `tv`, show_wep: 25,}, 
                 {show_wtp: `movie`, show_wep: `My Hero Academia the Movie 2`,}, 
-                {show_wtp: `tv`, show_wep: 25,},],
-            show_description: `The appearance of "quirks," newly discovered super powers, has been steadily increasing over the years, with 80 percent of humanity possessing various abilities from manipulation of elements to shapeshifting. This leaves the remainder of the world completely powerless, and Izuku Midoriya is one such individual.
-            </br></br>
-            Since he was a child, the ambitious middle schooler has wanted nothing more than to be a hero. Izuku's unfair fate leaves him admiring heroes and taking notes on them whenever he can. But it seems that his persistence has borne some fruit: Izuku meets the number one hero and his personal idol, All Might. All Might's quirk is a unique ability that can be inherited, and he has chosen Izuku to be his successor!
-            </br></br>
-            Enduring many months of grueling training, Izuku enrolls in UA High, a prestigious high school famous for its excellent hero training program, and this year's freshmen look especially promising. With his bizarre but talented classmates and the looming threat of a villainous organization, Izuku will soon learn what it really means to be a hero.`,
+                {show_wtp: `tv`, show_wep: 25,},
+            ],
+            show_description: 
+            `
+                The appearance of "quirks," newly discovered super powers, has been steadily increasing over the years, with 80 percent of humanity possessing various abilities from manipulation of elements to shapeshifting. This leaves the remainder of the world completely powerless, and Izuku Midoriya is one such individual.
+                </br></br>
+                Since he was a child, the ambitious middle schooler has wanted nothing more than to be a hero. Izuku's unfair fate leaves him admiring heroes and taking notes on them whenever he can. But it seems that his persistence has borne some fruit: Izuku meets the number one hero and his personal idol, All Might. All Might's quirk is a unique ability that can be inherited, and he has chosen Izuku to be his successor!
+                </br></br>
+                Enduring many months of grueling training, Izuku enrolls in UA High, a prestigious high school famous for its excellent hero training program, and this year's freshmen look especially promising. With his bizarre but talented classmates and the looming threat of a villainous organization, Izuku will soon learn what it really means to be a hero.
+            `,
             show_searchKey: `mha My Hero Academia Boku no Hīrō Akademia Boku no Hiro Akademia anime`,
         },
         {
-            show_link: `/Library/Anime/CowboyBebop.html`,
+            show_link: `/Library.html?info=CowboyBebop`,
             show_thumbnail: `/Library/Anime/img/28.jpg`,
             show_title: `Cowboy Bebop`,
             show_type: `TV`,
@@ -965,22 +1319,35 @@
             show_quality: `SD`,
             show_rating: `R17+`,
             show_scores: `8.6`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/gY5nDXOtv_o?enablejsapi=1&wmode=opaque&autoplay=1`}],
-            show_movies: [{show_mov: `Tengoku no Tobira`}],
-            show_episodes: [{show_ep: 26,}],
-            show_watch: [
+            show_trailers: 
+            [
+                {show_trl: `https://www.youtube.com/embed/gY5nDXOtv_o?enablejsapi=1&wmode=opaque&autoplay=1`},
+            ],
+            show_movies: 
+            [
+                {show_mov: `Tengoku no Tobira`},
+            ],
+            show_episodes: 
+            [
+                {show_ep: 26,},
+            ],
+            show_watch: 
+            [
                 {show_wtp: `tv`, show_wep: 26,}, 
                 {show_wtp: `movie`, show_wep: `Tengoku no Tobira`,}, 
             ],
-            show_description: `Crime is timeless. By the year 2071, humanity has expanded across the galaxy, filling the surface of other planets with settlements like those on Earth. These new societies are plagued by murder, drug use, and theft, and intergalactic outlaws are hunted by a growing number of tough bounty hunters.
-            </br></br>
-            Spike Spiegel and Jet Black pursue criminals throughout space to make a humble living. Beneath his goofy and aloof demeanor, Spike is haunted by the weight of his violent past. Meanwhile, Jet manages his own troubled memories while taking care of Spike and the Bebop, their ship. The duo is joined by the beautiful con artist Faye Valentine, odd child Edward Wong Hau Pepelu Tivrusky IV, and Ein, a bioengineered Welsh Corgi.
-            </br></br>
-            While developing bonds and working to catch a colorful cast of criminals, the Bebop crew's lives are disrupted by a menace from Spike's past. As a rival's maniacal plot continues to unravel, Spike must choose between life with his newfound family or revenge for his old wounds.`,
+            show_description: 
+            `
+                Crime is timeless. By the year 2071, humanity has expanded across the galaxy, filling the surface of other planets with settlements like those on Earth. These new societies are plagued by murder, drug use, and theft, and intergalactic outlaws are hunted by a growing number of tough bounty hunters.
+                </br></br>
+                Spike Spiegel and Jet Black pursue criminals throughout space to make a humble living. Beneath his goofy and aloof demeanor, Spike is haunted by the weight of his violent past. Meanwhile, Jet manages his own troubled memories while taking care of Spike and the Bebop, their ship. The duo is joined by the beautiful con artist Faye Valentine, odd child Edward Wong Hau Pepelu Tivrusky IV, and Ein, a bioengineered Welsh Corgi.
+                </br></br>
+                While developing bonds and working to catch a colorful cast of criminals, the Bebop crew's lives are disrupted by a menace from Spike's past. As a rival's maniacal plot continues to unravel, Spike must choose between life with his newfound family or revenge for his old wounds.
+            `,
             show_searchKey: `Cowboy Bebop Kaubōi Bibappu Kauboi Bibappu anime`,
         },
         {
-            show_link: `/Library/Anime/DeathNote.html`,
+            show_link: `/Library.html?info=DeathNote`,
             show_thumbnail: `/Library/Anime/img/29.jpg`,
             show_title: `Death Note`,
             show_type: `TV`,
@@ -998,19 +1365,34 @@
             show_quality: `HD`,
             show_rating: `R17+`,
             show_scores: `8.6`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/Vt_3c8BgxV4?enablejsapi=1&wmode=opaque&autoplay=1`}],
-            show_movies: [{show_mov: `N/A`}],
-            show_episodes: [{show_ep: 37,}],
-            show_watch: [{show_wtp: `tv`, show_wep: 37,},],
-            show_description: `Brutal murders, petty thefts, and senseless violence pollute the human world. In contrast, the realm of death gods is a humdrum, unchanging gambling den. The ingenious 17-year-old Japanese student Light Yagami and sadistic god of death Ryuk share one belief: their worlds are rotten.
-            </br></br>
-            For his own amusement, Ryuk drops his Death Note into the human world. Light stumbles upon it, deeming the first of its rules ridiculous: the human whose name is written in this note shall die. However, the temptation is too great, and Light experiments by writing a felon's name, which disturbingly enacts his first murder.
-            </br></br>
-            Aware of the terrifying godlike power that has fallen into his hands, Light—under the alias Kira—follows his wicked sense of justice with the ultimate goal of cleansing the world of all evil-doers. The meticulous mastermind detective L is already on his trail, but as Light's brilliance rivals L's, the grand chase for Kira turns into an intense battle of wits that can only end when one of them is dead.`,
+            show_trailers: 
+            [
+                {show_trl: `https://www.youtube.com/embed/Vt_3c8BgxV4?enablejsapi=1&wmode=opaque&autoplay=1`},
+            ],
+            show_movies: 
+            [
+                {show_mov: `N/A`},
+            ],
+            show_episodes: 
+            [
+                {show_ep: 37,},
+            ],
+            show_watch: 
+            [
+                {show_wtp: `tv`, show_wep: 37,},
+            ],
+            show_description: 
+            `
+                Brutal murders, petty thefts, and senseless violence pollute the human world. In contrast, the realm of death gods is a humdrum, unchanging gambling den. The ingenious 17-year-old Japanese student Light Yagami and sadistic god of death Ryuk share one belief: their worlds are rotten.
+                </br></br>
+                For his own amusement, Ryuk drops his Death Note into the human world. Light stumbles upon it, deeming the first of its rules ridiculous: the human whose name is written in this note shall die. However, the temptation is too great, and Light experiments by writing a felon's name, which disturbingly enacts his first murder.
+                </br></br>
+                Aware of the terrifying godlike power that has fallen into his hands, Light—under the alias Kira—follows his wicked sense of justice with the ultimate goal of cleansing the world of all evil-doers. The meticulous mastermind detective L is already on his trail, but as Light's brilliance rivals L's, the grand chase for Kira turns into an intense battle of wits that can only end when one of them is dead.
+            `,
             show_searchKey: `Death Note anime`,
         },
         {
-            show_link: `/Library/Anime/OnePiece.html`,
+            show_link: `/Library.html?info=OnePiece`,
             show_thumbnail: `/Library/Anime/img/30.jpg`,
             show_title: `One Piece`,
             show_type: `TV`,
@@ -1028,7 +1410,9 @@
             show_quality: `HD`,
             show_rating: `PG13`,
             show_scores: `8.7`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/-tviZNY6CSw?enablejsapi=1&wmode=opaque&autoplay=1`},
+            show_trailers: 
+            [
+                {show_trl: `https://www.youtube.com/embed/-tviZNY6CSw?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/eEApDotghec?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/wwumv_IcxJo?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/K65OpdS3Hsk?enablejsapi=1&wmode=opaque&autoplay=1`},
@@ -1044,11 +1428,30 @@
                 {show_trl: `https://www.youtube.com/embed/_VI_72j_ErI?enablejsapi=1&wmode=opaque&autoplay=1`},
                 {show_trl: `https://www.youtube.com/embed/r0FvP_Ui-xY?enablejsapi=1&wmode=opaque&autoplay=1`},
             ],
-            show_movies: [{show_mov: `One Piece Movie 1`}, {show_mov: `One Piece Movie 2`}, {show_mov: `One Piece Movie 3`}, {show_mov: `One Piece Movie 4`}, {show_mov: `One Piece Movie 5`}, {show_mov: `One Piece Movie 6`}, {show_mov: `One Piece Movie 7`}, {show_mov: `One Piece Movie 8`},
-                {show_mov: `One Piece Movie 9`}, {show_mov: `One Piece Movie 10`}, {show_mov: `One Piece Movie 11`}, {show_mov: `One Piece Movie 12`}, {show_mov: `One Piece Movie 13`}, {show_mov: `One Piece Movie 14`}, {show_mov: `One Piece Movie 15`},
+            show_movies: 
+            [
+                {show_mov: `One Piece Movie 1`}, 
+                {show_mov: `One Piece Movie 2`}, 
+                {show_mov: `One Piece Movie 3`}, 
+                {show_mov: `One Piece Movie 4`}, 
+                {show_mov: `One Piece Movie 5`}, 
+                {show_mov: `One Piece Movie 6`}, 
+                {show_mov: `One Piece Movie 7`}, 
+                {show_mov: `One Piece Movie 8`},
+                {show_mov: `One Piece Movie 9`}, 
+                {show_mov: `One Piece Movie 10`}, 
+                {show_mov: `One Piece Movie 11`}, 
+                {show_mov: `One Piece Movie 12`}, 
+                {show_mov: `One Piece Movie 13`}, 
+                {show_mov: `One Piece Movie 14`}, 
+                {show_mov: `One Piece Movie 15`},
             ],
-            show_episodes: [{show_ep: 1116,}],
-            show_watch: [
+            show_episodes: 
+            [
+                {show_ep: 1116,},
+            ],
+            show_watch: 
+            [
                 {show_wtp: `tv`, show_wep: 1116,}, 
                 {show_wtp: `movie`, show_wep: `One Piece Movie 1`,}, 
                 {show_wtp: `movie`, show_wep: `One Piece Movie 2`,}, 
@@ -1066,15 +1469,18 @@
                 {show_wtp: `movie`, show_wep: `One Piece Movie 14`,}, 
                 {show_wtp: `movie`, show_wep: `One Piece Movie 15`,},
             ],
-            show_description: `Barely surviving in a barrel after passing through a terrible whirlpool at sea, carefree Monkey D. Luffy ends up aboard a ship under attack by fearsome pirates. Despite being a naive-looking teenager, he is not to be underestimated. Unmatched in battle, Luffy is a pirate himself who resolutely pursues the coveted One Piece treasure and the King of the Pirates title that comes with it.
-            </br></br>
-            The late King of the Pirates, Gol D. Roger, stirred up the world before his death by disclosing the whereabouts of his hoard of riches and daring everyone to obtain it. Ever since then, countless powerful pirates have sailed dangerous seas for the prized One Piece only to never return. Although Luffy lacks a crew and a proper ship, he is endowed with a superhuman ability and an unbreakable spirit that make him not only a formidable adversary but also an inspiration to many.
-            </br></br>
-            As he faces numerous challenges with a big smile on his face, Luffy gathers one-of-a-kind companions to join him in his ambitious endeavor, together embracing perils and wonders on their once-in-a-lifetime adventure.`,
+            show_description: 
+            `
+                Barely surviving in a barrel after passing through a terrible whirlpool at sea, carefree Monkey D. Luffy ends up aboard a ship under attack by fearsome pirates. Despite being a naive-looking teenager, he is not to be underestimated. Unmatched in battle, Luffy is a pirate himself who resolutely pursues the coveted One Piece treasure and the King of the Pirates title that comes with it.
+                </br></br>
+                The late King of the Pirates, Gol D. Roger, stirred up the world before his death by disclosing the whereabouts of his hoard of riches and daring everyone to obtain it. Ever since then, countless powerful pirates have sailed dangerous seas for the prized One Piece only to never return. Although Luffy lacks a crew and a proper ship, he is endowed with a superhuman ability and an unbreakable spirit that make him not only a formidable adversary but also an inspiration to many.
+                </br></br>
+                As he faces numerous challenges with a big smile on his face, Luffy gathers one-of-a-kind companions to join him in his ambitious endeavor, together embracing perils and wonders on their once-in-a-lifetime adventure.
+            `,
             show_searchKey: `One Piece anime`,
         },
         {
-            show_link: `/Library/Anime/OnePunchMan.html`,
+            show_link: `/Library.html?info=OnePunchMan`,
             show_thumbnail: `/Library/Anime/img/31.jpg`,
             show_title: `One Punch man`,
             show_type: `TV`,
@@ -1092,50 +1498,67 @@
             show_quality: `HD`,
             show_rating: `R17+`,
             show_scores: `8.0`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/ExUMiF1L0HA?enablejsapi=1&wmode=opaque&autoplay=1`}],
-            show_movies: [{show_mov: `N/A`}],
-            show_episodes: [
+            show_trailers: 
+            [
+                {show_trl: `https://www.youtube.com/embed/ExUMiF1L0HA?enablejsapi=1&wmode=opaque&autoplay=1`},
+            ],
+            show_movies: 
+            [
+                {show_mov: `N/A`},
+            ],
+            show_episodes: 
+            [
                 {show_ep: 12,}, 
                 {show_ep: 12,},
-                ],
-            show_watch: [
+            ],
+            show_watch: 
+            [
                 {show_wtp: `tv`, show_wep: 12,},
                 {show_wtp: `tv`, show_wep: 12,},
             ],
-            show_description: `The seemingly unimpressive Saitama has a rather unique hobby: being a hero. In order to pursue his childhood dream, Saitama relentlessly trained for three years, losing all of his hair in the process. Now, Saitama is so powerful, he can defeat any enemy with just one punch. However, having no one capable of matching his strength has led Saitama to an unexpected problem—he is no longer able to enjoy the thrill of battling and has become quite bored.
-            </br></br>
-            One day, Saitama catches the attention of 19-year-old cyborg Genos, who witnesses his power and wishes to become Saitama's disciple. Genos proposes that the two join the Hero Association in order to become certified heroes that will be recognized for their positive contributions to society. Saitama, who is shocked that no one knows who he is, quickly agrees. Meeting new allies and taking on new foes, Saitama embarks on a new journey as a member of the Hero Association to experience the excitement of battle he once felt.
+            show_description: 
+            `
+                The seemingly unimpressive Saitama has a rather unique hobby: being a hero. In order to pursue his childhood dream, Saitama relentlessly trained for three years, losing all of his hair in the process. Now, Saitama is so powerful, he can defeat any enemy with just one punch. However, having no one capable of matching his strength has led Saitama to an unexpected problem—he is no longer able to enjoy the thrill of battling and has become quite bored.
+                </br></br>
+                One day, Saitama catches the attention of 19-year-old cyborg Genos, who witnesses his power and wishes to become Saitama's disciple. Genos proposes that the two join the Hero Association in order to become certified heroes that will be recognized for their positive contributions to society. Saitama, who is shocked that no one knows who he is, quickly agrees. Meeting new allies and taking on new foes, Saitama embarks on a new journey as a member of the Hero Association to experience the excitement of battle he once felt.
             `,
             show_searchKey: `One Punch man Wanpanman anime`,
         },
         {
-            show_link: `/Library/Anime/HunterXHunter.html`,
+            show_link: `/Library.html?info=HunterXHunter`,
             show_thumbnail: `/Library/Anime/img/32.jpg`,
             show_title: `Hunter X Hunter`,
             show_type: `TV`,
             show_status: `N/A`,
-            show_languages: `N/A`,
-            show_subtitles: `N/A`,
-            show_genre: `N/A`,
+            show_languages: `Japanese`,
+            show_subtitles: `English`,
+            show_genre: `Action, Adventure, Fantasy`,
             show_theme: `N/A`,
-            show_year: `N/A`,
-            show_aired: `N/A`,
-            show_studios: `N/A`,
+            show_year: `2011`,
+            show_aired: `Oct 16, 2011 to Sep 24, 2014`,
+            show_studios: `Madhouse`,
             show_country: `N/A`,
             show_foreground: `/Library/Anime/Watch/HunterXHunter/img/1.jpg`,
             show_background: `/Library/Anime/Watch/HunterXHunter/img/2.jpg`,
             show_quality: `N/A`,
             show_rating: `N/A`,
-            show_scores: `N/A`,
+            show_scores: `9.0`,
             show_trailers: [{show_trl: `N/A`}],
             show_movies: [{show_mov: `N/A`}],
             show_episodes: [{show_ep: `N/A`,}],
             show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
-            show_description: `N/A`,
+            show_description: 
+            `
+                Hunters devote themselves to accomplishing hazardous tasks, all from traversing the world's uncharted territories to locating rare items and monsters. Before becoming a Hunter, one must pass the Hunter Examination—a high-risk selection process in which most applicants end up handicapped or worse, deceased.
+                </br></br>
+                Ambitious participants who challenge the notorious exam carry their own reason. What drives 12-year-old Gon Freecss is finding Ging, his father and a Hunter himself. Believing that he will meet his father by becoming a Hunter, Gon takes the first step to walk the same path.
+                </br></br>
+                During the Hunter Examination, Gon befriends the medical student Leorio Paladiknight, the vindictive Kurapika, and ex-assassin Killua Zoldyck. While their motives vastly differ from each other, they band together for a common goal and begin to venture into a perilous world.
+            `,
             show_searchKey: `Hunter X Hunter anime`,
         },
         {
-            show_link: `/Library/Anime/SteinsGate.html`,
+            show_link: `/Library.html?info=SteinsGate`,
             show_thumbnail: `/Library/Anime/img/33.jpg`,
             show_title: `Steins Gate`,
             show_type: `TV`,
@@ -1161,7 +1584,7 @@
             show_searchKey: `Steins Gate anime`,
         },
         {
-            show_link: `/Library/Anime/DragonBallZ.html`,
+            show_link: `/Library.html?info=DragonBallZ`,
             show_thumbnail: `/Library/Anime/img/34.jpg`,
             show_title: `Dragon ball Z`,
             show_type: `TV`,
@@ -1187,7 +1610,7 @@
             show_searchKey: `Dragon ball Z anime`,
         },
         {
-            show_link: `/Library/Anime/Bleach.html`,
+            show_link: `/Library.html?info=Bleach`,
             show_thumbnail: `/Library/Anime/img/35.jpg`,
             show_title: `Bleach`,
             show_type: `TV`,
@@ -1213,7 +1636,7 @@
             show_searchKey: `Bleach anime`,
         },
         {
-            show_link: `/Library/Anime/AkameGaKill.html`,
+            show_link: `/Library.html?info=AkameGaKill`,
             show_thumbnail: `/Library/Anime/img/36.jpg`,
             show_title: `Akame ga Kill!`,
             show_type: `TV`,
@@ -1239,7 +1662,7 @@
             show_searchKey: `Akame ga Kill! Akame ga Kiru! anime`,
         },
         {
-            show_link: `/Library/Anime/SwordArtOnline.html`,
+            show_link: `/Library.html?info=SwordArtOnline`,
             show_thumbnail: `/Library/Anime/img/37.jpg`,
             show_title: `Sword Art Online`,
             show_type: `TV`,
@@ -1265,7 +1688,7 @@
             show_searchKey: `Sword Art Online Sōdo Āto Onrain Sodo Ato Onrain anime`,
         },
         {
-            show_link: `/Library/Anime/BongouStrayDogs.html`,
+            show_link: `/Library.html?info=BongouStrayDogs`,
             show_thumbnail: `/Library/Anime/img/38.jpg`,
             show_title: `Bongou Stray Dogs`,
             show_type: `TV`,
@@ -1291,7 +1714,7 @@
             show_searchKey: `Bongou Stray Dogs Bungu Stray Dogs Bongu Stray Dogs Bungou Stray Dogs anime`,
         },
         {
-            show_link: `/Library/Anime/MobPsycho.html`,
+            show_link: `/Library.html?info=MobPsycho`,
             show_thumbnail: `/Library/Anime/img/39.jpg`,
             show_title: `Mob Psycho`,
             show_type: `TV`,
@@ -1317,7 +1740,7 @@
             show_searchKey: `Mob Psycho Mobu Saiko Hyaku anime`,
         },
         {
-            show_link: `/Library/Anime/SamuraiChamploo.html`,
+            show_link: `/Library.html?info=SamuraiChamploo`,
             show_thumbnail: `/Library/Anime/img/40.jpg`,
             show_title: `Samurai Champloo`,
             show_type: `TV`,
@@ -1343,7 +1766,7 @@
             show_searchKey: `Samurai Champloo anime`,
         },
         {
-            show_link: `/Library/Anime/HellSing.html`,
+            show_link: `/Library.html?info=HellSing`,
             show_thumbnail: `/Library/Anime/img/41.jpg`,
             show_title: `HellSing`,
             show_type: `TV`,
@@ -1369,7 +1792,7 @@
             show_searchKey: `HellSing Hell Sing anime`,
         },
         {
-            show_link: `/Library/Anime/BlackLagoon.html`,
+            show_link: `/Library.html?info=BlackLagoon`,
             show_thumbnail: `/Library/Anime/img/42.jpg`,
             show_title: `Black Lagoon`,
             show_type: `TV`,
@@ -1395,7 +1818,7 @@
             show_searchKey: `Black Lagoon BlackLagoon anime`,
         },
         {
-            show_link: `/Library/Anime/FutureDiary.html`,
+            show_link: `/Library.html?info=FutureDiary`,
             show_thumbnail: `/Library/Anime/img/43.jpg`,
             show_title: `Future Diary`,
             show_type: `TV`,
@@ -1421,7 +1844,7 @@
             show_searchKey: `Future Diary anime`,
         },
         {
-            show_link: `/Library/Anime/Another.html`,
+            show_link: `/Library.html?info=Another`,
             show_thumbnail: `/Library/Anime/img/44.jpg`,
             show_title: `Another`,
             show_type: `TV`,
@@ -1449,7 +1872,7 @@
             show_searchKey: `Another anime`,
         },
         {
-            show_link: `/Library/Anime/FairyTale.html`,
+            show_link: `/Library.html?info=FairyTale`,
             show_thumbnail: `/Library/Anime/img/45.jpg`,
             show_title: `Fairy Tale`,
             show_type: `TV`,
@@ -1475,7 +1898,7 @@
             show_searchKey: `Fairy Tale FairyTale anime`,
         },
         {
-            show_link: `/Library/Anime/AfroSamurai.html`,
+            show_link: `/Library.html?info=AfroSamurai`,
             show_thumbnail: `/Library/Anime/img/46.jpg`,
             show_title: `Afro Samurai`,
             show_type: `TV`,
@@ -1501,7 +1924,7 @@
             show_searchKey: `Afro Samurai AfroSamurai anime`,
         },
         {
-            show_link: `/Library/Anime/DemonKingDamaio.html`,
+            show_link: `/Library.html?info=DemonKingDamaio`,
             show_thumbnail: `/Library/Anime/img/47.jpg`,
             show_title: `Demon King Damaio`,
             show_type: `TV`,
@@ -1527,7 +1950,7 @@
             show_searchKey: `Demon King Damaio anime`,
         },
         {
-            show_link: `/Library/Anime/ParadiseKiss.html`,
+            show_link: `/Library.html?info=ParadiseKiss`,
             show_thumbnail: `/Library/Anime/img/48.jpg`,
             show_title: `Paradise Kiss`,
             show_type: `TV`,
@@ -1553,7 +1976,7 @@
             show_searchKey: `Paradise Kiss anime`,
         },
         {
-            show_link: `/Library/Anime/Noragami.html`,
+            show_link: `/Library.html?info=Noragami`,
             show_thumbnail: `/Library/Anime/img/49.jpg`,
             show_title: `Noragami`,
             show_type: `TV`,
@@ -1579,7 +2002,7 @@
             show_searchKey: `Noragami anime`,
         },
         {
-            show_link: `/Library/Anime/GoblinSlayer.html`,
+            show_link: `/Library.html?info=GoblinSlayer`,
             show_thumbnail: `/Library/Anime/img/50.jpg`,
             show_title: `Goblin Slayer`,
             show_type: `TV`,
@@ -1605,7 +2028,7 @@
             show_searchKey: `Goblin Slayer GoblinSlayer anime`,
         },
         {
-            show_link: `/Library/Anime/DrStone.html`,
+            show_link: `/Library.html?info=DrStone`,
             show_thumbnail: `/Library/Anime/img/51.jpg`,
             show_title: `Dr Stone`,
             show_type: `TV`,
@@ -1631,7 +2054,7 @@
             show_searchKey: `Dr Stone DrStone anime`,
         },
         {
-            show_link: `/Library/Anime/BlueLock.html`,
+            show_link: `/Library.html?info=BlueLock`,
             show_thumbnail: `/Library/Anime/img/52.jpg`,
             show_title: `BlueLock`,
             show_type: `TV`,
@@ -1657,7 +2080,7 @@
             show_searchKey: `Blue Lock BlueLock anime`,
         },
         {
-            show_link: `/Library/Anime/SeishunButa.html`,
+            show_link: `/Library.html?info=SeishunButa`,
             show_thumbnail: `/Library/Anime/img/53.jpg`,
             show_title: `Seishun Buta`,
             show_type: `TV`,
@@ -1683,7 +2106,7 @@
             show_searchKey: `SeishunButa Seishun Buta Yarō anime`,
         },
         {
-            show_link: `/Library/Anime/DarkGathering.html`,
+            show_link: `/Library.html?info=DarkGathering`,
             show_thumbnail: `/Library/Anime/img/54.jpg`,
             show_title: `Dark Gathering`,
             show_type: `TV`,
@@ -1709,7 +2132,7 @@
             show_searchKey: `Dark Gathering  Daku Gyazaringu Dāku Gyazaringu anime`,
         },
         {
-            show_link: `/Library/Anime/TeruMomijiyama.html`,
+            show_link: `/Library.html?info=TeruMomijiyama`,
             show_thumbnail: `/Library/Anime/img/55.jpg`,
             show_title: `Teru Momijiyama`,
             show_type: `TV`,
@@ -1735,7 +2158,7 @@
             show_searchKey: `Shy Teru Momijiyama anime`,
         },
         {
-            show_link: `/Library/Anime/MFGhost.html`,
+            show_link: `/Library.html?info=MFGhost`,
             show_thumbnail: `/Library/Anime/img/56.jpg`,
             show_title: `MF Ghost`,
             show_type: `TV`,
@@ -1763,7 +2186,7 @@
             show_searchKey: `MF Ghost MFGhost MF Gōsuto MF Gosuto anime`,
         },
         {
-            show_link: `/Library/Anime/YakusokuNoNeverland.html`,
+            show_link: `/Library.html?info=YakusokuNoNeverland`,
             show_thumbnail: `/Library/Anime/img/57.jpg`,
             show_title: `Yakusoku no neverland`,
             show_type: `TV`,
@@ -1789,7 +2212,7 @@
             show_searchKey: `Yakusoku no neverland Promised Neverland anime`,
         },
         {
-            show_link: `/Library/Anime/SaikiK.html`,
+            show_link: `/Library.html?info=SaikiK`,
             show_thumbnail: `/Library/Anime/img/58.jpg`,
             show_title: `Saiki K`,
             show_type: `TV`,
@@ -1815,7 +2238,7 @@
             show_searchKey: `SaikiK Saiki Kusuo no Sai-nan The Disastrous Life of Saiki K anime`,
         },
         {
-            show_link: `/Library/Anime/HowARealisticHeroRebuiltTheKingdom.html`,
+            show_link: `/Library.html?info=HowARealisticHeroRebuiltTheKingdom`,
             show_thumbnail: `/Library/Anime/img/59.jpg`,
             show_title: `How A Realistic Hero RebuiltThe Kingdom`,
             show_type: `TV`,
@@ -1841,7 +2264,7 @@
             show_searchKey: `How A Realistic Hero RebuiltThe Kingdom Genjitsu Shugi Yusha no Okoku Saikenki Genjitsu Shugi Yūsha no Ōkoku Saikenki anime`,
         },
         {
-            show_link: `/Library/Anime/AsteriskWar.html`,
+            show_link: `/Library.html?info=AsteriskWar`,
             show_thumbnail: `/Library/Anime/img/60.jpg`,
             show_title: `Asterisk War`,
             show_type: `TV`,
@@ -1867,7 +2290,7 @@
             show_searchKey: `AsteriskWar Asterisk War Gakusen Toshi Asutarisuku anime`,
         },
         {
-            show_link: `/Library/Anime/BlackCover.html`,
+            show_link: `/Library.html?info=BlackCover`,
             show_thumbnail: `/Library/Anime/img/61.jpg`,
             show_title: `Black Cover`,
             show_type: `TV`,
@@ -1893,7 +2316,7 @@
             show_searchKey: `BlackCover Black Cover Burakku Kurōbā Burakku Kuroba anime`,
         },
         {
-            show_link: `/Library/Anime/Bullbuster.html`,
+            show_link: `/Library.html?info=Bullbuster`,
             show_thumbnail: `/Library/Anime/img/62.jpg`,
             show_title: `Bullbuster`,
             show_type: `TV`,
@@ -1919,7 +2342,7 @@
             show_searchKey: `Bullbuster Bull buster anime`,
         },
         {
-            show_link: `/Library/Anime/ChainsawMan.html`,
+            show_link: `/Library.html?info=ChainsawMan`,
             show_thumbnail: `/Library/Anime/img/63.jpg`,
             show_title: `Chainsaw man`,
             show_type: `TV`,
@@ -1947,7 +2370,7 @@
             show_searchKey: `ChainsawMan Chainsaw man Chensō Man Chenso Man anime`,
         },
         {
-            show_link: `/Library/Anime/Dororo.html`,
+            show_link: `/Library.html?info=Dororo`,
             show_thumbnail: `/Library/Anime/img/64.jpg`,
             show_title: `Dororo`,
             show_type: `TV`,
@@ -1973,7 +2396,7 @@
             show_searchKey: `Dororo anime`,
         },
         {
-            show_link: `/Library/Anime/Erased.html`,
+            show_link: `/Library.html?info=Erased`,
             show_thumbnail: `/Library/Anime/img/65.jpg`,
             show_title: `Erased`,
             show_type: `TV`,
@@ -1999,7 +2422,7 @@
             show_searchKey: `Erased Boku dake ga Inai Mach anime`,
         },
         {
-            show_link: `/Library/Anime/VivyFluoriteEyesSong.html`,
+            show_link: `/Library.html?info=VivyFluoriteEyesSong`,
             show_thumbnail: `/Library/Anime/img/66.jpg`,
             show_title: `Vivy: Fluorite Eye's Song`,
             show_type: `TV`,
@@ -2025,7 +2448,7 @@
             show_searchKey: `Vivy Fluorite Eye's Song Vivy: Fluorite Eye's Song anime`,
         },
         {
-            show_link: `/Library/Anime/AndYouThoughtThereIsNeverAGirlOnline.html`,
+            show_link: `/Library.html?info=AndYouThoughtThereIsNeverAGirlOnline`,
             show_thumbnail: `/Library/Anime/img/67.jpg`,
             show_title: `And You Thought There Is Never a Girl Online`,
             show_type: `TV`,
@@ -2051,7 +2474,7 @@
             show_searchKey: `Netoge no Yome wa Onna no Ko Janai to Omotta And You Thought There Is Never a Girl Online anime`,
         },
         {
-            show_link: `/Library/Anime/Haikyuu.html`,
+            show_link: `/Library.html?info=Haikyuu`,
             show_thumbnail: `/Library/Anime/img/68.jpg`,
             show_title: `Haikyuu`,
             show_type: `TV`,
@@ -2077,7 +2500,7 @@
             show_searchKey: `Haikyū Haikyu Haikyuu anime`,
         },
         {
-            show_link: `/Library/Anime/GoTobunNoHanayome.html`,
+            show_link: `/Library.html?info=GoTobunNoHanayome`,
             show_thumbnail: `/Library/Anime/img/69.jpg`,
             show_title: `Go-Tobun no Hanayome`,
             show_type: `TV`,
@@ -2103,7 +2526,7 @@
             show_searchKey: `Go Tobun no Hanayome Go-Tobun no Hanayome Go-Tōbun no Hanayome The Quintessential Quintuplets anime`,
         },
         {
-            show_link: `/Library/Anime/HowNotToSummonADemonLord.html`,
+            show_link: `/Library.html?info=HowNotToSummonADemonLord`,
             show_thumbnail: `/Library/Anime/img/70.jpg`,
             show_title: `How Not TO Summon a Demon Lord`,
             show_type: `TV`,
@@ -2129,7 +2552,7 @@
             show_searchKey: `HNTSADL Isekai Maō to Shōkan Shōjo no Dorei Majutsu Isekai Mao to Shokan Shojo no Dorei Majutsu How Not TO Summon a Demon Lord anime`,
         },
         {
-            show_link: `/Library/Anime/Horimiya.html`,
+            show_link: `/Library.html?info=Horimiya`,
             show_thumbnail: `/Library/Anime/img/71.jpg`,
             show_title: `Horimiya`,
             show_type: `TV`,
@@ -2155,7 +2578,7 @@
             show_searchKey: `Hori-san to Miyamura-kun Hori and Miyamura Horimiya anime`,
         },
         {
-            show_link: `/Library/Anime/KimitoBoku.html`,
+            show_link: `/Library.html?info=KimitoBoku`,
             show_thumbnail: `/Library/Anime/img/72.jpg`,
             show_title: `Kimi to boku`,
             show_type: `TV`,
@@ -2181,7 +2604,7 @@
             show_searchKey: `Kimi to boku anime`,
         },
         {
-            show_link: `/Library/Anime/TomochanIsaGirl.html`,
+            show_link: `/Library.html?info=TomochanIsaGirl`,
             show_thumbnail: `/Library/Anime/img/73.jpg`,
             show_title: `Tomo-chan Is a Girl!`,
             show_type: `TV`,
@@ -2207,7 +2630,7 @@
             show_searchKey: `Tomo-chan Is a Girl! Tomo-chan wa Onnanoko! anime`,
         },
         {
-            show_link: `/Library/Anime/BochiTheRock.html`,
+            show_link: `/Library.html?info=BochiTheRock`,
             show_thumbnail: `/Library/Anime/img/74.jpg`,
             show_title: `Bocabyhi the Rock`,
             show_type: `TV`,
@@ -2233,7 +2656,7 @@
             show_searchKey: `Bocabyhi the Rock Hiroi Kikuri no Fukazake Nikki anime`,
         },
         {
-            show_link: `/Library/Anime/LinkClick.html`,
+            show_link: `/Library.html?info=LinkClick`,
             show_thumbnail: `/Library/Anime/img/75.jpg`,
             show_title: `Link Click`,
             show_type: `TV`,
@@ -2259,7 +2682,7 @@
             show_searchKey: `Link Click Shíguāng Dàilǐrén Shiguang Dailiren anime`,
         },
         {
-            show_link: `/Library/Anime/MyLifeAsInuSansDog.html`,
+            show_link: `/Library.html?info=MyLifeAsInuSansDog`,
             show_thumbnail: `/Library/Anime/img/76.jpg`,
             show_title: `My Life as Inu-san's dog`,
             show_type: `TV`,
@@ -2285,7 +2708,7 @@
             show_searchKey: `My Life as Inu-san's dog Inu ni Nattara Suki na Hito ni Hirowareta anime`,
         },
         {
-            show_link: `/Library/Anime/MyStepmomsDaughterisMyEx.html`,
+            show_link: `/Library.html?info=MyStepmomsDaughterisMyEx`,
             show_thumbnail: `/Library/Anime/img/77.jpg`,
             show_title: `My Stepmom's daughter is my Ex`,
             show_type: `TV`,
@@ -2311,7 +2734,7 @@
             show_searchKey: `My Stepmom's daughter is my Ex Irido Mizuto anime`,
         },
         {
-            show_link: `/Library/Anime/Overlord.html`,
+            show_link: `/Library.html?info=Overlord`,
             show_thumbnail: `/Library/Anime/img/78.jpg`,
             show_title: `Overlord`,
             show_type: `TV`,
@@ -2337,7 +2760,7 @@
             show_searchKey: `Ōbārōdo Obarodo Overlord anime`,
         },
         {
-            show_link: `/Library/Anime/TalentlessNana.html`,
+            show_link: `/Library.html?info=TalentlessNana`,
             show_thumbnail: `/Library/Anime/img/79.jpg`,
             show_title: `Talentless Nana`,
             show_type: `TV`,
@@ -2363,7 +2786,7 @@
             show_searchKey: `TalentlessNana Talentless Nana Munō na Nana Muno na Nana anime`,
         },
         {
-            show_link: `/Library/Anime/VanitasNoCarte.html`,
+            show_link: `/Library.html?info=VanitasNoCarte`,
             show_thumbnail: `/Library/Anime/img/80.jpg`,
             show_title: `Vanitas no Carte`,
             show_type: `TV`,
@@ -2389,7 +2812,7 @@
             show_searchKey: `Vanitasu no Karute Vanitas no Carte anime anime`,
         },
         {
-            show_link: `/Library/Anime/InitialD.html`,
+            show_link: `/Library.html?info=InitialD`,
             show_thumbnail: `/Library/Anime/img/81.jpg`,
             show_title: `Initial D`,
             show_type: `TV`,
@@ -2409,17 +2832,27 @@
             show_scores: `8.2`,
             show_trailers: [{show_trl: `N/A`}],
             show_movies: [{show_mov: `N/A`}],
-            show_episodes: [{show_ep: 24, show_ep: 13, show_ep: 1, show_ep: 24, show_ep: 1, show_ep: 4,}],
-            show_watch: [{show_wtp: `tv`, show_wep: 24,}, {show_wtp: `tv`, show_wep: 13,}, {show_wtp: `tv`, show_wep: 1,}, {show_wtp: `tv`, show_wep: 24,}, {show_wtp: `tv`, show_wep: 1,}, {show_wtp: `tv`, show_wep: 4,},],
-            show_description: `Initial D is a Japanese street racing manga series written and illustrated by Shuichi Shigeno.
-            The story follows Takumi Fujiwara, a high school student working as a gas station attendant during the day
-            and a tofu delivery boy for his father's business at night. 
-            Takumi's driving skills are honed through his delivery runs on Mount Akina, 
-            where he drives his father's Toyota Sprinter Trueno GT-APEX (AE86).`,
+            show_episodes: 
+            [
+                {show_ep: 24,}, 
+                {show_ep: 13,}, 
+                {show_ep: 1,}, 
+                {show_ep: 24,}, 
+                {show_ep: 1,}, 
+                {show_ep: 4,},
+            ],
+            show_description: 
+            `
+                Initial D is a Japanese street racing manga series written and illustrated by Shuichi Shigeno.
+                The story follows Takumi Fujiwara, a high school student working as a gas station attendant during the day
+                and a tofu delivery boy for his father's business at night. 
+                Takumi's driving skills are honed through his delivery runs on Mount Akina, 
+                where he drives his father's Toyota Sprinter Trueno GT-APEX (AE86).
+            `,
             show_searchKey: `InitialD Initial D Inisharu Dī Inisharu Di anime`,
         },
         {
-            show_link: `/Library/Anime/AssassinationClassroom.html`,
+            show_link: `/Library.html?info=AssassinationClassroom`,
             show_thumbnail: `/Library/Anime/img/82.jpg`,
             show_title: `Assassination Classroom`,
             show_type: `TV`,
@@ -2445,7 +2878,7 @@
             show_searchKey: `Assassination Classroom Ansatsu Kyōshitsu Ansatsu Kyoshitsu anime`,
         },
         {
-            show_link: `/Library/Anime/MashleMagicAndMuscle.html`,
+            show_link: `/Library.html?info=MashleMagicAndMuscle`,
             show_thumbnail: `/Library/Anime/img/83.jpg`,
             show_title: `Mashle Magic and Muscle`,
             show_type: `TV`,
@@ -2471,7 +2904,7 @@
             show_searchKey: `Mashle Magic and Muscle Masshuru anime`,
         },
         {
-            show_link: `/Library/Anime/TrainToTheEndOfTheWorld.html`,
+            show_link: `/Library.html?info=TrainToTheEndOfTheWorld`,
             show_thumbnail: `/Library/Anime/img/84.jpg`,
             show_title: `Train to the End of the world`,
             show_type: `TV`,
@@ -2489,19 +2922,34 @@
             show_quality: `HD`,
             show_rating: `PG`,
             show_scores: `7.6`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/WP1HMeFxJoM`}],
-            show_movies: [{show_mov: `N/A`}],
-            show_episodes: [{show_ep: 12,}],
-            show_watch: [{show_wtp: `tv`, show_wep: 12,},],
-            show_description: `The introduction of 7G Network technology promised miraculous technological advancements; however, the aftermath of its launch plunged Japan into chaos. From drastic changes to the terrain to bizarre mutations among people, the way of life is overwritten with new rules. The town of Agano is one of the few remaining settlements, and its citizens aged 21 and above have transformed into animals.
-            </br></br>
-            Shizuru Chikura, a high school student from Agano, is desperately searching for her friend, Youka Nakatomi. Coming across a picture in a newspaper placing Youka in Ikebukuro, Shizuru starts packing for a trip. But with public transportation effectively shut down, her options are limited. Fortunately, Tairo Zenjirou, a senile old conductor and the only human adult in town, comes to the rescue when he teaches her how to operate an abandoned train.
-            </br></br>
-            With her destination set, Shizuru ventures off on a journey to find her missing friend. On the day of departure, however, her other classmates—Nadeshiko Hoshi, Reimi Kuga, and Akira Shinonome—decide to tag along at the last minute as they embark on this one-track adventure that might expose them to dangers far surpassing anything they have encountered in Agano.`,
+            show_trailers: 
+            [
+                {show_trl: `https://www.youtube.com/embed/WP1HMeFxJoM`},
+            ],
+            show_movies: 
+            [
+                {show_mov: `N/A`},
+            ],
+            show_episodes: 
+            [
+                {show_ep: 12,},
+            ],
+            show_watch: 
+            [
+                {show_wtp: `tv`, show_wep: 12,},
+            ],
+            show_description: 
+            `
+                The introduction of 7G Network technology promised miraculous technological advancements; however, the aftermath of its launch plunged Japan into chaos. From drastic changes to the terrain to bizarre mutations among people, the way of life is overwritten with new rules. The town of Agano is one of the few remaining settlements, and its citizens aged 21 and above have transformed into animals.
+                </br></br>
+                Shizuru Chikura, a high school student from Agano, is desperately searching for her friend, Youka Nakatomi. Coming across a picture in a newspaper placing Youka in Ikebukuro, Shizuru starts packing for a trip. But with public transportation effectively shut down, her options are limited. Fortunately, Tairo Zenjirou, a senile old conductor and the only human adult in town, comes to the rescue when he teaches her how to operate an abandoned train.
+                </br></br>
+                With her destination set, Shizuru ventures off on a journey to find her missing friend. On the day of departure, however, her other classmates—Nadeshiko Hoshi, Reimi Kuga, and Akira Shinonome—decide to tag along at the last minute as they embark on this one-track adventure that might expose them to dangers far surpassing anything they have encountered in Agano.
+            `,
             show_searchKey: `Train to the End of the world anime`,
         },
         {
-            show_link: `/Library/Anime/Yatagarasu.html`,
+            show_link: `/Library.html?info=Yatagarasu`,
             show_thumbnail: `/Library/Anime/img/85.jpg`,
             show_title: `Yatagarasu`,
             show_type: `TV`,
@@ -2519,19 +2967,31 @@
             show_quality: `HD`,
             show_rating: `PG13`,
             show_scores: `7.6`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/BAZbRRzAuPU?enablejsapi=1&wmode=opaque&autoplay=1`}],
+            show_trailers: 
+            [
+                {show_trl: `https://www.youtube.com/embed/BAZbRRzAuPU?enablejsapi=1&wmode=opaque&autoplay=1`},
+            ],
             show_movies: [{show_mov: `N/A`}],
-            show_episodes: [{show_ep: 20,}],
-            show_watch: [{show_wtp: `tv`, show_wep: 20,},],
-            show_description: `In the Kingdom of Yamauchi, people have the ability to transform into three-legged crows known as yatagarasu. While the men plot over daily governance, women compete for the hand of Wakamiya, the crown prince who was selected as the Kinu, the servant to the Mountain God. Four young women arrive at the court to join the competition, including one named Asebi.
-            </br></br>
-            While the kind and innocent Asebi sticks out like a sore thumb compared to the other women, the crown prince has to fight for his place in the clan. Despite being born both to a concubine and as a second son, the royal priests still chose Wakamiya to be the Kinu over his older brother. This decision created a rift between the siblings while enraging Wakamiya's stepmother in the process.
-            </br></br>
-            When Yukiya, one of the teenage sons of the village chief, is sent to the palace to become Wakamiya's new attendant, the prince is not pleased in the slightest. However, Yukiya's presence at the imperial courts is no mere coincidence.`,
+            show_episodes: 
+            [
+                {show_ep: 20,},
+            ],
+            show_watch: 
+            [
+                {show_wtp: `tv`, show_wep: 20,},
+            ],
+            show_description: 
+            `
+                In the Kingdom of Yamauchi, people have the ability to transform into three-legged crows known as yatagarasu. While the men plot over daily governance, women compete for the hand of Wakamiya, the crown prince who was selected as the Kinu, the servant to the Mountain God. Four young women arrive at the court to join the competition, including one named Asebi.
+                </br></br>
+                While the kind and innocent Asebi sticks out like a sore thumb compared to the other women, the crown prince has to fight for his place in the clan. Despite being born both to a concubine and as a second son, the royal priests still chose Wakamiya to be the Kinu over his older brother. This decision created a rift between the siblings while enraging Wakamiya's stepmother in the process.
+                </br></br>
+                When Yukiya, one of the teenage sons of the village chief, is sent to the palace to become Wakamiya's new attendant, the prince is not pleased in the slightest. However, Yukiya's presence at the imperial courts is no mere coincidence.
+            `,
             show_searchKey: `Yatagarasu anime`,
         },
         {
-            show_link: `/Library/Anime/WindBreaker.html`,
+            show_link: `/Library.html?info=WindBreaker`,
             show_thumbnail: `/Library/Anime/img/86.jpg`,
             show_title: `Wind Breaker`,
             show_type: `TV`,
@@ -2549,19 +3009,34 @@
             show_quality: `HD`,
             show_rating: `PG13`,
             show_scores: `7.9`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/k5qM1PoLmUc?enablejsapi=1&wmode=opaque&autoplay=1`}],
-            show_movies: [{show_mov: `N/A`}],
-            show_episodes: [{show_ep: 13,}],
-            show_watch: [{show_wtp: `tv`, show_wep: 13,},],
-            show_description: `From an early age, Haruka Sakura was made an outcast due to his unconventional appearance and lack of social skills. However, the rough treatment turned him into a proficient fighter, which is now the only thing he prides himself on. Starting at Furin High School, where it is rumored that strength is valued over academics, Sakura has only one goal—taking the top spot.
-            </br></br>
-            Involved in a street brawl the day before his enrollment, Sakura happens to meet a group of his future schoolmates. Instead of the usual rejection, they fight alongside him, demonstrating that what the school actually cares about is protecting the town of Makochi from any harm—hence why the students call themselves "Bofurin." Surprised by the support and appreciation of the townspeople, Sakura has a hard time accepting their goodwill.
-            </br></br>
-            Though unfamiliar with kindness being shown to him, Sakura must learn to push past his discomfort when Bofurin is pitted against formidable enemies. After experiencing the feeling of acceptance, he finds himself fighting for the sake of others for the first time.`,
+            show_trailers: 
+            [
+                {show_trl: `https://www.youtube.com/embed/k5qM1PoLmUc?enablejsapi=1&wmode=opaque&autoplay=1`},
+            ],
+            show_movies: 
+            [
+                {show_mov: `N/A`},
+            ],
+            show_episodes: 
+            [
+                {show_ep: 13,},
+            ],
+            show_watch: 
+            [
+                {show_wtp: `tv`, show_wep: 13,},
+            ],
+            show_description: 
+            `
+                From an early age, Haruka Sakura was made an outcast due to his unconventional appearance and lack of social skills. However, the rough treatment turned him into a proficient fighter, which is now the only thing he prides himself on. Starting at Furin High School, where it is rumored that strength is valued over academics, Sakura has only one goal—taking the top spot.
+                </br></br>
+                Involved in a street brawl the day before his enrollment, Sakura happens to meet a group of his future schoolmates. Instead of the usual rejection, they fight alongside him, demonstrating that what the school actually cares about is protecting the town of Makochi from any harm—hence why the students call themselves "Bofurin." Surprised by the support and appreciation of the townspeople, Sakura has a hard time accepting their goodwill.
+                </br></br>
+                Though unfamiliar with kindness being shown to him, Sakura must learn to push past his discomfort when Bofurin is pitted against formidable enemies. After experiencing the feeling of acceptance, he finds himself fighting for the sake of others for the first time.
+            `,
             show_searchKey: `Wind Breaker Uindo Bureikā Uindo Bureika anime`,
         },
         {
-            show_link: `/Library/Anime/ApothecaryDiaries.html`,
+            show_link: `/Library.html?info=ApothecaryDiaries`,
             show_thumbnail: `/Library/Anime/img/87.jpg`,
             show_title: `Apothecary Diaries`,
             show_type: `TV`,
@@ -2587,7 +3062,7 @@
             show_searchKey: `Apothecary Diaries Kusuriya no Hitorigoto anime`,
         },
         {
-            show_link: `/Library/Anime/ASignOfAffection.html`,
+            show_link: `/Library.html?info=ASignOfAffection`,
             show_thumbnail: `/Library/Anime/img/88.jpg`,
             show_title: `A Sign Of Affection`,
             show_type: `TV`,
@@ -2613,7 +3088,7 @@
             show_searchKey: `A Sign Of Affection Hibike! Yūfoniamu Hibike! Yufoniamu anime`,
         },
         {
-            show_link: `/Library/Anime/SoundEuphonium.html`,
+            show_link: `/Library.html?info=SoundEuphonium`,
             show_thumbnail: `/Library/Anime/img/89.jpg`,
             show_title: `Sound! Euphonium`,
             show_type: `TV`,
@@ -2650,7 +3125,7 @@
             show_searchKey: `Sound! Euphonium anime`,
         },
         {
-            show_link: `/Library/Anime/TheWitchAndTheBeast.html`,
+            show_link: `/Library.html?info=TheWitchAndTheBeast`,
             show_thumbnail: `/Library/Anime/img/90.jpg`,
             show_title: `The Witch And The Beast`,
             show_type: `TV`,
@@ -2676,7 +3151,7 @@
             show_searchKey: `The Witch And The Beast anime`,
         },
         {
-            show_link: `/Library/Anime/BlackButler.html`,
+            show_link: `/Library.html?info=BlackButler`,
             show_thumbnail: `/Library/Anime/img/91.jpg`,
             show_title: `Black Butler`,
             show_type: `TV`,
@@ -2702,7 +3177,7 @@
             show_searchKey: `Black Butler Kuroshitsuji anime`,
         },
         {
-            show_link: `/Library/Anime/HighSpeedEtoile.html`,
+            show_link: `/Library.html?info=HighSpeedEtoile`,
             show_thumbnail: `/Library/Anime/img/92.jpg`,
             show_title: `HighSpeed Etoile`,
             show_type: `TV`,
@@ -2728,7 +3203,7 @@
             show_searchKey: `High Speed Etoile HighSpeed Etoile HIGHSPEED Étoile anime`,
         },
         {
-            show_link: `/Library/Anime/MetallicRouge.html`,
+            show_link: `/Library.html?info=MetallicRouge`,
             show_thumbnail: `/Library/Anime/img/93.jpg`,
             show_title: `Metallic Rouge`,
             show_type: `TV`,
@@ -2754,7 +3229,7 @@
             show_searchKey: `Metallic Rouge Metarikku Rūju Metarikku Ruju anime`,
         },
         {
-            show_link: `/Library/Anime/AkumaDrive.html`,
+            show_link: `/Library.html?info=AkumaDrive`,
             show_thumbnail: `/Library/Anime/img/94.jpg`,
             show_title: `Akuma Drive`,
             show_type: `TV`,
@@ -2780,7 +3255,7 @@
             show_searchKey: `Akuma Drive AkumaDrive anime`,
         },
         {
-            show_link: `/Library/Anime/AstroNote.html`,
+            show_link: `/Library.html?info=AstroNote`,
             show_thumbnail: `/Library/Anime/img/95.jpg`,
             show_title: `Astro Note`,
             show_type: `TV`,
@@ -2806,7 +3281,7 @@
             show_searchKey: `Astro Note Asutoro Nōto Asutoro Noto anime`,
         },
         {
-            show_link: `/Library/Anime/HeavenOfficialsBlessing.html`,
+            show_link: `/Library.html?info=HeavenOfficialsBlessing`,
             show_thumbnail: `/Library/Anime/img/96.jpg`,
             show_title: `Heaven Official's Blessing`,
             show_type: `TV`,
@@ -2832,7 +3307,7 @@
             show_searchKey: `Heaven Officials Blessings Heaven Official's Blessings Tiān Guān Cì Fú Tian Guan Ci Fu anime`,
         },
         {
-            show_link: `/Library/Anime/TheWrongWayToUseHealingMagic.html`,
+            show_link: `/Library.html?info=TheWrongWayToUseHealingMagic`,
             show_thumbnail: `/Library/Anime/img/97.jpg`,
             show_title: `The Wrong Way To Use Healing Magic`,
             show_type: `TV`,
@@ -2858,7 +3333,7 @@
             show_searchKey: `The Wrong Way To Use Healing Magic anime`,
         },
         {
-            show_link: `/Library/Anime/Konosuba.html`,
+            show_link: `/Library.html?info=Konosuba`,
             show_thumbnail: `/Library/Anime/img/98.jpg`,
             show_title: `Konosuba`,
             show_type: `TV`,
@@ -2884,7 +3359,7 @@
             show_searchKey: `Konosuba God's Blessing on This Wonderful World! KonoSuba: God's Blessing on This Wonderful World! anime`,
         },
         {
-            show_link: `/Library/Anime/KaijuNo8.html`,
+            show_link: `/Library.html?info=KaijuNo8`,
             show_thumbnail: `/Library/Anime/img/99.jpg`,
             show_title: `Kaiju No. 8`,
             show_type: `TV`,
@@ -2910,7 +3385,7 @@
             show_searchKey: `Kaiju No. 8 Kaiju No.8 Kaiju No8 KaijuNo8 Kaijū Hachigō Kaiju Hachigo anime`,
         },
         {
-            show_link: `/Library/Anime/TheNewGate.html`,
+            show_link: `/Library.html?info=TheNewGate`,
             show_thumbnail: `/Library/Anime/img/100.jpg`,
             show_title: `The New Gate`,
             show_type: `TV`,
@@ -2936,7 +3411,7 @@
             show_searchKey: `The New Gate anime`,
         },
         {
-            show_link: `/Library/Anime/SoloLeveling.html`,
+            show_link: `/Library.html?info=SoloLeveling`,
             show_thumbnail: `/Library/Anime/img/101.jpg`,
             show_title: `Solo Leveling`,
             show_type: `TV`,
@@ -2962,7 +3437,7 @@
             show_searchKey: `SoloLeveling Solo Leveling Na Honjaman Rebeleop anime`,
         },
         {
-            show_link: `/Library/Anime/DailyLifeOfAnImmortalKing.html`,
+            show_link: `/Library.html?info=DailyLifeOfAnImmortalKing`,
             show_thumbnail: `/Library/Anime/img/102.jpg`,
             show_title: `Daily Life Of An Immortal King`,
             show_type: `TV`,
@@ -2988,7 +3463,7 @@
             show_searchKey: `Daily Life Of An Immortal King Xiān Wáng de Rìcháng Shēnghuó Xian Wáng de Richang Shenghuo anime`,
         },
         {
-            show_link: `/Library/Anime/BorutoNarutoNextGenerations.html`,
+            show_link: `/Library.html?info=BorutoNarutoNextGenerations`,
             show_thumbnail: `/Library/Anime/img/103.jpg`,
             show_title: `Boruto: Naruto Next Generations`,
             show_type: `TV`,
@@ -3006,15 +3481,31 @@
             show_quality: `HD`,
             show_rating: `PG13`,
             show_scores: `6.0`,
-            show_trailers: [{show_trl: `N/A`}],
-            show_movies: [{show_mov: `Boruto: Naruto the Movie`,},],
-            show_episodes: [{show_ep: 293,},],
-            show_watch: [{show_wtp: `tv`, show_wep: 293,}, {show_wtp: `movie`, show_wep: `Boruto: Naruto the Movie`,},],
-            show_description: `Following the successful end of the Fourth Shinobi World War, Konohagakure has been enjoying a period of peace, prosperity, and extraordinary technological advancement. This is all due to the efforts of the Allied Shinobi Forces and the village's Seventh Hokage, Naruto Uzumaki. Now resembling a modern metropolis, Konohagakure has changed, particularly the life of a shinobi. Under the watchful eye of Naruto and his old comrades, a new generation of shinobi has stepped up to learn the ways of the ninja.
-            </br></br>
-            Boruto Uzumaki is often the center of attention as the son of the Seventh Hokage. Despite having inherited Naruto's boisterous and stubborn demeanor, Boruto is considered a prodigy and is able to unleash his potential with the help of supportive friends and family. Unfortunately, this has only worsened his arrogance and his desire to surpass Naruto which, along with his father's busy lifestyle, has strained their relationship. However, a sinister force brewing within the village may threaten Boruto's carefree life
-            </br></br>
-            New friends and familiar faces join Boruto as a new story begins.`,
+            show_trailers: 
+            [
+                {show_trl: `N/A`}
+            ],
+            show_movies: 
+            [
+                {show_mov: `Boruto: Naruto the Movie`,},
+            ],
+            show_episodes: 
+            [
+                {show_ep: 293,},
+            ],
+            show_watch: 
+            [
+                {show_wtp: `tv`, show_wep: 293,}, 
+                {show_wtp: `movie`, show_wep: `Boruto: Naruto the Movie`,},
+            ],
+            show_description: 
+            `
+                Following the successful end of the Fourth Shinobi World War, Konohagakure has been enjoying a period of peace, prosperity, and extraordinary technological advancement. This is all due to the efforts of the Allied Shinobi Forces and the village's Seventh Hokage, Naruto Uzumaki. Now resembling a modern metropolis, Konohagakure has changed, particularly the life of a shinobi. Under the watchful eye of Naruto and his old comrades, a new generation of shinobi has stepped up to learn the ways of the ninja.
+                </br></br>
+                Boruto Uzumaki is often the center of attention as the son of the Seventh Hokage. Despite having inherited Naruto's boisterous and stubborn demeanor, Boruto is considered a prodigy and is able to unleash his potential with the help of supportive friends and family. Unfortunately, this has only worsened his arrogance and his desire to surpass Naruto which, along with his father's busy lifestyle, has strained their relationship. However, a sinister force brewing within the village may threaten Boruto's carefree life
+                </br></br>
+                New friends and familiar faces join Boruto as a new story begins.
+            `,
             show_searchKey: `Boruto Naruto Next Generations Boruto: Naruto Next Generations anime`,
         },
     ];
