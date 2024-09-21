@@ -3049,7 +3049,7 @@
                     <div class="mostViewedRankBdr">
                         <div class="mostViewedRankBox">
                             <div class="mostViewedRankNo1Bdr">
-                                <a href="/Library.html?info=DemonSlayer.html" class="mostViewedRankNo1Box">
+                                <a href="/Library.html?info=DemonSlayer" class="mostViewedRankNo1Box">
                                     <div class="mostViewedRankNo1ImgBdr">
                                         <div class="mostViewedRankNo1ImgBox">
                                             <img src="/Library/TV/Watch/DemonSlayer/img/2.jpg" alt="" class="mostViewedRankNo1Img">
@@ -3086,7 +3086,7 @@
                             </div>
                             <div class="mostViewedRankOthersBdr">
                                 <div class="mostViewedRankOthersBox">
-                                    <a href="/Library.html?info=OnePiece.html" class="mostViewedRankOthersCardBdr">
+                                    <a href="/Library.html?info=OnePiece" class="mostViewedRankOthersCardBdr">
                                         <div class="mostViewedRankOthersCardBox">
                                             <div class="mostViewedRankOthersImgBdr">
                                                 <div class="mostViewedRankOthersImgBox">
@@ -3117,7 +3117,7 @@
                                             </div>
                                         </div>
                                     </a>
-                                    <a href="/Library.html?info=JujutsuKaisen.html" class="mostViewedRankOthersCardBdr">
+                                    <a href="/Library.html?info=JujutsuKaisen" class="mostViewedRankOthersCardBdr">
                                         <div class="mostViewedRankOthersCardBox">
                                             <div class="mostViewedRankOthersImgBdr">
                                                 <div class="mostViewedRankOthersImgBox">
@@ -3148,7 +3148,7 @@
                                             </div>
                                         </div>
                                     </a>
-                                    <a href="/Library.html?info=Naruto.html" class="mostViewedRankOthersCardBdr">
+                                    <a href="/Library.html?info=Naruto" class="mostViewedRankOthersCardBdr">
                                         <div class="mostViewedRankOthersCardBox">
                                             <div class="mostViewedRankOthersImgBdr">
                                                 <div class="mostViewedRankOthersImgBox">
@@ -3179,7 +3179,7 @@
                                             </div>
                                         </div>
                                     </a>
-                                    <a href="/Library.html?info=ChainsawMan.html" class="mostViewedRankOthersCardBdr">
+                                    <a href="/Library.html?info=ChainsawMan" class="mostViewedRankOthersCardBdr">
                                         <div class="mostViewedRankOthersCardBox">
                                             <div class="mostViewedRankOthersImgBdr">
                                                 <div class="mostViewedRankOthersImgBox">
