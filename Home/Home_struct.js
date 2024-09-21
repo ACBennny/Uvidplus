@@ -315,7 +315,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalPanic" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/5.jpg" alt="" class="cardImg">
                                             </div>
@@ -358,7 +358,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalAlchemist.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalAlchemist" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/6.jpg" alt="" class="cardImg">
                                             </div>
@@ -401,7 +401,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalAlchemistBrotherhood.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalAlchemistBrotherhood" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/7.jpg" alt="" class="cardImg">
                                             </div>
@@ -444,7 +444,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/BlueExorcist.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=BlueExorcist" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/9.jpg" alt="" class="cardImg">
                                             </div>
@@ -487,7 +487,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/CyberpunkEdgerunners.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=CyberpunkEdgerunners" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/15.jpg" alt="" class="cardImg">
                                             </div>
@@ -530,7 +530,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/TomodachiGame.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=TomodachiGame" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/16.jpg" alt="" class="cardImg">
                                             </div>
@@ -573,7 +573,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/KaguyaSama.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=KaguyaSama" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/17.jpg" alt="" class="cardImg">
                                             </div>
@@ -616,7 +616,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/Kakegurui.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=Kakegurui" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/18.jpg" alt="" class="cardImg">
                                             </div>
@@ -659,7 +659,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/ThatIRecentlyGotReincarnatedAsASlime.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=ThatIRecentlyGotReincarnatedAsASlime" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/19.jpg" alt="" class="cardImg">
                                             </div>
@@ -702,7 +702,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/RisingoftheShieldHero.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=RisingoftheShieldHero" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/20.jpg" alt="" class="cardImg">
                                             </div>
@@ -793,7 +793,7 @@
                             </h1>
                         </div>
                         <div class="type1_Ctnt_box_HeadRight">
-                            <a href="#" class="seeAll schedule_link">Schedule ›</a>
+                            <a href="/Schedule.html" class="seeAll schedule_link">Schedule ›</a>
                         </div>
                     </div>
                     <div class="latestEp_bdr">
@@ -1113,7 +1113,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalPanic" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/5.jpg" alt="" class="cardImg">
                                             </div>
@@ -1156,7 +1156,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalAlchemist.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalAlchemist" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/6.jpg" alt="" class="cardImg">
                                             </div>
@@ -1199,7 +1199,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalAlchemistBrotherhood.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalAlchemistBrotherhood" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/7.jpg" alt="" class="cardImg">
                                             </div>
@@ -1242,7 +1242,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/BlueExorcist.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=BlueExorcist" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/9.jpg" alt="" class="cardImg">
                                             </div>
@@ -1285,7 +1285,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/CyberpunkEdgerunners.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=CyberpunkEdgerunners" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/15.jpg" alt="" class="cardImg">
                                             </div>
@@ -1328,7 +1328,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/TomodachiGame.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=TomodachiGame" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/16.jpg" alt="" class="cardImg">
                                             </div>
@@ -1371,7 +1371,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/KaguyaSama.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=KaguyaSama" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/17.jpg" alt="" class="cardImg">
                                             </div>
@@ -1414,7 +1414,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/Kakegurui.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=Kakegurui" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/18.jpg" alt="" class="cardImg">
                                             </div>
@@ -1457,7 +1457,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/ThatIRecentlyGotReincarnatedAsASlime.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=ThatIRecentlyGotReincarnatedAsASlime" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/19.jpg" alt="" class="cardImg">
                                             </div>
@@ -1500,7 +1500,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/RisingoftheShieldHero.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=RisingoftheShieldHero" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/20.jpg" alt="" class="cardImg">
                                             </div>
@@ -1572,7 +1572,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalPanic" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/5.jpg" alt="" class="cardImg">
                                             </div>
@@ -1615,7 +1615,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalAlchemist.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalAlchemist" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/6.jpg" alt="" class="cardImg">
                                             </div>
@@ -1658,7 +1658,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalAlchemistBrotherhood.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalAlchemistBrotherhood" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/7.jpg" alt="" class="cardImg">
                                             </div>
@@ -1701,7 +1701,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/BlueExorcist.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=BlueExorcist" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/9.jpg" alt="" class="cardImg">
                                             </div>
@@ -1744,7 +1744,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/CyberpunkEdgerunners.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=CyberpunkEdgerunners" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/15.jpg" alt="" class="cardImg">
                                             </div>
@@ -1787,7 +1787,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/TomodachiGame.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=TomodachiGame" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/16.jpg" alt="" class="cardImg">
                                             </div>
@@ -1830,7 +1830,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/KaguyaSama.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=KaguyaSama" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/17.jpg" alt="" class="cardImg">
                                             </div>
@@ -1873,7 +1873,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/Kakegurui.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=Kakegurui" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/18.jpg" alt="" class="cardImg">
                                             </div>
@@ -1916,7 +1916,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/ThatIRecentlyGotReincarnatedAsASlime.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=ThatIRecentlyGotReincarnatedAsASlime" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/19.jpg" alt="" class="cardImg">
                                             </div>
@@ -1959,7 +1959,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/RisingoftheShieldHero.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=RisingoftheShieldHero" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/20.jpg" alt="" class="cardImg">
                                             </div>
@@ -2023,7 +2023,7 @@
                                 rapid regeneration, and unique powers referred to as “Blood Demon Art”.
                             </p>
                             <div class="watchActionBox">
-                                <a href="/Library/TV/Watch/DemonSlayer/S1/Ep1.html" class="watchAction watchEpLink lightSolidBtn"
+                                <a href="/Library.html?info=Watch/DemonSlayer/S1/Ep1.html" class="watchAction watchEpLink lightSolidBtn"
                                 title="">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="watchActionIcon">
                                         <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z"/>
@@ -2042,7 +2042,7 @@
                     <div class="watchSection watchSectionImgBdr">
                         <div class="watchImgBox">
                             <img src="/Library/TV/Watch/DemonSlayer/img/1.jpg" alt="" class="watchImg">
-                            <a href="/Library/TV/DemonSlayer.html" class="goToSeries" title="">
+                            <a href="/Library.html?info=DemonSlayer.html" class="goToSeries" title="">
                                 <span class="goToSeries_iconBox">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="goToSeries_icon">
                                         <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
@@ -2070,7 +2070,7 @@
                                 Magic Technical College to learn more about Jujutsu and fight against cursed spirits.
                             </p>
                             <div class="watchActionBox">
-                                <a href="/Library/TV/Watch/JujutsuKaisen/S1/Ep1.html" class="watchAction watchEpLink lightSolidBtn" title="">
+                                <a href="/Library.html?info=Watch/JujutsuKaisen/S1/Ep1.html" class="watchAction watchEpLink lightSolidBtn" title="">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="watchActionIcon">
                                         <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z"/>
                                     </svg>
@@ -2088,7 +2088,7 @@
                     <div class="watchSection watchSectionImgBdr">
                         <div class="watchImgBox">
                             <img src="/Library/TV/Watch/JujutsuKaisen/img/1.jpg" alt="" class="watchImg">
-                            <a href="/Library/TV/JujutsuKaisen.html" class="goToSeries" title="">
+                            <a href="/Library.html?info=JujutsuKaisen.html" class="goToSeries" title="">
                                 <span class="goToSeries_iconBox">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="goToSeries_icon">
                                         <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
@@ -2124,7 +2124,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalPanic" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/5.jpg" alt="" class="cardImg">
                                             </div>
@@ -2167,7 +2167,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalAlchemist.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalAlchemist" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/6.jpg" alt="" class="cardImg">
                                             </div>
@@ -2210,7 +2210,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalAlchemistBrotherhood.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalAlchemistBrotherhood" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/7.jpg" alt="" class="cardImg">
                                             </div>
@@ -2253,7 +2253,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/BlueExorcist.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=BlueExorcist" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/9.jpg" alt="" class="cardImg">
                                             </div>
@@ -2296,7 +2296,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/CyberpunkEdgerunners.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=CyberpunkEdgerunners" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/15.jpg" alt="" class="cardImg">
                                             </div>
@@ -2339,7 +2339,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/TomodachiGame.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=TomodachiGame" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/16.jpg" alt="" class="cardImg">
                                             </div>
@@ -2382,7 +2382,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/KaguyaSama.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=KaguyaSama" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/17.jpg" alt="" class="cardImg">
                                             </div>
@@ -2425,7 +2425,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/Kakegurui.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=Kakegurui" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/18.jpg" alt="" class="cardImg">
                                             </div>
@@ -2468,7 +2468,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/ThatIRecentlyGotReincarnatedAsASlime.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=ThatIRecentlyGotReincarnatedAsASlime" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/19.jpg" alt="" class="cardImg">
                                             </div>
@@ -2511,7 +2511,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/RisingoftheShieldHero.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=RisingoftheShieldHero" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/20.jpg" alt="" class="cardImg">
                                             </div>
@@ -2583,7 +2583,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalPanic" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/5.jpg" alt="" class="cardImg">
                                             </div>
@@ -2626,7 +2626,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalAlchemist.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalAlchemist" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/6.jpg" alt="" class="cardImg">
                                             </div>
@@ -2669,7 +2669,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalAlchemistBrotherhood.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalAlchemistBrotherhood" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/7.jpg" alt="" class="cardImg">
                                             </div>
@@ -2712,7 +2712,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/BlueExorcist.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=BlueExorcist" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/9.jpg" alt="" class="cardImg">
                                             </div>
@@ -2755,7 +2755,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/CyberpunkEdgerunners.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=CyberpunkEdgerunners" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/15.jpg" alt="" class="cardImg">
                                             </div>
@@ -2798,7 +2798,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/TomodachiGame.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=TomodachiGame" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/16.jpg" alt="" class="cardImg">
                                             </div>
@@ -2841,7 +2841,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/KaguyaSama.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=KaguyaSama" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/17.jpg" alt="" class="cardImg">
                                             </div>
@@ -2884,7 +2884,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/Kakegurui.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=Kakegurui" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/18.jpg" alt="" class="cardImg">
                                             </div>
@@ -2927,7 +2927,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/ThatIRecentlyGotReincarnatedAsASlime.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=ThatIRecentlyGotReincarnatedAsASlime" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/19.jpg" alt="" class="cardImg">
                                             </div>
@@ -2970,7 +2970,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/RisingoftheShieldHero.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=RisingoftheShieldHero" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/20.jpg" alt="" class="cardImg">
                                             </div>
@@ -3049,7 +3049,7 @@
                     <div class="mostViewedRankBdr">
                         <div class="mostViewedRankBox">
                             <div class="mostViewedRankNo1Bdr">
-                                <a href="/Library/TV/DemonSlayer.html" class="mostViewedRankNo1Box">
+                                <a href="/Library.html?info=DemonSlayer.html" class="mostViewedRankNo1Box">
                                     <div class="mostViewedRankNo1ImgBdr">
                                         <div class="mostViewedRankNo1ImgBox">
                                             <img src="/Library/TV/Watch/DemonSlayer/img/2.jpg" alt="" class="mostViewedRankNo1Img">
@@ -3086,7 +3086,7 @@
                             </div>
                             <div class="mostViewedRankOthersBdr">
                                 <div class="mostViewedRankOthersBox">
-                                    <a href="/Library/TV/OnePiece.html" class="mostViewedRankOthersCardBdr">
+                                    <a href="/Library.html?info=OnePiece.html" class="mostViewedRankOthersCardBdr">
                                         <div class="mostViewedRankOthersCardBox">
                                             <div class="mostViewedRankOthersImgBdr">
                                                 <div class="mostViewedRankOthersImgBox">
@@ -3117,7 +3117,7 @@
                                             </div>
                                         </div>
                                     </a>
-                                    <a href="/Library/TV/JujutsuKaisen.html" class="mostViewedRankOthersCardBdr">
+                                    <a href="/Library.html?info=JujutsuKaisen.html" class="mostViewedRankOthersCardBdr">
                                         <div class="mostViewedRankOthersCardBox">
                                             <div class="mostViewedRankOthersImgBdr">
                                                 <div class="mostViewedRankOthersImgBox">
@@ -3148,7 +3148,7 @@
                                             </div>
                                         </div>
                                     </a>
-                                    <a href="/Library/TV/Naruto.html" class="mostViewedRankOthersCardBdr">
+                                    <a href="/Library.html?info=Naruto.html" class="mostViewedRankOthersCardBdr">
                                         <div class="mostViewedRankOthersCardBox">
                                             <div class="mostViewedRankOthersImgBdr">
                                                 <div class="mostViewedRankOthersImgBox">
@@ -3179,7 +3179,7 @@
                                             </div>
                                         </div>
                                     </a>
-                                    <a href="/Library/TV/ChainsawMan.html" class="mostViewedRankOthersCardBdr">
+                                    <a href="/Library.html?info=ChainsawMan.html" class="mostViewedRankOthersCardBdr">
                                         <div class="mostViewedRankOthersCardBox">
                                             <div class="mostViewedRankOthersImgBdr">
                                                 <div class="mostViewedRankOthersImgBox">
@@ -3241,7 +3241,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalPanic" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/5.jpg" alt="" class="cardImg">
                                             </div>
@@ -3284,7 +3284,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalAlchemist.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalAlchemist" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/6.jpg" alt="" class="cardImg">
                                             </div>
@@ -3327,7 +3327,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalAlchemistBrotherhood.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalAlchemistBrotherhood" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/7.jpg" alt="" class="cardImg">
                                             </div>
@@ -3370,7 +3370,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/BlueExorcist.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=BlueExorcist" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/9.jpg" alt="" class="cardImg">
                                             </div>
@@ -3413,7 +3413,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/CyberpunkEdgerunners.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=CyberpunkEdgerunners" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/15.jpg" alt="" class="cardImg">
                                             </div>
@@ -3456,7 +3456,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/TomodachiGame.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=TomodachiGame" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/16.jpg" alt="" class="cardImg">
                                             </div>
@@ -3499,7 +3499,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/KaguyaSama.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=KaguyaSama" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/17.jpg" alt="" class="cardImg">
                                             </div>
@@ -3542,7 +3542,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/Kakegurui.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=Kakegurui" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/18.jpg" alt="" class="cardImg">
                                             </div>
@@ -3585,7 +3585,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/ThatIRecentlyGotReincarnatedAsASlime.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=ThatIRecentlyGotReincarnatedAsASlime" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/19.jpg" alt="" class="cardImg">
                                             </div>
@@ -3628,7 +3628,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/RisingoftheShieldHero.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=RisingoftheShieldHero" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/20.jpg" alt="" class="cardImg">
                                             </div>
@@ -3700,7 +3700,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalPanic" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/5.jpg" alt="" class="cardImg">
                                             </div>
@@ -3743,7 +3743,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalAlchemist.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalAlchemist" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/6.jpg" alt="" class="cardImg">
                                             </div>
@@ -3786,7 +3786,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalAlchemistBrotherhood.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalAlchemistBrotherhood" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/7.jpg" alt="" class="cardImg">
                                             </div>
@@ -3829,7 +3829,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/BlueExorcist.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=BlueExorcist" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/9.jpg" alt="" class="cardImg">
                                             </div>
@@ -3872,7 +3872,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/CyberpunkEdgerunners.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=CyberpunkEdgerunners" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/15.jpg" alt="" class="cardImg">
                                             </div>
@@ -3915,7 +3915,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/TomodachiGame.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=TomodachiGame" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/16.jpg" alt="" class="cardImg">
                                             </div>
@@ -3958,7 +3958,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/KaguyaSama.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=KaguyaSama" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/17.jpg" alt="" class="cardImg">
                                             </div>
@@ -4001,7 +4001,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/Kakegurui.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=Kakegurui" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/18.jpg" alt="" class="cardImg">
                                             </div>
@@ -4044,7 +4044,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/ThatIRecentlyGotReincarnatedAsASlime.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=ThatIRecentlyGotReincarnatedAsASlime" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/19.jpg" alt="" class="cardImg">
                                             </div>
@@ -4087,7 +4087,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/RisingoftheShieldHero.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=RisingoftheShieldHero" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/20.jpg" alt="" class="cardImg">
                                             </div>
@@ -4155,7 +4155,7 @@
                                 together embracing perils and wonders on their once-in-a-lifetime adventure.
                             </p>
                             <div class="watchActionBox">
-                                <a href="/Library/TV/Watch/OnePiece/S1/Ep1.html" class="watchAction watchEpLink lightSolidBtn" title="">
+                                <a href="/Library.html?info=Watch/OnePiece/S1/Ep1.html" class="watchAction watchEpLink lightSolidBtn" title="">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="watchActionIcon">
                                         <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z"/>
                                     </svg>
@@ -4173,7 +4173,7 @@
                     <div class="watchSection watchSectionImgBdr">
                         <div class="watchImgBox">
                             <img src="/Library/TV/Watch/OnePiece/img/1.jpg" alt="" class="watchImg">
-                            <a href="/Library/TV/OnePiece.html" class="goToSeries" title="">
+                            <a href="/Library.html?info=OnePiece.html" class="goToSeries" title="">
                                 <span class="goToSeries_iconBox">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="goToSeries_icon">
                                         <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
@@ -4204,7 +4204,7 @@
                                 in the crosshairs of many deadly foes.
                             </p>
                             <div class="watchActionBox">
-                                <a href="/Library/TV/Watch/Naruto/S1/Ep1.html" class="watchAction watchEpLink lightSolidBtn" title="">
+                                <a href="/Library.html?info=Watch/Naruto/S1/Ep1.html" class="watchAction watchEpLink lightSolidBtn" title="">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="watchActionIcon">
                                         <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z"/>
                                     </svg>
@@ -4222,7 +4222,7 @@
                     <div class="watchSection watchSectionImgBdr">
                         <div class="watchImgBox">
                             <img src="/Library/TV/Watch/Naruto/img/1.jpg" alt="" class="watchImg">
-                            <a href="/Library/TV/Naruto.html" class="goToSeries" title="">
+                            <a href="/Library.html?info=Naruto.html" class="goToSeries" title="">
                                 <span class="goToSeries_iconBox">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="goToSeries_icon">
                                         <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
@@ -4258,7 +4258,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalPanic" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/5.jpg" alt="" class="cardImg">
                                             </div>
@@ -4301,7 +4301,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalAlchemist.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalAlchemist" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/6.jpg" alt="" class="cardImg">
                                             </div>
@@ -4344,7 +4344,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalAlchemistBrotherhood.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalAlchemistBrotherhood" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/7.jpg" alt="" class="cardImg">
                                             </div>
@@ -4387,7 +4387,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/BlueExorcist.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=BlueExorcist" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/9.jpg" alt="" class="cardImg">
                                             </div>
@@ -4430,7 +4430,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/CyberpunkEdgerunners.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=CyberpunkEdgerunners" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/15.jpg" alt="" class="cardImg">
                                             </div>
@@ -4473,7 +4473,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/TomodachiGame.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=TomodachiGame" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/16.jpg" alt="" class="cardImg">
                                             </div>
@@ -4516,7 +4516,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/KaguyaSama.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=KaguyaSama" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/17.jpg" alt="" class="cardImg">
                                             </div>
@@ -4559,7 +4559,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/Kakegurui.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=Kakegurui" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/18.jpg" alt="" class="cardImg">
                                             </div>
@@ -4602,7 +4602,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/ThatIRecentlyGotReincarnatedAsASlime.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=ThatIRecentlyGotReincarnatedAsASlime" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/19.jpg" alt="" class="cardImg">
                                             </div>
@@ -4645,7 +4645,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/RisingoftheShieldHero.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=RisingoftheShieldHero" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/20.jpg" alt="" class="cardImg">
                                             </div>
@@ -4717,7 +4717,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalPanic" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/5.jpg" alt="" class="cardImg">
                                             </div>
@@ -4760,7 +4760,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalAlchemist.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalAlchemist" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/6.jpg" alt="" class="cardImg">
                                             </div>
@@ -4803,7 +4803,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalAlchemistBrotherhood.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalAlchemistBrotherhood" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/7.jpg" alt="" class="cardImg">
                                             </div>
@@ -4846,7 +4846,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/BlueExorcist.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=BlueExorcist" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/9.jpg" alt="" class="cardImg">
                                             </div>
@@ -4889,7 +4889,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/CyberpunkEdgerunners.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=CyberpunkEdgerunners" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/15.jpg" alt="" class="cardImg">
                                             </div>
@@ -4932,7 +4932,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/TomodachiGame.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=TomodachiGame" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/16.jpg" alt="" class="cardImg">
                                             </div>
@@ -4975,7 +4975,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/KaguyaSama.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=KaguyaSama" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/17.jpg" alt="" class="cardImg">
                                             </div>
@@ -5018,7 +5018,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/Kakegurui.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=Kakegurui" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/18.jpg" alt="" class="cardImg">
                                             </div>
@@ -5061,7 +5061,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/ThatIRecentlyGotReincarnatedAsASlime.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=ThatIRecentlyGotReincarnatedAsASlime" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/19.jpg" alt="" class="cardImg">
                                             </div>
@@ -5104,7 +5104,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/RisingoftheShieldHero.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=RisingoftheShieldHero" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/20.jpg" alt="" class="cardImg">
                                             </div>
@@ -5291,7 +5291,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalPanic" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/5.jpg" alt="" class="cardImg">
                                             </div>
@@ -5334,7 +5334,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalAlchemist.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalAlchemist" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/6.jpg" alt="" class="cardImg">
                                             </div>
@@ -5377,7 +5377,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalAlchemistBrotherhood.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalAlchemistBrotherhood" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/7.jpg" alt="" class="cardImg">
                                             </div>
@@ -5420,7 +5420,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/BlueExorcist.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=BlueExorcist" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/9.jpg" alt="" class="cardImg">
                                             </div>
@@ -5463,7 +5463,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/CyberpunkEdgerunners.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=CyberpunkEdgerunners" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/15.jpg" alt="" class="cardImg">
                                             </div>
@@ -5506,7 +5506,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/TomodachiGame.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=TomodachiGame" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/16.jpg" alt="" class="cardImg">
                                             </div>
@@ -5549,7 +5549,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/KaguyaSama.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=KaguyaSama" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/17.jpg" alt="" class="cardImg">
                                             </div>
@@ -5592,7 +5592,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/Kakegurui.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=Kakegurui" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/18.jpg" alt="" class="cardImg">
                                             </div>
@@ -5635,7 +5635,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/ThatIRecentlyGotReincarnatedAsASlime.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=ThatIRecentlyGotReincarnatedAsASlime" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/19.jpg" alt="" class="cardImg">
                                             </div>
@@ -5678,7 +5678,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/RisingoftheShieldHero.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=RisingoftheShieldHero" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/20.jpg" alt="" class="cardImg">
                                             </div>
@@ -5750,7 +5750,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalPanic.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalPanic" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/5.jpg" alt="" class="cardImg">
                                             </div>
@@ -5793,7 +5793,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalAlchemist.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalAlchemist" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/6.jpg" alt="" class="cardImg">
                                             </div>
@@ -5836,7 +5836,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/FullmetalAlchemistBrotherhood.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=FullmetalAlchemistBrotherhood" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/7.jpg" alt="" class="cardImg">
                                             </div>
@@ -5879,7 +5879,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/BlueExorcist.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=BlueExorcist" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/9.jpg" alt="" class="cardImg">
                                             </div>
@@ -5922,7 +5922,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/CyberpunkEdgerunners.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=CyberpunkEdgerunners" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/15.jpg" alt="" class="cardImg">
                                             </div>
@@ -5965,7 +5965,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/TomodachiGame.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=TomodachiGame" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/16.jpg" alt="" class="cardImg">
                                             </div>
@@ -6008,7 +6008,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/KaguyaSama.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=KaguyaSama" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/17.jpg" alt="" class="cardImg">
                                             </div>
@@ -6051,7 +6051,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/Kakegurui.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=Kakegurui" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/18.jpg" alt="" class="cardImg">
                                             </div>
@@ -6094,7 +6094,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/ThatIRecentlyGotReincarnatedAsASlime.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=ThatIRecentlyGotReincarnatedAsASlime" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/19.jpg" alt="" class="cardImg">
                                             </div>
@@ -6137,7 +6137,7 @@
                                 <div class="slide_card_bdr">
                                     <div class="slide_card_box">
                                         <div class="slide_card">
-                                            <a href="/Library/TV/RisingoftheShieldHero.html" class="cardLinkCover"></a>
+                                            <a href="/Library.html?info=RisingoftheShieldHero" class="cardLinkCover"></a>
                                             <div class="cardImgBox">
                                                 <img src="/Library/TV/img/20.jpg" alt="" class="cardImg">
                                             </div>
