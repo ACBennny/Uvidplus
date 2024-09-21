@@ -30,7 +30,7 @@
         {
             notify_addedDate: `just now`,
             notify_readStatus: `unread`,
-            notify_thumbnail: `/Library/Anime/Watch/OnePiece/img/1.jpg`,
+            notify_thumbnail: `/Library/TV/Watch/OnePiece/img/1.jpg`,
             notify_mainTopic: `One Piece`,
             notify_subTopic: `Episode 1116 is now available.`,
             notify_actionText: `Watch Now`,
