@@ -34,6 +34,6 @@
             notify_mainTopic: `One Piece`,
             notify_subTopic: `Episode 1116 is now available.`,
             notify_actionText: `Watch Now`,
-            notify_actionLink: `/Library/Anime/OnePiece.html`,
+            notify_actionLink: `/Library.html?info=OnePiece`,
         }
     ]
