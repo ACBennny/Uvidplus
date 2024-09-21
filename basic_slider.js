@@ -123,13 +123,14 @@
     // Slide Card details (title, alt etc)
     ctntLinks.forEach(ctntLink => 
     {
-        const showCards = ctntLink.querySelector('.slide_card');
-        const showCardImgs = ctntLink.querySelector('.cardImg');
-        const showCardInfoName = showCards.querySelector('.cardInfo_titleText');
+        const showCardLink = ctntLink.querySelector(".cardLinkCover");
+        const showCards = ctntLink.querySelector(".slide_card");
+        const showCardImgs = ctntLink.querySelector(".cardImg");
+        const showCardInfoName = showCards.querySelector(".cardInfo_titleText");
 
-        // Slide Card Base
-        ctntLink.draggable = false;
-        ctntLink.style.userSelect = "none";
+        // Slide Card Link
+        showCardLink.draggable = false;
+        showCardLink.style.userSelect = "none";
 
         // Slide card Title
         showCards.title = "Watch " + showCardInfoName.textContent;
