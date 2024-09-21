@@ -2023,7 +2023,7 @@
                                 rapid regeneration, and unique powers referred to as “Blood Demon Art”.
                             </p>
                             <div class="watchActionBox">
-                                <a href="/Library.html?info=Watch/DemonSlayer/S1/Ep1.html" class="watchAction watchEpLink lightSolidBtn"
+                                <a href="/Library.html?info=DemonSlayer" class="watchAction watchEpLink lightSolidBtn"
                                 title="">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="watchActionIcon">
                                         <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z"/>
@@ -2070,7 +2070,7 @@
                                 Magic Technical College to learn more about Jujutsu and fight against cursed spirits.
                             </p>
                             <div class="watchActionBox">
-                                <a href="/Library.html?info=Watch/JujutsuKaisen/S1/Ep1.html" class="watchAction watchEpLink lightSolidBtn" title="">
+                                <a href="/Library.html?info=JujutsuKaisen" class="watchAction watchEpLink lightSolidBtn" title="">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="watchActionIcon">
                                         <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z"/>
                                     </svg>
@@ -4155,7 +4155,7 @@
                                 together embracing perils and wonders on their once-in-a-lifetime adventure.
                             </p>
                             <div class="watchActionBox">
-                                <a href="/Library.html?info=Watch/OnePiece/S1/Ep1.html" class="watchAction watchEpLink lightSolidBtn" title="">
+                                <a href="/Library.html?info=OnePiece" class="watchAction watchEpLink lightSolidBtn" title="">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="watchActionIcon">
                                         <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z"/>
                                     </svg>
@@ -4204,7 +4204,7 @@
                                 in the crosshairs of many deadly foes.
                             </p>
                             <div class="watchActionBox">
-                                <a href="/Library.html?info=Watch/Naruto/S1/Ep1.html" class="watchAction watchEpLink lightSolidBtn" title="">
+                                <a href="/Library.html?info=Naruto" class="watchAction watchEpLink lightSolidBtn" title="">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="watchActionIcon">
                                         <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z"/>
                                     </svg>
