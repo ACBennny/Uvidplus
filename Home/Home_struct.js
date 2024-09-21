@@ -5165,7 +5165,7 @@
                             </h1>
                         </div>
                         <div class="type1_Ctnt_box_HeadRight">
-                            <a href="#" class="seeAll">See All ›</a>
+                            <a href="/News.html" class="seeAll">See All ›</a>
                         </div>
                     </div>
                     <div class="news_grid">
