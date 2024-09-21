@@ -10,7 +10,7 @@
     const historyInventory = 
     [
         {
-            hist_link: `/Library/Anime/KaguyaSama.html`,
+            hist_link: `/Library.html?info=KaguyaSama`,
             hist_thumbnail: `/Library/Anime/img/5.jpg`,
             hist_title: `Fullmetal Panic`,
             hist_type: `TV`,
@@ -22,7 +22,7 @@
             hist_totalTime: `24:00`,
         },
         {
-            hist_link: `/Library/Anime/FullmetalAlchemist.html`,
+            hist_link: `/Library.html?info=FullmetalAlchemist`,
             hist_thumbnail: `/Library/Anime/img/6.jpg`,
             hist_title: `Fullmetal Alchemist`,
             hist_type: `TV`,
@@ -34,7 +34,7 @@
             hist_totalTime: `24:00`,
         },
         {
-            hist_link: `/Library/Anime/FullmetalAlchemistBrotherhood.html`,
+            hist_link: `/Library.html?info=FullmetalAlchemistBrotherhood`,
             hist_thumbnail: `/Library/Anime/img/7.jpg`,
             hist_title: `Fullmetal Alchemist: Brotherhood`,
             hist_type: `TV`,
@@ -46,7 +46,7 @@
             hist_totalTime: `23:58`,
         },
         {
-            hist_link: `/Library/Anime/BlueExorcist.html`,
+            hist_link: `/Library.html?info=BlueExorcist`,
             hist_thumbnail: `/Library/Anime/img/9.jpg`,
             hist_title: `Blue Exorcist`,
             hist_type: `TV`,
@@ -58,7 +58,7 @@
             hist_totalTime: `24:00`,
         },
         {
-            hist_link: `/Library/Anime/CyberpunkEdgerunners.html`,
+            hist_link: `/Library.html?info=CyberpunkEdgerunners`,
             hist_thumbnail: `/Library/Anime/img/15.jpg`,
             hist_title: `Cyberpunk Edgerunners`,
             hist_type: `TV`,
@@ -70,7 +70,7 @@
             hist_totalTime: `22:59`,
         },
         {
-            hist_link: `/Library/Anime/TomodacchiGame.html`,
+            hist_link: `/Library.html?info=TomodacchiGame`,
             hist_thumbnail: `/Library/Anime/img/16.jpg`,
             hist_title: `Tomodacchi Game`,
             hist_type: `TV`,
@@ -82,7 +82,7 @@
             hist_totalTime: `23:59`,
         },
         {
-            hist_link: `/Library/Anime/KaguyaSama.html`,
+            hist_link: `/Library.html?info=KaguyaSama`,
             hist_thumbnail: `/Library/Anime/img/17.jpg`,
             hist_title: `Kaguya Sama`,
             hist_type: `TV`,
@@ -94,7 +94,7 @@
             hist_totalTime: `23:59`,
         },
         {
-            hist_link: `/Library/Anime/Kakegurui.html`,
+            hist_link: `/Library.html?info=Kakegurui`,
             hist_thumbnail: `/Library/Anime/img/18.jpg`,
             hist_title: `Kakeguri`,
             hist_type: `TV`,
@@ -106,7 +106,7 @@
             hist_totalTime: `23:58`,
         },
         {
-            hist_link: `/Library/Anime/ThatIRecentlyGotReincarnatedAsASlime.html`,
+            hist_link: `/Library.html?info=ThatIRecentlyGotReincarnatedAsASlime`,
             hist_thumbnail: `/Library/Anime/img/19.jpg`,
             hist_title: `That I got Recently as a Slime`,
             hist_type: `TV`,
@@ -118,7 +118,7 @@
             hist_totalTime: `23:00`,
         },
         {
-            hist_link: `/Library/Anime/RisingoftheShieldHero.html`,
+            hist_link: `/Library.html?info=RisingoftheShieldHero`,
             hist_thumbnail: `/Library/Anime/img/20.jpg`,
             hist_title: `Rising of the Sheild Hero`,
             hist_type: `TV`,
