@@ -61,17 +61,16 @@ html:root
     gap: 7px;
     padding: 7px;
     border-radius: 25px;
-    background-color: #333333;
+    background-color: #222222;
     transition: all 300ms ease-in-out;
 }
 
 .schedule_selDivider .schedule_selTab
 {
-    min-width: 60px;
-    min-height: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px 15px;
     color: var(--genWhiteTypeMid);
     font-size: 13px;
     border-radius: 25px;
@@ -79,11 +78,15 @@ html:root
     cursor: pointer;
 }
 
+.schedule_selTab:active
+{
+    background-color: #333333;
+}
+
 .schedule_selTab.active
 {
-    padding: 10px 15px;
     color: var(--genWhiteTypeLight);
-    background-color: var(--genGreenTypeMid);
+    background-color: var(--genGreenTypeMid) !important;
 }
 
 
@@ -119,7 +122,8 @@ html:root
     gap: 25px;
     scrollbar-width: none;
     scrollbar-color: #00000000 #00000000;
-    overflow: visible hidden;
+    overflow: auto hidden;
+    cursor: grab;
 }
 
 .schedule_dateSlider::-webkit-scrollbar
@@ -127,6 +131,12 @@ html:root
     width: 0;
     height: 0;
     display: none;
+}
+
+.schedule_dateSlider.isDown,
+.schedule_dateSlider.isDown .schedule_dateCard
+{
+    cursor: grabbing;
 }
 
 .schedule_dateSlider .schedule_dateCard
@@ -331,8 +341,8 @@ html:root
 
 .schedule_ctntDetEpBox .schedule_ctntDetEpText
 {
-    font-weight: 500;
     color: var(--genGreenTypeLight2);
+    font-weight: 500;
     font-size: 14px;
 }
 
@@ -367,6 +377,11 @@ html:root
 
 @media(hover: hover)
 {
+    .schedule_selTab:hover
+    {
+        background-color: #333333;
+    }
+
     .schedule_dateCard:hover .schedule_dateMinorText
     {
         color: var(--genWhiteTypeMid2);
@@ -380,5 +395,77 @@ html:root
     .schedule_ctntCardBdr:hover
     {
         background-color: #222222;
+    }
+}
+
+
+
+/* ================== RESPONSIVENESS ================== */
+
+@media only screen and (max-width: 786px)
+{}
+
+
+@media only screen and (max-width: 560px)
+{
+    html:root
+    {
+        /* --schedule_ctntThumbnailImgW: 120px; */
+    }
+}
+
+
+@media only screen and (max-width: 485px)
+{
+    html:root
+    {
+        --schedule_ctntThumbnailImgW: 100px;
+        --schedule_ctntThumbnailImgH: 150px;
+    }
+
+    .schedule_selDivider .schedule_selTab
+    {
+        font-size: 11px;
+    }
+
+    .schedule_dateMinorBox .schedule_dateMinorText
+    {
+        font-size: 12px;
+    }
+
+    .schedule_dateMajorBox .schedule_dateMajorText
+    {
+        font-size: 18px;
+    }
+
+    .schedule_ctntBox .schedule_ctntGrid
+    {
+        grid-template-columns: 100%;
+    }
+
+    .schedule_ctntGrid .schedule_ctntCardBdr
+    {
+        padding: 10px;
+    }
+
+    .schedule_ctntDetTitleBox .schedule_ctntDetTitleText
+    {
+        font-size: 16px;
+    }
+
+    .schedule_ctntDetBox .schedule_ctntDetEpBox
+    {
+        margin: 7px 0;
+    }
+
+    .schedule_ctntDetEpBox .schedule_ctntDetEpText
+    {
+        font-size: 12px;
+    }
+
+    .schedule_ctntDetDescBox .schedule_ctntDetDescText
+    {
+        --trendingDetDescTextNo: 2;
+        font-size: 11px;
     }
 }
