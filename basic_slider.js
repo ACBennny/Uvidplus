@@ -14,7 +14,10 @@
     const basic_slider_LeftArr = [...document.querySelectorAll('.basic_slider_box .left_slide_arrow .basic_icon_Left')];
     const basic_slider_RightArr = [...document.querySelectorAll('.basic_slider_box .right_slide_arrow .basic_icon_Right')];
     const basic_slider_CardBox = [...document.querySelectorAll('.basic_slider_card_box')];
-    const ctntLinks = document.querySelectorAll('.slide_card_base');
+    const basic_slide_CardBase = document.querySelectorAll('.slide_card_base');
+    let isBasicSliderDown = false;
+    let isBasicSliderDragging = false;
+    let basicSliderDraggingDist = 10;
 
 
 
@@ -32,32 +35,65 @@
     {
         basic_slider_CardBox.forEach((item, i) => 
         {
+            let basicSliderstartX;
+            let basicSliderScrollLeft;
             let boxErrorMargin = 10;
             let boxDimension = item.getBoundingClientRect();
             let boxWidth = boxDimension.width;
             let boxW = boxWidth - boxErrorMargin;
             let multiCardSlide = boxW;
-            let boxChildrenDimension = ctntLinks[0].getBoundingClientRect();
+            let boxChildrenDimension = basic_slide_CardBase[0].getBoundingClientRect();
             let boxChildrenWidth = boxChildrenDimension.width;
             let singleCardSlide = boxChildrenWidth;
+
+            // Slider Dragging
+            item.addEventListener("mousedown", (e) => 
+            {
+                isBasicSliderDown = true;
+                item.classList.add("isBasicSliderDown");
+                basicSliderstartX = e.pageX - item.offsetLeft;
+                basicSliderScrollLeft = item.scrollLeft;
+                isBasicSliderDragging = false;
+            });
+        
+            item.addEventListener("mouseleave", () => 
+            {
+                isBasicSliderDown = false;
+                item.classList.remove("isBasicSliderDown");
+            });
+        
+            item.addEventListener("mouseup", () => 
+            {
+                isBasicSliderDown = false;
+                item.classList.remove("isBasicSliderDown");
+            });
+        
+            item.addEventListener("mousemove", (e) => 
+            {
+                // return if mouse is down
+                if (!isBasicSliderDown) return;
+        
+                e.preventDefault();
+                const x = e.pageX - item.offsetLeft;
+                const scrollSpeed = (x - basicSliderstartX) * 1;
+                item.scrollLeft = basicSliderScrollLeft - scrollSpeed;
+        
+                // Prevent the cards from being clicked while dragging 
+                if(((Math.abs(x - basicSliderstartX) > basicSliderDraggingDist)))
+                {
+                    isBasicSliderDragging = true;
+                }
+            });
 
             // Slides Right
             basic_slider_RightArrBox[i].addEventListener("click" , () => 
             {
-                // Slides by total cards visible
-                // item.scrollLeft += multiCardSlide;
-
-                // Slides by one card
                 item.scrollLeft += singleCardSlide;
             });
 
             // Slides Left
             basic_slider_LeftArrBox[i].addEventListener("click" , () => 
             {
-                // Slides by total cards visible
-                // item.scrollLeft -= multiCardSlide;
-
-                // Slides by one card
                 item.scrollLeft -= singleCardSlide;
             });
 
@@ -121,24 +157,43 @@
 
    
     // Slide Card details (title, alt etc)
-    ctntLinks.forEach(ctntLink => 
+    basic_slide_CardBase.forEach((base) => 
     {
-        const showCardLink = ctntLink.querySelector(".cardLinkCover");
-        const showCards = ctntLink.querySelector(".slide_card");
-        const showCardImgs = ctntLink.querySelector(".cardImg");
+        const showCardLink = base.querySelector(".cardLinkCover");
+        const showCards = base.querySelector(".slide_card");
+        const showCardImgs = base.querySelector(".cardImg");
         const showCardInfoName = showCards.querySelector(".cardInfo_titleText");
 
         // Slide Card Link
-        showCardLink.draggable = false;
-        showCardLink.style.userSelect = "none";
+        if((showCardLink != undefined))
+        {
+            showCardLink.draggable = false;
+            showCardLink.style.userSelect = "none";
+        }
 
-        // Slide card Title
-        showCards.title = "Watch " + showCardInfoName.textContent;
-        showCards.draggable = false;
-        showCards.style.userSelect = "none";
+        // Slide card Image
+        if((showCardInfoName != undefined) && (showCardInfoName != undefined))
+        {
+            showCardImgs.draggable = false;
+            showCardImgs.style.userSelect = "none";
+            showCardImgs.alt ="Image of the Anime " + showCardInfoName.textContent;
+        }
 
         // Slide Card
-        showCardImgs.draggable = false;
-        showCardImgs.style.userSelect = "none";
-        showCardImgs.alt ="Image of the Anime " + showCardInfoName.textContent;
+        if((showCards != undefined) && (showCardInfoName != undefined))
+        {
+            showCards.title = "Watch " + showCardInfoName.textContent;
+            showCards.draggable = false;
+            showCards.style.userSelect = "none";
+        }
+
+        // Prevents user from mistakenly clicking the card while dragging
+        base.addEventListener("click" , (e) => 
+        {
+            if(isBasicSliderDragging)
+            {
+                e.preventDefault();
+                return;
+            }
+        });
     });

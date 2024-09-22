@@ -1880,6 +1880,18 @@ img
     display: none;
 }
 
+.basic_slider_card_box.isBasicSliderDown
+{
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+    cursor: grabbing;
+}
+
+.basic_slider_card_box.isBasicSliderDown .slide_card_base
+{
+    scroll-snap-align: unset;
+}
+
 .basic_slider_card_box .slide_card_base
 {
     scroll-snap-align: start;
