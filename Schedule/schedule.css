@@ -306,7 +306,7 @@ html:root
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 10px;
+    padding-left: 15px;
 }
 
 .schedule_ctntDetBox .schedule_ctntDetTitleBox
@@ -446,6 +446,11 @@ html:root
     .schedule_ctntGrid .schedule_ctntCardBdr
     {
         padding: 10px;
+    }
+
+    .schedule_ctntDetBdr .schedule_ctntDetBox
+    {
+        padding-left: 10px;
     }
 
     .schedule_ctntDetTitleBox .schedule_ctntDetTitleText
