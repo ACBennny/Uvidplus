@@ -313,7 +313,7 @@ html:root
     {
         --trendingCardBdrPseudoInset: 0px;
         --trendingImgBdrWidth: 120px;
-        --trendingImgBdrHeight: 175px;
+        --trendingImgBdrHeight: 195px;
     }
 
     .trendingBase .trendingBdr
@@ -339,6 +339,7 @@ html:root
     .trendingBox .trendingCardBdr
     {
         margin-bottom: 30px;
+        padding: 10px;
     }
 
     .trendingDetBdr .trendingDetBox
@@ -365,7 +366,7 @@ html:root
     html:root
     {
         --trendingImgBdrWidth: 100px;
-        --trendingImgBdrHeight: 150px;
+        --trendingImgBdrHeight: 170px;
     }
 
     .trendingDetBdr .trendingDetBox
@@ -375,7 +376,7 @@ html:root
 
     .trendingDetBox .trendingDetFeatureBdr
     {
-        margin: 10px 0;
+        margin: 7px 0;
     }
 }
 
