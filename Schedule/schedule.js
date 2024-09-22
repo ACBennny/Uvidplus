@@ -66,7 +66,7 @@
 
         e.preventDefault();
         const x = e.pageX - scheduleDateSlider.offsetLeft;
-        const scrollSpeed = (x - startX) * 1;
+        const scrollSpeed = (x - startX) * 2;
         scheduleDateSlider.scrollLeft = scrollLeft - scrollSpeed;
 
         // Prevent the cards from being clicked while dragging 
