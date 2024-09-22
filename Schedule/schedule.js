@@ -29,12 +29,65 @@
     });
 
 
+// CUSTOM SLIDING BY DRAGGING
+
+    const scheduleDateSlider = document.querySelector(".schedule_dateSlider");
+    let isDown = false;
+    let isDragging = false;
+    let isDraggingDist = 10;
+    let startX;
+    let scrollLeft;
+
+    scheduleDateSlider.addEventListener("mousedown", (e) => 
+    {
+        isDown = true;
+        scheduleDateSlider.classList.add("isDown");
+        startX = e.pageX - scheduleDateSlider.offsetLeft;
+        scrollLeft = scheduleDateSlider.scrollLeft;
+        isDragging = false;
+    });
+
+    scheduleDateSlider.addEventListener("mouseleave", () => 
+    {
+        isDown = false;
+        scheduleDateSlider.classList.remove("isDown");
+    });
+
+    scheduleDateSlider.addEventListener("mouseup", () => 
+    {
+        isDown = false;
+        scheduleDateSlider.classList.remove("isDown");
+    });
+
+    scheduleDateSlider.addEventListener("mousemove", (e) => 
+    {
+        // return if mouse is down
+        if (!isDown) return;
+
+        e.preventDefault();
+        const x = e.pageX - scheduleDateSlider.offsetLeft;
+        const scrollSpeed = (x - startX) * 1;
+        scheduleDateSlider.scrollLeft = scrollLeft - scrollSpeed;
+
+        // Prevent the cards from being clicked while dragging 
+        if(((Math.abs(x - startX) > isDraggingDist)))
+        {
+            isDragging = true;
+        }
+    });
+
+
 // CHANGING THE DATE
 
     scheduleDateCard.forEach((card, i) => 
     {
-        card.addEventListener("click" , () => 
+        card.addEventListener("click" , (e) => 
         {
+            if(isDragging)
+            {
+                e.preventDefault();
+                return;
+            }
             scheduleDateCard.forEach((currCard) => 
             {
                 currCard.classList.remove("curr_day");
@@ -77,3 +130,4 @@
         `;
         scheduleGidBox.insertAdjacentHTML(`beforeend` , cardStruct);
     }
+
