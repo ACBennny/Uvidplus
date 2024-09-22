@@ -29,7 +29,7 @@
     });
 
 
-// CUSTOM SLIDING BY DRAGGING
+// CUSTOM SLIDING BY DRAGGING FOE DATE SLIDER
 
     const scheduleDateSlider = document.querySelector(".schedule_dateSlider");
     let isDown = false;
