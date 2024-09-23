@@ -16,7 +16,7 @@
     const scheduleDateCard = document.querySelectorAll(".schedule_dateCard");
     const scheduleGidBox = document.querySelector(".schedule_ctntGrid");
     let boxErrorMargin = 10;
-    let isDown = false;
+    let isDateSliderDown = false;
     let isDragging = false;
     let isDraggingDist = 10;
     let startX;
@@ -78,7 +78,7 @@
         else
         {
             scheduleDateLeftBdr.classList.add("hide");
-        }        
+        }
     }
     scheduleDateSlider.addEventListener("scroll" , (e) => 
     {
@@ -88,8 +88,8 @@
     // Slider dragging
     scheduleDateSlider.addEventListener("mousedown", (e) => 
     {
-        isDown = true;
-        scheduleDateSlider.classList.add("isDown");
+        isDateSliderDown = true;
+        scheduleDateSlider.classList.add("isDateSliderDown");
         startX = e.pageX - scheduleDateSlider.offsetLeft;
         dateSliderScrollLeft = scheduleDateSlider.scrollLeft;
         isDragging = false;
@@ -97,13 +97,13 @@
 
     scheduleDateSlider.addEventListener("mouseleave", () => 
     {
-        isDown = false;
-        scheduleDateSlider.classList.remove("isDown");
+        isDateSliderDown = false;
+        scheduleDateSlider.classList.remove("isDateSliderDown");
     });
 
     scheduleDateSlider.addEventListener("mouseup", () => 
     {
-        isDown = false;
+        isDateSliderDown = false;
         scheduleDateSlider.classList.remove("isDown");
     });
 

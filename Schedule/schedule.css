@@ -173,8 +173,8 @@ html:root
     display: none;
 }
 
-.schedule_dateSlider.isDown,
-.schedule_dateSlider.isDown .schedule_dateCard
+.schedule_dateSlider.isDateSliderDown,
+.schedule_dateSlider.isDateSliderDown .schedule_dateCard
 {
     cursor: grabbing;
 }
