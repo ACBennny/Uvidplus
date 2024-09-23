@@ -104,13 +104,13 @@
     scheduleDateSlider.addEventListener("mouseup", () => 
     {
         isDateSliderDown = false;
-        scheduleDateSlider.classList.remove("isDown");
+        scheduleDateSlider.classList.remove("isDateSliderDown");
     });
 
     scheduleDateSlider.addEventListener("mousemove", (e) => 
     {
         // return if mouse is down
-        if (!isDown) return;
+        if (!isDateSliderDown) return;
 
         e.preventDefault();
         const x = e.pageX - scheduleDateSlider.offsetLeft;
