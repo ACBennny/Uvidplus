@@ -872,7 +872,7 @@
              * TESTING: This is a test link to the conly current active page to watch as it is being developed
              * All links in this department will be redierected to this page
              */
-            epBox.href = "/Library/Anime/Watch/JujutsuKaisen/S1/Ep1.html";
+            epBox.href = "/Library/TV/Watch/JujutsuKaisen/S1/Ep1.html";
         });
     }
 
