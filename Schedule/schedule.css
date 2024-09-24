@@ -276,12 +276,14 @@ html:root
 .schedule_ctntBdr .schedule_ctntBox
 {
     width: 100%;
+    display: flex;
+    flex-direction: row;
 }
 
 .schedule_ctntBox .schedule_ctntGrid
 {
     width: 100%;
-    display: grid;
+    display: none;
     grid-template-columns: repeat(auto-fit, minmax(var(--schedule_ctntGridColW), 1fr));
     grid-template-rows: auto;
     justify-items: center;
@@ -289,14 +291,24 @@ html:root
     transition: 100ms;
 }
 
+.schedule_ctntGrid.curr_day
+{
+    display: grid;
+}
+
 .schedule_ctntGrid .schedule_ctntCardBdr
 {
-    width: -moz-fit-content;
-    width: fit-content;
+    width: 100%;
+    display: block;
     padding: 15px;
     border-radius: 10px;
     background-color: #171717;
     transition: all 300ms ease-in-out;
+}
+
+.schedule_ctntCardBdr.inactive
+{
+    display: none;
 }
 
 .schedule_ctntCardBdr:active
