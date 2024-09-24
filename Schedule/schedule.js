@@ -13,8 +13,8 @@
     const scheduleDateLeftBdr = document.querySelector(".schedule_dateLeftBorder");
     const scheduleDateRightBdr = document.querySelector(".schedule_dateRightBorder");
     const scheduleDateSlider = document.querySelector(".schedule_dateSlider");
-    const scheduleDateCard = document.querySelectorAll(".schedule_dateCard");
-    const scheduleGidBox = document.querySelector(".schedule_ctntGrid");
+    let scheduleDateCard;
+    const scheduleGridBox = document.querySelector(".schedule_ctntGrid");
     let boxErrorMargin = 10;
     let isDateSliderDown = false;
     let isDragging = false;
@@ -38,9 +38,56 @@
     });
 
 
-// SLIDER
+// GENERATING THE DATE
 
-    // Toggling border visibility
+    // Function to generate the Struct for each day and insert it into the slider
+    function generateScheduleDate() 
+    {
+        const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thurday", "Friday", "Saturday"];
+        const today = new Date();
+        const currentDayIndex = today.getDay(); // Sunday = 0, Monday = 1, ..., Saturday = 6
+
+        // Create the week
+        for (let i = 0; i < 7; i++) {
+            const weekDay = new Date();
+            weekDay.setDate(today.getDate() - currentDayIndex + i); // Offset days based on current day
+            
+            const dayNum = weekDay.getDate();
+            const monthName = weekDay.toLocaleString('default', { month: 'short' });
+            
+            // Generate the HTML structure for the card
+            const card = document.createElement("div");
+            card.classList.add("schedule_dateCard");
+            
+            // Check if this card is for today
+            if (i === currentDayIndex) {
+                card.classList.add("curr_day"); // Add "curr_day" class for the current day
+            }
+            
+            card.innerHTML = `
+                <div class="schedule_dateMinorBdr">
+                    <div class="schedule_dateMinorBox">
+                        <div class="schedule_dateMinorText">${monthName.charAt(0).toUpperCase() + monthName.slice(1)} ${dayNum}</div>
+                    </div>
+                </div>
+                <div class="schedule_dateMajorBdr">
+                    <div class="schedule_dateMajorBox">
+                        <div class="schedule_dateMajorText">${weekDays[i]}</div>
+                    </div>
+                </div>
+            `;
+
+            // Append to the slider
+            scheduleDateSlider.appendChild(card);
+        }
+        scheduleDateCard = document.querySelectorAll(".schedule_dateCard");
+    }
+
+    // Call the function to generate the schedule cards
+    generateScheduleDate();
+
+
+// SLIDER
 
     // Initialization on page load
      if((scheduleDateSlider.scrollWidth) > (Math.ceil((scheduleDateSlider.clientWidth)) + boxErrorMargin))
@@ -52,6 +99,7 @@
         scheduleDateLeftBdr.classList.toggle("hide");
     }
 
+    // Toggling border visibility
     function toggleScheduleBdrVisibility()
     {
         let scrollStart = boxErrorMargin;
@@ -176,6 +224,8 @@
                 </a>
             </div>
         `;
-        scheduleGidBox.insertAdjacentHTML(`beforeend` , cardStruct);
+        scheduleGridBox.insertAdjacentHTML(`beforeend` , cardStruct);
     }
+
+
 
