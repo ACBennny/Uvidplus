@@ -298,10 +298,11 @@
 
         let seasonOverlaySelectorBox = document.querySelector(".seasons_selectorBox");
         let showType = thisHTMLData[0].show_type.toLocaleLowerCase();
+        let checkIfEpPresent = thisHTMLData[0].show_episodes[0].show_ep.toLocaleLowerCase();
         let showEpData;
         let tvPlus = 1;
 
-        if((showType == "tv"))
+        if((showType == "tv") && (checkIfEpPresent != "n/a"))
         {
             showEpData = thisHTMLData[0].show_episodes;
             showEpData.forEach((ep , epc) => 
@@ -617,7 +618,7 @@
 
 
 
-        // Return if No Episodes Presessnt
+        // Return if No Episodes Present
         if((seasonSelector.length === 0))
         {
             watchNowBtn.addEventListener("click" , () => 
