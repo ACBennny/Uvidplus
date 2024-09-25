@@ -12,10 +12,10 @@
     let libNextPath = `${libPathname}${libSearchLink}`;
     let libQuery = new URLSearchParams(window.location.search);
     let showQuery = libQuery.get("info");
-    let showQueryLC = showQuery.toLocaleLowerCase();
+    let showQueryLC = showQuery.toLowerCase();
     let path = window.location.pathname;
     let pathFilename = path.split('/').pop().split('.').shift();
-    let pathFilenameLC = pathFilename.toLocaleLowerCase();
+    let pathFilenameLC = pathFilename.toLowerCase();
     let thisHTMLData;
     let moreShowsToWatchStruct = 
     `
@@ -72,7 +72,7 @@
         thisHTMLData = searchInventory.filter((item) => 
         {
             let invShowLink = item.show_link;
-            let invShowLinkLC = invShowLink.substring(invShowLink.indexOf('=') + 1).toLocaleLowerCase();
+            let invShowLinkLC = invShowLink.substring(invShowLink.indexOf('=') + 1).toLowerCase();
             return invShowLinkLC === showQueryLC;
         });
 
@@ -297,25 +297,29 @@
         allImages();
 
         let seasonOverlaySelectorBox = document.querySelector(".seasons_selectorBox");
-        let showType = thisHTMLData[0].show_type.toLocaleLowerCase();
-        let checkIfEpPresent = thisHTMLData[0].show_episodes[0].show_ep.toLocaleLowerCase();
+        let showType = thisHTMLData[0].show_type.toLowerCase();
         let showEpData;
         let tvPlus = 1;
 
-        if((showType == "tv") && (checkIfEpPresent != "n/a"))
+        if((showType == "tv"))
         {
             showEpData = thisHTMLData[0].show_episodes;
-            showEpData.forEach((ep , epc) => 
+            let checkIfEpPresent = showEpData[0].show_ep;
+            
+            if(checkIfEpPresent != "N/A")
             {
-                let seasonOverlaySelectorBoxInnerHTML = 
-                `
-                    <div class="seasons_selector" show-type="${showType}" ep-length="${ep.show_ep}">
-                        <div class="selectorMain">Season ${epc + 1}</div>
-                        <p class="selectorMinor">${ep.show_ep} episodes</p>
-                    </div>
-                `;
-                seasonOverlaySelectorBox.insertAdjacentHTML(`beforeend` , seasonOverlaySelectorBoxInnerHTML);
-            });
+                showEpData.forEach((ep , epc) => 
+                {
+                    let seasonOverlaySelectorBoxInnerHTML = 
+                    `
+                        <div class="seasons_selector" show-type="${showType}" ep-length="${ep.show_ep}">
+                            <div class="selectorMain">Season ${epc + 1}</div>
+                            <p class="selectorMinor">${ep.show_ep} episodes</p>
+                        </div>
+                    `;
+                    seasonOverlaySelectorBox.insertAdjacentHTML(`beforeend` , seasonOverlaySelectorBoxInnerHTML);
+                });
+            }
         }
         else if((showType == "movie" , (showType == "movies")))
         {
