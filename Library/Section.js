@@ -38,8 +38,7 @@
         `
             <div class="give_space" id="top"></div>
 
-
-            <!-- --------------body ------------ -->
+            <div class=""></div>
             <div class="basicCatalogBase">
                 <div class="basicCatalogBdr">
                     <div class="basicCatalogBox max_sizing showCatalog"></div>
