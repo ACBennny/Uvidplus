@@ -1683,13 +1683,13 @@
             let emLink = `mailto:%7Bemail_address%7D?subject=${socialShareLink}&body=${socialShareTitle}%20`;
             let gmLink = `https://mail.google.com/mail/?view=cm&to=%7Bemail_address%7D&su=${socialShareTitle}&body=${socialShareLink}&bcc=%7Bemail_address%7D&cc=%7Bemail_address%7D`;
 
-            shareShowBtn.forEach(btn => 
-            {
-                btn.addEventListener("click" , () => 
-                {
-                    btn.disabled = true;
-                });
-            });
+            // shareShowBtn.forEach(btn => 
+            // {
+            //     btn.addEventListener("click" , () => 
+            //     {
+            //         btn.disabled = true;
+            //     });
+            // });
 
             socialShareTimer = setTimeout(() => 
             {
@@ -1763,7 +1763,7 @@
                 }
             }
 
-            // Closes the Download bdr
+            // Closes the Share modal
             function closeSclShareBox()
             {
                 documentBody.classList.remove("bodystop");
@@ -1775,13 +1775,13 @@
                 socialShareTimer = setTimeout(() => 
                 {
                     documentBody.removeChild(sclShareBdr);
-                    shareShowBtn.forEach(btn => 
-                    {
-                        btn.addEventListener("click" , () => 
-                        {
-                            btn.disabled = false;
-                        });
-                    });
+                    // shareShowBtn.forEach(btn => 
+                    // {
+                    //     btn.addEventListener("click" , () => 
+                    //     {
+                    //         btn.disabled = false;
+                    //     });
+                    // });
                     documentBody.classList.remove("bodystop");
                     clearTimeout(socialShareTimer);
 
@@ -1803,9 +1803,9 @@
 
             shareShowBtn.forEach((btn) => 
             {
-                if(btn.navigatorSclShareModal)
+                if(btn.customSclShareModal)
                 {
-                    btn.removeEventListener("click" , navigatorSclShareModal);
+                    btn.removeEventListener("click" , customSclShareModal);
                 }
             });
 
@@ -1834,8 +1834,8 @@
                     }
                 }
 
-                btn.addEventListener("click" , navigatorSclShareModal);
-                btn.navigatorSclShareModal = navigatorSclShareModal;
+                btn.addEventListener("click" , customSclShareModal);
+                btn.customSclShareModal = customSclShareModal;
             });
         }
     
