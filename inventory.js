@@ -1316,7 +1316,7 @@
             show_country: `Japan`,
             show_foreground: `/Library/TV/Watch/CowboyBebop/img/1.jpg`,
             show_background: `/Library/TV/Watch/CowboyBebop/img/2.jpg`,
-            show_quality: `SD`,
+            show_quality: `HD`,
             show_rating: `R17+`,
             show_scores: `8.6`,
             show_trailers: 
