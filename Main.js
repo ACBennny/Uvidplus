@@ -1652,7 +1652,25 @@
         let socialDestinationW;
 
 
-        // Fallback called if "navigator.share" is not supported
+
+        function attachSharePageEventListeners()
+        {
+            let socialShareLink = encodeURI(window.location.href);
+            let socialShareTitle = encodeURIComponent(documentTitle);
+            let socialShareMsg = `Check out ${socialShareTitle}`;
+            let shareShowBtn = document.querySelectorAll(".shareShowBtn");
+
+            shareShowBtn.forEach((btn) => 
+            {
+                if(btn.customSclShareModal)
+                {
+                    btn.removeEventListener("click" , customSclShareModal);
+                }
+            });
+
+            shareShowBtn.forEach((btn) => 
+            {
+                // Fallback called if "navigator.share" is not supported
         function customSclShareModal()
         {
             let socialShareLink = encodeURI(window.location.href);
@@ -1685,10 +1703,10 @@
 
             // shareShowBtn.forEach(btn => 
             // {
-            //     btn.addEventListener("click" , () => 
-            //     {
-            //         btn.disabled = true;
-            //     });
+                btn.addEventListener("click" , () => 
+                {
+                    btn.disabled = true;
+                });
             // });
 
             socialShareTimer = setTimeout(() => 
@@ -1714,103 +1732,85 @@
             });
 
             // Redirecting to share destination
-            function shareDestination(destination)
-            {
-                switch(destination)
+                const shareDestination = (destination) =>
                 {
-                    case "facebook":
-                        window.open(`${fbLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                        break;
-                    case "twitter":
-                        window.open(`${twLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                        break;
-                    case "whatsapp":
-                        window.open(`${waLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                        break;
-                    case "pinterest":
-                        window.open(`${pnLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                        break;
-                    case "reddit":
-                        window.open(`${rdlink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                        break;
-                    case "telegram":
-                        window.open(`${tgLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                        break;
-                    case "tumblr":
-                        window.open(`${tbLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                        break;
-                    case "yahoo":
-                        window.open(`${yhLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                        break;
-                    case "line":
-                        window.open(`${lnLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                        break;
-                    case "okru":
-                        window.open(`${okLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                        break;
-                    case "vkontakte":
-                        window.open(`${vkLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                        break;
-                    case "email":
-                        window.open(`${emLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                        break;
-                    case "gmail":
-                        window.open(`${gmLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                        break;
-                    default:
-                        alert("An error occured");
-                        break;
+                    switch(destination)
+                    {
+                        case "facebook":
+                            window.open(`${fbLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                            break;
+                        case "twitter":
+                            window.open(`${twLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                            break;
+                        case "whatsapp":
+                            window.open(`${waLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                            break;
+                        case "pinterest":
+                            window.open(`${pnLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                            break;
+                        case "reddit":
+                            window.open(`${rdlink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                            break;
+                        case "telegram":
+                            window.open(`${tgLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                            break;
+                        case "tumblr":
+                            window.open(`${tbLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                            break;
+                        case "yahoo":
+                            window.open(`${yhLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                            break;
+                        case "line":
+                            window.open(`${lnLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                            break;
+                        case "okru":
+                            window.open(`${okLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                            break;
+                        case "vkontakte":
+                            window.open(`${vkLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                            break;
+                        case "email":
+                            window.open(`${emLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                            break;
+                        case "gmail":
+                            window.open(`${gmLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                            break;
+                        default:
+                            alert("An error occured");
+                            break;
+                    }
                 }
-            }
 
-            // Closes the Share modal
-            function closeSclShareBox()
-            {
-                documentBody.classList.remove("bodystop");
-
-                // Removes style classes
-                sclShareBdr.classList.remove("active");
-                sclShareBox.classList.remove("active");
-
-                socialShareTimer = setTimeout(() => 
+                // Closes the Share modal
+                function closeSclShareBox()
                 {
-                    documentBody.removeChild(sclShareBdr);
-                    // shareShowBtn.forEach(btn => 
-                    // {
-                    //     btn.addEventListener("click" , () => 
-                    //     {
-                    //         btn.disabled = false;
-                    //     });
-                    // });
                     documentBody.classList.remove("bodystop");
-                    clearTimeout(socialShareTimer);
 
-                }, 300);
-            }
+                    // Removes style classes
+                    sclShareBdr.classList.remove("active");
+                    sclShareBox.classList.remove("active");
 
-            sclShareCloseBtn.forEach(one => 
-            {
-                one.addEventListener("mousedown" , closeSclShareBox);
-            });
-        }
+                    socialShareTimer = setTimeout(() => 
+                    {
+                        documentBody.removeChild(sclShareBdr);
+                        // shareShowBtn.forEach(btn => 
+                        // {
+                            btn.addEventListener("click" , () => 
+                            {
+                                btn.disabled = false;
+                            });
+                        // });
+                        documentBody.classList.remove("bodystop");
+                        clearTimeout(socialShareTimer);
 
-        function attachSharePageEventListeners()
-        {
-            let socialShareLink = encodeURI(window.location.href);
-            let socialShareTitle = encodeURIComponent(documentTitle);
-            let socialShareMsg = `Check out ${socialShareTitle}`;
-            let shareShowBtn = document.querySelectorAll(".shareShowBtn");
-
-            shareShowBtn.forEach((btn) => 
-            {
-                if(btn.customSclShareModal)
-                {
-                    btn.removeEventListener("click" , customSclShareModal);
+                    }, 300);
                 }
-            });
 
-            shareShowBtn.forEach((btn) => 
-            {
+                sclShareCloseBtn.forEach(one => 
+                {
+                    one.addEventListener("mousedown" , closeSclShareBox);
+                });
+            }
                 // navigator.share function
                 const navigatorSclShareModal = () =>
                 {
