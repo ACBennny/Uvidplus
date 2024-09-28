@@ -767,7 +767,7 @@
             show_genre: `Comedy`,
             show_theme: `Psychological, School, Romance`,
             show_year: `2019`,
-            show_aired: `Jan 12, 2019 to`,
+            show_aired: `Jan 12, 2019 to Jun 25, 2022`,
             show_studios: `A-1 Pictures`,
             show_country: `Japan`,
             show_foreground: `/Library/TV/Watch/KaguyaSama/img/1.jpg`,
@@ -3508,6 +3508,42 @@
             `,
             show_searchKey: `Boruto Naruto Next Generations Boruto: Naruto Next Generations anime`,
         },
+
+
+
+
+
+
+
+
+        // ======== MOVIES ==========
+        // {
+        //     show_link: `/Library.html?info=DailyLifeOfAnImmortalKing`,
+        //     show_thumbnail: `/Library/TV/img/102.jpg`,
+        //     show_title: `Daily Life Of An Immortal King`,
+        //     show_type: `TV`,
+        //     show_status: `N/A`,
+        //     show_languages: `N/A`,
+        //     show_subtitles: `N/A`,
+        //     show_genre: `N/A`,
+        //     show_theme: `N/A`,
+        //     show_year: `N/A`,
+        //     show_aired: `N/A`,
+        //     show_studios: `N/A`,
+        //     show_country: `N/A`,
+        //     show_foreground: `/Library/TV/Watch/DailyLifeOfAnImmortalKing/img/1.jpg`,
+        //     show_background: `/Library/TV/Watch/DailyLifeOfAnImmortalKing/img/2.jpg`,
+        //     show_quality: `N/A`,
+        //     show_rating: `N/A`,
+        //     show_scores: `N/A`,
+        //     show_trailers: [{show_trl: `N/A`}],
+        //     show_movies: [{show_mov: `N/A`}],
+        //     show_episodes: [{show_ep: `N/A`,}],
+        //     show_watch: [{show_wtp: `N/A`, show_wep: `N/A`,},],
+        //     show_description: `N/A`,
+        //     show_searchKey: `Daily Life Of An Immortal King Xiān Wáng de Rìcháng Shēnghuó Xian Wáng de Richang Shenghuo anime`,
+        // },
+
     ];
 
 
