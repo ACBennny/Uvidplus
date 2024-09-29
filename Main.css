@@ -416,30 +416,6 @@ img
     color: var(--navBarGenClr);
 }
 
-.navBar .headname
-{
-    width: -moz-fit-content;
-    width: fit-content;
-    height: 100%;
-    display: none;
-    align-items: center;
-    flex-direction: row;
-    cursor: pointer;
-    text-transform: uppercase;
-}
-
-.navBar .headname .hd1
-{
-    font-size: 19px;
-    color: var(--navBarGenClr);
-}
-
-.headname .hd2
-{
-    font-size: 19px;
-    color: var(--navElementColor_green);
-}
-
 .navBar .navBarIconBox
 {
     width: var(--navBarIconBoxWidth);
