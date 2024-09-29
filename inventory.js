@@ -231,7 +231,7 @@
             show_country: `Japan`,
             show_foreground: `/Library/TV/Watch/FullmetalPanic/img/1.jpg`,
             show_background: `/Library/TV/Watch/FullmetalPanic/img/2.jpg`,
-            show_quality: `SD`,
+            show_quality: `HD`,
             show_rating: `R17+`,
             show_scores: `7.6`,
             show_trailers: 
@@ -2827,7 +2827,7 @@
             show_country: `Japan`,
             show_foreground: `/Library/TV/Watch/InitialD/img/1.jpg`,
             show_background: `/Library/TV/Watch/InitialD/img/2.jpg`,
-            show_quality: `SD`,
+            show_quality: `HD`,
             show_rating: `PG13`,
             show_scores: `8.2`,
             show_trailers: [{show_trl: `N/A`}],
