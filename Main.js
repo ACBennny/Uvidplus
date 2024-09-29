@@ -203,7 +203,7 @@
                             </p>
                         </div>
                         <div class="footer_Important_linksBox">
-                            <a href="/Policies/Preference.html" title="Preferences" class="footerlinks footer_Important_links">Preferences</a>
+                            <a href="/User/Settings/Preferences.html" title="Preferences" class="footerlinks footer_Important_links">Preferences</a>
                             <a href="/Policies/Privacy.html" title="Privacy" class="footerlinks footer_Important_links">Privacy</a>
                             <a href="/Policies/TOU.html" title="Terms of Use" class="footerlinks footer_Important_links">Terms of Use</a>
                         </div>
