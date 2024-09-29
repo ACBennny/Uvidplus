@@ -78,8 +78,8 @@
         catalogPageSpecificOtherLetters = catalogPageSpecificSegment.substring(catalogPageSpecificSegment.lastIndexOf(catalogPageSpecificFirstLetter) + 1);
 
         // Assign values to their specific location
-        catalogTitleTextFirst.textContent = catalogPageSpecificFirstLetter.toUpperCase;
-        catalogTitleTextOthers.textContent = catalogPageSpecificOtherLetters.toLowerCase;
+        catalogTitleTextFirst.textContent = catalogPageSpecificFirstLetter.toUpperCase();
+        catalogTitleTextOthers.textContent = catalogPageSpecificOtherLetters.toLowerCase();
         
         // Fetch the content
         fetchCatalog(catalogPageSpecificSegment);
