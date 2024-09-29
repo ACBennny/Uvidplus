@@ -91,7 +91,7 @@
         const whatPage = page.toLowerCase();
         const showCatalog = document.querySelector(".showCatalog");
         const basicLoadingIndicator = document.getElementById("basicLoadingIndicator");
-        let thisPage;
+        let thisPageType;
     
         let catalogInvSize = 0;
         let currentIndex = 0;
@@ -101,13 +101,13 @@
         switch (whatPage) 
         {
             case 'recent':
-                thisPage = "all";
+                thisPageType = "all";
                 break;
             case 'movies':
-                thisPage = "movie";
+                thisPageType = "movie";
                 break;
             case 'tv shows':
-                thisPage = "tv";
+                thisPageType = "tv";
                 break;
             default:
                 notification(`notifyBad`, `An error occurred`);
@@ -116,7 +116,7 @@
         const filteredItems = searchInventory.filter(item => 
         {
             const showtype = item.show_type.toLowerCase();
-            return thisPage === 'all' || showtype === thisPage;
+            return thisPageType === 'all' || showtype === thisPageType;
         });
 
         catalogInvSize = filteredItems.length;
