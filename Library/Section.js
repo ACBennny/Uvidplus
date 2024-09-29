@@ -82,25 +82,52 @@
         catalogTitleTextOthers.textContent = catalogPageSpecificOtherLetters;
         
         // Fetch the content
-        fetchCatalog();
+        fetchCatalog(catalogPageSpecificSegment);
     }
 
 
-    function fetchCatalog()
+    function fetchCatalog(page) 
     {
-
+        const whatPage = page.toLowerCase();
         const showCatalog = document.querySelector(".showCatalog");
         const basicLoadingIndicator = document.getElementById("basicLoadingIndicator");
-
+        let thisPage;
+    
+        let catalogInvSize = 0;
         let currentIndex = 0;
-        const noOfItemsToLoad = 20; 
+        const noOfItemsToLoad = 20;
 
+        // Determine the show type based on the current page
+        switch (whatPage) 
+        {
+            case 'recent':
+                thisPage = "all";
+                break;
+            case 'movies':
+                thisPage = "movie";
+                break;
+            case 'tv shows':
+                thisPage = "tv";
+                break;
+            default:
+                notification(`notifyBad`, `An error occurred`);
+        }
+        
+        const filteredItems = searchInventory.filter(item => 
+        {
+            const showtype = item.show_type.toLowerCase();
+            return thisPage === 'all' || showtype === thisPage;
+        });
+
+        catalogInvSize = filteredItems.length;
+    
         function loadItems() 
         {
-            const endIndex = Math.min(currentIndex + noOfItemsToLoad, searchInventory.length);
-            for (let i = currentIndex; i < endIndex; i++)
+    
+            const endIndex = Math.min(currentIndex + noOfItemsToLoad, catalogInvSize);
+            for (let i = currentIndex; i < endIndex; i++) 
             {
-                const item = searchInventory[i];
+                const item = filteredItems[i];
                 const cardHTML = 
                 `
                     <div class="slide_card_base">
@@ -131,7 +158,7 @@
                                     </div>
                                     <div class="cardAddToListBdr">
                                         <div class="cardAddToListBox">
-                                            <div class="cardAddToListIconBox  openAddToWLBtn" title="Add to Watchlist">
+                                            <div class="cardAddToListIconBox openAddToWLBtn" title="Add to Watchlist">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon hiddenIcon rating_btnIcon add_to_LikedShows">
                                                     <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
                                                 </svg>
@@ -147,36 +174,39 @@
                         </div>
                     </div>
                 `;
-                showCatalog.insertAdjacentHTML("beforeend", cardHTML);
+                showCatalog.insertAdjacentHTML('beforeend', cardHTML);
             }
+    
             currentIndex = endIndex;
-
-            // Reattaching listeners
+    
+            // Reattaching listeners after adding new items
             attachAddToWLEventListeners();
-
-            if (currentIndex >= searchInventory.length)
+    
+            if (currentIndex >= catalogInvSize) 
             {
                 observer.unobserve(basicLoadingIndicator);
                 basicLoadingIndicator.style.display = 'none';
             }
         }
-
+    
         const observer = new IntersectionObserver((entries) => 
         {
             if (entries[0].isIntersecting) 
             {
-                loadItems();
+                // Load the next set of items when the basicLoadingIndicator is in view
+                loadItems(whatPage); 
             }
-        },
-        {
+        }, {
             root: null,
             rootMargin: '0px',
             threshold: 0.1
         });
+    
         observer.observe(basicLoadingIndicator);
-        
+    
         loadItems();
     }
+    
 
     
 
