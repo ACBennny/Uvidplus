@@ -125,7 +125,7 @@
 .searchbox-border
 {
     width: 100%;
-    min-height: 50vh;
+    min-height: 75vh;
     padding: calc(var(--navBarHeight) + var(--navBarSearchBarHeight) + 20px) 10px 20px;
     display: flex;
     flex-direction: column;
