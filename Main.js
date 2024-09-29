@@ -74,10 +74,6 @@
                 </div>
                 <div class="navBarCenter navBarSearchBdr"></div>
                 <div class="navBarRight">
-                    <div class="headname" title="">
-                        <h1 class="hd1"></h1>
-                        <h1 class="hd2"></h1>
-                    </div>
                     <div class="navBarRightCtnt">
                         <div class="navBarIconBox openNavSearch_BtnBox">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarIcon openNavSearch_Btn">
