@@ -68,7 +68,7 @@
         let catalogPageSpecificOtherLetters;
         
         // Add "shows" if value is "Tv"
-        if(catalogPageSpecificSegment == "Tv")
+        if(catalogPageSpecificSegment.toLowerCase() == "tv")
         {
             catalogPageSpecificSegment = `${catalogPageSpecificSegment} Shows`;
         }
