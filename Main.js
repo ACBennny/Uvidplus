@@ -704,7 +704,7 @@
                         btn.addEventListener("click" , closeNavSideMenu);
                     });
 
-                    // Setting the title of the elements
+                    // Setting the title of the page's nav link
                     const navOptLink = document.querySelectorAll(".navOptLink");
                     navOptLink.forEach(navlink => 
                     {
@@ -712,15 +712,19 @@
                         navlink.title = navTitle.textContent;
                     });
 
-                    // Setting the active element
-                    let switchElem = navBarHeadName.title.toLowerCase();
-                    switch(switchElem)
+                    // Setting the active  state for the page's nav link
+                    let currPagePathName = window.location.pathname;
+                    let extractedCurrPagePath = currPagePathName.replace(/\.html$/, "");
+                    let currPageSpecificSegment = extractedCurrPagePath.substring(extractedCurrPagePath.lastIndexOf('/') + 1);
+                    let currPageSpecificSegmentLC = currPageSpecificSegment.toLowerCase();
+                    
+                    switch(currPageSpecificSegmentLC)
                     {
-                        case 'search': 
+                        case 'home': 
                             navOptLink[0].classList.add("active");
                             break;
 
-                        case 'home': 
+                        case 'recent': 
                             navOptLink[1].classList.add("active");
                             break;
                         
@@ -732,24 +736,20 @@
                             navOptLink[3].classList.add("active");
                             break;
                         
-                        case 'tv shows': 
+                        case 'tv': 
                             navOptLink[4].classList.add("active");
                             break;
                         
-                        case 'anime': 
+                        case 'genres': 
                             navOptLink[5].classList.add("active");
                             break;
                         
-                        case 'cartoon': 
+                        case 'schedule': 
                             navOptLink[6].classList.add("active");
                             break;
                         
                         case 'news': 
                             navOptLink[7].classList.add("active");
-                            break;
-                        
-                        case 'my list': 
-                            navOptLink[8].classList.add("active");
                             break;
 
                         default: 
