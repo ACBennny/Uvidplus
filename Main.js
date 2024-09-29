@@ -972,7 +972,7 @@
                     }
                 }
             }
-            instantiateNavBarNotificationMenu()
+            instantiateNavBarNotificationMenu();
 
       
 
