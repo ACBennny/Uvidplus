@@ -32,13 +32,21 @@
         document.body.appendChild(invScriptTag);
     }
 
+
     function launchCatalog()
     {
         let catalogHTML = 
         `
             <div class="give_space" id="top"></div>
 
-            <div class=""></div>
+            <div class="catalogTitleBdr">
+                <div class="catalogTitleBox">
+                    <div class="catalogTitleText">
+                        <div class="catalogTitleTextFirst"></div>
+                        <div class="catalogTitleTextOthers"></div>
+                    </div>
+                </div>
+            </div>
             <div class="basicCatalogBase">
                 <div class="basicCatalogBdr">
                     <div class="basicCatalogBox max_sizing showCatalog"></div>
@@ -49,6 +57,37 @@
             </div>
         `;
         document.body.insertAdjacentHTML(`afterbegin` , catalogHTML);
+
+        let catalogTitleText = document.querySelector(".catalogTitleText");
+        let catalogTitleTextFirst = catalogTitleText.querySelector(".catalogTitleTextFirst");
+        let catalogTitleTextOthers = catalogTitleText.querySelector(".catalogTitleTextOthers");
+        let catalogPagePathName = window.location.pathname;
+        let extractedCatalogPagePath = catalogPagePathName.replace(/\.html$/, "");
+        let catalogPageSpecificSegment = extractedCatalogPagePath.substring(extractedCatalogPagePath.lastIndexOf('/') + 1);
+        let catalogPageSpecificFirstLetter;
+        let catalogPageSpecificOtherLetters;
+        
+        // Add "shows" if value is "Tv"
+        if(catalogPageSpecificSegment == "Tv")
+        {
+            catalogPageSpecificSegment = `${catalogPageSpecificSegment} Shows`;
+        }
+
+        // Separate the First letter and other letters after it
+        catalogPageSpecificFirstLetter = catalogPageSpecificSegment.substring(0 , 1);
+        catalogPageSpecificOtherLetters = catalogPageSpecificSegment.substring(catalogPageSpecificSegment.lastIndexOf(catalogPageSpecificFirstLetter) + 1);
+
+        // Assign values to their specific location
+        catalogTitleTextFirst.textContent = catalogPageSpecificFirstLetter;
+        catalogTitleTextOthers.textContent = catalogPageSpecificOtherLetters;
+        
+        // Fetch the content
+        fetchCatalog();
+    }
+
+
+    function fetchCatalog()
+    {
 
         const showCatalog = document.querySelector(".showCatalog");
         const basicLoadingIndicator = document.getElementById("basicLoadingIndicator");
