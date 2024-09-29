@@ -74,12 +74,12 @@
         }
 
         // Separate the First letter and other letters after it
-        catalogPageSpecificFirstLetter = catalogPageSpecificSegment.substring(0 , 1).toUpperCase();
-        catalogPageSpecificOtherLetters = catalogPageSpecificSegment.substring(catalogPageSpecificSegment.lastIndexOf(catalogPageSpecificFirstLetter) + 1).toLowerCase();
+        catalogPageSpecificFirstLetter = catalogPageSpecificSegment.substring(0 , 1);
+        catalogPageSpecificOtherLetters = catalogPageSpecificSegment.substring(catalogPageSpecificSegment.lastIndexOf(catalogPageSpecificFirstLetter) + 1);
 
         // Assign values to their specific location
-        catalogTitleTextFirst.textContent = catalogPageSpecificFirstLetter;
-        catalogTitleTextOthers.textContent = catalogPageSpecificOtherLetters;
+        catalogTitleTextFirst.textContent = catalogPageSpecificFirstLetter.toUpperCase;
+        catalogTitleTextOthers.textContent = catalogPageSpecificOtherLetters.toLowerCase;
         
         // Fetch the content
         fetchCatalog(catalogPageSpecificSegment);
