@@ -485,11 +485,28 @@ img
     height: 100%;
     display: flex;
     align-items: center;
+    z-index: 2;
 }
 
 .pc_navlinkBox.active
 {
-    --pc_navlinkClr: var(--navElementColor_green);
+    --pc_navlinkClr: var(--genGreenTypeBright);
+}
+
+.pc_navlinkBox.active::after
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 80%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: var(--genGreenGradMid);
+    pointer-events: none;
+    z-index: -1;
 }
 
 .pc_navlinkBox .pc_navlinkCard
@@ -498,13 +515,6 @@ img
     flex-direction: row;
     padding: 5px 10px;
     cursor: pointer;
-}
-
-.pc_navlinkBox.active .pc_navlinkCard
-{
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    background-color: var(--navMenuBcgClr);
 }
 
 .pc_navlinkBox .pc_navlinkCardText
@@ -532,11 +542,6 @@ img
     border-left: var(--pc_navlinkIconDimensionsHalf) solid transparent;
     border-right: var(--pc_navlinkIconDimensionsHalf) solid transparent;
     transition: all 300ms ease-in-out;
-}
-
-.pc_navlinkBox.active .pc_navlinkCardIcon
-{
-    transform: rotate(-180deg);
 }
 
 .pc_navlinkCard:active

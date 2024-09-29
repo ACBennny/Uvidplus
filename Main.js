@@ -709,6 +709,7 @@
                     });
 
                     // Setting the active  state for the page's nav link
+                    let pcNavLinkBox = document.querySelectorAll(".pc_navlinkBox");
                     let currPagePathName = window.location.pathname;
                     let extractedCurrPagePath = currPagePathName.replace(/\.html$/, "");
                     let currPageSpecificSegment = extractedCurrPagePath.substring(extractedCurrPagePath.lastIndexOf('/') + 1);
@@ -718,34 +719,42 @@
                     {
                         case 'home': 
                             navOptLink[0].classList.add("active");
+                            pcNavLinkBox[0].classList.add("active");
                             break;
 
                         case 'recent': 
                             navOptLink[1].classList.add("active");
+                            pcNavLinkBox[1].classList.add("active");
                             break;
                         
                         case 'trending': 
                             navOptLink[2].classList.add("active");
+                            pcNavLinkBox[2].classList.add("active");
                             break;
                         
                         case 'movies': 
                             navOptLink[3].classList.add("active");
+                            pcNavLinkBox[3].classList.add("active");
                             break;
                         
                         case 'tv': 
                             navOptLink[4].classList.add("active");
+                            pcNavLinkBox[4].classList.add("active");
                             break;
                         
                         case 'genres': 
                             navOptLink[5].classList.add("active");
+                            pcNavLinkBox[5].classList.add("active");
                             break;
                         
                         case 'schedule': 
                             navOptLink[6].classList.add("active");
+                            pcNavLinkBox[6].classList.add("active");
                             break;
                         
                         case 'news': 
                             navOptLink[7].classList.add("active");
+                            pcNavLinkBox[7].classList.add("active");
                             break;
 
                         default: 
