@@ -1069,7 +1069,7 @@
                     // If '#' character is found and nothing else exceeds it
                     if (hashIndex === url.length - 1)
                     {
-                        link.href = "/Error404.html";
+                        link.href = "/Error/404/index.html";
                     }
                 }
                 extractHash(link.href);
