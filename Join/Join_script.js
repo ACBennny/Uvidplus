@@ -307,9 +307,9 @@
                                                     <div class="form_text">
                                                         <div>By creating an account you are agreeing to our</div>
                                                         <div>
-                                                            <a href="#" class="form_links" target="_blank">Terms of Use</a> 
+                                                            <a href="/Policies/TOU.html" class="form_links" target="_blank">Terms of Use</a> 
                                                             and
-                                                            <a href="#" class="form_links" target="_blank">Privacy policy</a>
+                                                            <a href="/Policies/Privacy.html" class="form_links" target="_blank">Privacy policy</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -607,8 +607,8 @@
         // Warns if user tries to refresh
         const beforeUnloadHandler = (event) => 
         {
-            event.preventDefault();
-            event.returnValue = '';
+            // event.preventDefault();
+            // event.returnValue = '';
         };
 
 
