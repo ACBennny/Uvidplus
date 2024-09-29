@@ -81,6 +81,11 @@ a
     user-select: none;
 }
 
+p
+{
+    font-family: 'Poppins' , sans-serif;
+}
+
 
 /* ===== Page Not Found Error ==== */
 .error_bdr
@@ -148,6 +153,7 @@ a
     flex-direction: column;
     gap: 15px;
     align-items: center;
+    text-align: center;
 }
 
 .middle .mid_Title
