@@ -2295,6 +2295,7 @@ img
 {
     width: 100%;
     display: flex;
+    justify-content: center;
     align-items: center;
     padding: 0 var(--genBorderSpacing);
 }
@@ -4960,11 +4961,6 @@ img
     .basic_slider_card_box
     {
         --basicSliderCardDivision: 2;
-    }
-
-    .catalogTitleBdr .catalogTitleBox
-    {
-        justify-content: center;
     }
 
     .notifyIconBox
