@@ -61,10 +61,16 @@
 
         function fetchUserHistory()
         {
-            // Check if content of library is available
-            if(((historyInventory == undefined) || (historyInventory.length <= 0)))
+            // Check if the library is available
+            if((historyInventory == undefined))
             {
                 errorLoadingUserHistory();
+                return;
+            }
+
+            // Check if there is content inside the library
+            if((historyInventory.length <= 0))
+            {
                 return;
             }
 

@@ -59,10 +59,16 @@
 
         function fetchUserNotification()
         {
-            // Check if content of library is available
-            if(((notificationInventory == undefined) || (notificationInventory.length <= 0)))
+            // Check if the library is available
+            if((notificationInventory == undefined))
             {
                 errorLoadingUserNotifications();
+                return;
+            }
+
+            // Check if there is content inside the library
+            if((notificationInventory.length <= 0))
+            {
                 return;
             }
 
