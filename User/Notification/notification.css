@@ -27,7 +27,6 @@ html:root
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 var(--genBorderSpacing);
 }
 
 .notification_ctnt_box .notification_card_bdr

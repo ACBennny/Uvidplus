@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 <div class="userBodyBdr">
-                    <div class="userBodyBox">
+                    <div class="userBodyBox userHistBodyBox">
                         <div class="userBodyTitleBdr">
                             <div class="userBodyTitleBox">
                                 <div class="userBodyTitleIconBox">
