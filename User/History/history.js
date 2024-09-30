@@ -7,7 +7,7 @@
 ****************************************************************/
 
     let historyCtntBox = document.querySelector(".history_ctnt_box");
-    let historyCatalogBase = document.querySelector(".history_ctnt_box .basicCatalogBase");
+    let historyCatalogBase = historyCtntBox.querySelector(".basicCatalogBase");
     let historyCatalogBox = document.querySelector(".history_catalog_box");
     let emptyUserPageBdr = document.querySelector(".emptyUserPageBdr");
     let emptyhistoryStruct = 
