@@ -3801,7 +3801,7 @@ img
 
 .genAtnModalOptBox .genAtnModalOptTextBox
 {
-    width: calc(100% - var(--switchProfOptImgBoxWidth));
+    width: calc(100% - 50px);
     height: 100%;
     display: flex;
     align-items: center;
