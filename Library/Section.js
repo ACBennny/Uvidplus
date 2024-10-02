@@ -136,7 +136,7 @@
                         <div class="slide_card_bdr">
                             <div class="slide_card_box">
                                 <div class="slide_card">
-                                    <a href="${item.show_link}" title="Watch ${item.show_title}" class="cardLinkCover"></a>
+                                    <a href="${item.show_link}" title="Watch ${item.show_title}" class="cardLinkCover" draggable="false"></a>
                                     <div class="cardImgBox">
                                         <img src="${item.show_thumbnail}" alt="Thumbnail image of ${item.show_title}" class="cardImg">
                                     </div>
