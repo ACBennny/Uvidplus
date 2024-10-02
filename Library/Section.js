@@ -113,6 +113,7 @@
                 notification(`notifyBad`, `An error occurred`);
         }
         
+        // Get the shows of the given show type
         const filteredItems = searchInventory.filter(item => 
         {
             const showtype = item.show_type.toLowerCase();
@@ -121,6 +122,7 @@
 
         catalogInvSize = filteredItems.length;
     
+        // Insert the info of the selected shows
         function loadItems() 
         {
     
