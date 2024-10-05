@@ -378,5 +378,10 @@ html:root
     {
         margin: 7px 0;
     }
+
+    .trendingDetFeatureBdr .trendingDetFeatureBox
+    {
+        gap: 15px;
+    }
 }
 
