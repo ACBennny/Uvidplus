@@ -338,7 +338,7 @@ html:root
 
     .trendingBox .trendingCardBdr
     {
-        margin-bottom: 30px;
+        margin-bottom: 0px;
         padding: 10px;
     }
 
