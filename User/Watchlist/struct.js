@@ -167,7 +167,7 @@
                                                                         <p class="userWLCatalog_ItemDetMinorText userWLCatalog_ItemCountText">24 items</p>
                                                                     </div>
                                                                     <div class="userWLCatalog_ItemDetMinorBox">
-                                                                        <p class="userWLCatalog_ItemDetMinorText userWLCatalog_ItemYearText"></p>
+                                                                        <p class="userWLCatalog_ItemDetMinorText userWLCatalog_ItemYearText">Updated on Sep 30, 2024</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -218,7 +218,7 @@
                                                                         <p class="userWLCatalog_ItemDetMinorText userWLCatalog_ItemCountText">11 items</p>
                                                                     </div>
                                                                     <div class="userWLCatalog_ItemDetMinorBox">
-                                                                        <p class="userWLCatalog_ItemDetMinorText userWLCatalog_ItemYearText">Updated on Sep 30, 2024</p>
+                                                                        <p class="userWLCatalog_ItemDetMinorText userWLCatalog_ItemYearText">Updated on Oct 5, 2024</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
