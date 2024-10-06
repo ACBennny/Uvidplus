@@ -94,12 +94,14 @@
                 item.addEventListener("click" , () => 
                 {
                     wlModalBase.classList.toggle("active");
+                    document.body.classList.add("bodystop");
                 });
             });
 
             wlModalBaseClose.addEventListener("click" , () => 
             {
                 wlModalBase.classList.remove("active");
+                document.body.classList.remove("bodystop");
             });
         }
     }
