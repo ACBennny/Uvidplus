@@ -103,6 +103,8 @@ html:root
     --slideCardProgress_currClr: var(--genGreenTypeBright);
     --basicCatalogCardWidth: 175px;
     --basicSingleColPadding: 50px;
+    --genModalBcg: #141414;
+    --genModalOptHover: #222222;
     --notifyGoodBcg: #42af56;
     --notifyBadBcg: #d95a5a;
     --notifyIconBoxWidth: 60px;
@@ -3683,7 +3685,7 @@ img
     border-radius: 10px;
     border-top: 3px solid var(--genGreenTypeDark1);
     border-bottom: 3px solid var(--genGreenTypeDark1);
-    background-color: #141414;
+    background-color: var(--genModalBcg);
     overflow: hidden;
 }
 
