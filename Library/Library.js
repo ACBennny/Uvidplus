@@ -79,7 +79,7 @@
         // If no match, redirect to error page
         if(thisHTMLData.length <= 0)
         {
-            window.open(`/Error404.html` , `_self`);
+            window.open(`/Error/404/index.html` , `_self`);
             return;
         }
         
