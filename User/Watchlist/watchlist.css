@@ -52,10 +52,9 @@ html:root
     transition: 100ms;
 }
 
-.userWLCatalog_ItemBase svg
+.userWLCatalogGrid .userWLCatalog_ItemBase
 {
-    width: 25px;
-    height: 25px;
+    margin-bottom: 20px;
 }
 
 .userWLCatalog_ItemBase .userWLCatalog_ItemBdr
