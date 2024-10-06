@@ -341,8 +341,8 @@ html:root
 .userOrderBtnBdr:hover .userOrderOptBdr
 /* .userSortBtnBdr .userOrderOptBdr */
 {
-    opacity: 1;
-    visibility: visible;
+    /* opacity: 1;
+    visibility: visible; */
 }
 
 .userOrderOptBdr .userOrderOptBox
