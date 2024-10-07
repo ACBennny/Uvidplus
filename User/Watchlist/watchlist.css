@@ -362,6 +362,7 @@ html:root
     display: flex;
     flex-direction: column;
     overflow: hidden auto;
+    scroll-behavior: smooth;
 }
 
 
@@ -392,7 +393,7 @@ html:root
 {
     position: relative;
     width: 100%;
-    height: calc((var(--wlModalHeadBdrHeight) + var(--navBarHeight)));
+    height: calc((var(--wlModalHeadBdrHeight)));
     display: flex;
     justify-content: center;
     align-items: center;
@@ -512,7 +513,7 @@ html:root
     background-color: #000000c3;
     opacity: 0;
     visibility: hidden;
-    transition: all 300ms ease-in-out;
+    transition: all 150ms ease-in-out;
     cursor: pointer;
 }
 
@@ -541,6 +542,7 @@ html:root
     width: 100%;
     height: 100%;
     background-color: #2c2c2c;
+    filter: brightness(0.75);
     overflow: hidden;
 }
 
@@ -1041,11 +1043,6 @@ html:root
     border-radius: 15px;
     overflow: hidden;
     transition: all 300ms ease-in-out;
-}
-
-.wlModalGrid_CardBdr:active
-{
-    background-color: #3b3b3b75;
 }
 
 .wlModalGrid_CardBdr .wlModalGrid_CardBox
