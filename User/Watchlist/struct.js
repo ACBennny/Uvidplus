@@ -137,265 +137,265 @@
                                         <div class="userWLCatalogGrid"></div>
                                     </div>
                                 </div>
-
-                                <!------ Watchlist Modal ------>
-                                <div class="wlModalBase">
-                                    <div class="wlModalBdr">
-                                        <div class="wlModalBox">
-                                            <div class="wlModalBaseClose">Close</div>
-                                            <div class="wlModalHeadBase">
-                                                <div class="wlModalHeadBdr">
-                                                    <div class="wlModalHead_underlayerBdr">
-                                                        <div class="wlModalHead_underlayerBox">
-                                                            <div class="wlModalHeader_BcgBdr">
-                                                                <div class="wlModalHeader_BcgBox">
-                                                                    <img class="wlModalHeader_BcgImg" src="/Images/Uvid_Anime.jpg" alt="The watchlist header background image">
-                                                                </div>
-                                                            </div>
-                                                            <div class="wlModalHeader_Shadow"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="wlModalHeadBox">
-                                                        <div class="wlModalHeader_thumbBase">
-                                                            <div class="wlModalHeader_thumbBdr">
-                                                                <div class="wlModalHeader_thumbBox">
-                                                                    <img class="wlModalHeader_thumbImg" src="/Images/Uvid_Anime.jpg" alt="The watchlist header thumbnail image">
-                                                                </div>
-                                                                <div class="wlModalAction_editBtnBdr">
-                                                                    <div class="wlModalAction_editBtnBox">
-                                                                        <div class="wlModalAction_editBtnIcon">
-                                                                            <svg class="wlModalAction_editBtnSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                                                                <path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/>
-                                                                            </svg>
-                                                                        </div>
-                                                                        <div class="wlModalAction_editBtnText">Edit Watchlist</div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="wlModalHeader_DetBdr">
-                                                            <div class="wlModalHeader_DetBox">
-                                                                <div class="wlModalHeader_DetInfoBdr">
-                                                                    <div class="wlModalHeader_DetInfoBox">
-                                                                        <div class="wlModalHeader_DetInfo_TitleBox">
-                                                                            <div class="wlModalHeader_DetInfo_TitleText">The Greatest Anime Shows of All Time</div>
-                                                                        </div>
-                                                                        <div class="wlModalHeader_DetInfo_TagsBdr">
-                                                                            <div class="wlModalHeader_DetInfo_TagsBox">
-                                                                                <div class="wlModalHeader_DetInfo_TagsItem wlModalHeader_DetInfo_TagsCount">
-                                                                                    <div class="wlModalHeader_DetInfo_TagsCountIcon">
-                                                                                        <svg class="wlModalHeader_DetInfo_TagsCountSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                                                                                            <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                                                        </svg>
-                                                                                    </div>
-                                                                                    <p class="wlModalHeader_DetInfo_TagsCountText">1000 items</p>
-                                                                                </div>
-                                                                                <div class="wlModalHeader_DetInfo_TagsItem wlModalHeader_DetInfo_TagsSeparator">•</div>
-                                                                                <div class="wlModalHeader_DetInfo_TagsItem wlModalHeader_DetInfo_TagsUpdate">
-                                                                                    <p class="wlModalHeader_DetInfo_TagsUpdateText">Updated on Sep 30, 2024</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="wlModalHeader_DetInfo_DescBox">
-                                                                            <p class="wlModalHeader_DetInfo_DescText">In this watchlist lies some of the greatest anime shows to ever be aired since the day anime was first introduced to the public.</p>
-                                                                        </div>
-                                                                        <div class="wlModalHeader_DetInfo_MoreBdr">
-                                                                            <div class="wlModalHeader_DetInfo_MoreBox">
-                                                                                <button class="wlModalHeader_DetInfo_MoreBtn">
-                                                                                    <p class="wlModalHeader_DetInfo_MoreText">Read more</p>
-                                                                                </button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="wlModalActionFence wlModalAction_HeaderFence">
-                                                                    <div class="wlModalActionBase">
-                                                                        <div class="wlModalActionBdr">
-                                                                            <div class="wlModalActionBox">
-                                                                                <button class="wlModalActionBtn">
-                                                                                    <div class="wlModalActionBtnIcon">
-                                                                                        <svg class="wlModalActionBtnSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512">
-                                                                                            <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
-                                                                                        </svg>
-                                                                                    </div>
-                                                                                </button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="wlModalCtntBase">
-                                                <div class="wlModalCtntBdr">
-                                                    <div class="wlModalCtntBox">
-                                                        <div class="wlModalCtnt_sortBdr">
-                                                            <div class="wlModalCtnt_sortBox">
-                                                                <div class="wlModalCtnt_sortSect wlModalCtnt_sortStatusBdr">
-                                                                    <div class="wlModalCtnt_sortStatusBox">
-                                                                        <div class="wlModalCtnt_sortStatusText">
-                                                                            <span class="status_type">Recently Updated</span>
-                                                                            <span class="status_divider">•</span>
-                                                                            <span class="status_order">Ascending</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="wlModalCtnt_sortSect wlModalCtnt_sortFilterBdr">
-                                                                    <div class="wlModalCtnt_sortFilterBox">
-                                                                        <div class="userOrderBtnBdr userSortBtnBdr ">
-                                                                            <div class="userOrderBtnBox">
-                                                                                <div class="userOrderBtnIcon">
-                                                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="userOrderBtnSvg">
-                                                                                        <path d="M64 144a48 48 0 1 0 0-96 48 48 0 1 0 0 96zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L192 64zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-288 0zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-288 0zM64 464a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm48-208a48 48 0 1 0 -96 0 48 48 0 1 0 96 0z"/>
-                                                                                    </svg>
-                                                                                </div>
-                                                                                <div class="userOrderBtnText">Sort</div>
-                                                                            </div>
-                                                                            <div class="userOrderOptBdr">
-                                                                                <div class="userOrderOptBox">
-                                                                                    <div class="wlModalAction_MenuCloseBdr closeUserOptModal">
-                                                                                        <div class="wlModalAction_MenuCloseBox">
-                                                                                            <div class="wlModalAction_MenuCloseIcon">
-                                                                                                <svg class="wlModalAction_MenuCloseSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                                                                                                    <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
-                                                                                                </svg>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="userOrderOptSect">
-                                                                                        <div class="userOrderOptSectTitleBox">
-                                                                                            <p class="userOrderOptSectTitleText">Sort by</p>
-                                                                                        </div>
-                                                                                        <div class="userOrderOptTab active">
-                                                                                            <p class="userOrderOptText">Manual</p>
-                                                                                        </div>
-                                                                                        <div class="userOrderOptTab ">
-                                                                                            <p class="userOrderOptText">Recently Added</p>
-                                                                                        </div>
-                                                                                        <div class="userOrderOptTab ">
-                                                                                            <p class="userOrderOptText">Recently Updated</p>
-                                                                                        </div>
-                                                                                        <div class="userOrderOptTab ">
-                                                                                            <p class="userOrderOptText">Alphabetical</p>
-                                                                                        </div>
-                                                                                        <div class="userOrderOptTab ">
-                                                                                            <p class="userOrderOptText">Release</p>
-                                                                                        </div>
-                                                                                        <div class="userOrderOptTab ">
-                                                                                            <p class="userOrderOptText">Score</p>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="userOrderOptSect">
-                                                                                        <div class="userOrderOptSectTitleBox">
-                                                                                            <p class="userOrderOptSectTitleText">Sort Order</p>
-                                                                                        </div>
-                                                                                        <div class="userOrderOptTab ">
-                                                                                            <p class="userOrderOptText">Ascending</p>
-                                                                                        </div>
-                                                                                        <div class="userOrderOptTab ">
-                                                                                            <p class="userOrderOptText">Descending</p>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="userOrderBtnBdr userFilterBtnBdr">
-                                                                            <div class="userOrderBtnBox">
-                                                                                <div class="userOrderBtnIcon">
-                                                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="userOrderBtnSvg">
-                                                                                        <path d="M0 416c0 17.7 14.3 32 32 32l54.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 448c17.7 0 32-14.3 32-32s-14.3-32-32-32l-246.7 0c-12.3-28.3-40.5-48-73.3-48s-61 19.7-73.3 48L32 384c-17.7 0-32 14.3-32 32zm128 0a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM320 256a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm32-80c-32.8 0-61 19.7-73.3 48L32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l246.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48l54.7 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-54.7 0c-12.3-28.3-40.5-48-73.3-48zM192 128a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm73.3-64C253 35.7 224.8 16 192 16s-61 19.7-73.3 48L32 64C14.3 64 0 78.3 0 96s14.3 32 32 32l86.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 128c17.7 0 32-14.3 32-32s-14.3-32-32-32L265.3 64z"/>
-                                                                                    </svg>
-                                                                                </div>
-                                                                                <div class="userOrderBtnText">Filter</div>
-                                                                            </div>
-                                                                            <div class="userOrderOptBdr">
-                                                                                <div class="userOrderOptBox">
-                                                                                    <div class="wlModalAction_MenuCloseBdr closeUserOptModal">
-                                                                                        <div class="wlModalAction_MenuCloseBox">
-                                                                                            <div class="wlModalAction_MenuCloseIcon">
-                                                                                                <svg class="wlModalAction_MenuCloseSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                                                                                                    <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
-                                                                                                </svg>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="userOrderOptSect">
-                                                                                        <div class="userOrderOptSectTitleBox">
-                                                                                            <p class="userOrderOptSectTitleText">Show Status</p>
-                                                                                        </div>
-                                                                                        <div class="userOrderOptTab active">
-                                                                                            <p class="userOrderOptText">All</p>
-                                                                                        </div>
-                                                                                        <div class="userOrderOptTab ">
-                                                                                            <p class="userOrderOptText">Planned</p>
-                                                                                        </div>
-                                                                                        <div class="userOrderOptTab ">
-                                                                                            <p class="userOrderOptText">Watching</p>
-                                                                                        </div>
-                                                                                        <div class="userOrderOptTab ">
-                                                                                            <p class="userOrderOptText">On-Hold</p>
-                                                                                        </div>
-                                                                                        <div class="userOrderOptTab ">
-                                                                                            <p class="userOrderOptText">Completed</p>
-                                                                                        </div>
-                                                                                        <div class="userOrderOptTab ">
-                                                                                            <p class="userOrderOptText">Dropped</p>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="userOrderOptSect">
-                                                                                        <div class="userOrderOptSectTitleBox">
-                                                                                            <p class="userOrderOptSectTitleText">Show Type</p>
-                                                                                        </div>
-                                                                                        <div class="userOrderOptTab active">
-                                                                                            <p class="userOrderOptText">All</p>
-                                                                                        </div>
-                                                                                        <div class="userOrderOptTab ">
-                                                                                            <p class="userOrderOptText">Movies</p>
-                                                                                        </div>
-                                                                                        <div class="userOrderOptTab ">
-                                                                                            <p class="userOrderOptText">Tv</p>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="wlModalActionFence wlModalAction_SortFence">
-                                                                    <div class="wlModalActionBase">
-                                                                        <div class="wlModalActionBdr">
-                                                                            <div class="wlModalActionBox">
-                                                                                <button class="wlModalActionBtn">
-                                                                                    <div class="wlModalActionBtnIcon">
-                                                                                        <svg class="wlModalActionBtnSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512">
-                                                                                            <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
-                                                                                        </svg>
-                                                                                    </div>
-                                                                                </button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="wlModalGridBase">
-                                                            <div class="wlModalGridBdr">
-                                                                <div class="wlModalGridBox"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!------ Watchlist Modal ------>
+        <div class="wlModalBase">
+            <div class="wlModalBdr">
+                <div class="wlModalBox">
+                    <div class="wlModalBaseClose">Close</div>
+                    <div class="wlModalHeadBase">
+                        <div class="wlModalHeadBdr">
+                            <div class="wlModalHead_underlayerBdr">
+                                <div class="wlModalHead_underlayerBox">
+                                    <div class="wlModalHeader_BcgBdr">
+                                        <div class="wlModalHeader_BcgBox">
+                                            <img class="wlModalHeader_BcgImg" src="/Images/Uvid_Anime.jpg" alt="The watchlist header background image">
+                                        </div>
+                                    </div>
+                                    <div class="wlModalHeader_Shadow"></div>
+                                </div>
+                            </div>
+                            <div class="wlModalHeadBox">
+                                <div class="wlModalHeader_thumbBase">
+                                    <div class="wlModalHeader_thumbBdr">
+                                        <div class="wlModalHeader_thumbBox">
+                                            <img class="wlModalHeader_thumbImg" src="/Images/Uvid_Anime.jpg" alt="The watchlist header thumbnail image">
+                                        </div>
+                                        <div class="wlModalAction_editBtnBdr">
+                                            <div class="wlModalAction_editBtnBox">
+                                                <div class="wlModalAction_editBtnIcon">
+                                                    <svg class="wlModalAction_editBtnSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                        <path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/>
+                                                    </svg>
+                                                </div>
+                                                <div class="wlModalAction_editBtnText">Edit Watchlist</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wlModalHeader_DetBdr">
+                                    <div class="wlModalHeader_DetBox">
+                                        <div class="wlModalHeader_DetInfoBdr">
+                                            <div class="wlModalHeader_DetInfoBox">
+                                                <div class="wlModalHeader_DetInfo_TitleBox">
+                                                    <div class="wlModalHeader_DetInfo_TitleText">The Greatest Anime Shows of All Time</div>
+                                                </div>
+                                                <div class="wlModalHeader_DetInfo_TagsBdr">
+                                                    <div class="wlModalHeader_DetInfo_TagsBox">
+                                                        <div class="wlModalHeader_DetInfo_TagsItem wlModalHeader_DetInfo_TagsCount">
+                                                            <div class="wlModalHeader_DetInfo_TagsCountIcon">
+                                                                <svg class="wlModalHeader_DetInfo_TagsCountSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                                                    <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
+                                                                </svg>
+                                                            </div>
+                                                            <p class="wlModalHeader_DetInfo_TagsCountText">1000 items</p>
+                                                        </div>
+                                                        <div class="wlModalHeader_DetInfo_TagsItem wlModalHeader_DetInfo_TagsSeparator">•</div>
+                                                        <div class="wlModalHeader_DetInfo_TagsItem wlModalHeader_DetInfo_TagsUpdate">
+                                                            <p class="wlModalHeader_DetInfo_TagsUpdateText">Updated on Sep 30, 2024</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="wlModalHeader_DetInfo_DescBox">
+                                                    <p class="wlModalHeader_DetInfo_DescText">In this watchlist lies some of the greatest anime shows to ever be aired since the day anime was first introduced to the public.</p>
+                                                </div>
+                                                <div class="wlModalHeader_DetInfo_MoreBdr">
+                                                    <div class="wlModalHeader_DetInfo_MoreBox">
+                                                        <button class="wlModalHeader_DetInfo_MoreBtn">
+                                                            <p class="wlModalHeader_DetInfo_MoreText">Read more</p>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="wlModalActionFence wlModalAction_HeaderFence">
+                                            <div class="wlModalActionBase">
+                                                <div class="wlModalActionBdr">
+                                                    <div class="wlModalActionBox">
+                                                        <button class="wlModalActionBtn">
+                                                            <div class="wlModalActionBtnIcon">
+                                                                <svg class="wlModalActionBtnSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512">
+                                                                    <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
+                                                                </svg>
+                                                            </div>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wlModalCtntBase">
+                        <div class="wlModalCtntBdr">
+                            <div class="wlModalCtntBox">
+                                <div class="wlModalCtnt_sortBdr">
+                                    <div class="wlModalCtnt_sortBox">
+                                        <div class="wlModalCtnt_sortSect wlModalCtnt_sortStatusBdr">
+                                            <div class="wlModalCtnt_sortStatusBox">
+                                                <div class="wlModalCtnt_sortStatusText">
+                                                    <span class="status_type">Recently Updated</span>
+                                                    <span class="status_divider">•</span>
+                                                    <span class="status_order">Ascending</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="wlModalCtnt_sortSect wlModalCtnt_sortFilterBdr">
+                                            <div class="wlModalCtnt_sortFilterBox">
+                                                <div class="userOrderBtnBdr userSortBtnBdr ">
+                                                    <div class="userOrderBtnBox">
+                                                        <div class="userOrderBtnIcon">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="userOrderBtnSvg">
+                                                                <path d="M64 144a48 48 0 1 0 0-96 48 48 0 1 0 0 96zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L192 64zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-288 0zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-288 0zM64 464a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm48-208a48 48 0 1 0 -96 0 48 48 0 1 0 96 0z"/>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="userOrderBtnText">Sort</div>
+                                                    </div>
+                                                    <div class="userOrderOptBdr">
+                                                        <div class="userOrderOptBox">
+                                                            <div class="wlModalAction_MenuCloseBdr closeUserOptModal">
+                                                                <div class="wlModalAction_MenuCloseBox">
+                                                                    <div class="wlModalAction_MenuCloseIcon">
+                                                                        <svg class="wlModalAction_MenuCloseSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                                                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                                                                        </svg>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="userOrderOptSect">
+                                                                <div class="userOrderOptSectTitleBox">
+                                                                    <p class="userOrderOptSectTitleText">Sort by</p>
+                                                                </div>
+                                                                <div class="userOrderOptTab active">
+                                                                    <p class="userOrderOptText">Manual</p>
+                                                                </div>
+                                                                <div class="userOrderOptTab ">
+                                                                    <p class="userOrderOptText">Recently Added</p>
+                                                                </div>
+                                                                <div class="userOrderOptTab ">
+                                                                    <p class="userOrderOptText">Recently Updated</p>
+                                                                </div>
+                                                                <div class="userOrderOptTab ">
+                                                                    <p class="userOrderOptText">Alphabetical</p>
+                                                                </div>
+                                                                <div class="userOrderOptTab ">
+                                                                    <p class="userOrderOptText">Release</p>
+                                                                </div>
+                                                                <div class="userOrderOptTab ">
+                                                                    <p class="userOrderOptText">Score</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="userOrderOptSect">
+                                                                <div class="userOrderOptSectTitleBox">
+                                                                    <p class="userOrderOptSectTitleText">Sort Order</p>
+                                                                </div>
+                                                                <div class="userOrderOptTab ">
+                                                                    <p class="userOrderOptText">Ascending</p>
+                                                                </div>
+                                                                <div class="userOrderOptTab ">
+                                                                    <p class="userOrderOptText">Descending</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="userOrderBtnBdr userFilterBtnBdr">
+                                                    <div class="userOrderBtnBox">
+                                                        <div class="userOrderBtnIcon">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="userOrderBtnSvg">
+                                                                <path d="M0 416c0 17.7 14.3 32 32 32l54.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 448c17.7 0 32-14.3 32-32s-14.3-32-32-32l-246.7 0c-12.3-28.3-40.5-48-73.3-48s-61 19.7-73.3 48L32 384c-17.7 0-32 14.3-32 32zm128 0a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM320 256a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm32-80c-32.8 0-61 19.7-73.3 48L32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l246.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48l54.7 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-54.7 0c-12.3-28.3-40.5-48-73.3-48zM192 128a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm73.3-64C253 35.7 224.8 16 192 16s-61 19.7-73.3 48L32 64C14.3 64 0 78.3 0 96s14.3 32 32 32l86.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 128c17.7 0 32-14.3 32-32s-14.3-32-32-32L265.3 64z"/>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="userOrderBtnText">Filter</div>
+                                                    </div>
+                                                    <div class="userOrderOptBdr">
+                                                        <div class="userOrderOptBox">
+                                                            <div class="wlModalAction_MenuCloseBdr closeUserOptModal">
+                                                                <div class="wlModalAction_MenuCloseBox">
+                                                                    <div class="wlModalAction_MenuCloseIcon">
+                                                                        <svg class="wlModalAction_MenuCloseSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                                                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                                                                        </svg>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="userOrderOptSect">
+                                                                <div class="userOrderOptSectTitleBox">
+                                                                    <p class="userOrderOptSectTitleText">Show Status</p>
+                                                                </div>
+                                                                <div class="userOrderOptTab active">
+                                                                    <p class="userOrderOptText">All</p>
+                                                                </div>
+                                                                <div class="userOrderOptTab ">
+                                                                    <p class="userOrderOptText">Planned</p>
+                                                                </div>
+                                                                <div class="userOrderOptTab ">
+                                                                    <p class="userOrderOptText">Watching</p>
+                                                                </div>
+                                                                <div class="userOrderOptTab ">
+                                                                    <p class="userOrderOptText">On-Hold</p>
+                                                                </div>
+                                                                <div class="userOrderOptTab ">
+                                                                    <p class="userOrderOptText">Completed</p>
+                                                                </div>
+                                                                <div class="userOrderOptTab ">
+                                                                    <p class="userOrderOptText">Dropped</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="userOrderOptSect">
+                                                                <div class="userOrderOptSectTitleBox">
+                                                                    <p class="userOrderOptSectTitleText">Show Type</p>
+                                                                </div>
+                                                                <div class="userOrderOptTab active">
+                                                                    <p class="userOrderOptText">All</p>
+                                                                </div>
+                                                                <div class="userOrderOptTab ">
+                                                                    <p class="userOrderOptText">Movies</p>
+                                                                </div>
+                                                                <div class="userOrderOptTab ">
+                                                                    <p class="userOrderOptText">Tv</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="wlModalActionFence wlModalAction_SortFence">
+                                            <div class="wlModalActionBase">
+                                                <div class="wlModalActionBdr">
+                                                    <div class="wlModalActionBox">
+                                                        <button class="wlModalActionBtn">
+                                                            <div class="wlModalActionBtnIcon">
+                                                                <svg class="wlModalActionBtnSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512">
+                                                                    <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
+                                                                </svg>
+                                                            </div>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wlModalGridBase">
+                                    <div class="wlModalGridBdr">
+                                        <div class="wlModalGridBox"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
