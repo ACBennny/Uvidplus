@@ -59,6 +59,18 @@
         wlBodyCtntBox.insertAdjacentHTML(`afterbegin` , emptyWLStruct);
     }
 
+    // Getting the current date
+    function getCurrDate()
+    {
+        let currentDate = new Date();
+        let currYear = currentDate.getFullYear();
+        let currMonth = currentDate.getMonth() + 1;
+        let monthArr = [`Jan` , `Feb` , `Mar` , `Apr` , `May` , `Jun` , `Jul` , `Aug` , `Sep` , `Oct` , `Nov` , `Dec`]
+        let currDay = currentDate.getDate();
+        let dateInStr = `${monthArr[currMonth]} ${currDay}, ${currYear}`;
+        return dateInStr;
+    }
+
     // For error events
     function errorLoadingUserWatchlist()
     {
@@ -163,7 +175,7 @@
                                             <p class="userWLCatalog_ItemDetMinorText userWLCatalog_ItemCountText">${wl.wl_items.length} items</p>
                                         </div>
                                         <div class="userWLCatalog_ItemDetMinorBox">
-                                            <p class="userWLCatalog_ItemDetMinorText userWLCatalog_ItemYearText">Updated on recently</p>
+                                            <p class="userWLCatalog_ItemDetMinorText userWLCatalog_ItemYearText">Updated on ${getCurrDate()}</p>
                                         </div>
                                     </div>
                                 </div>
