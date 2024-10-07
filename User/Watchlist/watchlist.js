@@ -9,6 +9,8 @@
     let wlBodyCtntBox = document.querySelector(".wl_body_ctnt_box");
     let wlCatalogBdr = wlBodyCtntBox.querySelector(".userWLCatalogBdr");
     let wlCatalogGrid = document.querySelector(".userWLCatalogGrid");
+    let wlModalBase = document.querySelector(".wlModalBase");
+    let wlModalBox = document.querySelector(".wlModalBox")
     let emptyUserPageBdr = document.querySelector(".emptyUserPageBdr");
     let emptyWLStruct = 
     `
@@ -268,7 +270,6 @@
         let wlCurr = watchlistInventory[index];
         let userWLCatalog_ItemBase = document.querySelectorAll(".userWLCatalog_ItemBase");
         let currCatalogItemBase = userWLCatalog_ItemBase[index];
-        let wlModalBase = document.querySelector(".wlModalBase");
         let wlModalBaseClose = document.querySelector(".wlModalBaseClose");
         let wlModalHeaderBcgImg = document.querySelector(".wlModalHeader_BcgImg");
         let wlModalHeaderThumbImg = document.querySelector(".wlModalHeader_thumbImg");
@@ -403,6 +404,7 @@
         // Closing the modal
         wlModalBaseClose.addEventListener("click" , () => 
         {
+            wlModalBox.scrollTo(null, 0);
             wlModalBase.classList.remove("active");
             document.body.classList.remove("bodystop");
 
