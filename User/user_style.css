@@ -294,7 +294,7 @@ html:root
 .userOrderBtnBdr.active .userOrderBtnBox
 {
     --userOrderBtnClr: var(--genWhiteTypeMid);
-    border-bottom-left-radius: 0px;
+    border-bottom-left-radius: 0px; 
     border-bottom-right-radius: 0px;
     background-color: var(--userOrderBtnBcg);
 }
@@ -338,11 +338,11 @@ html:root
     z-index: 5;
 }
 
-.userOrderBtnBdr:hover .userOrderOptBdr
+.userOrderOptBox:focus ~ .userOrderOptBdr
 /* .userSortBtnBdr .userOrderOptBdr */
 {
-    /* opacity: 1;
-    visibility: visible; */
+    opacity: 1;
+    visibility: visible;
 }
 
 .userOrderOptBdr .userOrderOptBox
