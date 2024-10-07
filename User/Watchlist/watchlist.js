@@ -50,6 +50,13 @@
         };
     }
 
+    
+    // Inserting the empty bdr when there are no watchlists
+    function insertEmptyBdr()
+    {
+        wlBodyCtntBox.insertAdjacentHTML(`afterbegin` , emptyWLStruct);
+    }
+
     // For error events
     function errorLoadingUserWatchlist()
     {
@@ -179,12 +186,13 @@
             wlCatalogGrid.insertAdjacentHTML(`beforeend` , wlCatalogItemBaseStruct);
         }
 
-        addWLCatalogEventListeners();
+        addOpenWLListeners();
+        addDelWLEventListeners();
     }
 
 
-    // Adding Event listeners for the catalog items
-    function addWLCatalogEventListeners()
+    // Adding Event listeners for Opening watchlist modal
+    function addOpenWLListeners()
     {
 
         let userWLCatalogItemOpenWLBtn = document.querySelectorAll(".userWLCatalog_ItemOpenWLBtn");
@@ -209,12 +217,57 @@
         });
     }
 
+
+    // Adding Event listeners for deleting watchlist items
+    function addDelWLEventListeners()
+    {
+        let userWLCatalog_ItemDelWLBtn = document.querySelectorAll(".userWLCatalog_ItemDelWLBtn");
+
+        userWLCatalog_ItemDelWLBtn.forEach((btn) => 
+        {
+            if(btn.action)
+            {
+                btn.removeEventListener("click" , btn.action);
+            }
+        });
+
+        userWLCatalog_ItemDelWLBtn.forEach((btn, i) => 
+        {
+            const action = () => 
+            {
+                delWLCatalogItem(i);
+            }
+
+            btn.addEventListener("click" , action);
+            btn.action = action;
+        });
+    }
+
+    function delWLCatalogItem(index)
+    {
+        // Delete item from invetory
+        watchlistInventory.splice(index , 1);
+
+        // Remove item from catalog
+        let delItem = document.getElementsByClassName("userWLCatalog_ItemBase")[index];
+        delItem.remove();
+
+        if((watchlistInventory.length <= 0))
+        {
+            insertEmptyBdr();
+            return;
+        }
+
+        // Reattach listeners
+        addOpenWLListeners();
+        addDelWLEventListeners();
+    }
+
     function openWLModal(index)
     {
         let wlCurr = watchlistInventory[index];
         let userWLCatalog_ItemBase = document.querySelectorAll(".userWLCatalog_ItemBase");
         let currCatalogItemBase = userWLCatalog_ItemBase[index];
-        console.log(index)
         let wlModalBase = document.querySelector(".wlModalBase");
         let wlModalBaseClose = document.querySelector(".wlModalBaseClose");
         let wlModalHeaderBcgImg = document.querySelector(".wlModalHeader_BcgImg");

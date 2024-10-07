@@ -138,6 +138,7 @@
                                     </div>
                                 </div>
 
+                                <!------ Watchlist Modal ------>
                                 <div class="wlModalBase">
                                     <div class="wlModalBdr">
                                         <div class="wlModalBox">
