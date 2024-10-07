@@ -163,13 +163,13 @@ html:root
     display: flex;
     justify-content: space-between;
     align-items: end;
-    background-color: #00000025;
+    background-color: #00000065;
     transition: all 300ms ease-in-out;
 }
 
 .userWLCatalog_ItemBox:active .userWLCatalog_ItemDetBdr
 {
-    background-color: #00000075;
+    background-color: #00000099;
 }
 
 .userWLCatalog_ItemDetBdr .userWLCatalog_ItemDetBox
@@ -178,7 +178,7 @@ html:root
     display: flex;
     flex-direction: column;
     padding: var(--userWLCatalogItemDetPadding);
-    background: linear-gradient(to top, #000000de, #000000be, #00000099, #00000000);
+    background: linear-gradient(to top, #000000, #000000de, #000000be, #00000099, #00000000);
 }
 
 .userWLCatalog_ItemDetBox .userWLCatalog_ItemDetMajorBox
@@ -509,7 +509,7 @@ html:root
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #00000075;
+    background-color: #000000c3;
     opacity: 0;
     visibility: hidden;
     transition: all 300ms ease-in-out;
@@ -540,6 +540,7 @@ html:root
 {
     width: 100%;
     height: 100%;
+    background-color: #2c2c2c;
     overflow: hidden;
 }
 
@@ -923,7 +924,7 @@ html:root
 
 
 
-/* --------- Body ---------- */
+/* --------- Wl Modal Body ---------- */
 .wlModalBox .wlModalCtntBase
 {
     width: 100%;
@@ -1111,6 +1112,7 @@ html:root
     width: 100%;
     height: 100%;
     border-radius: 10px;
+    background-color: #2c2c2c;
     filter: brightness(0.75);
     overflow: hidden;
 }
@@ -1211,7 +1213,7 @@ html:root
     display: none;
 }
 
-.wlModalGrid_CardCtnt_DetTagRatingBox .wlModalGrid_CardCtnt_DetTagRatingIcon
+.wlModalGrid_CardCtnt_DetTagScoreBox .wlModalGrid_CardCtnt_DetTagScoreIcon
 {
     width: var(--wlModalGrid_CardCtnt_DetTagSectIconSize);
     height: var(--wlModalGrid_CardCtnt_DetTagSectIconSize);
@@ -1221,7 +1223,7 @@ html:root
     margin-right: 3px;
 }
 
-.wlModalGrid_CardCtnt_DetTagRatingIcon .wlModalGrid_CardCtnt_DetTagRatingSvg
+.wlModalGrid_CardCtnt_DetTagScoreIcon .wlModalGrid_CardCtnt_DetTagScoreSvg
 {
     width: 100%;
     height: 100%;
@@ -1265,7 +1267,7 @@ html:root
 
     .userWLCatalog_ItemBox:hover .userWLCatalog_ItemDetBdr
     {
-        background-color: #00000075;
+        background-color: #00000099;
     }
 
     .userWLCatalog_ItemBox:hover .userWLCatalog_ItemBadgeIcon
