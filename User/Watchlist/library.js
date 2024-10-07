@@ -11,6 +11,7 @@ const watchlistInventory =
     {
         wl_name: `The Greatest Anime Shows`,
         wl_updated: ``,
+        wl_desc: `In this watchlist lies some of the greatest anime shows to ever be aired since the day anime was first introduced to the public.`,
         wl_items:
         [
             {wl_itemId: `/Library.html?info=JujutsuKaisen`},
@@ -25,6 +26,7 @@ const watchlistInventory =
     {
         wl_name: `Fullmetal Collection`,
         wl_updated: ``,
+        wl_desc: `A collection of all the Fullmetal Shows`,
         wl_items:
         [
             {wl_itemId: `/Library.html?info=FullmetalPanic`},
@@ -35,6 +37,7 @@ const watchlistInventory =
     {
         wl_name: `Intriguing Classics`,
         wl_updated: ``,
+        wl_desc: `Compiled in this watchlist is some of the best classics in the anime universe`,
         wl_items:
         [
             {wl_itemId: `/Library.html?info=OnePiece`},
