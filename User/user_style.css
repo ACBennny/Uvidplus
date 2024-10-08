@@ -281,6 +281,7 @@ html:root
     align-items: center;
     padding: 10px 15px;
     border-radius: 10px;
+    background-color: var(--userOrderBtnBcg);
     transition: all 300ms ease-in-out;
     cursor: pointer;
 }
@@ -288,7 +289,7 @@ html:root
 .userOrderBtnBdr:active .userOrderBtnBox
 {
     --userOrderBtnClr: var(--genWhiteTypeMid);
-    background-color: var(--userOrderBtnBcg);
+    --userOrderBtnBcg: #424242;
 }
 
 .userOrderBtnBdr.active .userOrderBtnBox
@@ -518,7 +519,7 @@ html:root
     .userOrderBtnBdr:hover .userOrderBtnBox
     {
         --userOrderBtnClr: var(--genWhiteTypeMid);
-        background-color: var(--userOrderBtnBcg);
+        --userOrderBtnBcg: #424242;
     }
 
     .userOrderOptTab:hover
