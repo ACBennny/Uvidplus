@@ -1306,6 +1306,15 @@ html:root
     }
 }
 
+@media(hover: none)
+{
+    .userWLCatalog_ItemBadgeBox .userWLCatalog_ItemBadgeIcon
+    {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
 
 
 
