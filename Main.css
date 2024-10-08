@@ -1850,7 +1850,7 @@ img
     padding: 5px var(--genBorderSpacing);
     scroll-padding-left: var(--genBorderSpacing);
     scroll-padding-right: var(--genBorderSpacing);
-    scroll-snap-type: x mandatory;
+    scroll-snap-type:x proximity;
     scroll-behavior: smooth;
     scrollbar-color: #00000000 #00000000;
     scrollbar-width: none;
@@ -1868,12 +1868,11 @@ img
 {
     scroll-snap-type: none;
     scroll-behavior: auto;
-    cursor: grabbing;
 }
 
 .basic_slider_card_box.isBasicSliderDown .slide_card_base
 {
-    scroll-snap-align: unset;
+    /* scroll-snap-align: unset; */
 }
 
 .basic_slider_card_box .slide_card_base
