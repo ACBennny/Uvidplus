@@ -31,6 +31,12 @@ html:root
 }
 
 
+.userOrderBtnBdr .userOrderBtnBox
+{
+    background-color: var(--userOrderBtnBcg);
+}
+
+
 .userWLCatalogBdr
 {
     width: 100%;

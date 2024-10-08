@@ -83,8 +83,18 @@
                                     <div class="userOrderBtnBdr userWLArrangeBtnBdr">
                                         <div class="userOrderBtnBox">
                                             <div class="userOrderBtnIcon">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="userOrderBtnSvg">
-                                                    <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/>
+                                                <svg class="userOrderBtnSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                    <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/>
+                                                </svg>
+                                            </div>
+                                            <div class="userOrderBtnText">Add</div>
+                                        </div>
+                                    </div>
+                                    <div class="userOrderBtnBdr userWLArrangeBtnBdr">
+                                        <div class="userOrderBtnBox">
+                                            <div class="userOrderBtnIcon">
+                                                <svg class="userOrderBtnSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                    <path d="M40 48C26.7 48 16 58.7 16 72l0 48c0 13.3 10.7 24 24 24l48 0c13.3 0 24-10.7 24-24l0-48c0-13.3-10.7-24-24-24L40 48zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L192 64zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-288 0zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-288 0zM16 232l0 48c0 13.3 10.7 24 24 24l48 0c13.3 0 24-10.7 24-24l0-48c0-13.3-10.7-24-24-24l-48 0c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24l0 48c0 13.3 10.7 24 24 24l48 0c13.3 0 24-10.7 24-24l0-48c0-13.3-10.7-24-24-24l-48 0z"/>
                                                 </svg>
                                             </div>
                                             <div class="userOrderBtnText">Sort</div>
