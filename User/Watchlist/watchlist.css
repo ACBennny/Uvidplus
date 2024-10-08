@@ -399,11 +399,12 @@ html:root
 {
     position: relative;
     width: 100%;
-    height: calc((var(--wlModalHeadBdrHeight)));
+    min-height: calc((var(--wlModalHeadBdrHeight)));
     display: flex;
     justify-content: center;
     align-items: center;
     padding-top: var(--navBarHeight);
+    margin-bottom: 25px;
     z-index: 3;
 }
 
@@ -473,7 +474,7 @@ html:root
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 25px var(--genBorderSpacing);
+    padding: 25px var(--genBorderSpacing) 0;
     z-index: 5;
 }
 
@@ -1354,7 +1355,7 @@ html:root
     {
         height: 100%;
         flex-direction: column;
-        padding: 15px var(--genBorderSpacing) 25px;
+        padding: 15px var(--genBorderSpacing) 0;
     }
 
     .wlModalHeadBox .wlModalHeader_thumbBase,
@@ -1406,7 +1407,7 @@ html:root
     
     html:root
     {
-        --wlModalHeadBdrHeight: 325px;
+        --wlModalHeadBdrHeight: 375px;
         --wlModalHeadBoxHeight: 250px;
         --wlModalHeadThumbWidth: 265px;
         --wlModalHeadThumbHeight: 140px;
@@ -1422,7 +1423,7 @@ html:root
     {
         height: 100%;
         flex-direction: column;
-        padding: 10px var(--genBorderSpacing) 25px;
+        padding: 10px var(--genBorderSpacing) 0;
     }
 
     .wlModalHeader_DetBox .wlModalHeader_DetInfoBdr
