@@ -1261,6 +1261,7 @@ img
     height: 35px;
     padding: 0px;
     border-radius: 50%;
+    background-color: #000000;
     border: 2px solid var(--genGreenTypeDark1);
     transition: all 250ms ease-in-out;
 }
