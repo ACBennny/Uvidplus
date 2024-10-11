@@ -16,8 +16,11 @@
                 <div class="navBarLeft">
                     <div class="spacing"></div>
                     <a href="/index.html" class="Companylogo navBarCompanylogo">
-                        <h1 class="lhead">U</h1>
-                        <h1 class="lname">vid</h1>
+                        <div class="company_logoBdr">
+                            <div class="company_logoBox Companylogo">
+                                <img src="/Images/uvidLogo.png" alt="" class="company_logoImg">
+                            </div>
+                        </div>
                     </a>
                 </div>
                 <div class="navBarRight">
