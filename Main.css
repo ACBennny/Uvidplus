@@ -60,7 +60,7 @@ html:root
     --fzTxt: 12px;
     --fzIcon: 20px;
     --bcgFilt: 2px;
-    --companyLogoSize: 50px;
+    --companyLogoSize: 54px;
     --sideNavBarWidth: 64px;
     --sideNavBarPadding: 5px;
     --sideNavBarIconSize: 25px;
@@ -4781,6 +4781,7 @@ img
 {
     html:root
     {
+        --companyLogoSize: 50px;
         --sideNavBarWidth: 0px;
         --btmNavBarHeight: 64px;
         --navBarNotificationPosT: calc(var(--navBarHeight) - 10px);
