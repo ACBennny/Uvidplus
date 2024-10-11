@@ -17,20 +17,19 @@
     let defaultProfBcg = `/Images/Uvid_green_bcg1_light.jpg`;
     let switchProfBdrHTML = 
     `
-        <div class="navBox profileNavBox">
-            <div class="navBar profileNavBar">
-                <div class="navBarLeft">
-                    <div class="spacing"></div>
+        <div class="switchProfNavBdr">
+            <div class="switchProfNavBox">
+                <div class="switchProfNavLeft">
                     <a href="/Home.html" class="Companylogo navBarCompanylogo">
-                        <h1 class="lhead">U</h1>
-                        <h1 class="lname">vid</h1>
+                        <div class="company_logoBdr">
+                            <div class="company_logoBox Companylogo">
+                                <img src="/Images/uvidLogo.png" alt="" class="company_logoImg">
+                            </div>
+                        </div>
                     </a>
                 </div>
-                <div class="navBarRight">
-                    <div class="signUpBdr">
-                        <div class="signUpBox lightSolidBtn editProfAtnBtn editProfAtnBtn_Mob">Edit</div>
-                        <div class="spacing"></div>
-                    </div>
+                <div class="switchProfNavLeft">
+                    <div class="switchProfNavBtn lightSolidBtn editProfAtnBtn editProfAtnBtn_Mob">Edit</div>
                 </div>
             </div>
         </div>
@@ -179,7 +178,7 @@
 
             // Definitons
             let profileNavBox = switchProfBdr.querySelector(".profileNavBox");
-            let navbarHeight = (document.querySelector(".profileNavBar").getBoundingClientRect().height * 2) + 10;
+            let navbarHeight = (document.querySelector(".switchProfNavBdr").getBoundingClientRect().height * 2) + 10;
             let mainHeader = switchProfBdr.querySelector(".switchProfHeaderText");
             let mainProfileBcg = switchProfBdr.querySelector(".switchProfBcgImg");
             let switchProfBcgImg = switchProfBdr.querySelector(".switchProfBcgImg");

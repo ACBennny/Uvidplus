@@ -2440,12 +2440,42 @@ img
 
 /* =================== PROFILE ================ */
 
-/* ------ Switch Profile Modal ------ */
-
-.profileNavBox
+/* ------- Switch profile Navbar ------- */
+.switchProfNavBdr
 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: var(--navBarHeight);
     z-index: 115;
 }
+
+.switchProfNavBdr .switchProfNavBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--genBorderSpacing);
+    background: -o-linear-gradient(to bottom, #000000ff, #000000f4, #000000ef, #000000dc, #000000ab, #00000045, #00000000, #00000000);
+    background: -moz-linear-gradient(to bottom, #000000ff, #000000f4, #000000ef, #000000dc, #000000ab, #00000045, #00000000, #00000000);
+    background: -webkit-linear-gradient(to bottom, #000000ff, #000000f4, #000000ef, #000000dc, #000000ab, #00000045, #00000000, #00000000);
+    background: linear-gradient(to bottom, #000000ff, #000000f4, #000000ef, #000000dc, #000000ab, #00000045, #00000000, #00000000);
+}
+
+.switchProfNavBtn
+{
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+
+/* ------ Switch Profile Modal ------ */
 
 .switchProfBdr
 {
