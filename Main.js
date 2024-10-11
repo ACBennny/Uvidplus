@@ -393,66 +393,67 @@
                 <div class="navBarProfileCardBox">
                     <button class="navBarProfileCard">
                         <a href="/User/Profile.html" class="navBarProfileCardLink">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navBarProfileCardLinkIcon">
-                                <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="navBarProfileCardLinkIcon">
+                                <circle cx="12" cy="6" r="4" />
+                                <ellipse cx="12" cy="17" rx="7" ry="4" />
                             </svg>
                             <p class="navBarProfileCardLinkText">Profile</p>
                         </a>
                     </button>
                     <button class="navBarProfileCard">
                         <a href="javascript:;" class="navBarProfileCardLink open_switchProf">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarProfileCardLinkIcon">
-                                <path d="M32 96l320 0V32c0-12.9 7.8-24.6 19.8-29.6s25.7-2.2 34.9 6.9l96 96c6 6 9.4 14.1 9.4 22.6s-3.4 16.6-9.4 22.6l-96 96c-9.2 9.2-22.9 11.9-34.9 6.9s-19.8-16.6-19.8-29.6V160L32 160c-17.7 0-32-14.3-32-32s14.3-32 32-32zM480 352c17.7 0 32 14.3 32 32s-14.3 32-32 32H160v64c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-96-96c-6-6-9.4-14.1-9.4-22.6s3.4-16.6 9.4-22.6l96-96c9.2-9.2 22.9-11.9 34.9-6.9s19.8 16.6 19.8 29.6l0 64H480z"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="navBarProfileCardLinkIcon">
+                                <path d="M13.125 12a.75.75 0 0 1 1.272-.538l4.125 4a.75.75 0 0 1 0 1.076l-4.125 4A.75.75 0 0 1 13.125 20v-3.25H6a.75.75 0 0 1 0-1.5h7.125z" />
+                                <path d="M10.875 4a.75.75 0 0 0-1.272-.538l-4.125 4a.75.75 0 0 0 0 1.076l4.125 4A.75.75 0 0 0 10.875 12V8.75H18a.75.75 0 0 0 0-1.5h-7.125z" />
                             </svg>
                             <p class="navBarProfileCardLinkText">Switch Profile</p>
                         </a>
                     </button>
                     <button class="navBarProfileCard">
                         <a href="/User/Watchlist.html" class="navBarProfileCardLink">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="navBarProfileCardLinkIcon">
-                                <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="navBarProfileCardLinkIcon">
+                                <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
+                                <path fill-rule="evenodd" d="M2 8c0 .494.993.89 2.979 1.685l2.808 1.124C9.773 11.603 10.767 12 12 12s2.227-.397 4.213-1.191l2.808-1.124C21.007 8.891 22 8.494 22 8s-.993-.89-2.979-1.685l-2.808-1.123C14.227 4.397 13.233 4 12 4s-2.227.397-4.213 1.192L4.98 6.315C2.993 7.109 2 7.506 2 8" clip-rule="evenodd" />
+                                <path d="m19.021 13.685l-2.808 1.124C14.227 15.603 13.233 16 12 16s-2.227-.397-4.213-1.191L4.98 13.685C2.993 12.891 2 12.493 2 12c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 12.535 10.572 13 12 13s2.59-.465 4.439-1.205l3.14-1.256C21.194 11.189 22 11.555 22 12c0 .493-.993.89-2.979 1.685" />
+                                <path d="m19.021 17.685l-2.808 1.123C14.227 19.603 13.233 20 12 20s-2.227-.397-4.213-1.192L4.98 17.685C2.993 16.89 2 16.493 2 16c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 16.535 10.572 17 12 17s2.59-.465 4.439-1.205l3.14-1.256c1.614.65 2.421 1.016 2.421 1.46c0 .494-.993.891-2.979 1.686" />
                             </svg>
                             <p class="navBarProfileCardLinkText">Watchlist</p>
                         </a>
                     </button>
                     <button class="navBarProfileCard">
                         <a href="/User/History.html" class="navBarProfileCardLink">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarProfileCardLinkIcon">
-                                <path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="navBarProfileCardLinkIcon">
+                                <path fill-rule="evenodd" d="M5.079 5.069c3.795-3.79 9.965-3.75 13.783.069c3.82 3.82 3.86 9.993.064 13.788s-9.968 3.756-13.788-.064a9.81 9.81 0 0 1-2.798-8.28a.75.75 0 1 1 1.487.203a8.31 8.31 0 0 0 2.371 7.017c3.245 3.244 8.468 3.263 11.668.064c3.199-3.2 3.18-8.423-.064-11.668c-3.243-3.242-8.463-3.263-11.663-.068l.748.003a.75.75 0 1 1-.007 1.5l-2.546-.012a.75.75 0 0 1-.746-.747L3.575 4.33a.75.75 0 1 1 1.5-.008zm6.92 2.18a.75.75 0 0 1 .75.75v3.69l2.281 2.28a.75.75 0 1 1-1.06 1.061l-2.72-2.72V8a.75.75 0 0 1 .75-.75" clip-rule="evenodd" />
                             </svg>
                             <p class="navBarProfileCardLinkText">History</p>
                         </a>
                     </button>
                     <button class="navBarProfileCard">
                         <a href="/User/Notification.html" class="navBarProfileCardLink">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarProfileCardLinkIcon">
-                                <path d="M224 0c-17.7 0-32 14.3-32 32V51.2C119 66 64 130.6 64 208v18.8c0 47-17.3 92.4-48.5 127.6l-7.4 8.3c-8.4 9.4-10.4 22.9-5.3 34.4S19.4 416 32 416H416c12.6 0 24-7.4 29.2-18.9s3.1-25-5.3-34.4l-7.4-8.3C401.3 319.2 384 273.9 384 226.8V208c0-77.4-55-142-128-156.8V32c0-17.7-14.3-32-32-32zm45.3 493.3c12-12 18.7-28.3 18.7-45.3H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7z"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="navBarProfileCardLinkIcon">
+                                <path d="M8.352 20.242A4.63 4.63 0 0 0 12 22a4.63 4.63 0 0 0 3.648-1.758a27.2 27.2 0 0 1-7.296 0M18.75 9v.704c0 .845.24 1.671.692 2.374l1.108 1.723c1.011 1.574.239 3.713-1.52 4.21a25.8 25.8 0 0 1-14.06 0c-1.759-.497-2.531-2.636-1.52-4.21l1.108-1.723a4.4 4.4 0 0 0 .693-2.374V9c0-3.866 3.022-7 6.749-7s6.75 3.134 6.75 7" />
                             </svg>
                             <p class="navBarProfileCardLinkText">Notification</p>
                         </a>
                     </button>
                     <button class="navBarProfileCard">
                         <a href="/User/Settings.html" class="navBarProfileCardLink">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarProfileCardLinkIcon">
-                                <path d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="navBarProfileCardLinkIcon">
+                                <path fill-rule="evenodd" d="M14.279 2.152C13.909 2 13.439 2 12.5 2s-1.408 0-1.779.152a2 2 0 0 0-1.09 1.083c-.094.223-.13.484-.145.863a1.62 1.62 0 0 1-.796 1.353a1.64 1.64 0 0 1-1.579.008c-.338-.178-.583-.276-.825-.308a2.03 2.03 0 0 0-1.49.396c-.318.242-.553.646-1.022 1.453c-.47.807-.704 1.21-.757 1.605c-.07.526.074 1.058.4 1.479c.148.192.357.353.68.555c.477.297.783.803.783 1.361s-.306 1.064-.782 1.36c-.324.203-.533.364-.682.556a2 2 0 0 0-.399 1.479c.053.394.287.798.757 1.605s.704 1.21 1.022 1.453c.424.323.96.465 1.49.396c.242-.032.487-.13.825-.308a1.64 1.64 0 0 1 1.58.008c.486.28.774.795.795 1.353c.015.38.051.64.145.863c.204.49.596.88 1.09 1.083c.37.152.84.152 1.779.152s1.409 0 1.779-.152a2 2 0 0 0 1.09-1.083c.094-.223.13-.483.145-.863c.02-.558.309-1.074.796-1.353a1.64 1.64 0 0 1 1.579-.008c.338.178.583.276.825.308c.53.07 1.066-.073 1.49-.396c.318-.242.553-.646 1.022-1.453c.47-.807.704-1.21.757-1.605a2 2 0 0 0-.4-1.479c-.148-.192-.357-.353-.68-.555c-.477-.297-.783-.803-.783-1.361s.306-1.064.782-1.36c.324-.203.533-.364.682-.556a2 2 0 0 0 .399-1.479c-.053-.394-.287-.798-.757-1.605s-.704-1.21-1.022-1.453a2.03 2.03 0 0 0-1.49-.396c-.242.032-.487.13-.825.308a1.64 1.64 0 0 1-1.58-.008a1.62 1.62 0 0 1-.795-1.353c-.015-.38-.051-.64-.145-.863a2 2 0 0 0-1.09-1.083M12.5 15c1.67 0 3.023-1.343 3.023-3S14.169 9 12.5 9s-3.023 1.343-3.023 3s1.354 3 3.023 3" clip-rule="evenodd" />
                             </svg>
                             <p class="navBarProfileCardLinkText">Settings</p>
                         </a>
                     </button>
-                    <!-- <button class="navBarProfileCard">
-                        <a href="/Help.html" class="navBarProfileCardLink">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarProfileCardLinkIcon">
-                                <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm169.8-90.7c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24V250.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1H222.6c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/>
-                            </svg>
-                            <p class="navBarProfileCardLinkText">Help</p>
-                        </a>
-                    </button> -->
                 </div>
                 <div class="navBarSignOutBdr">
                     <div class="navBarSignOutBox">
                         <button class="navBarSignOutBtn">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarSignOutBtnIcon">
-                                <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 17.7 14.3 32 32 32s32-14.3 32-32V32zM143.5 120.6c13.6-11.3 15.4-31.5 4.1-45.1s-31.5-15.4-45.1-4.1C49.7 115.4 16 181.8 16 256c0 132.5 107.5 240 240 240s240-107.5 240-240c0-74.2-33.8-140.6-86.6-184.6c-13.6-11.3-33.8-9.4-45.1 4.1s-9.4 33.8 4.1 45.1c38.9 32.3 63.5 81 63.5 135.4c0 97.2-78.8 176-176 176s-176-78.8-176-176c0-54.4 24.7-103.1 63.5-135.4z"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="navBarSignOutBtnIcon">
+                                <g fill="none">
+                                    <path stroke-linecap="round" stroke-width="1.5" d="M12 2v4" />
+                                    <path d="M12.75 2.75a.75.75 0 0 0-1.5 0v4a.75.75 0 0 0 1.5 0z" />
+                                    <path d="M8.792 5.147a.75.75 0 1 0-.584-1.382A9.75 9.75 0 0 0 2.25 12.75c0 5.385 4.365 9.75 9.75 9.75s9.75-4.365 9.75-9.75a9.75 9.75 0 0 0-5.958-8.985a.75.75 0 1 0-.584 1.382A8.253 8.253 0 0 1 12 21A8.25 8.25 0 0 1 8.792 5.147" />
+                                </g>
                             </svg>
                             <p class="navBarSignOutBtnText">Sign Out</p>
                         </button>
@@ -515,8 +516,8 @@
                     <div class="backtotopofpageBox">
                         <div class="backtotop backtotop_btn" title="Go to top" draggable="false">
                             <div class="backtotop_IconBox">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="backtotop_Icon">
-                                    <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="backtotop_Icon">
+                                    <path fill-rule="evenodd" d="M11.512 8.43a.75.75 0 0 1 .976 0l7 6a.75.75 0 1 1-.976 1.14L12 9.987l-6.512 5.581a.75.75 0 1 1-.976-1.138z" clip-rule="evenodd" />
                                 </svg>
                             </div>
                             <div class="backtotop_textBox">
@@ -1542,6 +1543,7 @@
         }
 
 
+
     // WATCHLIST (OLD)
 
         function attachWatchListEventListeners()
@@ -1763,146 +1765,147 @@
             shareShowBtn.forEach((btn) => 
             {
                 // Fallback called if "navigator.share" is not supported
-        function customSclShareModal()
-        {
-            let socialShareLink = encodeURI(window.location.href);
-            let socialShareTitle = encodeURIComponent(documentTitle);
-            let socialShareMsg = `Check out ${socialShareTitle}`;
-            const sclShareBdr = document.createElement("div");
-            sclShareBdr.classList.add("genAtnModalBdr");
-            sclShareBdr.innerHTML = socialShareHTML;
-            documentBody.appendChild(sclShareBdr);
-            
-            const sclShareCloseBtn = document.querySelectorAll(".closeSclShare");
-            const sclShareBox = document.querySelector(".sclShareBox");
-            const sclShareOpt = sclShareBox.querySelectorAll(".genAtnModalOptBox");
-            socialDestinationH = window.innerHeight;
-            socialDestinationW = window.innerWidth;
-
-            let fbLink = `https://www.facebook.com/sharer/sharer.php?u=${socialShareLink}`;
-            let twLink = `https://twitter.com/intent/tweet?url=${socialShareLink}&text=${socialShareTitle}`;
-            let waLink = `https://api.whatsapp.com/send?text=${socialShareTitle}: ${socialShareLink}`;
-            let pnLink = `https://www.pinterest.com/pin/create/button?url=${socialShareLink}&description=${socialShareTitle}`;
-            let rdlink = `https://reddit.com/submit?url=${socialShareLink}&title=${socialShareTitle}`;
-            let tgLink = `https://telegram.me/share/url?url=${socialShareLink}&text=${socialShareTitle}`;
-            let tbLink = `https://www.tumblr.com/widgets/share/tool?canonicalUrl=${socialShareLink}&title=${socialShareTitle}&caption=${socialShareMsg}`;
-            let yhLink = `https://compose.mail.yahoo.com/?body=${socialShareLink}`;
-            let lnLink = `https://line.me/R/msg/text/?${socialShareLink}`;
-            let okLink = `https://connect.ok.ru/dk?st.cmd=WidgetSharePreview&st.shareUrl=${socialShareLink}&title=${socialShareTitle}`;
-            let vkLink = `https://vk.com/share.php?url=${socialShareLink}`;
-            let emLink = `mailto:%7Bemail_address%7D?subject=${socialShareLink}&body=${socialShareTitle}%20`;
-            let gmLink = `https://mail.google.com/mail/?view=cm&to=%7Bemail_address%7D&su=${socialShareTitle}&body=${socialShareLink}&bcc=%7Bemail_address%7D&cc=%7Bemail_address%7D`;
-
-            // shareShowBtn.forEach(btn => 
-            // {
-                btn.addEventListener("click" , () => 
+                function customSclShareModal()
                 {
-                    btn.disabled = true;
-                });
-            // });
+                    let socialShareLink = encodeURI(window.location.href);
+                    let socialShareTitle = encodeURIComponent(documentTitle);
+                    let socialShareMsg = `Check out ${socialShareTitle}`;
+                    const sclShareBdr = document.createElement("div");
+                    sclShareBdr.classList.add("genAtnModalBdr");
+                    sclShareBdr.innerHTML = socialShareHTML;
+                    documentBody.appendChild(sclShareBdr);
+                    
+                    const sclShareCloseBtn = document.querySelectorAll(".closeSclShare");
+                    const sclShareBox = document.querySelector(".sclShareBox");
+                    const sclShareOpt = sclShareBox.querySelectorAll(".genAtnModalOptBox");
+                    socialDestinationH = window.innerHeight;
+                    socialDestinationW = window.innerWidth;
 
-            socialShareTimer = setTimeout(() => 
-            {
-                documentBody.classList.add("bodystop");
-                sclShareBdr.classList.add("active");
-                sclShareBox.classList.add("active");
-                clearTimeout(socialShareTimer);
-            }, 100);
+                    let fbLink = `https://www.facebook.com/sharer/sharer.php?u=${socialShareLink}`;
+                    let twLink = `https://twitter.com/intent/tweet?url=${socialShareLink}&text=${socialShareTitle}`;
+                    let waLink = `https://api.whatsapp.com/send?text=${socialShareTitle}: ${socialShareLink}`;
+                    let pnLink = `https://www.pinterest.com/pin/create/button?url=${socialShareLink}&description=${socialShareTitle}`;
+                    let rdlink = `https://reddit.com/submit?url=${socialShareLink}&title=${socialShareTitle}`;
+                    let tgLink = `https://telegram.me/share/url?url=${socialShareLink}&text=${socialShareTitle}`;
+                    let tbLink = `https://www.tumblr.com/widgets/share/tool?canonicalUrl=${socialShareLink}&title=${socialShareTitle}&caption=${socialShareMsg}`;
+                    let yhLink = `https://compose.mail.yahoo.com/?body=${socialShareLink}`;
+                    let lnLink = `https://line.me/R/msg/text/?${socialShareLink}`;
+                    let okLink = `https://connect.ok.ru/dk?st.cmd=WidgetSharePreview&st.shareUrl=${socialShareLink}&title=${socialShareTitle}`;
+                    let vkLink = `https://vk.com/share.php?url=${socialShareLink}`;
+                    let emLink = `mailto:%7Bemail_address%7D?subject=${socialShareLink}&body=${socialShareTitle}%20`;
+                    let gmLink = `https://mail.google.com/mail/?view=cm&to=%7Bemail_address%7D&su=${socialShareTitle}&body=${socialShareLink}&bcc=%7Bemail_address%7D&cc=%7Bemail_address%7D`;
 
-            // Setting title of Options
-            sclShareOpt.forEach(opt => 
-            {
-                let sclDataShare = opt.getAttribute("data-share").toLowerCase();
-                const sclShareOptText = opt.querySelector(".shareText");
-                opt.title = "Share on " + sclShareOptText.textContent;
-                opt.ariaLabel = sclShareOptText.textContent;
-
-                opt.addEventListener("click" , () => 
-                {
-                    shareDestination(sclDataShare);
-                });
-            });
-
-            // Redirecting to share destination
-                const shareDestination = (destination) =>
-                {
-                    switch(destination)
-                    {
-                        case "facebook":
-                            window.open(`${fbLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                            break;
-                        case "twitter":
-                            window.open(`${twLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                            break;
-                        case "whatsapp":
-                            window.open(`${waLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                            break;
-                        case "pinterest":
-                            window.open(`${pnLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                            break;
-                        case "reddit":
-                            window.open(`${rdlink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                            break;
-                        case "telegram":
-                            window.open(`${tgLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                            break;
-                        case "tumblr":
-                            window.open(`${tbLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                            break;
-                        case "yahoo":
-                            window.open(`${yhLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                            break;
-                        case "line":
-                            window.open(`${lnLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                            break;
-                        case "okru":
-                            window.open(`${okLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                            break;
-                        case "vkontakte":
-                            window.open(`${vkLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                            break;
-                        case "email":
-                            window.open(`${emLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                            break;
-                        case "gmail":
-                            window.open(`${gmLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                            break;
-                        default:
-                            alert("An error occured");
-                            break;
-                    }
-                }
-
-                // Closes the Share modal
-                function closeSclShareBox()
-                {
-                    documentBody.classList.remove("bodystop");
-
-                    // Removes style classes
-                    sclShareBdr.classList.remove("active");
-                    sclShareBox.classList.remove("active");
+                    // shareShowBtn.forEach(btn => 
+                    // {
+                        btn.addEventListener("click" , () => 
+                        {
+                            btn.disabled = true;
+                        });
+                    // });
 
                     socialShareTimer = setTimeout(() => 
                     {
-                        documentBody.removeChild(sclShareBdr);
-                        // shareShowBtn.forEach(btn => 
-                        // {
-                            btn.addEventListener("click" , () => 
-                            {
-                                btn.disabled = false;
-                            });
-                        // });
-                        documentBody.classList.remove("bodystop");
+                        documentBody.classList.add("bodystop");
+                        sclShareBdr.classList.add("active");
+                        sclShareBox.classList.add("active");
                         clearTimeout(socialShareTimer);
+                    }, 100);
 
-                    }, 300);
+                    // Setting title of Options
+                    sclShareOpt.forEach(opt => 
+                    {
+                        let sclDataShare = opt.getAttribute("data-share").toLowerCase();
+                        const sclShareOptText = opt.querySelector(".shareText");
+                        opt.title = "Share on " + sclShareOptText.textContent;
+                        opt.ariaLabel = sclShareOptText.textContent;
+
+                        opt.addEventListener("click" , () => 
+                        {
+                            shareDestination(sclDataShare);
+                        });
+                    });
+
+                    // Redirecting to share destination
+                    const shareDestination = (destination) =>
+                    {
+                        switch(destination)
+                        {
+                            case "facebook":
+                                window.open(`${fbLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                                break;
+                            case "twitter":
+                                window.open(`${twLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                                break;
+                            case "whatsapp":
+                                window.open(`${waLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                                break;
+                            case "pinterest":
+                                window.open(`${pnLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                                break;
+                            case "reddit":
+                                window.open(`${rdlink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                                break;
+                            case "telegram":
+                                window.open(`${tgLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                                break;
+                            case "tumblr":
+                                window.open(`${tbLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                                break;
+                            case "yahoo":
+                                window.open(`${yhLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                                break;
+                            case "line":
+                                window.open(`${lnLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                                break;
+                            case "okru":
+                                window.open(`${okLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                                break;
+                            case "vkontakte":
+                                window.open(`${vkLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                                break;
+                            case "email":
+                                window.open(`${emLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                                break;
+                            case "gmail":
+                                window.open(`${gmLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                                break;
+                            default:
+                                alert("An error occured");
+                                break;
+                        }
+                    }
+
+                    // Closes the Share modal
+                    function closeSclShareBox()
+                    {
+                        documentBody.classList.remove("bodystop");
+
+                        // Removes style classes
+                        sclShareBdr.classList.remove("active");
+                        sclShareBox.classList.remove("active");
+
+                        socialShareTimer = setTimeout(() => 
+                        {
+                            documentBody.removeChild(sclShareBdr);
+                            // shareShowBtn.forEach(btn => 
+                            // {
+                                btn.addEventListener("click" , () => 
+                                {
+                                    btn.disabled = false;
+                                });
+                            // });
+                            documentBody.classList.remove("bodystop");
+                            clearTimeout(socialShareTimer);
+
+                        }, 300);
+                    }
+
+                    sclShareCloseBtn.forEach(one => 
+                    {
+                        one.addEventListener("mousedown" , closeSclShareBox);
+                    });
                 }
 
-                sclShareCloseBtn.forEach(one => 
-                {
-                    one.addEventListener("mousedown" , closeSclShareBox);
-                });
-            }
                 // navigator.share function
                 const navigatorSclShareModal = () =>
                 {
