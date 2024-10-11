@@ -10,7 +10,7 @@
     const historyInventory = 
     [
         {
-            hist_link: `/Library.html?info=KaguyaSama`,
+            hist_link: `/Library.html?info=FullmetalPanic`,
             hist_thumbnail: `/Library/TV/img/5.jpg`,
             hist_title: `Fullmetal Panic`,
             hist_type: `TV`,

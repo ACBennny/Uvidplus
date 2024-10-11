@@ -11,11 +11,10 @@
 .searchBase
 {
     position: fixed;
-    top: var(--navBarHeight);
     top: 0;
-    left: 0;
+    left: var(--sideNavBarWidth);
     right: 0;
-    width: 100%;
+    width: calc((100% - var(--sideNavBarWidth)));
     height: calc(var(--navBarHeight) + var(--navBarSearchBarHeight));
     display: flex;
     align-items: flex-end;

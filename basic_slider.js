@@ -154,7 +154,7 @@
         basicSlider();   
     });
 
-
+    
    
     // Slide Card details (title, alt etc)
     basic_slide_CardBase.forEach((base) => 
@@ -163,6 +163,7 @@
         const showCards = base.querySelector(".slide_card");
         const showCardImgs = base.querySelector(".cardImg");
         const showCardInfoName = showCards.querySelector(".cardInfo_titleText");
+        let showCardHref;
 
         // Slide Card Link
         if((showCardLink != undefined))

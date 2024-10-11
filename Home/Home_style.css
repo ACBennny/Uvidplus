@@ -50,19 +50,6 @@ body
     justify-content: center;
 }
 
-
-.content_body
-{
-    width: 100%;
-    height: fit-content;
-    max-height: -moz-fit-content;
-    max-height: fit-content;
-    display: flex;
-    flex-direction: column;
-    background: #000;
-    overflow-x: hidden;
-}
-
 .watchActionIcon
 {
     width: var(--watchActionIconWidth);
@@ -87,6 +74,7 @@ body
     position: relative;
     width: 100%;
     transition: 300ms;
+    z-index: 1;
 }
 
 .intro_slide_ctnt_bdr
@@ -439,6 +427,7 @@ body
 
 .more_content
 {
+    width: 100%;
     display: grid;
     grid-template-columns: minmax(0, auto);
     gap: 35px;

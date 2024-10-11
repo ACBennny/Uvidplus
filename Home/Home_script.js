@@ -14,7 +14,7 @@
     {
         // INSERTING INTO DOM
 
-            document.body.insertAdjacentHTML(`afterbegin` , tempHomeHTML);
+        documentCtnt.insertAdjacentHTML(`afterbegin` , tempHomeHTML);
 
         // FETCHING USER HISTORY
         
@@ -153,6 +153,9 @@
 
                 // Setting the alt text of the images
                 showImg.alt = "Image of the Anime " + showTitle.textContent;
+
+                // Setting the href to the error page (direct viewing of episodes is not ready)
+                latestEpCard.href = "/Error/404/index.html";
             });
 
             
@@ -426,6 +429,7 @@
                         notification(`notifyGood` , `All Shows have been cleared successfully `);
                     });
                 });
+
             }
         }
         startFetchingUserHistory();

@@ -67,7 +67,7 @@
                 </div>
             </div>
         `;
-        documentBody.insertAdjacentHTML(`afterbegin` , searchBodyHTML);
+        documentCtnt.insertAdjacentHTML(`afterbegin` , searchBodyHTML);
 
         // DECLARATIONS
 

@@ -56,7 +56,7 @@
                 </div>
             </div>
         `;
-        document.body.insertAdjacentHTML(`afterbegin` , catalogHTML);
+        documentCtnt.insertAdjacentHTML(`afterbegin` , catalogHTML);
 
         let catalogTitleText = document.querySelector(".catalogTitleText");
         let catalogTitleTextFirst = catalogTitleText.querySelector(".catalogTitleTextFirst");

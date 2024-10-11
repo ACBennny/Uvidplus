@@ -30,7 +30,7 @@
 
     function insertUserPageStruct(path)
     {
-        document.body.insertAdjacentHTML(`afterbegin` , userPagesStruct);
+        documentCtnt.insertAdjacentHTML(`afterbegin` , userPagesStruct);
 
         let userPageSpecificScriptTag = document.createElement("script");
         userPageSpecificScriptTag.setAttribute(`src` , `${path}`);

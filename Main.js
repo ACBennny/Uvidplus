@@ -12,241 +12,526 @@
 
     const documentBody = document.body;
     const documentTitle = document.title;
+    const documentMain = document.querySelector("main");
+    const documentCtnt = document.querySelector("content .content");
     const preload = document.querySelector("#preloader");
     const developerLink = "https://acbennny.netlify.app";
     const basicSliderScriptPath = "/basic_slider.js";
-    const navBarHTML = 
+    const topNavBar = document.querySelector(".topNavBar");
+    const sideNavBar = document.querySelector(".sideNavBar");
+    const btmNavBar = document.querySelector(".btmNavBar");
+    const topNavBarStruct = 
     `
-        <div class="navBox">
-            <div class="navBar">
-                <div class="navBarLeft">
-                    <div class="navBarIconBox open_nav_menuBox">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarIcon open_nav_menu">
-                            <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM64 256c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H96c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
-                        </svg>
+        <div class="topNavBdr">
+            <div class="topNavBox">
+                <section class="topNav_section">
+                    <div class="company_logoBdr">
+                            <div class="company_logoBox Companylogo">
+                                <img src="/Images/uvidLogo.png" alt="" class="company_logoImg">
+                            </div>
                     </div>
-                    <div class="Companylogo navBarCompanylogo">
-                        <h1 class="lhead">U</h1>
-                        <h1 class="lname">vid</h1>
-                    </div>
-                    <div class="pc_navlinkBdr">
-                        <div class="pc_navlinkBox">
-                            <a href="/Home.html" class="pc_navlinkCard ">
-                                <div class="pc_navlinkCardText">Home</div>
-                            </a>
-                        </div>
-                        <div class="pc_navlinkBox">
-                            <a href="/Recent.html" class="pc_navlinkCard ">
-                                <div class="pc_navlinkCardText">Recent</div>
-                            </a>
-                        </div>
-                        <div class="pc_navlinkBox">
-                            <a href="/Trending.html" class="pc_navlinkCard ">
-                                <div class="pc_navlinkCardText">Trending</div>
-                            </a>
-                        </div>
-                        <div class="pc_navlinkBox">
-                            <a href="/Movies.html" class="pc_navlinkCard ">
-                                <div class="pc_navlinkCardText">Movies</div>
-                            </a>
-                        </div>
-                        <div class="pc_navlinkBox">
-                            <a href="/Tv.html" class="pc_navlinkCard ">
-                                <div class="pc_navlinkCardText">Tv Shows</div>
-                            </a>
-                        </div>
-                        <div class="pc_navlinkBox">
-                            <a href="/Genres.html" class="pc_navlinkCard ">
-                                <div class="pc_navlinkCardText">Genres</div>
-                            </a>
-                        </div>
-                        <div class="pc_navlinkBox">
-                            <a href="/Schedule.html" class="pc_navlinkCard ">
-                                <div class="pc_navlinkCardText">Schedule</div>
-                            </a>
-                        </div>
-                        <div class="pc_navlinkBox">
-                            <a href="/News.html" class="pc_navlinkCard ">
-                                <div class="pc_navlinkCardText">News</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="navBarCenter navBarSearchBdr"></div>
-                <div class="navBarRight">
-                    <div class="navBarRightCtnt">
-                        <div class="navBarIconBox openNavSearch_BtnBox">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarIcon openNavSearch_Btn">
-                                <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
-                            </svg>
-                        </div>
-                        <div class="navBarIconBox openNavNotifyBox">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navBarIcon openNavNotify ">
-                                <path d="M224 0c-17.7 0-32 14.3-32 32V51.2C119 66 64 130.6 64 208v18.8c0 47-17.3 92.4-48.5 127.6l-7.4 8.3c-8.4 9.4-10.4 22.9-5.3 34.4S19.4 416 32 416H416c12.6 0 24-7.4 29.2-18.9s3.1-25-5.3-34.4l-7.4-8.3C401.3 319.2 384 273.9 384 226.8V208c0-77.4-55-142-128-156.8V32c0-17.7-14.3-32-32-32zm45.3 493.3c12-12 18.7-28.3 18.7-45.3H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7z"/>
-                            </svg>
-                            <div class="navBarNotificationStatusNo_bdr">
-                                <div class="navBarNotificationStatusNo_box">
-                                    <div class="navBarNotificationStatusNo_text"></div>
+                </section>
+                <section class="topNav_section">
+                    <div class="sideNavItemsCardBase">
+                        <div class="sideNavItemsCardBdr openNavSearch_Btn">
+                            <div class="sideNavItemsCardBox">
+                                <div class="sideNavItemsCardIcon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 2.75a8.75 8.75 0 1 0 0 17.5a8.75 8.75 0 0 0 0-17.5M1.25 11.5c0-5.66 4.59-10.25 10.25-10.25S21.75 5.84 21.75 11.5c0 2.56-.939 4.902-2.491 6.698l3.271 3.272a.75.75 0 1 1-1.06 1.06l-3.272-3.271A10.2 10.2 0 0 1 11.5 21.75c-5.66 0-10.25-4.59-10.25-10.25"/>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavBoldIcon">
+                                        <path d="M20.313 11.157a9.157 9.157 0 1 1-18.313 0a9.157 9.157 0 0 1 18.313 0" />
+                                        <path fill-rule="evenodd" d="M18.838 18.838a.723.723 0 0 1 1.023 0l1.927 1.928a.723.723 0 0 1-1.022 1.022l-1.928-1.927a.723.723 0 0 1 0-1.023" clip-rule="evenodd" />
+                                    </svg>
                                 </div>
                             </div>
                         </div>
-                        <div class="navBarProfileBdr">
-                            <div class="navBarProfileBox open_nav_profileOptions">
-                                <div class="navBarProfileImageBox">
-                                    <img src="/Images/Uvid_profilebase.png" alt="Profile Image" class="navBarProfileImage" loading="eager">
+                    </div>
+                    <div class="sideNavItemsCardBase topNav_openNavNotify">
+                        <div class="sideNavItemsCardBdr openNavNotify">
+                            <div class="sideNavItemsCardBox">
+                                <div class="sideNavItemsCardIcon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg">
+                                        <path d="M8.352 20.242A4.63 4.63 0 0 0 12 22a4.63 4.63 0 0 0 3.648-1.758a27.2 27.2 0 0 1-7.296 0M18.75 9v.704c0 .845.24 1.671.692 2.374l1.108 1.723c1.011 1.574.239 3.713-1.52 4.21a25.8 25.8 0 0 1-14.06 0c-1.759-.497-2.531-2.636-1.52-4.21l1.108-1.723a4.4 4.4 0 0 0 .693-2.374V9c0-3.866 3.022-7 6.749-7s6.75 3.134 6.75 7" />
+                                    </svg>
                                 </div>
-                                <div class="navBarProfileOptBdr">
-                                    <div class="navBarProfileOptBox">
-                                        <div class="navBarProfileNameBox">
-                                            <p class="navBarProfileNameText navBarProfileNameTextMajor navBarProfileNameWatching">acbennny</p>
-                                            <p class="navBarProfileNameText navBarProfileNameTextMinor navBarProfileNameUser">uvidtestuser</p>
-                                        </div>
-                                        <div class="navBarProfileCardBox">
-                                            <button class="navBarProfileCard">
-                                                <a href="/User/Profile.html" class="navBarProfileCardLink">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navBarProfileCardLinkIcon">
-                                                        <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/>
-                                                    </svg>
-                                                    <p class="navBarProfileCardLinkText">Profile</p>
-                                                </a>
-                                            </button>
-                                            <button class="navBarProfileCard">
-                                                <a href="javascript:;" class="navBarProfileCardLink open_switchProf">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarProfileCardLinkIcon">
-                                                        <path d="M32 96l320 0V32c0-12.9 7.8-24.6 19.8-29.6s25.7-2.2 34.9 6.9l96 96c6 6 9.4 14.1 9.4 22.6s-3.4 16.6-9.4 22.6l-96 96c-9.2 9.2-22.9 11.9-34.9 6.9s-19.8-16.6-19.8-29.6V160L32 160c-17.7 0-32-14.3-32-32s14.3-32 32-32zM480 352c17.7 0 32 14.3 32 32s-14.3 32-32 32H160v64c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-96-96c-6-6-9.4-14.1-9.4-22.6s3.4-16.6 9.4-22.6l96-96c9.2-9.2 22.9-11.9 34.9-6.9s19.8 16.6 19.8 29.6l0 64H480z"/>
-                                                    </svg>
-                                                    <p class="navBarProfileCardLinkText">Switch Profile</p>
-                                                </a>
-                                            </button>
-                                            <button class="navBarProfileCard">
-                                                <a href="/User/Watchlist.html" class="navBarProfileCardLink">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="navBarProfileCardLinkIcon">
-                                                        <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                                    </svg>
-                                                    <p class="navBarProfileCardLinkText">Watchlist</p>
-                                                </a>
-                                            </button>
-                                            <button class="navBarProfileCard">
-                                                <a href="/User/History.html" class="navBarProfileCardLink">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarProfileCardLinkIcon">
-                                                        <path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/>
-                                                    </svg>
-                                                    <p class="navBarProfileCardLinkText">History</p>
-                                                </a>
-                                            </button>
-                                            <button class="navBarProfileCard">
-                                                <a href="/User/Notification.html" class="navBarProfileCardLink">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarProfileCardLinkIcon">
-                                                        <path d="M224 0c-17.7 0-32 14.3-32 32V51.2C119 66 64 130.6 64 208v18.8c0 47-17.3 92.4-48.5 127.6l-7.4 8.3c-8.4 9.4-10.4 22.9-5.3 34.4S19.4 416 32 416H416c12.6 0 24-7.4 29.2-18.9s3.1-25-5.3-34.4l-7.4-8.3C401.3 319.2 384 273.9 384 226.8V208c0-77.4-55-142-128-156.8V32c0-17.7-14.3-32-32-32zm45.3 493.3c12-12 18.7-28.3 18.7-45.3H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7z"/>
-                                                    </svg>
-                                                    <p class="navBarProfileCardLinkText">Notification</p>
-                                                </a>
-                                            </button>
-                                            <button class="navBarProfileCard">
-                                                <a href="/User/Settings.html" class="navBarProfileCardLink">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarProfileCardLinkIcon">
-                                                        <path d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"/>
-                                                    </svg>
-                                                    <p class="navBarProfileCardLinkText">Settings</p>
-                                                </a>
-                                            </button>
-                                            <!-- <button class="navBarProfileCard">
-                                                <a href="/Help.html" class="navBarProfileCardLink">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarProfileCardLinkIcon">
-                                                        <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm169.8-90.7c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24V250.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1H222.6c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/>
-                                                    </svg>
-                                                    <p class="navBarProfileCardLinkText">Help</p>
-                                                </a>
-                                            </button> -->
-                                        </div>
-                                        <div class="navBarSignOutBdr">
-                                            <div class="navBarSignOutBox">
-                                                <button class="navBarSignOutBtn">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarSignOutBtnIcon">
-                                                        <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 17.7 14.3 32 32 32s32-14.3 32-32V32zM143.5 120.6c13.6-11.3 15.4-31.5 4.1-45.1s-31.5-15.4-45.1-4.1C49.7 115.4 16 181.8 16 256c0 132.5 107.5 240 240 240s240-107.5 240-240c0-74.2-33.8-140.6-86.6-184.6c-13.6-11.3-33.8-9.4-45.1 4.1s-9.4 33.8 4.1 45.1c38.9 32.3 63.5 81 63.5 135.4c0 97.2-78.8 176-176 176s-176-78.8-176-176c0-54.4 24.7-103.1 63.5-135.4z"/>
-                                                    </svg>
-                                                    <p class="navBarSignOutBtnText">Sign Out</p>
-                                                </button>
-                                            </div>
-                                        </div>
+                                <div class="navBarNotificationStatusNo_bdr">
+                                    <div class="navBarNotificationStatusNo_box">
+                                        <div class="navBarNotificationStatusNo_text"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="navBarProfileBdr">
+                        <div class="navBarProfileBox open_nav_profileOptions">
+                            <div class="navBarProfileImageBox">
+                                <img src="/Images/Uvid_profilebase.png" alt="Profile Image" class="navBarProfileImage" loading="eager">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    `;
+    const sideNavBarStruct = 
+    `
+        <div class="sideNavBdr">
+            <div class="sideNavBox">
+                <section class="sideNav_section">
+                    <div class="company_logoBdr">
+                        <div class="company_logoBox Companylogo">
+                            <img src="/Images/uvidLogo.png" alt="" class="company_logoImg">
+                        </div>
+                    </div>
+                    <div class="sideNavItemsBdr">
+                        <div class="sideNavItemsBox">
+                            <div class="sideNavItemsCardBase">
+                                <div class="sideNavItemsCardBdr openNavSearch_Btn">
+                                    <div class="sideNavItemsCardBox">
+                                        <div class="sideNavItemsCardIcon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 2.75a8.75 8.75 0 1 0 0 17.5a8.75 8.75 0 0 0 0-17.5M1.25 11.5c0-5.66 4.59-10.25 10.25-10.25S21.75 5.84 21.75 11.5c0 2.56-.939 4.902-2.491 6.698l3.271 3.272a.75.75 0 1 1-1.06 1.06l-3.272-3.271A10.2 10.2 0 0 1 11.5 21.75c-5.66 0-10.25-4.59-10.25-10.25"/>
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavBoldIcon">
+                                                <path d="M20.313 11.157a9.157 9.157 0 1 1-18.313 0a9.157 9.157 0 0 1 18.313 0" />
+                                                <path fill-rule="evenodd" d="M18.838 18.838a.723.723 0 0 1 1.023 0l1.927 1.928a.723.723 0 0 1-1.022 1.022l-1.928-1.927a.723.723 0 0 1 0-1.023" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <div class="sideNavItemsCardTitleBdr">
+                                            <div class="sideNavItemsCardTitleBox">
+                                                <div class="sideNavItemsCardTitleText">Search</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sideNavItemsCardBase">
+                                <a href="/Home.html" class="sideNavItemsCardBdr sideNavLinks">
+                                    <div class="sideNavItemsCardBox">
+                                        <div class="sideNavItemsCardIcon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
+                                                <path d="M9.447 15.398a.75.75 0 1 0-.894 1.204A5.77 5.77 0 0 0 12 17.75a5.77 5.77 0 0 0 3.447-1.148a.75.75 0 1 0-.894-1.204A4.27 4.27 0 0 1 12 16.25a4.27 4.27 0 0 1-2.553-.852"/>
+                                                <path fill-rule="evenodd" d="M12 1.25c-.708 0-1.351.203-2.05.542c-.674.328-1.454.812-2.427 1.416L5.456 4.491c-.92.572-1.659 1.03-2.227 1.465c-.589.45-1.041.91-1.368 1.507c-.326.595-.472 1.229-.543 1.978c-.068.725-.068 1.613-.068 2.726v1.613c0 1.904 0 3.407.153 4.582c.156 1.205.486 2.178 1.23 2.947c.747.773 1.697 1.119 2.875 1.282c1.14.159 2.598.159 4.434.159h4.116c1.836 0 3.294 0 4.434-.159c1.177-.163 2.128-.509 2.876-1.282c.743-.769 1.073-1.742 1.23-2.947c.152-1.175.152-2.678.152-4.582v-1.613c0-1.113 0-2-.068-2.726c-.07-.75-.217-1.383-.543-1.978c-.327-.597-.78-1.056-1.368-1.507c-.568-.436-1.306-.893-2.227-1.465l-2.067-1.283c-.973-.604-1.753-1.088-2.428-1.416c-.697-.34-1.34-.542-2.049-.542M8.28 4.504c1.015-.63 1.73-1.072 2.327-1.363c.581-.283.993-.391 1.393-.391s.812.108 1.393.391c.598.29 1.312.733 2.327 1.363l2 1.241c.961.597 1.636 1.016 2.14 1.402c.489.375.77.684.963 1.036c.193.353.306.766.365 1.398c.061.648.062 1.465.062 2.623v1.521c0 1.97-.002 3.376-.14 4.443c-.136 1.048-.393 1.656-.82 2.099c-.425.439-1.003.7-2.004.839c-1.026.142-2.379.144-4.286.144h-4c-1.908 0-3.26-.002-4.286-.144c-1.001-.14-1.579-.4-2.003-.84c-.428-.442-.685-1.05-.82-2.098c-.14-1.067-.141-2.472-.141-4.443v-1.521c0-1.158 0-1.975.062-2.623c.059-.632.172-1.045.365-1.398c.193-.352.474-.661.964-1.036c.503-.386 1.178-.805 2.139-1.402z" clip-rule="evenodd"/>
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavBoldIcon">
+                                                <path fill-rule="evenodd" d="M2.52 7.823C2 8.77 2 9.915 2 12.203v1.522c0 3.9 0 5.851 1.172 7.063S6.229 22 10 22h4c3.771 0 5.657 0 6.828-1.212S22 17.626 22 13.725v-1.521c0-2.289 0-3.433-.52-4.381c-.518-.949-1.467-1.537-3.364-2.715l-2-1.241C14.111 2.622 13.108 2 12 2s-2.11.622-4.116 1.867l-2 1.241C3.987 6.286 3.038 6.874 2.519 7.823m6.927 7.575a.75.75 0 1 0-.894 1.204A5.77 5.77 0 0 0 12 17.75a5.77 5.77 0 0 0 3.447-1.148a.75.75 0 1 0-.894-1.204A4.27 4.27 0 0 1 12 16.25a4.27 4.27 0 0 1-2.553-.852" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <div class="sideNavItemsCardTitleBdr">
+                                            <div class="sideNavItemsCardTitleBox">
+                                                <div class="sideNavItemsCardTitleText">Home</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sideNavItemsCardBase">
+                                <a href="/Catalog.html" class="sideNavItemsCardBdr sideNavLinks">
+                                    <div class="sideNavItemsCardBox">
+                                        <div class="sideNavItemsCardIcon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2.75a9.25 9.25 0 1 0 0 18.5a9.25 9.25 0 0 0 0-18.5M1.25 12C1.25 6.063 6.063 1.25 12 1.25S22.75 6.063 22.75 12S17.937 22.75 12 22.75S1.25 17.937 1.25 12m12.599-2.819c-.605.16-1.42.485-2.595.955c-.541.217-.642.268-.716.333a1 1 0 0 0-.07.069c-.064.074-.115.175-.332.716c-.47 1.175-.794 1.99-.955 2.595c-.167.63-.085.79-.059.83a.8.8 0 0 0 .2.198c.038.027.199.108.829-.059c.605-.16 1.42-.484 2.594-.954c.542-.217.643-.268.717-.333l.494.564l-.494-.564a1 1 0 0 0 .07-.07l.563.495l-.564-.494c.065-.074.116-.175.333-.717c.47-1.174.794-1.99.954-2.594c.168-.63.086-.791.06-.83a.8.8 0 0 0-.2-.199c-.038-.026-.2-.108-.83.06m-.384-1.45c.69-.183 1.436-.271 2.057.15c.234.16.437.362.596.597c.422.621.333 1.367.15 2.057c-.186.704-.546 1.605-.991 2.717l-.02.05l-.034.084c-.163.41-.308.772-.564 1.065a2 2 0 0 1-.208.208c-.293.256-.655.4-1.065.564l-.083.033l-.279-.696l.279.697l-.05.02c-1.113.445-2.014.805-2.718.991c-.69.183-1.436.272-2.057-.15l.422-.62l-.422.62a2.3 2.3 0 0 1-.596-.596c-.422-.621-.334-1.368-.15-2.057c.186-.705.546-1.605.991-2.717l.02-.05l.034-.085c.163-.41.307-.771.564-1.064q.097-.11.208-.208c.293-.257.655-.401 1.064-.564l.084-.034l.05-.02c1.113-.445 2.013-.805 2.718-.992"/>
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavBoldIcon">
+                                                <path fill-rule="evenodd" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10m1.956-7.905c-.193.17-.44.268-.932.465c-2.31.924-3.465 1.386-4.124.938a1.5 1.5 0 0 1-.398-.398c-.448-.66.014-1.814.938-4.124c.197-.493.295-.74.465-.933q.065-.073.139-.138c.193-.17.44-.268.932-.465c2.31-.924 3.464-1.386 4.124-.938a1.5 1.5 0 0 1 .398.398c.448.66-.014 1.814-.938 4.124c-.197.493-.295.739-.465.932q-.065.075-.139.139" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <div class="sideNavItemsCardTitleBdr">
+                                            <div class="sideNavItemsCardTitleBox">
+                                                <div class="sideNavItemsCardTitleText">Catalog</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sideNavItemsCardBase">
+                                <a href="/User/Watchlist.html" class="sideNavItemsCardBdr sideNavLinks">
+                                    <div class="sideNavItemsCardBox">
+                                        <div class="sideNavItemsCardIcon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg watchlistSvg sideNavOutlineIcon">
+                                                <g fill="none" stroke="currentColor" stroke-width="1.5">
+                                                    <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
+                                                    <path d="m5.766 10l-.787.315C2.993 11.109 2 11.507 2 12s.993.89 2.979 1.685l2.808 1.124C9.773 15.603 10.767 16 12 16s2.227-.397 4.213-1.191l2.808-1.124C21.007 12.891 22 12.493 22 12s-.993-.89-2.979-1.685L18.234 10" />
+                                                    <path d="m5.766 14l-.787.315C2.993 15.109 2 15.507 2 16s.993.89 2.979 1.685l2.808 1.124C9.773 19.603 10.767 20 12 20s2.227-.397 4.213-1.192l2.808-1.123C21.007 16.891 22 16.494 22 16c0-.493-.993-.89-2.979-1.685L18.234 14" />
+                                                </g>
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavBoldIcon">
+                                                <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
+                                                <path fill-rule="evenodd" d="M2 8c0 .494.993.89 2.979 1.685l2.808 1.124C9.773 11.603 10.767 12 12 12s2.227-.397 4.213-1.191l2.808-1.124C21.007 8.891 22 8.494 22 8s-.993-.89-2.979-1.685l-2.808-1.123C14.227 4.397 13.233 4 12 4s-2.227.397-4.213 1.192L4.98 6.315C2.993 7.109 2 7.506 2 8" clip-rule="evenodd" />
+                                                <path d="m19.021 13.685l-2.808 1.124C14.227 15.603 13.233 16 12 16s-2.227-.397-4.213-1.191L4.98 13.685C2.993 12.891 2 12.493 2 12c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 12.535 10.572 13 12 13s2.59-.465 4.439-1.205l3.14-1.256C21.194 11.189 22 11.555 22 12c0 .493-.993.89-2.979 1.685" />
+                                                <path d="m19.021 17.685l-2.808 1.123C14.227 19.603 13.233 20 12 20s-2.227-.397-4.213-1.192L4.98 17.685C2.993 16.89 2 16.493 2 16c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 16.535 10.572 17 12 17s2.59-.465 4.439-1.205l3.14-1.256c1.614.65 2.421 1.016 2.421 1.46c0 .494-.993.891-2.979 1.686" />
+                                            </svg>
+                                        </div>
+                                        <div class="sideNavItemsCardTitleBdr">
+                                            <div class="sideNavItemsCardTitleBox">
+                                                <div class="sideNavItemsCardTitleText">Watchlist</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sideNavItemsCardBase">
+                                <a href="/Categories.html" class="sideNavItemsCardBdr sideNavLinks">
+                                    <div class="sideNavItemsCardBox">
+                                        <div class="sideNavItemsCardIcon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
+                                                <path fill-rule="evenodd" d="M5.948 1.75c-.898 0-1.648 0-2.242.08c-.628.084-1.195.27-1.65.725c-.456.456-.642 1.023-.726 1.65c-.08.595-.08 1.345-.08 2.243v2.104c0 .898 0 1.648.08 2.242c.084.628.27 1.195.725 1.65c.456.456 1.023.642 1.65.726c.595.08 1.345.08 2.243.08h.104c.898 0 1.648 0 2.242-.08c.628-.084 1.195-.27 1.65-.726c.456-.455.642-1.022.726-1.65c.08-.594.08-1.344.08-2.242V6.448c0-.898 0-1.648-.08-2.242c-.084-.628-.27-1.195-.725-1.65c-.456-.456-1.023-.642-1.65-.726c-.595-.08-1.344-.08-2.243-.08zM3.116 3.616c.13-.13.328-.237.79-.3c.482-.064 1.13-.066 2.094-.066s1.612.002 2.095.067c.461.062.659.169.789.3s.237.327.3.788c.064.483.066 1.131.066 2.095v2c0 .964-.002 1.612-.067 2.095c-.062.461-.169.659-.3.789s-.327.237-.788.3c-.483.064-1.131.066-2.095.066s-1.612-.002-2.095-.066c-.461-.063-.659-.17-.789-.3s-.237-.328-.3-.79c-.064-.482-.066-1.13-.066-2.094v-2c0-.964.002-1.612.067-2.095c.062-.461.169-.659.3-.789m14.331 7.134c-.899 0-1.648 0-2.242.08c-.628.084-1.195.27-1.65.726c-.456.455-.642 1.022-.726 1.65c-.08.594-.08 1.344-.08 2.242v2.104c0 .899 0 1.648.08 2.242c.084.628.27 1.195.726 1.65c.455.456 1.022.642 1.65.726c.594.08 1.343.08 2.242.08h.104c.898 0 1.648 0 2.242-.08c.628-.084 1.195-.27 1.65-.726c.456-.455.642-1.022.726-1.65c.08-.594.08-1.343.08-2.242v-2.104c0-.898 0-1.648-.08-2.242c-.084-.628-.27-1.195-.726-1.65c-.455-.456-1.022-.642-1.65-.726c-.594-.08-1.343-.08-2.242-.08zm-2.832 1.866c.13-.13.328-.237.79-.3c.482-.064 1.13-.066 2.094-.066s1.612.002 2.095.066c.461.063.659.17.789.3s.237.328.3.79c.064.482.066 1.13.066 2.094v2c0 .964-.002 1.612-.067 2.095c-.062.461-.169.659-.3.789s-.327.237-.788.3c-.483.064-1.131.066-2.095.066s-1.612-.002-2.095-.067c-.461-.062-.659-.169-.789-.3s-.237-.327-.3-.788c-.064-.483-.066-1.131-.066-2.095v-2c0-.964.002-1.612.066-2.095c.063-.461.17-.659.3-.789M16.475 1.75h2.05c.445 0 .816 0 1.12.02c.317.022.617.07.907.19a2.75 2.75 0 0 1 1.489 1.488c.12.29.167.59.188.907c.021.304.021.675.021 1.12v.05c0 .445 0 .816-.02 1.12a2.8 2.8 0 0 1-.19.907a2.75 2.75 0 0 1-1.488 1.489c-.29.12-.59.167-.907.188c-.304.021-.675.021-1.12.021h-2.05c-.445 0-.816 0-1.12-.02a2.8 2.8 0 0 1-.907-.19a2.75 2.75 0 0 1-1.489-1.488c-.12-.29-.167-.59-.188-.907c-.021-.304-.021-.675-.021-1.12v-.05c0-.445 0-.816.02-1.12a2.8 2.8 0 0 1 .19-.907a2.75 2.75 0 0 1 1.488-1.489c.29-.12.59-.167.907-.188c.304-.021.675-.021 1.12-.021m-1.018 1.517c-.241.017-.358.046-.435.078a1.25 1.25 0 0 0-.677.677c-.032.077-.061.194-.078.435A17 17 0 0 0 14.25 5.5c0 .476 0 .796.017 1.043c.017.241.046.358.078.435c.127.307.37.55.677.677c.077.032.194.061.435.078c.247.017.567.017 1.043.017h2c.476 0 .796 0 1.043-.017c.241-.017.358-.046.435-.078c.307-.127.55-.37.677-.677c.032-.077.061-.194.078-.435c.017-.247.017-.567.017-1.043s0-.796-.017-1.043c-.017-.241-.046-.358-.078-.435a1.25 1.25 0 0 0-.677-.677c-.077-.032-.194-.061-.435-.078A17 17 0 0 0 18.5 3.25h-2c-.476 0-.796 0-1.043.017M4.975 14.75c-.445 0-.816 0-1.12.02a2.8 2.8 0 0 0-.907.19a2.75 2.75 0 0 0-1.489 1.488c-.12.29-.167.59-.188.907c-.021.304-.021.675-.021 1.12v.05c0 .445 0 .816.02 1.12c.022.317.07.617.19.907a2.75 2.75 0 0 0 1.488 1.489c.29.12.59.167.907.188c.304.021.675.021 1.12.021h2.05c.445 0 .816 0 1.12-.02c.317-.022.617-.069.907-.19a2.75 2.75 0 0 0 1.489-1.488c.12-.29.167-.59.188-.907c.021-.304.021-.675.021-1.12v-.05c0-.445 0-.816-.02-1.12a2.8 2.8 0 0 0-.19-.907a2.75 2.75 0 0 0-1.488-1.489c-.29-.12-.59-.167-.907-.188c-.304-.021-.675-.021-1.12-.021zm-1.453 1.595c.077-.032.194-.061.435-.078A17 17 0 0 1 5 16.25h2c.476 0 .796 0 1.043.017c.241.017.358.046.435.078c.307.127.55.37.677.677c.032.077.061.194.078.435c.017.247.017.567.017 1.043s0 .796-.017 1.043c-.017.241-.046.358-.078.435a1.25 1.25 0 0 1-.677.677c-.077.032-.194.061-.435.078A17 17 0 0 1 7 20.75H5c-.476 0-.796 0-1.043-.017c-.241-.017-.358-.046-.435-.078a1.25 1.25 0 0 1-.677-.677c-.032-.077-.061-.194-.078-.435A17 17 0 0 1 2.75 18.5c0-.476 0-.796.017-1.043c.017-.241.046-.358.078-.435c.127-.307.37-.55.677-.677" clip-rule="evenodd"/>
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavBoldIcon">
+                                                <path d="M13 15.4c0-2.074 0-3.111.659-3.756S15.379 11 17.5 11s3.182 0 3.841.644C22 12.29 22 13.326 22 15.4v2.2c0 2.074 0 3.111-.659 3.756S19.621 22 17.5 22s-3.182 0-3.841-.644C13 20.71 13 19.674 13 17.6zM2 8.6c0 2.074 0 3.111.659 3.756S4.379 13 6.5 13s3.182 0 3.841-.644C11 11.71 11 10.674 11 8.6V6.4c0-2.074 0-3.111-.659-3.756S8.621 2 6.5 2s-3.182 0-3.841.644C2 3.29 2 4.326 2 6.4zm11-3.1c0-1.087 0-1.63.171-2.06a2.3 2.3 0 0 1 1.218-1.262C14.802 2 15.327 2 16.375 2h2.25c1.048 0 1.573 0 1.986.178c.551.236.99.69 1.218 1.262c.171.43.171.973.171 2.06s0 1.63-.171 2.06a2.3 2.3 0 0 1-1.218 1.262C20.198 9 19.673 9 18.625 9h-2.25c-1.048 0-1.573 0-1.986-.178a2.3 2.3 0 0 1-1.218-1.262C13 7.13 13 6.587 13 5.5m-11 13c0 1.087 0 1.63.171 2.06a2.3 2.3 0 0 0 1.218 1.262c.413.178.938.178 1.986.178h2.25c1.048 0 1.573 0 1.986-.178c.551-.236.99-.69 1.218-1.262c.171-.43.171-.973.171-2.06s0-1.63-.171-2.06a2.3 2.3 0 0 0-1.218-1.262C9.198 15 8.673 15 7.625 15h-2.25c-1.048 0-1.573 0-1.986.178c-.551.236-.99.69-1.218 1.262C2 16.87 2 17.413 2 18.5" />
+                                            </svg>
+                                        </div>
+                                        <div class="sideNavItemsCardTitleBdr">
+                                            <div class="sideNavItemsCardTitleBox">
+                                                <div class="sideNavItemsCardTitleText">Categories</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sideNavItemsCardBase">
+                                <a href="/News.html" class="sideNavItemsCardBdr sideNavLinks">
+                                    <div class="sideNavItemsCardBox">
+                                        <div class="sideNavItemsCardIcon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
+                                                <path fill-rule="evenodd" d="M10.945 1.25h2.11c1.367 0 2.47 0 3.337.117c.9.12 1.658.38 2.26.981c.298.299.512.636.667 1.01c.932.116 1.715.372 2.333.99c.602.602.86 1.36.982 2.26c.116.867.116 1.97.116 3.337v4.11c0 1.367 0 2.47-.116 3.337c-.122.9-.38 1.658-.982 2.26c-.618.618-1.4.874-2.333.991c-.155.373-.369.71-.667 1.009c-.602.602-1.36.86-2.26.982c-.867.116-1.97.116-3.337.116h-2.11c-1.367 0-2.47 0-3.337-.116c-.9-.122-1.658-.38-2.26-.982a3.1 3.1 0 0 1-.667-1.009c-.932-.117-1.715-.373-2.333-.991c-.602-.602-.86-1.36-.981-2.26c-.117-.867-.117-1.97-.117-3.337v-4.11c0-1.367 0-2.47.117-3.337c.12-.9.38-1.658.981-2.26c.618-.618 1.4-.874 2.333-.99a3.1 3.1 0 0 1 .667-1.01c.602-.602 1.36-.86 2.26-.981c.867-.117 1.97-.117 3.337-.117M4.328 4.94c-.437.106-.71.26-.919.47c-.277.276-.457.664-.556 1.398c-.101.756-.103 1.757-.103 3.192v4c0 1.435.002 2.437.103 3.192c.099.734.28 1.122.556 1.399c.209.209.482.363.92.469c-.079-.812-.079-1.806-.079-3.005v-8.11c0-1.198 0-2.193.078-3.005m15.344 14.12c.437-.106.71-.26.919-.469c.277-.277.457-.665.556-1.4c.101-.754.103-1.755.103-3.19v-4c0-1.436-.002-2.437-.103-3.193c-.099-.734-.28-1.122-.556-1.399c-.209-.209-.482-.363-.92-.469c.079.812.079 1.807.079 3.005v8.11c0 1.198 0 2.193-.078 3.005M7.808 2.853c-.734.099-1.122.28-1.399.556c-.277.277-.457.665-.556 1.4C5.752 5.562 5.75 6.564 5.75 8v8c0 1.435.002 2.436.103 3.192c.099.734.28 1.122.556 1.399c.277.277.665.457 1.4.556c.754.101 1.756.103 3.191.103h2c1.435 0 2.437-.002 3.192-.103c.734-.099 1.122-.28 1.399-.556c.277-.277.457-.665.556-1.4c.101-.755.103-1.756.103-3.191V8c0-1.435-.002-2.437-.103-3.192c-.099-.734-.28-1.122-.556-1.399c-.277-.277-.665-.457-1.4-.556c-.754-.101-1.756-.103-3.191-.103h-2c-1.435 0-2.437.002-3.192.103M8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9m0 4a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75m0 4a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/>
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavBoldIcon">
+                                                <path d="M1.75 10v4c0 2.829 0 4.243.879 5.122c.217.217.467.38.763.504l-.019-.134c-.123-.918-.123-2.063-.123-3.393V7.902c0-1.33 0-2.476.123-3.393l.02-.134a2.3 2.3 0 0 0-.764.504C1.75 5.758 1.75 7.172 1.75 10m20 0v4c0 2.829 0 4.243-.879 5.122c-.217.217-.467.38-.763.504l.019-.134c.123-.918.123-2.063.123-3.393V7.902c0-1.33 0-2.476-.123-3.393l-.02-.134c.297.123.547.287.764.504c.879.879.879 2.293.879 5.121" />
+                                                <path fill-rule="evenodd" d="M5.629 2.879C4.75 3.757 4.75 5.172 4.75 8v8c0 2.828 0 4.243.879 5.121C6.507 22 7.922 22 10.75 22h2c2.828 0 4.243 0 5.121-.879c.879-.878.879-2.293.879-5.121V8c0-2.828 0-4.243-.879-5.121C16.993 2 15.578 2 12.75 2h-2c-2.828 0-4.243 0-5.121.879M8 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5h-3A.75.75 0 0 1 8 17m.75-4.75a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8 9a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5h-6A.75.75 0 0 1 8 9" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <div class="sideNavItemsCardTitleBdr">
+                                            <div class="sideNavItemsCardTitleBox">
+                                                <div class="sideNavItemsCardTitleText">News</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="sideNav_section">
+                    <div class="sideNavItemsBdr">
+                        <div class="sideNavItemsBox">
+                            <div class="sideNavItemsCardBase">
+                                <a href="/Schedule.html" class="sideNavItemsCardBdr sideNavLinks">
+                                    <div class="sideNavItemsCardBox">
+                                        <div class="sideNavItemsCardIcon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
+                                                <path d="M17 14a1 1 0 1 0 0-2a1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2a1 1 0 0 0 0 2m-4-5a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-6-3a1 1 0 1 0 0-2a1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2a1 1 0 0 0 0 2" />
+                                                <path fill-rule="evenodd" d="M7 1.75a.75.75 0 0 1 .75.75v.763c.662-.013 1.391-.013 2.193-.013h4.113c.803 0 1.532 0 2.194.013V2.5a.75.75 0 0 1 1.5 0v.827q.39.03.739.076c1.172.158 2.121.49 2.87 1.238c.748.749 1.08 1.698 1.238 2.87c.153 1.14.153 2.595.153 4.433v2.112c0 1.838 0 3.294-.153 4.433c-.158 1.172-.49 2.121-1.238 2.87c-.749.748-1.698 1.08-2.87 1.238c-1.14.153-2.595.153-4.433.153H9.945c-1.838 0-3.294 0-4.433-.153c-1.172-.158-2.121-.49-2.87-1.238c-.748-.749-1.08-1.698-1.238-2.87c-.153-1.14-.153-2.595-.153-4.433v-2.112c0-1.838 0-3.294.153-4.433c.158-1.172.49-2.121 1.238-2.87c.749-.748 1.698-1.08 2.87-1.238q.35-.046.739-.076V2.5A.75.75 0 0 1 7 1.75M5.71 4.89c-1.005.135-1.585.389-2.008.812S3.025 6.705 2.89 7.71q-.034.255-.058.539h18.336q-.024-.284-.058-.54c-.135-1.005-.389-1.585-.812-2.008s-1.003-.677-2.009-.812c-1.027-.138-2.382-.14-4.289-.14h-4c-1.907 0-3.261.002-4.29.14M2.75 12c0-.854 0-1.597.013-2.25h18.474c.013.653.013 1.396.013 2.25v2c0 1.907-.002 3.262-.14 4.29c-.135 1.005-.389 1.585-.812 2.008s-1.003.677-2.009.812c-1.027.138-2.382.14-4.289.14h-4c-1.907 0-3.261-.002-4.29-.14c-1.005-.135-1.585-.389-2.008-.812s-.677-1.003-.812-2.009c-.138-1.027-.14-2.382-.14-4.289z" clip-rule="evenodd" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavBoldIcon">
+                                                <path d="M7.75 2.5a.75.75 0 0 0-1.5 0v1.58c-1.44.115-2.384.397-3.078 1.092c-.695.694-.977 1.639-1.093 3.078h19.842c-.116-1.44-.398-2.384-1.093-3.078c-.694-.695-1.639-.977-3.078-1.093V2.5a.75.75 0 0 0-1.5 0v1.513C15.585 4 14.839 4 14 4h-4c-.839 0-1.585 0-2.25.013z" />
+                                                <path fill-rule="evenodd" d="M2 12c0-.839 0-1.585.013-2.25h19.974C22 10.415 22 11.161 22 12v2c0 3.771 0 5.657-1.172 6.828S17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.172S2 17.771 2 14zm15 2a1 1 0 1 0 0-2a1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2a1 1 0 0 0 0 2m-4-5a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-6-3a1 1 0 1 0 0-2a1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2a1 1 0 0 0 0 2" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <div class="sideNavItemsCardTitleBdr">
+                                            <div class="sideNavItemsCardTitleBox">
+                                                <div class="sideNavItemsCardTitleText">Schedule</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sideNavItemsCardBase">
+                                <div class="sideNavItemsCardBdr openNavNotify">
+                                    <div class="sideNavItemsCardBox">
+                                        <div class="sideNavItemsCardIcon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg">
+                                                <path d="M8.352 20.242A4.63 4.63 0 0 0 12 22a4.63 4.63 0 0 0 3.648-1.758a27.2 27.2 0 0 1-7.296 0M18.75 9v.704c0 .845.24 1.671.692 2.374l1.108 1.723c1.011 1.574.239 3.713-1.52 4.21a25.8 25.8 0 0 1-14.06 0c-1.759-.497-2.531-2.636-1.52-4.21l1.108-1.723a4.4 4.4 0 0 0 .693-2.374V9c0-3.866 3.022-7 6.749-7s6.75 3.134 6.75 7" />
+                                            </svg>
+                                        </div>
+                                        <div class="sideNavItemsCardTitleBdr">
+                                            <div class="sideNavItemsCardTitleBox">
+                                                <div class="sideNavItemsCardTitleText">Notifications</div>
+                                            </div>
+                                        </div>
+                                        <div class="navBarNotificationStatusNo_bdr">
+                                            <div class="navBarNotificationStatusNo_box">
+                                                <div class="navBarNotificationStatusNo_text"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="navBarProfileBdr">
+                                <div class="navBarProfileBox open_nav_profileOptions">
+                                    <div class="navBarProfileImageBox">
+                                        <img src="/Images/Uvid_profilebase.png" alt="Profile Image" class="navBarProfileImage" loading="eager">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    `;
+    const btmNavBarStruct = 
+    `
+        <div class="btmNavBdr">
+            <div class="btmNavBox">
+                <div class="btmNavItemsCardBase">
+                    <a href="/Home.html" class="btmNavItemsCardBdr btmNavLinks ">
+                        <div class="btmNavItemsCardBox">
+                            <div class="btmNavItemsCardIcon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="btmNavItemsCardSvg btmNavOutlineIcon">
+                                    <path d="M9.447 15.398a.75.75 0 1 0-.894 1.204A5.77 5.77 0 0 0 12 17.75a5.77 5.77 0 0 0 3.447-1.148a.75.75 0 1 0-.894-1.204A4.27 4.27 0 0 1 12 16.25a4.27 4.27 0 0 1-2.553-.852"/>
+                                    <path fill-rule="evenodd" d="M12 1.25c-.708 0-1.351.203-2.05.542c-.674.328-1.454.812-2.427 1.416L5.456 4.491c-.92.572-1.659 1.03-2.227 1.465c-.589.45-1.041.91-1.368 1.507c-.326.595-.472 1.229-.543 1.978c-.068.725-.068 1.613-.068 2.726v1.613c0 1.904 0 3.407.153 4.582c.156 1.205.486 2.178 1.23 2.947c.747.773 1.697 1.119 2.875 1.282c1.14.159 2.598.159 4.434.159h4.116c1.836 0 3.294 0 4.434-.159c1.177-.163 2.128-.509 2.876-1.282c.743-.769 1.073-1.742 1.23-2.947c.152-1.175.152-2.678.152-4.582v-1.613c0-1.113 0-2-.068-2.726c-.07-.75-.217-1.383-.543-1.978c-.327-.597-.78-1.056-1.368-1.507c-.568-.436-1.306-.893-2.227-1.465l-2.067-1.283c-.973-.604-1.753-1.088-2.428-1.416c-.697-.34-1.34-.542-2.049-.542M8.28 4.504c1.015-.63 1.73-1.072 2.327-1.363c.581-.283.993-.391 1.393-.391s.812.108 1.393.391c.598.29 1.312.733 2.327 1.363l2 1.241c.961.597 1.636 1.016 2.14 1.402c.489.375.77.684.963 1.036c.193.353.306.766.365 1.398c.061.648.062 1.465.062 2.623v1.521c0 1.97-.002 3.376-.14 4.443c-.136 1.048-.393 1.656-.82 2.099c-.425.439-1.003.7-2.004.839c-1.026.142-2.379.144-4.286.144h-4c-1.908 0-3.26-.002-4.286-.144c-1.001-.14-1.579-.4-2.003-.84c-.428-.442-.685-1.05-.82-2.098c-.14-1.067-.141-2.472-.141-4.443v-1.521c0-1.158 0-1.975.062-2.623c.059-.632.172-1.045.365-1.398c.193-.352.474-.661.964-1.036c.503-.386 1.178-.805 2.139-1.402z" clip-rule="evenodd"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="btmNavItemsCardSvg btmNavBoldIcon">
+                                    <path fill-rule="evenodd" d="M2.52 7.823C2 8.77 2 9.915 2 12.203v1.522c0 3.9 0 5.851 1.172 7.063S6.229 22 10 22h4c3.771 0 5.657 0 6.828-1.212S22 17.626 22 13.725v-1.521c0-2.289 0-3.433-.52-4.381c-.518-.949-1.467-1.537-3.364-2.715l-2-1.241C14.111 2.622 13.108 2 12 2s-2.11.622-4.116 1.867l-2 1.241C3.987 6.286 3.038 6.874 2.519 7.823m6.927 7.575a.75.75 0 1 0-.894 1.204A5.77 5.77 0 0 0 12 17.75a5.77 5.77 0 0 0 3.447-1.148a.75.75 0 1 0-.894-1.204A4.27 4.27 0 0 1 12 16.25a4.27 4.27 0 0 1-2.553-.852" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="btmNavItemsCardTitleBdr">
+                                <div class="btmNavItemsCardTitleBox">
+                                    <div class="btmNavItemsCardTitleText">Home</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="btmNavItemsCardBase">
+                    <a href="/Catalog.html" class="btmNavItemsCardBdr btmNavLinks ">
+                        <div class="btmNavItemsCardBox">
+                            <div class="btmNavItemsCardIcon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="btmNavItemsCardSvg btmNavOutlineIcon">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2.75a9.25 9.25 0 1 0 0 18.5a9.25 9.25 0 0 0 0-18.5M1.25 12C1.25 6.063 6.063 1.25 12 1.25S22.75 6.063 22.75 12S17.937 22.75 12 22.75S1.25 17.937 1.25 12m12.599-2.819c-.605.16-1.42.485-2.595.955c-.541.217-.642.268-.716.333a1 1 0 0 0-.07.069c-.064.074-.115.175-.332.716c-.47 1.175-.794 1.99-.955 2.595c-.167.63-.085.79-.059.83a.8.8 0 0 0 .2.198c.038.027.199.108.829-.059c.605-.16 1.42-.484 2.594-.954c.542-.217.643-.268.717-.333l.494.564l-.494-.564a1 1 0 0 0 .07-.07l.563.495l-.564-.494c.065-.074.116-.175.333-.717c.47-1.174.794-1.99.954-2.594c.168-.63.086-.791.06-.83a.8.8 0 0 0-.2-.199c-.038-.026-.2-.108-.83.06m-.384-1.45c.69-.183 1.436-.271 2.057.15c.234.16.437.362.596.597c.422.621.333 1.367.15 2.057c-.186.704-.546 1.605-.991 2.717l-.02.05l-.034.084c-.163.41-.308.772-.564 1.065a2 2 0 0 1-.208.208c-.293.256-.655.4-1.065.564l-.083.033l-.279-.696l.279.697l-.05.02c-1.113.445-2.014.805-2.718.991c-.69.183-1.436.272-2.057-.15l.422-.62l-.422.62a2.3 2.3 0 0 1-.596-.596c-.422-.621-.334-1.368-.15-2.057c.186-.705.546-1.605.991-2.717l.02-.05l.034-.085c.163-.41.307-.771.564-1.064q.097-.11.208-.208c.293-.257.655-.401 1.064-.564l.084-.034l.05-.02c1.113-.445 2.013-.805 2.718-.992"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="btmNavItemsCardSvg btmNavBoldIcon">
+                                    <path fill-rule="evenodd" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10m1.956-7.905c-.193.17-.44.268-.932.465c-2.31.924-3.465 1.386-4.124.938a1.5 1.5 0 0 1-.398-.398c-.448-.66.014-1.814.938-4.124c.197-.493.295-.74.465-.933q.065-.073.139-.138c.193-.17.44-.268.932-.465c2.31-.924 3.464-1.386 4.124-.938a1.5 1.5 0 0 1 .398.398c.448.66-.014 1.814-.938 4.124c-.197.493-.295.739-.465.932q-.065.075-.139.139" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="btmNavItemsCardTitleBdr">
+                                <div class="btmNavItemsCardTitleBox">
+                                    <div class="btmNavItemsCardTitleText">Catalog</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="btmNavItemsCardBase">
+                    <a href="/User/Watchlist.html" class="btmNavItemsCardBdr btmNavLinks ">
+                        <div class="btmNavItemsCardBox">
+                            <div class="btmNavItemsCardIcon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="btmNavItemsCardSvg watchlistSvg btmNavOutlineIcon">
+                                    <g fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
+                                        <path d="m5.766 10l-.787.315C2.993 11.109 2 11.507 2 12s.993.89 2.979 1.685l2.808 1.124C9.773 15.603 10.767 16 12 16s2.227-.397 4.213-1.191l2.808-1.124C21.007 12.891 22 12.493 22 12s-.993-.89-2.979-1.685L18.234 10" />
+                                        <path d="m5.766 14l-.787.315C2.993 15.109 2 15.507 2 16s.993.89 2.979 1.685l2.808 1.124C9.773 19.603 10.767 20 12 20s2.227-.397 4.213-1.192l2.808-1.123C21.007 16.891 22 16.494 22 16c0-.493-.993-.89-2.979-1.685L18.234 14" />
+                                    </g>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="btmNavItemsCardSvg btmNavBoldIcon">
+                                    <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
+                                    <path fill-rule="evenodd" d="M2 8c0 .494.993.89 2.979 1.685l2.808 1.124C9.773 11.603 10.767 12 12 12s2.227-.397 4.213-1.191l2.808-1.124C21.007 8.891 22 8.494 22 8s-.993-.89-2.979-1.685l-2.808-1.123C14.227 4.397 13.233 4 12 4s-2.227.397-4.213 1.192L4.98 6.315C2.993 7.109 2 7.506 2 8" clip-rule="evenodd" />
+                                    <path d="m19.021 13.685l-2.808 1.124C14.227 15.603 13.233 16 12 16s-2.227-.397-4.213-1.191L4.98 13.685C2.993 12.891 2 12.493 2 12c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 12.535 10.572 13 12 13s2.59-.465 4.439-1.205l3.14-1.256C21.194 11.189 22 11.555 22 12c0 .493-.993.89-2.979 1.685" />
+                                    <path d="m19.021 17.685l-2.808 1.123C14.227 19.603 13.233 20 12 20s-2.227-.397-4.213-1.192L4.98 17.685C2.993 16.89 2 16.493 2 16c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 16.535 10.572 17 12 17s2.59-.465 4.439-1.205l3.14-1.256c1.614.65 2.421 1.016 2.421 1.46c0 .494-.993.891-2.979 1.686" />
+                                </svg>
+                            </div>
+                            <div class="btmNavItemsCardTitleBdr">
+                                <div class="btmNavItemsCardTitleBox">
+                                    <div class="btmNavItemsCardTitleText">Watchlist</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="btmNavItemsCardBase">
+                    <a href="/Categories.html" class="btmNavItemsCardBdr btmNavLinks ">
+                        <div class="btmNavItemsCardBox">
+                            <div class="btmNavItemsCardIcon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="btmNavItemsCardSvg btmNavOutlineIcon">
+                                    <path fill-rule="evenodd" d="M5.948 1.75c-.898 0-1.648 0-2.242.08c-.628.084-1.195.27-1.65.725c-.456.456-.642 1.023-.726 1.65c-.08.595-.08 1.345-.08 2.243v2.104c0 .898 0 1.648.08 2.242c.084.628.27 1.195.725 1.65c.456.456 1.023.642 1.65.726c.595.08 1.345.08 2.243.08h.104c.898 0 1.648 0 2.242-.08c.628-.084 1.195-.27 1.65-.726c.456-.455.642-1.022.726-1.65c.08-.594.08-1.344.08-2.242V6.448c0-.898 0-1.648-.08-2.242c-.084-.628-.27-1.195-.725-1.65c-.456-.456-1.023-.642-1.65-.726c-.595-.08-1.344-.08-2.243-.08zM3.116 3.616c.13-.13.328-.237.79-.3c.482-.064 1.13-.066 2.094-.066s1.612.002 2.095.067c.461.062.659.169.789.3s.237.327.3.788c.064.483.066 1.131.066 2.095v2c0 .964-.002 1.612-.067 2.095c-.062.461-.169.659-.3.789s-.327.237-.788.3c-.483.064-1.131.066-2.095.066s-1.612-.002-2.095-.066c-.461-.063-.659-.17-.789-.3s-.237-.328-.3-.79c-.064-.482-.066-1.13-.066-2.094v-2c0-.964.002-1.612.067-2.095c.062-.461.169-.659.3-.789m14.331 7.134c-.899 0-1.648 0-2.242.08c-.628.084-1.195.27-1.65.726c-.456.455-.642 1.022-.726 1.65c-.08.594-.08 1.344-.08 2.242v2.104c0 .899 0 1.648.08 2.242c.084.628.27 1.195.726 1.65c.455.456 1.022.642 1.65.726c.594.08 1.343.08 2.242.08h.104c.898 0 1.648 0 2.242-.08c.628-.084 1.195-.27 1.65-.726c.456-.455.642-1.022.726-1.65c.08-.594.08-1.343.08-2.242v-2.104c0-.898 0-1.648-.08-2.242c-.084-.628-.27-1.195-.726-1.65c-.455-.456-1.022-.642-1.65-.726c-.594-.08-1.343-.08-2.242-.08zm-2.832 1.866c.13-.13.328-.237.79-.3c.482-.064 1.13-.066 2.094-.066s1.612.002 2.095.066c.461.063.659.17.789.3s.237.328.3.79c.064.482.066 1.13.066 2.094v2c0 .964-.002 1.612-.067 2.095c-.062.461-.169.659-.3.789s-.327.237-.788.3c-.483.064-1.131.066-2.095.066s-1.612-.002-2.095-.067c-.461-.062-.659-.169-.789-.3s-.237-.327-.3-.788c-.064-.483-.066-1.131-.066-2.095v-2c0-.964.002-1.612.066-2.095c.063-.461.17-.659.3-.789M16.475 1.75h2.05c.445 0 .816 0 1.12.02c.317.022.617.07.907.19a2.75 2.75 0 0 1 1.489 1.488c.12.29.167.59.188.907c.021.304.021.675.021 1.12v.05c0 .445 0 .816-.02 1.12a2.8 2.8 0 0 1-.19.907a2.75 2.75 0 0 1-1.488 1.489c-.29.12-.59.167-.907.188c-.304.021-.675.021-1.12.021h-2.05c-.445 0-.816 0-1.12-.02a2.8 2.8 0 0 1-.907-.19a2.75 2.75 0 0 1-1.489-1.488c-.12-.29-.167-.59-.188-.907c-.021-.304-.021-.675-.021-1.12v-.05c0-.445 0-.816.02-1.12a2.8 2.8 0 0 1 .19-.907a2.75 2.75 0 0 1 1.488-1.489c.29-.12.59-.167.907-.188c.304-.021.675-.021 1.12-.021m-1.018 1.517c-.241.017-.358.046-.435.078a1.25 1.25 0 0 0-.677.677c-.032.077-.061.194-.078.435A17 17 0 0 0 14.25 5.5c0 .476 0 .796.017 1.043c.017.241.046.358.078.435c.127.307.37.55.677.677c.077.032.194.061.435.078c.247.017.567.017 1.043.017h2c.476 0 .796 0 1.043-.017c.241-.017.358-.046.435-.078c.307-.127.55-.37.677-.677c.032-.077.061-.194.078-.435c.017-.247.017-.567.017-1.043s0-.796-.017-1.043c-.017-.241-.046-.358-.078-.435a1.25 1.25 0 0 0-.677-.677c-.077-.032-.194-.061-.435-.078A17 17 0 0 0 18.5 3.25h-2c-.476 0-.796 0-1.043.017M4.975 14.75c-.445 0-.816 0-1.12.02a2.8 2.8 0 0 0-.907.19a2.75 2.75 0 0 0-1.489 1.488c-.12.29-.167.59-.188.907c-.021.304-.021.675-.021 1.12v.05c0 .445 0 .816.02 1.12c.022.317.07.617.19.907a2.75 2.75 0 0 0 1.488 1.489c.29.12.59.167.907.188c.304.021.675.021 1.12.021h2.05c.445 0 .816 0 1.12-.02c.317-.022.617-.069.907-.19a2.75 2.75 0 0 0 1.489-1.488c.12-.29.167-.59.188-.907c.021-.304.021-.675.021-1.12v-.05c0-.445 0-.816-.02-1.12a2.8 2.8 0 0 0-.19-.907a2.75 2.75 0 0 0-1.488-1.489c-.29-.12-.59-.167-.907-.188c-.304-.021-.675-.021-1.12-.021zm-1.453 1.595c.077-.032.194-.061.435-.078A17 17 0 0 1 5 16.25h2c.476 0 .796 0 1.043.017c.241.017.358.046.435.078c.307.127.55.37.677.677c.032.077.061.194.078.435c.017.247.017.567.017 1.043s0 .796-.017 1.043c-.017.241-.046.358-.078.435a1.25 1.25 0 0 1-.677.677c-.077.032-.194.061-.435.078A17 17 0 0 1 7 20.75H5c-.476 0-.796 0-1.043-.017c-.241-.017-.358-.046-.435-.078a1.25 1.25 0 0 1-.677-.677c-.032-.077-.061-.194-.078-.435A17 17 0 0 1 2.75 18.5c0-.476 0-.796.017-1.043c.017-.241.046-.358.078-.435c.127-.307.37-.55.677-.677" clip-rule="evenodd"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="btmNavItemsCardSvg btmNavBoldIcon">
+                                    <path d="M13 15.4c0-2.074 0-3.111.659-3.756S15.379 11 17.5 11s3.182 0 3.841.644C22 12.29 22 13.326 22 15.4v2.2c0 2.074 0 3.111-.659 3.756S19.621 22 17.5 22s-3.182 0-3.841-.644C13 20.71 13 19.674 13 17.6zM2 8.6c0 2.074 0 3.111.659 3.756S4.379 13 6.5 13s3.182 0 3.841-.644C11 11.71 11 10.674 11 8.6V6.4c0-2.074 0-3.111-.659-3.756S8.621 2 6.5 2s-3.182 0-3.841.644C2 3.29 2 4.326 2 6.4zm11-3.1c0-1.087 0-1.63.171-2.06a2.3 2.3 0 0 1 1.218-1.262C14.802 2 15.327 2 16.375 2h2.25c1.048 0 1.573 0 1.986.178c.551.236.99.69 1.218 1.262c.171.43.171.973.171 2.06s0 1.63-.171 2.06a2.3 2.3 0 0 1-1.218 1.262C20.198 9 19.673 9 18.625 9h-2.25c-1.048 0-1.573 0-1.986-.178a2.3 2.3 0 0 1-1.218-1.262C13 7.13 13 6.587 13 5.5m-11 13c0 1.087 0 1.63.171 2.06a2.3 2.3 0 0 0 1.218 1.262c.413.178.938.178 1.986.178h2.25c1.048 0 1.573 0 1.986-.178c.551-.236.99-.69 1.218-1.262c.171-.43.171-.973.171-2.06s0-1.63-.171-2.06a2.3 2.3 0 0 0-1.218-1.262C9.198 15 8.673 15 7.625 15h-2.25c-1.048 0-1.573 0-1.986.178c-.551.236-.99.69-1.218 1.262C2 16.87 2 17.413 2 18.5" />
+                                </svg>
+                            </div>
+                            <div class="btmNavItemsCardTitleBdr">
+                                <div class="btmNavItemsCardTitleBox">
+                                    <div class="btmNavItemsCardTitleText">Categories</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="btmNavItemsCardBase">
+                    <a href="/News.html" class="btmNavItemsCardBdr btmNavLinks ">
+                        <div class="btmNavItemsCardBox">
+                            <div class="btmNavItemsCardIcon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="btmNavItemsCardSvg btmNavOutlineIcon">
+                                    <path fill-rule="evenodd" d="M10.945 1.25h2.11c1.367 0 2.47 0 3.337.117c.9.12 1.658.38 2.26.981c.298.299.512.636.667 1.01c.932.116 1.715.372 2.333.99c.602.602.86 1.36.982 2.26c.116.867.116 1.97.116 3.337v4.11c0 1.367 0 2.47-.116 3.337c-.122.9-.38 1.658-.982 2.26c-.618.618-1.4.874-2.333.991c-.155.373-.369.71-.667 1.009c-.602.602-1.36.86-2.26.982c-.867.116-1.97.116-3.337.116h-2.11c-1.367 0-2.47 0-3.337-.116c-.9-.122-1.658-.38-2.26-.982a3.1 3.1 0 0 1-.667-1.009c-.932-.117-1.715-.373-2.333-.991c-.602-.602-.86-1.36-.981-2.26c-.117-.867-.117-1.97-.117-3.337v-4.11c0-1.367 0-2.47.117-3.337c.12-.9.38-1.658.981-2.26c.618-.618 1.4-.874 2.333-.99a3.1 3.1 0 0 1 .667-1.01c.602-.602 1.36-.86 2.26-.981c.867-.117 1.97-.117 3.337-.117M4.328 4.94c-.437.106-.71.26-.919.47c-.277.276-.457.664-.556 1.398c-.101.756-.103 1.757-.103 3.192v4c0 1.435.002 2.437.103 3.192c.099.734.28 1.122.556 1.399c.209.209.482.363.92.469c-.079-.812-.079-1.806-.079-3.005v-8.11c0-1.198 0-2.193.078-3.005m15.344 14.12c.437-.106.71-.26.919-.469c.277-.277.457-.665.556-1.4c.101-.754.103-1.755.103-3.19v-4c0-1.436-.002-2.437-.103-3.193c-.099-.734-.28-1.122-.556-1.399c-.209-.209-.482-.363-.92-.469c.079.812.079 1.807.079 3.005v8.11c0 1.198 0 2.193-.078 3.005M7.808 2.853c-.734.099-1.122.28-1.399.556c-.277.277-.457.665-.556 1.4C5.752 5.562 5.75 6.564 5.75 8v8c0 1.435.002 2.436.103 3.192c.099.734.28 1.122.556 1.399c.277.277.665.457 1.4.556c.754.101 1.756.103 3.191.103h2c1.435 0 2.437-.002 3.192-.103c.734-.099 1.122-.28 1.399-.556c.277-.277.457-.665.556-1.4c.101-.755.103-1.756.103-3.191V8c0-1.435-.002-2.437-.103-3.192c-.099-.734-.28-1.122-.556-1.399c-.277-.277-.665-.457-1.4-.556c-.754-.101-1.756-.103-3.191-.103h-2c-1.435 0-2.437.002-3.192.103M8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9m0 4a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75m0 4a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="btmNavItemsCardSvg btmNavBoldIcon">
+                                    <path d="M1.75 10v4c0 2.829 0 4.243.879 5.122c.217.217.467.38.763.504l-.019-.134c-.123-.918-.123-2.063-.123-3.393V7.902c0-1.33 0-2.476.123-3.393l.02-.134a2.3 2.3 0 0 0-.764.504C1.75 5.758 1.75 7.172 1.75 10m20 0v4c0 2.829 0 4.243-.879 5.122c-.217.217-.467.38-.763.504l.019-.134c.123-.918.123-2.063.123-3.393V7.902c0-1.33 0-2.476-.123-3.393l-.02-.134c.297.123.547.287.764.504c.879.879.879 2.293.879 5.121" />
+                                    <path fill-rule="evenodd" d="M5.629 2.879C4.75 3.757 4.75 5.172 4.75 8v8c0 2.828 0 4.243.879 5.121C6.507 22 7.922 22 10.75 22h2c2.828 0 4.243 0 5.121-.879c.879-.878.879-2.293.879-5.121V8c0-2.828 0-4.243-.879-5.121C16.993 2 15.578 2 12.75 2h-2c-2.828 0-4.243 0-5.121.879M8 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5h-3A.75.75 0 0 1 8 17m.75-4.75a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8 9a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5h-6A.75.75 0 0 1 8 9" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="btmNavItemsCardTitleBdr">
+                                <div class="btmNavItemsCardTitleBox">
+                                    <div class="btmNavItemsCardTitleText">News</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="navbar_UnderLayer"></div>
+    `;
+    const navBarProfileMenuStruct = 
+    `
+        <div class="navBarProfileOptBdr navBarMenuFixed">
+            <div class="navBarProfileOptBox">
+                <div class="navBarProfileNameBox">
+                    <p class="navBarProfileNameText navBarProfileNameTextMajor navBarProfileNameWatching">acbennny</p>
+                    <p class="navBarProfileNameText navBarProfileNameTextMinor navBarProfileNameUser">uvidtestuser</p>
+                </div>
+                <div class="navBarProfileCardBox">
+                    <button class="navBarProfileCard">
+                        <a href="/User/Profile.html" class="navBarProfileCardLink">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navBarProfileCardLinkIcon">
+                                <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/>
+                            </svg>
+                            <p class="navBarProfileCardLinkText">Profile</p>
+                        </a>
+                    </button>
+                    <button class="navBarProfileCard">
+                        <a href="javascript:;" class="navBarProfileCardLink open_switchProf">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarProfileCardLinkIcon">
+                                <path d="M32 96l320 0V32c0-12.9 7.8-24.6 19.8-29.6s25.7-2.2 34.9 6.9l96 96c6 6 9.4 14.1 9.4 22.6s-3.4 16.6-9.4 22.6l-96 96c-9.2 9.2-22.9 11.9-34.9 6.9s-19.8-16.6-19.8-29.6V160L32 160c-17.7 0-32-14.3-32-32s14.3-32 32-32zM480 352c17.7 0 32 14.3 32 32s-14.3 32-32 32H160v64c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-96-96c-6-6-9.4-14.1-9.4-22.6s3.4-16.6 9.4-22.6l96-96c9.2-9.2 22.9-11.9 34.9-6.9s19.8 16.6 19.8 29.6l0 64H480z"/>
+                            </svg>
+                            <p class="navBarProfileCardLinkText">Switch Profile</p>
+                        </a>
+                    </button>
+                    <button class="navBarProfileCard">
+                        <a href="/User/Watchlist.html" class="navBarProfileCardLink">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="navBarProfileCardLinkIcon">
+                                <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
+                            </svg>
+                            <p class="navBarProfileCardLinkText">Watchlist</p>
+                        </a>
+                    </button>
+                    <button class="navBarProfileCard">
+                        <a href="/User/History.html" class="navBarProfileCardLink">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarProfileCardLinkIcon">
+                                <path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/>
+                            </svg>
+                            <p class="navBarProfileCardLinkText">History</p>
+                        </a>
+                    </button>
+                    <button class="navBarProfileCard">
+                        <a href="/User/Notification.html" class="navBarProfileCardLink">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarProfileCardLinkIcon">
+                                <path d="M224 0c-17.7 0-32 14.3-32 32V51.2C119 66 64 130.6 64 208v18.8c0 47-17.3 92.4-48.5 127.6l-7.4 8.3c-8.4 9.4-10.4 22.9-5.3 34.4S19.4 416 32 416H416c12.6 0 24-7.4 29.2-18.9s3.1-25-5.3-34.4l-7.4-8.3C401.3 319.2 384 273.9 384 226.8V208c0-77.4-55-142-128-156.8V32c0-17.7-14.3-32-32-32zm45.3 493.3c12-12 18.7-28.3 18.7-45.3H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7z"/>
+                            </svg>
+                            <p class="navBarProfileCardLinkText">Notification</p>
+                        </a>
+                    </button>
+                    <button class="navBarProfileCard">
+                        <a href="/User/Settings.html" class="navBarProfileCardLink">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarProfileCardLinkIcon">
+                                <path d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"/>
+                            </svg>
+                            <p class="navBarProfileCardLinkText">Settings</p>
+                        </a>
+                    </button>
+                    <!-- <button class="navBarProfileCard">
+                        <a href="/Help.html" class="navBarProfileCardLink">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarProfileCardLinkIcon">
+                                <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm169.8-90.7c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24V250.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1H222.6c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/>
+                            </svg>
+                            <p class="navBarProfileCardLinkText">Help</p>
+                        </a>
+                    </button> -->
+                </div>
+                <div class="navBarSignOutBdr">
+                    <div class="navBarSignOutBox">
+                        <button class="navBarSignOutBtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navBarSignOutBtnIcon">
+                                <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 17.7 14.3 32 32 32s32-14.3 32-32V32zM143.5 120.6c13.6-11.3 15.4-31.5 4.1-45.1s-31.5-15.4-45.1-4.1C49.7 115.4 16 181.8 16 256c0 132.5 107.5 240 240 240s240-107.5 240-240c0-74.2-33.8-140.6-86.6-184.6c-13.6-11.3-33.8-9.4-45.1 4.1s-9.4 33.8 4.1 45.1c38.9 32.3 63.5 81 63.5 135.4c0 97.2-78.8 176-176 176s-176-78.8-176-176c0-54.4 24.7-103.1 63.5-135.4z"/>
+                            </svg>
+                            <p class="navBarSignOutBtnText">Sign Out</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     `;
     const footerHTML = 
     `
         <div class="give_space"></div>
-        <footer class="footer_base">
-            <div class="footer_bdr">
-                <div class="footer_box">
-                    <div class="footer_boxCtnt footer_logoBox">
-                        <div class="Companylogo footer_logo">
-                            <h1 class="lhead">U</h1>
-                            <h1 class="lname">vid</h1>
-                        </div>
-                    </div>
-                    <div class="footer_boxCtnt footer_abt">
-                        <div class="footer_abt_titleBox">
-                            <h4 class="footer_abt_title front">A</h4>
-                            <h4 class="footer_abt_title back">bout Us</h4>
-                        </div>
-                        <div class="footer_abt_textBox">
-                            <p class="footer_abt_text">
-                                <span>Uvid is an online streaming platform tailored with providing the best streaming experience.</span>
-                                <span>Here you can watch from a vast library of movies, tv shows, anime and even cartoon shows for the kids.</span>
-                            </p>
-                        </div>
-                        <div class="footer_Important_linksBox">
-                            <a href="/User/Settings/Preferences.html" title="Preferences" class="footerlinks footer_Important_links">Preferences</a>
-                            <a href="/Policies/Privacy.html" title="Privacy" class="footerlinks footer_Important_links">Privacy</a>
-                            <a href="/Policies/TOU.html" title="Terms of Use" class="footerlinks footer_Important_links">Terms of Use</a>
-                        </div>
-                    </div>
-                    <div class="footer_boxCtnt footer_OtherLinks">
-                        <div class="footer_abt_titleBox">
-                            <h4 class="footer_abt_title front">U</h4>
-                            <h4 class="footer_abt_title back">seful Links</h4>
-                        </div>
-                        <div class="footer_UsefulLinksBdr">
-                            <div class="footer_UsefulLinksBox">
-                                <a href="/Help.html#faq" title="Frequently Asked Questions" class="footerlinks footer_UsefulLinks">FAQ</a>
-                                <a href="/Help.html" title="Help Center" class="footerlinks footer_UsefulLinks">Help</a>
-                                <a href="/Feedback.html" title="Feedback" class="footerlinks footer_UsefulLinks">Feedback</a>
-                                <a href="/Support.html" title="Support Us" class="footerlinks footer_UsefulLinks">Support</a>
-                            </div>
-                            <div class="footer_UsefulLinksBox">
-                                <a href="/Help/Contact.html" title="Contact Us" class="footerlinks footer_UsefulLinks">Contact Us</a>
-                                <a href="/Policies/Cookies.html" title="Cookies" class="footerlinks footer_UsefulLinks">Cookies</a>
-                                <a href="/Policies/AdChoices.html" title="Ad Choices" class="footerlinks footer_UsefulLinks">Ad Choices</a>
-                                <a href="/Policies/Copyright.html" title="Copyright" class="footerlinks footer_UsefulLinks">Copyright</a>
+        <footer class="footer_wrapper">
+            <div class="footer_base">
+                <div class="footer_bdr">
+                    <div class="footer_box">
+                        <div class="footer_boxCtnt footer_logoBox">
+                            <div class="Companylogo footer_logo">
+                                <h1 class="lhead">U</h1>
+                                <h1 class="lname">vid</h1>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="backtotopofpageBox">
-                    <div class="backtotop backtotop_btn" title="Go to top" draggable="false">
-                        <div class="backtotop_IconBox">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="backtotop_Icon">
-                                <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/>
-                            </svg>
+                        <div class="footer_boxCtnt footer_abt">
+                            <div class="footer_abt_titleBox">
+                                <h4 class="footer_abt_title front">A</h4>
+                                <h4 class="footer_abt_title back">bout Us</h4>
+                            </div>
+                            <div class="footer_abt_textBox">
+                                <p class="footer_abt_text">
+                                    <span>Uvid is an online streaming platform tailored with providing the best streaming experience.</span>
+                                    <span>Here you can watch from a vast library of movies, tv shows, anime and even cartoon shows for the kids.</span>
+                                </p>
+                            </div>
+                            <div class="footer_Important_linksBox">
+                                <a href="/User/Settings/Preferences.html" title="Preferences" class="footerlinks footer_Important_links">Preferences</a>
+                                <a href="/Policies/Privacy.html" title="Privacy" class="footerlinks footer_Important_links">Privacy</a>
+                                <a href="/Policies/TOU.html" title="Terms of Use" class="footerlinks footer_Important_links">Terms of Use</a>
+                            </div>
                         </div>
-                        <div class="backtotop_textBox">
-                            <span class="backtotop_text">Top</span>
+                        <div class="footer_boxCtnt footer_OtherLinks">
+                            <div class="footer_abt_titleBox">
+                                <h4 class="footer_abt_title front">U</h4>
+                                <h4 class="footer_abt_title back">seful Links</h4>
+                            </div>
+                            <div class="footer_UsefulLinksBdr">
+                                <div class="footer_UsefulLinksBox">
+                                    <a href="/Help.html#faq" title="Frequently Asked Questions" class="footerlinks footer_UsefulLinks">FAQ</a>
+                                    <a href="/Help.html" title="Help Center" class="footerlinks footer_UsefulLinks">Help</a>
+                                    <a href="/Feedback.html" title="Feedback" class="footerlinks footer_UsefulLinks">Feedback</a>
+                                    <a href="/Support.html" title="Support Us" class="footerlinks footer_UsefulLinks">Support</a>
+                                </div>
+                                <div class="footer_UsefulLinksBox">
+                                    <a href="/Help/Contact.html" title="Contact Us" class="footerlinks footer_UsefulLinks">Contact Us</a>
+                                    <a href="/Policies/Cookies.html" title="Cookies" class="footerlinks footer_UsefulLinks">Cookies</a>
+                                    <a href="/Policies/AdChoices.html" title="Ad Choices" class="footerlinks footer_UsefulLinks">Ad Choices</a>
+                                    <a href="/Policies/Copyright.html" title="Copyright" class="footerlinks footer_UsefulLinks">Copyright</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="developer_creditsBdr">
-                    <div class="developer_creditsBox">
-                        <div class="developer_creditsText">
-                            Designed by <span class="developer_creditsName developer_profile">acbennny</span>
+                    <div class="backtotopofpageBox">
+                        <div class="backtotop backtotop_btn" title="Go to top" draggable="false">
+                            <div class="backtotop_IconBox">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="backtotop_Icon">
+                                    <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/>
+                                </svg>
+                            </div>
+                            <div class="backtotop_textBox">
+                                <span class="backtotop_text">Top</span>
+                            </div>
                         </div>
                     </div>
+                    <div class="developer_creditsBdr">
+                        <div class="developer_creditsBox">
+                            <div class="developer_creditsText">
+                                Designed by <span class="developer_creditsName developer_profile">acbennny</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="give_space"></div>
                 </div>
             </div>
         </footer>
@@ -359,23 +644,26 @@
         
         // INSERT
             
-            // Insert Navbar
-            document.body.insertAdjacentHTML(`afterbegin` , navBarHTML);
+            // Insert the NavBars
+            topNavBar.insertAdjacentHTML(`afterbegin` , topNavBarStruct);
+            sideNavBar.insertAdjacentHTML(`afterbegin` , sideNavBarStruct);
+            btmNavBar.insertAdjacentHTML(`afterbegin` , btmNavBarStruct);
+
+            // Insert Navbar Profile Menu
+            document.body.insertAdjacentHTML(`beforeend` , navBarProfileMenuStruct);
             
             // Insert Footer
-            document.body.insertAdjacentHTML(`beforeend` , footerHTML);
+            documentCtnt.insertAdjacentHTML(`afterend` , footerHTML);
 
 
         // DEFINITION
 
-            let navBar = document.querySelector(".navBar");
-            let navBarHeadName = document.querySelector(".navBar .headname");
+            let sideNavLinks = document.querySelectorAll(".sideNavLinks");
+            let btmNavLinks = document.querySelectorAll(".btmNavLinks");
             let navbarUnderlayer = document.querySelector(".navbar_UnderLayer");
             let goToHomePage = document.querySelectorAll(".Companylogo");
-            let goToSearchPage = document.querySelector(".openNavSearch_Btn");
-            let openNavProfileOptions = document.querySelector(".open_nav_profileOptions");
-            let navBarNotificationStatusNoBox = document.querySelector(".navBarNotificationStatusNo_box");
-            let navBarNotificationStatusNoText = navBarNotificationStatusNoBox.querySelector(".navBarNotificationStatusNo_text");
+            let goToSearchPage = document.querySelectorAll(".openNavSearch_Btn");
+            let navBarNotificationStatusNoBox = document.querySelectorAll(".navBarNotificationStatusNo_box");
             let navBarNotificationMainHTML = 
             `
                 <div class="navBarNotificationMinor">
@@ -411,14 +699,16 @@
                 </div>
             `;
             let navBarNotificationTimer;
+            let openNavProfOptBtn = document.querySelectorAll(".open_nav_profileOptions");
             let navProfileOptionsBdr = document.querySelector(".navBarProfileOptBdr");
             let navProfileOptionsBox = document.querySelector(".navBarProfileOptBox");
+            let openNavProfOptTimer;
             let navBarSignOutBtn = document.querySelector(".navBarSignOutBtn");
             let accountSignOutTimer;
             let navMenuIcon = document.querySelectorAll(".open_nav_menu");
             let navMenuTimer;
             let locationOrigin;
-            let openNavBarNotificationBtn = document.querySelector(".openNavNotify");
+            let openNavBarNotificationBtn = document.querySelectorAll(".openNavNotify");
             let backtotopBtn = document.querySelectorAll(".backtotop_btn");
             let developerProfile = document.querySelectorAll(".developer_profile");
             let openSwitchProfBtn = document.querySelector(".open_switchProf");
@@ -442,19 +732,19 @@
 
         // NAVBAR UNDERLAYER
 
-            function toggleNavbarUnderLayer()
+            function toggleNavBarUnderLayer()
             {
                 document.body.classList.toggle("bodystop");
                 navbarUnderlayer.classList.toggle("active");
             }
 
-            function addNavbarUnderLayer()
+            function addNavBarUnderLayer()
             {
                 document.body.classList.add("bodystop");
                 navbarUnderlayer.classList.add("active");
             }
 
-            function removeNavbarUnderLayer()
+            function removeNavBarUnderLayer()
             {
                 document.body.classList.remove("bodystop");
                 navbarUnderlayer.classList.remove("active");
@@ -464,10 +754,10 @@
 
         // NAVBAR
 
-            // Darken Navbar on scroll
+            // Darken NavBar on scroll
             window.addEventListener("scroll" , () => 
             {
-                navBar.classList.toggle("float" , window.scrollY > 0);
+                topNavBar.classList.toggle("float" , window.scrollY > 0);
             });
 
             // Go to Home page
@@ -480,320 +770,108 @@
             });
 
             // Go to Search Page
-            goToSearchPage.addEventListener("click" , () => 
+            goToSearchPage.forEach((btn) => 
             {
-                window.open("/Search.html" , "_self");
+                btn.addEventListener("click" , () => 
+                {
+                    window.open("/Catalog.html" , "_self");
+                });
             });
 
             // Profile Options
+            function openNavProfileOptions()
+            {
+                openNavProfOptBtn.forEach((btn) => 
+                {
+                    btn.removeEventListener("click" , openNavProfileOptions);
+                });
+
+                navProfileOptionsBdr.classList.toggle("active");
+                toggleNavBarUnderLayer();
+
+                openNavProfOptTimer = setTimeout(() => 
+                {
+                    document.addEventListener("click" , closeNavProfileOptions);
+                    clearTimeout(openNavProfOptTimer);
+                }, 100);
+            }
+
             function closeNavProfileOptions()
             {
-                if((navProfileOptionsBdr.classList.contains("active")) && !(openNavProfileOptions.matches(":hover")))
+                if((navProfileOptionsBdr.classList.contains("active")))
                 {
                     document.removeEventListener("click" , closeNavProfileOptions);
                     navProfileOptionsBdr.classList.remove("active");
                     navProfileOptionsBox.scrollTo(null , 0);
-                    toggleNavbarUnderLayer();
+                    toggleNavBarUnderLayer();
+
+                    openNavProfOptBtn.forEach((btn) => 
+                    {
+                        btn.addEventListener("click" , openNavProfileOptions);
+                    });
                 }
             }
 
-            openNavProfileOptions.addEventListener("click" , () => 
+            openNavProfOptBtn.forEach((btn) => 
             {
-                navProfileOptionsBdr.classList.toggle("active");
-                toggleNavbarUnderLayer();
-
-                document.addEventListener("click" , closeNavProfileOptions);
-
+                btn.addEventListener("click" , openNavProfileOptions);
             });
 
             // Signing Out of your Account
             function accountSignOut()
             {
                 notification(`notifyBad` , `Signing Out`);
-                toggleNavbarUnderLayer();
+                toggleNavBarUnderLayer();
 
                 accountSignOutTimer = setTimeout(() => window.open(`/` , `_self`), 3000);
             }
-
             navBarSignOutBtn.addEventListener("click" , accountSignOut);
 
 
-        // NAVBAR SIDE MENU
+        
+        // SIDE NAVBAR
 
-            function instantiateSideNavBar()
+            // Active state
+            let currPagePathName = window.location.pathname;
+            let extractedCurrPagePath = currPagePathName.replace(/\.html$/, "");
+            let currPageSpecificSegment = extractedCurrPagePath.substring(extractedCurrPagePath.lastIndexOf('/') + 1);
+            let currPageSpecificSegmentLC = currPageSpecificSegment.toLowerCase();
+
+            switch(currPageSpecificSegmentLC)
             {
-                // Creates the nav menu bdr
-                const navMenuBdr = document.createElement("div");
-                navMenuBdr.classList.add("nav_Menu_bdr");
+                case 'home': 
+                    sideNavLinks[0].classList.add("active");
+                    btmNavLinks[0].classList.add("active");
+                    break;
 
-                navMenuBdr.innerHTML = 
-                `
-                    <div class="nav_Menu_box">
-                        <div class="nav_Menu_bcg close_nav_Menu"></div>
-                        <div class="nav_Opt_bcg">
-                            <div class="navOptBdr">
+                case 'catalog': 
+                    sideNavLinks[1].classList.add("active");
+                    btmNavLinks[1].classList.add("active");
+                    break;
+                
+                case 'watchlist': 
+                    sideNavLinks[2].classList.add("active");
+                    btmNavLinks[2].classList.add("active");
+                    break;
+                
+                case 'categories': 
+                    sideNavLinks[3].classList.add("active");
+                    btmNavLinks[3].classList.add("active");
+                    break;
+                
+                case 'news': 
+                    sideNavLinks[4].classList.add("active");
+                    btmNavLinks[4].classList.add("active");
+                    break;
+                
+                case 'schedule': 
+                    sideNavLinks[5].classList.add("active");
+                    break;
 
-                                <section class="navOptBox navOptHeaderBdr">
-                                    <div class="navOptHeaderBox">
-                                        <div class="navOptIconBox">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="navOptIcon close_nav_Menu">
-                                                <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
-                                            </svg>
-                                        </div>
-                                        <a href="/Home.html" class="Companylogo navBarCompanylogo">
-                                            <h1 class="lhead">U</h1>
-                                            <h1 class="lname">vid</h1>
-                                        </a>
-                                    </div>
-                                </section>
-
-                                <div class="navOptDivider"></div>
-                                
-                                <section class="navOptBox navOptLinkBox navOptMain">
-                                    <a href="/Home.html" class="navOptLink" id="home" title="Home">
-                                        <div class="navOptIconBox">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="navOptIcon">
-                                                <path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/>
-                                            </svg>
-                                        </div>
-                                        <span class="navOptTitle">Home</span>
-                                    </a>
-                                    <a href="/Recent.html" class="navOptLink" id="moviesLink" title="Movies">
-                                        <div class="navOptIconBox">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navOptIcon">
-                                                <path d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288H175.5L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7H272.5L349.4 44.6z"/>
-                                            </svg>
-                                        </div>
-                                        <span class="navOptTitle">Recent</span>
-                                    </a>
-                                    <a href="/Trending.html" class="navOptLink" id="moviesLink" title="Movies">
-                                        <div class="navOptIconBox">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="navOptIcon">
-                                                <path d="M384 160c-17.7 0-32-14.3-32-32s14.3-32 32-32H544c17.7 0 32 14.3 32 32V288c0 17.7-14.3 32-32 32s-32-14.3-32-32V205.3L342.6 374.6c-12.5 12.5-32.8 12.5-45.3 0L192 269.3 54.6 406.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160c12.5-12.5 32.8-12.5 45.3 0L320 306.7 466.7 160H384z"/>
-                                            </svg>
-                                        </div>
-                                        <span class="navOptTitle">Trending</span>
-                                    </a>
-                                    <a href="/Movies.html" class="navOptLink" id="moviesLink" title="Movies">
-                                        <div class="navOptIconBox">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navOptIcon">
-                                                <path d="M448 32H361.9l-1 1-127 127h92.1l1-1L453.8 32.3c-1.9-.2-3.8-.3-5.8-.3zm64 128V96c0-15.1-5.3-29.1-14-40l-104 104H512zM294.1 32H201.9l-1 1L73.9 160h92.1l1-1 127-127zM64 32C28.7 32 0 60.7 0 96v64H6.1l1-1 127-127H64zM512 192H0V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V192z"/>
-                                            </svg>
-                                        </div>
-                                        <span class="navOptTitle">Movies</span>
-                                    </a>
-                                    <a href="/Tv.html" class="navOptLink" id="tvShowsLink" title="TV Shows">
-                                        <div class="navOptIconBox">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="navOptIcon">
-                                                <path d="M64 64V352H576V64H64zM0 64C0 28.7 28.7 0 64 0H576c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zM128 448H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H128c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/>
-                                            </svg>
-                                        </div>
-                                        <span class="navOptTitle">TV Shows</span>
-                                    </a>
-                                    <a href="/Genres.html" class="navOptLink" id="tvShowsLink" title="TV Shows">
-                                        <div class="navOptIconBox">
-                                            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navOptIcon">
-                                                <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
-                                            </svg> -->
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navOptIcon">
-                                                <path d="M192 64l0 64c0 17.7 14.3 32 32 32l64 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32zM82.7 207c-15.3 8.8-20.5 28.4-11.7 43.7l32 55.4c8.8 15.3 28.4 20.5 43.7 11.7l55.4-32c15.3-8.8 20.5-28.4 11.7-43.7l-32-55.4c-8.8-15.3-28.4-20.5-43.7-11.7L82.7 207zM288 192c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l64 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-64 0zm64 160c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l64 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-64 0zM160 384l0 64c0 17.7 14.3 32 32 32l64 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32zM32 352c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l64 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-64 0z"/>
-                                            </svg>
-                                        </div>
-                                        <span class="navOptTitle">Genres</span>
-                                    </a>
-                                    <!-- <a href="/MyList.html?list=watchlist" class="navOptLink" id="prem" title="Help">
-                                        <div class="navOptIconBox">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navOptIcon">
-                                                
-                                            </svg>
-                                        </div>
-                                        <span class="navOptTitle">Watchlist</span>
-                                    </a>
-                                    <a href="/MyList.html?list=playlist" class="navOptLink" id="feedback" title="Feedback">
-                                        <div class="navOptIconBox">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="navOptIcon">
-                                                <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                            </svg>
-                                        </div>
-                                        <span class="navOptTitle">Playlist</span>
-                                    </a>
-                                    <a href="/MyList.html?list=history" class="navOptLink" id="supp" title="Support">
-                                        <div class="navOptIconBox">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navOptIcon">
-                                                <path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/>
-                                            </svg>
-                                        </div>
-                                        <span class="navOptTitle">History</span>
-                                    </a> -->
-                                    <a href="/Schedule.html" class="navOptLink" id="newsLink" title="Schedule">
-                                        <div class="navOptIconBox">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navOptIcon">
-                                                <path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"/>
-                                            </svg>
-                                        </div>
-                                        <span class="navOptTitle">Schedule</span>
-                                    </a>
-                                    <a href="/News.html" class="navOptLink" id="newsLink" title="News">
-                                        <div class="navOptIconBox">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navOptIcon">
-                                                <path d="M96 96c0-35.3 28.7-64 64-64H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H80c-44.2 0-80-35.8-80-80V128c0-17.7 14.3-32 32-32s32 14.3 32 32V400c0 8.8 7.2 16 16 16s16-7.2 16-16V96zm64 24v80c0 13.3 10.7 24 24 24H296c13.3 0 24-10.7 24-24V120c0-13.3-10.7-24-24-24H184c-13.3 0-24 10.7-24 24zm208-8c0 8.8 7.2 16 16 16h48c8.8 0 16-7.2 16-16s-7.2-16-16-16H384c-8.8 0-16 7.2-16 16zm0 96c0 8.8 7.2 16 16 16h48c8.8 0 16-7.2 16-16s-7.2-16-16-16H384c-8.8 0-16 7.2-16 16zM160 304c0 8.8 7.2 16 16 16H432c8.8 0 16-7.2 16-16s-7.2-16-16-16H176c-8.8 0-16 7.2-16 16zm0 96c0 8.8 7.2 16 16 16H432c8.8 0 16-7.2 16-16s-7.2-16-16-16H176c-8.8 0-16 7.2-16 16z"/>
-                                            </svg>
-                                        </div>
-                                        <span class="navOptTitle">News</span>
-                                    </a>
-                                </section>
-
-                                <!-- div class="navOptDivider"></div>
-
-                                <section class="navOptBox navOptFooter">
-                                    <div class="navOptFooterBox">
-                                        <div class="navfooterBoxSect">
-                                            <div class="navfooterCompNameBdr">
-                                                <div class="navfooterCompNameBox">
-                                                    <span class="navfooterCompIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="navfooterCompIcon">
-                                                            <path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM199.4 312.6c-31.2-31.2-31.2-81.9 0-113.1s81.9-31.2 113.1 0c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9c-50-50-131-50-181 0s-50 131 0 181s131 50 181 0c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0c-31.2 31.2-81.9 31.2-113.1 0z"/>
-                                                        </svg>
-                                                    </span>
-                                                    <span class="navfooterCompName">
-                                                        <span>2024 UVID</span>
-                                                    </span>
-                                                </div>
-                                                <div class="navfooterCompName">All Rights Reserved</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section> -->
-                            </div>
-                        </div>
-                    </div>
-                `;
-
-                // Appends nav menu bdr 
-                documentBody.appendChild(navMenuBdr);
-
-                // Adds properties after HTML Nodes have been appended
-                navMenuTimer = setTimeout(() => 
-                {
-                    
-                    // Open Nav Menu
-                    function openNavSideMenu()
-                    {
-                        navMenuBdr.classList.add("bdr_atv");
-                        document.body.classList.add('bodystop');
-                    }
-
-                    navMenuIcon.forEach(btn => 
-                    {
-                        btn.addEventListener("click" , openNavSideMenu);
-                    });
-
-                    // Close Nav Menu
-                    function closeNavSideMenu()
-                    {
-                        navMenuBdr.classList.remove("bdr_atv");
-                        document.body.classList.remove('bodystop');
-                    }
-
-                    const closeNavMenu = document.querySelectorAll('.close_nav_Menu');
-                    closeNavMenu.forEach(btn => {
-                        btn.addEventListener("click" , closeNavSideMenu);
-                    });
-
-                    // Setting the title of the page's nav link
-                    const navOptLink = document.querySelectorAll(".navOptLink");
-                    navOptLink.forEach(navlink => 
-                    {
-                        let navTitle = navlink.querySelector(".navOptTitle");
-                        navlink.title = navTitle.textContent;
-                    });
-
-                    // Setting the active  state for the page's nav link
-                    let pcNavLinkBox = document.querySelectorAll(".pc_navlinkBox");
-                    let currPagePathName = window.location.pathname;
-                    let extractedCurrPagePath = currPagePathName.replace(/\.html$/, "");
-                    let currPageSpecificSegment = extractedCurrPagePath.substring(extractedCurrPagePath.lastIndexOf('/') + 1);
-                    let currPageSpecificSegmentLC = currPageSpecificSegment.toLowerCase();
-                    
-                    switch(currPageSpecificSegmentLC)
-                    {
-                        case 'home': 
-                            navOptLink[0].classList.add("active");
-                            pcNavLinkBox[0].classList.add("active");
-                            break;
-
-                        case 'recent': 
-                            navOptLink[1].classList.add("active");
-                            pcNavLinkBox[1].classList.add("active");
-                            break;
-                        
-                        case 'trending': 
-                            navOptLink[2].classList.add("active");
-                            pcNavLinkBox[2].classList.add("active");
-                            break;
-                        
-                        case 'movies': 
-                            navOptLink[3].classList.add("active");
-                            pcNavLinkBox[3].classList.add("active");
-                            break;
-                        
-                        case 'tv': 
-                            navOptLink[4].classList.add("active");
-                            pcNavLinkBox[4].classList.add("active");
-                            break;
-                        
-                        case 'genres': 
-                            navOptLink[5].classList.add("active");
-                            pcNavLinkBox[5].classList.add("active");
-                            break;
-                        
-                        case 'schedule': 
-                            navOptLink[6].classList.add("active");
-                            pcNavLinkBox[6].classList.add("active");
-                            break;
-                        
-                        case 'news': 
-                            navOptLink[7].classList.add("active");
-                            pcNavLinkBox[7].classList.add("active");
-                            break;
-
-                        default: 
-                            console.error("Error: No corresponding navbar item found");
-                            break;
-                    }
-
-                    // Seting title for the footer the nav manu
-                    const navfooterBoxSect1 = document.querySelectorAll(".navfooterBoxSect1 a");
-                    navfooterBoxSect1.forEach(footerlink => 
-                    {
-                        footerlink.title = footerlink.textContent;
-                    });
-
-                    function checkNavMenu()
-                    {
-                        if(((navMenuBdr.classList.contains("bdr_atv")) && (window.innerWidth > 1025)))
-                        {
-                            closeNavSideMenu();
-                        }
-                    }
-
-                    // Listener to remove the nav menu for larger devices (600px)
-                    window.addEventListener("change" , () => 
-                    {
-                        checkNavMenu();
-                    });
-                    window.addEventListener("resize" , () => 
-                    {
-                        checkNavMenu();
-                    });
-
-                    // clear timer once time runs out
-                    clearTimeout(navMenuTimer);
-
-                }, 100);
+                default: 
+                    console.error("Error: No corresponding navbar item found");
+                    break;
             }
-
-            instantiateSideNavBar();
 
 
         // NAVBAR  NOTIFICATIONS
@@ -803,6 +881,7 @@
                 // The border holding the elements of the notification box
                 const navBarNotificationMain = document.createElement("div");
                 navBarNotificationMain.classList.add("navBarNotificationMain");
+                navBarNotificationMain.classList.add("navBarMenuFixed");
 
                 // The Notification Bar Structure
                 navBarNotificationMain.innerHTML = navBarNotificationMainHTML;
@@ -822,31 +901,34 @@
     
                     notificationLibraryScriptTag.addEventListener("load" , () => 
                     {
-                        fetchNavbarNotifications();
+                        fetchNavBarNotifications();
                     });
                     notificationLibraryScriptTag.onerror = function() 
                     {
-                        errorLoadingNavbarNotifications();
+                        errorLoadingNavBarNotifications();
                     };
                 }
                 else
                 {
-                    fetchNavbarNotifications();
+                    fetchNavBarNotifications();
                 }
 
                 // For error events
-                function errorLoadingNavbarNotifications()
+                function errorLoadingNavBarNotifications()
                 {
                     notification(`notifyBad` , `An error occurred while loading notifications`);
-                    openNavBarNotificationBtn.addEventListener("click" , failedLoadErrorMsg);
+                    openNavBarNotificationBtn.forEach((btn) => 
+                    {
+                        btn.addEventListener("click" , failedLoadErrorMsg);
+                    });
                 }
   
-                function fetchNavbarNotifications()
+                function fetchNavBarNotifications()
                 {
                     // Check if content of library is available
                     if(((notificationInventory == undefined) || (notificationInventory.length <= 0)))
                     {
-                        errorLoadingNavbarNotifications();
+                        errorLoadingNavBarNotifications();
                         return;
                     }
 
@@ -884,11 +966,15 @@
                     }
                     let navBarNotificationCardBdr = document.querySelectorAll(".navBarNotificationCardBdr");
 
-                    // Update the notification status
-                    navBarNotificationStatusNoText.textContent = navBarNotificationCardBdr.length;
-
                     // Make The Status number visible
-                    navBarNotificationStatusNoBox.classList.add("active");
+                    navBarNotificationStatusNoBox.forEach((box) => 
+                    {
+                        box.classList.add("active");
+                        let navBarNotificationStatusNoText = box.querySelector(".navBarNotificationStatusNo_text");
+
+                        // Update the notification status
+                        navBarNotificationStatusNoText.textContent = navBarNotificationCardBdr.length;
+                    });
 
                     // Add listener for "Mark all as read" button
                     let markAllNavBarNotificationsAsRead = document.querySelector(".markAllNavBarNotificationsAsRead");
@@ -898,8 +984,14 @@
                         markAllNavBarNotificationsAsRead.disabled = true;
 
                         // Remove the notification status no.
-                        navBarNotificationStatusNoText.textContent = "";
-                        navBarNotificationStatusNoBox.classList.remove("active");
+                        navBarNotificationStatusNoBox.forEach((box) => 
+                        {
+                            box.classList.remove("active");
+                            let navBarNotificationStatusNoText = box.querySelector(".navBarNotificationStatusNo_text");
+    
+                            // Update the notification status
+                            navBarNotificationStatusNoText.textContent = "";
+                        });
 
                         // Remove all Notifications
                         navBarNotificationCardBdr.forEach((bdr) => 
@@ -920,7 +1012,10 @@
                     caliberateNavBarNotificationsMenu();
 
                     // Add Listener to view the Notifications
-                    openNavBarNotificationBtn.addEventListener("click" , openNavBarNotificationMenu);
+                    openNavBarNotificationBtn.forEach((btn) => 
+                    {
+                        btn.addEventListener("click" , openNavBarNotificationMenu);
+                    });
                 }
 
                 // Menu Sizing Calibration
@@ -943,17 +1038,21 @@
                 function openNavBarNotificationMenu()
                 {
                     // change active state of the notification icon
-                    openNavBarNotificationBtn.classList.add("notify_atv");
-                    openNavBarNotificationBtn.removeEventListener("click" , openNavBarNotificationMenu);
+                    openNavBarNotificationBtn.forEach((btn) => 
+                    {
+                        btn.classList.add("notify_atv");
+                        btn.removeEventListener("click" , openNavBarNotificationMenu);
+                    });
 
                     // Slides in the Notification box
                     navBarNotificationMain.classList.add("notify_atv");
-                    toggleNavbarUnderLayer();
+                    toggleNavBarUnderLayer();
 
-                    // Preset to close the Navbar Notifications
+                    // Preset to close the NavBar Notifications
                     navBarNotificationTimer = setTimeout(() => 
                     {
                         document.addEventListener("click" , closeNavBarNotificationMenu);
+                        clearTimeout(navBarNotificationTimer);
                     },100);
                     
                 }
@@ -965,12 +1064,13 @@
                     {
                         document.removeEventListener("click" , closeNavBarNotificationMenu);
 
-                        // Add the function to open the Notifications
-                        openNavBarNotificationBtn.addEventListener("click" , openNavBarNotificationMenu);
-                        toggleNavbarUnderLayer();
-
-                        // change active state of the notification icon
-                        openNavBarNotificationBtn.classList.remove("notify_atv");
+                        // Add the function to open the Notifications and change active state 
+                        openNavBarNotificationBtn.forEach((btn) => 
+                        {
+                            btn.classList.remove("notify_atv");
+                            btn.addEventListener("click" , openNavBarNotificationMenu);
+                        });
+                        toggleNavBarUnderLayer();
 
                         // Removes style classes
                         navBarNotificationMain.classList.remove("notify_atv");
@@ -1060,22 +1160,9 @@
                     link.rel = "noopener no-referrer";
                 }
 
-                // Testing finding opening the "Error404" page if url is not set
-                function extractHash(url)
-                {
-                    // Find the index of '#' character
-                    var hashIndex = url.indexOf('#');
-                    
-                    // If '#' character is found and nothing else exceeds it
-                    if (hashIndex === url.length - 1)
-                    {
-                        link.href = "/Error/404/index.html";
-                    }
-                }
-                extractHash(link.href);
-
-                // Prevents draggable
-                // link.draggable = false;
+                // Prevents user select and draggable
+                link.style.userSelect = "none";
+                link.draggable = false;
             });
 
 

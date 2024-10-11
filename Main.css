@@ -60,6 +60,15 @@ html:root
     --fzTxt: 12px;
     --fzIcon: 20px;
     --bcgFilt: 2px;
+    --companyLogoSize: 50px;
+    --sideNavBarWidth: 64px;
+    --sideNavBarPadding: 5px;
+    --sideNavBarIconSize: 25px;
+    --sideNavBarIconClr: var(--genWhiteTypeLight);
+    --btmNavBarHeight: 0px;
+    --btmNavBarPadding: 5px;
+    --btmNavBarIconSize: 22px;
+    --btmNavBarIconClr: var(--genWhiteTypeLight);
     --navBarHeight: 70px;
     --navBarGenClr: var(--color8);
     --navBarBcgSolid: #2f2e2e;
@@ -78,6 +87,7 @@ html:root
     --navBarSearchWidth: 12px;
     --navBarSearchBarHeight: 100px;
     --navBarSearchClr: var(--color10);
+    --navBarMenuWidth: 275px;
     --navBarNotificationPosT: calc(var(--navBarHeight) - 10px);
     --navBarNotificationPosR: -300px;
     --navBarNotificationHeaderHeight: 40px;
@@ -146,6 +156,32 @@ body.bodystop
 {
     overflow: hidden;
 }
+
+main
+{
+    width: 100%;
+}
+
+.main > div
+{
+    width: 100%;
+}
+
+content
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 300ms ease-in-out;
+}
+
+content .content
+{
+    width: 100%;
+    padding-left: var(--sideNavBarWidth);
+    overflow: hidden;
+}
+
 
 
 a
@@ -340,33 +376,59 @@ img
 
 
 
-/*  ============= NAVBAR ============ */
 
-.navBox
+
+/* ============== APP LOGO ============== */
+
+.company_logoBdr
+{
+    width: var(--companyLogoSize);
+    height: var(--companyLogoSize);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.company_logoBdr .company_logoBox
+{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.company_logoBox .company_logoImg
+{
+    width: clamp(100% , 100% , 100%);
+    height: clamp(100% , 100% , 100%);
+}
+
+
+
+
+
+
+/* =========== TOP NAVBAR =========== */
+.topNavBar
 {
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
     width: 100%;
-    height: var(--navBarHeight);
-    z-index: 100;
-}
-
-.navBar
-{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 var(--genBorderSpacing);
+    height: var(--btmNavBarHeight);
     background: -o-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
     background: -moz-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
     background: -webkit-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
     background: linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: all 300ms ease-in-out;
+    pointer-events: none;
+    z-index: 100;
 }
 
-.navBar.float
+.topNavBar.float
 {
     background: -o-linear-gradient(to bottom, #000000ff, #000000f4, #000000ef, #000000dc, #000000ab, #00000045, #00000000, #00000000);
     background: -moz-linear-gradient(to bottom, #000000ff, #000000f4, #000000ef, #000000dc, #000000ab, #00000045, #00000000, #00000000);
@@ -374,129 +436,128 @@ img
     background: linear-gradient(to bottom, #000000ff, #000000f4, #000000ef, #000000dc, #000000ab, #00000045, #00000000, #00000000);
 }
 
-.navBar .navBarLeft
+.topNavBar .topNavBdr
 {
-    width: -moz-fit-content;
-    width: fit-content;
+    width: 100%;
+    height: 100%;
+}
+
+.topNavBdr .topNavBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 var(--genBorderSpacing);
+}
+
+.topNavBox .topNav_section
+{
     height: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 10px;
+    flex-wrap: nowrap;
 }
 
-.navBar .spacing
+.topNav_section .topNav_openNavNotify
 {
-    margin: 0 25px;
+    margin-right: 7px;
 }
 
-.navBarCompanylogo
-{
-    width: -moz-fit-content;
-    width: fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    cursor: pointer;
-    text-transform: uppercase;
-    -moz-user-select: -moz-none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-}
 
-.navBarCompanylogo .lhead
-{
-    font-size: 25px;
-    color: var(--navElementColor_green);
-}
 
-.navBarCompanylogo .lname
-{
-    font-size: 16px;
-    color: var(--navBarGenClr);
-}
 
-.navBar .navBarIconBox
-{
-    width: var(--navBarIconBoxWidth);
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.navBarIconBox .navBarIcon
+
+
+/* ========== SIDE NAVBAR ========== */
+
+.sideNavBar
 {
-    width: var(--navBarIconWidth);
-    fill: var(--navBarIconClr);
-    cursor: pointer;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: var(--sideNavBarWidth);
+    height: 100vh;
+    background-color: #000000;
     transition: all 300ms ease-in-out;
+    z-index: 100;
 }
 
-.navBar .signUpBdr
+.sideNavBar .sideNavBdr
 {
-    width: -moz-fit-content;
-    width: fit-content;
+    width: 100%;
+    height: 100%;
+}
+
+.sideNavBdr .sideNavBox
+{
+    width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+
+.sideNavBox .sideNav_section
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
-.signUpBdr .signUpBox
+.sideNav_section .sideNavItemsBdr
 {
-    margin: 0 10px;
-    padding: 10px 25px;
-    font-size: 14px;
-    border-radius: 5px;
+    width: 100%;
 }
 
-.navBarIconBox .navBarIcon:active
+.sideNav_section:first-child
 {
-    fill: var(--navElementColor_green);
+    gap: 15px;
 }
 
-.navBarIconBox.open_nav_menuBox
+.sideNavItemsBdr .sideNavItemsBox
 {
-    display: none;
-}
-
-.pc_navlinkBdr
-{
-    --pc_navlinkClr: var(--genWhiteTypeMid2);
-    width: -moz-fit-content;
-    width: fit-content;
-    height: 100%;
+    width: 100%;
     display: flex;
-    flex-direction: row;
-    margin-left: 10px;
-    -moz-user-select: -moz-none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 7px;
 }
 
-.pc_navlinkBdr .pc_navlinkBox
+.sideNavItemsBox .sideNavItemsCardBase
+{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.sideNavItemsCardBase .sideNavItemsCardBdr
 {
     position: relative;
-    width: -moz-fit-content;
-    width: fit-content;
-    height: 100%;
+    width: 100%;
     display: flex;
+    justify-content: center;
     align-items: center;
-    z-index: 2;
+    padding: 10px 5px;
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
 }
 
-.pc_navlinkBox.active
+.sideNavItemsCardBdr:hover
 {
-    --pc_navlinkClr: var(--genGreenTypeBright);
+    --sideNavBarIconClr: var(--genGreenTypeLight2);
 }
 
-.pc_navlinkBox.active::after
+.sideNavItemsCardBdr.active
+{
+    --sideNavBarIconClr: var(--genGreenTypeBright);
+}
+
+.sideNavItemsCardBdr.active::after
 {
     content: '';
     position: absolute;
@@ -504,71 +565,250 @@ img
     left: 0;
     right: 0;
     width: 100%;
-    height: 80%;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    background-color: var(--genGreenGradMid);
+    height: 100%;
+    background-image: radial-gradient(100% 100% at 50% 50%, var(--genGreenTypeMid2) 0%, #00000000 65%);
     pointer-events: none;
     z-index: -1;
 }
 
-.pc_navlinkBox .pc_navlinkCard
+.sideNavItemsCardBdr .sideNavItemsCardBox
 {
-    display: flex;
-    flex-direction: row;
-    padding: 5px 10px;
-    cursor: pointer;
+    position: relative;
+    width: var(--sideNavBarIconSize);
+    height: var(--sideNavBarIconSize);
 }
 
-.pc_navlinkBox .pc_navlinkCardText
+.sideNavItemsCardBox .sideNavItemsCardIcon
 {
-    color: var(--pc_navlinkClr);
-    font-size: 14px;
+    width: 100%;
+    height: 100%;
+}
+
+.sideNavItemsCardIcon .sideNavItemsCardSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--sideNavBarIconClr);
     transition: all 300ms ease-in-out;
 }
 
-.pc_navlinkBox .pc_navlinkCardIconBox
+.sideNavItemsCardSvg.watchlistSvg path
 {
-    --pc_navlinkIconDimensions: 6px;
-    --pc_navlinkIconDimensionsHalf: calc((var(--pc_navlinkIconDimensions) / 1.25));
+    stroke: var(--sideNavBarIconClr);
+    color: var(--sideNavBarIconClr);
+    transition: all 300ms ease-in-out;
+}
+
+.sideNavItemsCardBdr .sideNavOutlineIcon
+{
+    display: block;
+}
+
+.sideNavItemsCardBdr .sideNavBoldIcon
+{
+    display: none;
+}
+
+.sideNavItemsCardBdr.active .sideNavOutlineIcon
+{
+    display: none;
+}
+
+.sideNavItemsCardBdr.active .sideNavBoldIcon
+{
+    display: block;
+}
+
+.sideNavItemsCardBox .sideNavItemsCardTitleBdr
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: calc((var(--sideNavBarWidth) / 2));
+    padding: 7px 15px;
+    border-radius: 10px;
+    background-color: var(--genGreenTypeMid2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-50%);
+    transition: all 300ms ease-in-out;
+    z-index: 5;
+}
+
+.sideNavItemsCardBdr:hover .sideNavItemsCardTitleBdr
+{
+    left: 100%;
+    opacity: 1;
+    visibility: visible;
+}
+
+.sideNavItemsCardTitleBdr .sideNavItemsCardTitleBox
+{
+    width: 100%;
+    height: 100%;
+}
+
+.sideNavItemsCardTitleBox .sideNavItemsCardTitleText
+{
+    font-size: 12px;
+    color: var(--genWhiteTypeBright);
+}
+
+
+
+
+
+
+/*  ============= BOTTOM NAVBAR ============ */
+
+.btmNavBar
+{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: var(--btmNavBarHeight);
+    background: -o-linear-gradient(to top, #000000fe, #000000ef, #000000dc, #000000cd, #00000050);
+    background: -moz-linear-gradient(to top, #000000fe, #000000ef, #000000dc, #000000cd, #00000050);
+    background: -webkit-linear-gradient(to top, #000000fe, #000000ef, #000000dc, #000000cd, #00000050);
+    background: linear-gradient(to top, #000000fe, #000000ef, #000000dc, #000000cd, #00000050);
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: all 300ms ease-in-out;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.btmNavBar .btmNavBdr
+{
+    width: 100%;
+    height: 100%;
+}
+
+.btmNavBdr .btmNavBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.btmNavBox .btmNavItemsCardBase
+{
+    width: 100%;
+}
+
+.btmNavItemsCardBase .btmNavItemsCardBdr
+{
+    position: relative;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 7px;
+    padding: 10px 5px;
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
 }
 
-.pc_navlinkCardIconBox .pc_navlinkCardIcon
+.btmNavItemsCardBdr:hover
 {
-    width: 0;
-    height: 0;
-    border-top: var(--pc_navlinkIconDimensions) solid var(--pc_navlinkClr);
-    border-left: var(--pc_navlinkIconDimensionsHalf) solid transparent;
-    border-right: var(--pc_navlinkIconDimensionsHalf) solid transparent;
+    --btmNavBarIconClr: var(--genGreenTypeLight2);
+}
+
+.btmNavItemsCardBdr.active
+{
+    --btmNavBarIconClr: var(--genGreenTypeBright);
+}
+
+.btmNavItemsCardBdr.active::after
+{
+    content: '';
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(100% 100% at 50% 100%, var(--genGreenTypeMid2) 0%, #00000000 60%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.btmNavItemsCardBdr .btmNavItemsCardBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btmNavItemsCardBox .btmNavItemsCardIcon
+{
+    position: relative;
+    width: var(--btmNavBarIconSize);
+    height: var(--btmNavBarIconSize);
+    margin-bottom: 5px;
+}
+
+.btmNavItemsCardIcon .btmNavItemsCardSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--btmNavBarIconClr);
     transition: all 300ms ease-in-out;
 }
 
-.pc_navlinkCard:active
+.btmNavItemsCardBdr .btmNavOutlineIcon
 {
-    --pc_navlinkClr: var(--navElementColor_green);
+    display: block;
 }
 
-.navBarRight
+.btmNavItemsCardBdr .btmNavBoldIcon
 {
+    display: none;
+}
+
+.btmNavItemsCardBdr.active .btmNavOutlineIcon
+{
+    display: none;
+}
+
+.btmNavItemsCardBdr.active .btmNavBoldIcon
+{
+    display: block;
+}
+
+.btmNavItemsCardSvg.watchlistSvg path
+{
+    stroke: var(--btmNavBarIconClr);
+    color: var(--btmNavBarIconClr);
+    transition: all 300ms ease-in-out;
+}
+
+.btmNavItemsCardBox .btmNavItemsCardTitleBdr
+{
+    width: 100%;
     height: 100%;
 }
 
-.navBarRight .navBarRightCtnt
+.btmNavItemsCardTitleBdr .btmNavItemsCardTitleBox
 {
+    width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 10px;
 }
 
-.navBarRightCtnt .openNavSearch_BtnBox
+.btmNavItemsCardTitleBox .btmNavItemsCardTitleText
 {
-    display: flex;
+    font-family: 'Poppins' , sans-serif;
+    font-size: 12px;
+    color: var(--btmNavBarIconClr);
+    text-align: center;
+    transition: all 300ms ease-in-out;
 }
 
 
@@ -617,7 +857,7 @@ img
     position: relative;
 }
 
-.openNavNotifyBox .openNavNotify.notify_atv
+.openNavNotify.notify_atv svg
 {
     fill: var(--navElementColor_green);
 }
@@ -667,7 +907,7 @@ img
     position: fixed;
     top: calc(0% + var(--navBarNotificationPosT));
     right: calc(0% + var(--navBarNotificationPosR));
-    width: 275px;
+    width: var(--navBarMenuWidth);
     height: var(--navBarNotificaionsMenuHeight);
     max-width: calc(100% - (var(--navBarNotificationPosR) * 2));
     max-height: calc(100% - ((var(--navBarNotificationPosT)) + 10px));
@@ -981,9 +1221,10 @@ img
 
 /* =============== NAVBAR PROFILE MENU ================ */
 
-.navBarRightCtnt .navBarProfileBdr
+/* --------- Icon --------- */
+
+.navBarProfileBdr
 {
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1023,12 +1264,16 @@ img
     border-radius: 50%;
 }
 
-.navBarProfileBox .navBarProfileOptBdr
+
+
+/* --------- Menu ---------- */
+
+.navBarProfileOptBdr
 {
     position: fixed;
     top: calc(0% + var(--navBarProfilePosT));
     right: calc(0% + var(--navBarProfilePosR));
-    width: 275px;
+    width: var(--navBarMenuWidth);
     height: 400px;
     max-width: calc(100% - (var(--navBarProfilePosR) * 2));
     max-height: calc(100% - ((var(--navBarProfilePosT)) + 10px));
@@ -1036,6 +1281,7 @@ img
     visibility: hidden;
     transition: all 300ms ease-in-out;
     overflow: hidden;
+    z-index: 96;
 }
 
 .navBarProfileOptBdr.active
@@ -1325,230 +1571,6 @@ img
 
 
 
-/* ======== NAV SIDE MENU ======== */
-
-.nav_Menu_bdr
-{
-    position: fixed;
-    right: 100%;
-    bottom: 0%;
-    width: 100%;
-    height: 100%;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    opacity: 0;
-    visibility: hidden;
-    overflow: hidden;
-    transition: 300ms;
-    z-index: 180;
-}
-
-.nav_Menu_bdr.bdr_atv
-{
-    right: 0%;
-    visibility: visible;
-    opacity: 1;
-}
-
-.nav_Menu_box
-{
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.nav_Menu_bcg
-{
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #00000075;
-    z-index: 1;
-}
-
-.nav_Opt_bcg
-{
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    max-width: 250px;
-    height: 100%;
-    background-color: var(--navMenuBcgClr);
-    transition: all 600ms ease-in-out;
-    overflow: hidden;
-    overflow-y: visible;
-    /* scrollbar-gutter: stable; */
-    z-index: 5;
-}
-
-.nav_Opt_bcg:active
-{
-    overflow-y: visible;
-}
-
-.nav_Opt_bcg .navOptBdr
-{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 0px 8px;
-    background-color: var(--navMenuBcgClr);
-    -moz-user-select: -moz-none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-}
-
-.navOptBdr .navOptDivider
-{
-    position: relative;
-    width: 100%;
-    border: none;
-    border-bottom: var(--navBarDividerThickness) solid var(--color7);
-    border-bottom-right-radius: 15px;
-}
-
-.navOptBox.navOptHeaderBdr .navOptHeaderBox
-{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 20px 15px 10px;
-}
-
-.navOptBox.navOptLinkBox
-{
-    height: 100%;
-}
-
-.navOptIconBox
-{
-    width: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.navOptIconBox .navOptIcon
-{
-    width: 16px;
-    height: 16px;
-    fill: var(--navMenuPageActiveElementClr);
-    cursor: pointer;
-    transition: 300ms;
-}
-
-.navOptHeaderBdr .navOptIcon
-{
-    width: 22px;
-    height: 22px;
-}
-
-.navOptHeaderBdr .navOptIconBox:active .navOptIcon
-{
-    fill: var(--genWhiteTypeLight);
-}
-
-.navOptBox .navOptHead
-{
-    width: 100%;
-    color: var(--navBarGenClr);
-    font-size: 16px;
-    padding: 10px;
-}
-
-.navOptLink
-{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    font-size: 15px;
-    padding: 20px 15px;
-    cursor: pointer;
-    position: relative;
-}
-
-.navOptLink.active
-{
-    --navMenuPageActiveElementClr: var(--genGreenTypeLight);
-    background-color: #334334b8;
-    border-radius: 10px;
-}
-
-.navOptLink:active
-{
-    --navMenuPageActiveElementClr: var(--genGreenTypeLight);
-}
-
-.navOptLink .navOptTitle
-{
-    color: var(--navMenuPageActiveElementClr);
-    width: 100%;
-    text-align: left;
-    transition: 300ms;
-}
-
-
-.navOptBox.navOptFooter
-{
-    padding: 10px 10px 20px;
-}
-
-.navOptFooter .navOptFooterBox
-{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.navfooterBoxSect .navfooterCompNameBdr
-{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-}
-
-.navfooterCompNameBdr .navfooterCompNameBox
-{
-    display: flex;
-    flex-direction: row;
-}
-
-.navfooterCompNameBox .navfooterCompIconBox
-{
-    width: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.navfooterCompIconBox .navfooterCompIcon
-{
-    width: 10px;
-    fill: var(--footerTxtClrMid);
-}
-
-.navfooterCompNameBdr .navfooterCompName
-{
-    width: -moz-fit-content;
-    width: fit-content;
-    color: var(--footerTxtClrMid);
-    text-wrap: nowrap;
-    font-size: 10px;
-}
-
 
 
 
@@ -1720,6 +1742,7 @@ img
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    z-index: 10;
 }
 
 .basic_slider_title_bdr
@@ -3995,9 +4018,17 @@ img
 
 /* ============ FOOTER =========== */
 
+.footer_wrapper
+{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
 .footer_base
 {
     width: 100%;
+    width: calc((100% - var(--sideNavBarWidth)));
     padding: 0 var(--genBorderSpacing);
     background-color: var(--navMenuBcgClr);
     background-image: url(/Images/bcg_footer.jpg);
@@ -4304,11 +4335,6 @@ img
         fill: var(--navElementColor_green);
     }
 
-    .pc_navlinkCard:hover
-    {
-        --pc_navlinkClr: var(--navElementColor_green);
-    }
-
     .navBarNotificationHeaderBtn:hover .navBarNotificationHeaderIconSvg,
     .navBarNotificationHeaderBtn:hover .navBarNotificationHeaderText,
     .navBarNotificationFooterBox:hover .navBarNotificationFooterText
@@ -4326,31 +4352,6 @@ img
     {
         --navBarProfileCardLinkClr: var(--navElementColor_green);
         background-color: #3d3d3d;
-    }
-
-    .navBarSignOutBtn:hover
-    {
-        --navBarProfileCardLinkClr: var(--navElementColor_green);
-    }
-
-    .nav_Opt_bcg:hover
-    {
-        overflow-y: visible;
-    }
-
-    .navOptHeaderBdr .navOptIconBox:hover .navOptIcon
-    {
-        fill: var(--genWhiteTypeLight);
-    }
-
-    .navOptLink:hover
-    {
-        --navMenuPageActiveElementClr: var(--genGreenTypeLight);
-    }
-
-    .navfooterBoxElements:hover
-    {
-        color: var(--navFooterElemHoverColor);
     }
 
     .lightSolidBtn:hover
@@ -4588,10 +4589,6 @@ img
 
 @media only screen and (max-width: 1100px)
 {
-    .navBar .spacing
-    {
-        margin: 0;
-    }
 
     .basic_slider_card_box
     {
@@ -4599,19 +4596,6 @@ img
     }
 }
 
-@media only screen and (max-width: 1025px)
-{
-
-    .navBarIconBox.open_nav_menuBox
-    {
-        display: flex;
-    }
-
-    .pc_navlinkBdr
-    {
-        display: none;
-    }
-}
 
 @media only screen and (max-width: 884px)
 {
@@ -4662,20 +4646,6 @@ img
 
 @media only screen and (max-width: 768px)
 {
-
-    .searchBdr.navBarSearchBdr
-    {
-        width: 100%;
-        background-color: #000000;
-    }
-
-    .searchBdr.navBarSearchBdr.active
-    {
-        left: 0;
-        opacity: 1;
-        visibility: visible;
-    }
-
     .addNewProfIconBox .addNewProfIcon
     {
         width: 30px;
@@ -4811,9 +4781,87 @@ img
 {
     html:root
     {
+        --sideNavBarWidth: 0px;
+        --btmNavBarHeight: 64px;
+        --navBarNotificationPosT: calc(var(--navBarHeight) - 10px);
+        --navBarNotificationPosR: -300px;
+        --navBarProfilePosT: calc(var(--navBarHeight) - 10px);
+        --navBarProfilePosR: -300px;
         --basicSlideIconWidth: 15px;
         --slideCardPlayIconWidth: 27px;
         --genBorderSpacing: 15px;
+    }
+    
+    .topNavBar
+    {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+    }
+    
+    .sideNavBar
+    {
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .btmNavBar
+    {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+    }
+
+    .navBarNotificationMain
+    {
+        position: fixed;
+        top: calc(0% + var(--navBarNotificationPosT));
+        right: calc(0% + var(--navBarNotificationPosR));
+        width: var(--navBarMenuWidth);
+        height: var(--navBarNotificaionsMenuHeight);
+        max-width: calc(100% - (var(--navBarNotificationPosR) * 2));
+        max-height: calc(100% - ((var(--navBarNotificationPosT)) + 10px));
+        backface-visibility: hidden;
+        -moz-user-select: -moz-none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 300ms ease;
+        z-index: 95;
+    }
+    
+    .navBarNotificationMain.notify_atv
+    {
+        --navBarNotificationPosR: var(--genBorderSpacing);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .navBarProfileOptBdr
+    {
+        position: fixed;
+        top: calc(0% + var(--navBarProfilePosT));
+        right: calc(0% + var(--navBarProfilePosR));
+        width: var(--navBarMenuWidth);
+        height: 400px;
+        max-width: calc(100% - (var(--navBarProfilePosR) * 2));
+        max-height: calc(100% - ((var(--navBarProfilePosT)) + 10px));
+        opacity: 0;
+        visibility: hidden;
+        transition: all 300ms ease-in-out;
+        overflow: hidden;
+        z-index: 96;
+    }
+    
+    .navBarProfileOptBdr.active
+    {
+        --navBarProfilePosR: var(--genBorderSpacing);
+        opacity: 1;
+        visibility: visible;
     }
 
     .basic_slider_box  .basic_slide_arrow,
@@ -4967,9 +5015,9 @@ img
         --editProfileBcgImgHeight: 120px;
     }
 
-    .signUpBdr .signUpBox
+    .btmNavItemsCardTitleBox .btmNavItemsCardTitleText
     {
-        padding: 10px 15px;
+        font-size: 10px;
     }
 
     .editProfileBcgImgOverlayBox .editProfileBcgImgOverlayText
@@ -5077,7 +5125,7 @@ img
 
 
 
-    /* ----- Navbar Notification ----- */
+    /* ----- NavBar Notification ----- */
 
     .navBarNotificationSub::-webkit-scrollbar
     {

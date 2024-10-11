@@ -68,7 +68,7 @@
                 </div>
             </div>
         `;
-        document.body.insertAdjacentHTML(`afterbegin` , scheduleBaseStruct);
+        documentCtnt.insertAdjacentHTML(`afterbegin` , scheduleBaseStruct);
         startSchedule();
     }
 

@@ -39,7 +39,7 @@
                 </div>
             </div>
         `;
-        document.body.insertAdjacentHTML(`afterbegin` , catalogHTML);
+        documentCtnt.insertAdjacentHTML(`afterbegin` , catalogHTML);
 
 
 

@@ -22,6 +22,122 @@ body
 }
 
 
+
+
+/* ---------- Navbar ------------ */
+.navBox
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--navBarHeight);
+    z-index: 100;
+}
+
+.navBar
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 var(--genBorderSpacing);
+    background: -o-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
+    background: -moz-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
+    background: -webkit-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
+    background: linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
+}
+
+.navBar.float
+{
+    background: -o-linear-gradient(to bottom, #000000ff, #000000f4, #000000ef, #000000dc, #000000ab, #00000045, #00000000, #00000000);
+    background: -moz-linear-gradient(to bottom, #000000ff, #000000f4, #000000ef, #000000dc, #000000ab, #00000045, #00000000, #00000000);
+    background: -webkit-linear-gradient(to bottom, #000000ff, #000000f4, #000000ef, #000000dc, #000000ab, #00000045, #00000000, #00000000);
+    background: linear-gradient(to bottom, #000000ff, #000000f4, #000000ef, #000000dc, #000000ab, #00000045, #00000000, #00000000);
+}
+
+.navBar .navBarLeft
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.navBar .spacing
+{
+    margin: 0 25px;
+}
+
+.navBarCompanylogo
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.navBarCompanylogo .lhead
+{
+    font-size: 25px;
+    color: var(--navElementColor_green);
+}
+
+.navBarCompanylogo .lname
+{
+    font-size: 16px;
+    color: var(--navBarGenClr);
+}
+
+.navBar .signUpBdr
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.signUpBdr .signUpBox
+{
+    margin: 0 10px;
+    padding: 10px 25px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.navBarRight
+{
+    height: 100%;
+}
+
+.navBarRight .navBarRightCtnt
+{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+
+
 /* ----------- Welcome ----------- */
 .welcome_landBcg
 {
@@ -662,6 +778,11 @@ body
         box-shadow: 0 0 20px var(--color1);
     }
 
+    .navBarSignOutBtn:hover
+    {
+        --navBarProfileCardLinkClr: var(--navElementColor_green);
+    }
+
     .propmpt_AccActionBtnBox.action_Join:hover
     {
         color: var(--color2);
@@ -765,6 +886,14 @@ body
     {
         width: 260px;
         height: 300px;
+    }
+}
+
+@media only screen and (max-width: 1025px)
+{
+    .navBar .spacing
+    {
+        margin: 0;
     }
 }
 
@@ -961,6 +1090,11 @@ body
 
 @media only screen and (max-width: 350px)
 {
+
+    .signUpBdr .signUpBox
+    {
+        padding: 10px 15px;
+    }
 
     .welcome_landTextMajorBox .welcome_landTextMajor
     {

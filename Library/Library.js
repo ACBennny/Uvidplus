@@ -292,7 +292,7 @@
             `;
         }).join('');
 
-        document.body.insertAdjacentHTML(`afterbegin` , showHTMLCtnt);
+        documentCtnt.insertAdjacentHTML(`afterbegin` , showHTMLCtnt);
         document.title = `Uvid • Watch ${thisHTMLData[0].show_title}`;
         allImages();
 

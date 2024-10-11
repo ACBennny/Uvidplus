@@ -10,7 +10,7 @@
     {
         // INSERTING INTO DOM
 
-            document.body.insertAdjacentHTML(`afterbegin` , genresHTML);
+            documentCtnt.insertAdjacentHTML(`afterbegin` , genresHTML);
 
         // CREATING THE BASIC SLIDER
 
@@ -20,7 +20,6 @@
             basicSliderScriptTag.addEventListener("load" , () => 
             {
                 basicSlider();
-                // startHomeSection();
             });
             document.body.appendChild(basicSliderScriptTag);
     }
