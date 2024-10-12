@@ -547,7 +547,7 @@ img
     cursor: pointer;
 }
 
-.sideNavItemsCardBdr:hover
+.sideNavItemsCardBdr:active
 {
     --sideNavBarIconClr: var(--genGreenTypeLight2);
 }
@@ -635,13 +635,6 @@ img
     z-index: 5;
 }
 
-.sideNavItemsCardBdr:hover .sideNavItemsCardTitleBdr
-{
-    left: 100%;
-    opacity: 1;
-    visibility: visible;
-}
-
 .sideNavItemsCardTitleBdr .sideNavItemsCardTitleBox
 {
     width: 100%;
@@ -715,7 +708,7 @@ img
     cursor: pointer;
 }
 
-.btmNavItemsCardBdr:hover
+.btmNavItemsCardBdr:active
 {
     --btmNavBarIconClr: var(--genGreenTypeLight2);
 }
@@ -4367,6 +4360,24 @@ img
 
 @media(hover: hover)
 {
+
+    .sideNavItemsCardBdr:hover
+    {
+        --sideNavBarIconClr: var(--genGreenTypeLight2);
+    }
+
+    .sideNavItemsCardBdr:hover .sideNavItemsCardTitleBdr
+    {
+        left: 100%;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .btmNavItemsCardBdr:hover
+    {
+        --btmNavBarIconClr: var(--genGreenTypeLight2);
+    }
+    
     .navBarIconBox .navBarIcon:hover
     {
         fill: var(--navElementColor_green);
