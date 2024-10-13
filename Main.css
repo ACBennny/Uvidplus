@@ -54,9 +54,9 @@ html:root
     --color10: #888888;
     --color11: #252525;
     --warningClr: #ff0000;
+    --genBorderSpacing: 30px;
     --genMaxContainerWidth: 1200px;
     --scrollBarWidth: 7px;
-    --genBorderSpacing: 30px;
     --fzTxt: 12px;
     --fzIcon: 20px;
     --bcgFilt: 2px;
