@@ -727,6 +727,10 @@
             }
 
 
+            // Toggling page gradient for large screens (NOT DONE)
+            // Issue: Scoll event is triggere by the window and not the documentCtnt
+
+
 
         // NAVBAR UNDERLAYER
 
