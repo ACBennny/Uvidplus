@@ -114,7 +114,7 @@ html:root
     --basicSlideIconWidth: 16px;
     --slideCardBorderRadius: 25px;
     --slideCardSpacing: 12px;
-    --slideCardPlayIconClr: var(--genGreenTypeLight);
+    --slideCardPlayIconClr: var(--genGreenTypeMid);
     --slideCardPlayIconWidth: 35px;
     --slideCardProgress_currClr: var(--genGreenTypeBright);
     --basicCatalogCardWidth: 175px;
@@ -687,6 +687,7 @@ img
     visibility: hidden;
     transform: translateY(-50%);
     transition: all 300ms ease-in-out;
+    pointer-events: none;
     z-index: 5;
 }
 
@@ -2041,20 +2042,6 @@ img
     height: 100%;
     background: #00000000;
     z-index: 5;
-}
-
-.slide_card .slideCardIcon
-{
-    position: absolute;
-    bottom: 25%;
-    right: 50%;
-    opacity: 0;
-    width: var(--slideCardPlayIconWidth);
-    fill: var(--slideCardPlayIconClr);
-    transform: translate(50% , 50%);
-    transition: all 300ms ease-in-out;
-    pointer-events: none;
-    z-index: 3;
 }
 
 .slide_card .cardAddToListBdr
@@ -4578,11 +4565,6 @@ img
     .slide_card:hover .cardInfoBdr
     {
         background: #00000085;
-    }
-
-    .slide_card:hover .slideCardIcon
-    {
-        bottom: 50%;
     }
 
     .genAtnModalOptBdr .genAtnModalOptBox:hover
