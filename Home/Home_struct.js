@@ -3073,7 +3073,8 @@
                     <div class="mostViewedRankBdr">
                         <div class="mostViewedRankBox">
                             <div class="mostViewedRankNo1Bdr">
-                                <a href="/Library.html?info=DemonSlayer" class="mostViewedRankNo1Box">
+                                <div class="mostViewedRankNo1Box">
+                                    <a href="/Library.html?info=DemonSlayer" class="mostViewedRankNo1Link"></a>
                                     <div class="mostViewedRankNo1ImgBdr">
                                         <div class="mostViewedRankNo1ImgBox">
                                             <img src="/Library/TV/Watch/DemonSlayer/img/2.jpg" alt="" class="mostViewedRankNo1Img">
@@ -3106,7 +3107,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </a>
+                                </div>
                             </div>
                             <div class="mostViewedRankOthersBdr">
                                 <div class="mostViewedRankOthersBox">
