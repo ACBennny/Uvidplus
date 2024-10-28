@@ -3875,7 +3875,8 @@ img
 .genAtnModalHeaderIconBox .genAtnModalHeaderIcon,
 .genAtnModalOptIconBox .genAtnModalOptIcon
 {
-    width: 18px;
+    width: 20px;
+    height: 20px;
     fill: var(--genWhiteTypeLight);
 }
 
