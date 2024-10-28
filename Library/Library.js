@@ -34,14 +34,14 @@
                 <div class="basic_slider_ctnt">
                     <div class="basic_slider_box">
                         <div class="basic_slide_arrow left_slide_arrow hide">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="basic_slide_arrowIcon basic_icon_Left">
-                                <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="basic_slide_arrowIcon basic_icon_Left">
+                                <path fill-rule="evenodd" d="M15.488 4.43a.75.75 0 0 1 .081 1.058L9.988 12l5.581 6.512a.75.75 0 1 1-1.138.976l-6-7a.75.75 0 0 1 0-.976l6-7a.75.75 0 0 1 1.057-.081" clip-rule="evenodd" />
                             </svg>
                         </div>
                         <div class="basic_slider_card_box"></div>
                         <div class="basic_slide_arrow right_slide_arrow hide">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="basic_slide_arrowIcon basic_icon_Right">
-                                <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="basic_slide_arrowIcon basic_icon_Right">
+                                <path fill-rule="evenodd" d="M8.512 4.43a.75.75 0 0 1 1.057.082l6 7a.75.75 0 0 1 0 .976l-6 7a.75.75 0 0 1-1.138-.976L14.012 12L8.431 5.488a.75.75 0 0 1 .08-1.057" clip-rule="evenodd" />
                             </svg>
                         </div>
                     </div>
@@ -136,8 +136,8 @@
                                                         <div class="scoreBdr">
                                                             <div class="scoreBox">
                                                                 <div class="scoreIconBox">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="scoreIcon">
-                                                                        <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="scoreIcon">
+                                                                        <path d="M9.153 5.408C10.42 3.136 11.053 2 12 2s1.58 1.136 2.847 3.408l.328.588c.36.646.54.969.82 1.182s.63.292 1.33.45l.636.144c2.46.557 3.689.835 3.982 1.776c.292.94-.546 1.921-2.223 3.882l-.434.507c-.476.557-.715.836-.822 1.18c-.107.345-.071.717.001 1.46l.066.677c.253 2.617.38 3.925-.386 4.506s-1.918.051-4.22-1.009l-.597-.274c-.654-.302-.981-.452-1.328-.452s-.674.15-1.328.452l-.596.274c-2.303 1.06-3.455 1.59-4.22 1.01c-.767-.582-.64-1.89-.387-4.507l.066-.676c.072-.744.108-1.116 0-1.46c-.106-.345-.345-.624-.821-1.18l-.434-.508c-1.677-1.96-2.515-2.941-2.223-3.882S3.58 8.328 6.04 7.772l.636-.144c.699-.158 1.048-.237 1.329-.45s.46-.536.82-1.182z" />
                                                                     </svg>
                                                                 </div>
                                                                 <div class="scoreIconNo">${show_scores}</div>
@@ -153,8 +153,8 @@
                                                 <div class="quick_atnCtnt">
                                                     <div class="topCtnt">
                                                         <div class="topIconBox">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="topIcon">
-                                                                <path d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9V344c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"/>                                                                
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="topIcon">
+                                                                <path fill-rule="evenodd" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10m-1.306-6.154l4.72-2.787c.781-.462.781-1.656 0-2.118l-4.72-2.787C9.934 7.706 9 8.29 9 9.214v5.573c0 .923.934 1.507 1.694 1.059" clip-rule="evenodd" />
                                                             </svg>
                                                         </div>
                                                     </div>
@@ -167,7 +167,7 @@
                                                 <div class="quick_atnCtnt">
                                                     <div class="topCtnt">
                                                         <div class="topIconBox">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="topIcon">
+                                                            <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="topIcon">
                                                                 <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
                                                             </svg>
                                                         </div>
@@ -181,32 +181,39 @@
                                         <div class="quickAtnModalBdr">
                                             <div class="quickAtnModalBox">
                                                 <button class="quickAtnModal_btn score_btn like_buttons add_to_LikedShowsBox" title="I like this epsidoe" aria-label="I like this epsidoe">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="quickAtnModal_btnIcon score_btnIcon add_to_LikedShows">
-                                                        <path d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75.2H464c26.5 0 48 21.5 48 48c0 18.5-10.5 34.6-25.9 42.6C497 275.4 504 288.9 504 304c0 23.4-16.8 42.9-38.9 47.1c4.4 7.3 6.9 15.8 6.9 24.9c0 21.3-13.9 39.4-33.1 45.6c.7 3.3 1.1 6.8 1.1 10.4c0 26.5-21.5 48-48 48H294.5c-19 0-37.5-5.6-53.3-16.1l-38.5-25.7C176 420.4 160 390.4 160 358.3V320 272 247.1c0-29.2 13.3-56.7 36-75l7.4-5.9c26.5-21.2 44.6-51 51.2-84.2l2.3-11.4c5.2-26 30.5-42.9 56.5-37.7zM32 192H96c17.7 0 32 14.3 32 32V448c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V224c0-17.7 14.3-32 32-32z"/>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="quickAtnModal_btnIcon">
+                                                        <path d="m20.27 16.265l.705-4.08a1.666 1.666 0 0 0-1.64-1.95h-5.181a.833.833 0 0 1-.822-.969l.663-4.045a4.8 4.8 0 0 0-.09-1.973a1.64 1.64 0 0 0-1.092-1.137l-.145-.047a1.35 1.35 0 0 0-.994.068c-.34.164-.588.463-.68.818l-.476 1.834a7.6 7.6 0 0 1-.656 1.679c-.415.777-1.057 1.4-1.725 1.975l-1.439 1.24a1.67 1.67 0 0 0-.572 1.406l.812 9.393A1.666 1.666 0 0 0 8.597 22h4.648c3.482 0 6.453-2.426 7.025-5.735" />
+                                                        <path fill-rule="evenodd" d="M2.968 9.485a.75.75 0 0 1 .78.685l.97 11.236a1.237 1.237 0 1 1-2.468.107V10.234a.75.75 0 0 1 .718-.749" clip-rule="evenodd" />
                                                     </svg>
                                                     <p class="quickAtnModal_btnText score_btnText">I like this</p>
                                                 </button>
                                                 <button class="quickAtnModal_btn score_btn like_buttons add_to_DislikedShowsBox" title="I don't like this episode" aria-label="I don't like this episode">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="quickAtnModal_btnIcon score_btnIcon add_to_DislikedShows">
-                                                        <path d="M313.4 479.1c26-5.2 42.9-30.5 37.7-56.5l-2.3-11.4c-5.3-26.7-15.1-52.1-28.8-75.2H464c26.5 0 48-21.5 48-48c0-18.5-10.5-34.6-25.9-42.6C497 236.6 504 223.1 504 208c0-23.4-16.8-42.9-38.9-47.1c4.4-7.3 6.9-15.8 6.9-24.9c0-21.3-13.9-39.4-33.1-45.6c.7-3.3 1.1-6.8 1.1-10.4c0-26.5-21.5-48-48-48H294.5c-19 0-37.5 5.6-53.3 16.1L202.7 73.8C176 91.6 160 121.6 160 153.7V192v48 24.9c0 29.2 13.3 56.7 36 75l7.4 5.9c26.5 21.2 44.6 51 51.2 84.2l2.3 11.4c5.2 26 30.5 42.9 56.5 37.7zM32 384H96c17.7 0 32-14.3 32-32V128c0-17.7-14.3-32-32-32H32C14.3 96 0 110.3 0 128V352c0 17.7 14.3 32 32 32z"/>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="quickAtnModal_btnIcon">
+                                                        <path d="m20.27 8.485l.705 4.08a1.666 1.666 0 0 1-1.64 1.95h-5.181a.833.833 0 0 0-.822.969l.663 4.045a4.8 4.8 0 0 1-.09 1.974c-.139.533-.55.962-1.092 1.136l-.145.047c-.328.105-.685.08-.994-.068a1.26 1.26 0 0 1-.68-.818l-.476-1.834a7.6 7.6 0 0 0-.656-1.679c-.415-.777-1.057-1.4-1.725-1.975l-1.439-1.24a1.67 1.67 0 0 1-.572-1.406l.812-9.393A1.666 1.666 0 0 1 8.597 2.75h4.648c3.482 0 6.453 2.426 7.025 5.735" />
+                                                        <path fill-rule="evenodd" d="M2.968 15.265a.75.75 0 0 0 .78-.685l.97-11.236a1.237 1.237 0 1 0-2.468-.107v11.279a.75.75 0 0 0 .718.75" clip-rule="evenodd" />
                                                     </svg>
                                                     <p class="quickAtnModal_btnText score_btnText">I don't like this</p>
                                                 </button>
                                                 <button class="quickAtnModal_btn watchTrailer_box" title="Watch Now" aria-label="Watch Now">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="quickAtnModal_btnIcon score_btnIcon add_to_LikedShows">
-                                                        <path d="M0 96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM48 368v32c0 8.8 7.2 16 16 16H96c8.8 0 16-7.2 16-16V368c0-8.8-7.2-16-16-16H64c-8.8 0-16 7.2-16 16zm368-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V368c0-8.8-7.2-16-16-16H416zM48 240v32c0 8.8 7.2 16 16 16H96c8.8 0 16-7.2 16-16V240c0-8.8-7.2-16-16-16H64c-8.8 0-16 7.2-16 16zm368-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V240c0-8.8-7.2-16-16-16H416zM48 112v32c0 8.8 7.2 16 16 16H96c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H64c-8.8 0-16 7.2-16 16zM416 96c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H416zM160 128v64c0 17.7 14.3 32 32 32H320c17.7 0 32-14.3 32-32V128c0-17.7-14.3-32-32-32H192c-17.7 0-32 14.3-32 32zm32 160c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32H320c17.7 0 32-14.3 32-32V320c0-17.7-14.3-32-32-32H192z"/>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="quickAtnModal_btnIcon">
+                                                        <path d="M11.25 2c-1.366.001-2.519.01-3.5.068V6.25h3.5zm-5 .221c-1.223.195-2.101.56-2.786 1.243c-.684.684-1.048 1.563-1.242 2.786H6.25z" />
+                                                        <path fill-rule="evenodd" d="M2 12c0-1.7 0-3.094.069-4.25H21.93C22 8.906 22 10.3 22 12s0 3.094-.069 4.25H2.07C2 15.094 2 13.7 2 12m10.411-1.596C13.471 11.116 14 11.472 14 12s-.53.884-1.589 1.596c-1.073.721-1.61 1.082-2.01.817C10 14.148 10 13.433 10 12s0-2.148.4-2.413s.938.096 2.011.817" clip-rule="evenodd" />
+                                                        <path d="M21.778 6.25c-.194-1.223-.558-2.102-1.242-2.786s-1.563-1.048-2.786-1.243V6.25zM12.75 2c1.366.001 2.519.01 3.5.068V6.25h-3.5zm9.028 15.75H17.75v4.028c1.223-.194 2.102-.559 2.785-1.243c.685-.684 1.05-1.562 1.243-2.785m-5.528 0v4.181c-.981.058-2.134.067-3.5.069v-4.25zm-5 4.25v-4.25h-3.5v4.181c.981.058 2.134.067 3.5.069m-5-4.25v4.028c-1.223-.194-2.101-.559-2.786-1.243c-.684-.684-1.048-1.562-1.242-2.785z" />
                                                     </svg>
                                                     <p class="quickAtnModal_btnText">Watch Trailer</p>
                                                 </button>
                                                 <button class="quickAtnModal_btn add_to_Playlist openAddToWLBtn" title="Add to Watchlist" aria-label="Add to Watchlist">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="quickAtnModal_btnIcon score_btnIcon add_to_LikedShows">
-                                                        <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="quickAtnModal_btnIcon">
+                                                        <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
+                                                        <path fill-rule="evenodd" d="M2 8c0 .494.993.89 2.979 1.685l2.808 1.124C9.773 11.603 10.767 12 12 12s2.227-.397 4.213-1.191l2.808-1.124C21.007 8.891 22 8.494 22 8s-.993-.89-2.979-1.685l-2.808-1.123C14.227 4.397 13.233 4 12 4s-2.227.397-4.213 1.192L4.98 6.315C2.993 7.109 2 7.506 2 8" clip-rule="evenodd" />
+                                                        <path d="m19.021 13.685l-2.808 1.124C14.227 15.603 13.233 16 12 16s-2.227-.397-4.213-1.191L4.98 13.685C2.993 12.891 2 12.493 2 12c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 12.535 10.572 13 12 13s2.59-.465 4.439-1.205l3.14-1.256C21.194 11.189 22 11.555 22 12c0 .493-.993.89-2.979 1.685" />
+                                                        <path d="m19.021 17.685l-2.808 1.123C14.227 19.603 13.233 20 12 20s-2.227-.397-4.213-1.192L4.98 17.685C2.993 16.89 2 16.493 2 16c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 16.535 10.572 17 12 17s2.59-.465 4.439-1.205l3.14-1.256c1.614.65 2.421 1.016 2.421 1.46c0 .494-.993.891-2.979 1.686" />
                                                     </svg>
                                                     <p class="quickAtnModal_btnText">Add to Watchlist</p>
                                                 </button>
                                                 <button class="quickAtnModal_btn shareShowBtn" title="Share this show" aria-label="Share this show">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="quickAtnModal_btnIcon score_btnIcon add_to_LikedShows">
-                                                        <path xmlns="http://www.w3.org/2000/svg" d="M384 336a63.78 63.78 0 00-46.12 19.7l-148-83.27a63.85 63.85 0 000-32.86l148-83.27a63.8 63.8 0 10-15.73-27.87l-148 83.27a64 64 0 100 88.6l148 83.27A64 64 0 10384 336z"/>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="quickAtnModal_btnIcon">
+                                                        <path fill-rule="evenodd" d="M13.803 5.333c0-1.84 1.5-3.333 3.348-3.333A3.34 3.34 0 0 1 20.5 5.333c0 1.841-1.5 3.334-3.349 3.334a3.35 3.35 0 0 1-2.384-.994l-4.635 3.156a3.34 3.34 0 0 1-.182 1.917l5.082 3.34a3.35 3.35 0 0 1 2.12-.753a3.34 3.34 0 0 1 3.348 3.334C20.5 20.507 19 22 17.151 22a3.34 3.34 0 0 1-3.348-3.333a3.3 3.3 0 0 1 .289-1.356L9.05 14a3.35 3.35 0 0 1-2.202.821A3.34 3.34 0 0 1 3.5 11.487a3.34 3.34 0 0 1 3.348-3.333c1.064 0 2.01.493 2.623 1.261l4.493-3.059a3.3 3.3 0 0 1-.161-1.023" clip-rule="evenodd" />
                                                     </svg>
                                                     <p class="quickAtnModal_btnText">Share</p>
                                                 </button>
@@ -270,12 +277,13 @@
                                                         <div class="seasons_selectorBox"></div>
                                                     </div>
                                                 </div>
-                                                <div class="episode_sortBdr">
-                                                    <div class="episode_sortBox sort_EpisodesBtn" title="Sort">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="episode_sortIcon">
-                                                            <path d="M32 96l320 0V32c0-12.9 7.8-24.6 19.8-29.6s25.7-2.2 34.9 6.9l96 96c6 6 9.4 14.1 9.4 22.6s-3.4 16.6-9.4 22.6l-96 96c-9.2 9.2-22.9 11.9-34.9 6.9s-19.8-16.6-19.8-29.6V160L32 160c-17.7 0-32-14.3-32-32s14.3-32 32-32zM480 352c17.7 0 32 14.3 32 32s-14.3 32-32 32H160v64c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-96-96c-6-6-9.4-14.1-9.4-22.6s3.4-16.6 9.4-22.6l96-96c9.2-9.2 22.9-11.9 34.9-6.9s19.8 16.6 19.8 29.6l0 64H480z"/>
+                                                <div class="episode_orderBdr">
+                                                    <div class="episode_orderBox episode_orderBtn" title="Sort by oldest episodes">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="episode_orderIcon">
+                                                            <path d="M12 13.125a.75.75 0 0 1 .538 1.272l-4 4.125a.75.75 0 0 1-1.076 0l-4-4.125A.75.75 0 0 1 4 13.125h3.25V6a.75.75 0 1 1 1.5 0v7.125z" />
+                                                            <path d="M20 10.875a.75.75 0 0 0 .538-1.272l-4-4.125a.75.75 0 0 0-1.076 0l-4 4.125A.75.75 0 0 0 12 10.875h3.25V18a.75.75 0 0 0 1.5 0v-7.125z" />
                                                         </svg>
-                                                        <div class="episode_sortText"></div>
+                                                        <div class="episode_orderText"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -391,15 +399,15 @@
                                 <div class="cardAddToListBdr">
                                     <div class="cardAddToListBox">
                                         <div class="cardAddToListIconBox  openAddToWLBtn" title="Add to Watchlist">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="cardAddToListIcon">
-                                                <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="cardAddToListIcon">
+                                                <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
+                                                <path fill-rule="evenodd" d="M2 8c0 .494.993.89 2.979 1.685l2.808 1.124C9.773 11.603 10.767 12 12 12s2.227-.397 4.213-1.191l2.808-1.124C21.007 8.891 22 8.494 22 8s-.993-.89-2.979-1.685l-2.808-1.123C14.227 4.397 13.233 4 12 4s-2.227.397-4.213 1.192L4.98 6.315C2.993 7.109 2 7.506 2 8" clip-rule="evenodd" />
+                                                <path d="m19.021 13.685l-2.808 1.124C14.227 15.603 13.233 16 12 16s-2.227-.397-4.213-1.191L4.98 13.685C2.993 12.891 2 12.493 2 12c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 12.535 10.572 13 12 13s2.59-.465 4.439-1.205l3.14-1.256C21.194 11.189 22 11.555 22 12c0 .493-.993.89-2.979 1.685" />
+                                                <path d="m19.021 17.685l-2.808 1.123C14.227 19.603 13.233 20 12 20s-2.227-.397-4.213-1.192L4.98 17.685C2.993 16.89 2 16.493 2 16c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 16.535 10.572 17 12 17s2.59-.465 4.439-1.205l3.14-1.256c1.614.65 2.421 1.016 2.421 1.46c0 .494-.993.891-2.979 1.686" />
                                             </svg>
                                         </div>
                                     </div>
                                 </div>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="slideCardIcon">
-                                    <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                                </svg>
                             </div>
                         </div>
                         <div class="slide_card_bcg"></div>
@@ -456,7 +464,7 @@
             const seasonSelectorBox = document.querySelector(".seasons_selectorBox");
             const seasonSelector = document.querySelectorAll(".seasons_selector");
             const seasonAtv = document.querySelectorAll('.season-select');
-            const sortEPbtn = document.querySelectorAll('.sort_EpisodesBtn');
+            const sortEPbtn = document.querySelectorAll('.episode_orderBtn');
             const seasonBox = document.querySelector('.show-home-bx');
             let seasonSub;
             let epLinkName = showHeaderName.textContent.replace(/\s+/g, '');
@@ -638,8 +646,9 @@
             // Redirecting the user to first episode of the show
             watchNowBtn.addEventListener("click" , () => 
             {
-                watchNowLink = seasonSet[0].querySelectorAll(".episodes")[0].href;
-                window.open(watchNowLink , "_self");
+                // watchNowLink = seasonSet[0].querySelectorAll(".episodes")[0].href;
+                // window.open(watchNowLink , "_self");
+                notification(`notifyBad` , `Feature currently unavailable`);
             });
 
 
@@ -751,7 +760,7 @@
                 });
             });
 
-            // Closing the Selctor
+            // Closing the Season Selector
             document.addEventListener("click" , e => 
             {
                 if((seasonSelectorBdr.classList.contains("active")))
@@ -793,7 +802,7 @@
                 btn.addEventListener("click" , () => 
                 {
                     sortEpisodesFunc();
-                    const sortEPbtnText = btn.querySelector('.episode_sortText');
+                    const sortEPbtnText = btn.querySelector('.episode_orderText');
                     sortEPbtnText.classList.toggle("active");
 
                     if(btn.title == "Sort by latest episodes")
@@ -874,10 +883,15 @@
             epBox.title = "Watch " +  epBoxSpanCtnt;
 
             /**
-             * TESTING: This is a test link to the conly current active page to watch as it is being developed
-             * All links in this department will be redierected to this page
+             * VIDEO PLAYER: This feture is currently unavailable to renovations
+             * A notification will be displayed to alert the user
              */
-            epBox.href = "/Library/TV/Watch/JujutsuKaisen/S1/Ep1.html";
+            epBox.removeAttribute("href");
+            epBox.addEventListener("click" , () => 
+            {
+                notification(`notifyBad` , `Feature currently unavailable`);
+            });
+            
         });
     }
 

@@ -316,7 +316,8 @@ html:root
 
 .quickAtnModal_btn .quickAtnModal_btnIcon
 {
-    width: 16px;
+    width: 18px;
+    width: 18px;
     fill: var(--genWhiteTypeMid);
     transition: 300ms;
 }
@@ -625,7 +626,7 @@ html:root
 }
 
 .sect-controls .seasons_headerBdr,
-.sect-controls .episode_sortBdr
+.sect-controls .episode_orderBdr
 {
     position: relative;
     width: -moz-fit-content;
@@ -820,23 +821,25 @@ html:root
     color: var(--genWhiteTypeLight);
 }
 
-.episode_sortBdr .episode_sortBox
+/* -------- Order Episodes --------- */
+.episode_orderBdr .episode_orderBox
 {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: row;
+    align-items: center;
     cursor: pointer;
 }
 
-.episode_sortBox .episode_sortIcon
+.episode_orderBox .episode_orderIcon
 {
-    width: 14px;
+    width: 20px;
+    height: 20px;
     fill: var(--genWhiteTypeMid);
-    transform: rotate(90deg);
 }
 
-.episode_sortBox .episode_sortText
+.episode_orderBox .episode_orderText
 {
     font-family: 'Poppins', sans-serif;
     position: relative;
@@ -848,12 +851,12 @@ html:root
     margin-left: 5px;
 }
 
-.episode_sortText::after
+.episode_orderText::after
 {
     content: 'Oldest';
 }
 
-.episode_sortText.active::after
+.episode_orderText.active::after
 {
     content: 'Latest';
 }
@@ -1262,12 +1265,14 @@ html:root
         justify-content: center;
     }
 
-    .episode_sortBox .episode_sortIcon
+    .episode_orderBox .episode_orderIcon
     {
+        width: 24px;
+        height: 24px;
         margin-right: 10px;
     }
 
-    .episode_sortBox .episode_sortText
+    .episode_orderBox .episode_orderText
     {
         display: none;
     }
