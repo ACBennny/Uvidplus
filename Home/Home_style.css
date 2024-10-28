@@ -12,12 +12,12 @@ html:root
     --introSlideIconClr: #b8b8b8;
     --introBdrSpacing: 40px;
     --introInfoHeightExtend: 250px;
-    --introSlideIconWidth: 18px;
+    --introSlideIconWidth: 40px;
     --introInfoNotesMargin: 20px;
     --showActionBtnWidth: 40px;
     --showActionBtnSpacing: 5px;
     --addToListBtnIconBoxWidth: 45px;
-    --addToListBtnIconWidth: 16px;
+    --addToListBtnIconWidth: 18px;
     --watchActionBoxWidth: calc((100% - (var(--addToListBtnIconBoxWidth) + var(--showActionBtnSpacing))));
     --watchActionIconWidth: 18px;
     --mostViewedRankOthersBdrWidth: 465px;
@@ -116,6 +116,7 @@ body
 .intro_slide_ctnt_box .slide_arrow .introSlideIcon
 {
     width: var(--introSlideIconWidth);
+    height: var(--introSlideIconWidth);
     fill: var(--introSlideIconClr);
     cursor: pointer;
 }
@@ -640,7 +641,8 @@ body
 
 .goToSeries .goToSeries_iconBox
 {
-    width: 16px;
+    width: var(--watchActionIconWidth);
+    height: var(--watchActionIconWidth);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -649,6 +651,7 @@ body
 .goToSeries_iconBox .goToSeries_icon
 {
     width: 100%;
+    height: 100%;
     fill: var(--genWhiteTypeLight);
 }
 
@@ -749,7 +752,8 @@ body
     transition: 250ms;
 }
 
-.type1_Ctnt_box_HeadRight .seeAll:active{
+.type1_Ctnt_box_HeadRight .seeAll:active
+{
     color: #dfdfdf;
 }
 

@@ -164,6 +164,7 @@ html:root
     width: fit-content;
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .userProfDetEditBtnBox
@@ -234,6 +235,7 @@ html:root
     width: 100%;
     display: flex;
     flex-direction: row;
+    align-items: center;
     padding: 10px;
 }
 
@@ -247,6 +249,7 @@ html:root
 .userProfDetOthBox .userProfDetOthIcon
 {
     width: 16px;
+    height: 16px;
     fill: var(--userProfDetOthClrs);
     transition: all 300ms ease-in-out;
 }
@@ -282,6 +285,14 @@ html:root
 
 
 /* =================== RESPONSIVENESS =============== */
+
+@media only screen and (max-width: 565px)
+{
+    html:root
+    {
+        --userProfFrgImgSize: 100px;
+    }
+}
 
 @media only screen and (max-width: 485px)
 {
@@ -320,7 +331,8 @@ html:root
     .userProfEditOptTab .userProfEditOptIcon,
     .userProfDetOthBox .userProfDetOthIcon
     {
-        width: 14px;
+        width: 16px;
+        width: 16px;
     }
 
     .userProfEditOptTab .userProfEditOptText,

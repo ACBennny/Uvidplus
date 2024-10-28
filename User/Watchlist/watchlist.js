@@ -15,23 +15,7 @@
     let emptyWLStruct = 
     `
         <div class="emptyUserPageBdr">
-            <div class="emptyUserPageBox">
-                <div class="emptyUserPageCtnt">
-                    <div class="emptyUserPageIconBox">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="emptyUserPageIconSvg">
-                            <path d="M64 80c-8.8 0-16 7.2-16 16l0 320c0 8.8 7.2 16 16 16l320 0c8.8 0 16-7.2 16-16l0-320c0-8.8-7.2-16-16-16L64 80zM0 96C0 60.7 28.7 32 64 32l320 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 96zM200 344l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/>
-                        </svg>
-                    </div>
-                    <div class="emptyUserPageNoteBox">
-                        <p class="emptyUserPageNoteText">
-                            You don't have any watchlists.
-                            </br>
-                            Click the button below to create your own unique watchlists.
-                        </p>
-                    </div>
-                    <button class="emptyUserCreateBtn createNewWLBtn darkSolidBtn">Create Watchlist</button>
-                </div>
-            </div>
+            ${emptyUserPageBdr.innerHTML}
         </div>
     `;
     let wlArray = [];
@@ -65,7 +49,7 @@
         let currentDate = new Date();
         let currYear = currentDate.getFullYear();
         let currMonth = currentDate.getMonth() + 1;
-        let monthArr = [`Jan` , `Feb` , `Mar` , `Apr` , `May` , `Jun` , `Jul` , `Aug` , `Sep` , `Oct` , `Nov` , `Dec`]
+        let monthArr = [`Jan` , `Feb` , `Mar` , `Apr` , `May` , `Jun` , `Jul` , `Aug` , `Sep` , `Oct` , `Nov` , `Dec`];
         let currDay = currentDate.getDate();
         let dateInStr = `${monthArr[currMonth]} ${currDay}, ${currYear}`;
         return dateInStr;
@@ -77,7 +61,7 @@
         notification(`notifyBad` , `An error occurred while loading your watchlist`);
     }
     
-    // 
+    // Loading the search inventory
     function loadSearchInventory()
     {
         let searchInvScriptTag = document.createElement("script");
@@ -104,7 +88,7 @@
         wlBodyCtntBox.insertAdjacentHTML(`afterbegin` , emptyWLStruct);
     }
 
-    // 
+    // Fetchies watchlist info
     function fetchUserWatchList()
     {
         // Check if the library is available
@@ -168,8 +152,11 @@
                                         </div>
                                         <div class="userWLCatalog_ItemDetMinorBox">
                                             <div class="userWLCatalog_ItemDetMinorIcon">
-                                                <svg class="userWLCatalog_ItemDetMinorSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                                                    <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="userWLCatalog_ItemDetMinorSvg">
+                                                    <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
+                                                    <path fill-rule="evenodd" d="M2 8c0 .494.993.89 2.979 1.685l2.808 1.124C9.773 11.603 10.767 12 12 12s2.227-.397 4.213-1.191l2.808-1.124C21.007 8.891 22 8.494 22 8s-.993-.89-2.979-1.685l-2.808-1.123C14.227 4.397 13.233 4 12 4s-2.227.397-4.213 1.192L4.98 6.315C2.993 7.109 2 7.506 2 8" clip-rule="evenodd" />
+                                                    <path d="m19.021 13.685l-2.808 1.124C14.227 15.603 13.233 16 12 16s-2.227-.397-4.213-1.191L4.98 13.685C2.993 12.891 2 12.493 2 12c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 12.535 10.572 13 12 13s2.59-.465 4.439-1.205l3.14-1.256C21.194 11.189 22 11.555 22 12c0 .493-.993.89-2.979 1.685" />
+                                                    <path d="m19.021 17.685l-2.808 1.123C14.227 19.603 13.233 20 12 20s-2.227-.397-4.213-1.192L4.98 17.685C2.993 16.89 2 16.493 2 16c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 16.535 10.572 17 12 17s2.59-.465 4.439-1.205l3.14-1.256c1.614.65 2.421 1.016 2.421 1.46c0 .494-.993.891-2.979 1.686" />
                                                 </svg>
                                             </div>
                                             <p class="userWLCatalog_ItemDetMinorText userWLCatalog_ItemCountText">${wl.wl_items.length} items</p>
@@ -186,8 +173,9 @@
                             <div class="userWLCatalog_ItemBadgeBdr userWLCatalog_ItemDelWLBtn" title="Delete">
                                 <div class="userWLCatalog_ItemBadgeBox">
                                     <div class="userWLCatalog_ItemBadgeIcon">
-                                        <svg class="userWLCatalog_ItemBadgeSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                            <path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0L284.2 0c12.1 0 23.2 6.8 28.6 17.7L320 32l96 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 96C14.3 96 0 81.7 0 64S14.3 32 32 32l96 0 7.2-14.3zM32 128l384 0 0 320c0 35.3-28.7 64-64 64L96 512c-35.3 0-64-28.7-64-64l0-320zm96 64c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16z"/>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="userWLCatalog_ItemBadgeSvg">
+                                            <path d="M3 6.524c0-.395.327-.714.73-.714h4.788c.006-.842.098-1.995.932-2.793A3.68 3.68 0 0 1 12 2a3.68 3.68 0 0 1 2.55 1.017c.834.798.926 1.951.932 2.793h4.788c.403 0 .73.32.73.714a.72.72 0 0 1-.73.714H3.73A.72.72 0 0 1 3 6.524" />
+                                            <path fill-rule="evenodd" d="M11.596 22h.808c2.783 0 4.174 0 5.08-.886c.904-.886.996-2.34 1.181-5.246l.267-4.187c.1-1.577.15-2.366-.303-2.866c-.454-.5-1.22-.5-2.753-.5H8.124c-1.533 0-2.3 0-2.753.5s-.404 1.289-.303 2.866l.267 4.188c.185 2.906.277 4.36 1.182 5.245c.905.886 2.296.886 5.079.886m-1.35-9.811c-.04-.434-.408-.75-.82-.707c-.413.043-.713.43-.672.864l.5 5.263c.04.434.408.75.82.707c.413-.044.713-.43.672-.864zm4.329-.707c.412.043.713.43.671.864l-.5 5.263c-.04.434-.409.75-.82.707c-.413-.044-.713-.43-.672-.864l.5-5.264c.04-.433.409-.75.82-.707" clip-rule="evenodd" />
                                         </svg>
                                     </div>
                                 </div>

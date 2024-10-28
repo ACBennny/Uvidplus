@@ -77,21 +77,11 @@ html:root
     --navBarHeight: 70px;
     --navBarGenClr: var(--color8);
     --navBarBcgSolid: #2f2e2e;
-    --navBarBcgTransparency: #2f2e2eef;
     --navElementColor_green: var(--genGreenTypeLight);
-    --navMenuPageActiveElementClr: var(--genWhiteTypeMid2);
-    --navOptionColor: #a1a1a1;
     --navMenuBcgClr: #1d1c1c;
     --navMenuBorderRadius: 15px;
     --navMenuBorderThickness: 1px;
     --navMenuBorderClr: var(--genGreenTypeLight);
-    --navBarIconBoxWidth: 25px;
-    --navBarIconWidth: 18px;
-    --navBarIconClr: var(--color8);
-    --navBarDividerThickness: 2px;
-    --navBarSearchWidth: 12px;
-    --navBarSearchBarHeight: 100px;
-    --navBarSearchClr: var(--color10);
     --navBarMenuWidth: 275px;
     --navBarNotificationPosT: calc(var(--navBarHeight) - 10px);
     --navBarNotificationPosR: -300px;
@@ -111,11 +101,11 @@ html:root
     --editProfileBcgImgHeight: 200px;
     --editProfileBcgImgHeightPlus: calc((var(--editProfileBcgImgHeight) + var(--navBarHeight)));
     --basicSliderCardDivision: 4;
-    --basicSlideIconWidth: 16px;
+    --basicSlideIconWidth: 19px;
+    --basicSlideArrowIconWidth: 35px;
     --slideCardBorderRadius: 25px;
     --slideCardSpacing: 12px;
     --slideCardPlayIconClr: var(--genGreenTypeMid);
-    --slideCardPlayIconWidth: 35px;
     --slideCardProgress_currClr: var(--genGreenTypeBright);
     --basicCatalogCardWidth: 175px;
     --basicSingleColPadding: 50px;
@@ -1039,8 +1029,8 @@ img
 
 .navBarNotificationHeaderBox .navBarNotificationHeaderIconBox
 {
-    width: 14px;
-    height: 14px;
+    width: 18px;
+    height: 18px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1905,7 +1895,8 @@ img
 
 .basic_slide_arrow .basic_slide_arrowIcon
 {
-    width: var(--basicSlideIconWidth);
+    width: var(--basicSlideArrowIconWidth);
+    height: var(--basicSlideArrowIconWidth);
     fill: var(--genWhiteTypeMid);
     opacity: 0;
     visibility: hidden;
@@ -2046,8 +2037,6 @@ img
 
 .slide_card .cardAddToListBdr
 {
-    --cardAddToListIconWidth: 0px;
-    --cardAddToListIconWidth: var(--basicSlideIconWidth);
     position: absolute;
     top: 0;
     right: 0;
@@ -3534,7 +3523,8 @@ img
 
 .selectPicCarouselArrBox .selectPicCarouselArr
 {
-    width: var(--basicSlideIconWidth);
+    width: var(--basicSlideArrowIconWidth);
+    height: var(--basicSlideArrowIconWidth);
     fill: var(--genWhiteTypeMid);
     opacity: 0;
     visibility: hidden;
@@ -4731,6 +4721,9 @@ img
 
 @media only screen and (max-width: 768px)
 {
+    html:root
+    {}
+
     .addNewProfIconBox .addNewProfIcon
     {
         width: 30px;
@@ -4874,8 +4867,7 @@ img
         --navBarNotificationPosR: -300px;
         --navBarProfilePosT: calc(var(--navBarHeight) - 10px);
         --navBarProfilePosR: -300px;
-        --basicSlideIconWidth: 15px;
-        --slideCardPlayIconWidth: 27px;
+        /* --basicSlideIconWidth: 15px; */
         --genBorderSpacing: 15px;
     }
 

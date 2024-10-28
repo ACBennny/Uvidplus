@@ -669,8 +669,8 @@
                         <div class="navBarNotificationHeaderBox">
                             <button class="navBarNotificationHeaderBtn markAllNavBarNotificationsAsRead">
                                 <div class="navBarNotificationHeaderIconBox">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navBarNotificationHeaderIconSvg">
-                                        <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="navBarNotificationHeaderIconSvg">
+                                        <path fill-rule="evenodd" d="M18.493 6.935a.75.75 0 0 1 .072 1.058l-7.857 9a.75.75 0 0 1-1.13 0l-3.143-3.6a.75.75 0 0 1 1.13-.986l2.578 2.953l7.292-8.353a.75.75 0 0 1 1.058-.072" clip-rule="evenodd" />
                                     </svg>
                                 </div>
                                 <p class="navBarNotificationHeaderText ">Mark all as read</p>
@@ -831,9 +831,8 @@
 
 
         
-        // SIDE NAVBAR
+        // NAVBAR ACTIVE STATE
 
-            // Active state
             let currPagePathName = window.location.pathname;
             let extractedCurrPagePath = currPagePathName.replace(/\.html$/, "");
             let currPageSpecificSegment = extractedCurrPagePath.substring(extractedCurrPagePath.lastIndexOf('/') + 1);
@@ -860,6 +859,26 @@
                     sideNavLinks[3].classList.add("active");
                     btmNavLinks[3].classList.add("active");
                     break;
+                
+                    case 'recent': 
+                        sideNavLinks[3].classList.add("active");
+                        btmNavLinks[3].classList.add("active");
+                        break;
+                    
+                    case 'movies': 
+                        sideNavLinks[3].classList.add("active");
+                        btmNavLinks[3].classList.add("active");
+                        break;
+                    
+                    case 'tv': 
+                        sideNavLinks[3].classList.add("active");
+                        btmNavLinks[3].classList.add("active");
+                        break;
+                    
+                    case 'genres': 
+                        sideNavLinks[3].classList.add("active");
+                        btmNavLinks[3].classList.add("active");
+                        break;
                 
                 case 'news': 
                     sideNavLinks[4].classList.add("active");

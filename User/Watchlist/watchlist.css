@@ -216,8 +216,8 @@ html:root
 
 .userWLCatalog_ItemDetMinorBox .userWLCatalog_ItemDetMinorIcon
 {
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     margin-right: 5px;
 }
 
@@ -304,8 +304,8 @@ html:root
 
 .userWLCatalog_ItemBadgeIcon .userWLCatalog_ItemBadgeSvg
 {
-    width: 14px;
-    height: 14px;
+    width: 18px;
+    height: 18px;
     fill: var(--genWhiteTypeMid);
     transition: all 300ms ease-in-out;
 }
@@ -536,6 +536,7 @@ html:root
 {
     font-size: 13px;
     color: var(--genWhiteTypeLight);
+    display: none;
 }
 
 .wlModalHeader_thumbBdr .wlModalHeader_thumbBox

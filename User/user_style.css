@@ -10,7 +10,7 @@ html:root
 {
     --userHeaderBdrHeight: 225px;
     --userHeaderNavLinkClr: var(--genWhiteTypeMid);
-    --userHeaderNavLinkIconSizing: 16px;
+    --userHeaderNavLinkIconSizing: 18px;
     --userBodyTitleClr: var(--genWhiteTypeLight);
     --emptyUserPageIconSize: 50px;
     --userOrderBtnClr: var(--genWhiteTypeMid);
@@ -210,8 +210,8 @@ html:root
 
 .userBodyTitleBox .userBodyTitleIconBox
 {
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
 }
 
 .userBodyTitleIconBox .userBodyTitleIconSvg
@@ -547,6 +547,14 @@ html:root
     }
 }
 
+@media only screen and (max-width: 650px)
+{
+    .userHeaderNavBdr .userHeaderNavBox
+    {
+        gap: 0px;
+    }
+}
+
 
 @media only screen and (max-width: 600px)
 {
@@ -554,7 +562,7 @@ html:root
     html:root
     {
         --userHeaderBdrHeight: 125px;
-        --userHeaderNavLinkIconSizing: 20px;
+        --userHeaderNavLinkIconSizing: 24px;
     }
 
     .userHeaderDetBox .userHeaderTitleBdr
