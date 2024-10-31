@@ -1286,11 +1286,11 @@
             // Open quick Search 
             function openQuickSearchModal()
             {
-                if(quickSearchBase.classList.contains("active")) return;
-                documentBody.classList.add("bodystop");
+                if(quickSearchBase.classList.contains("active")) return;;
                 quickSearchBase.classList.add("active");
                 quickSearchBase.addEventListener("transitionend" , function handleTransitionEnd()
                 {
+                    documentBody.classList.add("bodystop");
                     quickSearchInputField.focus();
                     quickSearchBase.removeEventListener("transitionend" , handleTransitionEnd);
                 });
