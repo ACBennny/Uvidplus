@@ -1304,7 +1304,6 @@
                 {
                     e.preventDefault();
                     openQuickSearchBtn[0].click();
-                    // openQuickSearchModal();
                 }
             }
             document.addEventListener("keydown" , e =>
