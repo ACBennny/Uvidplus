@@ -92,9 +92,16 @@ html:root
     --navBarProfilePosT: calc(var(--navBarHeight) - 10px);
     --navBarProfilePosR: -300px;
     --navBarProfileCardLinkClr: #cdcdcd;
-    --navFooterElemHoverColor: var(--genWhi
-    --navFooterElemColor: #878787;teTypeLight);
-    --navFooterCompClr: #616060;
+    --quickSearchTransition: 300ms;
+    --quickSearchBdrRad: 5px;
+    --quickSearchInputBoxBcg: var(--navMenuBcgClr);
+    --quickSearchInputBdrHeight: 60px;
+    --quickSearchInputClr: var(--genWhiteTypeDark);
+    --quickSearchInputIconWidth: 60px;
+    --quickSearchResultCardHeight: 110px;
+    --quickSearchResultCardThumbWidth: 65px;
+    --quickSearchResultDetTagSectIconSize: 14px;
+    --quickSearchResultDetTagSectIconFill: var(--genGreenTypeMid);
     --switchProfileFadeTranstion: 750ms;
     --switchProfHeaderHeight: 60px;
     --switchProfOptImgBoxWidth: 125px;
@@ -1608,6 +1615,404 @@ img
     width: 18px;
     height: 18px;
 }
+
+
+
+
+
+
+
+
+/* ============== QUICK SEARCH ============ */
+
+.quickSearchBase
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000c3;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--quickSearchTransition) ease-in-out;
+    pointer-events: none;
+    z-index: 105;
+}
+
+.quickSearchBase.active
+{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
+.quickSearchBase .quickSearchBcg
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.quickSearchBase .quickSearchBdr
+{
+    width: 100%;
+    max-width: 650px;
+}
+
+.quickSearchBdr .quickSearchBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 25px;
+    transform: translateY(25%) scale(0.75);
+    transition: all var(--quickSearchTransition) ease-in-out;
+}
+
+.quickSearchBase.active .quickSearchBox
+{
+    opacity: 1;
+    transform: translateY(0%) scale(1.0);
+}
+
+.quickSearchBox .quickSearchNoteBdr
+{
+    width: 100%;
+    margin: 10px 0;
+}
+
+.quickSearchNoteBdr .quickSearchNoteBox
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.quickSearchNoteBox .quickSearchNoteText
+{
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--genWhiteTypeLight);
+}
+
+.quickSearchNoteBox .quickSearchNoteKey
+{
+    padding: 7px;
+    font-size: 12px;
+    color: var(--genWhiteTypeLight);
+    border-radius: 7px;
+    background-color: var(--navBarBcgSolid);
+}
+
+/* -------- Input Area ------ */
+.quickSearchBox .quickSearchInputBdr
+{
+    width: 100%;
+    height: var(--quickSearchInputBdrHeight);
+    margin-bottom: 15px;
+}
+
+.quickSearchInputBdr .quickSearchInputBox
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    border-radius: var(--quickSearchBdrRad);
+    background-color: var(--quickSearchInputBoxBcg);
+    border-bottom: 2px solid #ffffff55;
+    overflow: hidden;
+    transition: all var(--quickSearchTransition) ease-in-out;
+}
+
+.quickSearchInputBox:focus-within
+{
+    --quickSearchInputClr: var(--genWhiteTypeLight);
+    border-color: var(--genGreenTypeLight);
+}
+
+.quickSearchInputBox .quickSearchInputIcon
+{
+    position: absolute;
+    top: 0;
+    width: var(--quickSearchInputIconWidth);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.quickSearchInputIcon.quickSearchInputLeftIcon
+{
+    left: 0;
+}
+
+.quickSearchInputIcon.quickSearchInputRightIcon
+{
+    right: 0;
+}
+
+.quickSearchInputIcon.quickSearchClearInput
+{
+    display: none;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.quickSearchClearInput.active
+{
+    display: flex;
+}
+
+.quickSearchInputIcon .quickSearchInputSvg
+{
+    fill: var(--quickSearchInputClr);
+    transition: all var(--quickSearchTransition) ease-in-out;
+}
+
+.quickSearchInputLeftIcon .quickSearchInputSvg
+{
+    width: calc((var(--quickSearchInputIconWidth) / 2.5));
+    height: calc((var(--quickSearchInputIconWidth) / 2.5));}
+
+.quickSearchInputRightIcon .quickSearchInputSvg
+{
+    width: calc((var(--quickSearchInputIconWidth) / 3.0));
+    height: calc((var(--quickSearchInputIconWidth) / 3.0));
+}
+
+.quickSearchInputBox .quickSearchInputFieldClass
+{
+    font-family: 'Zen dots' , sans-serif;
+    width: 100%;
+    height: 100%;
+    padding: 10px var(--quickSearchInputIconWidth);
+    outline: none;
+    border: none;
+    color: var(--quickSearchInputClr);
+    font-size: 16px;
+    background-color: #00000000;
+}
+
+
+/* ------- Result Area ------- */
+.quickSearchBox .quickSearchResultBdr
+{
+    position: relative;
+    width: 100%;
+    max-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--quickSearchBdrRad);
+    background-color: var(--navMenuBcgClr);
+    overflow: hidden auto;
+    transition: all var(--quickSearchTransition) ease-in-out;
+}
+
+.quickSearchResultBdr .quickSearchResultAllBtn
+{
+    width: 100%;
+    height: var(--quickSearchInputBdrHeight);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+.quickSearchResultAllBtn.active
+{
+    display: flex;
+}
+
+.quickSearchResultBdr .quickSearchResultBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.quickSearchResultBox .quickSearchResultCardBdr
+{
+    width: 100%;
+    height: var(--quickSearchResultCardHeight);
+    border-bottom: 1px solid #333333;
+    transition: all var(--quickSearchTransition) ease-in-out;
+    cursor: pointer;
+}
+
+.quickSearchResultCardBdr:hover
+{
+    background-color: var(--navBarBcgSolid);
+}
+
+.quickSearchResultCardBdr .quickSearchResultCardBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 10px 15px;
+}
+
+.quickSearchResultCardBox .quickSearchResultCardThumbBdr
+{
+    width: var(--quickSearchResultCardThumbWidth);
+    height: 100%;
+}
+
+.quickSearchResultCardThumbBdr .quickSearchResultCardThumbBox
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.quickSearchResultCardThumbBox .quickSearchResultCardThumbImg
+{
+    width: clamp(100% , 100% , 100%);
+    height: clamp(100% , 100% , 100%);
+    object-fit: cover;
+    object-position: center;
+}
+
+.quickSearchResultCardBox .quickSearchResultDetBdr
+{
+    width: calc((100% - var(--quickSearchResultCardThumbWidth)));
+    height: 100%;
+    padding-left: 10px;
+}
+
+.quickSearchResultDetBdr .quickSearchResultDetBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.quickSearchResultDetBox .quickSearchResultDetTitleBox
+{
+    width: 100%;
+}
+
+.quickSearchResultDetTitleBox .quickSearchResultDetTitleText
+{
+    --quickSearchResultDetTitleTextNo: 2;
+    --quickSearchResultDetTitleTextH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--quickSearchResultDetTitleTextNo);
+    -webkit-box-orient: vertical;
+    line-clamp:  var(--quickSearchResultDetTitleTextNo);
+    display: -webkit-box;
+    max-height: calc(var(--quickSearchResultDetTitleTextNo) * 1em * var(--quickSearchResultDetTitleTextH));
+    line-height: var(--quickSearchResultDetTitleTextH);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    color: var(--genWhiteTypeLight);
+    font-size: 13px;
+    font-weight: 600;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+.quickSearchResultDetBox .quickSearchResultDetTagBdr
+{
+    width: 100%;
+    margin: 5px 0;
+}
+
+.quickSearchResultDetTagBdr .quickSearchResultDetTagBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.quickSearchResultDetTagBox .quickSearchResultDetTagSectBox
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.quickSearchResultDetTagSectBox .quickSearchResultDetTagSectText
+{
+    font-family: 'Poppins' , sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--genWhiteTypeMid);
+}
+
+.quickSearchResultDetTagSectBox.quickSearchResultDetTagDividerBox
+{
+    display: none;
+}
+
+.quickSearchResultDetTagScoreBox .quickSearchResultDetTagScoreIcon
+{
+    width: var(--quickSearchResultDetTagSectIconSize);
+    height: var(--quickSearchResultDetTagSectIconSize);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 3px;
+}
+
+.quickSearchResultDetTagScoreIcon .quickSearchResultDetTagScoreSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--quickSearchResultDetTagSectIconFill);
+}
+
+.quickSearchResultDetBox .quickSearchResultDetDescBox
+{
+    width: 100%;
+}
+
+.quickSearchResultDetDescBox .quickSearchResultDetDescText
+{
+    --quickSearchResultDetDescTextNo: 2;
+    --quickSearchResultDetDescTextH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--quickSearchResultDetDescTextNo);
+    -webkit-box-orient: vertical;
+    line-clamp:  var(--quickSearchResultDetDescTextNo);
+    display: -webkit-box;
+    max-height: calc(var(--quickSearchResultDetDescTextNo) * 1em * var(--quickSearchResultDetDescTextH));
+    line-height: var(--quickSearchResultDetDescTextH);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    color: var(--genWhiteTypeMid);
+    font-family: 'Poppins' , sans-serif;
+    font-size: 12px;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
 
 
 
@@ -5069,6 +5474,20 @@ img
 
 @media only screen and (max-width: 485px)
 {
+    html:root
+    {
+        --quickSearchInputIconWidth: 50px;
+    }
+
+    .quickSearchInputIcon.quickSearchInputLeftIcon
+    {
+        display: none;
+    }
+
+    .quickSearchInputBox .quickSearchInputFieldClass
+    {
+        padding-left: 15px;
+    }
 
     .basic_slider_title_bdr .basic_slider_title_box
     {
