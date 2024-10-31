@@ -64,18 +64,19 @@
     // Loading the search inventory
     function loadSearchInventory()
     {
-        let searchInvScriptTag = document.createElement("script");
-        searchInvScriptTag.setAttribute(`src` , `/inventory.js`);
-        document.body.appendChild(searchInvScriptTag);
+        let invScriptTag = document.createElement("script");
+        invScriptTag.setAttribute(`id` , `inventoryID`);
+        invScriptTag.setAttribute(`src` , `/inventory.js`);
+        document.body.appendChild(invScriptTag);
 
-        searchInvScriptTag.addEventListener("load" , () => 
+        invScriptTag.addEventListener("load" , () => 
         {
-            fetchUserWatchList();
+            fillScheduleLib();
         });
-        searchInvScriptTag.onerror = function() 
+        invScriptTag.addEventListener("error" , () => 
         {
             errorLoadingUserWatchlist();
-        };
+        });
     }
 
     // For inserting the empty status
