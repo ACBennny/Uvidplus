@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     <div class="sideNavItemsCardBase topNav_openNavNotify">
-                        <div class="sideNavItemsCardBdr openNavNotify">
+                        <button class="sideNavItemsCardBdr openNavNotify">
                             <div class="sideNavItemsCardBox">
                                 <div class="sideNavItemsCardIcon">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg">
@@ -61,7 +61,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </button>
                     </div>
                     <div class="navBarProfileBdr">
                         <div class="navBarProfileBox open_nav_profileOptions">
@@ -87,7 +87,7 @@
                     <div class="sideNavItemsBdr">
                         <div class="sideNavItemsBox">
                             <div class="sideNavItemsCardBase">
-                                <div class="sideNavItemsCardBdr openQuickSearchBtn">
+                                <button class="sideNavItemsCardBdr openQuickSearchBtn">
                                     <div class="sideNavItemsCardBox">
                                         <div class="sideNavItemsCardIcon">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
@@ -104,7 +104,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </button>
                             </div>
                             <div class="sideNavItemsCardBase">
                                 <a href="/Home.html" class="sideNavItemsCardBdr sideNavLinks">
@@ -1296,14 +1296,15 @@
                 });
             }
             
-            // Open by Shortcut: Ctrl + Q
+            // Open by Shortcut: Ctrl + Q 
             function quickSearchShortcut(e)
             {
                 let keyVal = e.key.toLowerCase();
                 if((e.ctrlKey && keyVal === "q"))
                 {
                     e.preventDefault();
-                    openQuickSearchModal();
+                    openQuickSearchBtn[0].click();
+                    // openQuickSearchModal();
                 }
             }
             document.addEventListener("keydown" , e =>

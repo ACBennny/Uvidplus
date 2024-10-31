@@ -595,6 +595,9 @@ img
     justify-content: center;
     align-items: center;
     padding: 10px 5px;
+    outline: none;
+    border: none;
+    background-color: #00000000;
     transition: all 300ms ease-in-out;
     cursor: pointer;
 }
