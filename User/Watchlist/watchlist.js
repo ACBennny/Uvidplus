@@ -43,18 +43,6 @@
         wlBodyCtntBox.insertAdjacentHTML(`afterbegin` , emptyWLStruct);
     }
 
-    // Getting the current date
-    function getCurrDate()
-    {
-        let currentDate = new Date();
-        let currYear = currentDate.getFullYear();
-        let currMonth = currentDate.getMonth() + 1;
-        let monthArr = [`Jan` , `Feb` , `Mar` , `Apr` , `May` , `Jun` , `Jul` , `Aug` , `Sep` , `Oct` , `Nov` , `Dec`];
-        let currDay = currentDate.getDate();
-        let dateInStr = `${monthArr[currMonth]} ${currDay}, ${currYear}`;
-        return dateInStr;
-    }
-
     // For error events
     function errorLoadingUserWatchlist()
     {
@@ -64,6 +52,16 @@
     // Loading the search inventory
     function loadSearchInventory()
     {
+        // Check if inventory.js has been initialized
+        let invScriptID = document.querySelector("#inventoryID");
+
+        if(!(invScriptID == undefined))
+        {
+            fetchUserWatchList();
+            return;
+        }
+
+        // If not, initialize
         let invScriptTag = document.createElement("script");
         invScriptTag.setAttribute(`id` , `inventoryID`);
         invScriptTag.setAttribute(`src` , `/inventory.js`);
@@ -71,7 +69,7 @@
 
         invScriptTag.addEventListener("load" , () => 
         {
-            fillScheduleLib();
+            fetchUserWatchList();
         });
         invScriptTag.addEventListener("error" , () => 
         {
@@ -87,6 +85,18 @@
 
         // Inserting empty status
         wlBodyCtntBox.insertAdjacentHTML(`afterbegin` , emptyWLStruct);
+    }
+
+    // Getting the current date
+    function getCurrDate()
+    {
+        let currentDate = new Date();
+        let currYear = currentDate.getFullYear();
+        let currMonth = currentDate.getMonth() + 1;
+        let monthArr = [`Jan` , `Feb` , `Mar` , `Apr` , `May` , `Jun` , `Jul` , `Aug` , `Sep` , `Oct` , `Nov` , `Dec`];
+        let currDay = currentDate.getDate();
+        let dateInStr = `${monthArr[currMonth]} ${currDay}, ${currYear}`;
+        return dateInStr;
     }
 
     // Fetchies watchlist info

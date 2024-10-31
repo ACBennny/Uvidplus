@@ -13,6 +13,16 @@
 
     function loadInventory()
     {
+        // Check if inventory.js has been initialized
+        let invScriptID = document.querySelector("#inventoryID");
+
+        if(!(invScriptID == undefined))
+        {
+            startSearchEngine();
+            return;
+        }
+
+        // If not, initialize
         let invScriptTag = document.createElement("script");
         invScriptTag.setAttribute(`id` , `inventoryID`);
         invScriptTag.setAttribute(`src` , `/inventory.js`);
@@ -20,7 +30,7 @@
 
         invScriptTag.addEventListener("load" , () => 
         {
-            fillScheduleLib();
+            startSearchEngine();
         });
         invScriptTag.addEventListener("error" , () => 
         {

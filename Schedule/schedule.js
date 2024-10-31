@@ -225,6 +225,16 @@
 
     function loadScheduleLib()
     {
+        // Check if inventory.js has been initialized
+        let invScriptID = document.querySelector("#inventoryID");
+
+        if(!(invScriptID == undefined))
+        {
+            fillScheduleLib();
+            return;
+        }
+
+        // If not, initialize
         let invScriptTag = document.createElement("script");
         invScriptTag.setAttribute(`id` , `inventoryID`);
         invScriptTag.setAttribute(`src` , `/inventory.js`);
