@@ -58,12 +58,17 @@
     function loadInventory()
     {
         let invScriptTag = document.createElement("script");
+        invScriptTag.setAttribute(`id` , `inventoryID`);
         invScriptTag.setAttribute(`src` , `/inventory.js`);
         document.body.appendChild(invScriptTag);
-    
+
         invScriptTag.addEventListener("load" , () => 
         {
-            preShowSection();
+            fillScheduleLib();
+        });
+        invScriptTag.addEventListener("error" , () => 
+        {
+            notification(`notifyBad` , `Error fetching show Info`);
         });
     }
 
