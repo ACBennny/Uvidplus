@@ -12,7 +12,7 @@ html:root
     --trendingCardBdrPseudoInset: -25px;
     --trendingImgBdrWidth: 150px;
     --trendingImgBdrHeight: 215px;
-    --trendingDetAboutTextClr: var(--navOptionColor);
+    --trendingDetAboutTextClr: var(--color10);
 }
 
 
