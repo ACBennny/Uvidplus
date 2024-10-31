@@ -225,18 +225,18 @@
 
     function loadScheduleLib()
     {
-        let scheduleLibScript = document.createElement("script");
-        scheduleLibScript.setAttribute(`id` , `inventoryID`);
-        scheduleLibScript.setAttribute(`src` , `/inventory.js`);
-        document.body.appendChild(scheduleLibScript);
+        let invScriptTag = document.createElement("script");
+        invScriptTag.setAttribute(`id` , `inventoryID`);
+        invScriptTag.setAttribute(`src` , `/inventory.js`);
+        document.body.appendChild(invScriptTag);
 
-        scheduleLibScript.addEventListener("load" , () => 
+        invScriptTag.addEventListener("load" , () => 
         {
             fillScheduleLib();
         });
-        scheduleLibScript.addEventListener("error" , () => 
+        invScriptTag.addEventListener("error" , () => 
         {
-            notification(`notifyBad` , `Error loading `);
+            notification(`notifyBad` , `Error loading Schedule`);
         });
     }
 
