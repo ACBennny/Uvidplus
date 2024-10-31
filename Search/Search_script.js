@@ -14,11 +14,17 @@
     function loadInventory()
     {
         let invScriptTag = document.createElement("script");
+        invScriptTag.setAttribute(`id` , `inventoryID`);
         invScriptTag.setAttribute(`src` , `/inventory.js`);
-    
+        document.body.appendChild(invScriptTag);
+
         invScriptTag.addEventListener("load" , () => 
         {
-            startSearchEngine();
+            fillScheduleLib();
+        });
+        invScriptTag.addEventListener("error" , () => 
+        {
+            notification(`notifyBad` , `Error loading Catalog`);
         });
 
         document.body.appendChild(invScriptTag);
