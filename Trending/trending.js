@@ -13,14 +13,15 @@
     function loadInventory()
     {
         let invScriptTag = document.createElement("script");
+        invScriptTag.setAttribute(`id` , `inventoryID`);
         invScriptTag.setAttribute(`src` , `/inventory.js`);
+        document.body.appendChild(invScriptTag);
 
         invScriptTag.addEventListener("load" , () => 
         {
             launchTrendingPage();
         });
 
-        document.body.appendChild(invScriptTag);
     }
 
     function launchTrendingPage()
