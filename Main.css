@@ -1087,9 +1087,9 @@ img
     transition: all 300ms ease-in-out;
 }
 
-.navBarNotificationHeaderBox:active .navBarNotificationHeaderIconSvg,
-.navBarNotificationHeaderBox:active .navBarNotificationHeaderText,
-.navBarNotificationFooterBox:active .navBarNotificationFooterText
+.navBarNotificationHeaderBtn:active .navBarNotificationHeaderIconSvg,
+.navBarNotificationHeaderBtn:active .navBarNotificationHeaderText,
+.navBarNotificationHeaderBtn:active .navBarNotificationFooterText
 {
     fill: var(--genGreenTypeLight2);
     color: var(--genGreenTypeLight2);
