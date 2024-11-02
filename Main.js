@@ -813,22 +813,25 @@
                 // Darken NavBar on scroll
                 topNavBar.classList.toggle("float" , window.scrollY > 0);
 
-                // Hide/Unhide navbar while scrolling
-                let currentWindowScroll = window.scrollY;
-
-                if((currentWindowScroll > lastWindowScroll))
+                // Hide/Unhide navbar while scrolling (If fullscreen is disabled)
+                if((window.innerHeight != screen.height))
                 {
-                    topNavBar.classList.add("isScrollingDown");
-                    btmNavBar.classList.add("isScrollingDown");
-                }
+                    let currentWindowScroll = window.scrollY;
 
-                if((currentWindowScroll < lastWindowScroll))
-                {
-                    topNavBar.classList.remove("isScrollingDown");
-                    btmNavBar.classList.remove("isScrollingDown");
+                    if((currentWindowScroll > lastWindowScroll))
+                    {
+                        topNavBar.classList.add("isScrollingDown");
+                        btmNavBar.classList.add("isScrollingDown");
+                    }
+    
+                    if((currentWindowScroll < lastWindowScroll))
+                    {
+                        topNavBar.classList.remove("isScrollingDown");
+                        btmNavBar.classList.remove("isScrollingDown");
+                    }
+    
+                    lastWindowScroll = currentWindowScroll;
                 }
-
-                lastWindowScroll = currentWindowScroll;
             });
             
 
