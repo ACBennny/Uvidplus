@@ -487,6 +487,11 @@ img
     background: linear-gradient(to bottom, #000000ff, #000000f4, #000000ef, #000000dc, #000000ab, #00000045, #00000000, #00000000);
 }
 
+.topNavBar.isScrollingDown
+{
+    --btmNavBarHeight: 0px;
+}
+
 .topNavBar .topNavBdr
 {
     width: 100%;
@@ -728,6 +733,11 @@ img
     transition: all 300ms ease-in-out;
     pointer-events: none;
     z-index: 100;
+}
+
+.btmNavBar.isScrollingDown
+{
+    --btmNavBarHeight: 0px;
 }
 
 .btmNavBar .btmNavBdr

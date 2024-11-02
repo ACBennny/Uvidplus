@@ -713,6 +713,7 @@
 
         // DEFINITION
 
+            let lastWindowScroll = 0;
             let sideNavLinks = document.querySelectorAll(".sideNavLinks");
             let btmNavLinks = document.querySelectorAll(".btmNavLinks");
             let navbarUnderlayer = document.querySelector(".navbar_UnderLayer");
@@ -807,11 +808,29 @@
 
         // NAVBAR
 
-            // Darken NavBar on scroll
             window.addEventListener("scroll" , () => 
             {
+                // Darken NavBar on scroll
                 topNavBar.classList.toggle("float" , window.scrollY > 0);
+
+                // Hide/Unhide navbar while scrolling
+                let currentWindowScroll = window.scrollY;
+
+                if((currentWindowScroll > lastWindowScroll))
+                {
+                    topNavBar.classList.add("isScrollingDown");
+                    btmNavBar.classList.add("isScrollingDown");
+                }
+
+                if((currentWindowScroll < lastWindowScroll))
+                {
+                    topNavBar.classList.remove("isScrollingDown");
+                    btmNavBar.classList.remove("isScrollingDown");
+                }
+
+                lastWindowScroll = currentWindowScroll;
             });
+            
 
             // Go to Home page
             goToHomePage.forEach(one => 
@@ -936,7 +955,7 @@
                     sideNavLinks[4].classList.add("active");
                     btmNavLinks[4].classList.add("active");
                     break;
-                    
+
                 case 'news': 
                     sideNavLinks[5].classList.add("active");
                     btmNavLinks[5].classList.add("active");
