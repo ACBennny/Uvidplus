@@ -1,0 +1,143 @@
+/*************************************************************
+ * This is the style for the Categories page
+ * 
+ * @author (Anyanwu Benedict Chukwuemeka)
+ * @version (v0.01)
+ *************************************************************/
+
+
+
+html:root
+{
+    --categoriesCardWidth: 200px;
+}
+
+
+.categoriesBase
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.categoriesBase .categoriesBdr
+{
+    width: 100%;
+    max-width: var(--genMaxContainerWidth);
+    display: flex;
+    flex-direction: column;
+    padding: calc((var(--btmNavBarHeight) + 20px)) var(--genBorderSpacing);
+}
+
+.categoriesBdr .categoriesBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.categoriesBox .categoriesTitleBox
+{
+    width: 100%;
+    margin: 15px 0;
+}
+
+.categoriesTitleBox .categoriesTitleText
+{
+    font-size: 18px;
+    color: var(--genWhiteTypeLight);
+}
+
+.categoriesBox .categoriesGridBdr
+{
+    width: 100%;
+}
+
+.categoriesGridBdr .categoriesGridBox
+{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--categoriesCardWidth), 1fr));
+    grid-template-rows: auto;
+    justify-items: center;
+    gap: 20px;
+}
+
+.categoriesGridBox .categoriesGridCardBdr
+{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.categoriesGridCardBdr .categoriesGridCardBcg
+{
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(100% 100% at 20% 80%, var(--catBcgClr) 10%, #000000 70%);
+    filter: blur(10px) brightness(0.250);
+}
+
+.categoriesGridCardBdr .categoriesGridCardBox
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: #ffffff15;
+}
+
+.categoriesGridCardBox .categoriesGridCardLabelBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.categoriesGridCardLabelBox .categoriesGridCardLabelText
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 16px;
+}
+
+
+
+/* ============ Responsiveness ============= */
+
+@media only screen and (max-width: 600px)
+{
+    html:root
+    {
+        --categoriesCardWidth: 150px;
+    }
+
+    .categoriesTitleBox .categoriesTitleText
+    {
+        font-size: 14px;
+    }
+
+    .categoriesGridBdr .categoriesGridBox
+    {
+        gap: 10px;
+    }
+
+    .categoriesGridCardLabelBox .categoriesGridCardLabelText
+    {
+        font-size: 12px;
+    }
+}
+
+
+
+
+
