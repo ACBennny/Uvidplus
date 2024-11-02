@@ -5131,7 +5131,93 @@ img
 @media only screen and (max-width: 768px)
 {
     html:root
-    {}
+    {
+        --navbarGradientSize: 0px;
+        --sideNavBarWidth: 0px;
+        --btmNavBarHeight: 64px;
+        --navBarNotificationPosT: calc(var(--navBarHeight) - 10px);
+        --navBarNotificationPosR: -300px;
+        --navBarProfilePosT: calc(var(--navBarHeight) - 10px);
+        --navBarProfilePosR: -300px;
+    }
+
+    .pageGradient
+    {
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+    .topNavBar
+    {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+    }
+    
+    .sideNavBar
+    {
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .btmNavBar
+    {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+    }
+
+    .navBarNotificationMain
+    {
+        position: fixed;
+        bottom: calc(100% - (var(--navBarNotificaionsMenuHeight) + var(--navBarNotificationPosT)));
+        left: calc(100% - (var(--navBarMenuWidth) + var(--navBarNotificationPosR)));
+        width: var(--navBarMenuWidth);
+        height: var(--navBarNotificaionsMenuHeight);
+        max-width: calc(100% - (var(--navBarNotificationPosR) * 2));
+        max-height: calc(100% - ((var(--navBarNotificationPosT)) + 10px));
+        backface-visibility: hidden;
+        -moz-user-select: -moz-none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 300ms ease;
+        z-index: 95;
+    }
+    
+    .navBarNotificationMain.notify_atv
+    {
+        --navBarNotificationPosR: var(--genBorderSpacing);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .navBarProfileOptBdr
+    {
+        position: fixed;
+        bottom: calc(100% - (400px + var(--navBarProfilePosT)));
+        left: calc(100% - (var(--navBarMenuWidth) + var(--navBarProfilePosR)));
+        width: var(--navBarMenuWidth);
+        height: 400px;
+        max-width: calc(100% - (var(--navBarProfilePosR) * 2));
+        max-height: calc(100% - ((var(--navBarProfilePosT)) + 10px));
+        opacity: 0;
+        visibility: hidden;
+        transition: all 300ms ease-in-out;
+        overflow: hidden;
+        z-index: 96;
+    }
+    
+    .navBarProfileOptBdr.active
+    {
+        --navBarProfilePosR: var(--genBorderSpacing);
+        opacity: 1;
+        visibility: visible;
+    }
 
     .addNewProfIconBox .addNewProfIcon
     {
@@ -5269,93 +5355,7 @@ img
     html:root
     {
         --companyLogoSize: 50px;
-        --navbarGradientSize: 0px;
-        --sideNavBarWidth: 0px;
-        --btmNavBarHeight: 64px;
-        --navBarNotificationPosT: calc(var(--navBarHeight) - 10px);
-        --navBarNotificationPosR: -300px;
-        --navBarProfilePosT: calc(var(--navBarHeight) - 10px);
-        --navBarProfilePosR: -300px;
-        /* --basicSlideIconWidth: 15px; */
         --genBorderSpacing: 15px;
-    }
-
-    .pageGradient
-    {
-        opacity: 0;
-        visibility: hidden;
-    }
-    
-    .topNavBar
-    {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: all;
-    }
-    
-    .sideNavBar
-    {
-        opacity: 0;
-        visibility: hidden;
-        overflow: hidden;
-        pointer-events: none;
-    }
-
-    .btmNavBar
-    {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: all;
-    }
-
-    .navBarNotificationMain
-    {
-        position: fixed;
-        bottom: calc(100% - (var(--navBarNotificaionsMenuHeight) + var(--navBarNotificationPosT)));
-        left: calc(100% - (var(--navBarMenuWidth) + var(--navBarNotificationPosR)));
-        width: var(--navBarMenuWidth);
-        height: var(--navBarNotificaionsMenuHeight);
-        max-width: calc(100% - (var(--navBarNotificationPosR) * 2));
-        max-height: calc(100% - ((var(--navBarNotificationPosT)) + 10px));
-        backface-visibility: hidden;
-        -moz-user-select: -moz-none;
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        user-select: none;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 300ms ease;
-        z-index: 95;
-    }
-    
-    .navBarNotificationMain.notify_atv
-    {
-        --navBarNotificationPosR: var(--genBorderSpacing);
-        opacity: 1;
-        visibility: visible;
-    }
-    
-    .navBarProfileOptBdr
-    {
-        position: fixed;
-        bottom: calc(100% - (400px + var(--navBarProfilePosT)));
-        left: calc(100% - (var(--navBarMenuWidth) + var(--navBarProfilePosR)));
-        width: var(--navBarMenuWidth);
-        height: 400px;
-        max-width: calc(100% - (var(--navBarProfilePosR) * 2));
-        max-height: calc(100% - ((var(--navBarProfilePosT)) + 10px));
-        opacity: 0;
-        visibility: hidden;
-        transition: all 300ms ease-in-out;
-        overflow: hidden;
-        z-index: 96;
-    }
-    
-    .navBarProfileOptBdr.active
-    {
-        --navBarProfilePosR: var(--genBorderSpacing);
-        opacity: 1;
-        visibility: visible;
     }
 
     .basic_slider_box  .basic_slide_arrow,
