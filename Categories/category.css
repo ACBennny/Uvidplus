@@ -114,6 +114,31 @@ html:root
 
 /* ============ Responsiveness ============= */
 
+@media only screen and (max-width: 768px)
+{
+    html:root
+    {
+        --categoriesCardWidth: 170px;
+    }
+
+    .categoriesTitleBox .categoriesTitleText
+    {
+        font-size: 16px;
+    }
+
+    .categoriesGridBdr .categoriesGridBox
+    {
+        gap: 15px;
+    }
+
+    .categoriesGridCardLabelBox .categoriesGridCardLabelText
+    {
+        font-size: 14px;
+    }
+}
+
+
+
 @media only screen and (max-width: 600px)
 {
     html:root
@@ -134,6 +159,16 @@ html:root
     .categoriesGridCardLabelBox .categoriesGridCardLabelText
     {
         font-size: 12px;
+    }
+}
+
+
+
+@media only screen and (max-width: 350px)
+{
+    html:root
+    {
+        --categoriesCardWidth: 120px;
     }
 }
 
