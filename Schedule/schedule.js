@@ -91,6 +91,7 @@
             let scheduleDateLeftBdr = document.querySelector(".schedule_dateLeftBorder");
             let scheduleDateRightBdr = document.querySelector(".schedule_dateRightBorder");
             let scheduleDateSlider = document.querySelector(".schedule_dateSlider");
+            let scheduleFilterCard = document.querySelectorAll(".schedule_filterTab");
             let scheduleDateCard = document.querySelectorAll(".schedule_dateSlider");
 
             let scheduleSelBdrHeight = Math.round((scheduleSelBdr.getBoundingClientRect().height));
@@ -304,7 +305,15 @@
             }
             viewSelectorsBtn.addEventListener("click" , viewAllSelectors);
 
-            // Closes the modal and scrolls back to top when after a date is selected
+            // Closes the modal and scrolls back to top when after a date/filter is selected
+            scheduleFilterCard.forEach((card) => 
+            {
+                card.addEventListener("click" , () => 
+                {
+                    viewAllSelectors();
+                    window.scrollTo(null , 0);
+                });
+            });
             scheduleDateCard.forEach((card) => 
             {
                 card.addEventListener("click" , () => 
