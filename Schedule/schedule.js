@@ -269,14 +269,17 @@
 
             window.addEventListener("resize" , () => 
             {
-                if(((scheduleSelBdr.classList.contains("active")) && (window.innerWidth >= 768)))
+                if(((scheduleSelBdr.classList.contains("active")) && (window.innerWidth > 768)))
                 {
                     viewAllSelectors();
                 }
             });
             window.addEventListener("change" , () => 
             {
-                viewAllSelectors();
+                if(((scheduleSelBdr.classList.contains("active")) && (window.innerWidth > 768)))
+                {
+                    viewAllSelectors();
+                }
             });
 
 
