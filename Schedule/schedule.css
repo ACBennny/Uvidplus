@@ -57,6 +57,7 @@ html:root
     border-radius: 50%;
     background-color: var(--genGreenTypeMid);
     overflow: hidden;
+    transition: all 300ms ease-in-out;
     cursor: pointer;
     z-index: 101;
 }
@@ -143,11 +144,6 @@ html:root
     z-index: 101;
 }
 
-.schedule_selBase.sticky:hover .schedule_selBdr
-{
-    background: #000000;
-}
-
 .schedule_selBdr .schedule_selBox
 {
     width: 100%;
@@ -177,12 +173,6 @@ html:root
 {
     height: 0px;
     transition: all 150ms ease-in-out;
-}
-
-.schedule_selBase.sticky:hover .schedule_filterBdr
-{
-    height: var(--filterHeight);
-    transition: all 300ms ease-in-out;
 }
 
 .schedule_filterBdr .schedule_filterBox
@@ -575,6 +565,18 @@ html:root
 
 @media(hover: hover)
 {
+
+    .schedule_selBase.sticky:hover .schedule_selBdr
+    {
+        background: #000000;
+    }
+
+    .schedule_selBase.sticky:hover .schedule_filterBdr
+    {
+        height: var(--filterHeight);
+        transition: all 300ms ease-in-out;
+    }
+
     .schedule_filterTab:hover
     {
         background-color: #333333;
