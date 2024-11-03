@@ -8,6 +8,8 @@
 
 html:root
 {
+    --viewSelectorsBtnSize: 50px;
+    --viewSelectorsBtnIconSize: 25px;
     --schedule_ctntGridColW: 360px;
     --schedule_ctntThumbnailImgW: 125px;
     --schedule_ctntThumbnailImgH: 200px;
@@ -32,18 +34,158 @@ html:root
     max-width: var(--genMaxContainerWidth);
     display: flex;
     flex-direction: column;
+    padding: var(--btmNavBarHeight) var(--genBorderSpacing);
+}
+
+
+
+
+
+
+
+/* =================== SELECTORS ==================== */
+
+/* ----------- View all selectors Button -------- */
+.viewSelectorsBtnBdr
+{
+    position: fixed;
+    bottom: calc((var(--btmNavBarHeight) + var(--genBorderSpacing)));
+    right: var(--genBorderSpacing);
+    display: none;
+    width: var(--viewSelectorsBtnSize);
+    height: var(--viewSelectorsBtnSize);
+    border-radius: 50%;
+    background-color: var(--genGreenTypeMid);
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.viewSelectorsBtnBdr.isScrollingDown
+{
+    --btmNavBarHeight: 0px;
+}
+
+.viewSelectorsBtnBdr .viewSelectorsBtnBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.viewSelectorsBtnBox .viewSelectorsBtnIcon
+{
+    width: var(--viewSelectorsBtnIconSize);
+    height: var(--viewSelectorsBtnIconSize);
+}
+
+.viewSelectorsBtnIcon .viewSelectorsBtnSvg
+{
+    width: clamp(100% , 100% , 100%);
+    height: clamp(100% , 100% , 100%);
+    fill: var(--genWhiteTypeLight);
+}
+
+.viewSelectorsBtnBdr .viewSelectorsBtnSvg:nth-child(1)
+{
+    display: block;
+}
+
+.viewSelectorsBtnBdr .viewSelectorsBtnSvg:nth-child(2)
+{
+    display: none;
+}
+
+.viewSelectorsBtnBdr.menuOpen .viewSelectorsBtnSvg:nth-child(1)
+{
+    display: none;
+}
+
+.viewSelectorsBtnBdr.menuOpen .viewSelectorsBtnSvg:nth-child(2)
+{
+    display: block;
+}
+
+
+
+/* -------------- Selector Wrapper ---------- */
+.schedule_selBase
+{
+    width: 100%;
+}
+
+.schedule_selBase.sticky
+{
+    margin-bottom: var(--selBdrHeight);
+}
+
+.schedule_selBase .schedule_selBdr
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.schedule_selBase.sticky .schedule_selBdr
+{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: calc((100% - var(--sideNavBarWidth)));
+    margin-bottom: 0;
+    background: -o-linear-gradient(to bottom, #000000fe, #000000ef, #000000dc, #000000cd, #00000050, #00000000);
+    background: -moz-linear-gradient(to bottom, #000000fe, #000000ef, #000000dc, #000000cd, #00000050, #00000000);
+    background: -webkit-linear-gradient(to bottom, #000000fe, #000000ef, #000000dc, #000000cd, #00000050, #00000000);
+    background: linear-gradient(to bottom, #000000fe, #000000ef, #000000dc, #000000cd, #00000050, #00000000);
+    transition: 0ms;
+    z-index: 101;
+}
+
+.schedule_selBase.sticky:hover .schedule_selBdr
+{
+    background: #000000;
+}
+
+.schedule_selBdr .schedule_selBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.schedule_selBase.sticky .schedule_selBox
+{
+    max-width: var(--genMaxContainerWidth);
     padding: 0 var(--genBorderSpacing);
 }
 
 
 
+
 /* --------------- Fitler Section ---------------- */
-.schedule_box .schedule_selBdr
+
+.schedule_selBox .schedule_filterBdr
 {
     width: 100%;
+    height: var(--filterHeight);
+    overflow: hidden;
 }
 
-.schedule_selBdr .schedule_selBox
+.schedule_selBase.sticky .schedule_filterBdr
+{
+    height: 0px;
+    transition: all 150ms ease-in-out;
+}
+
+.schedule_selBase.sticky:hover .schedule_filterBdr
+{
+    height: var(--filterHeight);
+    transition: all 300ms ease-in-out;
+}
+
+.schedule_filterBdr .schedule_filterBox
 {
     width: 100%;
     display: flex;
@@ -51,7 +193,7 @@ html:root
     padding: 25px 0 10px;
 }
 
-.schedule_selBox .schedule_selDivider
+.schedule_filterBox .schedule_filterDivider
 {
     width: 100%;
     max-width: -moz-fit-content;
@@ -62,10 +204,9 @@ html:root
     padding: 7px;
     border-radius: 25px;
     background-color: #222222;
-    transition: all 300ms ease-in-out;
 }
 
-.schedule_selDivider .schedule_selTab
+.schedule_filterDivider .schedule_filterTab
 {
     display: flex;
     justify-content: center;
@@ -78,12 +219,12 @@ html:root
     cursor: pointer;
 }
 
-.schedule_selTab:active
+.schedule_filterTab:active
 {
     background-color: #333333;
 }
 
-.schedule_selTab.active
+.schedule_filterTab.active
 {
     color: var(--genWhiteTypeLight);
     background-color: var(--genGreenTypeMid) !important;
@@ -266,11 +407,16 @@ html:root
 }
 
 
+
+
+
+
 /* ------------ Content Section -------------- */
 
 .schedule_box .schedule_ctntBdr
 {
     width: 100%;
+    transition: all 300ms ease-in-out;
 }
 
 .schedule_ctntBdr .schedule_ctntBox
@@ -429,7 +575,7 @@ html:root
 
 @media(hover: hover)
 {
-    .schedule_selTab:hover
+    .schedule_filterTab:hover
     {
         background-color: #333333;
     }
@@ -454,15 +600,46 @@ html:root
 
 /* ================== RESPONSIVENESS ================== */
 
-@media only screen and (max-width: 786px)
-{}
-
-
-@media only screen and (max-width: 560px)
+@media only screen and (max-width: 768px)
 {
-    html:root
+
+    .viewSelectorsBtnBdr.active
     {
-        /* --schedule_ctntThumbnailImgW: 120px; */
+        display: block;
+    }
+
+    .schedule_selBase.sticky .schedule_selBdr
+    {
+        height: 0px;
+        opacity: 0;
+        visibility: hidden;
+        background: none;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+
+    .schedule_selBase.sticky:hover .schedule_selBdr
+    {
+        background: none;
+    }
+
+    .schedule_selBase.sticky .schedule_selBdr.active
+    {
+        height: 100%;
+        opacity: 1;
+        visibility: visible;
+        transition: all 300ms ease-in-out;
+    }
+
+    .schedule_selBase.sticky .schedule_selBox
+    {
+        height: fit-content;
+        background-color: #000000;
+    }
+
+    .schedule_selBase.sticky .schedule_filterBdr
+    {
+        height: var(--filterHeight);
     }
 }
 
@@ -475,7 +652,7 @@ html:root
         --schedule_ctntThumbnailImgH: 150px;
     }
 
-    .schedule_selDivider .schedule_selTab
+    .schedule_filterDivider .schedule_filterTab
     {
         font-size: 11px;
     }

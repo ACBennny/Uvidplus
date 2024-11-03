@@ -7,6 +7,7 @@
 ****************************************************************/
 
     // Variables
+    let lastScroll = 0;
     let boxErrorMargin = 10;
     let isDateSliderDown = false;
     let isDragging = false;
@@ -26,39 +27,44 @@
     {
         const scheduleBaseStruct = 
         `
-            <div class="give_space"></div>
             <div class="schedule_base">
                 <div class="schedule_bdr">
                     <div class="schedule_box">
-                        <div class="schedule_selBdr">
-                            <div class="schedule_selBox">
-                                <div class="schedule_selDivider">
-                                    <div class="schedule_selTab active">All</div>
-                                    <div class="schedule_selTab ">Movies</div>
-                                    <div class="schedule_selTab ">Tv</div>
-                                </div>
-                                <div class="schedule_wkBtnBdr">
-                                    <div class="schedule_wkBtnBox left_wkBtn">
-                                        <div class="schedule_wkArrowBox"></div>
-                                        <div class="schedule_wkCtntBox">
-                                            <div class="schedule_wkCtntText"></div>
+                        <div class="schedule_selBase">
+                            <div class="schedule_selBdr">
+                                <div class="schedule_selBox">
+                                    <div class="schedule_filterBdr">
+                                        <div class="schedule_filterBox">
+                                            <div class="schedule_filterDivider">
+                                                <div class="schedule_filterTab active">All</div>
+                                                <div class="schedule_filterTab ">Movies</div>
+                                                <div class="schedule_filterTab ">Tv</div>
+                                            </div>
+                                            <div class="schedule_wkBtnBdr">
+                                                <div class="schedule_wkBtnBox left_wkBtn">
+                                                    <div class="schedule_wkArrowBox"></div>
+                                                    <div class="schedule_wkCtntBox">
+                                                        <div class="schedule_wkCtntText"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="schedule_wkBtn">
+                                                <div class="schedule_wkBtn right_wkBtn"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="schedule_dateBdr">
+                                        <div class="schedule_dateBox">
+
+                                            <!-- ---- Date Borders ---- -->
+                                            <div class="schedule_dateAllBorder schedule_dateLeftBorder hide"></div>
+                                            <div class="schedule_dateAllBorder schedule_dateRightBorder hide"></div>
+
+                                            <!-- ---- Date Slider ---- -->
+                                            <div class="schedule_dateSlider"></div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="schedule_wkBtn">
-                                    <div class="schedule_wkBtn right_wkBtn"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="schedule_dateBdr">
-                            <div class="schedule_dateBox">
-
-                                <!-- ---- Date Borders ---- -->
-                                <div class="schedule_dateAllBorder schedule_dateLeftBorder hide"></div>
-                                <div class="schedule_dateAllBorder schedule_dateRightBorder hide"></div>
-
-                                <!-- ---- Date Slider ---- -->
-                                <div class="schedule_dateSlider"></div>
                             </div>
                         </div>
                         <div class="schedule_ctntBdr">
@@ -77,9 +83,21 @@
     {
         // DEFINITION
 
-            const scheduleDateLeftBdr = document.querySelector(".schedule_dateLeftBorder");
-            const scheduleDateRightBdr = document.querySelector(".schedule_dateRightBorder");
-            const scheduleDateSlider = document.querySelector(".schedule_dateSlider");
+            let viewSelectorsBtn = document.querySelector(".viewSelectorsBtnBdr");
+            let scheduleSelBase = document.querySelector(".schedule_selBase");
+            let scheduleSelBdr = document.querySelector(".schedule_selBdr");
+            let scheduleFilterBdr = document.querySelector(".schedule_filterBdr");
+            let scheduleDateBdr = document.querySelector(".schedule_dateBdr");
+            let scheduleDateLeftBdr = document.querySelector(".schedule_dateLeftBorder");
+            let scheduleDateRightBdr = document.querySelector(".schedule_dateRightBorder");
+            let scheduleDateSlider = document.querySelector(".schedule_dateSlider");
+            let scheduleDateCard = document.querySelectorAll(".schedule_dateSlider");
+
+            let scheduleSelBdrHeight = Math.round((scheduleSelBdr.getBoundingClientRect().height));
+            let scheduleFilterBdrHeight = Math.round((scheduleFilterBdr.getBoundingClientRect().height));
+
+            scheduleFilterBdr.setAttribute(`style` , `--filterHeight: ${scheduleFilterBdrHeight}px;`);
+            scheduleSelBase.setAttribute(`style` , `--selBtmMargin: ${scheduleSelBdrHeight}px;`);
 
 
         // GENERATING THE DATE
@@ -87,7 +105,7 @@
             // Function to generate the Struct for each day and insert it into the slider
             function generateScheduleDate() 
             {
-                const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thurday", "Friday", "Saturday"];
+                const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
                 const today = new Date();
                 // Sunday = 0, Monday = 1, ..., Saturday = 6
                 const currentDayIndex = today.getDay();
@@ -219,6 +237,71 @@
             });
 
 
+
+        // ADJUSTING THE DATE SELECTOR POSITION
+
+            window.addEventListener("scroll" , () => 
+            {
+                let currScroll = window.scrollY;
+        
+                // Fixes the selector to the top of the screen when user scrolls past it
+                scheduleSelBase.classList.toggle("sticky" , currScroll > (scheduleSelBdr.offsetTop * 2));
+                viewSelectorsBtn.classList.toggle("active" , currScroll > (scheduleSelBdr.offsetTop * 2));
+        
+                // Hide/Unhide the selector while scrolling (If fullscreen is disabled)
+                if((window.innerHeight != screen.height))
+                {
+                    let currScroll = window.scrollY;
+        
+                    if((currScroll > lastScroll))
+                    {
+                        viewSelectorsBtn.classList.add("isScrollingDown");
+                    }
+        
+                    if((currScroll < lastScroll))
+                    {
+                        viewSelectorsBtn.classList.remove("isScrollingDown");
+                    }
+        
+                    lastScroll = currScroll;
+                }
+            });
+
+
+        // VIEWING ALL SELCTORS
+
+            function viewAllSelectors()
+            {
+                if((!(scheduleSelBdr.classList.contains("active")) && (window.innerWidth <= 768)))
+                {
+                    viewSelectorsBtn.classList.add("menuOpen");
+                    scheduleSelBdr.classList.add("active");
+                    scheduleSelBdr.addEventListener("transitionend" , function handleTransitionEnd()
+                    {
+                        documentBody.classList.add("bodystop");
+                        scheduleSelBdr.removeEventListener("transitionend" , handleTransitionEnd);
+                    });
+                    return;
+                }
+                viewSelectorsBtn.classList.remove("menuOpen");
+                scheduleSelBdr.classList.remove("active");
+                documentBody.classList.remove("bodystop");
+            }
+            viewSelectorsBtn.addEventListener("click" , viewAllSelectors);
+
+            // Closes the modal and scrolls back to top when after a date is selected
+            scheduleDateCard.forEach((card) => 
+            {
+                card.addEventListener("click" , () => 
+                {
+                    viewAllSelectors();
+                    window.scrollTo(null , 0);
+                });
+            });
+
+
+        // LOADING THE SCHEDULE CONTENT
+
             loadScheduleLib();
     }
 
@@ -249,6 +332,7 @@
             notification(`notifyBad` , `Error loading Schedule`);
         });
     }
+
 
     function shuffleArray(array) 
     {
@@ -283,7 +367,7 @@
     // Filling the content
     function fetchScheduleCtnt()
     {
-        const scheduleSelTab = document.querySelectorAll(".schedule_selTab");
+        const scheduleSelTab = document.querySelectorAll(".schedule_filterTab");
         const scheduleDateCards = document.querySelectorAll(".schedule_dateCard");
         const scheduleCtntBox = document.querySelector(".schedule_ctntBox");
         let scheduleCtntCards;
