@@ -92,7 +92,7 @@
             let scheduleDateRightBdr = document.querySelector(".schedule_dateRightBorder");
             let scheduleDateSlider = document.querySelector(".schedule_dateSlider");
             let scheduleFilterCard = document.querySelectorAll(".schedule_filterTab");
-            let scheduleDateCard = document.querySelectorAll(".schedule_dateSlider");
+            let scheduleDateCard;
 
             let scheduleSelBdrHeight = Math.round((scheduleSelBdr.getBoundingClientRect().height));
             let scheduleFilterBdrHeight = Math.round((scheduleFilterBdr.getBoundingClientRect().height));
@@ -150,7 +150,7 @@
 
             // Call the function to generate the schedule cards
             generateScheduleDate();
-
+            scheduleDateCard = document.querySelectorAll(".schedule_dateCard");
 
         // SLIDER
 
@@ -288,20 +288,23 @@
 
             function viewAllSelectors()
             {
-                if((!(scheduleSelBdr.classList.contains("active")) && (window.innerWidth <= 768)))
+                if((scheduleSelBase.classList.contains("sticky")))
                 {
-                    viewSelectorsBtn.classList.add("menuOpen");
-                    scheduleSelBdr.classList.add("active");
-                    scheduleSelBdr.addEventListener("transitionend" , function handleTransitionEnd()
+                    if((!(scheduleSelBdr.classList.contains("active")) && (window.innerWidth <= 768)))
                     {
-                        documentBody.classList.add("bodystop");
-                        scheduleSelBdr.removeEventListener("transitionend" , handleTransitionEnd);
-                    });
-                    return;
+                        viewSelectorsBtn.classList.add("menuOpen");
+                        scheduleSelBdr.classList.add("active");
+                        scheduleSelBdr.addEventListener("transitionend" , function handleTransitionEnd()
+                        {
+                            documentBody.classList.add("bodystop");
+                            scheduleSelBdr.removeEventListener("transitionend" , handleTransitionEnd);
+                        });
+                        return;
+                    }
+                    viewSelectorsBtn.classList.remove("menuOpen");
+                    scheduleSelBdr.classList.remove("active");
+                    documentBody.classList.remove("bodystop");
                 }
-                viewSelectorsBtn.classList.remove("menuOpen");
-                scheduleSelBdr.classList.remove("active");
-                documentBody.classList.remove("bodystop");
             }
             viewSelectorsBtn.addEventListener("click" , viewAllSelectors);
 
