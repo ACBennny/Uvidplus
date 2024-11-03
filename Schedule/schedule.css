@@ -292,6 +292,7 @@ html:root
     flex-direction: row;
     padding: 10px;
     gap: 25px;
+    scrollbar-width: none;
     overflow: auto hidden;
     cursor: grab;
     z-index: 2;
@@ -589,11 +590,6 @@ html:root
     {
         background-color: #222222;
     }
-
-    .schedule_dateBox .schedule_dateSlider
-    {
-        scrollbar-width: none;
-    }
 }
 
 
@@ -678,10 +674,6 @@ html:root
     {
         max-width: fit-content;
     }
-}
-
-@media only screen and (max-width: 768px) and (hover: hover)
-{
 
     .schedule_selBase.sticky .schedule_dateSlider
     {
