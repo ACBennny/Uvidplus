@@ -267,6 +267,15 @@
                 }
             });
 
+            window.addEventListener("resize" , () => 
+            {
+                viewAllSelectors();
+            });
+            window.addEventListener("change" , () => 
+            {
+                viewAllSelectors();
+            });
+
 
         // VIEWING ALL SELCTORS
 
