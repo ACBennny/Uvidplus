@@ -96,8 +96,8 @@
             let scheduleSelBdrHeight = Math.round((scheduleSelBdr.getBoundingClientRect().height));
             let scheduleFilterBdrHeight = Math.round((scheduleFilterBdr.getBoundingClientRect().height));
 
-            scheduleFilterBdr.setAttribute(`style` , `--filterHeight: ${scheduleFilterBdrHeight}px;`);
-            scheduleSelBase.setAttribute(`style` , `--selBtmMargin: ${scheduleSelBdrHeight}px;`);
+            // scheduleSelBase.setAttribute(`style` , `--filterHeight: ${scheduleFilterBdrHeight}px;`);
+            scheduleSelBase.setAttribute(`style` , `--selBtmMargin: ${scheduleSelBdrHeight}px; --filterHeight: ${scheduleFilterBdrHeight}px;`);
 
 
         // GENERATING THE DATE
