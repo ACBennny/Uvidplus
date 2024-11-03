@@ -238,6 +238,7 @@ html:root
 {
     position: relative;
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -286,22 +287,14 @@ html:root
 {
     width: 100%;
     max-width: fit-content;
+    height: 100%;
     display: flex;
     flex-direction: row;
     padding: 10px;
     gap: 25px;
-    scrollbar-width: none;
-    scrollbar-color: #00000000 #00000000;
     overflow: auto hidden;
     cursor: grab;
     z-index: 2;
-}
-
-.schedule_dateSlider::-webkit-scrollbar
-{
-    width: 0;
-    height: 0;
-    display: none;
 }
 
 .schedule_dateSlider.isDateSliderDown,
@@ -596,6 +589,11 @@ html:root
     {
         background-color: #222222;
     }
+
+    .schedule_dateBox .schedule_dateSlider
+    {
+        scrollbar-width: none;
+    }
 }
 
 
@@ -608,6 +606,11 @@ html:root
     .viewSelectorsBtnBdr.active
     {
         display: block;
+    }
+
+    .viewSelectorsBtnBdr.menuOpen
+    {
+        --btmNavBarHeight: 0px;
     }
 
     .schedule_selBase.sticky .schedule_selBdr
@@ -635,13 +638,54 @@ html:root
 
     .schedule_selBase.sticky .schedule_selBox
     {
-        height: fit-content;
+        height: 100%;
+        padding: 0;
         background-color: #000000;
     }
 
     .schedule_selBase.sticky .schedule_filterBdr
     {
         height: var(--filterHeight);
+    }
+
+    .schedule_selBase.sticky .schedule_dateAllBorder
+    {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .schedule_selBase.sticky .schedule_dateBdr
+    {
+        height: calc((100% - var(--filterHeight)));
+        margin: 0;
+    }
+
+    .schedule_selBase.sticky .schedule_dateBox
+    {
+        height: 100%;
+    }
+
+    .schedule_selBase.sticky .schedule_dateSlider
+    {
+        max-width: none;
+        height: 100%;
+        flex-direction: column;
+        padding: 0 var(--genBorderSpacing);
+        overflow: hidden auto;
+    }
+
+    .schedule_selBase.sticky .schedule_dateCard
+    {
+        max-width: fit-content;
+    }
+}
+
+@media only screen and (max-width: 768px) and (hover: hover)
+{
+
+    .schedule_selBase.sticky .schedule_dateSlider
+    {
+        scrollbar-width: unset;
     }
 }
 
