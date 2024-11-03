@@ -119,7 +119,7 @@ html:root
 
 .schedule_selBase.sticky
 {
-    margin-bottom: var(--selBdrHeight);
+    margin-bottom: var(--selBtmMargin);
 }
 
 .schedule_selBase .schedule_selBdr
