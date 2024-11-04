@@ -885,8 +885,6 @@
                 // Append reversed elements back to the container
                 reversedItems.forEach(item => container.appendChild(item));
 
-                // Update the sort text
-
             }
 
             sortEPbtn.forEach(btn => 
@@ -897,6 +895,7 @@
                     const sortEPbtnText = btn.querySelector('.episode_orderText');
                     sortEPbtnText.classList.toggle("active");
 
+                    // Update the sort text
                     if(btn.title == "Sort by latest episodes")
                     {
                         btn.title = "Sort by oldest episodes";
