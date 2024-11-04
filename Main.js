@@ -582,6 +582,12 @@
                                     <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
                                 </svg>
                             </label>
+                            <div onclick="window.open('/Catalog.html' , '_self')" title="Catalog" class="quickSearchInputIcon quickSearchInputRightIcon quickSearchToCatalog">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="quickSearchInputSvg">
+                                    <path d="M8.51 2h6.98c.232 0 .41 0 .566.015c1.108.109 2.015.775 2.4 1.672H5.544c.385-.897 1.292-1.563 2.4-1.672C8.098 2 8.276 2 8.51 2m-2.2 2.723c-1.39 0-2.53.84-2.91 1.954l-.024.07c.398-.12.813-.2 1.232-.253c1.08-.139 2.446-.139 4.032-.139h6.892c1.586 0 2.951 0 4.032.139c.42.054.834.132 1.232.253l-.023-.07c-.38-1.114-1.52-1.954-2.911-1.954z" />
+                                    <path fill-rule="evenodd" d="M8.672 7.542h6.656c3.374 0 5.062 0 6.01.987s.724 2.511.278 5.56l-.422 2.892c-.35 2.391-.525 3.587-1.422 4.303s-2.22.716-4.867.716h-5.81c-2.646 0-3.97 0-4.867-.716s-1.072-1.912-1.422-4.303l-.422-2.891c-.447-3.05-.67-4.574.278-5.561s2.636-.987 6.01-.987M8 18c0-.414.373-.75.833-.75h6.334c.46 0 .833.336.833.75s-.373.75-.833.75H8.833c-.46 0-.833-.336-.833-.75" clip-rule="evenodd" />
+                                </svg>
+                            </div>
                         </div>
                     </div>
                     <div class="quickSearchResultBdr">
@@ -1307,6 +1313,7 @@
             let quickSearchBcg = document.querySelector(".quickSearchBcg");
             let quickSearchInputField = document.querySelector("#quickSearchInputFieldId");
             let quickSearchClearInput = document.querySelector(".quickSearchClearInput");
+            let quickSearchToCatalog = document.querySelector(".quickSearchToCatalog");
             let quickSearchResultBox = document.querySelector(".quickSearchResultBox");
             let quickSearchResultAllBtn;
             let quickSearchQuery;
@@ -1454,10 +1461,12 @@
                 
                 if(quickSearchInputField.value.length > 0)
                 {
-                    quickSearchClearInput.classList.add("active");
+                    quickSearchClearInput.classList.add("isTyping");
+                    quickSearchToCatalog.classList.add("isTyping");
                     return;
                 }
-                quickSearchClearInput.classList.remove("active");
+                quickSearchClearInput.classList.remove("isTyping");
+                quickSearchToCatalog.classList.remove("isTyping");
             }
             
             quickSearchInputField.addEventListener("keyup", filterQuickSearchInput);

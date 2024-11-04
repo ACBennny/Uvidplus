@@ -1785,14 +1785,31 @@ img
 
 .quickSearchInputIcon.quickSearchClearInput
 {
+    position: relative;
     display: none;
     cursor: pointer;
     pointer-events: all;
 }
 
-.quickSearchClearInput.active
+.quickSearchClearInput.isTyping
 {
     display: flex;
+}
+
+.quickSearchInputIcon.quickSearchToCatalog
+{
+    --quickSearchInputClr: var(--genWhiteTypeLight);
+    top: 25%;
+    height: 50%;
+    display: flex;
+    border-left: 1px solid var(--genWhiteTypeMid);
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.quickSearchToCatalog.isTyping
+{
+    display: none;
 }
 
 .quickSearchInputIcon .quickSearchInputSvg
@@ -1804,12 +1821,19 @@ img
 .quickSearchInputLeftIcon .quickSearchInputSvg
 {
     width: calc((var(--quickSearchInputIconWidth) / 2.5));
-    height: calc((var(--quickSearchInputIconWidth) / 2.5));}
+    height: calc((var(--quickSearchInputIconWidth) / 2.5));
+}
 
-.quickSearchInputRightIcon .quickSearchInputSvg
+.quickSearchToCatalog .quickSearchInputSvg
 {
-    width: calc((var(--quickSearchInputIconWidth) / 3.0));
-    height: calc((var(--quickSearchInputIconWidth) / 3.0));
+    width: calc((var(--quickSearchInputIconWidth) / 2.0));
+    height: calc((var(--quickSearchInputIconWidth) / 2.0));
+}
+
+.quickSearchClearInput .quickSearchInputSvg
+{
+    width: calc((var(--quickSearchInputIconWidth) / 2.5));
+    height: calc((var(--quickSearchInputIconWidth) / 2.5));
 }
 
 .quickSearchInputBox .quickSearchInputFieldClass
@@ -1826,7 +1850,9 @@ img
 }
 
 
+
 /* ------- Result Area ------- */
+
 .quickSearchBox .quickSearchResultBdr
 {
     position: relative;
