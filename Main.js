@@ -933,27 +933,6 @@
                     btmNavLinks[3].classList.add("active");
                     break;
                 
-                    case 'recent': 
-                        sideNavLinks[3].classList.add("active");
-                        btmNavLinks[3].classList.add("active");
-                        break;
-                    
-                    case 'movies': 
-                        sideNavLinks[3].classList.add("active");
-                        btmNavLinks[3].classList.add("active");
-                        break;
-                    
-                    case 'tv': 
-                        sideNavLinks[3].classList.add("active");
-                        btmNavLinks[3].classList.add("active");
-                        break;
-                    
-                    case 'genres': 
-                        sideNavLinks[3].classList.add("active");
-                        btmNavLinks[3].classList.add("active");
-                        break;
-                
-                
                 case 'schedule': 
                     sideNavLinks[4].classList.add("active");
                     btmNavLinks[4].classList.add("active");
