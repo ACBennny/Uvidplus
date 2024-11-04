@@ -488,16 +488,18 @@ svg.hide
     transform: translateX(75%);
     transition: --settingBaseScrollBarFade 0.5s 0.2s, 200ms;
     opacity: 0;
+    visibility: hidden;
     overflow: hidden;
     overflow-y: auto;
-    pointer-events: all;
     z-index: 15;
 }
 
 .video_player.show-controls .settingsBase.active
 {
-    transform: translateX(0%);
     opacity: 1;
+    visibility: visible;
+    transform: translateX(0%);
+    pointer-events: all;
 }
 
 .settingsBase .settingsLayout
