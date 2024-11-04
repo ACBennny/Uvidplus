@@ -127,25 +127,6 @@
                                 </a>
                             </div>
                             <div class="sideNavItemsCardBase">
-                                <a href="/Catalog.html" class="sideNavItemsCardBdr sideNavLinks">
-                                    <div class="sideNavItemsCardBox">
-                                        <div class="sideNavItemsCardIcon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2.75a9.25 9.25 0 1 0 0 18.5a9.25 9.25 0 0 0 0-18.5M1.25 12C1.25 6.063 6.063 1.25 12 1.25S22.75 6.063 22.75 12S17.937 22.75 12 22.75S1.25 17.937 1.25 12m12.599-2.819c-.605.16-1.42.485-2.595.955c-.541.217-.642.268-.716.333a1 1 0 0 0-.07.069c-.064.074-.115.175-.332.716c-.47 1.175-.794 1.99-.955 2.595c-.167.63-.085.79-.059.83a.8.8 0 0 0 .2.198c.038.027.199.108.829-.059c.605-.16 1.42-.484 2.594-.954c.542-.217.643-.268.717-.333l.494.564l-.494-.564a1 1 0 0 0 .07-.07l.563.495l-.564-.494c.065-.074.116-.175.333-.717c.47-1.174.794-1.99.954-2.594c.168-.63.086-.791.06-.83a.8.8 0 0 0-.2-.199c-.038-.026-.2-.108-.83.06m-.384-1.45c.69-.183 1.436-.271 2.057.15c.234.16.437.362.596.597c.422.621.333 1.367.15 2.057c-.186.704-.546 1.605-.991 2.717l-.02.05l-.034.084c-.163.41-.308.772-.564 1.065a2 2 0 0 1-.208.208c-.293.256-.655.4-1.065.564l-.083.033l-.279-.696l.279.697l-.05.02c-1.113.445-2.014.805-2.718.991c-.69.183-1.436.272-2.057-.15l.422-.62l-.422.62a2.3 2.3 0 0 1-.596-.596c-.422-.621-.334-1.368-.15-2.057c.186-.705.546-1.605.991-2.717l.02-.05l.034-.085c.163-.41.307-.771.564-1.064q.097-.11.208-.208c.293-.257.655-.401 1.064-.564l.084-.034l.05-.02c1.113-.445 2.013-.805 2.718-.992"/>
-                                            </svg>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavBoldIcon">
-                                                <path fill-rule="evenodd" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10m1.956-7.905c-.193.17-.44.268-.932.465c-2.31.924-3.465 1.386-4.124.938a1.5 1.5 0 0 1-.398-.398c-.448-.66.014-1.814.938-4.124c.197-.493.295-.74.465-.933q.065-.073.139-.138c.193-.17.44-.268.932-.465c2.31-.924 3.464-1.386 4.124-.938a1.5 1.5 0 0 1 .398.398c.448.66-.014 1.814-.938 4.124c-.197.493-.295.739-.465.932q-.065.075-.139.139" clip-rule="evenodd" />
-                                            </svg>
-                                        </div>
-                                        <div class="sideNavItemsCardTitleBdr">
-                                            <div class="sideNavItemsCardTitleBox">
-                                                <div class="sideNavItemsCardTitleText">Catalog</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="sideNavItemsCardBase">
                                 <a href="/User/Watchlist.html" class="sideNavItemsCardBdr sideNavLinks">
                                     <div class="sideNavItemsCardBox">
                                         <div class="sideNavItemsCardIcon">
@@ -211,12 +192,6 @@
                                     </div>
                                 </a>
                             </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="sideNav_section">
-                    <div class="sideNavItemsBdr">
-                        <div class="sideNavItemsBox">
                             <div class="sideNavItemsCardBase">
                                 <a href="/News.html" class="sideNavItemsCardBdr sideNavLinks">
                                     <div class="sideNavItemsCardBox">
@@ -232,6 +207,31 @@
                                         <div class="sideNavItemsCardTitleBdr">
                                             <div class="sideNavItemsCardTitleBox">
                                                 <div class="sideNavItemsCardTitleText">News</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="sideNav_section">
+                    <div class="sideNavItemsBdr">
+                        <div class="sideNavItemsBox">
+                            <div class="sideNavItemsCardBase">
+                                <a href="/Catalog.html" class="sideNavItemsCardBdr sideNavLinks">
+                                    <div class="sideNavItemsCardBox">
+                                        <div class="sideNavItemsCardIcon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2.75a9.25 9.25 0 1 0 0 18.5a9.25 9.25 0 0 0 0-18.5M1.25 12C1.25 6.063 6.063 1.25 12 1.25S22.75 6.063 22.75 12S17.937 22.75 12 22.75S1.25 17.937 1.25 12m12.599-2.819c-.605.16-1.42.485-2.595.955c-.541.217-.642.268-.716.333a1 1 0 0 0-.07.069c-.064.074-.115.175-.332.716c-.47 1.175-.794 1.99-.955 2.595c-.167.63-.085.79-.059.83a.8.8 0 0 0 .2.198c.038.027.199.108.829-.059c.605-.16 1.42-.484 2.594-.954c.542-.217.643-.268.717-.333l.494.564l-.494-.564a1 1 0 0 0 .07-.07l.563.495l-.564-.494c.065-.074.116-.175.333-.717c.47-1.174.794-1.99.954-2.594c.168-.63.086-.791.06-.83a.8.8 0 0 0-.2-.199c-.038-.026-.2-.108-.83.06m-.384-1.45c.69-.183 1.436-.271 2.057.15c.234.16.437.362.596.597c.422.621.333 1.367.15 2.057c-.186.704-.546 1.605-.991 2.717l-.02.05l-.034.084c-.163.41-.308.772-.564 1.065a2 2 0 0 1-.208.208c-.293.256-.655.4-1.065.564l-.083.033l-.279-.696l.279.697l-.05.02c-1.113.445-2.014.805-2.718.991c-.69.183-1.436.272-2.057-.15l.422-.62l-.422.62a2.3 2.3 0 0 1-.596-.596c-.422-.621-.334-1.368-.15-2.057c.186-.705.546-1.605.991-2.717l.02-.05l.034-.085c.163-.41.307-.771.564-1.064q.097-.11.208-.208c.293-.257.655-.401 1.064-.564l.084-.034l.05-.02c1.113-.445 2.013-.805 2.718-.992"/>
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavBoldIcon">
+                                                <path fill-rule="evenodd" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10m1.956-7.905c-.193.17-.44.268-.932.465c-2.31.924-3.465 1.386-4.124.938a1.5 1.5 0 0 1-.398-.398c-.448-.66.014-1.814.938-4.124c.197-.493.295-.74.465-.933q.065-.073.139-.138c.193-.17.44-.268.932-.465c2.31-.924 3.464-1.386 4.124-.938a1.5 1.5 0 0 1 .398.398c.448.66-.014 1.814-.938 4.124c-.197.493-.295.739-.465.932q-.065.075-.139.139" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <div class="sideNavItemsCardTitleBdr">
+                                            <div class="sideNavItemsCardTitleBox">
+                                                <div class="sideNavItemsCardTitleText">Catalog</div>
                                             </div>
                                         </div>
                                     </div>
@@ -295,7 +295,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="btmNavItemsCardBase">
+                <!-- <div class="btmNavItemsCardBase">
                     <a href="/Catalog.html" class="btmNavItemsCardBdr btmNavLinks ">
                         <div class="btmNavItemsCardBox">
                             <div class="btmNavItemsCardIcon">
@@ -313,7 +313,7 @@
                             </div>
                         </div>
                     </a>
-                </div>
+                </div> -->
                 <div class="btmNavItemsCardBase">
                     <a href="/User/Watchlist.html" class="btmNavItemsCardBdr btmNavLinks ">
                         <div class="btmNavItemsCardBox">
@@ -380,7 +380,7 @@
                         </div>
                     </a>
                 </div>
-                <!-- <div class="btmNavItemsCardBase">
+                <div class="btmNavItemsCardBase">
                     <a href="/News.html" class="btmNavItemsCardBdr btmNavLinks ">
                         <div class="btmNavItemsCardBox">
                             <div class="btmNavItemsCardIcon">
@@ -399,7 +399,7 @@
                             </div>
                         </div>
                     </a>
-                </div> -->
+                </div>
             </div>
         </div>
     `;
