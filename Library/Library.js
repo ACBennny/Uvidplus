@@ -860,7 +860,27 @@
                         setEpBox[i].classList.add("active");
                     }
                 }
-                redirectToJJkForDevTests();
+
+                setEpBox.forEach(epBox => 
+                {
+                    // Get text content
+                    const epBoxSpan = epBox.querySelector("span");
+                    const epBoxSpanCtnt = epBoxSpan.textContent
+        
+                    // Set the title
+                    epBox.title = "Watch " +  epBoxSpanCtnt;
+        
+                    /**
+                     * VIDEO PLAYER: This feture is currently unavailable to renovations
+                     * A notification will be displayed to alert the user
+                     */
+                    epBox.removeAttribute("href");
+                    epBox.addEventListener("click" , () => 
+                    {
+                        notification(`notifyBad` , `Feature currently unavailable`);
+                    });
+                    
+                });
             });
 
             // Showing all Episodes via onclick
@@ -880,34 +900,6 @@
                     showAllEpBdr[b].classList.remove("active");
                 });
             });
-    }
-
-    // Redirects users to the JJK Episodes page as it's the only one currently active
-    function redirectToJJkForDevTests()
-    {
-        const watchEpBox = document.querySelectorAll(".episodes");
-
-        // Properties of the Episode Box (Button)
-        watchEpBox.forEach(epBox => 
-        {
-            // Get text content
-            const epBoxSpan = epBox.querySelector("span");
-            const epBoxSpanCtnt = epBoxSpan.textContent
-
-            // Set the title
-            epBox.title = "Watch " +  epBoxSpanCtnt;
-
-            /**
-             * VIDEO PLAYER: This feture is currently unavailable to renovations
-             * A notification will be displayed to alert the user
-             */
-            epBox.removeAttribute("href");
-            epBox.addEventListener("click" , () => 
-            {
-                notification(`notifyBad` , `Feature currently unavailable`);
-            });
-            
-        });
     }
 
 
