@@ -193,7 +193,7 @@
                                 </a>
                             </div>
                             <div class="sideNavItemsCardBase">
-                                <a href="/News.html" class="sideNavItemsCardBdr sideNavLinks">
+                                <a href="/News.html" class="sideNavItemsCardBdr newsNavLink sideNavLinks">
                                     <div class="sideNavItemsCardBox">
                                         <div class="sideNavItemsCardIcon">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
@@ -381,7 +381,7 @@
                     </a>
                 </div>
                 <div class="btmNavItemsCardBase">
-                    <a href="/News.html" class="btmNavItemsCardBdr btmNavLinks ">
+                    <a href="/News.html" class="btmNavItemsCardBdr btmNavLinks newsNavLink">
                         <div class="btmNavItemsCardBox">
                             <div class="btmNavItemsCardIcon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="btmNavItemsCardSvg btmNavOutlineIcon">
@@ -722,9 +722,9 @@
             let lastWindowScroll = 0;
             let sideNavLinks = document.querySelectorAll(".sideNavLinks");
             let btmNavLinks = document.querySelectorAll(".btmNavLinks");
+            let newsNavLink = document.querySelectorAll(".newsNavLink");
             let navbarUnderlayer = document.querySelector(".navbar_UnderLayer");
             let goToHomePage = document.querySelectorAll(".Companylogo");
-            let goToSearchPage = document.querySelectorAll(".openNavSearch_Btn");
             let navBarNotificationStatusNoBox = document.querySelectorAll(".navBarNotificationStatusNo_box");
             let navBarNotificationMainHTML = 
             `
@@ -855,12 +855,13 @@
                 });
             });
 
-            // Go to Search Page
-            goToSearchPage.forEach((btn) => 
+            // Notify users that the News Page isn't ready
+            newsNavLink.forEach((newsNav) => 
             {
-                btn.addEventListener("click" , () => 
+                newsNav.removeAttribute("href");
+                newsNav.addEventListener("click" , () => 
                 {
-                    window.open("/Catalog.html" , "_self");
+                    notification(`notifyBad` , `Page not available`);
                 });
             });
 
