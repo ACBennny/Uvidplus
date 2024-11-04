@@ -488,7 +488,7 @@
             `
                 <div class="showall_EpBdr active">
                     <div class="showall_EpBox">
-                        <div class="showall_EpBtn darkSolidBtn">show more</div>
+                        <button type="button" class="showall_EpBtn darkSolidBtn">show more</button>
                     </div>
                 </div>
             `;
@@ -789,45 +789,6 @@
                     documentBody.classList.remove("bodystop");
                 }
             });
-            
-            
-            
-        // SORTING THE EPISODES
-
-            function sortEpisodesFunc() 
-            {
-                const container = document.querySelector('.show-sub.showsub-atv .showset');
-                const items = Array.from(container.querySelectorAll('.episodes'));
-                
-                // Reverse the array of items
-                const reversedItems = items.reverse();
-                
-                // Remove existing elements from the DOM
-                items.forEach(item => container.removeChild(item));
-                
-                // Append reversed elements back to the container
-                reversedItems.forEach(item => container.appendChild(item));
-
-                // Update the sort text
-
-            }
-
-            sortEPbtn.forEach(btn => 
-            {
-                btn.addEventListener("click" , () => 
-                {
-                    sortEpisodesFunc();
-                    const sortEPbtnText = btn.querySelector('.episode_orderText');
-                    sortEPbtnText.classList.toggle("active");
-
-                    if(btn.title == "Sort by latest episodes")
-                    {
-                        btn.title = "Sort by oldest episodes";
-                        return;
-                    }
-                    btn.title = "Sort by latest episodes";
-                });
-            });
 
 
             
@@ -898,6 +859,50 @@
                         box.classList.replace("inactive" , "active");
                     });
                     showAllEpBdr[b].classList.remove("active");
+                });
+            });
+            
+            
+            
+        // SORTING THE EPISODES
+
+            function sortEpisodesFunc() 
+            {
+                const containerParent = document.querySelector('.show-sub.showsub-atv');
+                const container = containerParent.querySelector('.showset');
+                const thisShowAllEpBtn = containerParent.querySelector(".showall_EpBtn");
+                const items = Array.from(container.querySelectorAll('.episodes'));
+
+                // Show all the episodes int that collection
+                thisShowAllEpBtn.click();
+                
+                // Reverse the array of items
+                const reversedItems = items.reverse();
+                
+                // Remove existing elements from the DOM
+                items.forEach(item => container.removeChild(item));
+                
+                // Append reversed elements back to the container
+                reversedItems.forEach(item => container.appendChild(item));
+
+                // Update the sort text
+
+            }
+
+            sortEPbtn.forEach(btn => 
+            {
+                btn.addEventListener("click" , () => 
+                {
+                    sortEpisodesFunc();
+                    const sortEPbtnText = btn.querySelector('.episode_orderText');
+                    sortEPbtnText.classList.toggle("active");
+
+                    if(btn.title == "Sort by latest episodes")
+                    {
+                        btn.title = "Sort by oldest episodes";
+                        return;
+                    }
+                    btn.title = "Sort by latest episodes";
                 });
             });
     }
