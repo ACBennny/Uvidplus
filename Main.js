@@ -917,30 +917,30 @@
                     sideNavLinks[0].classList.add("active");
                     btmNavLinks[0].classList.add("active");
                     break;
-
-                case 'catalog': 
+                
+                case 'watchlist': 
                     sideNavLinks[1].classList.add("active");
                     btmNavLinks[1].classList.add("active");
                     break;
                 
-                case 'watchlist': 
+                case 'categories': 
                     sideNavLinks[2].classList.add("active");
                     btmNavLinks[2].classList.add("active");
                     break;
                 
-                case 'categories': 
+                case 'schedule': 
                     sideNavLinks[3].classList.add("active");
                     btmNavLinks[3].classList.add("active");
                     break;
-                
-                case 'schedule': 
+
+                case 'news': 
                     sideNavLinks[4].classList.add("active");
                     btmNavLinks[4].classList.add("active");
                     break;
 
-                case 'news': 
+                case 'catalog': 
                     sideNavLinks[5].classList.add("active");
-                    btmNavLinks[5].classList.add("active");
+                    // btmNavLinks[5].classList.add("active");
                     break;
 
                 default: 
