@@ -832,6 +832,11 @@
     
                     lastWindowScroll = currentWindowScroll;
                 }
+                else
+                {
+                    topNavBar.classList.remove("isScrollingDown");
+                    btmNavBar.classList.remove("isScrollingDown");
+                }
             });
             
 
