@@ -706,7 +706,8 @@ html:root
         max-width: none;
         height: 100%;
         flex-direction: column;
-        padding: 0 var(--genBorderSpacing);
+        gap: 12px;
+        padding: 0 var(--genBorderSpacing) 25px;
         overflow: hidden auto;
     }
 
