@@ -496,6 +496,16 @@
             scheduleCurrDateMinor.textContent = `${scheduleDateCards[next].querySelector(".schedule_dateMinorText").textContent}`;
 
             // Scrolls to the currently selected date
+            if(window.innerWidth <= scheduleMobileWidth)
+            {
+                scheduleSelBdr.addEventListener("transitionend" , function handleMobTransitionEnd()
+                {
+                    let number = scheduleDateCards[next].offsetLeft - 50;
+                    scheduleDateSlider.scrollTo(number, null);
+                    scheduleSelBdr.removeEventListener("transitionend" , handleMobTransitionEnd);
+                });
+                return;
+            }
             let number = scheduleDateCards[next].offsetLeft - 50;
             scheduleDateSlider.scrollTo(number, null);
         }
