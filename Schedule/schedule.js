@@ -496,17 +496,20 @@
             scheduleCurrDateMinor.textContent = `${scheduleDateCards[next].querySelector(".schedule_dateMinorText").textContent}`;
 
             // Scrolls to the currently selected date
+            let currDateOffsetLeft = scheduleDateCards[next].offsetLeft - 50;
+
+            // If window is in mobile width, wait for transition end before executing
             if(window.innerWidth <= scheduleMobileWidth)
             {
-                // For devices with the mobile width
-                scheduleSelBdr.addEventListener("transitionend" , function handleMobTransitionEnd()
+                scheduleDateSlider.addEventListener("transitionend" , function handleTransitionEnd()
                 {
-                    scheduleDateSlider.scrollTo((scheduleDateCards[next].offsetLeft - 50), null);
-                    scheduleSelBdr.removeEventListener("transitionend" , handleMobTransitionEnd);
+                    scheduleDateSlider.scrollTo(currDateOffsetLeft, null);
+                    scheduleDateSlider.removeEventListener("transitionend" , handleTransitionEnd);
                 });
                 return;
             }
-            scheduleDateSlider.scrollTo((scheduleDateCards[next].offsetLeft - 50), null);
+            // On larger screens execute immediately
+            scheduleDateSlider.scrollTo(currDateOffsetLeft, null);
         }
 
         
