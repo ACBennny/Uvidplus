@@ -141,7 +141,7 @@ html:root
     background: -webkit-linear-gradient(to bottom, #000000fe, #000000ef, #000000dc, #000000cd, #00000050, #00000000);
     background: linear-gradient(to bottom, #000000fe, #000000ef, #000000dc, #000000cd, #00000050, #00000000);
     transition: 0ms;
-    z-index: 101;
+    z-index: 90;
 }
 
 .schedule_selBdr .schedule_selBox
@@ -165,14 +165,7 @@ html:root
 .schedule_selBox .schedule_filterBdr
 {
     width: 100%;
-    height: var(--filterHeight);
     overflow: hidden;
-}
-
-.schedule_selBase.sticky .schedule_filterBdr
-{
-    height: 0px;
-    transition: all 150ms ease-in-out;
 }
 
 .schedule_filterBdr .schedule_filterBox
@@ -222,16 +215,22 @@ html:root
 
 
 
-
-
-
 /* -------------- Date Section -------------- */
 
 .schedule_box .schedule_dateBdr
 {
     width: 100%;
+    height: var(--filterHeight);
     padding: 10px 0;
     margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.schedule_selBase.sticky .schedule_dateBdr
+{
+    height: 0px;
+    /* padding: 0; */
+    transition: all 150ms ease-in-out;
 }
 
 .schedule_dateBdr .schedule_dateBox
@@ -243,8 +242,6 @@ html:root
     flex-direction: row;
     justify-content: center;
 }
-
-
 
 /* -------- Date Borders --------- */
 .schedule_dateBox .schedule_dateAllBorder
@@ -388,6 +385,47 @@ html:root
 .schedule_dateCard:active .schedule_dateMajorText
 {
     color: var(--genGreenTypeMid);
+}
+
+
+
+/* ----------- The Current Date --------- */
+.schedule_selBox .schedule_currDateBdr
+{
+    width: 100%;
+    height: 0px;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.schedule_selBase.sticky .schedule_currDateBdr
+{
+    height: 40px;
+    opacity: 1;
+    visibility: visible;
+    transition: all 300ms ease-in-out;
+}
+
+.schedule_currDateBdr .schedule_currDateBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.schedule_currDateBox .schedule_currDateText
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+    color: var(--genWhiteTypeLight);
+    font-family: 'Poppins' , sans-serif;
+    font-size: 13px;
 }
 
 
@@ -565,10 +603,16 @@ html:root
         background: #000000;
     }
 
-    .schedule_selBase.sticky:hover .schedule_filterBdr
+    .schedule_selBase.sticky:hover .schedule_dateBdr
     {
         height: var(--filterHeight);
         transition: all 300ms ease-in-out;
+    }
+
+    .schedule_selBase.sticky:hover .schedule_currDateBdr
+    {
+        height: 0px;
+        transition-delay: 100ms;
     }
 
     .schedule_filterTab:hover
@@ -617,11 +661,7 @@ html:root
         background: none;
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
-    }
-
-    .schedule_selBase.sticky:hover .schedule_selBdr
-    {
-        background: none;
+        z-index: 101;
     }
 
     .schedule_selBase.sticky .schedule_selBdr.active
@@ -678,6 +718,26 @@ html:root
     .schedule_selBase.sticky .schedule_dateSlider
     {
         scrollbar-width: unset;
+    }
+
+    .schedule_selBase.sticky .schedule_currDateBdr
+    {
+        height: 0px;
+        transition-delay: 100ms;
+    }
+}
+
+@media only screen and (max-width: 768px) and (hover: hover)
+{
+
+    .schedule_selBase.sticky:hover .schedule_selBdr
+    {
+        background: none;
+    }
+
+    .schedule_selBase.sticky:hover .schedule_dateBdr
+    {
+        height: calc((100% - var(--filterHeight)));
     }
 }
 

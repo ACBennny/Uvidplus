@@ -53,6 +53,15 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="schedule_currDateBdr">
+                                        <div class="schedule_currDateBox">
+                                            <div class="schedule_currDateText">
+                                                <span class="schedule_currDateMajor">N/A</span>
+                                                <span class="">,</span>
+                                                <span class="schedule_currDateMinor">N/A</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="schedule_dateBdr">
                                         <div class="schedule_dateBox">
 
@@ -95,10 +104,9 @@
             let scheduleDateCard;
 
             let scheduleSelBdrHeight = Math.round((scheduleSelBdr.getBoundingClientRect().height));
-            let scheduleFilterBdrHeight = Math.round((scheduleFilterBdr.getBoundingClientRect().height));
+            let scheduleFilterBdrHeight;
 
             // scheduleSelBase.setAttribute(`style` , `--filterHeight: ${scheduleFilterBdrHeight}px;`);
-            scheduleSelBase.setAttribute(`style` , `--selBtmMargin: ${scheduleSelBdrHeight}px; --filterHeight: ${scheduleFilterBdrHeight}px;`);
 
 
         // GENERATING THE DATE
@@ -146,11 +154,14 @@
                     // Append to the slider
                     scheduleDateSlider.appendChild(card);
                 }
+
+                scheduleDateCard = document.querySelectorAll(".schedule_dateCard");
+                scheduleFilterBdrHeight = Math.round((scheduleDateBdr.getBoundingClientRect().height));
+                scheduleSelBase.setAttribute(`style` , `--selBtmMargin: ${scheduleSelBdrHeight}px; --filterHeight: ${scheduleFilterBdrHeight}px;`);
             }
 
             // Call the function to generate the schedule cards
             generateScheduleDate();
-            scheduleDateCard = document.querySelectorAll(".schedule_dateCard");
 
         // SLIDER
 
@@ -270,14 +281,14 @@
 
             window.addEventListener("resize" , () => 
             {
-                if(((scheduleSelBdr.classList.contains("active")) && (window.innerWidth > 768)))
+                if(((scheduleDateBdr.classList.contains("active")) && (window.innerWidth > 768)))
                 {
                     viewAllSelectors();
                 }
             });
             window.addEventListener("change" , () => 
             {
-                if(((scheduleSelBdr.classList.contains("active")) && (window.innerWidth > 768)))
+                if(((scheduleDateBdr.classList.contains("active")) && (window.innerWidth > 768)))
                 {
                     viewAllSelectors();
                 }
@@ -286,7 +297,7 @@
 
         // VIEWING ALL SELCTORS
 
-            function viewAllSelectors()
+            function viewAllSelectors() 
             {
                 if((scheduleSelBase.classList.contains("sticky")))
                 {
@@ -396,7 +407,11 @@
     {
         const scheduleSelTab = document.querySelectorAll(".schedule_filterTab");
         const scheduleDateCards = document.querySelectorAll(".schedule_dateCard");
+        const scheduleCurrDateCard = document.querySelector(".schedule_dateCard.curr_day");
         const scheduleCtntBox = document.querySelector(".schedule_ctntBox");
+        const scheduleCurrDateText = document.querySelector(".schedule_currDateText");
+        const scheduleCurrDateMajor = scheduleCurrDateText.querySelector(".schedule_currDateMajor");
+        const scheduleCurrDateMinor = scheduleCurrDateText.querySelector(".schedule_currDateMinor");
         let scheduleCtntCards;
 
         // Create the grids in correspondence witht the number of dates present
@@ -451,12 +466,16 @@
             }
         });
 
+        scheduleCurrDateMajor.textContent = `${scheduleCurrDateCard.querySelector(".schedule_dateMajorText").textContent}`;
+        scheduleCurrDateMinor.textContent = `${scheduleCurrDateCard.querySelector(".schedule_dateMinorText").textContent}`;
 
         // Displays the selected date
         function switchNextSchedule(next)
         {
             scheduleDateCards[next].classList.add("curr_day");
             scheduleGridBox[next].classList.add("curr_day");
+            scheduleCurrDateMajor.textContent = `${scheduleDateCards[next].querySelector(".schedule_dateMajorText").textContent}`;
+            scheduleCurrDateMinor.textContent = `${scheduleDateCards[next].querySelector(".schedule_dateMinorText").textContent}`;
         }
 
         // Changing the schedule date
