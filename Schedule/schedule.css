@@ -291,6 +291,7 @@ html:root
     gap: 25px;
     scrollbar-width: none;
     overflow: auto hidden;
+    scroll-behavior: smooth;
     cursor: grab;
     z-index: 2;
 }
@@ -298,6 +299,7 @@ html:root
 .schedule_dateSlider.isDateSliderDown,
 .schedule_dateSlider.isDateSliderDown .schedule_dateCard
 {
+    scroll-behavior: auto;
     cursor: grabbing;
 }
 
