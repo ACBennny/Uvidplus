@@ -493,6 +493,11 @@
             // Updates the content to the currently selected date
             scheduleCurrDateMajor.textContent = `${scheduleDateCards[next].querySelector(".schedule_dateMajorText").textContent}`;
             scheduleCurrDateMinor.textContent = `${scheduleDateCards[next].querySelector(".schedule_dateMinorText").textContent}`;
+
+            // Scrolls to the currently selected date
+            let number = scheduleDateCards[next].offsetLeft - 50;
+            scheduleDateSlider.scrollTo(number, null);
+            console.log(`offSetleft = ${number}`);
         }
 
         
