@@ -9,6 +9,7 @@
 // VARIABLES DECLARATION
 
     let scheduleMobileWidth = 768;
+    let scheduleMobileCondition;
     let lastScroll = 0;
     let boxErrorMargin = 10;
     let isDateSliderDown = false;
@@ -109,6 +110,16 @@
     }
 
 
+    function scheduleMobileCondFunc()
+    {
+        if(scheduleSelBase.classList.contains("sticky") && (!(scheduleSelBdr.classList.contains("active")) && (window.innerWidth <= scheduleMobileWidth)))
+        {
+            return true;
+        }
+        return false;
+    }
+
+
     function startSchedule()
     {
 
@@ -123,6 +134,7 @@
             scheduleDateRightBdr = document.querySelector(".schedule_dateRightBorder");
             scheduleDateSlider = document.querySelector(".schedule_dateSlider");
             scheduleFilterTab = document.querySelectorAll(".schedule_filterTab");
+            
 
             scheduleSelBdrHeight = Math.round((scheduleSelBdr.getBoundingClientRect().height));
 
@@ -322,10 +334,9 @@
 
             function viewAllSelectors() 
             {
-                if((scheduleSelBase.classList.contains("sticky")))
+                scheduleMobileCondition = scheduleMobileCondFunc();
+                if(scheduleMobileCondition)
                 {
-                    if((!(scheduleSelBdr.classList.contains("active")) && (window.innerWidth <= scheduleMobileWidth)))
-                    {
                         viewSelectorsBtn.classList.add("menuOpen");
                         scheduleSelBdr.classList.add("active");
                         scheduleSelBdr.addEventListener("transitionend" , function handleTransitionEnd()
@@ -334,11 +345,10 @@
                             scheduleSelBdr.removeEventListener("transitionend" , handleTransitionEnd);
                         });
                         return;
-                    }
-                    viewSelectorsBtn.classList.remove("menuOpen");
-                    scheduleSelBdr.classList.remove("active");
-                    documentBody.classList.remove("bodystop");
                 }
+                viewSelectorsBtn.classList.remove("menuOpen");
+                scheduleSelBdr.classList.remove("active");
+                documentBody.classList.remove("bodystop");
             }
             viewSelectorsBtn.addEventListener("click" , viewAllSelectors);
 
@@ -499,13 +509,20 @@
             let currDateOffsetLeft = scheduleDateCards[next].offsetLeft - 50;
 
             // If window is in mobile width, wait for transition end before executing
-            if(window.innerWidth <= scheduleMobileWidth)
+            scheduleMobileCondition = scheduleMobileCondFunc();
+            if(scheduleMobileCondition)
             {
-                scheduleDateSlider.addEventListener("transitionend" , function handleTransitionEnd()
+                let timer = setTimeout(() => 
                 {
-                    scheduleDateSlider.scrollTo(currDateOffsetLeft, null);
-                    scheduleDateSlider.removeEventListener("transitionend" , handleTransitionEnd);
-                });
+                scheduleDateSlider.scrollTo((scheduleDateCards[next].offsetLeft - 50), null);
+                    console.log("don");
+                    clearTimeout(timer);
+                }, 1500);
+                // scheduleDateSlider.addEventListener("transitionend" , function handleTransitionEnd()
+                // {
+                //     scheduleDateSlider.scrollTo((scheduleDateCards[next].offsetLeft - 50), null);
+                //     scheduleDateSlider.removeEventListener("transitionend" , handleTransitionEnd);
+                // });
                 return;
             }
             // On larger screens execute immediately
