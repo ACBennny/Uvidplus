@@ -8,6 +8,7 @@
 
 // VARIABLES DECLARATION
 
+    let scheduleMobileWidth = 768;
     let lastScroll = 0;
     let boxErrorMargin = 10;
     let isDateSliderDown = false;
@@ -303,14 +304,14 @@
 
             window.addEventListener("resize" , () => 
             {
-                if(((scheduleDateBdr.classList.contains("active")) && (window.innerWidth > 768)))
+                if(((scheduleDateBdr.classList.contains("active")) && (window.innerWidth > scheduleMobileWidth)))
                 {
                     viewAllSelectors();
                 }
             });
             window.addEventListener("change" , () => 
             {
-                if(((scheduleDateBdr.classList.contains("active")) && (window.innerWidth > 768)))
+                if(((scheduleDateBdr.classList.contains("active")) && (window.innerWidth > scheduleMobileWidth)))
                 {
                     viewAllSelectors();
                 }
@@ -323,7 +324,7 @@
             {
                 if((scheduleSelBase.classList.contains("sticky")))
                 {
-                    if((!(scheduleSelBdr.classList.contains("active")) && (window.innerWidth <= 768)))
+                    if((!(scheduleSelBdr.classList.contains("active")) && (window.innerWidth <= scheduleMobileWidth)))
                     {
                         viewSelectorsBtn.classList.add("menuOpen");
                         scheduleSelBdr.classList.add("active");
@@ -497,7 +498,6 @@
             // Scrolls to the currently selected date
             let number = scheduleDateCards[next].offsetLeft - 50;
             scheduleDateSlider.scrollTo(number, null);
-            console.log(`offSetleft = ${number}`);
         }
 
         
