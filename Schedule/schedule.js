@@ -6,7 +6,8 @@
  *
 ****************************************************************/
 
-    // Variables
+// VARIABLES DECLARATION
+
     let lastScroll = 0;
     let boxErrorMargin = 10;
     let isDateSliderDown = false;
@@ -14,7 +15,26 @@
     let isDraggingDist = 10;
     let startX;
     let dateSliderScrollLeft;
+    let viewSelectorsBtn;
+    let scheduleSelBase;
+    let scheduleSelBdr;
+    let scheduleSelBdrHeight;
+    let scheduleFilterBdr;
+    let scheduleFilterTab;
+    let scheduleDateBdr;
+    let scheduleDateBdrHeight;
+    let scheduleDateSlider;
+    let scheduleDateLeftBdr;
+    let scheduleDateRightBdr;
+    let scheduleDateCards;
+    let scheduleCurrDateCard;
+    let scheduleCurrDateText;
+    let scheduleCurrDateMajor;
+    let scheduleCurrDateMinor;
     let scheduleInv = [];
+    let scheduleCtntBox;
+    let scheduleCtntGrid;
+    let scheduleCtntCards;
 
 
     window.addEventListener("load" , () => 
@@ -90,23 +110,20 @@
 
     function startSchedule()
     {
+
         // DEFINITION
 
-            let viewSelectorsBtn = document.querySelector(".viewSelectorsBtnBdr");
-            let scheduleSelBase = document.querySelector(".schedule_selBase");
-            let scheduleSelBdr = document.querySelector(".schedule_selBdr");
-            let scheduleFilterBdr = document.querySelector(".schedule_filterBdr");
-            let scheduleDateBdr = document.querySelector(".schedule_dateBdr");
-            let scheduleDateLeftBdr = document.querySelector(".schedule_dateLeftBorder");
-            let scheduleDateRightBdr = document.querySelector(".schedule_dateRightBorder");
-            let scheduleDateSlider = document.querySelector(".schedule_dateSlider");
-            let scheduleFilterCard = document.querySelectorAll(".schedule_filterTab");
-            let scheduleDateCard;
+            viewSelectorsBtn = document.querySelector(".viewSelectorsBtnBdr");
+            scheduleSelBase = document.querySelector(".schedule_selBase");
+            scheduleSelBdr = document.querySelector(".schedule_selBdr");
+            scheduleFilterBdr = document.querySelector(".schedule_filterBdr");
+            scheduleDateBdr = document.querySelector(".schedule_dateBdr");
+            scheduleDateLeftBdr = document.querySelector(".schedule_dateLeftBorder");
+            scheduleDateRightBdr = document.querySelector(".schedule_dateRightBorder");
+            scheduleDateSlider = document.querySelector(".schedule_dateSlider");
+            scheduleFilterTab = document.querySelectorAll(".schedule_filterTab");
 
-            let scheduleSelBdrHeight = Math.round((scheduleSelBdr.getBoundingClientRect().height));
-            let scheduleFilterBdrHeight;
-
-            // scheduleSelBase.setAttribute(`style` , `--filterHeight: ${scheduleFilterBdrHeight}px;`);
+            scheduleSelBdrHeight = Math.round((scheduleSelBdr.getBoundingClientRect().height));
 
 
         // GENERATING THE DATE
@@ -114,10 +131,10 @@
             // Function to generate the Struct for each day and insert it into the slider
             function generateScheduleDate() 
             {
+                // Definitions
                 const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
                 const today = new Date();
-                // Sunday = 0, Monday = 1, ..., Saturday = 6
-                const currentDayIndex = today.getDay();
+                const currentDayIndex = today.getDay(); // Sunday = 0, Monday = 1, ..., Saturday = 6
 
                 // Create the week
                 for (let i = 0; i < 7; i++) 
@@ -138,6 +155,7 @@
                         card.classList.add("curr_day");
                     }
                     
+                    // Create each card's structure
                     card.innerHTML = `
                         <div class="schedule_dateMinorBdr">
                             <div class="schedule_dateMinorBox">
@@ -155,9 +173,15 @@
                     scheduleDateSlider.appendChild(card);
                 }
 
-                scheduleDateCard = document.querySelectorAll(".schedule_dateCard");
-                scheduleFilterBdrHeight = Math.round((scheduleDateBdr.getBoundingClientRect().height));
-                scheduleSelBase.setAttribute(`style` , `--selBtmMargin: ${scheduleSelBdrHeight}px; --filterHeight: ${scheduleFilterBdrHeight}px;`);
+                // Define the schedule date card and current date card
+                scheduleDateCards = document.querySelectorAll(".schedule_dateCard");
+                scheduleCurrDateCard = document.querySelector(".schedule_dateCard.curr_day");
+
+                // Get the Date Border's height
+                scheduleDateBdrHeight = Math.round((scheduleDateBdr.getBoundingClientRect().height));
+
+                // Add the style attributes to the Selector base to allow universal use in the nested tree
+                scheduleSelBase.setAttribute(`style` , `--selBtmMargin: ${scheduleSelBdrHeight}px; --filterHeight: ${scheduleDateBdrHeight}px;`);
             }
 
             // Call the function to generate the schedule cards
@@ -263,8 +287,6 @@
                 // Hide/Unhide the selector while scrolling (If fullscreen is disabled)
                 if((window.innerHeight != screen.height))
                 {
-                    let currScroll = window.scrollY;
-        
                     if((currScroll > lastScroll))
                     {
                         viewSelectorsBtn.classList.add("isScrollingDown");
@@ -320,7 +342,7 @@
             viewSelectorsBtn.addEventListener("click" , viewAllSelectors);
 
             // Closes the modal and scrolls back to top when after a date/filter is selected
-            scheduleFilterCard.forEach((card) => 
+            scheduleFilterTab.forEach((card) => 
             {
                 card.addEventListener("click" , () => 
                 {
@@ -328,7 +350,7 @@
                     window.scrollTo(null , 0);
                 });
             });
-            scheduleDateCard.forEach((card) => 
+            scheduleDateCards.forEach((card) => 
             {
                 card.addEventListener("click" , () => 
                 {
@@ -405,16 +427,16 @@
     // Filling the content
     function fetchScheduleCtnt()
     {
-        const scheduleSelTab = document.querySelectorAll(".schedule_filterTab");
-        const scheduleDateCards = document.querySelectorAll(".schedule_dateCard");
-        const scheduleCurrDateCard = document.querySelector(".schedule_dateCard.curr_day");
-        const scheduleCtntBox = document.querySelector(".schedule_ctntBox");
-        const scheduleCurrDateText = document.querySelector(".schedule_currDateText");
-        const scheduleCurrDateMajor = scheduleCurrDateText.querySelector(".schedule_currDateMajor");
-        const scheduleCurrDateMinor = scheduleCurrDateText.querySelector(".schedule_currDateMinor");
-        let scheduleCtntCards;
+        scheduleCurrDateText = document.querySelector(".schedule_currDateText");
+        scheduleCurrDateMajor = scheduleCurrDateText.querySelector(".schedule_currDateMajor");
+        scheduleCurrDateMinor = scheduleCurrDateText.querySelector(".schedule_currDateMinor");
+        scheduleCtntBox = document.querySelector(".schedule_ctntBox");
 
-        // Create the grids in correspondence witht the number of dates present
+        // Initialize with the current date
+        scheduleCurrDateMajor.textContent = `${scheduleCurrDateCard.querySelector(".schedule_dateMajorText").textContent}`;
+        scheduleCurrDateMinor.textContent = `${scheduleCurrDateCard.querySelector(".schedule_dateMinorText").textContent}`;
+
+        // Create the grids in correspondence with the number of dates present
         for(let i = 0; i < scheduleDateCards.length; i++)
         {
             let scheduleInvShuffle = shuffleArray([...scheduleInv]);
@@ -422,7 +444,7 @@
             let grid = document.createElement("div");
             grid.classList.add("schedule_ctntGrid");
             
-            // insert the cards with their details into the grid
+            // Insert the cards with their details into the grid
             for(let j = 0; j < randNo; j++)
             {
                 const item = scheduleInvShuffle[j];
@@ -454,35 +476,38 @@
                 grid.insertAdjacentHTML(`beforeend` , cardStruct);
             }
             scheduleCtntBox.appendChild(grid);
+
+            // Define the the ctnt Grid and the ctnt cards
+            scheduleCtntGrid = document.querySelectorAll(".schedule_ctntGrid");
+            scheduleCtntCards = document.querySelectorAll(".schedule_ctntCardBdr");
         }
 
-        // Display the grid of the current day
-        const scheduleGridBox = document.querySelectorAll(".schedule_ctntGrid");
-        scheduleDateCards.forEach((card, curr) => 
-        {
-            if(card.classList.contains("curr_day"))
-            {
-                scheduleGridBox[curr].classList.add("curr_day");
-            }
-        });
-
-        scheduleCurrDateMajor.textContent = `${scheduleCurrDateCard.querySelector(".schedule_dateMajorText").textContent}`;
-        scheduleCurrDateMinor.textContent = `${scheduleCurrDateCard.querySelector(".schedule_dateMinorText").textContent}`;
 
         // Displays the selected date
         function switchNextSchedule(next)
         {
+            // Adds the active state identifier for the current day
             scheduleDateCards[next].classList.add("curr_day");
-            scheduleGridBox[next].classList.add("curr_day");
+            scheduleCtntGrid[next].classList.add("curr_day");
+
+            // Updates the content to the currently selected date
             scheduleCurrDateMajor.textContent = `${scheduleDateCards[next].querySelector(".schedule_dateMajorText").textContent}`;
             scheduleCurrDateMinor.textContent = `${scheduleDateCards[next].querySelector(".schedule_dateMinorText").textContent}`;
         }
 
-        // Changing the schedule date
-        scheduleDateCards.forEach((card, i) => 
+        
+        scheduleDateCards.forEach((card, curr) => 
         {
+            // Display the grid of the current day
+            if(card.classList.contains("curr_day"))
+            {
+                scheduleCtntGrid[curr].classList.add("curr_day");
+            }
+
+            // Changing the schedule date
             card.addEventListener("click" , (e) => 
             {
+                // If user is dragging the slider, do not allow click events
                 if(isDragging)
                 {
                     e.preventDefault();
@@ -494,41 +519,40 @@
                 {
                     prevCard.classList.remove("curr_day");
                 });
-                scheduleGridBox.forEach((prevGrid) => 
+                scheduleCtntGrid.forEach((prevGrid) => 
                 {
                     prevGrid.classList.remove("curr_day");
                 });
 
-                switchNextSchedule(i);
+                switchNextSchedule(curr);
             });
         });
 
         // CHANGING THE FILTER
-        scheduleCtntCards = document.querySelectorAll(".schedule_ctntCardBdr");
 
         scheduleCtntCards.forEach((card) => 
         {
             let scheduleCtntCardType = card.getAttribute("data-show-type").toLowerCase();
 
-            scheduleSelTab.forEach((tab, i) => 
+            scheduleFilterTab.forEach((tab, i) => 
             {
                 tab.addEventListener("click" , () => 
                 {
-                    let scheduleSelTabName = tab.textContent.toLowerCase();
-                    scheduleSelTab.forEach((currTab) => 
+                    let scheduleFilterTabName = tab.textContent.toLowerCase();
+                    scheduleFilterTab.forEach((currTab) => 
                     {
                         currTab.classList.remove("active");
                     });
                     tab.classList.add("active");
 
-                    if(scheduleSelTabName == "all")
+                    if(scheduleFilterTabName == "all")
                     {
                         scheduleCtntCards.forEach((tabCard) => 
                         {
                             tabCard.classList.remove("inactive");
                         });
                     }
-                    else if(!(scheduleSelTabName == scheduleCtntCardType))
+                    else if(!(scheduleFilterTabName == scheduleCtntCardType))
                     {
                         card.classList.add("inactive");
                     }
