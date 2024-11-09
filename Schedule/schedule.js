@@ -498,16 +498,15 @@
             // Scrolls to the currently selected date
             if(window.innerWidth <= scheduleMobileWidth)
             {
+                // For devices with the mobile width
                 scheduleSelBdr.addEventListener("transitionend" , function handleMobTransitionEnd()
                 {
-                    let number = scheduleDateCards[next].offsetLeft - 50;
-                    scheduleDateSlider.scrollTo(number, null);
+                    scheduleDateSlider.scrollTo((scheduleDateCards[next].offsetLeft - 50), null);
                     scheduleSelBdr.removeEventListener("transitionend" , handleMobTransitionEnd);
                 });
                 return;
             }
-            let number = scheduleDateCards[next].offsetLeft - 50;
-            scheduleDateSlider.scrollTo(number, null);
+            scheduleDateSlider.scrollTo((scheduleDateCards[next].offsetLeft - 50), null);
         }
 
         
