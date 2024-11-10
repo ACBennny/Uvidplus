@@ -197,7 +197,8 @@ a
     cursor: pointer;
 }
 
-a:active, a:link, a:visited, a:any-link, a:focus, a:focus-visible, a:focus-within
+a:active, a:link, a:visited, a:any-link, a:focus, a:focus-visible, a:focus-within,
+ul
 {
     outline: none;
     border: none;
