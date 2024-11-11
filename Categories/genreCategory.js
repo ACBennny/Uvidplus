@@ -1,5 +1,5 @@
 /*************************************************************
- * This contains the elements of the genre category
+ * This contains the elements of the genre Category
  * 
  * @author (Anyanwu Benedict Chukwuemeka)
  * @version (v0.01)
