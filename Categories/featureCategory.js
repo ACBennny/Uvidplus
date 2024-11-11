@@ -1,5 +1,5 @@
 /*************************************************************
- * This contains the elements of the feature Catalog
+ * This contains the elements of the feature Category
  * 
  * @author (Anyanwu Benedict Chukwuemeka)
  * @version (v0.01)
