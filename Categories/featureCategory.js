@@ -29,10 +29,10 @@ ftrCatInv =
     },
     {
         name: `Movies`,
-        link: `/Catalog.html?type=movie`,
+        link: `/Catalog.html?format=movie`,
     },
     {
         name: `Tv Shows`,
-        link: `/Catalog.html?type=tv`,
+        link: `/Catalog.html?format=tv`,
     },
 ];
