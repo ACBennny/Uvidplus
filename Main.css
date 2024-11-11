@@ -490,7 +490,7 @@ img
 
 .topNavBar.isScrollingDown
 {
-    /* --btmNavBarHeight: 0px; */
+    --btmNavBarHeight: 0px;
 }
 
 .topNavBar .topNavBdr
@@ -738,7 +738,7 @@ img
 
 .btmNavBar.isScrollingDown
 {
-    --btmNavBarHeight: 0px;
+    /* --btmNavBarHeight: 0px; */
 }
 
 .btmNavBar .btmNavBdr
