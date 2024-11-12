@@ -1520,6 +1520,10 @@
             
             quickSearchInputField.addEventListener("keyup", e => 
             {
+                if(e.key.toLowerCase() === "enter")
+                {
+                    e.preventDefault();
+                }
                 filterQuickSearchInput(e);
             });
 
