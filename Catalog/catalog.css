@@ -1,0 +1,546 @@
+/*************************************************************
+ * This is the style for the catalog page of Uvid
+ * 
+ * @author (Anyanwu Benedict Chukwuemeka)
+ * @version (v0.01)
+ *************************************************************/
+
+html:root
+{
+    --catalogHeadBoxItemTitleClr: var(--genWhiteTypeBright);
+    --catalogHeadBoxItemDisplayBcg: var(--navMenuBcgClr);
+    --catalogHeadBoxItemDisplayClr: var(--genWhiteTypeMid);
+    --catalogHeadBoxItemDisplayHeight: 40px;
+    --catalogHeadBoxItemDisplayRadius: 10px;
+    --catalogHeadBoxItemDisplayFontSize: 14px;
+    --catalogHeadBoxItemDisplaySvgSize: 20px;
+    --catalogSearchInputItemPadding: 45px;
+    --catalogSearchIconWidth: 50px;
+    --catalogSearchSvgWidth: 25px;
+}
+
+
+
+/* ---------- Back to top button ---------- */
+.backToTopOfCatalogBdr
+{
+    position: fixed;
+    right: calc((0% - var(--genBorderSpacing)));
+    bottom: calc((var(--btmNavBarHeight) + var(--genBorderSpacing)));
+    border-radius: 50%;
+    background-color: var(--genGreenTypeMid);
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: all 150ms ease-in-out;
+    z-index: 110;
+}
+
+.backToTopOfCatalogBdr.active
+{
+    right: var(--genBorderSpacing);
+    opacity: 1;
+    visibility: visible;
+}
+
+.backToTopOfCatalogBdr:active
+{
+    transform: scale(0.95);
+}
+
+.backToTopOfCatalogBdr .backToTopOfCatalogBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.backToTopOfCatalogBox .backToTopOfCatalogSvg
+{
+    width: 25px;
+    height: 25px;
+    fill: var(--genWhiteTypeLight);
+}
+
+
+
+
+/* ================= CATALOG ================ */
+
+.catalogBase
+{
+    width: 100%;
+}
+
+.catalogBase .catalogBdr
+{
+    width: 100%;
+}
+
+.catalogBdr .catalogBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.catalogBox .catalogHeadBdr
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.catalogHeadBdr .catalogHeadBox
+{
+    position: relative;
+    width: 100%;
+    max-width: var(--genMaxContainerWidth);
+    display: flex;
+    flex-direction: column;
+    padding: calc((var(--btmNavBarHeight) + 25px)) var(--genBorderSpacing) 0;
+}
+
+
+
+/* ---------- Catalog Search --------- */
+
+.catalogHeadBox .catalogSearchBdr
+{
+    width: 100%;
+    height: var(--catalogHeadBoxItemDisplayHeight);
+}
+
+.catalogSearchBdr .catalogSearchBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    color: aliceblue;
+    justify-content: center;
+}
+
+.catalogSearchBox .catalogSearchInputItem
+{
+    position: relative;
+    width: calc((80% - (var(--catalogSearchIconWidth) * 2)));
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-right: 10px;
+    border-radius: var(--catalogHeadBoxItemDisplayRadius);
+    background-color: var(--catalogHeadBoxItemDisplayBcg);
+    overflow: hidden;
+    transition: all 300ms ease-in-out;
+}
+
+.catalogSearchInputItem:focus-within
+{
+    --catalogHeadBoxItemDisplayClr: var(--genWhiteTypeLight);
+    box-shadow: 0px 0px 0px 2.5px var(--genGreenTypeMid);
+}
+
+.catalogSearchInputItem .catalogSearchFieldClass
+{
+    width: 100%;
+    height: 100%;
+    padding: 0 var(--catalogSearchInputItemPadding);
+    font-family: 'Zen dots' , sans-serif;
+    font-size: var(--catalogHeadBoxItemDisplayFontSize);
+    color: var(--catalogHeadBoxItemDisplayClr);
+    outline: none;
+    border: none;
+    background-color: #00000000;
+    transition: all 300ms ease-in-out;
+}
+
+.catalogSearchInputItem .catalogSearchInputIcon
+{
+    position: absolute;
+    top: 0;
+    width: var(--catalogSearchInputItemPadding);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.catalogSearchInputIcon.catalogSearchInputLeftIcon
+{
+    left: 0;
+    pointer-events: none;
+}
+
+.catalogSearchInputIcon.catalogSearchInputRightIcon
+{
+    right: 0;
+    cursor: pointer;
+}
+
+.catalogSearchInputRightIcon.catalogSearchInputClearIcon
+{
+    display: none;
+}
+
+.catalogSearchInputClearIcon.isTyping
+{
+    display: flex;
+}
+
+.catalogSearchInputIcon .catalogSearchInputSvg
+{
+    width: calc(( var(--catalogSearchSvgWidth) / 1.25));
+    height: calc(( var(--catalogSearchSvgWidth) / 1.25));
+    fill: var(--catalogHeadBoxItemDisplayClr);
+    transition: all 300ms ease-in-out;
+}
+
+.catalogSearchBox .catalogSearchItem
+{
+    width: var(--catalogSearchIconWidth);
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.catalogSearchItem .catalogSearchIcon
+{
+    width: var(--catalogSearchSvgWidth);
+    height: var(--catalogSearchSvgWidth);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.catalogSearchIcon .catalogSearchSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--catalogHeadBoxItemTitleClr);
+    transition: all 300ms ease-in-out;
+}
+
+.catalogSearchItem .catalogSearchText
+{
+    display: none;
+    margin-left: 5px;
+    font-size: var(--catalogHeadBoxItemDisplayFontSize);
+    color: var(--catalogHeadBoxItemDisplayClr);
+}
+
+
+
+/* ----------- Filter options ---------- */
+.catalogHeadBox .catalogFilterBdr
+{
+    width: 100%;
+    max-height: 0;
+    margin: 25px 0 50px;
+    background-color: #000000;
+    overflow: hidden;
+}
+
+.catalogFilterBdr.active
+{
+    max-height: none;
+    overflow: unset;
+}
+
+.catalogFilterBdr .catalogFilterBox
+{
+    width: 100%;
+    max-width: var(--genMaxContainerWidth);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: auto;
+    justify-items: center;
+    gap: 20px;
+}
+
+.catalogFilterBox .catalogFilterCardBdr
+{
+    width: 100%;
+}
+
+.catalogFilterCardBdr .catalogFilterCardBox
+{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.catalogFilterCardBox .catalogFilterTitleBox
+{
+    width: 100%;
+    margin-bottom: 7px;
+}
+
+.catalogFilterTitleBox .catalogFilterTitleText
+{
+    font-size: 16px;
+    color: var(--catalogHeadBoxItemTitleClr);
+}
+
+.catalogFilterCardBox .catalogFilterDisplayBox
+{
+    width: 100%;
+    height: var(--catalogHeadBoxItemDisplayHeight);
+}
+
+.catalogFilterCardBox .catalogFilterDisplayBtn
+{
+    font-family: 'Poppins' , sans-serif;
+    width: 100%;
+    height: 100%;
+    height: var(--catalogHeadBoxItemDisplayHeight);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    outline: none;
+    border: none;
+    border-radius: var(--catalogHeadBoxItemDisplayRadius);
+    background-color: var(--catalogHeadBoxItemDisplayBcg);
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+}
+
+.catalogFilterDisplayBtn[aria-expanded="true"],
+.catalogFilterDisplayBtn:active
+{
+    box-shadow: 0px 0px 0px 2.5px var(--genGreenTypeMid);
+}
+
+.catalogFilterDisplayBtn .catalogFilterDisplayValueBox
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-right: 5px;
+}
+
+.catalogFilterDisplayValueBox .catalogFilterDisplayValueText
+{
+    --catalogFilterDisplayValueTextNo: 1;
+    --catalogFilterDisplayValueTextH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--catalogFilterDisplayValueTextNo);
+    -webkit-box-orient: vertical;
+    line-clamp:  var(--catalogFilterDisplayValueTextNo);
+    display: -webkit-box;
+    max-height: calc(var(--catalogFilterDisplayValueTextNo) * 1em * var(--catalogFilterDisplayValueTextH));
+    line-height: var(--catalogFilterDisplayValueTextH);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    color: var(--catalogHeadBoxItemDisplayClr);
+    font-size: var(--catalogHeadBoxItemDisplayFontSize);
+    text-align: left;
+    font-weight: 500;
+}
+
+.catalogFilterDisplayBtn .catalogFilterDisplayIcon
+{
+    width: var(--catalogHeadBoxItemDisplaySvgSize);
+    height: var(--catalogHeadBoxItemDisplaySvgSize);
+}
+
+.catalogFilterDisplayIcon .catalogFilterDisplaySvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--catalogHeadBoxItemDisplayClr);
+}
+
+.catalogFilterCardBox .catalogFilterListBox
+{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-height: 325px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    padding: 10px 5px;
+    border-radius: var(--catalogHeadBoxItemDisplayRadius);
+    background-color: var(--catalogHeadBoxItemDisplayBcg);
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden auto;
+    transform: translateY(15%) scale(0.85);
+    transition: all 300ms ease-in-out;
+    z-index: 110;
+}
+
+.catalogFilterDisplayBtn[aria-expanded="true"] ~ .catalogFilterListBox
+{
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+}
+
+.catalogFilterListBox .catalogFilterListItem
+{
+    font-family: 'Poppins' , sans-serif;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    padding: 7px 7px;
+    border-radius: 10px;
+    transition: all 150ms ease-in-out;
+    cursor: pointer;
+}
+
+.catalogFilterListItem.selected
+{
+    --catalogHeadBoxItemDisplayClr: var(--genWhiteTypeLight);
+    background-color: #2d2d2d;
+}
+
+.catalogFilterListItem .catalogFilterListName
+{
+    color: var(--catalogHeadBoxItemDisplayClr);
+    font-size: calc((var(--catalogHeadBoxItemDisplayFontSize) + 2px));
+    font-weight: 500;
+}
+
+.catalogFilterListItem .catalogFilterListIcon
+{
+    display: none;
+    width: var(--catalogHeadBoxItemDisplaySvgSize);
+    height: var(--catalogHeadBoxItemDisplaySvgSize);
+}
+
+.catalogFilterListIcon .catalogFilterListSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--catalogHeadBoxItemDisplayClr);
+}
+
+.catalogFilterListItem.selected .catalogFilterListIcon
+{
+    display: block;
+}
+
+
+
+
+.catalogBox .catalogGridBdr
+{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.catalogGridBdr .catalogGridBox
+{
+    width: 100%;
+    max-width: var(--genMaxContainerWidth);
+    height: -moz-fit-content;
+    height: fit-content;
+}
+
+
+
+
+
+@media(hover: hover)
+{
+
+    .catalogSearchItem:hover .catalogSearchSvg
+    {
+        --catalogHeadBoxItemTitleClr: var(--genGreenTypeLight);
+    }
+
+    .catalogFilterListItem:hover
+    {
+        background-color: #2d2d2d;
+    }
+}
+
+
+
+
+
+
+
+/* ================== RESPONSIVENESS ================ */
+
+
+@media only screen and (max-width: 768px)
+{
+    .catalogSearchBox .catalogSearchInputItem
+    {
+        width: calc((100% - (var(--catalogSearchIconWidth) * 2)));
+    }
+
+    .catalogFilterBdr .catalogFilterBox
+    {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .catalogFilterCardBox .catalogFilterListBox
+    {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        max-height: none;
+        margin: 0;
+        padding: 25px 10px 10px;
+        border-radius: 0px;
+    }
+}
+
+
+@media only screen and (max-width: 485px)
+{
+    html:root
+    {
+        --catalogHeadBoxItemDisplayFontSize: 12px;
+        --catalogHeadBoxItemDisplaySvgSize: 16px;
+        --catalogSearchIconWidth: 35px;
+        --catalogSearchSvgWidth: 22px;
+    }
+
+    .catalogFilterTitleBox .catalogFilterTitleText
+    {
+        font-size: 14px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
