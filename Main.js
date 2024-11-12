@@ -1354,6 +1354,7 @@
             let quickSearchResultBox = document.querySelector(".quickSearchResultBox");
             let quickSearchResultAllBtn;
             let quickSearchQuery;
+            let encodedSearchQuery;
 
 
             // Open quick Search 
@@ -1477,7 +1478,7 @@
                 if(!(quickSearchResultBox.innerHTML == ``))
                 {
                     quickSearchResultBox.insertAdjacentHTML(`beforeend` , 
-                        `<a href="/Catalog.html?search=${quickSearchQuery}" class="darkSolidBtn quickSearchResultAllBtn">View More</a>`
+                        `<a href="/Catalog.html?search=${encodedSearchQuery}" class="darkSolidBtn quickSearchResultAllBtn">View More</a>`
                     );
                     quickSearchResultAllBtn = document.querySelector(".quickSearchResultAllBtn");
                     return;
@@ -1489,9 +1490,19 @@
             }
 
             // Filter and display result based on user's entry
-            function filterQuickSearchInput()
+            function filterQuickSearchInput(e)
             {
                 quickSearchQuery = quickSearchInputField.value.trim().toLowerCase();
+                encodedSearchQuery = encodeURI(quickSearchQuery);
+                console.log(encodedSearchQuery);
+
+                // Open the catalog page with the search input if "ENTER" key is pressed
+                if(((quickSearchQuery != "") && (e.key.toLowerCase() == "enter")))
+                {
+                    window.open(`/Catalog.html?search=${encodedSearchQuery}` , `_self`);
+                }
+
+                
                 const filteredData = searchInventory.filter((item) => item.show_searchKey.toLowerCase().includes(quickSearchQuery));
                 displayQuickSearchResult(filteredData);
                 
@@ -1506,7 +1517,10 @@
                 quickSearchToCatalog.classList.remove("isTyping");
             }
             
-            quickSearchInputField.addEventListener("keyup", filterQuickSearchInput);
+            quickSearchInputField.addEventListener("keyup", e => 
+            {
+                filterQuickSearchInput(e);
+            });
 
             // Clears the search field
             quickSearchClearInput.addEventListener("click" , () => 
