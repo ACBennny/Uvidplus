@@ -415,6 +415,66 @@
             icon_name: `arrow-left`,
             icon_bold: 
             `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M20 11.25a.75.75 0 0 1 0 1.5h-9.25V18a.75.75 0 0 1-1.28.53l-6-6a.75.75 0 0 1 0-1.06l6-6a.75.75 0 0 1 1.28.53v5.25z" />
+                </svg>
+            `,
+            icon_outline: 
+            `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M10.53 5.47a.75.75 0 0 1 0 1.06l-4.72 4.72H20a.75.75 0 0 1 0 1.5H5.81l4.72 4.72a.75.75 0 1 1-1.06 1.06l-6-6a.75.75 0 0 1 0-1.06l6-6a.75.75 0 0 1 1.06 0" clip-rule="evenodd" />
+                </svg>
+            `,
+        },
+        {
+            icon_name: `arrow-right`,
+            icon_bold: 
+            `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M4 11.25a.75.75 0 0 0 0 1.5h9.25V18a.75.75 0 0 0 1.28.53l6-6a.75.75 0 0 0 0-1.06l-6-6a.75.75 0 0 0-1.28.53v5.25z" />
+                </svg>
+            `,
+            icon_outline: 
+            `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M13.47 5.47a.75.75 0 0 1 1.06 0l6 6a.75.75 0 0 1 0 1.06l-6 6a.75.75 0 1 1-1.06-1.06l4.72-4.72H4a.75.75 0 0 1 0-1.5h14.19l-4.72-4.72a.75.75 0 0 1 0-1.06" clip-rule="evenodd" />
+                </svg>
+            `,
+        },
+        {
+            icon_name: `arrow-up`,
+            icon_bold: 
+            `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12.75 20a.75.75 0 0 1-1.5 0v-9.25H6a.75.75 0 0 1-.53-1.28l6-6a.75.75 0 0 1 1.06 0l6 6a.75.75 0 0 1-.53 1.28h-5.25z" />
+                </svg>
+            `,
+            icon_outline: 
+            `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M11.47 3.47a.75.75 0 0 1 1.06 0l6 6a.75.75 0 1 1-1.06 1.06l-4.72-4.72V20a.75.75 0 0 1-1.5 0V5.81l-4.72 4.72a.75.75 0 1 1-1.06-1.06z" clip-rule="evenodd" />
+                </svg>
+            `,
+        },
+        {
+            icon_name: `arrow-down`,
+            icon_bold: 
+            `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12.75 4a.75.75 0 0 0-1.5 0v9.25H6a.75.75 0 0 0-.53 1.28l6 6a.75.75 0 0 0 1.06 0l6-6a.75.75 0 0 0-.53-1.28h-5.25z" />
+                </svg>
+            `,
+            icon_outline: 
+            `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M12 3.25a.75.75 0 0 1 .75.75v14.19l4.72-4.72a.75.75 0 1 1 1.06 1.06l-6 6a.75.75 0 0 1-1.06 0l-6-6a.75.75 0 1 1 1.06-1.06l4.72 4.72V4a.75.75 0 0 1 .75-.75" clip-rule="evenodd" />
+                </svg>
+            `,
+        },
+        {
+            icon_name: `caret-left`,
+            icon_bold: 
+            `
             `,
             icon_outline: 
             `
@@ -424,7 +484,7 @@
             `,
         },
         {
-            icon_name: `arrow-right`,
+            icon_name: `caret-right`,
             icon_bold: 
             `
             `,
@@ -436,7 +496,7 @@
             `,
         },
         {
-            icon_name: `arrow-up`,
+            icon_name: `caret-up`,
             icon_bold: 
             `
             `,
@@ -448,7 +508,7 @@
             `,
         },
         {
-            icon_name: `arrow-down`,
+            icon_name: `caret-down`,
             icon_bold: 
             `
             `,
