@@ -1496,7 +1496,7 @@
                 encodedSearchQuery = encodeURIComponent(quickSearchQuery);
 
                 // Open the catalog page with the search input if "ENTER" key is pressed
-                if(((quickSearchQuery != "") && (e.key.toLowerCase() == "enter")))
+                if(((quickSearchQuery != "") && (e.key.toLowerCase() === "enter")))
                 {
                     e.preventDefault();
                     window.open(`/Catalog.html?search=${encodedSearchQuery}` , `_self`);
