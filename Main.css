@@ -410,6 +410,32 @@ img
 
 
 
+/* ========== TOggLe fuLLscrEEn ========== */
+
+.goToFullScreenBtn .maximize
+{
+    display: block;
+}
+
+.goToFullScreenBtn .minimize
+{
+    display: none;
+}
+
+.goToFullScreenBtn.isFullScreen .maximize
+{
+    display: none;
+}
+
+.goToFullScreenBtn.isFullScreen .minimize
+{
+    display: block;
+}
+
+
+
+
+
 /* =============== PAGE GRADIENT (NOT DONE) ============= */
 .pageGradient
 {
