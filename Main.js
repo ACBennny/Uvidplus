@@ -1494,14 +1494,18 @@
             {
                 quickSearchQuery = quickSearchInputField.value.trim().toLowerCase();
                 encodedSearchQuery = encodeURIComponent(quickSearchQuery);
+                console.log(`All key event: ${e.key} \n `);
 
                 // Open the catalog page with the search input if "ENTER" key is pressed
                 if(((quickSearchQuery != "") && (e.key.toLowerCase() === "enter")))
                 {
                     e.preventDefault();
                     window.open(`/Catalog.html?search=${encodedSearchQuery}` , `_self`);
+                    console.log(`the "Enter" key event: ${e.key} \n should work..`);
                     return;
                 }
+
+                console.log(`if key isn't "Enter" then key: ${e.key}`);
 
                 // Filter Items
                 const filteredData = searchInventory.filter((item) => item.show_searchKey.toLowerCase().includes(quickSearchQuery));
@@ -1518,11 +1522,12 @@
                 quickSearchToCatalog.classList.remove("isTyping");
             }
             
-            quickSearchInputField.addEventListener("keyup", e => 
+            quickSearchInputField.addEventListener("keyup", (e) => 
             {
-                if(e.key.toLowerCase() === "enter")
+                if(e.key === "Enter")
                 {
                     e.preventDefault();
+                    console.log(`initial "enter" key event: ${e.key}`);
                 }
                 filterQuickSearchInput(e);
             });
