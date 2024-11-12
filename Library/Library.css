@@ -502,7 +502,7 @@ html:root
     transition: 300ms;
 }
 
-.abt-stmtText.abt-stmtText:has(+ .abt-stmt-detBdr .abt-stmt-checkBoxCls:not(:checked))::after
+.abt-stmtText:has(+ .abt-stmt-detBdr .abt-stmt-checkBoxCls:not(:checked))::after
 {
     content: '';
     position: absolute;
