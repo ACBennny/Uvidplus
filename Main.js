@@ -850,7 +850,7 @@
 
                 // Hide/Unhide navbar while scrolling (If fullscreen is disabled)
                 // Not properly checking for fullscreen
-                if(((window.innerHeight != screen.height) || !(document.fullscreenElement)))
+                if((!(document.fullscreenElement) && (window.innerHeight != screen.height)))
                 {
                     let currentWindowScroll = window.scrollY;
 
