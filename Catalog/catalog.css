@@ -243,7 +243,7 @@ html:root
 {
     width: 100%;
     max-height: 0;
-    margin: 25px 0 50px;
+    margin: 25px 0;
     background-color: #000000;
     overflow: hidden;
 }
@@ -251,6 +251,7 @@ html:root
 .catalogFilterBdr.active
 {
     max-height: none;
+    margin: 25px 0 50px;
     overflow: unset;
 }
 
