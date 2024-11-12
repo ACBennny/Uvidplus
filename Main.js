@@ -849,7 +849,6 @@
                 topNavBar.classList.toggle("float" , window.scrollY > 0);
 
                 // Hide/Unhide navbar while scrolling (If fullscreen is disabled)
-                // Not properly checking for fullscreen
                 if((!(document.fullscreenElement) && (window.innerHeight != screen.height)))
                 {
                     let currentWindowScroll = window.scrollY;
