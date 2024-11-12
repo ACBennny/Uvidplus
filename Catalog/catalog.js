@@ -675,12 +675,12 @@
                 break;
                 
             case 'genre':
-                filterCatalogResult(displayValue , `show_year`);
+                filterCatalogResult(displayValue , `show_genre`);
                 console.log(displayTitle)
                 break;
                 
             case 'origin':
-                filterCatalogResult(displayValue , `show_year`);
+                filterCatalogResult(displayValue , `show_country`);
                 console.log(displayTitle)
                 break;
                 
