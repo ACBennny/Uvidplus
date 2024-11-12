@@ -33,7 +33,7 @@ html:root
     visibility: hidden;
     overflow: hidden;
     transition: all 150ms ease-in-out;
-    z-index: 110;
+    z-index: 105;
 }
 
 .backToTopOfCatalogBdr.active
