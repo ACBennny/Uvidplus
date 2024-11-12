@@ -1502,11 +1502,11 @@
                     window.open(`/Catalog.html?search=${encodedSearchQuery}` , `_self`);
                 }
 
-                
+                // Filter Items
                 const filteredData = searchInventory.filter((item) => item.show_searchKey.toLowerCase().includes(quickSearchQuery));
                 displayQuickSearchResult(filteredData);
                 
-                
+                // Toggle the clear input & catalog Icons
                 if(quickSearchInputField.value.length > 0)
                 {
                     quickSearchClearInput.classList.add("isTyping");
