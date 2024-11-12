@@ -530,6 +530,7 @@
                 if((btn.getAttribute("aria-expanded") == "true"))
                 {
                     btn.setAttribute(`aria-expanded` , `false`);
+                    documentBody.classList.remove("bodystop");
                 }
                 // Else open the menu
                 else
@@ -544,6 +545,11 @@
                     {
                         catalogFilterListMenu[index].removeEventListener("transitionend" , handleTransitonEnd);
                         document.addEventListener("click" , closeFilterMenus);
+                        
+                        toggleDocBodyOverflow(index);
+                        window.addEventListener("change" , () => {toggleDocBodyOverflow(index)});
+                        window.addEventListener("resize" , () => {toggleDocBodyOverflow(index)});
+                    
                     });
                 }
             });
@@ -589,6 +595,18 @@
     }
 
 
+    // Toggles the document body's overflow based on screen size
+    function toggleDocBodyOverflow(currBtn)
+    {
+            if(((catalogFilterDisplayBtn[currBtn].getAttribute("aria-expanded") == "true") && (window.innerWidth < 768)))
+            {
+                documentBody.classList.add("bodystop");
+                return;
+            }
+            documentBody.classList.remove("bodystop");
+    }
+
+
     // Closes the Filter Display Menus (via mouse clicks on other areas beside the display filter buttons)
     function closeFilterMenus()
     {
@@ -602,6 +620,7 @@
             }
             document.removeEventListener("click" , closeFilterMenus);
             activeBtn.setAttribute(`aria-expanded` , `false`);
+            documentBody.classList.remove("bodystop");
         });
     }
 
