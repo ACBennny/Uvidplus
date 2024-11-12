@@ -228,7 +228,7 @@
             backToTopOfCatalogBtn = document.querySelector(".backToTopOfCatalogBdr");
 
         // Let users know the filtering isn't working
-            notification(`notifyBad` , `Filtering is not operational`);
+            // notification(`notifyBad` , `Filtering is not operational`);
 
 
         // Scroll to top of page
@@ -301,9 +301,6 @@
 
             clearCatalogFilters.addEventListener("click" , () => 
             {
-                // Clear URL Search params
-                window.history.replaceState(null, '', catalogURLandQueryBase);
-
                 // Clear Search input
                 catalogSearchInput.value = "";
                 catalogSearchQuery = "";
@@ -325,6 +322,7 @@
                     {
                         listOpt.classList.remove("selected");
                         catalogFilterDisplayBtn[menuIndex].querySelector(".catalogFilterDisplayValueText").textContent = "Any";
+                        updateURLParams(catalogParamsOrder[menuIndex + 1], '');
                     });
                 });
             });
@@ -581,7 +579,7 @@
                     filterDisplayValueText.textContent = listOptTextCtnt;
 
                     // Update the URL Params (One is added to the index due to search being the first param)
-                    updateURLParams(catalogParamsOrder[menuIndex + 1], listOptTextCtntLC)
+                    updateURLParams(catalogParamsOrder[menuIndex + 1], listOptTextCtntLC);
 
                     // TO DO: Update the catalog filters
                     displayCatalogFilterItems(filterTitleTextLC, listOptTextCtntLC);
