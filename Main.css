@@ -516,7 +516,7 @@ img
 
 .topNavBar.isScrollingDown
 {
-    /* --btmNavBarHeight: 0px; */
+    --btmNavBarHeight: 0px;
 }
 
 .topNavBar .topNavBdr
