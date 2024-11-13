@@ -62,11 +62,6 @@ html:root
     z-index: 101;
 }
 
-.viewSelectorsBtnBdr.isScrollingDown
-{
-    --btmNavBarHeight: 0px;
-}
-
 .viewSelectorsBtnBdr .viewSelectorsBtnBox
 {
     width: 100%;
