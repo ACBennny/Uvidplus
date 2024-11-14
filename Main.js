@@ -1620,7 +1620,7 @@
                                     </div>
                                     <div class="newWLAtnBdr">
                                         <div class="newWLAtnBox">
-                                            <button type="button" id="createNewWL" class="newWLAtnBtn midSolidBtn" disabled>Create</button>
+                                            <button type="button" id="createNewWL" class="newWLAtnBtn inactiveBtn" disabled>Create</button>
                                             <button type="button" id="cancelNewWL" class="newWLAtnBtn hollowBtn" disabled>Cancel</button>
                                         </div>
                                     </div>
@@ -1825,9 +1825,11 @@
                         if(val.length < inputLowBnd || (val.length > inputUppBnd))
                         {
                             createWLBtn.disabled = true;
+                            createWLBtn.classList.replace("midSolidBtn" , "inactiveBtn");
                             return;
                         }
                         createWLBtn.disabled = false;
+                        createWLBtn.classList.replace("inactiveBtn" , "midSolidBtn");
                     }
         
                     newWLInput.addEventListener("input" , () => 

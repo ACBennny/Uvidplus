@@ -2141,10 +2141,20 @@ img
     background-color: #00000000;
 }
 
+.inactiveBtn
+{
+    color: var(--navBarBcgSolid);
+    fill: var(--navBarBcgSolid);
+    border: 2px solid var(--navBarBcgSolid);
+    background-color: #00000000;
+    cursor: not-allowed;
+}
+
 .lightSolidBtn:active,
 .midSolidBtn:active,
 .darkSolidBtn:active,
-.hollowBtn:active
+.hollowBtn:active,
+.inactiveBtn:active
 {
     transform: scale(0.96);
 }
@@ -4532,15 +4542,6 @@ img
     border-radius: 5px;
     outline: none;
     transition: all 300ms ease-in-out;
-    cursor: pointer;
-}
-
-.newWLAtnBtn:disabled,
-.newWLAtnBtn:disabled:active
-{
-    color: var(--genWhiteTypeMid) !important;
-    background-color: var(--genGreenTypeDark2);
-    cursor: not-allowed;
 }
 
 
@@ -5034,13 +5035,6 @@ img
     .genAtnModalOptBdr .genAtnModalOptBox:hover
     {
         background-color: #222222;
-    }
-    
-    .newWLAtnBtn:disabled:hover
-    {
-        color: var(--genWhiteTypeMid) !important;
-        background-color: var(--genGreenTypeDark2);
-        cursor: not-allowed;
     }
 
     .footer_Important_links:hover
