@@ -789,7 +789,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="wlModalGrid_CardCtntBdr">
+                            <a href="${show_link}" class="wlModalGrid_CardCtntBdr">
                                 <div class="wlModalGrid_CardCtntBox">
                                     <div class="wlModalGrid_CardCtntThumbBdr">
                                         <div class="wlModalGrid_CardCtntThumbBox">
@@ -826,7 +826,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                             <div class="wlModalActionFence wlModalAction_GridCardFence">
                                 <div class="wlModalActionBase">
                                     <div class="wlModalActionBdr">
