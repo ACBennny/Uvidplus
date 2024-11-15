@@ -26,7 +26,7 @@ const watchlistInventory =
     },
     {
         wl_name: `Fullmetal Collection`,
-        wl_updated: `Oct , 2024`,
+        wl_updated: `Oct 1, 2024`,
         wl_bcg: `/Library/TV/Watch/FullmetalAlchemistBrotherhood/img/2.jpg`,
         wl_desc: `A collection of all the Fullmetal Shows`,
         wl_items:
