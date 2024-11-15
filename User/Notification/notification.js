@@ -15,6 +15,21 @@
         </div>
     `;
 
+    
+    // Inserting the empty bdr when there are no watchlists
+    function insertEmptyBdr()
+    {
+        notificationCtntBox.insertAdjacentHTML(`afterbegin` , emptyNotificationsStruct);
+    }
+
+
+    // Removing the empty bdr
+    function removingEmptyBdr()
+    {
+        emptyUserPageBdr = document.querySelector(".emptyUserPageBdr");
+        emptyUserPageBdr.remove();
+    }
+
     function startUserPage()
     {
         let notificationLibraryScriptId = document.querySelector("#notificationLibraryScriptId");
@@ -62,7 +77,7 @@
             }
 
             // Remove epty status
-            emptyUserPageBdr.remove();
+            removingEmptyBdr();
 
             // Fetching content
             for(let i = 0; i < notificationInventory.length; i++)
@@ -117,7 +132,7 @@
                 });
 
                 // Insert empty status
-                notificationCtntBox.insertAdjacentHTML(`afterbegin` , emptyNotificationsStruct);
+                insertEmptyBdr();
 
                 // Clear the navbar notifications and disable the button
                 let markAllNavBarNotificationsAsRead = document.querySelector(".markAllNavBarNotificationsAsRead");
