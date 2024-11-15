@@ -721,7 +721,7 @@
     // Opens the modal containing the info for a single watchlist
     function openWLModal(index)
     {
-        let wlCurr = watchlistInventory[index];
+        let wlCurr = sortWLCardsArray[index];
         let userWLCatalog_ItemBase = document.querySelectorAll(".userWLCatalog_ItemBase");
         let currCatalogItemBase = userWLCatalog_ItemBase[index];
         let wlModalBaseClose = document.querySelector(".wlModalBaseClose");
