@@ -642,7 +642,7 @@
     }
 
 
-    //
+    // Attaches Listeners to enable sorting
     function attachArrangeWLCardListeners()
     {
         userWLArrangeBtnBdr = document.querySelector(".userWLArrangeBtnBdr");
