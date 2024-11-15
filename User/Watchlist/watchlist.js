@@ -12,14 +12,60 @@
     let wlModalBase = document.querySelector(".wlModalBase");
     let wlModalBox = document.querySelector(".wlModalBox")
     let emptyUserPageBdr = document.querySelector(".emptyUserPageBdr");
+    let wlArray = [];
+    let newWLMaxSize = 10;
+    let newWLCurrSize = 0;
     let emptyWLStruct = 
     `
         <div class="emptyUserPageBdr">
             ${emptyUserPageBdr.innerHTML}
         </div>
     `;
-    let wlArray = [];
+    let createWLStruct = 
+    `
+            <div class="genAtnModalBcg closeCreateWLBtn"></div>
+            <div class="genAtnModalBox createWLBox">
+                <div class="genAtnModalCtnt">
+                    <div class="genAtnModalHeader">
+                        <div class="genAtnModalHeaderIconBox closeCreateWLBtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="genAtnModalHeaderIcon">
+                                <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                            </svg>
+                        </div>
+                        <h3 class="genAtnModalHeaderText">
+                            <span class="large">C</span>
+                            <span class="small">reate New Watchlist</span>
+                        </h3>
+                    </div>
+                    <div class="genAtnModalOptBcg createWLItemBcg">
+                        <div class="genAtnModalOptBdr createWLItemBox">
+                            <div class="newWLBdr active">
+                                <div class="newWLBox">
+                                    <div class="newWLInputBdr">
+                                        <div class="newWLInputBox">
+                                            <input type="text" name="newWLInputField" id="newWLInputId" class="newWLInputClass" placeholder="Name your watchlist" />
+                                        </div>
+                                    </div>
+                                    <div class="newWLWarnBdr">
+                                        <div class="newWLWarnBox">
+                                            <p id="newWLWarnId" class="newWLWarnText" tabindex="-1"></p>
+                                        </div>
+                                    </div>
+                                    <div class="newWLAtnBdr">
+                                        <div class="newWLAtnBox">
+                                            <button type="button" id="createNewWL" class="newWLAtnBtn inactiveBtn" disabled>Create</button>
+                                            <button type="button" id="cancelNewWL" class="newWLAtnBtn hollowBtn closeCreateWLBtn">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    `;
 
+    
     function startUserPage()
     {
         let wlLibraryScriptTag = document.createElement("script");
@@ -29,11 +75,13 @@
         wlLibraryScriptTag.addEventListener("load" , () => 
         {
             loadSearchInventory();
+            attachCreateWLEventListeners();
         });
         wlLibraryScriptTag.onerror = function() 
         {
             errorLoadingUserWatchlist();
         };
+
     }
 
     
@@ -43,12 +91,291 @@
         wlBodyCtntBox.insertAdjacentHTML(`afterbegin` , emptyWLStruct);
     }
 
+
+    // Removing the empty bdr
+    function removingEmptyBdr()
+    {
+        emptyUserPageBdr = document.querySelector(".emptyUserPageBdr");
+        emptyUserPageBdr.remove();
+    }
+
+
+    // opening the modal for creating a new watchlist
+    let createWLTimer;
+
+    function attachCreateWLEventListeners()
+    {
+        let openCreateWLBtn = document.querySelectorAll(".userCreateWLBtn");
+
+        openCreateWLBtn.forEach(btn => 
+        {
+            if(btn.createWLFunc)
+            {
+                btn.removeEventListener(`click` , btn.createWLFunc);
+            }
+        });
+
+        openCreateWLBtn.forEach(btn => 
+        {
+            const createWLFunc = () =>
+            {
+                const createListBdr = document.createElement("div");
+                createListBdr.classList.add("genAtnModalBdr");
+                createListBdr.innerHTML = createWLStruct;
+                documentBody.appendChild(createListBdr);
+    
+                const createListCloseBtn = document.querySelectorAll(".closeCreateWLBtn");
+                const createListBox = document.querySelector(".createWLBox");
+                const createListItemBox = document.querySelector(".createWLItemBox");
+                const createListItem = document.querySelectorAll(".plItem");
+                const newWLModal = document.querySelector(".newWLBdr");
+                const newWLInput = document.querySelector("#newWLInputId");
+                const newWLWarn = document.querySelector("#newWLWarnId");
+                const createWLBtn = document.querySelector("#createNewWL");
+                let inputUppBnd = 50;
+                let inputLowBnd = 2;
+                let plArr = [];
+                let lastWLArr;
+                let lastWLArrLength = 0;
+                let currLength = 0;
+                let wordCount = inputUppBnd;
+    
+                // Opening the modal
+                openCreateWLBtn.forEach(btn => 
+                {
+                    btn.addEventListener("click" , () => 
+                    {
+                        btn.disabled = true;
+                    });
+                });
+    
+                // Transitioning elements
+                createWLTimer = setTimeout(() => 
+                {
+                    documentBody.classList.add("bodystop");
+                    createListBdr.classList.add("active");
+                    createListBox.classList.add("active");
+                    clearTimeout(createWLTimer);
+                }, 100);
+                
+                // Automatically focus on input feild after transition
+                createListBox.addEventListener("transitionend" , function handleTransitionEnd()
+                {
+                    newWLInput.focus();
+                    createListBox.removeEventListener("transitionend" , handleTransitionEnd);
+                });
+    
+                // checking input length
+                function getWordCount(input)
+                {
+                    plArr.push(input);
+                    lastWLArr = plArr.at(-1);
+                    lastWLArrLength = lastWLArr.length;
+    
+                    // update warn label
+                    currLength = wordCount - lastWLArrLength;
+                    newWLWarn.textContent = currLength;
+    
+                    newWLWarn.classList.toggle("active" , currLength < 16);
+                    newWLWarn.classList.toggle("empty" , currLength < 1);
+    
+                    checkBeforeCreate(lastWLArr);
+                }
+    
+                // Check if name is valid (3 - 64 characters)
+                function checkBeforeCreate(val)
+                {
+                    if(val.length < inputLowBnd || (val.length > inputUppBnd))
+                    {
+                        createWLBtn.disabled = true;
+                        createWLBtn.classList.replace("midSolidBtn" , "inactiveBtn");
+                        return;
+                    }
+                    createWLBtn.disabled = false;
+                    createWLBtn.classList.replace("inactiveBtn" , "midSolidBtn");
+                }
+    
+                newWLInput.addEventListener("input" , () => 
+                {
+                    getWordCount(newWLInput.value);
+                });
+    
+                // Ensures createList doesnt exist before creating a new one
+                function matchNames(wlName)
+                {
+                    // Compare the current and max WL library size and return if equal/greater
+                    if((newWLCurrSize >= newWLMaxSize))
+                    {
+                        notification(`notifyBad` , `You have created the max (${newWLMaxSize}) number of watchlists`);
+                        return;
+                    }
+
+                    // Loop through the watchlist lib array and return if match found
+                    for(let w = 0; w < watchlistInventory.length; w++)
+                    {
+                        let wlNameLC = wlName.toLowerCase();
+                        let createListItemText = watchlistInventory[w].wl_name.toLowerCase();
+    
+                        if(wlNameLC == createListItemText)
+                        {
+                            notification(`notifyBad` , `"${wlName}" already exists`);
+                            return;
+                        }
+                    }
+
+                    // Remove the empty bdr if present
+                    if((newWLCurrSize <= 0))
+                    {
+                        removingEmptyBdr();
+                    }
+
+                    // Add new entry into the library array
+                    watchlistInventory.push(
+                        {
+                            wl_name: `${wlName}`,
+                            wl_updated: `${getCurrDate()}`,
+                            wl_desc: `No description`,
+                            wl_items: [],
+                        }
+                    );
+
+                    // Insert new list into DOM
+                    let newListHTML = 
+                    `
+                        <div class="userWLCatalog_ItemBase">
+                            <div class="userWLCatalog_ItemBdr">
+                                <div class="userWLCatalog_ItemBox">
+                                    <div class="userWLCatalog_ItemStackBdr">
+                                        <div class="userWLCatalog_ItemStackBox">
+                                            <div class="userWLCatalog_ItemStackLvlAll userWLCatalog_ItemStackLvl3"></div>
+                                            <div class="userWLCatalog_ItemStackLvlAll userWLCatalog_ItemStackLvl2"></div>
+                                            <div class="userWLCatalog_ItemStackLvlAll userWLCatalog_ItemStackLvl1">
+                                                <div class="userWLCatalog_ItemThumbBdr">
+                                                    <div class="userWLCatalog_ItemThumbBox">
+                                                        <img class="userWLCatalog_ItemThumbImg" src="/Images/Uvid_green_bcg1_light.jpg" alt="Thumbnail image for the watchlist: ${wlName}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="userWLCatalog_ItemDetBase">
+                                        <div class="userWLCatalog_ItemDetBdr">
+                                            <div class="userWLCatalog_ItemDetBox">
+                                                <div class="userWLCatalog_ItemDetMajorBox">
+                                                    <div class="userWLCatalog_ItemDetMajorText userWLCatalog_ItemDetTitleText">${wlName}</div>
+                                                </div>
+                                                <div class="userWLCatalog_ItemDetMinorBox">
+                                                    <div class="userWLCatalog_ItemDetMinorIcon">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="userWLCatalog_ItemDetMinorSvg">
+                                                            <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
+                                                            <path fill-rule="evenodd" d="M2 8c0 .494.993.89 2.979 1.685l2.808 1.124C9.773 11.603 10.767 12 12 12s2.227-.397 4.213-1.191l2.808-1.124C21.007 8.891 22 8.494 22 8s-.993-.89-2.979-1.685l-2.808-1.123C14.227 4.397 13.233 4 12 4s-2.227.397-4.213 1.192L4.98 6.315C2.993 7.109 2 7.506 2 8" clip-rule="evenodd" />
+                                                            <path d="m19.021 13.685l-2.808 1.124C14.227 15.603 13.233 16 12 16s-2.227-.397-4.213-1.191L4.98 13.685C2.993 12.891 2 12.493 2 12c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 12.535 10.572 13 12 13s2.59-.465 4.439-1.205l3.14-1.256C21.194 11.189 22 11.555 22 12c0 .493-.993.89-2.979 1.685" />
+                                                            <path d="m19.021 17.685l-2.808 1.123C14.227 19.603 13.233 20 12 20s-2.227-.397-4.213-1.192L4.98 17.685C2.993 16.89 2 16.493 2 16c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 16.535 10.572 17 12 17s2.59-.465 4.439-1.205l3.14-1.256c1.614.65 2.421 1.016 2.421 1.46c0 .494-.993.891-2.979 1.686" />
+                                                        </svg>
+                                                    </div>
+                                                    <p class="userWLCatalog_ItemDetMinorText userWLCatalog_ItemCountText">0 items</p>
+                                                </div>
+                                                <div class="userWLCatalog_ItemDetMinorBox">
+                                                    <p class="userWLCatalog_ItemDetMinorText userWLCatalog_ItemYearText">Updated on ${getCurrDate()}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="userWLCatalog_ItemOpenWLBdr">
+                                        <button class="userWLCatalog_ItemOpenWLBtn"></button>
+                                    </div>
+                                    <div class="userWLCatalog_ItemBadgeBdr userWLCatalog_ItemDelWLBtn" title="Delete">
+                                        <div class="userWLCatalog_ItemBadgeBox">
+                                            <div class="userWLCatalog_ItemBadgeIcon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="userWLCatalog_ItemBadgeSvg">
+                                                    <path d="M3 6.524c0-.395.327-.714.73-.714h4.788c.006-.842.098-1.995.932-2.793A3.68 3.68 0 0 1 12 2a3.68 3.68 0 0 1 2.55 1.017c.834.798.926 1.951.932 2.793h4.788c.403 0 .73.32.73.714a.72.72 0 0 1-.73.714H3.73A.72.72 0 0 1 3 6.524" />
+                                                    <path fill-rule="evenodd" d="M11.596 22h.808c2.783 0 4.174 0 5.08-.886c.904-.886.996-2.34 1.181-5.246l.267-4.187c.1-1.577.15-2.366-.303-2.866c-.454-.5-1.22-.5-2.753-.5H8.124c-1.533 0-2.3 0-2.753.5s-.404 1.289-.303 2.866l.267 4.188c.185 2.906.277 4.36 1.182 5.245c.905.886 2.296.886 5.079.886m-1.35-9.811c-.04-.434-.408-.75-.82-.707c-.413.043-.713.43-.672.864l.5 5.263c.04.434.408.75.82.707c.413-.044.713-.43.672-.864zm4.329-.707c.412.043.713.43.671.864l-.5 5.263c-.04.434-.409.75-.82.707c-.413-.044-.713-.43-.672-.864l.5-5.264c.04-.433.409-.75.82-.707" clip-rule="evenodd" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    wlCatalogGrid.insertAdjacentHTML(`beforeend` , newListHTML);
+
+                    // Increase the watchlist size
+                    newWLCurrSize++;
+
+                    notification(`notifyGood` , `"${wlName}" was created successfully`);
+                
+                    addOpenWLListeners();
+                    addDelWLEventListeners();
+                    closeCreateWL();
+                }
+    
+                createWLBtn.addEventListener("click" , () => 
+                {
+                    matchNames(newWLInput.value);
+                });
+    
+                // Create list by pressing the "Enter" key
+                newWLInput.addEventListener("keyup" , (e) => 
+                {
+                    if((e.key === "Enter"))
+                    {
+                        createWLBtn.click();
+                    }
+                });
+    
+    
+                // Closes the createList modal
+                function closeCreateWL()
+                {
+                    createWLBtn.classList.replace("midSolidBtn" , "inactiveBtn");
+                    newWLWarn.classList.remove("active");
+                    newWLWarn.classList.remove("empty");
+                    newWLInput.value = "";
+                    newWLWarn.textContent = "";
+                    newWLInput.disabled = true;
+                    createWLBtn.disabled = true;
+                    documentBody.classList.remove("bodystop");
+                    createListBdr.classList.remove("active");
+                    createListBox.classList.remove("active");
+    
+                    createWLTimer = setTimeout(() => 
+                    {
+                        documentBody.removeChild(createListBdr);
+                        openCreateWLBtn.forEach(btn => 
+                        {
+                            btn.addEventListener("click" , () => 
+                            {
+                                btn.disabled = false;
+                            });
+                        });
+                        documentBody.classList.remove("bodystop");
+                        clearTimeout(createWLTimer);
+    
+                    }, 300);
+                }
+    
+                // Closes the modal
+                createListCloseBtn.forEach(one => 
+                {
+                    one.addEventListener("mousedown" , closeCreateWL);
+                });
+            }
+            
+            btn.addEventListener("click" , createWLFunc);
+            btn.createWLFunc = createWLFunc;
+        });
+    }
+
+
     // For error events
     function errorLoadingUserWatchlist()
     {
         notification(`notifyBad` , `An error occurred while loading your watchlist`);
     }
     
+
     // Loading the search inventory
     function loadSearchInventory()
     {
@@ -77,6 +404,7 @@
         });
     }
 
+
     // For inserting the empty status
     function insertEmptyWLStatus()
     {
@@ -86,6 +414,7 @@
         // Inserting empty status
         wlBodyCtntBox.insertAdjacentHTML(`afterbegin` , emptyWLStruct);
     }
+
 
     // Getting the current date
     function getCurrDate()
@@ -99,7 +428,8 @@
         return dateInStr;
     }
 
-    // Fetchies watchlist info
+
+    // Fetches watchlist info
     function fetchUserWatchList()
     {
         // Check if the library is available
@@ -115,8 +445,8 @@
             return;
         }
 
-        // Remove the empty status
-        emptyUserPageBdr.remove();
+        // Remove the empty bdr
+        removingEmptyBdr();
 
         // Filling in the content
         for(let i = 0; i < watchlistInventory.length; i++)
@@ -197,6 +527,9 @@
             `;
 
             wlCatalogGrid.insertAdjacentHTML(`beforeend` , wlCatalogItemBaseStruct);
+
+            // Increase the watchlist size
+            newWLCurrSize++;
         }
 
         addOpenWLListeners();
@@ -256,6 +589,8 @@
         });
     }
 
+
+    // Deleting your watchlists
     function delWLCatalogItem(index)
     {
         // Delete item from invetory
@@ -264,6 +599,9 @@
         // Remove item from catalog
         let delItem = document.getElementsByClassName("userWLCatalog_ItemBase")[index];
         delItem.remove();
+
+        // Decrease the current watchlist size
+        newWLCurrSize--;
 
         if((watchlistInventory.length <= 0))
         {
@@ -276,6 +614,8 @@
         addDelWLEventListeners();
     }
 
+
+    // Opens the modal containing the info for a single watchlist
     function openWLModal(index)
     {
         let wlCurr = watchlistInventory[index];

@@ -87,7 +87,7 @@
                             </div>
                             <div class="userClearAllBdr userOrderSetBdr">
                                 <div class="userClearAllBox userOrderSetBox">
-                                    <div class="userOrderBtnBdr userWLArrangeBtnBdr">
+                                    <div class="userOrderBtnBdr userCreateWLBtn userWLArrangeBtnBdr">
                                         <div class="userOrderBtnBox">
                                             <div class="userOrderBtnIcon">
                                                 <svg class="userOrderBtnSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
