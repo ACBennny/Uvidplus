@@ -15,6 +15,7 @@
     let wlArray = [];
     let newWLMaxSize = 10;
     let newWLCurrSize = 0;
+    let createWLTimer;
     let emptyWLStruct = 
     `
         <div class="emptyUserPageBdr">
@@ -101,8 +102,6 @@
 
 
     // opening the modal for creating a new watchlist
-    let createWLTimer;
-
     function attachCreateWLEventListeners()
     {
         let openCreateWLBtn = document.querySelectorAll(".userCreateWLBtn");
