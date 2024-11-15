@@ -200,26 +200,13 @@
                 });
     
                 // Ensures createList doesnt exist before creating a new one
-                function matchNames(wlName)
+                function generateList(wlName)
                 {
                     // Compare the current and max WL library size and return if equal/greater
                     if((newWLCurrSize >= newWLMaxSize))
                     {
                         notification(`notifyBad` , `You have created the max (${newWLMaxSize}) number of watchlists`);
                         return;
-                    }
-
-                    // Loop through the watchlist lib array and return if match found
-                    for(let w = 0; w < watchlistInventory.length; w++)
-                    {
-                        let wlNameLC = wlName.toLowerCase();
-                        let createListItemText = watchlistInventory[w].wl_name.toLowerCase();
-    
-                        if(wlNameLC == createListItemText)
-                        {
-                            notification(`notifyBad` , `"${wlName}" already exists`);
-                            return;
-                        }
                     }
 
                     // Remove the empty bdr if present
@@ -312,7 +299,7 @@
     
                 createWLBtn.addEventListener("click" , () => 
                 {
-                    matchNames(newWLInput.value);
+                    generateList(newWLInput.value);
                 });
     
                 // Create list by pressing the "Enter" key
