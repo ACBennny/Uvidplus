@@ -13,9 +13,11 @@
     let wlModalBox = document.querySelector(".wlModalBox")
     let emptyUserPageBdr = document.querySelector(".emptyUserPageBdr");
     let wlArray = [];
+    let sortWLCardsArray = [];
     let newWLMaxSize = 10;
     let newWLCurrSize = 0;
     let createWLTimer;
+    let userWLArrangeBtnBdr;
     let emptyWLStruct = 
     `
         <div class="emptyUserPageBdr">
@@ -125,9 +127,6 @@
     
                 const createListCloseBtn = document.querySelectorAll(".closeCreateWLBtn");
                 const createListBox = document.querySelector(".createWLBox");
-                const createListItemBox = document.querySelector(".createWLItemBox");
-                const createListItem = document.querySelectorAll(".plItem");
-                const newWLModal = document.querySelector(".newWLBdr");
                 const newWLInput = document.querySelector("#newWLInputId");
                 const newWLWarn = document.querySelector("#newWLWarnId");
                 const createWLBtn = document.querySelector("#createNewWL");
@@ -215,11 +214,21 @@
                         removingEmptyBdr();
                     }
 
-                    // Add new entry into the library array
+                    // Add new entry into the library & sort array
                     watchlistInventory.push(
                         {
                             wl_name: `${wlName}`,
                             wl_updated: `${getCurrDate()}`,
+                            wl_bcg: `/Images/Uvid_green_bcg1_light.jpg`,
+                            wl_desc: `No description`,
+                            wl_items: [],
+                        }
+                    );
+                    sortWLCardsArray.push(
+                        {
+                            wl_name: `${wlName}`,
+                            wl_updated: `${getCurrDate()}`,
+                            wl_bcg: `/Images/Uvid_green_bcg1_light.jpg`,
                             wl_desc: `No description`,
                             wl_items: [],
                         }
@@ -290,7 +299,23 @@
                     // Increase the watchlist size
                     newWLCurrSize++;
 
+                    // Notify user of the newly created playlist
                     notification(`notifyGood` , `"${wlName}" was created successfully`);
+
+                    // Update the sorting if 2nd/3rd option was is currently selected
+                    let currSelOpt = userWLArrangeBtnBdr.querySelector(".userOrderOptTab.active").getAttribute("data-card-sort-opt")
+                    // Sort by "A-Z"
+                    if((currSelOpt == "1"))
+                    {
+                        sortWLCardsByName("A-Z");
+                        generateWLCards(sortWLCardsArray);
+                    }
+                    // Sort by "Z-A"
+                    else if((currSelOpt == "2"))
+                    {
+                        sortWLCardsByName("Z-A");
+                        generateWLCards(sortWLCardsArray);
+                    }
                 
                     addOpenWLListeners();
                     addDelWLEventListeners();
@@ -434,26 +459,37 @@
         // Remove the empty bdr
         removingEmptyBdr();
 
-        // Filling in the content
-        for(let i = 0; i < watchlistInventory.length; i++)
+        // Update the sort Wl card array
+        watchlistInventory.forEach((val) => 
         {
-            let wl = watchlistInventory[i];
-            let firstElemImgSrc;
-            let firstElemImgId = wl.wl_items[0].wl_itemId;
-            let firstElemImgIdLC = firstElemImgId.substring(firstElemImgId.indexOf('=') + 1).toLowerCase();
-            searchInventory.forEach((item) => 
-            {
-                let invShowLink = item.show_link;
-                let invShowLinkLC = invShowLink.substring(invShowLink.indexOf('=') + 1).toLowerCase();
+            sortWLCardsArray.push(val);
+        });
 
-                if(invShowLinkLC === firstElemImgIdLC)
-                {
-                    firstElemImgSrc = item.show_background;
-                    return;
-                }
-            });
+        // Generate the Watchlist cards
+        generateWLCards(watchlistInventory);
+        
+        attachArrangeWLCardListeners();
+    }
+    
 
-            let wlCatalogItemBaseStruct = 
+    // Filling in the content
+    function generateWLCards(inv)
+    {
+        // Clear the Grid
+        wlCatalogGrid.innerHTML = "";
+
+        // Reset the current card size
+        newWLCurrSize = 0;
+
+        // Struct to contain the cards' HTML
+        let wlCatalogItemBaseStruct = ``;
+
+        
+        for(let i = 0; i < inv.length; i++)
+        {
+            let wl = inv[i];
+
+            wlCatalogItemBaseStruct += 
             `
                 <div class="userWLCatalog_ItemBase">
                     <div class="userWLCatalog_ItemBdr">
@@ -465,7 +501,7 @@
                                     <div class="userWLCatalog_ItemStackLvlAll userWLCatalog_ItemStackLvl1">
                                         <div class="userWLCatalog_ItemThumbBdr">
                                             <div class="userWLCatalog_ItemThumbBox">
-                                                <img class="userWLCatalog_ItemThumbImg" src="${firstElemImgSrc}" alt="Thumbnail image for the watchlist: ${wl.wl_name}">
+                                                <img class="userWLCatalog_ItemThumbImg" src="${wl.wl_bcg}" alt="Thumbnail image for the watchlist: ${wl.wl_name}">
                                             </div>
                                         </div>
                                     </div>
@@ -489,7 +525,7 @@
                                             <p class="userWLCatalog_ItemDetMinorText userWLCatalog_ItemCountText">${wl.wl_items.length} items</p>
                                         </div>
                                         <div class="userWLCatalog_ItemDetMinorBox">
-                                            <p class="userWLCatalog_ItemDetMinorText userWLCatalog_ItemYearText">Updated on ${getCurrDate()}</p>
+                                            <p class="userWLCatalog_ItemDetMinorText userWLCatalog_ItemYearText">Updated on ${wl.wl_updated}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -512,14 +548,18 @@
                 </div>
             `;
 
-            wlCatalogGrid.insertAdjacentHTML(`beforeend` , wlCatalogItemBaseStruct);
-
             // Increase the watchlist size
             newWLCurrSize++;
         }
 
+        // Insert items into the DOM
+        wlCatalogGrid.insertAdjacentHTML(`beforeend` , wlCatalogItemBaseStruct);
+
+        // Add listeneners
         addOpenWLListeners();
         addDelWLEventListeners();
+        
+        window.scrollTo(0,0);
     }
 
 
@@ -581,6 +621,7 @@
     {
         // Delete item from invetory
         watchlistInventory.splice(index , 1);
+        sortWLCardsArray.splice(index , 1);
 
         // Remove item from catalog
         let delItem = document.getElementsByClassName("userWLCatalog_ItemBase")[index];
@@ -600,6 +641,82 @@
         addDelWLEventListeners();
     }
 
+
+    //
+    function attachArrangeWLCardListeners()
+    {
+        userWLArrangeBtnBdr = document.querySelector(".userWLArrangeBtnBdr");
+        let userWLArrangeBtnBox = userWLArrangeBtnBdr.querySelector(".userOrderBtnBox");
+        let userWLArrangeOptBdr = userWLArrangeBtnBdr.querySelector(".userOrderOptBdr");
+        let userOrderOptTabs = userWLArrangeBtnBdr.querySelectorAll(".userOrderOptTab");
+
+        // Toggle the menu's visibility
+        userWLArrangeBtnBox.addEventListener("click" , () => 
+        {
+            userWLArrangeOptBdr.classList.toggle("active");
+        });
+
+        // Selecting a sorting option
+        userOrderOptTabs.forEach((tab) => 
+        {
+            tab.addEventListener("click" , () => 
+            {
+                let optNo = tab.getAttribute("data-card-sort-opt");
+
+                // Add active class to the currently selected tab
+                userOrderOptTabs.forEach((activeTab) => 
+                {
+                    activeTab.classList.remove("active");
+                });
+                tab.classList.add("active");
+
+                switch(optNo)
+                {
+                    case "0":
+                        generateWLCards(watchlistInventory);
+                        break;
+                        
+                    // Sort from A-Z
+                    case "1":
+                        sortWLCardsByName("A-Z");
+                        generateWLCards(sortWLCardsArray);
+                        break;
+                        
+                    // Sort from Z-A
+                    case "2":
+                        sortWLCardsByName("Z-A");
+                        generateWLCards(sortWLCardsArray);
+                        break;
+                        
+                    default:
+                        notification(`notifyBad` , `An error occurred`);
+                        break;
+                }
+
+                // Hide the menu
+                userWLArrangeOptBdr.classList.remove("active");
+            });
+        });
+    }
+
+
+    // Sorting the watchlist cards by Name
+    function sortWLCardsByName(order)
+    {
+        return sortWLCardsArray.sort((a, b) => 
+        {
+            // Ascending order
+            if (order === "A-Z") 
+            {
+                return a.wl_name.localeCompare(b.wl_name);
+            }
+            // Descending order
+            else if (order === "Z-A") 
+            {
+                return b.wl_name.localeCompare(a.wl_name);
+            }
+        })
+    }
 
     // Opens the modal containing the info for a single watchlist
     function openWLModal(index)
@@ -762,3 +879,4 @@
             }, 500);
         });
     }
+

@@ -87,7 +87,7 @@
                             </div>
                             <div class="userClearAllBdr userOrderSetBdr">
                                 <div class="userClearAllBox userOrderSetBox">
-                                    <div class="userOrderBtnBdr userCreateWLBtn userWLArrangeBtnBdr">
+                                    <div class="userOrderBtnBdr userCreateWLBtn">
                                         <div class="userOrderBtnBox">
                                             <div class="userOrderBtnIcon">
                                                 <svg class="userOrderBtnSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -112,13 +112,13 @@
                                                     <div class="userOrderOptSectTitleBox">
                                                         <p class="userOrderOptSectTitleText">Sort by</p>
                                                     </div>
-                                                    <div class="userOrderOptTab active">
+                                                    <div class="userOrderOptTab active" data-card-sort-opt="0">
                                                         <p class="userOrderOptText">Added</p>
                                                     </div>
-                                                    <div class="userOrderOptTab ">
+                                                    <div class="userOrderOptTab " data-card-sort-opt="1">
                                                         <p class="userOrderOptText">Name A-Z</p>
                                                     </div>
-                                                    <div class="userOrderOptTab ">
+                                                    <div class="userOrderOptTab " data-card-sort-opt="2">
                                                         <p class="userOrderOptText">Name Z-A</p>
                                                     </div>
                                                 </div>
