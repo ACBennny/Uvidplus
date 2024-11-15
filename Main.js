@@ -1781,6 +1781,8 @@
         
                         newWLInput.disabled = false;
                         cancelWLBtn.disabled = false;
+
+                        newWLInput.focus();
                     });
         
         
@@ -1837,21 +1839,9 @@
                         getWordCount(newWLInput.value);
                     });
         
-                    // Ensures playlist doesnt exist before creating a new one
-                    function matchNames(plName)
+                    // Creates and inserts new list
+                    function generateList(plName)
                     {
-        
-                        for(let m = 0; m < playListItem.length; m++)
-                        {
-                            let plNameLC = plName.toLowerCase();
-                            let playListItemText = playListItem[m].querySelector(".genAtnModalOptText").textContent.toLowerCase();
-        
-                            if(plNameLC == playListItemText)
-                            {
-                                notification(`notifyBad` , `"${plName}" already exists`);
-                                return;
-                            }
-                        }
                         let newListHTML = 
                         `
                             <button data-list="${plName}" class="genAtnModalOptBox plItem" title="Add to ${plName}" aria-label="Add to ${plName}">
@@ -1876,7 +1866,16 @@
         
                     createWLBtn.addEventListener("click" , () => 
                     {
-                        matchNames(newWLInput.value);
+                        generateList(newWLInput.value);
+                    });
+    
+                    // Create list by pressing the "Enter" key
+                    newWLInput.addEventListener("keyup" , (e) => 
+                    {
+                        if((e.key === "Enter"))
+                        {
+                            createWLBtn.click();
+                        }
                     });
         
         
