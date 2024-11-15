@@ -8,12 +8,12 @@
 ftrCatInv = 
 [
     {
-        name: `Originals`,
-        link: `/Catalog.html?sort=original`,
+        name: `Trending`,
+        link: `/Trending.html`,
     },
     {
-        name: `Trending`,
-        link: `/Catalog.html?sort=trending`,
+        name: `Originals`,
+        link: `/Catalog.html?sort=original`,
     },
     {
         name: `Popular`,
