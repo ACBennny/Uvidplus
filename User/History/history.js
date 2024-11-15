@@ -216,6 +216,10 @@
                     {
                         // Inserting empty status if there are none
                         insertEmptyHistStatus();
+                        removeAllShowsFromHistory.forEach((btn) => 
+                        {
+                            btn.disabled = true;
+                        });
                     }
 
                     notification(`notifyGood` , `Show removed from history`);
