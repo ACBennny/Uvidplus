@@ -277,7 +277,7 @@
                                         </div>
                                     </div>
                                     <div class="userWLCatalog_ItemOpenWLBdr">
-                                        <button class="userWLCatalog_ItemOpenWLBtn"></button>
+                                        <button type="button" class="userWLCatalog_ItemOpenWLBtn"></button>
                                     </div>
                                     <div class="userWLCatalog_ItemBadgeBdr userWLCatalog_ItemDelWLBtn" title="Delete">
                                         <div class="userWLCatalog_ItemBadgeBox">
@@ -531,7 +531,7 @@
                                 </div>
                             </div>
                             <div class="userWLCatalog_ItemOpenWLBdr">
-                                <button class="userWLCatalog_ItemOpenWLBtn"></button>
+                                <button type="button" class="userWLCatalog_ItemOpenWLBtn"></button>
                             </div>
                             <div class="userWLCatalog_ItemBadgeBdr userWLCatalog_ItemDelWLBtn" title="Delete">
                                 <div class="userWLCatalog_ItemBadgeBox">
@@ -672,6 +672,7 @@
 
                 switch(optNo)
                 {
+                    // Sort by date Added
                     case "0":
                         generateWLCards(watchlistInventory);
                         break;
@@ -831,7 +832,7 @@
                                 <div class="wlModalActionBase">
                                     <div class="wlModalActionBdr">
                                         <div class="wlModalActionBox">
-                                            <button class="wlModalActionBtn">
+                                            <button type="button" class="wlModalActionBtn">
                                                 <div class="wlModalActionBtnIcon">
                                                     <svg class="wlModalActionBtnSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512">
                                                         <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
