@@ -353,22 +353,22 @@
                                                                 <div class="userOrderOptSectTitleBox">
                                                                     <p class="userOrderOptSectTitleText">Show Status</p>
                                                                 </div>
-                                                                <div class="userOrderOptTab active">
+                                                                <div class="userOrderOptTab active" data-show-status-opt="0">
                                                                     <p class="userOrderOptText">All</p>
                                                                 </div>
-                                                                <div class="userOrderOptTab ">
+                                                                <div class="userOrderOptTab " data-show-status-opt="1">
                                                                     <p class="userOrderOptText">Planned</p>
                                                                 </div>
-                                                                <div class="userOrderOptTab ">
+                                                                <div class="userOrderOptTab " data-show-status-opt="2">
                                                                     <p class="userOrderOptText">Watching</p>
                                                                 </div>
-                                                                <div class="userOrderOptTab ">
+                                                                <div class="userOrderOptTab " data-show-status-opt="3">
                                                                     <p class="userOrderOptText">On-Hold</p>
                                                                 </div>
-                                                                <div class="userOrderOptTab ">
+                                                                <div class="userOrderOptTab " data-show-status-opt="4">
                                                                     <p class="userOrderOptText">Completed</p>
                                                                 </div>
-                                                                <div class="userOrderOptTab ">
+                                                                <div class="userOrderOptTab " data-show-status-opt="5">
                                                                     <p class="userOrderOptText">Dropped</p>
                                                                 </div>
                                                             </div>
