@@ -49,7 +49,7 @@
                         </div>
                     </div>
                     <div class="sideNavItemsCardBase topNav_openNavNotify">
-                        <button class="sideNavItemsCardBdr openNavNotify">
+                        <button type="button" class="sideNavItemsCardBdr openNavNotify">
                             <div class="sideNavItemsCardBox">
                                 <div class="sideNavItemsCardIcon">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg">
@@ -88,7 +88,7 @@
                     <div class="sideNavItemsBdr">
                         <div class="sideNavItemsBox">
                             <div class="sideNavItemsCardBase">
-                                <button class="sideNavItemsCardBdr openQuickSearchBtn">
+                                <button type="button" class="sideNavItemsCardBdr openQuickSearchBtn">
                                     <div class="sideNavItemsCardBox">
                                         <div class="sideNavItemsCardIcon">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
@@ -220,7 +220,7 @@
                     <div class="sideNavItemsBdr">
                         <div class="sideNavItemsBox">
                             <div class="sideNavItemsCardBase">
-                                <button class="sideNavItemsCardBdr openFeedBackForm">
+                                <button type="button" class="sideNavItemsCardBdr openFeedBackForm">
                                     <div class="sideNavItemsCardBox">
                                         <div class="sideNavItemsCardIcon">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg">
@@ -412,7 +412,7 @@
                     <p class="navBarProfileNameText navBarProfileNameTextMinor navBarProfileNameUser">uvidtestuser</p>
                 </div>
                 <div class="navBarProfileCardBox">
-                    <button class="navBarProfileCard">
+                    <button type="button" class="navBarProfileCard">
                         <a href="/User/Profile.html" class="navBarProfileCardLink">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="navBarProfileCardLinkIcon">
                                 <circle cx="12" cy="6" r="4" />
@@ -421,7 +421,7 @@
                             <p class="navBarProfileCardLinkText">Profile</p>
                         </a>
                     </button>
-                    <button class="navBarProfileCard">
+                    <button type="button" class="navBarProfileCard">
                         <a href="javascript:;" class="navBarProfileCardLink open_switchProf">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="navBarProfileCardLinkIcon">
                                 <path d="M13.125 12a.75.75 0 0 1 1.272-.538l4.125 4a.75.75 0 0 1 0 1.076l-4.125 4A.75.75 0 0 1 13.125 20v-3.25H6a.75.75 0 0 1 0-1.5h7.125z" />
@@ -430,7 +430,7 @@
                             <p class="navBarProfileCardLinkText">Switch Profile</p>
                         </a>
                     </button>
-                    <button class="navBarProfileCard">
+                    <button type="button" class="navBarProfileCard">
                         <a href="/User/History.html" class="navBarProfileCardLink">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="navBarProfileCardLinkIcon">
                                 <path fill-rule="evenodd" d="M11.25 2a.75.75 0 0 1 .75-.75c5.937 0 10.75 4.813 10.75 10.75S17.937 22.75 12 22.75S1.25 17.937 1.25 12a.75.75 0 0 1 1.5 0A9.25 9.25 0 1 0 12 2.75a.75.75 0 0 1-.75-.75M12 8.25a.75.75 0 0 1 .75.75v3.25H16a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1-.75-.75V9a.75.75 0 0 1 .75-.75M9.1 2.398a.75.75 0 0 1-.43.97a9 9 0 0 0-.42.173a.75.75 0 1 1-.608-1.37q.24-.108.488-.203a.75.75 0 0 1 .97.43M5.648 4.24a.75.75 0 0 1-.026 1.06a9 9 0 0 0-.321.322a.75.75 0 1 1-1.087-1.035q.183-.19.373-.373a.75.75 0 0 1 1.06.026M3.16 7.261a.75.75 0 0 1 .381.99q-.092.207-.174.419a.75.75 0 0 1-1.399-.54q.094-.247.202-.488a.75.75 0 0 1 .99-.381" clip-rule="evenodd" />
@@ -438,7 +438,7 @@
                             <p class="navBarProfileCardLinkText">History</p>
                         </a>
                     </button>
-                    <button class="navBarProfileCard">
+                    <button type="button" class="navBarProfileCard">
                         <a href="/User/Notification.html" class="navBarProfileCardLink">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="navBarProfileCardLinkIcon">
                                 <path d="M8.352 20.242A4.63 4.63 0 0 0 12 22a4.63 4.63 0 0 0 3.648-1.758a27.2 27.2 0 0 1-7.296 0M18.75 9v.704c0 .845.24 1.671.692 2.374l1.108 1.723c1.011 1.574.239 3.713-1.52 4.21a25.8 25.8 0 0 1-14.06 0c-1.759-.497-2.531-2.636-1.52-4.21l1.108-1.723a4.4 4.4 0 0 0 .693-2.374V9c0-3.866 3.022-7 6.749-7s6.75 3.134 6.75 7" />
@@ -446,7 +446,7 @@
                             <p class="navBarProfileCardLinkText">Notification</p>
                         </a>
                     </button>
-                    <button class="navBarProfileCard">
+                    <button type="button" class="navBarProfileCard">
                         <a href="/User/Settings.html" class="navBarProfileCardLink">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="navBarProfileCardLinkIcon">
                                 <path fill-rule="evenodd" d="M14.279 2.152C13.909 2 13.439 2 12.5 2s-1.408 0-1.779.152a2 2 0 0 0-1.09 1.083c-.094.223-.13.484-.145.863a1.62 1.62 0 0 1-.796 1.353a1.64 1.64 0 0 1-1.579.008c-.338-.178-.583-.276-.825-.308a2.03 2.03 0 0 0-1.49.396c-.318.242-.553.646-1.022 1.453c-.47.807-.704 1.21-.757 1.605c-.07.526.074 1.058.4 1.479c.148.192.357.353.68.555c.477.297.783.803.783 1.361s-.306 1.064-.782 1.36c-.324.203-.533.364-.682.556a2 2 0 0 0-.399 1.479c.053.394.287.798.757 1.605s.704 1.21 1.022 1.453c.424.323.96.465 1.49.396c.242-.032.487-.13.825-.308a1.64 1.64 0 0 1 1.58.008c.486.28.774.795.795 1.353c.015.38.051.64.145.863c.204.49.596.88 1.09 1.083c.37.152.84.152 1.779.152s1.409 0 1.779-.152a2 2 0 0 0 1.09-1.083c.094-.223.13-.483.145-.863c.02-.558.309-1.074.796-1.353a1.64 1.64 0 0 1 1.579-.008c.338.178.583.276.825.308c.53.07 1.066-.073 1.49-.396c.318-.242.553-.646 1.022-1.453c.47-.807.704-1.21.757-1.605a2 2 0 0 0-.4-1.479c-.148-.192-.357-.353-.68-.555c-.477-.297-.783-.803-.783-1.361s.306-1.064.782-1.36c.324-.203.533-.364.682-.556a2 2 0 0 0 .399-1.479c-.053-.394-.287-.798-.757-1.605s-.704-1.21-1.022-1.453a2.03 2.03 0 0 0-1.49-.396c-.242.032-.487.13-.825.308a1.64 1.64 0 0 1-1.58-.008a1.62 1.62 0 0 1-.795-1.353c-.015-.38-.051-.64-.145-.863a2 2 0 0 0-1.09-1.083M12.5 15c1.67 0 3.023-1.343 3.023-3S14.169 9 12.5 9s-3.023 1.343-3.023 3s1.354 3 3.023 3" clip-rule="evenodd" />
@@ -454,7 +454,7 @@
                             <p class="navBarProfileCardLinkText">Settings</p>
                         </a>
                     </button>
-                    <button class="navBarProfileCard">
+                    <button type="button" class="navBarProfileCard">
                         <a href="javascript:;" class="navBarProfileCardLink goToFullScreenBtn">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="navBarProfileCardLinkIcon maximize">
                                 <path d="M16.143 1.25a.75.75 0 1 0 0 1.5h4.046l-5.72 5.72a.75.75 0 0 0 1.061 1.06l5.72-5.72v4.047a.75.75 0 0 0 1.5 0V2a.75.75 0 0 0-.75-.75zm-8.286 21.5a.75.75 0 0 0 0-1.5H3.811l5.72-5.72a.75.75 0 1 0-1.061-1.06l-5.72 5.72v-4.047a.75.75 0 1 0-1.5 0V22c0 .414.336.75.75.75z" />
@@ -468,7 +468,7 @@
                 </div>
                 <div class="navBarSignOutBdr">
                     <div class="navBarSignOutBox">
-                        <button class="navBarSignOutBtn">
+                        <button type="button" class="navBarSignOutBtn">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="navBarSignOutBtnIcon">
                                 <path d="M14.945 1.25c-1.367 0-2.47 0-3.337.117c-.9.12-1.658.38-2.26.981c-.524.525-.79 1.17-.929 1.928c-.135.737-.161 1.638-.167 2.72a.75.75 0 0 0 1.5.008c.006-1.093.034-1.868.142-2.457c.105-.566.272-.895.515-1.138c.277-.277.666-.457 1.4-.556c.755-.101 1.756-.103 3.191-.103h1c1.436 0 2.437.002 3.192.103c.734.099 1.122.28 1.4.556c.276.277.456.665.555 1.4c.102.754.103 1.756.103 3.191v8c0 1.435-.001 2.436-.103 3.192c-.099.734-.279 1.122-.556 1.399s-.665.457-1.399.556c-.755.101-1.756.103-3.192.103h-1c-1.435 0-2.436-.002-3.192-.103c-.733-.099-1.122-.28-1.399-.556c-.243-.244-.41-.572-.515-1.138c-.108-.589-.136-1.364-.142-2.457a.75.75 0 1 0-1.5.008c.006 1.082.032 1.983.167 2.72c.14.758.405 1.403.93 1.928c.601.602 1.36.86 2.26.982c.866.116 1.969.116 3.336.116h1.11c1.368 0 2.47 0 3.337-.116c.9-.122 1.658-.38 2.26-.982s.86-1.36.982-2.26c.116-.867.116-1.97.116-3.337v-8.11c0-1.367 0-2.47-.116-3.337c-.121-.9-.38-1.658-.982-2.26s-1.36-.86-2.26-.981c-.867-.117-1.97-.117-3.337-.117z" />
                                 <path d="M15 11.25a.75.75 0 0 1 0 1.5H4.027l1.961 1.68a.75.75 0 1 1-.976 1.14l-3.5-3a.75.75 0 0 1 0-1.14l3.5-3a.75.75 0 1 1 .976 1.14l-1.96 1.68z" />
@@ -732,7 +732,7 @@
                 <div class="navBarNotificationMinor">
                     <div class="navBarNotificationHeaderBdr">
                         <div class="navBarNotificationHeaderBox">
-                            <button class="navBarNotificationHeaderBtn markAllNavBarNotificationsAsRead">
+                            <button type="button" class="navBarNotificationHeaderBtn markAllNavBarNotificationsAsRead">
                                 <div class="navBarNotificationHeaderIconBox">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="navBarNotificationHeaderIconSvg">
                                         <path fill-rule="evenodd" d="M18.493 6.935a.75.75 0 0 1 .072 1.058l-7.857 9a.75.75 0 0 1-1.13 0l-3.143-3.6a.75.75 0 0 1 1.13-.986l2.578 2.953l7.292-8.353a.75.75 0 0 1 1.058-.072" clip-rule="evenodd" />
