@@ -779,7 +779,7 @@
                 } = item;
 
                 return `
-                    <div class="wlModalGrid_CardBdr">
+                    <div class="wlModalGrid_CardBdr" data-show-status-opt="0">
                         <div class="wlModalGrid_CardBox">
                             <div class="wlModalGrid_CardHandleBdr">
                                 <div class="wlModalGrid_CardHandleBox">
