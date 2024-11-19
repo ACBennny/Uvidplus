@@ -304,22 +304,19 @@
                                                                 <div class="userOrderOptSectTitleBox">
                                                                     <p class="userOrderOptSectTitleText">Sort by</p>
                                                                 </div>
-                                                                <div class="userOrderOptTab active">
-                                                                    <p class="userOrderOptText">Manual</p>
-                                                                </div>
-                                                                <div class="userOrderOptTab ">
+                                                                <div class="userOrderOptTab userwlModalSortTypeTabs active" data-sort-type-opt="0">
                                                                     <p class="userOrderOptText">Recently Added</p>
                                                                 </div>
-                                                                <div class="userOrderOptTab ">
+                                                                <div class="userOrderOptTab userwlModalSortTypeTabs" data-sort-type-opt="1">
                                                                     <p class="userOrderOptText">Recently Updated</p>
                                                                 </div>
-                                                                <div class="userOrderOptTab ">
+                                                                <div class="userOrderOptTab userwlModalSortTypeTabs" data-sort-type-opt="2">
                                                                     <p class="userOrderOptText">Alphabetical</p>
                                                                 </div>
-                                                                <div class="userOrderOptTab ">
+                                                                <div class="userOrderOptTab userwlModalSortTypeTabs" data-sort-type-opt="3">
                                                                     <p class="userOrderOptText">Release</p>
                                                                 </div>
-                                                                <div class="userOrderOptTab ">
+                                                                <div class="userOrderOptTab userwlModalSortTypeTabs" data-sort-type-opt="4">
                                                                     <p class="userOrderOptText">Score</p>
                                                                 </div>
                                                             </div>
@@ -327,10 +324,10 @@
                                                                 <div class="userOrderOptSectTitleBox">
                                                                     <p class="userOrderOptSectTitleText">Sort Order</p>
                                                                 </div>
-                                                                <div class="userOrderOptTab ">
+                                                                <div class="userOrderOptTab userwlModalSortOrderTabs active">
                                                                     <p class="userOrderOptText">Ascending</p>
                                                                 </div>
-                                                                <div class="userOrderOptTab ">
+                                                                <div class="userOrderOptTab userwlModalSortOrderTabs">
                                                                     <p class="userOrderOptText">Descending</p>
                                                                 </div>
                                                             </div>
