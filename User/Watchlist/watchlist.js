@@ -6,6 +6,9 @@
  *
 ****************************************************************/
 
+
+// VARIABLE DECLARATIONS
+
     let wlBodyCtntBox = document.querySelector(".wl_body_ctnt_box");
     let wlCatalogBdr = wlBodyCtntBox.querySelector(".userWLCatalogBdr");
     let wlCatalogGrid = document.querySelector(".userWLCatalogGrid");
@@ -18,6 +21,17 @@
     let newWLCurrSize = 0;
     let createWLTimer;
     let userWLArrangeBtnBdr;
+    let userWLArrangeBtnBox;
+    let userWLArrangeOptBdr;
+    let userWLArrangeOptTabs; 
+    let closeUserWLArrangeBtn;
+    let wlModalGrid_CardBdr;
+    let wlModalFilterBtnBdr;
+    let wlModalFilterBtnBox;
+    let wlModalFilterOptBdr;
+    let closeUserFilterModal;
+    let userWLModalFilterStatusTabs;
+    let userWLModalFilterTypeTabs;
     let emptyWLStruct = 
     `
         <div class="emptyUserPageBdr">
@@ -69,6 +83,7 @@
     `;
 
     
+
     function startUserPage()
     {
         let wlLibraryScriptTag = document.createElement("script");
@@ -642,29 +657,37 @@
     }
 
 
-    // Attaches Listeners to enable sorting
+    // Attaches Listeners to enable sorting of WL Cards
     function attachArrangeWLCardListeners()
     {
         userWLArrangeBtnBdr = document.querySelector(".userWLArrangeBtnBdr");
-        let userWLArrangeBtnBox = userWLArrangeBtnBdr.querySelector(".userOrderBtnBox");
-        let userWLArrangeOptBdr = userWLArrangeBtnBdr.querySelector(".userOrderOptBdr");
-        let userOrderOptTabs = userWLArrangeBtnBdr.querySelectorAll(".userOrderOptTab");
+        userWLArrangeBtnBox = userWLArrangeBtnBdr.querySelector(".userOrderBtnBox");
+        userWLArrangeOptBdr = userWLArrangeBtnBdr.querySelector(".userOrderOptBdr");
+        userWLArrangeOptTabs = userWLArrangeBtnBdr.querySelectorAll(".userOrderOptTab");
+        closeUserWLArrangeBtn = userWLArrangeOptBdr.querySelector(".closeUserOptModal");
 
         // Toggle the menu's visibility
-        userWLArrangeBtnBox.addEventListener("click" , () => 
-        {
-            userWLArrangeOptBdr.classList.toggle("active");
-        });
+        userWLArrangeBtnBox.addEventListener("click" , toggleUserWLArrangeModal);
+
+        // Closing the menu on small screens
+        closeUserWLArrangeBtn.addEventListener("click" , closeUserWLArrangeModal);
 
         // Selecting a sorting option
-        userOrderOptTabs.forEach((tab) => 
+        userWLArrangeOptTabs.forEach((tab) => 
         {
-            tab.addEventListener("click" , () => 
+            if(tab.action)
+            {
+                tab.removeEventListener("click" , tab.action);
+            }
+        });
+        userWLArrangeOptTabs.forEach((tab) => 
+        {
+            const action = () => 
             {
                 let optNo = tab.getAttribute("data-card-sort-opt");
 
                 // Add active class to the currently selected tab
-                userOrderOptTabs.forEach((activeTab) => 
+                userWLArrangeOptTabs.forEach((activeTab) => 
                 {
                     activeTab.classList.remove("active");
                 });
@@ -696,8 +719,22 @@
 
                 // Hide the menu
                 userWLArrangeOptBdr.classList.remove("active");
-            });
+            }
+            tab.addEventListener("click" , action);
+            tab.action = action;
         });
+    }
+
+    // Toggling the WL Card Sort menu visibility
+    function toggleUserWLArrangeModal()
+    {
+        userWLArrangeOptBdr.classList.toggle("active");
+    }
+
+    // Hiding the WL Card Sort menu
+    function closeUserWLArrangeModal()
+    {
+        userWLArrangeOptBdr.classList.remove("active");
     }
 
 
@@ -719,6 +756,15 @@
         })
     }
 
+    // Preprocess searchInventory into a Map for the WL Modal
+    const wlModalMap = new Map(
+        searchInventory.map(item => 
+        {
+            const invShowLinkLC = item.show_link.substring(item.show_link.indexOf('=') + 1).toLowerCase();
+            return [invShowLinkLC, item];
+        })
+    );
+
     // Opens the modal containing the info for a single watchlist
     function openWLModal(index)
     {
@@ -733,7 +779,7 @@
         let wlModalHeader_DetInfo_TagsUpdateText = document.querySelector(".wlModalHeader_DetInfo_TagsUpdateText");
         let wlModalHeader_DetInfo_DescText = document.querySelector(".wlModalHeader_DetInfo_DescText");
         let wlModalGridBox = document.querySelector(".wlModalGridBox");
-        let wlModalGrid_CardBdr;
+        let showStatusDemoNo = 0;
         let closeTimer;
 
         // Setting the Background
@@ -759,27 +805,25 @@
         {
             let itemId = wlCurr.wl_items[g].wl_itemId;
             let itemIdLC = itemId.substring(itemId.indexOf('=') + 1).toLowerCase();
-            let itemData = searchInventory.filter((item) => 
-            {
-                let invShowLink = item.show_link;
-                let invShowLinkLC = invShowLink.substring(invShowLink.indexOf('=') + 1).toLowerCase();
-                return invShowLinkLC === itemIdLC;
-            });
-            let itemStruct = itemData.map((item) => 
+            let item = wlModalMap.get(itemIdLC);
+
+            if (item) 
             {
                 const {
-                    show_background, 
-                    show_foreground, 
-                    show_link, 
-                    show_title, 
-                    show_scores, 
-                    show_type, 
-                    show_year, 
-                    show_description, 
+                    show_background,
+                    show_foreground,
+                    show_link,
+                    show_title,
+                    show_scores,
+                    show_type,
+                    show_year,
+                    show_description,
                 } = item;
 
-                return `
-                    <div class="wlModalGrid_CardBdr" data-show-status-opt="0">
+                
+                let itemStruct = 
+                `
+                    <div class="wlModalGrid_CardBdr" data-show-status-opt="${showStatusDemoNo}">
                         <div class="wlModalGrid_CardBox">
                             <div class="wlModalGrid_CardHandleBdr">
                                 <div class="wlModalGrid_CardHandleBox">
@@ -811,13 +855,13 @@
                                                                 <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/>
                                                             </svg>
                                                         </div>
-                                                        <div class="wlModalGrid_CardCtnt_DetTagSectText wlModalGrid_CardCtnt_DetTagScoreText">${show_scores}</div>
+                                                        <div class="wlModalGrid_CardCtnt_DetTagSectText wlModalGrid_CardCtnt_DetTagScoreText wlModalGridCard_Score">${show_scores}</div>
                                                     </div>
                                                     <div class="wlModalGrid_CardCtnt_DetTagSectBox">
-                                                        <div class="wlModalGrid_CardCtnt_DetTagSectText wlModalGrid_CardCtnt_DetTagTypeText">${show_type}</div>
+                                                        <div class="wlModalGrid_CardCtnt_DetTagSectText wlModalGrid_CardCtnt_DetTagTypeText wlModalGridCard_Type">${show_type}</div>
                                                     </div>
                                                     <div class="wlModalGrid_CardCtnt_DetTagSectBox">
-                                                        <div class="wlModalGrid_CardCtnt_DetTagSectText wlModalGrid_CardCtnt_DetTagReleaseText">${show_year}</div>
+                                                        <div class="wlModalGrid_CardCtnt_DetTagSectText wlModalGrid_CardCtnt_DetTagReleaseText wlModalGridCard_Year">${show_year}</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -846,9 +890,20 @@
                         </div>
                     </div>
                 `;
-            }).join('');
 
-            wlModalGridBox.insertAdjacentHTML(`beforeend` , itemStruct);
+                
+                wlModalGridBox.insertAdjacentHTML(`beforeend` , itemStruct);
+
+                // Testing demo 
+                if(showStatusDemoNo == 4)
+                {
+                    showStatusDemoNo = 0;
+                }
+                else
+                {
+                    showStatusDemoNo++;
+                }
+            }
         }
 
         // Opening the modal
@@ -862,6 +917,21 @@
             wlModalBox.scrollTo(null, 0);
             wlModalBase.classList.remove("active");
             document.body.classList.remove("bodystop");
+
+            // Remove any previous filter and sell "All"
+            userWLModalFilterStatusTabs.forEach((tab) => 
+            {
+                tab.classList.remove("active");
+            });
+            userWLModalFilterStatusTabs[0].classList.add("active");
+            userWLModalFilterTypeTabs.forEach((tab) => 
+            {
+                tab.classList.remove("active");
+            });
+            userWLModalFilterTypeTabs[0].classList.add("active");
+
+            // Hide the menu
+            wlModalFilterOptBdr.classList.remove("active");
 
             // Removes the content in the modal
             closeTimer = setTimeout(() => 
@@ -878,6 +948,196 @@
                     card.remove();
                 });
             }, 500);
+        });
+
+
+        attachFilterWLModalListeners();
+    }
+
+
+    // Attaches Listeners to enable filtering shows in the WL Modal
+    function attachFilterWLModalListeners()
+    {
+
+        // Variable Definitions
+        wlModalFilterBtnBdr = document.querySelector(".userFilterBtnBdr");
+        wlModalFilterBtnBox = wlModalFilterBtnBdr.querySelector(".userOrderBtnBox");
+        wlModalFilterOptBdr = wlModalFilterBtnBdr.querySelector(".userOrderOptBdr");
+        closeUserFilterModal = wlModalFilterBtnBdr.querySelector(".closeUserOptModal");
+        userWLModalFilterStatusTabs = wlModalFilterBtnBdr.querySelectorAll(".userWLModalFilterStatusTabs");
+        userWLModalFilterTypeTabs = wlModalFilterBtnBdr.querySelectorAll(".userWLModalFilterTypeTabs");
+
+        // Toggle the menu's visibility
+        wlModalFilterBtnBox.removeEventListener("click" , toggleWLModalFilterOptBdr);
+        wlModalFilterBtnBox.addEventListener("click" , toggleWLModalFilterOptBdr);
+
+        // Closing the menu on small screens
+        closeUserFilterModal.removeEventListener("click" , closeWLModalFilterOptBdr);
+        closeUserFilterModal.addEventListener("click" , closeWLModalFilterOptBdr);
+
+        // Selecting a sorting option for "Show Status"
+        userWLModalFilterStatusTabs.forEach((tab) => 
+        {
+            if(tab.action)
+            {
+                tab.removeEventListener(`click` , tab.action);
+            }
+        });
+        userWLModalFilterStatusTabs.forEach((tab) => 
+        {
+            const action = () => 
+            {
+                let optNo = tab.getAttribute("data-show-status-opt");
+
+                // Add active class to the currently selected tab
+                userWLModalFilterStatusTabs.forEach((activeTab) => 
+                {
+                    activeTab.classList.remove("active");
+                });
+                tab.classList.add("active");
+
+                switch(optNo)
+                {
+                    // Planned
+                    case "0":
+                        filterWLModalStatus(0);
+                        break;
+                        
+                    // Watching
+                    case "1":
+                        filterWLModalStatus(1);
+                        break;
+                        
+                    // On-hold
+                    case "2":
+                        filterWLModalStatus(2);
+                        break;
+                        
+                    // Completed
+                    case "3":
+                        filterWLModalStatus(3);
+                        break;
+                        
+                    // Dropped
+                    case "4":
+                        filterWLModalStatus(4);
+                        break;
+                        
+                    // Display All 
+                    default:
+                        wlModalGrid_CardBdr.forEach((bdr) => 
+                        {
+                            if(bdr.classList.contains("notShowStatusMatch"))
+                            {
+                                bdr.classList.remove("notShowStatusMatch");
+                            }
+                        });
+                        break;
+                }
+
+                // Hide the menu
+                wlModalFilterOptBdr.classList.remove("active");
+            }
+            tab.addEventListener("click" , action);
+            tab.action = action;
+        });
+
+        // Selecting a sorting option for "Show Type"
+        userWLModalFilterTypeTabs.forEach((tab) => 
+        {
+            if(tab.action)
+            {
+                tab.removeEventListener(`click` , tab.action);
+            }
+        });
+        userWLModalFilterTypeTabs.forEach((tab) => 
+        {
+            const action = () => 
+            {
+                let optNo = tab.getAttribute("data-show-type-opt");
+
+                // Add active class to the currently selected tab
+                userWLModalFilterTypeTabs.forEach((activeTab) => 
+                {
+                    activeTab.classList.remove("active");
+                });
+                tab.classList.add("active");
+
+                switch(optNo)
+                {
+                    // Movies
+                    case "0":
+                        filterWLModalType("movies");
+                        break;
+                        
+                    // Tv
+                    case "1":
+                        filterWLModalType("tv");
+                        break;
+                        
+                    // Display All 
+                    default:
+                        wlModalGrid_CardBdr.forEach((bdr) => 
+                        {
+                            if(bdr.classList.contains("notShowTypeMatch"))
+                            {
+                                bdr.classList.remove("notShowTypeMatch");
+                            }
+                        });
+                        break;
+                }
+
+                // Hide the menu
+                wlModalFilterOptBdr.classList.remove("active");
+            }
+            tab.addEventListener("click" , action);
+            tab.action = action;
+        });
+    }
+
+    // Toggling the WL modal filter menu visibility
+    function toggleWLModalFilterOptBdr()
+    {
+        wlModalFilterOptBdr.classList.toggle("active");
+    }
+
+    // Hiding the WL modal filter menu
+    function closeWLModalFilterOptBdr()
+    {
+        wlModalFilterOptBdr.classList.remove("active");
+    }
+
+    // Filtering the wl modal cards based on "Show Status" i.e. watching, planned, etc
+    function filterWLModalStatus(filterOptNo)
+    {
+        wlModalGrid_CardBdr.forEach((bdr) => 
+        {
+            if(bdr.classList.contains("notShowStatusMatch"))
+            {
+                bdr.classList.remove("notShowStatusMatch");
+            }
+
+            if(Number(bdr.getAttribute("data-show-status-opt")) != filterOptNo)
+            {
+                bdr.classList.add("notShowStatusMatch");
+            }
+        });
+    }
+
+    // Filtering the wl modal cards based on "Show Type" i.e. movie, tv
+    function filterWLModalType(filterTypeText)
+    {
+        wlModalGrid_CardBdr.forEach((bdr) => 
+        {
+            if(bdr.classList.contains("notShowTypeMatch"))
+            {
+                bdr.classList.remove("notShowTypeMatch");
+            }
+
+            if(bdr.querySelector(".wlModalGridCard_Type").textContent.toLowerCase() != filterTypeText.toLowerCase())
+            {
+                bdr.classList.add("notShowTypeMatch");
+            }
         });
     }
 

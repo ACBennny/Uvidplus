@@ -832,6 +832,7 @@ html:root
     height: 50px;
     display: none;
     border-bottom: 1px solid #444444;
+    cursor: pointer;
 }
 
 .wlModalAction_MenuCloseBdr .wlModalAction_MenuCloseBox
@@ -1046,6 +1047,17 @@ html:root
     border-radius: 15px;
     overflow: hidden;
     transition: all 300ms ease-in-out;
+}
+
+.wlModalGrid_CardBdr.active
+{
+    display: block;
+}
+
+.wlModalGrid_CardBdr.notShowStatusMatch,
+.wlModalGrid_CardBdr.notShowTypeMatch
+{
+    display: none;
 }
 
 .wlModalGrid_CardBdr .wlModalGrid_CardBox

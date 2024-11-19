@@ -108,6 +108,15 @@
                                         </div>
                                         <div class="userOrderOptBdr">
                                             <div class="userOrderOptBox">
+                                                <div class="wlModalAction_MenuCloseBdr closeUserOptModal">
+                                                    <div class="wlModalAction_MenuCloseBox">
+                                                        <div class="wlModalAction_MenuCloseIcon">
+                                                            <svg class="wlModalAction_MenuCloseSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                                                <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="userOrderOptSect">
                                                     <div class="userOrderOptSectTitleBox">
                                                         <p class="userOrderOptSectTitleText">Sort by</p>
@@ -353,22 +362,22 @@
                                                                 <div class="userOrderOptSectTitleBox">
                                                                     <p class="userOrderOptSectTitleText">Show Status</p>
                                                                 </div>
-                                                                <div class="userOrderOptTab active" data-show-status-opt="0">
+                                                                <div class="userOrderOptTab active userWLModalFilterStatusTabs" data-show-status-opt="">
                                                                     <p class="userOrderOptText">All</p>
                                                                 </div>
-                                                                <div class="userOrderOptTab " data-show-status-opt="1">
+                                                                <div class="userOrderOptTab userWLModalFilterStatusTabs" data-show-status-opt="0">
                                                                     <p class="userOrderOptText">Planned</p>
                                                                 </div>
-                                                                <div class="userOrderOptTab " data-show-status-opt="2">
+                                                                <div class="userOrderOptTab userWLModalFilterStatusTabs" data-show-status-opt="1">
                                                                     <p class="userOrderOptText">Watching</p>
                                                                 </div>
-                                                                <div class="userOrderOptTab " data-show-status-opt="3">
+                                                                <div class="userOrderOptTab userWLModalFilterStatusTabs" data-show-status-opt="2">
                                                                     <p class="userOrderOptText">On-Hold</p>
                                                                 </div>
-                                                                <div class="userOrderOptTab " data-show-status-opt="4">
+                                                                <div class="userOrderOptTab userWLModalFilterStatusTabs" data-show-status-opt="3">
                                                                     <p class="userOrderOptText">Completed</p>
                                                                 </div>
-                                                                <div class="userOrderOptTab " data-show-status-opt="5">
+                                                                <div class="userOrderOptTab userWLModalFilterStatusTabs" data-show-status-opt="4">
                                                                     <p class="userOrderOptText">Dropped</p>
                                                                 </div>
                                                             </div>
@@ -376,13 +385,13 @@
                                                                 <div class="userOrderOptSectTitleBox">
                                                                     <p class="userOrderOptSectTitleText">Show Type</p>
                                                                 </div>
-                                                                <div class="userOrderOptTab active">
+                                                                <div class="userOrderOptTab userWLModalFilterTypeTabs active" data-show-type-opt="">
                                                                     <p class="userOrderOptText">All</p>
                                                                 </div>
-                                                                <div class="userOrderOptTab ">
+                                                                <div class="userOrderOptTab userWLModalFilterTypeTabs " data-show-type-opt="0">
                                                                     <p class="userOrderOptText">Movies</p>
                                                                 </div>
-                                                                <div class="userOrderOptTab ">
+                                                                <div class="userOrderOptTab userWLModalFilterTypeTabs " data-show-type-opt="1">
                                                                     <p class="userOrderOptText">Tv</p>
                                                                 </div>
                                                             </div>
