@@ -27,6 +27,7 @@
     let closeUserWLArrangeBtn;
     let userWLCatalog_ItemBase;
     let currCatalogItemBase;
+    let wlModalCurrIndex;
     let wlModalBaseClose;
     let wlModalHeaderBcgImg;
     let wlModalHeaderThumbImg;
@@ -837,7 +838,7 @@
     // Opens the modal containing the info for a single watchlist
     function openWLModal(index)
     {
-        let wlModalCurrIndex = sortWLCardsArray[index];
+        wlModalCurrIndex = sortWLCardsArray[index];
         userWLCatalog_ItemBase = document.querySelectorAll(".userWLCatalog_ItemBase");
         currCatalogItemBase = userWLCatalog_ItemBase[index];
         wlModalBaseClose = document.querySelector(".wlModalBaseClose");
