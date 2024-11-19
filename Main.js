@@ -890,7 +890,7 @@
                 newsNav.removeAttribute("href");
                 newsNav.addEventListener("click" , () => 
                 {
-                    notification(`notifyBad` , `Page not available`);
+                    notification(`notifyBad` , `Page unavailable`);
                 });
             });
 
