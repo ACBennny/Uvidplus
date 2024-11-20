@@ -599,7 +599,7 @@
     `;
     let notificationQueue = [];
     let isNotificationActive = false;
-    let notificationDuration = 6;
+    let notificationDuration = 3;
     let notificationTransition = 300;
     let preNotifyTimer;
     let midNotifyTimer;
