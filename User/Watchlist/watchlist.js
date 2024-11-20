@@ -1243,10 +1243,10 @@
                 });
 
                 // Reverse the list
-                reverseWLArray(wlModalSortDfltArray);
+                reverseWLArray(wlModalSortUsedArray);
 
                 // Print the reversed list
-                generateWLModalCards(wlModalSortDfltArray);
+                generateWLModalCards(wlModalSortUsedArray);
 
                 // Hide the menu
                 wlModalSortOptBdr.classList.remove("active");
