@@ -685,7 +685,7 @@ html:root
     max-height: 0;
     display: flex;
     flex-direction: column;
-    background: #141414;
+    background: var(--genModalBcg);
     overflow: hidden;
     opacity: 0;
     visibility: hidden;
