@@ -466,13 +466,13 @@
                     // Sort by "A-Z"
                     if((currSelOpt == "1"))
                     {
-                        sortWLByName(sortWLCardsArray, "A-Z");
+                        sortWLByName(sortWLCardsArray, "wl_name", "A-Z");
                         generateWLCards(sortWLCardsArray);
                     }
                     // Sort by "Z-A"
                     else if((currSelOpt == "2"))
                     {
-                        sortWLByName(sortWLCardsArray, "Z-A");
+                        sortWLByName(sortWLCardsArray, "wl_name", "A-Z");
                         generateWLCards(sortWLCardsArray);
                     }
                 
