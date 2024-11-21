@@ -508,7 +508,7 @@ html:root
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     background-color: #000000c3;
@@ -520,9 +520,9 @@ html:root
 
 .wlModalAction_editBtnBox .wlModalAction_editBtnIcon
 {
-    width: 35px;
-    height: 35px;
-    margin-bottom: 15px;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
 }
 
 .wlModalAction_editBtnIcon .wlModalAction_editBtnSvg
@@ -534,7 +534,7 @@ html:root
 
 .wlModalAction_editBtnBox .wlModalAction_editBtnText
 {
-    font-size: 13px;
+    font-size: 15px;
     color: var(--genWhiteTypeLight);
     display: none;
 }
