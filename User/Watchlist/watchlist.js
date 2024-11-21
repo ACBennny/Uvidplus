@@ -584,13 +584,13 @@
                         
                     // Sort from A-Z
                     case "1":
-                        sortWLByName(sortWLCardsArray, "A-Z");
+                        sortWLByName(sortWLCardsArray, "wl_name", "A-Z");
                         generateWLCards(sortWLCardsArray);
                         break;
                         
                     // Sort from Z-A
                     case "2":
-                        sortWLByName(sortWLCardsArray, "Z-A");
+                        sortWLByName(sortWLCardsArray, "wl_name", "Z-A");
                         generateWLCards(sortWLCardsArray);
                         break;
                         
