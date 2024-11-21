@@ -36,6 +36,8 @@
     let wlModalHeader_DetInfo_TagsUpdateText;
     let wlModalHeader_DetInfo_DescText;
     let wlModalGridBox;
+    let wlModalSortTypeText;
+    let wlModalSortOrderText;
     let wlModalGrid_CardBdr;
     let closeWLModalTimer;
     let wlModalSortDfltArray = [];
@@ -849,6 +851,8 @@
         wlModalHeader_DetInfo_TagsUpdateText = document.querySelector(".wlModalHeader_DetInfo_TagsUpdateText");
         wlModalHeader_DetInfo_DescText = document.querySelector(".wlModalHeader_DetInfo_DescText");
         wlModalGridBox = document.querySelector(".wlModalGridBox");
+        wlModalSortTypeText = document.querySelector(".wlModalCtnt_sortStatusText .status_type");
+        wlModalSortOrderText = document.querySelector(".wlModalCtnt_sortStatusText .status_order");
         closeWLModalTimer;
         showStatusDemoNo = 0;
         wlModalSortDfltArray.length = 0;
@@ -1209,6 +1213,9 @@
                         break;
                 }
 
+                // Update the sort type text
+                wlModalSortTypeText.textContent = tab.querySelector(".userOrderOptText").textContent;
+
                 // Hide the menu
                 wlModalSortOptBdr.classList.remove("active");
             }
@@ -1224,7 +1231,7 @@
                 tab.removeEventListener(`click` , tab.action);
             }
         });
-        userwlModalSortRankTabs.forEach((tab) => 
+        userwlModalSortRankTabs.forEach((tab, index) => 
         {
             const action = () => 
             {
@@ -1247,6 +1254,9 @@
 
                 // Print the reversed list
                 generateWLModalCards(wlModalSortUsedArray);
+
+                // Update the sort type text
+                wlModalSortOrderText.textContent = document.querySelector(".userwlModalSortOrderTabs.active .userOrderOptText").textContent;
 
                 // Hide the menu
                 wlModalSortOptBdr.classList.remove("active");
