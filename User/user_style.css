@@ -14,7 +14,9 @@ html:root
     --userBodyTitleClr: var(--genWhiteTypeLight);
     --emptyUserPageIconSize: 50px;
     --userOrderBtnClr: var(--genWhiteTypeMid);
-    --userOrderBtnBcg: #1f1f1f;
+    /* --userOrderBtnBcg: #1f1f1f; */
+    --userOrderBtnBcg: var(--navMenuBcgClr);
+    --userOrderMenuBcg: var(--genModalBcg);
 }
 
 .userMainBdr
@@ -328,23 +330,25 @@ html:root
 .userOrderBtnBdr .userOrderOptBdr
 {
     position: absolute;
-    top: 100%;
+    top: calc((100% + 5px));
     right: 0%;
     width: 200px;
+    max-height: 300px;
     border-radius: 10px;
-    border-top-right-radius: 0px;
-    background-color: var(--userOrderBtnBcg);
+    background-color: var(--userOrderMenuBcg);
     opacity: 0;
     visibility: hidden;
+    overflow: hidden auto;
+    pointer-events: none;
     transition: all 300ms ease-in-out;
     z-index: 9;
 }
 
 .userOrderOptBdr.active
-/* .userSortBtnBdr .userOrderOptBdr */
 {
     opacity: 1;
     visibility: visible;
+    pointer-events: all;
 }
 
 .userOrderOptBdr .userOrderOptBox
@@ -395,12 +399,12 @@ html:root
 
 .userOrderOptTab:active
 {
-    background-color: #171717;
+    background-color: var(--genModalOptHover);
 }
 
 .userOrderOptTab.active
 {
-    background-color: #121212 !important;
+    background-color: var(--genModalOptHover);
 }
 
 .userOrderOptTab.active::after
@@ -520,12 +524,12 @@ html:root
     .userOrderBtnBdr:hover .userOrderBtnBox
     {
         --userOrderBtnClr: var(--genWhiteTypeMid);
-        --userOrderBtnBcg: #424242;
+        --userOrderBtnBcg: #333333;
     }
 
     .userOrderOptTab:hover
     {
-        background-color: #171717;
+        background-color: var(--genModalOptHover);
     }
 
     .userOrderOptTab:hover .userOrderOptText
