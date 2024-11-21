@@ -1021,6 +1021,7 @@
             userWLModalFilterTypeTabs[0].classList.add("active");
 
             // Hide the menu
+            wlModalSortOptBdr.classList.remove("active");
             wlModalFilterOptBdr.classList.remove("active");
 
             // Removes the content in the modal
