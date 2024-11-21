@@ -1033,6 +1033,8 @@
                 wlModalHeader_DetInfo_TagsCountText.textContent = ``;
                 wlModalHeader_DetInfo_TagsUpdateText.textContent = ``;
                 wlModalHeader_DetInfo_DescText.textContent = ``;
+                wlModalSortTypeText.textContent = `Recently Added`;
+                wlModalSortOrderText.textContent = `Ascending`;
                 wlModalGrid_CardBdr.forEach((card) => 
                 {
                     card.remove();
