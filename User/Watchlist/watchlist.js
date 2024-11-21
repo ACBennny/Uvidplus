@@ -185,7 +185,7 @@
     {
         let currentDate = new Date();
         let currYear = currentDate.getFullYear();
-        let currMonth = currentDate.getMonth() + 1;
+        let currMonth = currentDate.getMonth() + 0;
         let monthArr = [`Jan` , `Feb` , `Mar` , `Apr` , `May` , `Jun` , `Jul` , `Aug` , `Sep` , `Oct` , `Nov` , `Dec`];
         let currDay = currentDate.getDate();
         let dateInStr = `${monthArr[currMonth]} ${currDay}, ${currYear}`;
