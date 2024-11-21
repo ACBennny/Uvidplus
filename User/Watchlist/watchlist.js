@@ -1260,12 +1260,18 @@
     function toggleWLModalSortOptBdr()
     {
         wlModalSortOptBdr.classList.toggle("active");
+        wlModalFilterOptBdr.classList.remove("active");
+        wlModalSortOptBdr.scrollTo(0,0);
+        wlModalFilterOptBdr.scrollTo(0,0);
     }
 
     // Hiding the WL modal Sort menu
     function closeWLModalSortOptBdr()
     {
         wlModalSortOptBdr.classList.remove("active");
+        wlModalFilterOptBdr.classList.remove("active");
+        wlModalSortOptBdr.scrollTo(0,0);
+        wlModalFilterOptBdr.scrollTo(0,0);
     }
 
 
@@ -1413,12 +1419,18 @@
     function toggleWLModalFilterOptBdr()
     {
         wlModalFilterOptBdr.classList.toggle("active");
+        wlModalSortOptBdr.classList.remove("active");
+        wlModalSortOptBdr.scrollTo(0,0);
+        wlModalFilterOptBdr.scrollTo(0,0);
     }
 
     // Hiding the WL modal filter menu
     function closeWLModalFilterOptBdr()
     {
         wlModalFilterOptBdr.classList.remove("active");
+        wlModalSortOptBdr.classList.remove("active");
+        wlModalSortOptBdr.scrollTo(0,0);
+        wlModalFilterOptBdr.scrollTo(0,0);
     }
 
     // Filtering the wl modal cards based on "Show Status" i.e. watching, planned, etc
