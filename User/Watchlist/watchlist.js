@@ -1216,8 +1216,9 @@
                         break;
                 }
 
-                // Update the sort type text
+                // Update the sort type & order texts
                 wlModalSortTypeText.textContent = tab.querySelector(".userOrderOptText").textContent;
+                wlModalSortOrderText.textContent = `Ascending`;
 
                 // Hide the menu
                 wlModalSortOptBdr.classList.remove("active");
