@@ -73,7 +73,7 @@
                         </div>
                         <h3 class="genAtnModalHeaderText">
                             <span class="large">C</span>
-                            <span class="small">reate New Watchlist</span>
+                            <span class="small">reate Watchlist</span>
                         </h3>
                     </div>
                     <div class="genAtnModalOptBcg createWLItemBcg">
