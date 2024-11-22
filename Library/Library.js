@@ -874,7 +874,10 @@
                 const items = Array.from(container.querySelectorAll('.episodes'));
 
                 // Show all the episodes int that collection
-                thisShowAllEpBtn.click();
+                if((thisShowAllEpBtn != undefined) || (thisShowAllEpBtn != null))
+                {
+                    thisShowAllEpBtn.click();
+                }
                 
                 // Reverse the array of items
                 const reversedItems = items.reverse();
