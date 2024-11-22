@@ -238,7 +238,7 @@
                                                 <div class="wlModalHeader_DetInfo_MoreBdr">
                                                     <div class="wlModalHeader_DetInfo_MoreBox">
                                                         <button class="wlModalHeader_DetInfo_MoreBtn">
-                                                            <p class="wlModalHeader_DetInfo_MoreText">Read more</p>
+                                                            <p class="wlModalHeader_DetInfo_MoreText openReadFullDescBtn">Read more</p>
                                                         </button>
                                                     </div>
                                                 </div>

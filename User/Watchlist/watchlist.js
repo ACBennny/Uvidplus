@@ -62,39 +62,38 @@
     `;
     let createWLStruct = 
     `
-            <div class="genAtnModalBcg closeCreateWLBtn"></div>
-            <div class="genAtnModalBox createWLBox">
-                <div class="genAtnModalCtnt">
-                    <div class="genAtnModalHeader">
-                        <div class="genAtnModalHeaderIconBox closeCreateWLBtn">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="genAtnModalHeaderIcon">
-                                <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
-                            </svg>
-                        </div>
-                        <h3 class="genAtnModalHeaderText">
-                            <span class="large">C</span>
-                            <span class="small">reate Watchlist</span>
-                        </h3>
+        <div class="genAtnModalBcg closeCreateWLBtn"></div>
+        <div class="genAtnModalBox createWLBox">
+            <div class="genAtnModalCtnt">
+                <div class="genAtnModalHeader">
+                    <div class="genAtnModalHeaderIconBox closeCreateWLBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="genAtnModalHeaderIcon">
+                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                        </svg>
                     </div>
-                    <div class="genAtnModalOptBcg createWLItemBcg">
-                        <div class="genAtnModalOptBdr createWLItemBox">
-                            <div class="newWLBdr active">
-                                <div class="newWLBox">
-                                    <div class="newWLInputBdr">
-                                        <div class="newWLInputBox">
-                                            <input type="text" name="newWLInputField" id="newWLInputId" class="newWLInputClass" placeholder="Name your watchlist" />
-                                        </div>
+                    <h3 class="genAtnModalHeaderText">
+                        <span class="large">C</span>
+                        <span class="small">reate Watchlist</span>
+                    </h3>
+                </div>
+                <div class="genAtnModalOptBcg createWLItemBcg">
+                    <div class="genAtnModalOptBdr createWLItemBox">
+                        <div class="newWLBdr active">
+                            <div class="newWLBox">
+                                <div class="newWLInputBdr">
+                                    <div class="newWLInputBox">
+                                        <input type="text" name="newWLInputField" id="newWLInputId" class="newWLInputClass" placeholder="Name your watchlist" />
                                     </div>
-                                    <div class="newWLWarnBdr">
-                                        <div class="newWLWarnBox">
-                                            <p id="newWLWarnId" class="newWLWarnText" tabindex="-1"></p>
-                                        </div>
+                                </div>
+                                <div class="newWLWarnBdr">
+                                    <div class="newWLWarnBox">
+                                        <p id="newWLWarnId" class="newWLWarnText" tabindex="-1"></p>
                                     </div>
-                                    <div class="newWLAtnBdr">
-                                        <div class="newWLAtnBox">
-                                            <button type="button" id="createNewWL" class="newWLAtnBtn inactiveBtn" disabled>Create</button>
-                                            <button type="button" id="cancelNewWL" class="newWLAtnBtn hollowBtn closeCreateWLBtn">Cancel</button>
-                                        </div>
+                                </div>
+                                <div class="newWLAtnBdr">
+                                    <div class="newWLAtnBox">
+                                        <button type="button" id="createNewWL" class="newWLAtnBtn inactiveBtn" disabled>Create</button>
+                                        <button type="button" id="cancelNewWL" class="newWLAtnBtn hollowBtn closeCreateWLBtn">Cancel</button>
                                     </div>
                                 </div>
                             </div>
@@ -102,6 +101,31 @@
                     </div>
                 </div>
             </div>
+        </div>
+    `;
+    let readFullDescWLStruct = 
+    `
+        <div class="genAtnModalBcg closeReadFullDescWLBtn"></div>
+        <div class="genAtnModalBox readFullDescBox">
+            <div class="genAtnModalCtnt">
+                <div class="genAtnModalHeader">
+                    <div class="genAtnModalHeaderIconBox closeReadFullDescWLBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="genAtnModalHeaderIcon">
+                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                        </svg>
+                    </div>
+                    <h3 class="genAtnModalHeaderText">
+                        <span class="large">D</span>
+                        <span class="small">escription</span>
+                    </h3>
+                </div>
+                <div class="genAtnModalOptBcg ">
+                    <div class="genAtnModalDescTextBdr">
+                        <div class="genAtnModalDescTextBox"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     `;
 
     
@@ -297,14 +321,8 @@
                 let currLength = 0;
                 let wordCount = inputUppBnd;
     
-                // Opening the modal
-                openCreateWLBtn.forEach(btn => 
-                {
-                    btn.addEventListener("click" , () => 
-                    {
-                        btn.disabled = true;
-                    });
-                });
+                // Disabling btn to prevent multiple calls
+                btn.disabled = true;
     
                 // Transitioning elements
                 createWLTimer = setTimeout(() => 
@@ -1045,7 +1063,8 @@
         });
 
         // Attaches listeners
-        attachSortModalListeners();
+        attachReadFullDescWLModalEventListeners();
+        attachSortWLModalListeners();
         attachFilterWLModalListeners();
     }
 
@@ -1139,8 +1158,84 @@
     }
 
 
+    // Attaches listener to let users view the full description of their watchlist
+    function attachReadFullDescWLModalEventListeners()
+    {
+        let openReadFullDesc = document.querySelectorAll(".openReadFullDescBtn");
+
+        openReadFullDesc.forEach(btn => 
+        {
+            if(btn.action)
+            {
+                btn.removeEventListener(`click` , btn.action);
+            }
+        });
+
+        openReadFullDesc.forEach(btn => 
+        {
+            const action = () =>
+            {
+                const readFullDescBdr = document.createElement("div");
+                readFullDescBdr.classList.add("genAtnModalBdr");
+                readFullDescBdr.innerHTML = readFullDescWLStruct;
+                documentBody.appendChild(readFullDescBdr);
+    
+                const readFullDescCloseBtn = document.querySelectorAll(".closeReadFullDescWLBtn");
+                const readFullDescBox = document.querySelector(".readFullDescBox");
+                const readFullDescCtntBox = document.querySelector(".genAtnModalDescTextBox");
+    
+                // Disabling btn to prevent multiple calls
+                btn.disabled = true;
+
+                // Filling in the content
+                readFullDescCtntBox.textContent = `${document.querySelector(".wlModalHeader_DetInfo_DescText").textContent}`;
+    
+                // Transitioning elements
+                createWLTimer = setTimeout(() => 
+                {
+                    documentBody.classList.add("bodystop");
+                    readFullDescBdr.classList.add("active");
+                    readFullDescBox.classList.add("active");
+                    clearTimeout(createWLTimer);
+                }, 100);
+    
+                // Closes the readFullDesc modal
+                function closeReadFullDescWL()
+                {
+                    readFullDescBdr.classList.remove("active");
+                    readFullDescBox.classList.remove("active");
+    
+                    createWLTimer = setTimeout(() => 
+                    {
+                        documentBody.removeChild(readFullDescBdr);
+                        openReadFullDesc.forEach(btn => 
+                        {
+                            btn.addEventListener("click" , () => 
+                            {
+                                btn.disabled = false;
+                            });
+                        });
+                        documentBody.classList.remove("bodystop");
+                        clearTimeout(createWLTimer);
+    
+                    }, 300);
+                }
+    
+                // Closes the modal
+                readFullDescCloseBtn.forEach(one => 
+                {
+                    one.addEventListener("mousedown" , closeReadFullDescWL);
+                });
+            }
+            
+            btn.addEventListener("click" , action);
+            btn.action = action;
+        });
+    }
+
+
     // Attaches Listeners to enable Sorting shows in the WL Modal
-    function attachSortModalListeners()
+    function attachSortWLModalListeners()
     {
 
         // Variable Definitions
