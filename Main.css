@@ -4292,13 +4292,13 @@ img
 .genAtnModalHeader .genAtnModalHeaderIconBox
 {
     position: absolute;
-    top: 0;
+    top: 50%;
     right: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px;
     padding: 5px;
+    transform: translate(-50% , -50%);
     cursor: pointer;
 }
 
