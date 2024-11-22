@@ -694,11 +694,7 @@ html:root
 .wlModalHeader_DetInfoBox .wlModalHeader_DetInfo_MoreBdr
 {
     width: 100%;
-}
-
-.wlModalHeader_DetInfo_MoreBdr .wlModalHeader_DetInfo_MoreBdr
-{
-    width: 100%;
+    margin-top: 7px;
 }
 
 .wlModalHeader_DetInfo_MoreBdr .wlModalHeader_DetInfo_MoreBtn
