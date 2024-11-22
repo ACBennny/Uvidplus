@@ -16,7 +16,7 @@
             notify_mainTopic: `Welcome to Uvid`,
             notify_subTopic: `We are glad you joined us. Browse and watch your favourite movies and tv shows.`,
             notify_actionText: `Explore`,
-            notify_actionLink: `/Home.html`,
+            notify_actionLink: `/Catalog.html`,
         },
         {
             notify_addedDate: `just now`,
