@@ -428,7 +428,7 @@
         </div>
 
 
-        <!-- Gen Action Modal -->
+        <!-- Gen WL Action Modal -->
         <div class="wlModalAction_MenuBdr">
             <div class="wlModalAction_MenuBox">
                 <div class="wlModalAction_MenuCloseBdr">
