@@ -1193,7 +1193,6 @@
                 // Transitioning elements
                 createWLTimer = setTimeout(() => 
                 {
-                    documentBody.classList.add("bodystop");
                     readFullDescBdr.classList.add("active");
                     readFullDescBox.classList.add("active");
                     clearTimeout(createWLTimer);
@@ -1215,7 +1214,6 @@
                                 btn.disabled = false;
                             });
                         });
-                        documentBody.classList.remove("bodystop");
                         clearTimeout(createWLTimer);
     
                     }, 300);
