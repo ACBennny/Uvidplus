@@ -1737,14 +1737,9 @@
                     let lastWLArrLength = 0;
                     let currLength = 0;
                     let wordCount = inputUppBnd;
-        
-                    openAddToWLBtn.forEach(btn => 
-                    {
-                        btn.addEventListener("click" , () => 
-                        {
-                            btn.disabled = true;
-                        });
-                    });
+    
+                    // Disabling btn to prevent multiple calls
+                    btn.disabled = true;
         
                     addToWLTimer = setTimeout(() => 
                     {
