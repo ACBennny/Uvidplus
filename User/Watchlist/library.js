@@ -12,7 +12,7 @@ const watchlistInventory =
         wl_name: `The Greatest Anime Shows`,
         wl_updated: `Sep 12, 2024`,
         wl_bcg: `/Library/TV/Watch/OnePunchMan/img/2.jpg`,
-        wl_desc: `In this watchlist lies some of the greatest anime shows to ever be aired since the day anime was first introduced to the public.`,
+        wl_desc: `In this watchlist lies some of the greatest anime shows to ever air since the day anime was first introduced to the public.`,
         wl_items:
         [
             {wl_itemId: `/Library.html?info=JujutsuKaisen`},
@@ -28,7 +28,7 @@ const watchlistInventory =
         wl_name: `Fullmetal Collection`,
         wl_updated: `Oct 1, 2024`,
         wl_bcg: `/Library/TV/Watch/FullmetalAlchemistBrotherhood/img/2.jpg`,
-        wl_desc: `A collection of all the Fullmetal Shows`,
+        wl_desc: `A collection of all the Fullmetal Shows.`,
         wl_items:
         [
             {wl_itemId: `/Library.html?info=FullmetalPanic`},
@@ -40,7 +40,7 @@ const watchlistInventory =
         wl_name: `Intriguing Classics`,
         wl_updated: `March 13, 2024`,
         wl_bcg: `/Library/TV/Watch/OnePiece/img/2.jpg`,
-        wl_desc: `Compiled in this watchlist is some of the best classics in the anime universe`,
+        wl_desc: `Compiled in this watchlist are some of the best classics in the anime universe.`,
         wl_items:
         [
             {wl_itemId: `/Library.html?info=OnePiece`},
