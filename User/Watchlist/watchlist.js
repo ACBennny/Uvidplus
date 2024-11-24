@@ -1158,6 +1158,16 @@
     }
 
 
+    // Hides the WL Close Button on small screens (565px)
+    function hideWLModalBaseClose()
+    {
+        if((window.innerWidth <= 565))
+        {
+            wlModalBaseClose.classList.add("hide");
+        }
+    }
+
+
     // Attaches listener to let users view the full description of their watchlist
     function attachReadFullDescWLModalEventListeners()
     {
@@ -1315,6 +1325,7 @@
 
                 // Hide the menu
                 wlModalSortOptBdr.classList.remove("active");
+
             }
             tab.addEventListener("click" , action);
             tab.action = action;
@@ -1370,11 +1381,13 @@
         wlModalFilterOptBdr.classList.remove("active");
         wlModalSortOptBdr.scrollTo(0,0);
         wlModalFilterOptBdr.scrollTo(0,0);
+        hideWLModalBaseClose();
     }
 
     // Hiding the WL modal Sort menu
     function closeWLModalSortOptBdr()
     {
+        wlModalBaseClose.classList.remove("hide");
         wlModalSortOptBdr.classList.remove("active");
         wlModalFilterOptBdr.classList.remove("active");
         wlModalSortOptBdr.scrollTo(0,0);
@@ -1529,11 +1542,13 @@
         wlModalSortOptBdr.classList.remove("active");
         wlModalSortOptBdr.scrollTo(0,0);
         wlModalFilterOptBdr.scrollTo(0,0);
+        hideWLModalBaseClose();
     }
 
     // Hiding the WL modal filter menu
     function closeWLModalFilterOptBdr()
     {
+        wlModalBaseClose.classList.remove("hide");
         wlModalFilterOptBdr.classList.remove("active");
         wlModalSortOptBdr.classList.remove("active");
         wlModalSortOptBdr.scrollTo(0,0);

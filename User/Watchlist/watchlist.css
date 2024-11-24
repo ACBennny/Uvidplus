@@ -386,6 +386,11 @@ html:root
     z-index: 25;
 }
 
+.wlModalBaseClose.hide
+{
+    display: none;
+}
+
 
 
 /* ------------ Header ----------- */
