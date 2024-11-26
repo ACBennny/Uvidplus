@@ -1,4 +1,4 @@
-# Uvid-acbennny
+# ACUVID
  This repository contains the elements that make up the User Interface of ACUvid.
 
 Demo: https://acuvid.netlify.app
