@@ -26,11 +26,7 @@
     let openUserOrderOptBdr;
     let userOrderOptBdr;
     let closeUserOrderOptBtn;
-    let userWLArrangeBtnBdr;
-    let userWLArrangeBtnBox;
-    let userWLArrangeOptBdr;
-    let userWLArrangeOptTabs; 
-    let closeUserWLArrangeBtn;
+    let userWLArrangeOptTabs;
     let userWLCatalog_ItemBase;
     let currCatalogItemBase;
     let wlModalCurrIndex;
@@ -48,16 +44,8 @@
     let closeWLModalTimer;
     let wlModalSortDfltArray = [];
     let wlModalSortUsedArray = [];
-    let wlModalSortBtnBdr;
-    let wlModalSortBtnBox;
-    let wlModalSortOptBdr;
-    let closeUserSortModal;
     let userwlModalSortTypeTabs;
     let userwlModalSortRankTabs;
-    let wlModalFilterBtnBdr;
-    let wlModalFilterBtnBox;
-    let wlModalFilterOptBdr;
-    let closeUserFilterModal;
     let userWLModalFilterStatusTabs;
     let userWLModalFilterTypeTabs;
     let emptyWLStruct = 
@@ -687,11 +675,7 @@
     // Attaches Listeners to enable sorting of WL Cards
     function attachArrangeWLCardListeners()
     {
-        userWLArrangeBtnBdr = document.querySelector(".userWLArrangeBtnBdr");
-        userWLArrangeBtnBox = userWLArrangeBtnBdr.querySelector(".userOrderBtnBox");
-        userWLArrangeOptBdr = userWLArrangeBtnBdr.querySelector(".userOrderOptBdr");
-        userWLArrangeOptTabs = userWLArrangeBtnBdr.querySelectorAll(".userOrderOptTab");
-        closeUserWLArrangeBtn = userWLArrangeOptBdr.querySelector(".closeUserOptModal");
+        userWLArrangeOptTabs = document.querySelectorAll(".userWLArrangeBtnBdr .userOrderOptTab");
 
         // Selecting a sorting option
         userWLArrangeOptTabs.forEach((tab) => 
@@ -737,9 +721,6 @@
                         notification(`notifyBad` , `An error occurred`);
                         break;
                 }
-
-                // Hide the menu
-                userWLArrangeOptBdr.classList.remove("active");
             }
             tab.addEventListener("click" , action);
             tab.action = action;
