@@ -218,7 +218,6 @@
             const btn = document.querySelectorAll(".openUserOrderOptBdr")[index];
     
             btn.setAttribute("aria-expanded", "false");
-            documentBody.classList.remove("bodystop");
             currUserOrderOptBdrIndex = null;
     
             // Remove the click listener to avoid unnecessary calls
@@ -268,7 +267,6 @@
 
                     // Open the clicked menu
                     btn.setAttribute("aria-expanded", "true");
-                    documentBody.classList.add("bodystop");
                     currUserOrderOptBdrIndex = index;
 
                     userOrderOptBdr[index].addEventListener("transitionend", function handleTransitionEnd()
