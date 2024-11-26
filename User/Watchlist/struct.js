@@ -98,17 +98,17 @@
                                         </div>
                                     </div>
                                     <div class="userOrderBtnBdr userWLArrangeBtnBdr">
-                                        <div class="userOrderBtnBox">
+                                        <button type="button" aria-haspopup="menu" aria-expanded="false" class="userOrderBtnBox openUserOrderOptBdr">
                                             <div class="userOrderBtnIcon">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="userOrderBtnSvg">
                                                     <path fill-rule="evenodd" d="M22.75 7a.75.75 0 0 1-.75.75H2a.75.75 0 0 1 0-1.5h20a.75.75 0 0 1 .75.75m-3 5a.75.75 0 0 1-.75.75H5a.75.75 0 0 1 0-1.5h14a.75.75 0 0 1 .75.75m-3 5a.75.75 0 0 1-.75.75H8a.75.75 0 0 1 0-1.5h8a.75.75 0 0 1 .75.75" clip-rule="evenodd" />
                                                 </svg>
                                             </div>
                                             <div class="userOrderBtnText">Sort</div>
-                                        </div>
+                                        </button>
                                         <div class="userOrderOptBdr">
                                             <div class="userOrderOptBox">
-                                                <div class="wlModalAction_MenuCloseBdr closeUserOptModal">
+                                                <div class="wlModalAction_MenuCloseBdr closeUserOrderOptBtn closeUserOptModal">
                                                     <div class="wlModalAction_MenuCloseBox">
                                                         <div class="wlModalAction_MenuCloseIcon">
                                                             <svg class="wlModalAction_MenuCloseSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
@@ -281,17 +281,17 @@
                                         <div class="wlModalCtnt_sortSect wlModalCtnt_sortFilterBdr">
                                             <div class="wlModalCtnt_sortFilterBox">
                                                 <div class="userOrderBtnBdr userSortBtnBdr ">
-                                                    <div class="userOrderBtnBox">
+                                                    <button type="button" aria-haspopup="menu" aria-expanded="false" class="userOrderBtnBox openUserOrderOptBdr">
                                                         <div class="userOrderBtnIcon">
                                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="userOrderBtnSvg">
                                                                 <path fill-rule="evenodd" d="M22.75 7a.75.75 0 0 1-.75.75H2a.75.75 0 0 1 0-1.5h20a.75.75 0 0 1 .75.75m-3 5a.75.75 0 0 1-.75.75H5a.75.75 0 0 1 0-1.5h14a.75.75 0 0 1 .75.75m-3 5a.75.75 0 0 1-.75.75H8a.75.75 0 0 1 0-1.5h8a.75.75 0 0 1 .75.75" clip-rule="evenodd" />
                                                             </svg>
                                                         </div>
                                                         <div class="userOrderBtnText">Sort</div>
-                                                    </div>
+                                                    </button>
                                                     <div class="userOrderOptBdr">
                                                         <div class="userOrderOptBox">
-                                                            <div class="wlModalAction_MenuCloseBdr closeUserOptModal">
+                                                            <div class="wlModalAction_MenuCloseBdr closeUserOrderOptBtn closeUserOptModal">
                                                                 <div class="wlModalAction_MenuCloseBox">
                                                                     <div class="wlModalAction_MenuCloseIcon">
                                                                         <svg class="wlModalAction_MenuCloseSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
@@ -335,7 +335,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="userOrderBtnBdr userFilterBtnBdr">
-                                                    <div class="userOrderBtnBox">
+                                                    <button type="button" aria-haspopup="menu" aria-expanded="false" class="userOrderBtnBox openUserOrderOptBdr">
                                                         <div class="userOrderBtnIcon">
                                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="userOrderBtnSvg">
                                                                 <path fill-rule="evenodd" d="M18.25 7a3.75 3.75 0 1 1-7.5 0a3.75 3.75 0 0 1 7.5 0M14.5 9.25a2.25 2.25 0 1 0 0-4.5a2.25 2.25 0 0 0 0 4.5M5.75 17a3.75 3.75 0 1 0 7.5 0a3.75 3.75 0 0 0-7.5 0m3.75 2.25a2.25 2.25 0 1 1 0-4.5a2.25 2.25 0 0 1 0 4.5" clip-rule="evenodd" />
@@ -343,10 +343,10 @@
                                                             </svg>
                                                         </div>
                                                         <div class="userOrderBtnText">Filter</div>
-                                                    </div>
+                                                    </button>
                                                     <div class="userOrderOptBdr">
                                                         <div class="userOrderOptBox">
-                                                            <div class="wlModalAction_MenuCloseBdr closeUserOptModal">
+                                                            <div class="wlModalAction_MenuCloseBdr closeUserOrderOptBtn closeUserOptModal">
                                                                 <div class="wlModalAction_MenuCloseBox">
                                                                     <div class="wlModalAction_MenuCloseIcon">
                                                                         <svg class="wlModalAction_MenuCloseSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">

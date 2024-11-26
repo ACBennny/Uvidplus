@@ -19,7 +19,13 @@
     let sortWLCardsArray = [];
     let newWLMaxSize = 10;
     let newWLCurrSize = 0;
+    let closeWLFilterMenu;
+    let activeUserOptBdr;
     let createWLTimer;
+    let currUserOrderOptBdrIndex = null;
+    let openUserOrderOptBdr;
+    let userOrderOptBdr;
+    let closeUserOrderOptBtn;
     let userWLArrangeBtnBdr;
     let userWLArrangeBtnBox;
     let userWLArrangeOptBdr;
@@ -132,7 +138,7 @@
 
 
 
-//  PRE - STARTING FUNCTIONS
+//  GENERAL FUNCTIONS
 
     function startUserPage()
     {
@@ -216,6 +222,87 @@
         return dateInStr;
     }
 
+    // General function to close the sort/filter menus
+    function closeOrderOptBdrByInside(index)
+    {
+        if (index !== null) 
+        {
+            const btn = document.querySelectorAll(".openUserOrderOptBdr")[index];
+    
+            btn.setAttribute("aria-expanded", "false");
+            documentBody.classList.remove("bodystop");
+            currUserOrderOptBdrIndex = null;
+    
+            // Remove the click listener to avoid unnecessary calls
+            document.removeEventListener("click", closeOrderOptBdrOutside);
+        }
+    }
+
+    // Called when user clicks outide the menu
+    function closeOrderOptBdrOutside(event)
+    {
+        // Ignore clicks on the currently open menu or its toggle button
+        if (
+            currUserOrderOptBdrIndex !== null &&
+            !event.target.closest(".userOrderOptBdr") &&
+            !event.target.closest(".openUserOrderOptBdr")
+        )
+        {
+            closeOrderOptBdrByInside(currUserOrderOptBdrIndex);
+        }
+    }
+
+    // Initializes the sort/filter menus
+    function initUserOptBdr()
+    {
+        openUserOrderOptBdr = document.querySelectorAll(".openUserOrderOptBdr");
+        userOrderOptBdr = document.querySelectorAll(".userOrderOptBdr");
+        closeUserOrderOptBtn = document.querySelectorAll(".userOrderOptBdr");
+
+        openUserOrderOptBdr.forEach((btn, index) => 
+        {
+
+            // Opening and Closing of the menu through the filter display buttons
+            btn.addEventListener("click" , () =>
+            {
+                // If the clicked button's menu is already open, close it
+                if (btn.getAttribute("aria-expanded") === "true")
+                {
+                    closeOrderOptBdrByInside(index);
+                }
+                else
+                {
+                    // Close any open menu
+                    if (currUserOrderOptBdrIndex !== null)
+                    {
+                        closeOrderOptBdrByInside(currUserOrderOptBdrIndex);
+                    }
+
+                    // Open the clicked menu
+                    btn.setAttribute("aria-expanded", "true");
+                    documentBody.classList.add("bodystop");
+                    currUserOrderOptBdrIndex = index;
+
+                    userOrderOptBdr[index].addEventListener("transitionend", function handleTransitionEnd()
+                    {
+                        userOrderOptBdr[index].removeEventListener("transitionend", handleTransitionEnd);
+                        document.addEventListener("click", closeOrderOptBdrOutside);
+                    });
+                }
+            });
+        });
+
+        closeUserOrderOptBtn.forEach((btn, index) => 
+        {
+            btn.addEventListener("click" , () => 
+            {
+                openUserOrderOptBdr[index].click();
+            });
+        });
+    }
+
+
+
 
 
 
@@ -277,6 +364,46 @@
     function reverseWLArray(arr)
     {
         arr.reverse();
+    }
+
+
+
+
+// FILTERING FUNCTIONS
+
+
+    // Filtering the wl modal cards based on "Show Status" i.e. watching, planned, etc
+    function filterWLModalStatus(filterOptNo)
+    {
+        wlModalGrid_CardBdr.forEach((bdr) => 
+        {
+            if(bdr.classList.contains("notShowStatusMatch"))
+            {
+                bdr.classList.remove("notShowStatusMatch");
+            }
+
+            if(Number(bdr.getAttribute("data-show-status-opt")) != filterOptNo)
+            {
+                bdr.classList.add("notShowStatusMatch");
+            }
+        });
+    }
+
+    // Filtering the wl modal cards based on "Show Type" i.e. movie, tv
+    function filterWLModalType(filterTypeText)
+    {
+        wlModalGrid_CardBdr.forEach((bdr) => 
+        {
+            if(bdr.classList.contains("notShowTypeMatch"))
+            {
+                bdr.classList.remove("notShowTypeMatch");
+            }
+
+            if(bdr.querySelector(".wlModalGridCard_Type").textContent.toLowerCase() != filterTypeText.toLowerCase())
+            {
+                bdr.classList.add("notShowTypeMatch");
+            }
+        });
     }
 
 
@@ -566,12 +693,6 @@
         userWLArrangeOptTabs = userWLArrangeBtnBdr.querySelectorAll(".userOrderOptTab");
         closeUserWLArrangeBtn = userWLArrangeOptBdr.querySelector(".closeUserOptModal");
 
-        // Toggle the menu's visibility
-        userWLArrangeBtnBox.addEventListener("click" , toggleUserWLArrangeModal);
-
-        // Closing the menu on small screens
-        closeUserWLArrangeBtn.addEventListener("click" , closeUserWLArrangeModal);
-
         // Selecting a sorting option
         userWLArrangeOptTabs.forEach((tab) => 
         {
@@ -623,18 +744,6 @@
             tab.addEventListener("click" , action);
             tab.action = action;
         });
-    }
-
-    // Toggling the WL Card Sort menu visibility
-    function toggleUserWLArrangeModal()
-    {
-        userWLArrangeOptBdr.classList.toggle("active");
-    }
-
-    // Hiding the WL Card Sort menu
-    function closeUserWLArrangeModal()
-    {
-        userWLArrangeOptBdr.classList.remove("active");
     }
 
 
@@ -746,6 +855,8 @@
         generateWLCards(watchlistInventory);
         
         attachArrangeWLCardListeners();
+
+        initUserOptBdr();
     }
     
 
@@ -838,6 +949,8 @@
         
         window.scrollTo(0,0);
     }
+
+
 
 
 
@@ -1037,10 +1150,6 @@
                 tab.classList.remove("active");
             });
             userWLModalFilterTypeTabs[0].classList.add("active");
-
-            // Hide the menu
-            wlModalSortOptBdr.classList.remove("active");
-            wlModalFilterOptBdr.classList.remove("active");
 
             // Removes the content in the modal
             closeWLModalTimer = setTimeout(() => 
@@ -1247,20 +1356,8 @@
     {
 
         // Variable Definitions
-        wlModalSortBtnBdr = document.querySelector(".userSortBtnBdr");
-        wlModalSortBtnBox = wlModalSortBtnBdr.querySelector(".userOrderBtnBox");
-        wlModalSortOptBdr = wlModalSortBtnBdr.querySelector(".userOrderOptBdr");
-        closeUserSortModal = wlModalSortBtnBdr.querySelector(".closeUserOptModal");
-        userwlModalSortTypeTabs = wlModalSortBtnBdr.querySelectorAll(".userwlModalSortTypeTabs");
-        userwlModalSortRankTabs = wlModalSortBtnBdr.querySelectorAll(".userwlModalSortOrderTabs");
-
-        // Toggle the menu's visibility
-        wlModalSortBtnBox.removeEventListener("click" , toggleWLModalSortOptBdr);
-        wlModalSortBtnBox.addEventListener("click" , toggleWLModalSortOptBdr);
-
-        // Closing the menu on small screens
-        closeUserSortModal.removeEventListener("click" , closeWLModalSortOptBdr);
-        closeUserSortModal.addEventListener("click" , closeWLModalSortOptBdr);
+        userwlModalSortTypeTabs = document.querySelectorAll(".userSortBtnBdr .userwlModalSortTypeTabs");
+        userwlModalSortRankTabs = document.querySelectorAll(".userSortBtnBdr .userwlModalSortOrderTabs");
 
         // Selecting a sorting option for "Show Status"
         userwlModalSortTypeTabs.forEach((tab) => 
@@ -1323,9 +1420,6 @@
                 wlModalSortTypeText.textContent = tab.querySelector(".userOrderOptText").textContent;
                 wlModalSortOrderText.textContent = `Ascending`;
 
-                // Hide the menu
-                wlModalSortOptBdr.classList.remove("active");
-
             }
             tab.addEventListener("click" , action);
             tab.action = action;
@@ -1366,32 +1460,10 @@
                 // Update the sort type text
                 wlModalSortOrderText.textContent = document.querySelector(".userwlModalSortOrderTabs.active .userOrderOptText").textContent;
 
-                // Hide the menu
-                wlModalSortOptBdr.classList.remove("active");
             }
             tab.addEventListener("click" , action);
             tab.action = action;
         });
-    }
-
-    // Toggling the WL modal Sort menu visibility
-    function toggleWLModalSortOptBdr()
-    {
-        wlModalSortOptBdr.classList.toggle("active");
-        wlModalFilterOptBdr.classList.remove("active");
-        wlModalSortOptBdr.scrollTo(0,0);
-        wlModalFilterOptBdr.scrollTo(0,0);
-        hideWLModalBaseClose();
-    }
-
-    // Hiding the WL modal Sort menu
-    function closeWLModalSortOptBdr()
-    {
-        wlModalBaseClose.classList.remove("hide");
-        wlModalSortOptBdr.classList.remove("active");
-        wlModalFilterOptBdr.classList.remove("active");
-        wlModalSortOptBdr.scrollTo(0,0);
-        wlModalFilterOptBdr.scrollTo(0,0);
     }
 
 
@@ -1400,20 +1472,8 @@
     {
 
         // Variable Definitions
-        wlModalFilterBtnBdr = document.querySelector(".userFilterBtnBdr");
-        wlModalFilterBtnBox = wlModalFilterBtnBdr.querySelector(".userOrderBtnBox");
-        wlModalFilterOptBdr = wlModalFilterBtnBdr.querySelector(".userOrderOptBdr");
-        closeUserFilterModal = wlModalFilterBtnBdr.querySelector(".closeUserOptModal");
-        userWLModalFilterStatusTabs = wlModalFilterBtnBdr.querySelectorAll(".userWLModalFilterStatusTabs");
-        userWLModalFilterTypeTabs = wlModalFilterBtnBdr.querySelectorAll(".userWLModalFilterTypeTabs");
-
-        // Toggle the menu's visibility
-        wlModalFilterBtnBox.removeEventListener("click" , toggleWLModalFilterOptBdr);
-        wlModalFilterBtnBox.addEventListener("click" , toggleWLModalFilterOptBdr);
-
-        // Closing the menu on small screens
-        closeUserFilterModal.removeEventListener("click" , closeWLModalFilterOptBdr);
-        closeUserFilterModal.addEventListener("click" , closeWLModalFilterOptBdr);
+        userWLModalFilterStatusTabs = document.querySelectorAll(".userFilterBtnBdr .userWLModalFilterStatusTabs");
+        userWLModalFilterTypeTabs = document.querySelectorAll(".userFilterBtnBdr .userWLModalFilterTypeTabs");
 
         // Selecting a sorting option for "Show Status"
         userWLModalFilterStatusTabs.forEach((tab) => 
@@ -1474,9 +1534,6 @@
                         });
                         break;
                 }
-
-                // Hide the menu
-                wlModalFilterOptBdr.classList.remove("active");
             }
             tab.addEventListener("click" , action);
             tab.action = action;
@@ -1526,66 +1583,9 @@
                         });
                         break;
                 }
-
-                // Hide the menu
-                wlModalFilterOptBdr.classList.remove("active");
             }
             tab.addEventListener("click" , action);
             tab.action = action;
-        });
-    }
-
-    // Toggling the WL modal filter menu visibility
-    function toggleWLModalFilterOptBdr()
-    {
-        wlModalFilterOptBdr.classList.toggle("active");
-        wlModalSortOptBdr.classList.remove("active");
-        wlModalSortOptBdr.scrollTo(0,0);
-        wlModalFilterOptBdr.scrollTo(0,0);
-        hideWLModalBaseClose();
-    }
-
-    // Hiding the WL modal filter menu
-    function closeWLModalFilterOptBdr()
-    {
-        wlModalBaseClose.classList.remove("hide");
-        wlModalFilterOptBdr.classList.remove("active");
-        wlModalSortOptBdr.classList.remove("active");
-        wlModalSortOptBdr.scrollTo(0,0);
-        wlModalFilterOptBdr.scrollTo(0,0);
-    }
-
-    // Filtering the wl modal cards based on "Show Status" i.e. watching, planned, etc
-    function filterWLModalStatus(filterOptNo)
-    {
-        wlModalGrid_CardBdr.forEach((bdr) => 
-        {
-            if(bdr.classList.contains("notShowStatusMatch"))
-            {
-                bdr.classList.remove("notShowStatusMatch");
-            }
-
-            if(Number(bdr.getAttribute("data-show-status-opt")) != filterOptNo)
-            {
-                bdr.classList.add("notShowStatusMatch");
-            }
-        });
-    }
-
-    // Filtering the wl modal cards based on "Show Type" i.e. movie, tv
-    function filterWLModalType(filterTypeText)
-    {
-        wlModalGrid_CardBdr.forEach((bdr) => 
-        {
-            if(bdr.classList.contains("notShowTypeMatch"))
-            {
-                bdr.classList.remove("notShowTypeMatch");
-            }
-
-            if(bdr.querySelector(".wlModalGridCard_Type").textContent.toLowerCase() != filterTypeText.toLowerCase())
-            {
-                bdr.classList.add("notShowTypeMatch");
-            }
         });
     }
 

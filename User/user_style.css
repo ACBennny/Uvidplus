@@ -284,6 +284,8 @@ html:root
     align-items: center;
     padding: 10px 15px;
     border-radius: 10px;
+    outline: none;
+    border: none;
     background-color: var(--userOrderBtnBcg);
     transition: all 300ms ease-in-out;
     cursor: pointer;
@@ -333,7 +335,6 @@ html:root
     bottom: calc((0% - 10px));
     right: 0%;
     width: 200px;
-    /* max-height: 300px; */
     border-radius: 10px;
     background-color: var(--userOrderMenuBcg);
     opacity: 0;
@@ -345,7 +346,7 @@ html:root
     z-index: 9;
 }
 
-.userOrderOptBdr.active
+.userOrderBtnBox[aria-expanded="true"] ~ .userOrderOptBdr
 {
     opacity: 1;
     visibility: visible;
@@ -594,7 +595,6 @@ html:root
     .userOrderBtnBdr .userOrderOptBdr
     {
         position: fixed;
-        top: 0%;
         left: 0%;
         right: 0%;
         bottom: 0%;
