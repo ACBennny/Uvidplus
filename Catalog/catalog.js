@@ -598,12 +598,12 @@
     // Toggles the document body's overflow based on screen size
     function toggleDocBodyOverflow(currBtn)
     {
-            if(((catalogFilterDisplayBtn[currBtn].getAttribute("aria-expanded") == "true") && (window.innerWidth < 768)))
-            {
-                documentBody.classList.add("bodystop");
-                return;
-            }
-            documentBody.classList.remove("bodystop");
+        if(((catalogFilterDisplayBtn[currBtn].getAttribute("aria-expanded") == "true") && (window.innerWidth < 768)))
+        {
+            documentBody.classList.add("bodystop");
+            return;
+        }
+        documentBody.classList.remove("bodystop");
     }
 
 
@@ -621,6 +621,7 @@
             document.removeEventListener("click" , closeFilterMenus);
             activeBtn.setAttribute(`aria-expanded` , `false`);
             documentBody.classList.remove("bodystop");
+
         });
     }
 
