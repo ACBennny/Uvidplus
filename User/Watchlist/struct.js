@@ -121,7 +121,7 @@
                                                     <div class="userOrderOptSectTitleBox">
                                                         <p class="userOrderOptSectTitleText">Sort by</p>
                                                     </div>
-                                                    <div class="userOrderOptTab active" data-card-sort-opt="0">
+                                                    <div class="userOrderOptTab selected" data-card-sort-opt="0">
                                                         <p class="userOrderOptText">Added</p>
                                                     </div>
                                                     <div class="userOrderOptTab " data-card-sort-opt="1">
@@ -304,7 +304,7 @@
                                                                 <div class="userOrderOptSectTitleBox">
                                                                     <p class="userOrderOptSectTitleText">Sort by</p>
                                                                 </div>
-                                                                <div class="userOrderOptTab userwlModalSortTypeTabs active" data-sort-type-opt="0">
+                                                                <div class="userOrderOptTab userwlModalSortTypeTabs selected" data-sort-type-opt="0">
                                                                     <p class="userOrderOptText">Recently Added</p>
                                                                 </div>
                                                                 <div class="userOrderOptTab userwlModalSortTypeTabs" data-sort-type-opt="1">
@@ -324,7 +324,7 @@
                                                                 <div class="userOrderOptSectTitleBox">
                                                                     <p class="userOrderOptSectTitleText">Sort Order</p>
                                                                 </div>
-                                                                <div class="userOrderOptTab userwlModalSortOrderTabs active">
+                                                                <div class="userOrderOptTab userwlModalSortOrderTabs selected">
                                                                     <p class="userOrderOptText">Ascending</p>
                                                                 </div>
                                                                 <div class="userOrderOptTab userwlModalSortOrderTabs">
@@ -359,7 +359,7 @@
                                                                 <div class="userOrderOptSectTitleBox">
                                                                     <p class="userOrderOptSectTitleText">Show Status</p>
                                                                 </div>
-                                                                <div class="userOrderOptTab active userWLModalFilterStatusTabs" data-show-status-opt="">
+                                                                <div class="userOrderOptTab selected userWLModalFilterStatusTabs" data-show-status-opt="">
                                                                     <p class="userOrderOptText">All</p>
                                                                 </div>
                                                                 <div class="userOrderOptTab userWLModalFilterStatusTabs" data-show-status-opt="0">
@@ -382,7 +382,7 @@
                                                                 <div class="userOrderOptSectTitleBox">
                                                                     <p class="userOrderOptSectTitleText">Show Type</p>
                                                                 </div>
-                                                                <div class="userOrderOptTab userWLModalFilterTypeTabs active" data-show-type-opt="">
+                                                                <div class="userOrderOptTab userWLModalFilterTypeTabs selected" data-show-type-opt="">
                                                                     <p class="userOrderOptText">All</p>
                                                                 </div>
                                                                 <div class="userOrderOptTab userWLModalFilterTypeTabs " data-show-type-opt="0">

@@ -689,12 +689,12 @@
             {
                 let optNo = tab.getAttribute("data-card-sort-opt");
 
-                // Add active class to the currently selected tab
-                userWLArrangeOptTabs.forEach((activeTab) => 
+                // Add selected class to the currently selected tab
+                userWLArrangeOptTabs.forEach((selectedTab) => 
                 {
-                    activeTab.classList.remove("active");
+                    selectedTab.classList.remove("selected");
                 });
-                tab.classList.add("active");
+                tab.classList.add("selected");
 
                 switch(optNo)
                 {
@@ -1111,24 +1111,24 @@
             // Remove any previous sort/filter and sell default option
             userwlModalSortTypeTabs.forEach((tab) => 
             {
-                tab.classList.remove("active");
+                tab.classList.remove("selected");
             });
-            userwlModalSortTypeTabs[0].classList.add("active");
+            userwlModalSortTypeTabs[0].classList.add("selected");
             userwlModalSortRankTabs.forEach((tab) => 
             {
-                tab.classList.remove("active");
+                tab.classList.remove("selected");
             });
-            userwlModalSortRankTabs[0].classList.add("active");
+            userwlModalSortRankTabs[0].classList.add("selected");
             userWLModalFilterStatusTabs.forEach((tab) => 
             {
-                tab.classList.remove("active");
+                tab.classList.remove("selected");
             });
-            userWLModalFilterStatusTabs[0].classList.add("active");
+            userWLModalFilterStatusTabs[0].classList.add("selected");
             userWLModalFilterTypeTabs.forEach((tab) => 
             {
-                tab.classList.remove("active");
+                tab.classList.remove("selected");
             });
-            userWLModalFilterTypeTabs[0].classList.add("active");
+            userWLModalFilterTypeTabs[0].classList.add("selected");
 
             // Removes the content in the modal
             closeWLModalTimer = setTimeout(() => 
@@ -1352,12 +1352,12 @@
             {
                 let optNo = tab.getAttribute("data-sort-type-opt");
 
-                // Add active class to the currently selected tab
+                // Add selected class to the currently selected tab
                 userwlModalSortTypeTabs.forEach((activeTab) => 
                 {
-                    activeTab.classList.remove("active");
+                    activeTab.classList.remove("selected");
                 });
-                tab.classList.add("active");
+                tab.classList.add("selected");
 
                 switch(optNo)
                 {
@@ -1417,16 +1417,16 @@
             const action = () => 
             {
 
-                // Add "active" class to the tab without it
-                userwlModalSortRankTabs.forEach((activeTab) => 
+                // Add "selected" class to the tab without it
+                userwlModalSortRankTabs.forEach((selectedTab) => 
                 {
-                    if(activeTab.classList.contains("active"))
+                    if(selectedTab.classList.contains("selected"))
                     {
-                        activeTab.classList.remove("active");
+                        selectedTab.classList.remove("selected");
                     }
                     else
                     {
-                        activeTab.classList.add("active");
+                        selectedTab.classList.add("selected");
                     }
                 });
 
@@ -1437,7 +1437,7 @@
                 generateWLModalCards(wlModalSortUsedArray);
 
                 // Update the sort type text
-                wlModalSortOrderText.textContent = document.querySelector(".userwlModalSortOrderTabs.active .userOrderOptText").textContent;
+                wlModalSortOrderText.textContent = document.querySelector(".userwlModalSortOrderTabs.selected .userOrderOptText").textContent;
 
             }
             tab.addEventListener("click" , action);
@@ -1468,12 +1468,12 @@
             {
                 let optNo = tab.getAttribute("data-show-status-opt");
 
-                // Add active class to the currently selected tab
-                userWLModalFilterStatusTabs.forEach((activeTab) => 
+                // Add selected class to the currently selected tab
+                userWLModalFilterStatusTabs.forEach((selectedTab) => 
                 {
-                    activeTab.classList.remove("active");
+                    selectedTab.classList.remove("selected");
                 });
-                tab.classList.add("active");
+                tab.classList.add("selected");
 
                 switch(optNo)
                 {
@@ -1532,12 +1532,12 @@
             {
                 let optNo = tab.getAttribute("data-show-type-opt");
 
-                // Add active class to the currently selected tab
-                userWLModalFilterTypeTabs.forEach((activeTab) => 
+                // Add selected class to the currently selected tab
+                userWLModalFilterTypeTabs.forEach((selectedTab) => 
                 {
-                    activeTab.classList.remove("active");
+                    selectedTab.classList.remove("selected");
                 });
-                tab.classList.add("active");
+                tab.classList.add("selected");
 
                 switch(optNo)
                 {

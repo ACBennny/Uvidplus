@@ -404,17 +404,17 @@ html:root
     background-color: var(--genModalOptHover);
 }
 
-.userOrderOptTab.active
+.userOrderOptTab.selected
 {
     background-color: var(--genModalOptHover);
 }
 
-.userOrderOptTab.active::after
+.userOrderOptTab.selected::after
 {
     content: '';
     position: absolute;
     top: 50%;
-    right: 0%;
+    right: 0px;
     width: 15px;
     height: 7px;
     background-color: #00000000;
@@ -436,7 +436,7 @@ html:root
     color: var(--genWhiteTypeMid2);
 }
 
-.userOrderOptTab.active .userOrderOptText
+.userOrderOptTab.selected .userOrderOptText
 {
     color: var(--genGreenTypeLight) !important;
 }
@@ -621,6 +621,11 @@ html:root
     .userOrderBtnBox[aria-expanded="true"] ~ .userOrderOptBdr .userOrderOptBox
     {
         transform: translateY(0%);
+    }
+
+    .userOrderOptTab.selected::after
+    {
+        right: 10px;
     }
 }
 
