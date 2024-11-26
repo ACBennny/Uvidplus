@@ -606,6 +606,23 @@
     let endNotifyTimer;
 
 
+
+    // CALLING GLOBALL SCOPE FUNCTIONS
+    
+        // Used to dynamically call functions in the global scope
+        function callGlobalFunctions(functionName) 
+        {
+            if (typeof window[functionName] === 'function') 
+            {
+                window[functionName]();
+            } 
+            else
+            {
+                console.error("Function name is invalid!");
+            }
+        }
+
+
     // NOTIFICATION POPUP
 
         function showNextNotification()
