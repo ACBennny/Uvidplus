@@ -94,6 +94,7 @@
     let catalogFilterDisplayBtn;
     let catalogFilterListMenu;
     let backToTopOfCatalogBtn;
+    let currFilterMenuIndex = null;
 
 
     window.addEventListener("load" , loadInventory);
@@ -524,33 +525,34 @@
             initCatalogFilterMenu(index);
 
             // Opening and Closing of the menu through the filter display buttons
-            btn.addEventListener("click" , () =>
+            btn.addEventListener("click", () => 
             {
-                // If button menu open close
-                if((btn.getAttribute("aria-expanded") == "true"))
+                if (btn.getAttribute("aria-expanded") === "true")
                 {
-                    btn.setAttribute(`aria-expanded` , `false`);
-                    documentBody.classList.remove("bodystop");
+                    closeFilterMenusInside(index);
                 }
-                // Else open the menu
                 else
                 {
-                    catalogFilterDisplayBtn.forEach((activeBtn) => 
+                    // Close any previously open menus
+                    if (currFilterMenuIndex !== null)
                     {
-                        activeBtn.setAttribute(`aria-expanded` , `false`);
-                    });
-                    btn.setAttribute(`aria-expanded` , `true`);
+                        closeFilterMenusInside(currFilterMenuIndex);
+                    }
+    
+                    // Open the current menu
+                    btn.setAttribute("aria-expanded", "true");
+                    documentBody.classList.add("bodystop");
+                    currFilterMenuIndex = index;
                     
-                    catalogFilterListMenu[index].addEventListener("transitionend" , function handleTransitonEnd()
+                    catalogFilterListMenu[index].addEventListener("transitionend", function handleTransitionEnd()
                     {
-                        catalogFilterListMenu[index].removeEventListener("transitionend" , handleTransitonEnd);
-                        document.addEventListener("click" , closeFilterMenus);
-                        
-                        toggleDocBodyOverflow(index);
-                        window.addEventListener("change" , () => {toggleDocBodyOverflow(index)});
-                        window.addEventListener("resize" , () => {toggleDocBodyOverflow(index)});
-                    
+                        catalogFilterListMenu[index].removeEventListener("transitionend", handleTransitionEnd);
+                        document.addEventListener("click", closeFilterMenusOutside);
                     });
+    
+                    toggleDocBodyOverflow(index);
+                    window.addEventListener("change", () => toggleDocBodyOverflow(index));
+                    window.addEventListener("resize", () => toggleDocBodyOverflow(index));
                 }
             });
 
@@ -608,21 +610,28 @@
 
 
     // Closes the Filter Display Menus (via mouse clicks on other areas beside the display filter buttons)
-    function closeFilterMenus()
+    function closeFilterMenusOutside(event)
     {
-        catalogFilterDisplayBtn.forEach((activeBtn, index) => 
+        if (
+            !event.target.closest(".catalogFilterCardBdr") &&
+            !event.target.closest(".catalogFilterDisplayBtn")
+        )
         {
-            // If mouse is hovering the button, return to prevent mutiple calls for a single action as they cancels each other out
-            // thereby forces the user to click twice to open a different menu
-            if(activeBtn.matches(":hover"))
+            catalogFilterDisplayBtn.forEach((btn, index) => 
             {
-                return;
-            }
-            document.removeEventListener("click" , closeFilterMenus);
-            activeBtn.setAttribute(`aria-expanded` , `false`);
-            documentBody.classList.remove("bodystop");
-
-        });
+                if (btn.getAttribute("aria-expanded") === "true")
+                {
+                    closeFilterMenusInside(index);
+                }
+            });
+        }
+    }
+        
+    function closeFilterMenusInside(index) 
+    {
+        catalogFilterDisplayBtn[index].setAttribute("aria-expanded", "false");
+        documentBody.classList.remove("bodystop");
+        document.removeEventListener("click", closeFilterMenusOutside);
     }
 
 
