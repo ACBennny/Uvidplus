@@ -612,7 +612,7 @@
     {
         catalogFilterDisplayBtn.forEach((activeBtn, index) => 
         {
-            // If mouse over button, return to prevent mutiple calls for a single action as they cancels each other out
+            // If mouse is hovering the button, return to prevent mutiple calls for a single action as they cancels each other out
             // thereby forces the user to click twice to open a different menu
             if(activeBtn.matches(":hover"))
             {
