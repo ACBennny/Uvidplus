@@ -335,11 +335,9 @@ html:root
     bottom: calc((0% - 10px));
     right: 0%;
     width: 200px;
-    border-radius: 10px;
-    background-color: var(--userOrderMenuBcg);
     opacity: 0;
     visibility: hidden;
-    overflow: hidden auto;
+    overflow: hidden;
     pointer-events: none;
     transform: translate(0% , 100%);
     transition: all 300ms ease-in-out;
@@ -361,6 +359,8 @@ html:root
     flex-direction: column;
     align-items: flex-start;
     padding: 20px 0;
+    background-color: var(--userOrderMenuBcg);
+    border-radius: 10px;
 }
 
 .userOrderOptBox .userOrderOptSect
@@ -601,13 +601,26 @@ html:root
         width: 100%;
         height: 100%;
         max-height: none;
+        display: flex;
+        align-items: end;
+        background-color: #00000099;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
         transform: translate(0% , 0%);
         z-index: 110;
     }
 
     .userOrderOptBdr .userOrderOptBox
     {
+        height: calc((100% - var(--navBarHeight)));
         padding: 0;
+        transform: translateY(50%);
+        transition: all 300ms ease-in-out;
+    }
+
+    .userOrderBtnBox[aria-expanded="true"] ~ .userOrderOptBdr .userOrderOptBox
+    {
+        transform: translateY(0%);
     }
 }
 
