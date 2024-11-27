@@ -377,7 +377,26 @@ html:root
 
 .catalogFilterListBox .catalogFilterListCloseBdr
 {
-    display: none;
+    width: 100%;
+    height: calc((var(--navBarHeight) / 2));
+    display: block;
+}
+
+.catalogFilterListCloseBdr .catalogFilterListCloseBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.catalogFilterListCloseBox .catalogFilterListCloseIcon
+{
+    width: 40px;
+    height: 5px;
+    border-radius: 40px;
+    background-color: #2f2f2f;
 }
 
 .catalogFilterListCloseIcon .catalogFilterListCloseSvg
@@ -390,9 +409,10 @@ html:root
 .catalogFilterListBox .catalogFilterListUL
 {
     width: 100%;
-    height: calc((100% - var(--navBarHeight)));
+    height: calc((100% - (var(--navBarHeight) / 2)));
     display: flex;
     flex-direction: column;
+    padding-bottom: 10px;
     overflow: hidden auto;
 }
 
