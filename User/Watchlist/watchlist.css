@@ -323,6 +323,215 @@ html:root
 
 
 
+/* --------- Gen Action button & Context Menu --------- */
+.wlModalActionFence
+{
+    width: var(--wlModalActionIconBaseWidth);
+    height: 100%;
+}
+
+.wlModalActionFence.wlModalAction_HeaderFence,
+.wlModalActionFence.wlModalAction_GridCardFence
+{
+    display: block;
+}
+
+.wlModalActionFence.wlModalAction_SortFence
+{
+    display: none;
+}
+
+.wlModalActionFence .wlModalActionBase
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wlModalActionBase .wlModalActionBdr
+{
+    width: var(--wlModalActionIconBtnSize);
+    height: var(--wlModalActionIconBtnSize);
+}
+
+.wlModalActionBase .wlModalActionBox
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.wlModalActionBox .wlModalActionBtn
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: none;
+    background-color: #00000000;
+    border-radius: 50%;
+    transition: all 150ms ease-in-out;
+    cursor: pointer;
+}
+
+.wlModalAction_HeaderFence .wlModalActionBtn,
+.wlModalAction_SortFence .wlModalActionBtn
+{
+    background-color: #ffffff30;
+}
+
+.wlModalActionBtn:active 
+{
+    --wlModalActionIconSvgFill: var(--genGreenTypeLight);
+    background-color: #ffffff20;
+}
+
+.wlModalActionBtn .wlModalActionBtnIcon
+{
+    width: var(--wlModalActionIconSvgSize);
+    height: var(--wlModalActionIconSvgSize);
+}
+
+.wlModalActionBtnIcon .wlModalActionBtnSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--wlModalActionIconSvgFill);
+    transition: all 150ms ease-in-out;
+}
+
+
+.wlModalAction_MenuBdr
+{
+    position: fixed;
+    top: 25%;
+    left: 25%;
+    width: fit-content;
+    border-radius: 10px;
+    background-color: var(--genModalBcg);
+    overflow: hidden;
+    transition: all 300ms ease-in-out;
+    z-index: 130;
+    display: none;
+}
+
+.wlModalAction_MenuBdr .wlModalAction_MenuBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.wlModalAction_MenuCloseBdr
+{
+    width: 100%;
+    height: 50px;
+    display: none;
+    border-bottom: 1px solid #444444;
+    cursor: pointer;
+}
+
+.wlModalAction_MenuCloseBdr .wlModalAction_MenuCloseBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.wlModalAction_MenuCloseBox .wlModalAction_MenuCloseIcon
+{
+    width: var(--wlModalActionMenuSvgSize);
+    height: var(--wlModalActionMenuSvgSize);
+    cursor: pointer;
+}
+
+.wlModalAction_MenuCloseIcon .wlModalAction_MenuCloseSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--wlModalActionMenuSvgFill);
+}
+
+.wlModalAction_MenuCloseIcon:active .wlModalAction_MenuCloseSvg
+{
+    --wlModalActionMenuSvgFill: var(--genWhiteTypeMid2);
+}
+
+.wlModalAction_MenuBox .wlModalAction_MenuCtntBdr
+{
+    width: 100%;
+}
+
+.wlModalAction_MenuCtntBdr .wlModalAction_MenuCtntBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.wlModalAction_MenuCtntBox .wlModalAction_MenuCtntBtnBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 15px 20px;
+    outline: none;
+    border: none;
+    background-color: #00000000;
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+}
+
+.wlModalAction_MenuCtntBtnBox:active
+{
+    --wlModalActionMenuSvgFill: var(--genWhiteTypeLight);
+    background-color: var(--genModalOptHover);
+}
+
+.wlModalAction_MenuCtntBtnBox .wlModalAction_MenuCtntBtnIcon
+{
+    width: var(--wlModalActionMenuSvgSize);
+    height: var(--wlModalActionMenuSvgSize);
+    margin-right: 15px;
+}
+
+.wlModalAction_MenuCtntBtnIcon .wlModalAction_MenuCtntBtnSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--wlModalActionMenuSvgFill);
+    transition: all 300ms ease-in-out;
+}
+
+.wlModalAction_MenuCtntBtnBox .wlModalAction_MenuCtntBtnText
+{
+    margin-right: 20px;
+    font-family: 'Poppins' , sans-serif;
+    font-size: 14px;
+    color: var(--wlModalActionMenuSvgFill);
+    text-align: left;
+    transition: all 300ms ease-in-out;
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -726,208 +935,6 @@ html:root
 
 
 
-
-
-/* --------- Gen Action button & Context Menu --------- */
-.wlModalActionFence
-{
-    width: var(--wlModalActionIconBaseWidth);
-    height: 100%;
-}
-
-.wlModalActionFence.wlModalAction_HeaderFence,
-.wlModalActionFence.wlModalAction_GridCardFence
-{
-    display: block;
-}
-
-.wlModalActionFence.wlModalAction_SortFence
-{
-    display: none;
-}
-
-.wlModalActionFence .wlModalActionBase
-{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.wlModalActionBase .wlModalActionBdr
-{
-    width: var(--wlModalActionIconBtnSize);
-    height: var(--wlModalActionIconBtnSize);
-}
-
-.wlModalActionBase .wlModalActionBox
-{
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.wlModalActionBox .wlModalActionBtn
-{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    outline: none;
-    border: none;
-    background-color: #00000000;
-    border-radius: 50%;
-    transition: all 150ms ease-in-out;
-    cursor: pointer;
-}
-
-.wlModalAction_HeaderFence .wlModalActionBtn,
-.wlModalAction_SortFence .wlModalActionBtn
-{
-    background-color: #ffffff30;
-}
-
-.wlModalActionBtn:active 
-{
-    --wlModalActionIconSvgFill: var(--genGreenTypeLight);
-    background-color: #ffffff20;
-}
-
-.wlModalActionBtn .wlModalActionBtnIcon
-{
-    width: var(--wlModalActionIconSvgSize);
-    height: var(--wlModalActionIconSvgSize);
-}
-
-.wlModalActionBtnIcon .wlModalActionBtnSvg
-{
-    width: 100%;
-    height: 100%;
-    fill: var(--wlModalActionIconSvgFill);
-    transition: all 150ms ease-in-out;
-}
-
-
-.wlModalAction_MenuBdr
-{
-    position: fixed;
-    top: 25%;
-    left: 25%;
-    width: fit-content;
-    border-radius: 10px;
-    background-color: var(--genModalBcg);
-    overflow: hidden;
-    transition: all 300ms ease-in-out;
-    z-index: 130;
-    display: none;
-}
-
-.wlModalAction_MenuBdr .wlModalAction_MenuBox
-{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.wlModalAction_MenuCloseBdr
-{
-    width: 100%;
-    height: 50px;
-    display: none;
-    border-bottom: 1px solid #444444;
-    cursor: pointer;
-}
-
-.wlModalAction_MenuCloseBdr .wlModalAction_MenuCloseBox
-{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    padding: 0 10px;
-}
-
-.wlModalAction_MenuCloseBox .wlModalAction_MenuCloseIcon
-{
-    width: var(--wlModalActionMenuSvgSize);
-    height: var(--wlModalActionMenuSvgSize);
-    cursor: pointer;
-}
-
-.wlModalAction_MenuCloseIcon .wlModalAction_MenuCloseSvg
-{
-    width: 100%;
-    height: 100%;
-    fill: var(--wlModalActionMenuSvgFill);
-}
-
-.wlModalAction_MenuCloseIcon:active .wlModalAction_MenuCloseSvg
-{
-    --wlModalActionMenuSvgFill: var(--genWhiteTypeMid2);
-}
-
-.wlModalAction_MenuBox .wlModalAction_MenuCtntBdr
-{
-    width: 100%;
-}
-
-.wlModalAction_MenuCtntBdr .wlModalAction_MenuCtntBox
-{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 10px 0;
-}
-
-.wlModalAction_MenuCtntBox .wlModalAction_MenuCtntBtnBox
-{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 15px 20px;
-    outline: none;
-    border: none;
-    background-color: #00000000;
-    transition: all 300ms ease-in-out;
-    cursor: pointer;
-}
-
-.wlModalAction_MenuCtntBtnBox:active
-{
-    --wlModalActionMenuSvgFill: var(--genWhiteTypeLight);
-    background-color: var(--genModalOptHover);
-}
-
-.wlModalAction_MenuCtntBtnBox .wlModalAction_MenuCtntBtnIcon
-{
-    width: var(--wlModalActionMenuSvgSize);
-    height: var(--wlModalActionMenuSvgSize);
-    margin-right: 15px;
-}
-
-.wlModalAction_MenuCtntBtnIcon .wlModalAction_MenuCtntBtnSvg
-{
-    width: 100%;
-    height: 100%;
-    fill: var(--wlModalActionMenuSvgFill);
-    transition: all 300ms ease-in-out;
-}
-
-.wlModalAction_MenuCtntBtnBox .wlModalAction_MenuCtntBtnText
-{
-    margin-right: 20px;
-    font-family: 'Poppins' , sans-serif;
-    font-size: 14px;
-    color: var(--wlModalActionMenuSvgFill);
-    text-align: left;
-    transition: all 300ms ease-in-out;
-}
 
 
 
