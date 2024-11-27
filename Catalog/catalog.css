@@ -376,10 +376,7 @@ html:root
 
 .catalogFilterListBox .catalogFilterListCloseBdr
 {
-    /* width: 100%;
-    height: var(--navBarHeight); */
-    /* display: none;
-    z-index: 25; */
+    display: none;
 }
 
 .catalogFilterListCloseIcon .catalogFilterListCloseSvg
@@ -464,11 +461,6 @@ html:root
     .catalogFilterCardBox .catalogFilterListBdr
     {
         max-height: none;
-    }
-
-    .catalogFilterListBox .catalogFilterListUL
-    {
-        padding: 10px;
     }
 
     .catalogFilterListBdr .catalogFilterListCloseBdr
