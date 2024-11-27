@@ -512,7 +512,7 @@
         // Open/close filter bdr
         toggleCatalogFilters.addEventListener("click" , () => 
         {
-            catalogFilterBdr.classList.toggle("active");
+            catalogFilterBdr.classList.toggle("hide");
         });
 
         // Define the display button
