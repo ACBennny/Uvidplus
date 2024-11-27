@@ -329,26 +329,29 @@ html:root
 }
 
 
-.userOrderBtnBdr .userOrderOptBdr
+.userOrderOptBdr
 {
     position: absolute;
     bottom: calc((0% - 10px));
     right: 0%;
     width: 200px;
+    border-radius: 10px;
+    background-color: var(--userOrderMenuBcg);
     opacity: 0;
     visibility: hidden;
-    overflow: hidden;
+    overflow: hidden auto;
     pointer-events: none;
-    transform: translate(0% , 100%);
+    transform: translate(0% , 125%) scale(0.85);
     transition: all 300ms ease-in-out;
-    z-index: 9;
+    z-index: 110;
 }
 
-.userOrderBtnBox[aria-expanded="true"] ~ .userOrderOptBdr
+*[aria-expanded="true"] ~ .userOrderOptBdr
 {
     opacity: 1;
     visibility: visible;
     pointer-events: all;
+    transform: translate(0% , 100%) scale(1.00);
 }
 
 .userOrderOptBdr .userOrderOptBox
@@ -359,8 +362,6 @@ html:root
     flex-direction: column;
     align-items: flex-start;
     padding: 20px 0;
-    background-color: var(--userOrderMenuBcg);
-    border-radius: 10px;
 }
 
 .userOrderOptBox .userOrderOptSect
@@ -592,7 +593,7 @@ html:root
 @media only screen and (max-width: 565px)
 {
     
-    .userOrderBtnBdr .userOrderOptBdr
+    .userOrderOptBdr
     {
         position: fixed;
         left: 0%;
@@ -603,22 +604,30 @@ html:root
         max-height: none;
         display: flex;
         align-items: end;
+        border-radius: 0px;
         background-color: #00000099;
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
-        transform: translate(0% , 0%);
-        z-index: 110;
+        overflow: hidden;
+        transform: none;
+    }
+
+    *[aria-expanded="true"] ~ .userOrderOptBdr
+    {
+        transform: none;
     }
 
     .userOrderOptBdr .userOrderOptBox
     {
         height: calc((100% - var(--navBarHeight)));
         padding: 0;
+        border-radius: 10px;
+        background-color: var(--userOrderMenuBcg);
         transform: translateY(50%);
         transition: all 300ms ease-in-out;
     }
 
-    .userOrderBtnBox[aria-expanded="true"] ~ .userOrderOptBdr .userOrderOptBox
+    *[aria-expanded="true"] ~ .userOrderOptBdr .userOrderOptBox
     {
         transform: translateY(0%);
     }

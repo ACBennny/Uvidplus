@@ -613,7 +613,7 @@
     function closeFilterMenusOutside(event)
     {
         if (
-            !event.target.closest(".catalogFilterCardBdr") &&
+            currFilterMenuIndex !== null &&
             !event.target.closest(".catalogFilterDisplayBtn")
         )
         {
@@ -626,11 +626,12 @@
             });
         }
     }
-        
+
     function closeFilterMenusInside(index) 
     {
         catalogFilterDisplayBtn[index].setAttribute("aria-expanded", "false");
         documentBody.classList.remove("bodystop");
+        currFilterMenuIndex = null;
         document.removeEventListener("click", closeFilterMenusOutside);
     }
 
@@ -644,17 +645,38 @@
         let catalogFilterTitleTextLC = catalogFilterTitleText.textContent.toLowerCase();
 
         // Creating the menu
-        let thisFilterListBox = document.createElement("ul");
+        let thisFilterListBdr = document.createElement("div");
+        let thisFilterListBox = document.createElement("div");
+        let thisFilterListUL = document.createElement("ul");
+        thisFilterListBdr.classList.add("userOrderOptBdr");
+        thisFilterListBdr.classList.add("catalogFilterListBdr");
+        thisFilterListBdr.setAttribute(`role` , `listbox`);
+        thisFilterListBox.classList.add("userOrderOptBox");
         thisFilterListBox.classList.add("catalogFilterListBox");
-        thisFilterListBox.setAttribute(`role` , `listbox`);
+        thisFilterListUL.classList.add("userOrderOptSect");
+        thisFilterListUL.classList.add("catalogFilterListUL");
+
+        thisFilterListBox.insertAdjacentHTML(`afterbegin` , 
+            `
+                <div class="wlModalAction_MenuCloseBdr catalogFilterListCloseBdr closeUserOrderOptBtn">
+                    <div class="wlModalAction_MenuCloseBox">
+                        <div class="wlModalAction_MenuCloseIcon">
+                            <svg class="wlModalAction_MenuCloseSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            `
+        );
 
         if(((catalogFilterTitleTextLC == "genre") || (catalogFilterTitleTextLC == "origin")))
         {
-            thisFilterListBox.setAttribute(`aria-multiselectable` , `true`);
+            thisFilterListBdr.setAttribute(`aria-multiselectable` , `true`);
         }
         else
         {
-            thisFilterListBox.setAttribute(`aria-multiselectable` , `false`);
+            thisFilterListBdr.setAttribute(`aria-multiselectable` , `false`);
         }
         
 
@@ -665,19 +687,16 @@
         {
             let struct = 
             `
-                <li class="catalogFilterListItem" role="option">
-                    <span class="catalogFilterListName">${filterListOptArray[j]}</span>
-                    <span class="catalogFilterListIcon">
-                        <svg class="catalogFilterListSvg" style="transform: scale(0.75);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                            <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
-                        </svg>
-                    </span>
-                </li>
+                <div class="userOrderOptTab catalogFilterListItem">
+                    <p class="userOrderOptText catalogFilterListName">${filterListOptArray[j]}</p>
+                </div>
             `;
-            thisFilterListBox.insertAdjacentHTML(`beforeend` , struct);
+            thisFilterListUL.insertAdjacentHTML(`beforeend` , struct);
         }
 
-        catalogFilterCardBox.appendChild(thisFilterListBox);
+        thisFilterListBox.appendChild(thisFilterListUL);
+        thisFilterListBdr.appendChild(thisFilterListBox);
+        catalogFilterCardBox.appendChild(thisFilterListBdr);
         
     }
 
