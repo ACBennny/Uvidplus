@@ -622,6 +622,8 @@ html:root
         height: calc((100% - var(--navBarHeight)));
         padding: 0;
         border-radius: 25px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
         background-color: var(--userOrderMenuBcg);
         transform: translateY(50%);
         transition: all 300ms ease-in-out;
