@@ -379,7 +379,7 @@ html:root
 {
     width: 100%;
     height: calc((var(--navBarHeight) / 2));
-    display: block;
+    display: none;
 }
 
 .catalogFilterListCloseBdr .catalogFilterListCloseBox
@@ -397,6 +397,7 @@ html:root
     height: 5px;
     border-radius: 40px;
     background-color: #2f2f2f;
+    cursor: pointer;
 }
 
 .catalogFilterListCloseIcon .catalogFilterListCloseSvg
@@ -486,7 +487,7 @@ html:root
 
     .catalogFilterListBdr .catalogFilterListCloseBdr
     {
-        display: flex;
+        display: block;
     }
 }
 
