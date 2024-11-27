@@ -372,6 +372,7 @@ html:root
 .catalogFilterListBdr .catalogFilterListBox
 {
     border-radius: var(--catalogHeadBoxItemDisplayRadius);
+    background-color: var(--catalogHeadBoxItemDisplayBcg);
 }
 
 .catalogFilterListBox .catalogFilterListCloseBdr
@@ -429,7 +430,7 @@ html:root
 
     .catalogFilterListItem:hover
     {
-        background-color: #2d2d2d;
+        background-color: #2f2f2f;
     }
 }
 
