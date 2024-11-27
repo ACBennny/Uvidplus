@@ -1901,14 +1901,8 @@
                         addToWLTimer = setTimeout(() => 
                         {
                             documentBody.removeChild(playListBdr);
-                            openAddToWLBtn.forEach(btn => 
-                            {
-                                btn.addEventListener("click" , () => 
-                                {
-                                    btn.disabled = false;
-                                });
-                            });
                             documentBody.classList.remove("bodystop");
+                            btn.disabled = false;
                             clearTimeout(addToWLTimer);
         
                         }, 300);
