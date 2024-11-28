@@ -582,7 +582,7 @@ html:root
     position: fixed;
     top: var(--wlModalBaseCloseMargin);
     left: 50%;
-    padding: 7px;
+    padding: calc((var(--wlModalBaseCloseMargin) / 2));
     font-size: 15px;
     border-radius: 50%;
     background-color: var(--userOrderBtnBcg);
@@ -994,7 +994,7 @@ html:root
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: calc((var(--wlModalBaseCloseHeight) + (var(--wlModalBaseCloseMargin) * 2))) 0 var(--wlModalBaseCloseMargin);
+    padding: calc((var(--wlModalBaseCloseHeight) + (var(--wlModalBaseCloseMargin) * 3))) 0 var(--wlModalBaseCloseMargin);
 }
 
 .wlModalCtnt_sortBox .wlModalCtnt_sortStatusBdr
