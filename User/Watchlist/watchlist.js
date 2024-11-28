@@ -1246,16 +1246,6 @@
     }
 
 
-    // Hides the WL Close Button on small screens (565px)
-    function hideWLModalBaseClose()
-    {
-        if((window.innerWidth <= 565))
-        {
-            wlModalBaseClose.classList.add("hide");
-        }
-    }
-
-
     // Attaches listener to let users view the full description of their watchlist
     function attachReadFullDescWLModalEventListeners()
     {
