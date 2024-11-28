@@ -607,11 +607,6 @@ html:root
     fill: var(--genWhiteTypeMid);
 }
 
-.wlModalBaseClose.hide
-{
-    display: none;
-}
-
 
 
 /* ------------ Header ----------- */
