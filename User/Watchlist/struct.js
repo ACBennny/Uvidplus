@@ -175,7 +175,19 @@
         <div class="wlModalBase">
             <div class="wlModalBdr">
                 <div class="wlModalBox">
-                    <div class="wlModalBaseClose">Close</div>
+                    <div class="wlModalBaseCloseBdr wlModalBaseClose">
+                        <div class="wlModalBaseCloseBox">
+                            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="wlModalBaseCloseSvg">
+                                <path fill-rule="evenodd" d="M15.488 4.43a.75.75 0 0 1 .081 1.058L9.988 12l5.581 6.512a.75.75 0 1 1-1.138.976l-6-7a.75.75 0 0 1 0-.976l6-7a.75.75 0 0 1 1.057-.081" clip-rule="evenodd" />
+                            </svg> 
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="wlModalBaseCloseSvg">
+                                <path fill-rule="evenodd" d="M4.43 8.512a.75.75 0 0 1 1.058-.081L12 14.012l6.512-5.581a.75.75 0 0 1 .976 1.138l-7 6a.75.75 0 0 1-.976 0l-7-6a.75.75 0 0 1-.081-1.057" clip-rule="evenodd" />
+                            </svg> -->
+                            <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="wlModalBaseCloseSvg">
+                                <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                            </svg>
+                        </div>
+                    </div>
                     <div class="wlModalHeadBase">
                         <div class="wlModalHeadBdr">
                             <div class="wlModalHead_underlayerBdr">
