@@ -335,6 +335,7 @@ html:root
     bottom: calc((0% - 10px));
     right: 0%;
     width: 200px;
+    max-height: 0;
     border-radius: 10px;
     background-color: var(--userOrderMenuBcg);
     opacity: 0;
@@ -348,6 +349,7 @@ html:root
 
 *[aria-expanded="true"] ~ .userOrderOptBdr
 {
+    max-height: inherit;
     opacity: 1;
     visibility: visible;
     pointer-events: all;
