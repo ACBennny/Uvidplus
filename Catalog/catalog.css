@@ -378,8 +378,9 @@ html:root
 .catalogFilterListBox .catalogFilterListCloseBdr
 {
     width: 100%;
-    height: calc((var(--navBarHeight) / 2));
+    height: calc((var(--navBarHeight) / 2)) !important;
     display: none;
+    z-index: 5;
 }
 
 .catalogFilterListCloseBdr .catalogFilterListCloseBox
@@ -410,7 +411,7 @@ html:root
 .catalogFilterListBox .catalogFilterListUL
 {
     width: 100%;
-    height: calc((100% - (var(--navBarHeight) / 2)));
+    height: calc((100% - (var(--navBarHeight) * 2)));
     display: flex;
     flex-direction: column;
     padding-bottom: 10px;

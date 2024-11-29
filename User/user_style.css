@@ -621,8 +621,9 @@ html:root
 
     .userOrderOptBdr .userOrderOptBox
     {
-        height: calc((100% - var(--navBarHeight)));
-        padding: 0;
+        height: fit-content;
+        max-height: calc((100% - var(--navBarHeight)));
+        padding: 0 0 10px;
         border-radius: 25px;
         border-bottom-left-radius: 0px;
         border-bottom-right-radius: 0px;
