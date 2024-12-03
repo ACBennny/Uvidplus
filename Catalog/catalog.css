@@ -369,6 +369,11 @@ html:root
     max-height: 325px;
 }
 
+*[aria-expanded="true"] ~ .userOrderOptBdr.catalogFilterListBdr
+{
+    max-height: 325px;
+}
+
 .catalogFilterListBdr .catalogFilterListBox
 {
     border-radius: var(--catalogHeadBoxItemDisplayRadius);
@@ -475,6 +480,11 @@ html:root
 
 @media only screen and (max-width: 565px)
 {
+
+    *[aria-expanded="true"] ~ .userOrderOptBdr.catalogFilterListBdr
+    {
+        max-height: none;
+    }
 
     .catalogFilterBdr .catalogFilterBox
     {
