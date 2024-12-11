@@ -317,7 +317,6 @@
 
         documentCtnt.insertAdjacentHTML(`afterbegin` , showHTMLCtnt);
         document.title = `Uvid • Watch ${thisHTMLData[0].show_title}`;
-        allImages();
 
         let seasonOverlaySelectorBox = document.querySelector(".seasons_selectorBox");
         let showType = thisHTMLData[0].show_type.toLowerCase();
