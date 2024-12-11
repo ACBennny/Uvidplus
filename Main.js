@@ -480,6 +480,40 @@
             </div>
         </div>
     `;
+    let navBarNotificationMainHTML = 
+    `
+        <div class="navBarNotificationMinor">
+            <div class="navBarNotificationHeaderBdr">
+                <div class="navBarNotificationHeaderBox">
+                    <button type="button" class="navBarNotificationHeaderBtn markAllNavBarNotificationsAsRead">
+                        <div class="navBarNotificationHeaderIconBox">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="navBarNotificationHeaderIconSvg">
+                                <path fill-rule="evenodd" d="M18.493 6.935a.75.75 0 0 1 .072 1.058l-7.857 9a.75.75 0 0 1-1.13 0l-3.143-3.6a.75.75 0 0 1 1.13-.986l2.578 2.953l7.292-8.353a.75.75 0 0 1 1.058-.072" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <p class="navBarNotificationHeaderText ">Mark all as read</p>
+                    </button>
+                </div>
+            </div>
+            <div class="navBarNotificationCtntBdr">
+                <div class="navBarNotificationCtntBox"></div>
+            </div>
+            <div class="navBarNotificationFooterBdr">
+                <a href="/User/Notification.html" class="navBarNotificationFooterBox">
+                    <p class="navBarNotificationFooterText">View all</p>
+                </a>
+            </div>
+        </div>
+    `;
+    let emptyNavBarNotificationBoxStruct = 
+    `
+        <div class="navBarNotificationCardBdr emptyNavBarNotification_box">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="emptyNavBarNotification_icon">
+                <path d="M58.9 42.1c3-6.1 9.6-9.6 16.3-8.7L320 64 564.8 33.4c6.7-.8 13.3 2.7 16.3 8.7l41.7 83.4c9 17.9-.6 39.6-19.8 45.1L439.6 217.3c-13.9 4-28.8-1.9-36.2-14.3L320 64 236.6 203c-7.4 12.4-22.3 18.3-36.2 14.3L37.1 170.6c-19.3-5.5-28.8-27.2-19.8-45.1L58.9 42.1zM321.1 128l54.9 91.4c14.9 24.8 44.6 36.6 72.5 28.6L576 211.6l0 167c0 22-15 41.2-36.4 46.6l-204.1 51c-10.2 2.6-20.9 2.6-31 0l-204.1-51C79 419.7 64 400.5 64 378.5l0-167L191.6 248c27.8 8 57.6-3.8 72.5-28.6L318.9 128l2.2 0z"/>
+            </svg>
+            <p class="emptyNavBarNotification_text">No new notifications</p>
+        </div>
+    `;
     const footerHTML = 
     `
         <div class="give_space"></div>
@@ -604,6 +638,15 @@
     let preNotifyTimer;
     let midNotifyTimer;
     let endNotifyTimer;
+    let navbarUnderlayer;
+    let navBarNotificationStatusNoBox;
+    let navBarNotificationTimer;
+    let openNavBarNotificationBtn;
+    let openSwitchProfBtn;
+    let switchProfScript;
+    let navBarSignOutBtn;
+    let accountSignOutTimer;
+    let openFeedBackForm;
 
 
 
@@ -740,59 +783,21 @@
             let sideNavLinks = document.querySelectorAll(".sideNavLinks");
             let btmNavLinks = document.querySelectorAll(".btmNavLinks");
             let newsNavLink = document.querySelectorAll(".newsNavLink");
-            let navbarUnderlayer = document.querySelector(".navbar_UnderLayer");
             let goToHomePage = document.querySelectorAll(".Companylogo");
             let goToFullScreenBtn = document.querySelectorAll(".goToFullScreenBtn");
-            let navBarNotificationStatusNoBox = document.querySelectorAll(".navBarNotificationStatusNo_box");
-            let navBarNotificationMainHTML = 
-            `
-                <div class="navBarNotificationMinor">
-                    <div class="navBarNotificationHeaderBdr">
-                        <div class="navBarNotificationHeaderBox">
-                            <button type="button" class="navBarNotificationHeaderBtn markAllNavBarNotificationsAsRead">
-                                <div class="navBarNotificationHeaderIconBox">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="navBarNotificationHeaderIconSvg">
-                                        <path fill-rule="evenodd" d="M18.493 6.935a.75.75 0 0 1 .072 1.058l-7.857 9a.75.75 0 0 1-1.13 0l-3.143-3.6a.75.75 0 0 1 1.13-.986l2.578 2.953l7.292-8.353a.75.75 0 0 1 1.058-.072" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <p class="navBarNotificationHeaderText ">Mark all as read</p>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="navBarNotificationCtntBdr">
-                        <div class="navBarNotificationCtntBox"></div>
-                    </div>
-                    <div class="navBarNotificationFooterBdr">
-                        <a href="/User/Notification.html" class="navBarNotificationFooterBox">
-                            <p class="navBarNotificationFooterText">View all</p>
-                        </a>
-                    </div>
-                </div>
-            `;
-            let emptyNavBarNotificationBoxStruct = 
-            `
-                <div class="navBarNotificationCardBdr emptyNavBarNotification_box">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="emptyNavBarNotification_icon">
-                        <path d="M58.9 42.1c3-6.1 9.6-9.6 16.3-8.7L320 64 564.8 33.4c6.7-.8 13.3 2.7 16.3 8.7l41.7 83.4c9 17.9-.6 39.6-19.8 45.1L439.6 217.3c-13.9 4-28.8-1.9-36.2-14.3L320 64 236.6 203c-7.4 12.4-22.3 18.3-36.2 14.3L37.1 170.6c-19.3-5.5-28.8-27.2-19.8-45.1L58.9 42.1zM321.1 128l54.9 91.4c14.9 24.8 44.6 36.6 72.5 28.6L576 211.6l0 167c0 22-15 41.2-36.4 46.6l-204.1 51c-10.2 2.6-20.9 2.6-31 0l-204.1-51C79 419.7 64 400.5 64 378.5l0-167L191.6 248c27.8 8 57.6-3.8 72.5-28.6L318.9 128l2.2 0z"/>
-                    </svg>
-                    <p class="emptyNavBarNotification_text">No new notifications</p>
-                </div>
-            `;
-            let navBarNotificationTimer;
             let openNavProfOptBtn = document.querySelectorAll(".open_nav_profileOptions");
             let navProfileOptionsBdr = document.querySelector(".navBarProfileOptBdr");
             let navProfileOptionsBox = document.querySelector(".navBarProfileOptBox");
             let openNavProfOptTimer;
-            let openFeedBackForm = document.querySelectorAll(".openFeedBackForm");
-            let navBarSignOutBtn = document.querySelector(".navBarSignOutBtn");
-            let accountSignOutTimer;
             let locationOrigin;
-            let openNavBarNotificationBtn = document.querySelectorAll(".openNavNotify");
             let backtotopBtn = document.querySelectorAll(".backtotop_btn");
             let developerProfile = document.querySelectorAll(".developer_profile");
-            let openSwitchProfBtn = document.querySelector(".open_switchProf");
-            let switchProfScript;
-            let allLinks = document.querySelectorAll("a");
+            openFeedBackForm = document.querySelectorAll(".openFeedBackForm");
+            navBarSignOutBtn = document.querySelector(".navBarSignOutBtn");
+            navbarUnderlayer = document.querySelector(".navbar_UnderLayer");
+            navBarNotificationStatusNoBox = document.querySelectorAll(".navBarNotificationStatusNo_box");
+            openNavBarNotificationBtn = document.querySelectorAll(".openNavNotify");
+            openSwitchProfBtn = document.querySelector(".open_switchProf");
 
 
         // DOCUMENT (WINDOW)
@@ -833,28 +838,6 @@
                     document.querySelector(".goToFullScreenBtn.isFullScreen").classList.remove("isFullScreen");
                 }
             });
-
-
-
-        // NAVBAR UNDERLAYER
-
-            function toggleNavBarUnderLayer()
-            {
-                document.body.classList.toggle("bodystop");
-                navbarUnderlayer.classList.toggle("active");
-            }
-
-            function addNavBarUnderLayer()
-            {
-                document.body.classList.add("bodystop");
-                navbarUnderlayer.classList.add("active");
-            }
-
-            function removeNavBarUnderLayer()
-            {
-                document.body.classList.remove("bodystop");
-                navbarUnderlayer.classList.remove("active");
-            }
 
 
 
@@ -951,13 +934,6 @@
             });
 
             // Signing Out of your Account
-            function accountSignOut()
-            {
-                notification(`notifyBad` , `Signing Out`);
-                toggleNavBarUnderLayer();
-
-                accountSignOutTimer = setTimeout(() => window.open(`/` , `_self`), 3000);
-            }
             navBarSignOutBtn.addEventListener("click" , accountSignOut);
 
 
@@ -1015,236 +991,6 @@
 
 
 
-        // NAVBAR  NOTIFICATIONS
-
-            function instantiateNavBarNotificationMenu()
-            {
-                // The border holding the elements of the notification box
-                const navBarNotificationMain = document.createElement("div");
-                navBarNotificationMain.classList.add("navBarNotificationMain");
-                navBarNotificationMain.classList.add("navBarMenuFixed");
-
-                // The Notification Bar Structure
-                navBarNotificationMain.innerHTML = navBarNotificationMainHTML;
-
-                // Append the fragment to navBarRightCtnt of the navbar
-                documentBody.appendChild(navBarNotificationMain);
-                let navBarNotificationCtntBox = document.querySelector(".navBarNotificationCtntBox");
-
-                // Fetch the Notifications
-                let notificationLibraryScriptId = document.querySelector("#notificationLibraryScriptId");
-                if((notificationLibraryScriptId == undefined))
-                {
-                    let notificationLibraryScriptTag = document.createElement("script");
-                    notificationLibraryScriptTag.setAttribute(`id` , `notificationLibraryScriptId`);
-                    notificationLibraryScriptTag.setAttribute(`src` , `/User/Notification/library.js`);
-                    document.body.appendChild(notificationLibraryScriptTag);
-    
-                    notificationLibraryScriptTag.addEventListener("load" , () => 
-                    {
-                        fetchNavBarNotifications();
-                    });
-                    notificationLibraryScriptTag.onerror = function() 
-                    {
-                        errorLoadingNavBarNotifications();
-                    };
-                }
-                else
-                {
-                    fetchNavBarNotifications();
-                }
-
-                // For error events
-                function errorLoadingNavBarNotifications()
-                {
-                    notification(`notifyBad` , `An error occurred while loading notifications`);
-                    openNavBarNotificationBtn.forEach((btn) => 
-                    {
-                        btn.addEventListener("click" , failedLoadErrorMsg);
-                    });
-                }
-  
-                function fetchNavBarNotifications()
-                {
-                    // Check if content of library is available
-                    if(((notificationInventory == undefined) || (notificationInventory.length <= 0)))
-                    {
-                        errorLoadingNavBarNotifications();
-                        return;
-                    }
-
-                    // If available, insert the new notifications
-                    for(let i = 0; i < notificationInventory.length; i++)
-                    {
-                        const item = notificationInventory[i];
-                        const notificationCardStruct = 
-                        `
-                            <a href="${item.notify_actionLink}" title="${item.notify_actionText}" class="navBarNotificationCardBdr">
-                                <div class="navBarNotificationCardBox">
-                                    <div class="navBarNotificationCard_ImgBdr">
-                                        <div class="navBarNotificationCard_ImgBox">
-                                            <img src="${item.notify_thumbnail}" alt="The thumbnail image of the '${item.notify_mainTopic}' notification"  class="navBarNotificationCard_ImgSrc">
-                                        </div>
-                                    </div>
-                                    <div class="navBarNotificationCard_DetBdr">
-                                        <div class="navBarNotificationCard_DetBox">
-                                            <div class="navBarNotificationCard_MainTopicBdr">
-                                                <div class="navBarNotificationCard_MainTopicBox">
-                                                    <div class="navBarNotificationCard_MainTopicText">${item.notify_mainTopic}</div>
-                                                </div>
-                                            </div>
-                                            <div class="navBarNotificationCard_SubTopicBdr">
-                                                <div class="navBarNotificationCard_SubTopicBox">
-                                                    <p class="navBarNotificationCard_SubTopicText">${item.notify_subTopic}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        `;
-                        navBarNotificationCtntBox.insertAdjacentHTML('beforeend', notificationCardStruct);
-                    }
-                    let navBarNotificationCardBdr = document.querySelectorAll(".navBarNotificationCardBdr");
-
-                    // Make The Status number visible
-                    navBarNotificationStatusNoBox.forEach((box) => 
-                    {
-                        box.classList.add("active");
-                        let navBarNotificationStatusNoText = box.querySelector(".navBarNotificationStatusNo_text");
-
-                        // Update the notification status
-                        navBarNotificationStatusNoText.textContent = navBarNotificationCardBdr.length;
-                    });
-
-                    // Add listener for "Mark all as read" button
-                    let markAllNavBarNotificationsAsRead = document.querySelector(".markAllNavBarNotificationsAsRead");
-                    markAllNavBarNotificationsAsRead.addEventListener("click" , () => 
-                    {
-                        // Disable the button
-                        markAllNavBarNotificationsAsRead.disabled = true;
-
-                        // Remove the notification status no.
-                        navBarNotificationStatusNoBox.forEach((box) => 
-                        {
-                            box.classList.remove("active");
-                            let navBarNotificationStatusNoText = box.querySelector(".navBarNotificationStatusNo_text");
-    
-                            // Update the notification status
-                            navBarNotificationStatusNoText.textContent = "";
-                        });
-
-                        // Remove all Notifications
-                        navBarNotificationCardBdr.forEach((bdr) => 
-                        {
-                            bdr.remove();
-                        });
-
-                        // Insert the default notification
-                        navBarNotificationCtntBox.insertAdjacentHTML('beforeend' , emptyNavBarNotificationBoxStruct);
-
-                        // Recalibrate the Menu
-                        caliberateNavBarNotificationsMenu();
-
-                        notification(`notifyGood` , `All notifications marked as read`);
-                    });
-
-                    // Calibrate the Menu
-                    caliberateNavBarNotificationsMenu();
-
-                    // Add Listener to view the Notifications
-                    openNavBarNotificationBtn.forEach((btn) => 
-                    {
-                        btn.addEventListener("click" , openNavBarNotificationMenu);
-                    });
-                }
-
-                // Menu Sizing Calibration
-                function caliberateNavBarNotificationsMenu()
-                {
-                    let menuHeader = document.querySelector(".navBarNotificationHeaderBdr");
-                    let menuHeaderRect = menuHeader.getBoundingClientRect();
-                    let menuHeaderHeight = menuHeaderRect.height;
-                    let menuFooter = document.querySelector(".navBarNotificationFooterBdr");
-                    let menuFooterRect = menuFooter.getBoundingClientRect();
-                    let menuFooterHeight = menuFooterRect.height;
-                    let menuCtntBoxRect = navBarNotificationCtntBox.getBoundingClientRect();
-                    let menuCtntBoxHeight = menuCtntBoxRect.height;
-                    let menuFinalHeight = Math.ceil((menuHeaderHeight + menuFooterHeight + menuCtntBoxHeight));
-
-                    navBarNotificationMain.setAttribute(`style` , `--navBarNotificaionsMenuHeight:${menuFinalHeight}px`)
-                }
-
-                // Opens the Notification Box
-                function openNavBarNotificationMenu()
-                {
-                    // change active state of the notification icon
-                    openNavBarNotificationBtn.forEach((btn) => 
-                    {
-                        btn.classList.add("notify_atv");
-                        btn.removeEventListener("click" , openNavBarNotificationMenu);
-                    });
-
-                    // Slides in the Notification box
-                    navBarNotificationMain.classList.add("notify_atv");
-                    toggleNavBarUnderLayer();
-
-                    // Preset to close the NavBar Notifications
-                    navBarNotificationTimer = setTimeout(() => 
-                    {
-                        document.addEventListener("click" , closeNavBarNotificationMenu);
-                        clearTimeout(navBarNotificationTimer);
-                    },100);
-                    
-                }
-
-                // Closes the Notification box
-                function closeNavBarNotificationMenu()
-                {
-                    if((!(navBarNotificationMain.matches(":hover"))))
-                    {
-                        document.removeEventListener("click" , closeNavBarNotificationMenu);
-
-                        // Add the function to open the Notifications and change active state 
-                        openNavBarNotificationBtn.forEach((btn) => 
-                        {
-                            btn.classList.remove("notify_atv");
-                            btn.addEventListener("click" , openNavBarNotificationMenu);
-                        });
-                        toggleNavBarUnderLayer();
-
-                        // Removes style classes
-                        navBarNotificationMain.classList.remove("notify_atv");
-                    }
-                }
-            }
-            instantiateNavBarNotificationMenu();
-
-      
-
-        // SWITCH PROFILES
-
-            function insertSwitchProfJS()
-            {
-                switchProfScript = document.createElement('script');
-                switchProfScript.setAttribute(`src` , `/SwitchProf.js`);
-                switchProfScript.setAttribute(`id` , `switchProfScriptID`);
-
-                switchProfScript.addEventListener("load" , () => 
-                {
-                    openSwitchProfBtn.addEventListener("click" , loadProfInfo);
-                });
-                switchProfScript.onerror = function() 
-                {
-                    notification(`notifyBad` , `An error occurred during loading`);
-                    openSwitchProfBtn.addEventListener("click" , failedLoadErrorMsg);
-                };
-                document.body.appendChild(switchProfScript);
-            }
-            insertSwitchProfJS();
-
-
-
         // DEVELOPER'S PROFILE
 
             developerProfile.forEach(dev => 
@@ -1289,27 +1035,10 @@
             });
 
 
+        // COMPONENTS
 
-        // ALL LINKS
-
-            allLinks.forEach(link => 
-            {
-
-                // Sets rel to "no-referrer" if it hasn't been set.
-                if(link.rel.valueOf() == "")
-                {
-                    link.rel = "noopener no-referrer";
-                }
-
-                // Prevents user select and draggable
-                link.style.userSelect = "none";
-                link.draggable = false;
-            });
-
-
-        // ATTACHMENTS
-
-            allImages();
+            insertSwitchProfJS();
+            instantiateNavBarNotificationMenu();
             preQuickSearch();
             attachAddToWLEventListeners();
             attachSharePageEventListeners();
@@ -1549,48 +1278,269 @@
                 filterQuickSearchInput();
             });
         }
+
+
         
+    // NAVBAR UNDERLAYER
 
-
-    // ALL IMAGES
-            
-        function allImages()
+        function toggleNavBarUnderLayer()
         {
-            let allImg = document.querySelectorAll('img');
-            let allImgTags = document.querySelectorAll('.allImgTags');
-            
-            allImg.forEach(eachImg => 
-            {
-                
-                // Remove filter once image has loaded
-                eachImg.style.filter = "blur(0px)";
-                eachImg.style.animation = "none";
-    
-                // Prevents User from dragging Images
-                eachImg.draggable = false;
-    
-                // Sets the alt text to image if none is set
-                if(eachImg.alt.valueOf() == "")
-                {
-                    eachImg.alt = "image";
-                }
-                
-            });
-    
-            allImgTags.forEach(eachImg => 
-            {
-    
-                // Remove filter once image has loaded
-                eachImg.addEventListener("load" , () => 
-                {
-                    eachImg.style.filter = "blur(0px)";
-                    if (eachImg.style.filter == "blur(0px)")
-                    {
-                        return;
-                    }
-                });
-            });
+            document.body.classList.toggle("bodystop");
+            navbarUnderlayer.classList.toggle("active");
         }
+
+        function addNavBarUnderLayer()
+        {
+            document.body.classList.add("bodystop");
+            navbarUnderlayer.classList.add("active");
+        }
+
+        function removeNavBarUnderLayer()
+        {
+            document.body.classList.remove("bodystop");
+            navbarUnderlayer.classList.remove("active");
+        }
+
+
+
+    // NAVBAR  NOTIFICATIONS
+
+        function instantiateNavBarNotificationMenu()
+        {
+            // The border holding the elements of the notification box
+            const navBarNotificationMain = document.createElement("div");
+            navBarNotificationMain.classList.add("navBarNotificationMain");
+            navBarNotificationMain.classList.add("navBarMenuFixed");
+
+            // The Notification Bar Structure
+            navBarNotificationMain.innerHTML = navBarNotificationMainHTML;
+
+            // Append the fragment to navBarRightCtnt of the navbar
+            documentBody.appendChild(navBarNotificationMain);
+            let navBarNotificationCtntBox = document.querySelector(".navBarNotificationCtntBox");
+
+            // Fetch the Notifications
+            let notificationLibraryScriptId = document.querySelector("#notificationLibraryScriptId");
+            if((notificationLibraryScriptId == undefined))
+            {
+                let notificationLibraryScriptTag = document.createElement("script");
+                notificationLibraryScriptTag.setAttribute(`id` , `notificationLibraryScriptId`);
+                notificationLibraryScriptTag.setAttribute(`src` , `/User/Notification/library.js`);
+                document.body.appendChild(notificationLibraryScriptTag);
+
+                notificationLibraryScriptTag.addEventListener("load" , () => 
+                {
+                    fetchNavBarNotifications();
+                });
+                notificationLibraryScriptTag.onerror = function() 
+                {
+                    errorLoadingNavBarNotifications();
+                };
+            }
+            else
+            {
+                fetchNavBarNotifications();
+            }
+
+            // For error events
+            function errorLoadingNavBarNotifications()
+            {
+                notification(`notifyBad` , `An error occurred while loading notifications`);
+                openNavBarNotificationBtn.forEach((btn) => 
+                {
+                    btn.addEventListener("click" , failedLoadErrorMsg);
+                });
+            }
+
+            function fetchNavBarNotifications()
+            {
+                // Check if content of library is available
+                if(((notificationInventory == undefined) || (notificationInventory.length <= 0)))
+                {
+                    errorLoadingNavBarNotifications();
+                    return;
+                }
+
+                // If available, insert the new notifications
+                for(let i = 0; i < notificationInventory.length; i++)
+                {
+                    const item = notificationInventory[i];
+                    const notificationCardStruct = 
+                    `
+                        <a href="${item.notify_actionLink}" title="${item.notify_actionText}" class="navBarNotificationCardBdr">
+                            <div class="navBarNotificationCardBox">
+                                <div class="navBarNotificationCard_ImgBdr">
+                                    <div class="navBarNotificationCard_ImgBox">
+                                        <img src="${item.notify_thumbnail}" alt="The thumbnail image of the '${item.notify_mainTopic}' notification"  class="navBarNotificationCard_ImgSrc">
+                                    </div>
+                                </div>
+                                <div class="navBarNotificationCard_DetBdr">
+                                    <div class="navBarNotificationCard_DetBox">
+                                        <div class="navBarNotificationCard_MainTopicBdr">
+                                            <div class="navBarNotificationCard_MainTopicBox">
+                                                <div class="navBarNotificationCard_MainTopicText">${item.notify_mainTopic}</div>
+                                            </div>
+                                        </div>
+                                        <div class="navBarNotificationCard_SubTopicBdr">
+                                            <div class="navBarNotificationCard_SubTopicBox">
+                                                <p class="navBarNotificationCard_SubTopicText">${item.notify_subTopic}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    `;
+                    navBarNotificationCtntBox.insertAdjacentHTML('beforeend', notificationCardStruct);
+                }
+                let navBarNotificationCardBdr = document.querySelectorAll(".navBarNotificationCardBdr");
+
+                // Make The Status number visible
+                navBarNotificationStatusNoBox.forEach((box) => 
+                {
+                    box.classList.add("active");
+                    let navBarNotificationStatusNoText = box.querySelector(".navBarNotificationStatusNo_text");
+
+                    // Update the notification status
+                    navBarNotificationStatusNoText.textContent = navBarNotificationCardBdr.length;
+                });
+
+                // Add listener for "Mark all as read" button
+                let markAllNavBarNotificationsAsRead = document.querySelector(".markAllNavBarNotificationsAsRead");
+                markAllNavBarNotificationsAsRead.addEventListener("click" , () => 
+                {
+                    // Disable the button
+                    markAllNavBarNotificationsAsRead.disabled = true;
+
+                    // Remove the notification status no.
+                    navBarNotificationStatusNoBox.forEach((box) => 
+                    {
+                        box.classList.remove("active");
+                        let navBarNotificationStatusNoText = box.querySelector(".navBarNotificationStatusNo_text");
+
+                        // Update the notification status
+                        navBarNotificationStatusNoText.textContent = "";
+                    });
+
+                    // Remove all Notifications
+                    navBarNotificationCardBdr.forEach((bdr) => 
+                    {
+                        bdr.remove();
+                    });
+
+                    // Insert the default notification
+                    navBarNotificationCtntBox.insertAdjacentHTML('beforeend' , emptyNavBarNotificationBoxStruct);
+
+                    // Recalibrate the Menu
+                    caliberateNavBarNotificationsMenu();
+
+                    notification(`notifyGood` , `All notifications marked as read`);
+                });
+
+                // Calibrate the Menu
+                caliberateNavBarNotificationsMenu();
+
+                // Add Listener to view the Notifications
+                openNavBarNotificationBtn.forEach((btn) => 
+                {
+                    btn.addEventListener("click" , openNavBarNotificationMenu);
+                });
+            }
+
+            // Menu Sizing Calibration
+            function caliberateNavBarNotificationsMenu()
+            {
+                let menuHeader = document.querySelector(".navBarNotificationHeaderBdr");
+                let menuHeaderRect = menuHeader.getBoundingClientRect();
+                let menuHeaderHeight = menuHeaderRect.height;
+                let menuFooter = document.querySelector(".navBarNotificationFooterBdr");
+                let menuFooterRect = menuFooter.getBoundingClientRect();
+                let menuFooterHeight = menuFooterRect.height;
+                let menuCtntBoxRect = navBarNotificationCtntBox.getBoundingClientRect();
+                let menuCtntBoxHeight = menuCtntBoxRect.height;
+                let menuFinalHeight = Math.ceil((menuHeaderHeight + menuFooterHeight + menuCtntBoxHeight));
+
+                navBarNotificationMain.setAttribute(`style` , `--navBarNotificaionsMenuHeight:${menuFinalHeight}px`)
+            }
+
+            // Opens the Notification Box
+            function openNavBarNotificationMenu()
+            {
+                // change active state of the notification icon
+                openNavBarNotificationBtn.forEach((btn) => 
+                {
+                    btn.classList.add("notify_atv");
+                    btn.removeEventListener("click" , openNavBarNotificationMenu);
+                });
+
+                // Slides in the Notification box
+                navBarNotificationMain.classList.add("notify_atv");
+                toggleNavBarUnderLayer();
+
+                // Preset to close the NavBar Notifications
+                navBarNotificationTimer = setTimeout(() => 
+                {
+                    document.addEventListener("click" , closeNavBarNotificationMenu);
+                    clearTimeout(navBarNotificationTimer);
+                },100);
+                
+            }
+
+            // Closes the Notification box
+            function closeNavBarNotificationMenu()
+            {
+                if((!(navBarNotificationMain.matches(":hover"))))
+                {
+                    document.removeEventListener("click" , closeNavBarNotificationMenu);
+
+                    // Add the function to open the Notifications and change active state 
+                    openNavBarNotificationBtn.forEach((btn) => 
+                    {
+                        btn.classList.remove("notify_atv");
+                        btn.addEventListener("click" , openNavBarNotificationMenu);
+                    });
+                    toggleNavBarUnderLayer();
+
+                    // Removes style classes
+                    navBarNotificationMain.classList.remove("notify_atv");
+                }
+            }
+        }
+
+      
+
+    // SWITCH PROFILES
+
+        function insertSwitchProfJS()
+        {
+            switchProfScript = document.createElement('script');
+            switchProfScript.setAttribute(`src` , `/SwitchProf.js`);
+            switchProfScript.setAttribute(`id` , `switchProfScriptID`);
+
+            switchProfScript.addEventListener("load" , () => 
+            {
+                openSwitchProfBtn.addEventListener("click" , loadProfInfo);
+            });
+            switchProfScript.onerror = function() 
+            {
+                notification(`notifyBad` , `An error occurred during loading`);
+                openSwitchProfBtn.addEventListener("click" , failedLoadErrorMsg);
+            };
+            document.body.appendChild(switchProfScript);
+        }
+
+
+
+    // SIGNING OUT (TO DO: Add confirmation modal)
+
+        function accountSignOut()
+        {
+            notification(`notifyBad` , `Signing Out`);
+            toggleNavBarUnderLayer();
+
+            accountSignOutTimer = setTimeout(() => window.open(`/` , `_self`), 3000);
+        }
+
 
 
     // ADD TO WATCHLIST
