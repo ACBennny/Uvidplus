@@ -136,7 +136,7 @@ html:root
     background: -webkit-linear-gradient(to bottom, #000000fe, #000000ef, #000000dc, #000000cd, #00000050, #00000000);
     background: linear-gradient(to bottom, #000000fe, #000000ef, #000000dc, #000000cd, #00000050, #00000000);
     transition: 0ms;
-    z-index: 90;
+    z-index: 50;
 }
 
 .schedule_selBdr .schedule_selBox
