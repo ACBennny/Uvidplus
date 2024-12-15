@@ -1,5 +1,5 @@
 /*************************************************************
- * This holds all the svg icons on the app
+ * This holds all the svg icons in the app
  * 
  * @author (Anyanwu Benedict Chukwuemeka)
  * @version (v0.01)
