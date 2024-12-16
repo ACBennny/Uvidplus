@@ -8,7 +8,7 @@
 
 // VARIABLES DECLARATION
 
-    let scheduleMobileWidth = 768;
+    let scheduleMobileWidth = winWidth768;
     let scheduleMobileCondition;
     let lastScroll = 0;
     let boxErrorMargin = 10;
