@@ -32,6 +32,7 @@
     let genMenuModalBox;
     let genMenuModalCtntBdr;
     let openGenMenuModalBtnTimer;
+    let genAtnModalBoxDragDist = 10;
     let genMenuModalIsDragging = false
     let genMenuBoxStartY = 0;
     let startGenMenuBoxHeight = 0;
@@ -2400,8 +2401,6 @@
 
             startGenMenuBoxHeight = parseInt(genMenuModalBox.offsetHeight);
 
-            genMenuModalBox = document.querySelector(".genMenuModalBox");
-
             genMenuModalBox.addEventListener("mousedown", startDraggingGenMenuModal);
             document.addEventListener("mousemove", currDraggingGenMenuModal);
             document.addEventListener("mouseup", stopDraggingGenMenuModal);
@@ -2431,6 +2430,7 @@
         // Sets initial drag position, genMenuModalBox height and adds isDragging class to the menu modal bdr
         const startDraggingGenMenuModal = (e) => 
         {
+            if(Math.round(genMenuModalBox.scrollTop) > 0) return;
             genMenuModalIsDragging = true;
             genMenuBoxStartY = e.pageY || e.touches?.[0].pageY;
             startGenMenuBoxHeight = parseInt(genMenuModalBox.offsetHeight);
@@ -2438,7 +2438,6 @@
         }
 
         // Calculates the new height for the menu modal box and calls the updateGenMenuModalBoxHeight function
-        let genAtnModalBoxDragDist = 10;
         const currDraggingGenMenuModal = (e) => 
         {
             if(!genMenuModalIsDragging) return;
