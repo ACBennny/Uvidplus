@@ -2454,6 +2454,7 @@
         const currDraggingGenMenuModal = (e) => 
         {
             if(!genMenuModalIsDragging) return;
+            e.preventDefault();
 
             const genMenuBoxDeltaY = (e.pageY || e.touches?.[0].pageY);
             let newGenMenuBoxHeight = (startGenMenuBoxHeight + genMenuBoxStartY) - genMenuBoxDeltaY;
