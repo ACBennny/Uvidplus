@@ -2371,7 +2371,7 @@
         function callHideGenMenuModal(event)
         {
             if(
-                !event.target.closest(".openGenMenuModalBtn") &&
+                !event.target.closest(".openGenMenuModalBtn")
                 // !event.target.closest(".genMenuModalBox")
             )
             {
