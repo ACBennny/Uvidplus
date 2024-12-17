@@ -26,6 +26,7 @@
     let winWidth768 = 768;
     let winWidth565 = 565;
     let winWidth485 = 485;
+    let winScrollPos = null;
     let currOpenGenMenuModalBtnIndex = null;
     let genMenuModalMap;
     let genMenuModalBdr;
@@ -2443,6 +2444,11 @@
         // Sets initial drag position, genMenuModalBox height and adds isDragging class to the menu modal bdr
         const startDraggingGenMenuModal = (e) => 
         {
+            if (document.body.getAttribute("gen-menu-modal-is-dragging") === "true") 
+            {
+                // Record current scroll position
+                winScrollPos = window.scrollY;
+            }
             if(Math.round(genMenuModalBox.scrollTop) > 0) return;
             genMenuModalIsDragging = true;
             genMenuBoxStartY = e.pageY || e.touches?.[0].pageY;
@@ -2455,6 +2461,8 @@
         {
             if(!genMenuModalIsDragging) return;
             e.preventDefault();
+
+            window.scrollTo(0, winScrollPos);
 
             const genMenuBoxDeltaY = (e.pageY || e.touches?.[0].pageY);
             let newGenMenuBoxHeight = (startGenMenuBoxHeight + genMenuBoxStartY) - genMenuBoxDeltaY;
