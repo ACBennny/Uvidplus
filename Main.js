@@ -2419,7 +2419,7 @@
         // Recalibrates the menu modal box height when screen size/orientation changes
         function calibrateGenMenuModalBoxHeight()
         {
-            updateGenMenuModalBoxHeight(genMenuModalBox.ScrollHeight);
+            genMenuModalBox.style.height = "fit-content";
         }
 
         // Updates the height of the menu modal box
@@ -2454,7 +2454,6 @@
         const currDraggingGenMenuModal = (e) => 
         {
             if(!genMenuModalIsDragging) return;
-            e.preventDefault();
 
             const genMenuBoxDeltaY = (e.pageY || e.touches?.[0].pageY);
             let newGenMenuBoxHeight = (startGenMenuBoxHeight + genMenuBoxStartY) - genMenuBoxDeltaY;
