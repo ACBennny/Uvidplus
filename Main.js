@@ -32,7 +32,6 @@
     let genMenuModalBox;
     let genMenuModalCtntBdr;
     let openGenMenuModalBtnTimer;
-    let genMenuModalDragIcon;
     let genMenuModalIsDragging = false
     let genMenuBoxStartY = 0;
     let startGenMenuBoxHeight = 0;
@@ -2354,6 +2353,7 @@
         function hideGenMenuModal()
         {
             document.removeEventListener("click" , callHideGenMenuModal);
+            removeGenModalDragging();
 
             genMenuModalBdr.setAttribute("aria-expanded" , "false");
             genMenuModalBdr.addEventListener("transitionend", function handleTransitionEnd()
@@ -2381,16 +2381,13 @@
             updateGenMenuModalBoxHeight("reset");
 
             genMenuModalBox.removeEventListener("mousedown", startDraggingGenMenuModal);
-            genMenuModalDragIcon.removeEventListener("mousedown", startDraggingGenMenuModal);
             document.removeEventListener("mousemove", currDraggingGenMenuModal);
             document.removeEventListener("mouseup", stopDraggingGenMenuModal);
 
             genMenuModalBox.removeEventListener("touchstart", startDraggingGenMenuModal);
-            genMenuModalDragIcon.removeEventListener("touchstart", startDraggingGenMenuModal);
             document.removeEventListener("touchmove", currDraggingGenMenuModal);
             document.removeEventListener("touchend", stopDraggingGenMenuModal);
 
-            hideGenMenuModal();
         }
 
         // Initializes the dragging functionality
@@ -2399,16 +2396,15 @@
             // Only works for devices of width smaller than the specified
             if(window.innerWidth > winWidth768) return;
 
+            startGenMenuBoxHeight = parseInt(genMenuModalBox.offsetHeight);
+
             genMenuModalBox = document.querySelector(".genMenuModalBox");
-            genMenuModalDragIcon = document.querySelector(".genMenuModalDragHandleIcon");
 
             genMenuModalBox.addEventListener("mousedown", startDraggingGenMenuModal);
-            genMenuModalDragIcon.addEventListener("mousedown", startDraggingGenMenuModal);
             document.addEventListener("mousemove", currDraggingGenMenuModal);
             document.addEventListener("mouseup", stopDraggingGenMenuModal);
 
             genMenuModalBox.addEventListener("touchstart", startDraggingGenMenuModal);
-            genMenuModalDragIcon.addEventListener("touchstart", startDraggingGenMenuModal);
             document.addEventListener("touchmove", currDraggingGenMenuModal);
             document.addEventListener("touchend", stopDraggingGenMenuModal);
         }
@@ -2424,6 +2420,8 @@
                     clearTimeout(genMenuModalBoxHeightTimer);
                     genMenuModalBox.style.height = "fit-content";
                 }, 150);
+                
+                return;
             }
             genMenuModalBox.style.height = `${height}px`;
         }
@@ -2445,8 +2443,8 @@
 
             const genMenuBoxDeltaY = (e.pageY || e.touches?.[0].pageY);
             let newGenMenuBoxHeight = (startGenMenuBoxHeight + genMenuBoxStartY) - genMenuBoxDeltaY;
-            currGenMenuBoxHeight = newGenMenuBoxHeight
-            currGenMenuBoxHeight < startGenMenuBoxHeight ? updateGenMenuModalBoxHeight(currGenMenuBoxHeight) : startGenMenuBoxHeight;
+            currGenMenuBoxHeight = newGenMenuBoxHeight;
+            currGenMenuBoxHeight < startGenMenuBoxHeight ? updateGenMenuModalBoxHeight(currGenMenuBoxHeight) : updateGenMenuModalBoxHeight(startGenMenuBoxHeight);
         
             // Prevent the cards from being clicked while dragging 
             if(((Math.abs(genMenuBoxDeltaY - genMenuBoxStartY) > genAtnModalBoxDragDist)))
@@ -2466,7 +2464,7 @@
             genMenuModalBdr.classList.remove("isDragging");
             genMenuModalBox.classList.remove("disableClicks");
             const menuModalBoxH = parseInt(genMenuModalBox.style.height);
-            menuModalBoxH < Math.round((startGenMenuBoxHeight * 0.75)) ? removeGenModalDragging() : updateGenMenuModalBoxHeight(startGenMenuBoxHeight);
+            menuModalBoxH < Math.round((startGenMenuBoxHeight * 0.75)) ? hideGenMenuModal() : updateGenMenuModalBoxHeight(startGenMenuBoxHeight);
         }
 
         // Attaches listener for calling the menu modals
