@@ -26,6 +26,7 @@
     let wlBodySortTabIndex = 0;
     let userWLCatalog_ItemBase;
     let currCatalogItemBase;
+    let wlModalMap;
     let wlModalCurrIndex;
     let wlModalBaseClose;
     let wlModalHeaderBcgImg;
@@ -768,6 +769,15 @@
         
         // Call the function for operating the menu modals
         attachMenuModalEventListeners();
+
+        // Preprocess searchInventory into a Map for the WL Modal
+        wlModalMap = new Map(
+            searchInventory.map(item => 
+            {
+                const invShowLinkLC = item.show_link.substring(item.show_link.indexOf('=') + 1).toLowerCase();
+                return [invShowLinkLC, item];
+            })
+        );
     }
     
 
@@ -869,15 +879,6 @@
 
 // WATCHLIST MODAL
 
-
-    // Preprocess searchInventory into a Map for the WL Modal
-    const wlModalMap = new Map(
-        searchInventory.map(item => 
-        {
-            const invShowLinkLC = item.show_link.substring(item.show_link.indexOf('=') + 1).toLowerCase();
-            return [invShowLinkLC, item];
-        })
-    );
 
     // Opens the modal containing the info for a single watchlist
     function openWLModal(index)
