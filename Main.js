@@ -2391,6 +2391,9 @@
             document.removeEventListener("touchmove", currDraggingGenMenuModal);
             document.removeEventListener("touchend", stopDraggingGenMenuModal);
 
+            window.removeEventListener("resize" , calibrateGenMenuModalBoxHeight);
+            window.removeEventListener("change" , calibrateGenMenuModalBoxHeight);
+
         }
 
         // Initializes the dragging functionality
@@ -2408,6 +2411,15 @@
             genMenuModalBox.addEventListener("touchstart", startDraggingGenMenuModal);
             document.addEventListener("touchmove", currDraggingGenMenuModal);
             document.addEventListener("touchend", stopDraggingGenMenuModal);
+
+            window.addEventListener("resize" , calibrateGenMenuModalBoxHeight);
+            window.addEventListener("change" , calibrateGenMenuModalBoxHeight);
+        }
+
+        // Recalibrates the menu modal box height when screen size/orientation changes
+        function calibrateGenMenuModalBoxHeight()
+        {
+            updateGenMenuModalBoxHeight(genMenuModalBox.ScrollHeight);
         }
 
         // Updates the height of the menu modal box
@@ -2421,10 +2433,11 @@
                     clearTimeout(genMenuModalBoxHeightTimer);
                     genMenuModalBox.style.height = "fit-content";
                 }, 150);
-                
-                return;
             }
-            genMenuModalBox.style.height = `${height}px`;
+            else
+            {
+                genMenuModalBox.style.height = `${height}px`;
+            }
         }
 
         // Sets initial drag position, genMenuModalBox height and adds isDragging class to the menu modal bdr
