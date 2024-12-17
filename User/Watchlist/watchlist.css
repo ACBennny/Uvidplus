@@ -596,6 +596,12 @@ html:root
     scroll-behavior: smooth;
 }
 
+body[gen-menu-modal-is-dragging="true"] .wlModalBox
+{
+    overflow: hidden hidden !important;
+    overscroll-behavior: none none !important;
+}
+
 .wlModalBox.atnMenuOpen
 {
     overflow: hidden hidden;

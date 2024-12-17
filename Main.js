@@ -2511,6 +2511,7 @@
                     if((currOpenGenMenuModalBtnIndex != null) && (index == currOpenGenMenuModalBtnIndex) && (genMenuModalBdr.getAttribute("aria-expanded") === "true"))
                     {
                         genMenuModalBdr.setAttribute("aria-expanded" , "false");
+                        documentBody.setAttribute(`gen-menu-modal-is-dragging` , `false`);
                         genMenuModalBdr.classList.remove("isOpen");
                         document.removeEventListener("click" , callHideGenMenuModal);
                     }
