@@ -21,6 +21,43 @@
     const topNavBar = document.querySelector(".topNavBar");
     const sideNavBar = document.querySelector(".sideNavBar");
     const btmNavBar = document.querySelector(".btmNavBar");
+    let genContainerMaxWidth = 1200;
+    let winWidth1025 = 1025;
+    let winWidth768 = 768;
+    let winWidth565 = 565;
+    let winWidth485 = 485;
+    let currOpenGenMenuModalBtnIndex = null;
+    let genMenuModalMap;
+    let genMenuModalBdr;
+    let genMenuModalBox;
+    let genMenuModalCtntBdr;
+    let openGenMenuModalBtnTimer;
+    let genMenuModalDragIcon;
+    let genMenuModalIsDragging = false
+    let genMenuBoxStartY = 0;
+    let startGenMenuBoxHeight = 0;
+    let currGenMenuBoxHeight = 0;
+    let genMenuModalBoxHeightTimer;
+    let notificationQueue = [];
+    let isNotificationActive = false;
+    let notificationDuration = 3;
+    let notificationTransition = 300;
+    let preNotifyTimer;
+    let midNotifyTimer;
+    let endNotifyTimer;
+    let navbarUnderlayer;
+    let navBarNotificationStatusNoBox;
+    let navBarNotificationTimer;
+    let openNavBarNotificationBtn;
+    let openSwitchProfBtn;
+    let switchProfScript;
+    let navBarSignOutBtn;
+    let accountSignOutTimer;
+    let openFeedBackForm;
+    let addToWLTimer;
+    let socialShareTimer;
+    let socialDestinationH;
+    let socialDestinationW;
     const topNavBarStruct = 
     `
         <div class="topNavBdr">
@@ -480,7 +517,7 @@
             </div>
         </div>
     `;
-    let navBarNotificationMainHTML = 
+    const navBarNotificationMainHTML = 
     `
         <div class="navBarNotificationMinor">
             <div class="navBarNotificationHeaderBdr">
@@ -505,7 +542,7 @@
             </div>
         </div>
     `;
-    let emptyNavBarNotificationBoxStruct = 
+    const emptyNavBarNotificationBoxStruct = 
     `
         <div class="navBarNotificationCardBdr emptyNavBarNotification_box">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="emptyNavBarNotification_icon">
@@ -631,22 +668,289 @@
             </div>
         </div>
     `;
-    let notificationQueue = [];
-    let isNotificationActive = false;
-    let notificationDuration = 3;
-    let notificationTransition = 300;
-    let preNotifyTimer;
-    let midNotifyTimer;
-    let endNotifyTimer;
-    let navbarUnderlayer;
-    let navBarNotificationStatusNoBox;
-    let navBarNotificationTimer;
-    let openNavBarNotificationBtn;
-    let openSwitchProfBtn;
-    let switchProfScript;
-    let navBarSignOutBtn;
-    let accountSignOutTimer;
-    let openFeedBackForm;
+    let addToWLHTML = 
+    `
+        <div class="genAtnModalBcg closeAddToWL"></div>
+        <div class="genAtnModalBox addToWLBox">
+            <div class="genAtnModalCtnt">
+                <div class="genAtnModalHeader">
+                    <div class="genAtnModalHeaderIconBox closeAddToWL">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="genAtnModalHeaderIcon">
+                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                        </svg>
+                    </div>
+                    <h3 class="genAtnModalHeaderText">
+                        <span class="large">A</span>
+                        <span class="small">dd to Watchlist</span>
+                    </h3>
+                </div>
+                <div class="genAtnModalOptBcg addToWLItemBcg">
+                    <div class="genAtnModalOptBdr addToWLItemBox">
+                        <div class="genAtnModalOptBox newWLBtn" title="Create Watchlist" aria-label="Create-Watchlist-btn">
+                            <div class="genAtnModalOptIconBox">
+                                <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="genAtnModalOptIcon">
+                                    <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
+                                </svg>
+                            </div>
+                            <div class="genAtnModalOptTextBox ">
+                                <span class="genAtnModalOptText ">Create Watchlist</span>
+                            </div>
+                        </div>
+                        <div class="newWLBdr">
+                            <div class="newWLBox">
+                                <div class="newWLInputBdr">
+                                    <div class="newWLInputBox">
+                                        <input type="text" name="newPlayListInputField" id="newWLInputId" class="newWLInputClass" placeholder="Name your watchlist" disabled />
+                                    </div>
+                                </div>
+                                <div class="newWLWarnBdr">
+                                    <div class="newWLWarnBox">
+                                        <p id="newWLWarnId" class="newWLWarnText" tabindex="-1"></p>
+                                    </div>
+                                </div>
+                                <div class="newWLAtnBdr">
+                                    <div class="newWLAtnBox">
+                                        <button type="button" id="createNewWL" class="newWLAtnBtn inactiveBtn" disabled>Create</button>
+                                        <button type="button" id="cancelNewWL" class="newWLAtnBtn hollowBtn" disabled>Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button data-list="" class="genAtnModalOptBox plItem" title="" aria-label="">
+                            <div class="genAtnModalOptIconBox">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genAtnModalOptIcon">
+                                    <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
+                                    <path fill-rule="evenodd" d="M2 8c0 .494.993.89 2.979 1.685l2.808 1.124C9.773 11.603 10.767 12 12 12s2.227-.397 4.213-1.191l2.808-1.124C21.007 8.891 22 8.494 22 8s-.993-.89-2.979-1.685l-2.808-1.123C14.227 4.397 13.233 4 12 4s-2.227.397-4.213 1.192L4.98 6.315C2.993 7.109 2 7.506 2 8" clip-rule="evenodd" />
+                                    <path d="m19.021 13.685l-2.808 1.124C14.227 15.603 13.233 16 12 16s-2.227-.397-4.213-1.191L4.98 13.685C2.993 12.891 2 12.493 2 12c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 12.535 10.572 13 12 13s2.59-.465 4.439-1.205l3.14-1.256C21.194 11.189 22 11.555 22 12c0 .493-.993.89-2.979 1.685" />
+                                    <path d="m19.021 17.685l-2.808 1.123C14.227 19.603 13.233 20 12 20s-2.227-.397-4.213-1.192L4.98 17.685C2.993 16.89 2 16.493 2 16c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 16.535 10.572 17 12 17s2.59-.465 4.439-1.205l3.14-1.256c1.614.65 2.421 1.016 2.421 1.46c0 .494-.993.891-2.979 1.686" />
+                                </svg>
+                            </div>
+                            <div class="genAtnModalOptTextBox ">
+                                <span class="genAtnModalOptText ">Planned</span>
+                            </div>
+                        </button>
+                        <button data-list="" class="genAtnModalOptBox plItem" title="" aria-label="">
+                            <div class="genAtnModalOptIconBox">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genAtnModalOptIcon">
+                                    <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
+                                    <path fill-rule="evenodd" d="M2 8c0 .494.993.89 2.979 1.685l2.808 1.124C9.773 11.603 10.767 12 12 12s2.227-.397 4.213-1.191l2.808-1.124C21.007 8.891 22 8.494 22 8s-.993-.89-2.979-1.685l-2.808-1.123C14.227 4.397 13.233 4 12 4s-2.227.397-4.213 1.192L4.98 6.315C2.993 7.109 2 7.506 2 8" clip-rule="evenodd" />
+                                    <path d="m19.021 13.685l-2.808 1.124C14.227 15.603 13.233 16 12 16s-2.227-.397-4.213-1.191L4.98 13.685C2.993 12.891 2 12.493 2 12c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 12.535 10.572 13 12 13s2.59-.465 4.439-1.205l3.14-1.256C21.194 11.189 22 11.555 22 12c0 .493-.993.89-2.979 1.685" />
+                                    <path d="m19.021 17.685l-2.808 1.123C14.227 19.603 13.233 20 12 20s-2.227-.397-4.213-1.192L4.98 17.685C2.993 16.89 2 16.493 2 16c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 16.535 10.572 17 12 17s2.59-.465 4.439-1.205l3.14-1.256c1.614.65 2.421 1.016 2.421 1.46c0 .494-.993.891-2.979 1.686" />
+                                </svg>
+                            </div>
+                            <div class="genAtnModalOptTextBox ">
+                                <span class="genAtnModalOptText ">Watching</span>
+                            </div>
+                        </button>
+                        <button data-list="" class="genAtnModalOptBox plItem" title="" aria-label="">
+                            <div class="genAtnModalOptIconBox">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genAtnModalOptIcon">
+                                    <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
+                                    <path fill-rule="evenodd" d="M2 8c0 .494.993.89 2.979 1.685l2.808 1.124C9.773 11.603 10.767 12 12 12s2.227-.397 4.213-1.191l2.808-1.124C21.007 8.891 22 8.494 22 8s-.993-.89-2.979-1.685l-2.808-1.123C14.227 4.397 13.233 4 12 4s-2.227.397-4.213 1.192L4.98 6.315C2.993 7.109 2 7.506 2 8" clip-rule="evenodd" />
+                                    <path d="m19.021 13.685l-2.808 1.124C14.227 15.603 13.233 16 12 16s-2.227-.397-4.213-1.191L4.98 13.685C2.993 12.891 2 12.493 2 12c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 12.535 10.572 13 12 13s2.59-.465 4.439-1.205l3.14-1.256C21.194 11.189 22 11.555 22 12c0 .493-.993.89-2.979 1.685" />
+                                    <path d="m19.021 17.685l-2.808 1.123C14.227 19.603 13.233 20 12 20s-2.227-.397-4.213-1.192L4.98 17.685C2.993 16.89 2 16.493 2 16c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 16.535 10.572 17 12 17s2.59-.465 4.439-1.205l3.14-1.256c1.614.65 2.421 1.016 2.421 1.46c0 .494-.993.891-2.979 1.686" />
+                                </svg>
+                            </div>
+                            <div class="genAtnModalOptTextBox ">
+                                <span class="genAtnModalOptText ">On-Hold</span>
+                            </div>
+                        </button>
+                        <button data-list="" class="genAtnModalOptBox plItem" title="" aria-label="">
+                            <div class="genAtnModalOptIconBox">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genAtnModalOptIcon">
+                                    <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
+                                    <path fill-rule="evenodd" d="M2 8c0 .494.993.89 2.979 1.685l2.808 1.124C9.773 11.603 10.767 12 12 12s2.227-.397 4.213-1.191l2.808-1.124C21.007 8.891 22 8.494 22 8s-.993-.89-2.979-1.685l-2.808-1.123C14.227 4.397 13.233 4 12 4s-2.227.397-4.213 1.192L4.98 6.315C2.993 7.109 2 7.506 2 8" clip-rule="evenodd" />
+                                    <path d="m19.021 13.685l-2.808 1.124C14.227 15.603 13.233 16 12 16s-2.227-.397-4.213-1.191L4.98 13.685C2.993 12.891 2 12.493 2 12c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 12.535 10.572 13 12 13s2.59-.465 4.439-1.205l3.14-1.256C21.194 11.189 22 11.555 22 12c0 .493-.993.89-2.979 1.685" />
+                                    <path d="m19.021 17.685l-2.808 1.123C14.227 19.603 13.233 20 12 20s-2.227-.397-4.213-1.192L4.98 17.685C2.993 16.89 2 16.493 2 16c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 16.535 10.572 17 12 17s2.59-.465 4.439-1.205l3.14-1.256c1.614.65 2.421 1.016 2.421 1.46c0 .494-.993.891-2.979 1.686" />
+                                </svg>
+                            </div>
+                            <div class="genAtnModalOptTextBox ">
+                                <span class="genAtnModalOptText ">Completed</span>
+                            </div>
+                        </button>
+                        <button data-list="" class="genAtnModalOptBox plItem" title="" aria-label="">
+                            <div class="genAtnModalOptIconBox">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genAtnModalOptIcon">
+                                    <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
+                                    <path fill-rule="evenodd" d="M2 8c0 .494.993.89 2.979 1.685l2.808 1.124C9.773 11.603 10.767 12 12 12s2.227-.397 4.213-1.191l2.808-1.124C21.007 8.891 22 8.494 22 8s-.993-.89-2.979-1.685l-2.808-1.123C14.227 4.397 13.233 4 12 4s-2.227.397-4.213 1.192L4.98 6.315C2.993 7.109 2 7.506 2 8" clip-rule="evenodd" />
+                                    <path d="m19.021 13.685l-2.808 1.124C14.227 15.603 13.233 16 12 16s-2.227-.397-4.213-1.191L4.98 13.685C2.993 12.891 2 12.493 2 12c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 12.535 10.572 13 12 13s2.59-.465 4.439-1.205l3.14-1.256C21.194 11.189 22 11.555 22 12c0 .493-.993.89-2.979 1.685" />
+                                    <path d="m19.021 17.685l-2.808 1.123C14.227 19.603 13.233 20 12 20s-2.227-.397-4.213-1.192L4.98 17.685C2.993 16.89 2 16.493 2 16c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 16.535 10.572 17 12 17s2.59-.465 4.439-1.205l3.14-1.256c1.614.65 2.421 1.016 2.421 1.46c0 .494-.993.891-2.979 1.686" />
+                                </svg>
+                            </div>
+                            <div class="genAtnModalOptTextBox ">
+                                <span class="genAtnModalOptText ">Dropped</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    let socialShareHTML = 
+    `
+        <div class="genAtnModalBcg closeSclShare"></div>
+        <div class="genAtnModalBox sclShareBox">
+            <div class="genAtnModalCtnt">
+                <div class="genAtnModalHeader">
+                    <div class="genAtnModalHeaderIconBox closeSclShare">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="genAtnModalHeaderIcon">
+                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                        </svg>
+                    </div>
+                    <h3 class="genAtnModalHeaderText">
+                    <span class="large">S</span>
+                    <span class="small">hare this Show</span>
+                    </h3>
+                </div>
+                <div class="genAtnModalOptBcg">
+                    <div class="genAtnModalOptBdr">
+                        <button data-share="Facebook" class="genAtnModalOptBox" title="" aria-label="">
+                            <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
+                                <svg class="share-modal-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" data-t="facebook-logo-svg" aria-labelledby="facebook-logo-svg" aria-hidden="true" role="img"><title id="facebook-logo-svg">Facebook</title><defs><rect id="facebook-logo-a" width="64" height="64" x="0" y="0" rx="32"></rect></defs><g fill="none" fill-rule="evenodd"><mask id="facebook-logo-b" fill="#fff"><use href="#facebook-logo-a"></use></mask><circle cx="32" cy="32" r="32" fill="#3C5A9A" fill-rule="nonzero" mask="url(#facebook-logo-b)"></circle><path fill="#FFF" fill-rule="nonzero" d="M39.976 15h-5.434c-3.225 0-6.811 1.356-6.811 6.03.015 1.63 0 3.189 0 4.944H24v5.937h3.846V49h7.067V31.798h4.665l.422-5.84h-5.208s.011-2.598 0-3.353c0-1.847 1.922-1.741 2.037-1.741.915 0 2.693.003 3.15 0V15h-.003z" mask="url(#facebook-logo-b)"></path></g></svg>
+                            </div>
+                            <div class="genAtnModalOptTextBox shareTextBox">
+                                <span class="genAtnModalOptText shareText">Facebook</span>
+                            </div>
+                        </button>
+                        <button data-share="Twitter" class="genAtnModalOptBox" title="" aria-label="">
+                            <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
+                                <svg class="genAtnModalShareIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" data-t="twitter-logo-svg" aria-labelledby="twitter-logo-svg" aria-hidden="true" role="img"><title id="twitter-logo-svg">Twitter</title><defs><rect id="twitter-logo-a" width="64" height="64" x="0" y="0" rx="32"></rect></defs><g fill="none" fill-rule="evenodd"><mask id="twitter-logo-b" fill="#fff"><use href="#twitter-logo-a"></use></mask><g fill="#1B9DF0" fill-rule="nonzero" mask="url(#twitter-logo-b)"><circle cx="32" cy="32" r="32"></circle></g><g fill="#FFF" fill-rule="nonzero" mask="url(#twitter-logo-b)"><path d="M26.144 48.88c14.192 0 21.952-11.76 21.952-21.952 0-.336 0-.672-.016-.992 1.504-1.088 2.816-2.448 3.856-4-1.376.608-2.864 1.024-4.432 1.216 1.6-.96 2.816-2.464 3.392-4.272-1.488.88-3.136 1.52-4.896 1.872-1.408-1.504-3.408-2.432-5.632-2.432-4.256 0-7.712 3.456-7.712 7.712 0 .608.064 1.2.208 1.76-6.416-.32-12.096-3.392-15.904-8.064-.656 1.136-1.04 2.464-1.04 3.872 0 2.672 1.36 5.04 3.44 6.416-1.264-.032-2.448-.384-3.488-.96v.096c0 3.744 2.656 6.848 6.192 7.568-.64.176-1.328.272-2.032.272-.496 0-.976-.048-1.456-.144.976 3.072 3.824 5.296 7.2 5.36-2.64 2.064-5.968 3.296-9.584 3.296-.624 0-1.232-.032-1.84-.112 3.376 2.208 7.44 3.488 11.792 3.488"></path></g></g></svg>
+                            </div>
+                            <div class="genAtnModalOptTextBox shareTextBox">
+                                <span class="genAtnModalOptText shareText">Twitter</span>
+                            </div>
+                        </button>
+                        <button data-share="WhatsApp" class="genAtnModalOptBox" title="" aria-label="">
+                            <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
+                                <svg class="genAtnModalShareIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" data-t="whats-app-logo-svg" aria-labelledby="whats-app-logo-svg" aria-hidden="true" role="img">
+                                    <title id="whats-app-logo-svg">WhatsApp</title>
+                                    <defs><linearGradient id="whats-app-logo-c" x1="50%" x2="50%" y1="100%" y2="0%"><stop offset="0%" stop-color="#20B038"></stop><stop offset="100%" stop-color="#60D66A"></stop></linearGradient><rect id="whats-app-logo-a" width="64" height="64" x="0" y="0" rx="32"></rect></defs>
+                                    <g fill="none" fill-rule="evenodd"><mask id="whats-app-logo-b" fill="#fff"><use href="#whats-app-logo-a"></use></mask><use fill="#43C553" href="#whats-app-logo-a"></use>
+                                        <path fill="#E0E0E0" fill-rule="nonzero" d="M46.172 17.813c-3.76-3.746-8.76-5.81-14.088-5.813-10.978 0-19.912 8.891-19.917 19.82-.001 3.493.916 6.903 2.659 9.91L12 52l10.558-2.756c2.909 1.58 6.184 2.411 9.517 2.413h.009c10.976 0 19.911-8.893 19.916-19.821.002-5.297-2.068-10.277-5.828-14.023zM32.084 48.309h-.007c-2.97-.001-5.884-.795-8.425-2.297l-.605-.356-6.265 1.635 1.673-6.08-.394-.623c-1.658-2.623-2.532-5.654-2.531-8.767.003-9.083 7.429-16.473 16.56-16.473 4.422.002 8.578 1.717 11.703 4.831 3.126 3.114 4.845 7.253 4.844 11.656-.004 9.083-7.43 16.474-16.553 16.474z" mask="url(#whats-app-logo-b)"></path>
+                                        <path fill="url(#whats-app-logo-c)" fill-rule="nonzero" d="M12.914 50.86l2.697-9.801c-1.664-2.869-2.539-6.123-2.538-9.457.005-10.429 8.53-18.914 19.006-18.914 5.085.003 9.857 1.973 13.445 5.548 3.588 3.575 5.564 8.327 5.561 13.381-.004 10.43-8.53 18.915-19.005 18.915h-.008c-3.181 0-6.306-.796-9.082-2.302l-10.076 2.63z" mask="url(#whats-app-logo-b)"></path>
+                                        <path fill="#FFF" d="M27.162 23.405c-.368-.815-.756-.832-1.107-.846-.287-.012-.615-.011-.943-.011-.328 0-.86.122-1.311.612-.451.49-1.722 1.675-1.722 4.085s1.763 4.738 2.008 5.065c.246.326 3.404 5.429 8.404 7.392 4.155 1.63 5 1.306 5.903 1.225.902-.082 2.91-1.185 3.32-2.328.41-1.144.41-2.124.287-2.329-.123-.204-.45-.326-.943-.57-.492-.246-2.91-1.43-3.361-1.594-.451-.163-.78-.245-1.107.245-.328.49-1.27 1.593-1.557 1.92-.287.327-.574.368-1.066.123-.492-.246-2.077-.763-3.956-2.43-1.463-1.299-2.45-2.902-2.737-3.392-.287-.49-.03-.755.216-1 .221-.219.492-.571.738-.857.246-.286.328-.49.492-.817.164-.327.082-.613-.041-.858-.123-.244-1.08-2.666-1.517-3.635z" mask="url(#whats-app-logo-b)"></path>
+                                        <path fill="#FFF" fill-rule="nonzero" d="M45.78 17.746c-3.718-3.703-8.66-5.744-13.927-5.746-10.852 0-19.683 8.79-19.688 19.592-.001 3.454.905 6.825 2.628 9.796L12 51.54l10.437-2.725c2.875 1.562 6.113 2.384 9.408 2.386h.008c10.85 0 19.683-8.791 19.688-19.594.002-5.235-2.044-10.158-5.761-13.862zM31.853 47.892h-.006c-2.937-.001-5.817-.786-8.329-2.27l-.598-.353-6.193 1.617 1.653-6.01-.39-.616c-1.637-2.593-2.502-5.59-2.5-8.666.003-8.98 7.343-16.285 16.37-16.285 4.37.002 8.478 1.698 11.568 4.776s4.79 7.17 4.789 11.522c-.004 8.98-7.345 16.285-16.364 16.285z" mask="url(#whats-app-logo-b)"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="genAtnModalOptTextBox shareTextBox">
+                                <span class="genAtnModalOptText shareText">WhatsApp</span>
+                            </div>
+                        </button>
+                        <button data-share="Pinterest" class="genAtnModalOptBox" title="" aria-label="">
+                            <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
+                                <svg class="genAtnModalShareIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" data-t="pinterest-logo-svg" aria-labelledby="pinterest-logo-svg" aria-hidden="true" role="img"><title id="pinterest-logo-svg">Pinterest</title><defs><rect id="pinterest-logo-a" width="64" height="64" x="0" y="0" rx="32"></rect></defs><g fill="none" fill-rule="evenodd"><mask id="pinterest-logo-b" fill="#fff"><use href="#pinterest-logo-a"></use></mask><circle cx="32" cy="32" r="32" fill="#CA3737" fill-rule="nonzero" mask="url(#pinterest-logo-b)"></circle><path fill="#FFF" fill-rule="nonzero" d="M32 16.133c-8.8 0-15.867 7.067-15.867 15.867 0 6.533 3.867 12 9.467 14.533 0-1.066 0-2.4.267-3.6.266-1.333 2-8.666 2-8.666s-.534-1.067-.534-2.534c0-2.4 1.334-4.133 3.067-4.133 1.467 0 2.133 1.067 2.133 2.4 0 1.467-.933 3.6-1.333 5.6-.4 1.733.933 3.067 2.533 3.067 3.067 0 5.067-3.867 5.067-8.4 0-3.467-2.4-6-6.533-6-4.8 0-7.734 3.6-7.734 7.6 0 1.333.4 2.4 1.067 3.066.267.4.4.534.267.934-.134.266-.267.933-.267 1.333-.133.4-.4.533-.8.4-2.267-.933-3.2-3.333-3.2-6 0-4.533 3.733-9.867 11.333-9.867 6 0 10 4.4 10 9.067 0 6.267-3.466 10.8-8.533 10.8-1.733 0-3.333-.933-3.867-2 0 0-.933 3.6-1.066 4.4-.4 1.2-.934 2.4-1.6 3.333 1.466.4 2.933.667 4.533.667 8.8 0 15.867-7.067 15.867-15.867-.4-8.933-7.467-16-16.267-16z" mask="url(#pinterest-logo-b)"></path></g></svg>
+                            </div>
+                            <div class="genAtnModalOptTextBox shareTextBox">
+                                <span class="genAtnModalOptText shareText">Pinterest</span>
+                            </div>
+                        </button>
+                        <button data-share="Reddit" class="genAtnModalOptBox" title="" aria-label="">
+                            <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
+                                <svg class="genAtnModalShareIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" data-t="reddit-logo-svg" aria-labelledby="reddit-logo-svg" aria-hidden="true" role="img"><title id="reddit-logo-svg">Reddit</title><defs><rect id="reddit-logo-a" width="64" height="64" x="0" y="0" rx="32"></rect></defs><g fill="none" fill-rule="evenodd"><mask id="reddit-logo-b" fill="#fff"><use href="#reddit-logo-a"></use></mask><use fill="#D8D8D8" href="#reddit-logo-a"></use><g fill-rule="nonzero" mask="url(#reddit-logo-b)"><circle cx="32" cy="32" r="32" fill="#FF4500"></circle><path fill="#FFF" d="M52 32.319c0-2.445-1.968-4.43-4.394-4.43-1.195 0-2.25.461-3.023 1.24-2.987-2.16-7.135-3.578-11.704-3.755l2.003-9.46 6.503 1.381c.07 1.666 1.441 3.012 3.128 3.012 1.723 0 3.128-1.417 3.128-3.153 0-1.737-1.405-3.154-3.128-3.154-1.23 0-2.285.709-2.777 1.772l-7.276-1.56c-.21-.035-.421 0-.597.107-.176.106-.281.283-.352.496l-2.214 10.559c-4.675.142-8.858 1.524-11.88 3.756-.774-.744-1.863-1.24-3.023-1.24-2.426 0-4.394 1.984-4.394 4.429 0 1.807 1.054 3.33 2.601 4.04-.07.424-.105.885-.105 1.346 0 6.803 7.838 12.295 17.54 12.295 9.7 0 17.539-5.492 17.539-12.295 0-.46-.035-.886-.106-1.311C50.91 35.685 52 34.126 52 32.319zm-30.053 3.153c0-1.736 1.406-3.153 3.129-3.153 1.722 0 3.128 1.417 3.128 3.153 0 1.737-1.406 3.154-3.128 3.154-1.723 0-3.129-1.417-3.129-3.154zm17.47 8.327c-2.145 2.162-6.222 2.303-7.417 2.303-1.195 0-5.308-.177-7.417-2.303-.316-.319-.316-.85 0-1.17.317-.318.844-.318 1.16 0 1.336 1.347 4.218 1.843 6.292 1.843s4.921-.496 6.292-1.842c.316-.319.843-.319 1.16 0 .246.354.246.85-.07 1.17zm-.563-5.173c-1.722 0-3.128-1.417-3.128-3.154 0-1.736 1.406-3.153 3.128-3.153 1.722 0 3.128 1.417 3.128 3.153 0 1.737-1.406 3.154-3.128 3.154z"></path></g></g></svg>
+                            </div>
+                            <div class="genAtnModalOptTextBox shareTextBox">
+                                <span class="genAtnModalOptText shareText">Reddit</span>
+                            </div>
+                        </button>
+                        <button data-share="Telegram" class="genAtnModalOptBox" title="" aria-label="">
+                            <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
+                                <svg class="genAtnModalShareIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" data-t="telegram-logo-svg" aria-labelledby="telegram-logo-svg" aria-hidden="true" role="img"><title id="telegram-logo-svg">Telegram</title><defs><linearGradient id="telegram-logo-b" x1="50%" x2="50%" y1="0%" y2="99.258%"><stop offset="0%" stop-color="#2AABEE"></stop><stop offset="100%" stop-color="#229ED9"></stop></linearGradient><rect id="telegram-logo-a" width="64" height="64" x="0" y="0" rx="32"></rect></defs><g fill="none" fill-rule="evenodd"><mask id="telegram-logo-c" fill="#fff"><use href="#telegram-logo-a"></use></mask><circle cx="32" cy="32" r="32" fill="url(#telegram-logo-b)" fill-rule="nonzero" mask="url(#telegram-logo-c)"></circle><path fill="#FFF" fill-rule="nonzero" d="M14.485 31.662c9.329-4.064 15.55-6.744 18.662-8.038 8.886-3.696 10.733-4.339 11.937-4.36.264-.004.856.061 1.24.372.323.263.412.618.455.867.043.249.096.816.054 1.26-.482 5.06-2.566 17.339-3.626 23.006-.448 2.398-1.332 3.202-2.187 3.28-1.858.172-3.27-1.227-5.07-2.407-2.815-1.846-4.407-2.996-7.14-4.797-3.16-2.082-1.112-3.227.689-5.097.471-.489 8.659-7.936 8.817-8.612.02-.084.038-.4-.149-.566-.187-.166-.463-.11-.662-.064-.283.064-4.782 3.038-13.498 8.922-1.277.877-2.434 1.304-3.47 1.281-1.143-.024-3.34-.646-4.975-1.177-2.004-.651-3.596-.996-3.458-2.102.073-.576.866-1.165 2.381-1.768z" mask="url(#telegram-logo-c)"></path></g></svg>
+                            </div>
+                            <div class="genAtnModalOptTextBox shareTextBox">
+                                <span class="genAtnModalOptText shareText">Telegram</span>
+                            </div>
+                        </button>
+                        <button data-share="Tumblr" class="genAtnModalOptBox" title="" aria-label="">
+                            <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
+                                <svg class="genAtnModalShareIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" data-t="tumblr-logo-svg" aria-labelledby="tumblr-logo-svg" aria-hidden="true" role="img"><title id="tumblr-logo-svg">Tumblr</title><defs><rect id="tumblr-logo-a" width="64" height="64" x="0" y="0" rx="32"></rect></defs><g fill="none" fill-rule="evenodd"><mask id="tumblr-logo-b" fill="#fff"><use href="#tumblr-logo-a"></use></mask><path fill="#314358" fill-rule="nonzero" d="M0 0h64v64H0z" mask="url(#tumblr-logo-b)"></path><path fill="#FFF" fill-rule="nonzero" d="M39.494 41.56c-.583.284-1.696.531-2.527.552-2.507.069-2.994-1.8-3.014-3.153v-9.962h6.29v-4.845h-6.268V16h-4.587c-.075 0-.207.068-.226.239-.268 2.495-1.41 6.873-6.162 8.624v4.134h3.17v10.455c0 3.58 2.584 8.666 9.407 8.546 2.302-.04 4.858-1.025 5.423-1.875l-1.506-4.563" mask="url(#tumblr-logo-b)"></path></g></svg>
+                            </div>
+                            <div class="genAtnModalOptTextBox shareTextBox">
+                                <span class="genAtnModalOptText shareText">Tumblr</span>
+                            </div>
+                        </button>
+                        <button data-share="Yahoo" class="genAtnModalOptBox" title="" aria-label="">
+                            <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
+                                <svg class="genAtnModalOptIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                    <path d="M223.7 141.1 167 284.2 111 141.1H14.9L120.8 390.2 82.2 480h94.2L317.3 141.1zm105.4 135.8a58.2 58.2 0 1 0 58.2 58.2A58.2 58.2 0 0 0 329.1 276.9zM394.7 32l-93 223.5H406.4L499.1 32z"/>
+                                </svg>
+                            </div>
+                            <div class="genAtnModalOptTextBox shareTextBox">
+                                <span class="genAtnModalOptText shareText">Yahoo</span>
+                            </div>
+                        </button>
+                        <button data-share="Line" class="genAtnModalOptBox" title="" aria-label="">
+                            <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
+                                <svg class="genAtnModalShareIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" data-t="line-logo-svg" aria-labelledby="line-logo-svg" aria-hidden="true" role="img"><title id="line-logo-svg">Line</title><defs><rect id="line-logo-a" width="64" height="64" x="0" y="0" rx="32"></rect></defs><g fill="none" fill-rule="evenodd"><mask id="line-logo-b" fill="#fff"><use href="#line-logo-a"></use></mask><path fill="#3ACE01" d="M13.099 0H50.9C58.106 0 64 5.894 64 13.099V50.9C64 58.106 58.106 64 50.901 64H13.1C5.894 64 0 58.106 0 50.901V13.1C0 5.894 5.894 0 13.099 0z" mask="url(#line-logo-b)"></path><path fill="#FFF" d="M31.938 10.602c12.968 0 23.48 8.417 23.48 18.801 0 3.627-1.283 7.014-3.505 9.886-.11.164-.254.344-.435.544l-.014.015c-.759.908-1.613 1.76-2.553 2.547-6.493 6.002-17.181 13.147-18.592 12.045-1.226-.958 2.02-5.645-1.725-6.425-.261-.03-.522-.062-.78-.1h-.005C16.81 46.353 8.458 38.66 8.458 29.403c0-10.384 10.512-18.801 23.48-18.801z" mask="url(#line-logo-b)"></path><path fill="#3ACE01" d="M18.315 35.4h4.735c.674 0 1.225-.55 1.225-1.224v-.102c0-.674-.551-1.225-1.225-1.225h-3.409v-7.756c0-.673-.55-1.224-1.224-1.224h-.102c-.674 0-1.225.55-1.225 1.224v9.083c0 .674.551 1.225 1.225 1.225zm29.344-5.692v-.102c0-.674-.551-1.225-1.225-1.225h-3.409v-1.939h3.409c.674 0 1.225-.551 1.225-1.225v-.102c0-.673-.551-1.224-1.225-1.224h-4.736c-.673 0-1.224.55-1.224 1.224v9.083c0 .673.55 1.224 1.224 1.224h4.736c.674 0 1.225-.55 1.225-1.224v-.103c0-.673-.551-1.224-1.225-1.224h-3.409v-1.94h3.409c.674.001 1.225-.55 1.225-1.223zm-9.107 5.328v-.001c.227-.228.354-.537.354-.859v-9.082c0-.674-.55-1.225-1.225-1.225h-.102c-.673 0-1.224.551-1.224 1.225v5.331l-4.427-5.937c-.211-.369-.61-.619-1.063-.619h-.102c-.674 0-1.225.551-1.225 1.225v9.082c0 .674.551 1.225 1.225 1.225h.102c.674 0 1.225-.551 1.225-1.225v-5.431l4.458 6.089c.027.043.057.084.09.123.122.167.29.282.476.351.144.06.3.093.465.093h.102c.2 0 .396-.05.572-.143.123-.059.226-.134.299-.222zm-12.064.365h.102c.673 0 1.224-.551 1.224-1.225v-9.082c0-.674-.55-1.225-1.224-1.225h-.102c-.674 0-1.225.551-1.225 1.225v9.082c0 .674.551 1.225 1.225 1.225z" mask="url(#line-logo-b)"></path></g></svg>
+                            </div>
+                            <div class="genAtnModalOptTextBox shareTextBox">
+                                <span class="genAtnModalOptText shareText">Line</span>
+                            </div>
+                        </button>
+                        <button data-share="OKRU" class="genAtnModalOptBox" title="" aria-label="">
+                            <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
+                                <svg class="genAtnModalShareIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" data-t="odnoklassniki-logo-svg" aria-labelledby="odnoklassniki-logo-svg" aria-hidden="true" role="img"><title id="odnoklassniki-logo-svg">OK.RU</title><defs><rect id="odnoklassniki-logo-a" width="64" height="64" x="0" y="0" rx="32"></rect></defs><g fill="none" fill-rule="evenodd"><mask id="odnoklassniki-logo-b" fill="#fff"><use href="#odnoklassniki-logo-a"></use></mask><circle cx="32" cy="32" r="32" fill="#EE8208" fill-rule="nonzero" mask="url(#odnoklassniki-logo-b)"></circle><g fill="#FFF" fill-rule="nonzero" mask="url(#odnoklassniki-logo-b)"><path d="M32 32.621c5.274 0 9.57-4.296 9.57-9.57s-4.295-9.57-9.569-9.57-9.57 4.296-9.57 9.57 4.296 9.57 9.57 9.57m0-13.54c2.193 0 3.97 1.778 3.97 3.97 0 2.193-1.777 3.97-3.97 3.97-2.192 0-3.97-1.777-3.97-3.97 0-2.192 1.778-3.97 3.97-3.97m3.881 21.333c1.955-.444 3.822-1.214 5.57-2.31 1.304-.83 1.719-2.549.889-3.882-.83-1.304-2.548-1.719-3.881-.89-3.912 2.46-8.978 2.46-12.89 0-1.303-.829-3.051-.444-3.88.89-.83 1.303-.445 3.052.888 3.881 1.719 1.097 3.615 1.867 5.57 2.311l-5.363 5.363c-1.096 1.097-1.096 2.874 0 3.97.563.534 1.275.83 1.986.83.71 0 1.452-.266 1.985-.83l5.274-5.273 5.274 5.274c1.096 1.096 2.874 1.096 3.97 0 1.097-1.097 1.097-2.874 0-3.97l-5.392-5.364z"></path></g></g></svg>
+                            </div>
+                            <div class="genAtnModalOptTextBox shareTextBox">
+                                <span class="genAtnModalOptText shareText">OK.RU</span>
+                            </div>
+                        </button>
+                        <button data-share="Vkontakte" class="genAtnModalOptBox" title="" aria-label="">
+                            <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
+                                <svg class="genAtnModalShareIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" data-t="v-kontakte-logo-svg" aria-labelledby="v-kontakte-logo-svg" aria-hidden="true" role="img"><title id="v-kontakte-logo-svg">ВКонтакте</title><defs><rect id="v-kontakte-logo-a" width="64" height="64" x="0" y="0" rx="32"></rect></defs><g fill="none" fill-rule="evenodd"><mask id="v-kontakte-logo-b" fill="#fff"><use href="#v-kontakte-logo-a"></use></mask><path fill="#2787F5" fill-rule="nonzero" d="M0 30.667C0 16.21 0 8.982 4.491 4.49S16.211 0 30.667 0h2.666C47.79 0 55.018 0 59.51 4.491S64 16.211 64 30.667v2.666c0 14.457 0 21.685-4.491 26.176S47.789 64 33.333 64h-2.666C16.21 64 8.982 64 4.49 59.509S0 47.789 0 33.333v-2.666z" mask="url(#v-kontakte-logo-b)"></path><path fill="#FFF" d="M17.876 20H13.5c-1.25 0-1.5.595-1.5 1.25 0 1.171 1.484 6.98 6.908 14.66 3.616 5.246 8.71 8.09 13.347 8.09 2.781 0 3.125-.632 3.125-1.72v-3.964c0-1.263.264-1.515 1.145-1.515.649 0 1.761.327 4.358 2.857C43.85 42.655 44.339 44 46.008 44h4.376c1.25 0 1.875-.632 1.515-1.878-.395-1.242-1.812-3.045-3.691-5.18-1.02-1.219-2.55-2.53-3.014-3.186-.649-.843-.463-1.218 0-1.967 0 0 5.332-7.588 5.888-10.164.278-.937 0-1.625-1.323-1.625h-4.376c-1.113 0-1.626.595-1.904 1.25 0 0-2.225 5.48-5.378 9.04-1.02 1.03-1.484 1.358-2.04 1.358-.278 0-.68-.328-.68-1.264v-8.759c0-1.124-.324-1.625-1.25-1.625h-6.878c-.695 0-1.113.522-1.113 1.016 0 1.066 1.576 1.312 1.739 4.31v6.51c0 1.427-.256 1.686-.812 1.686-1.483 0-5.092-5.505-7.232-11.803-.42-1.224-.84-1.719-1.959-1.719z" mask="url(#v-kontakte-logo-b)"></path></g></svg>
+                            </div>
+                            <div class="genAtnModalOptTextBox shareTextBox">
+                                <span class="genAtnModalOptText shareText">ВКонтакте</span>
+                            </div>
+                        </button>
+                        <button data-share="Email" class="genAtnModalOptBox" title="" aria-label="">
+                            <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
+                                <svg class="genAtnModalShareIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" data-t="email-logo-svg" aria-labelledby="email-logo-svg" aria-hidden="true" role="img"><title id="email-logo-svg">Email</title><g fill="none" fill-rule="evenodd"><rect width="64" height="64" fill="#59595B" rx="32"></rect><path fill="#FFF" d="M44 20H20c-1.656 0-3 1.344-3 3v18c0 1.656 1.344 3 3 3h24c1.656 0 3-1.344 3-3V23c0-1.656-1.344-3-3-3zm0 7.05l-12 8.001-12-8.001v-3.605l12 8 12-8v3.605z"></path></g></svg>
+                            </div>
+                            <div class="genAtnModalOptTextBox shareTextBox">
+                                <span class="genAtnModalOptText shareText">Email</span>
+                            </div>
+                        </button>
+                        <button data-share="Gmail" class="genAtnModalOptBox" title="" aria-label="">
+                            <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
+                                <svg class="genAtnModalShareIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" data-t="email-logo-svg" aria-labelledby="email-logo-svg" aria-hidden="true" role="img"><title id="email-logo-svg">Email</title><g fill="none" fill-rule="evenodd"><rect width="64" height="64" fill="#59595B" rx="32"></rect><path fill="#FFF" d="M44 20H20c-1.656 0-3 1.344-3 3v18c0 1.656 1.344 3 3 3h24c1.656 0 3-1.344 3-3V23c0-1.656-1.344-3-3-3zm0 7.05l-12 8.001-12-8.001v-3.605l12 8 12-8v3.605z"></path></g></svg>
+                            </div>
+                            <div class="genAtnModalOptTextBox shareTextBox">
+                                <span class="genAtnModalOptText shareText">Gmail</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    const genMenuModalBdrStruct = 
+    `
+        <div class="genMenuModalBcg"></div>
+    `;
+    const genMenuModalBoxStruct = 
+    `
+        <div class="genMenuModalDragHandleBdr">
+            <div class="genMenuModalDragHandleBox">
+                <div class="genMenuModalDragHandleIcon"></div>
+            </div>
+        </div>
+    `;
+    const genMenuModalCtntBdrStruct = 
+    `
+        <div class="genMenuModalCtntBox">
+            <div class="preload_2_bdr">
+                <div class="preload_2_box">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="preload_2_spinner">
+                        <path d="M10.14,1.16a11,11,0,0,0-9,8.92A1.59,1.59,0,0,0,2.46,12,1.52,1.52,0,0,0,4.11,10.7a8,8,0,0,1,6.66-6.61A1.42,1.42,0,0,0,12,2.69h0A1.57,1.57,0,0,0,10.14,1.16Z">
+                            <animateTransform attributeName="transform" dur="0.75s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12" />
+                        </path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    `;
 
 
 
@@ -760,290 +1064,292 @@
         });
     
 
-    function startApplication()
-    {
-        
-        // INSERT
+    // START APP
+
+        function startApplication()
+        {
             
-            // Insert the NavBars
-            topNavBar.insertAdjacentHTML(`afterbegin` , topNavBarStruct);
-            sideNavBar.insertAdjacentHTML(`afterbegin` , sideNavBarStruct);
-            btmNavBar.insertAdjacentHTML(`afterbegin` , btmNavBarStruct);
+            // INSERT
+                
+                // Insert the NavBars
+                topNavBar.insertAdjacentHTML(`afterbegin` , topNavBarStruct);
+                sideNavBar.insertAdjacentHTML(`afterbegin` , sideNavBarStruct);
+                btmNavBar.insertAdjacentHTML(`afterbegin` , btmNavBarStruct);
 
-            // Insert Navbar Profile Menu
-            document.body.insertAdjacentHTML(`beforeend` , navBarProfileMenuStruct);
-            
-            // Insert Footer
-            documentCtnt.insertAdjacentHTML(`afterend` , footerHTML);
-
-
-        // DEFINITION
-
-            let lastWindowScroll = 0;
-            let sideNavLinks = document.querySelectorAll(".sideNavLinks");
-            let btmNavLinks = document.querySelectorAll(".btmNavLinks");
-            let newsNavLink = document.querySelectorAll(".newsNavLink");
-            let goToHomePage = document.querySelectorAll(".Companylogo");
-            let goToFullScreenBtn = document.querySelectorAll(".goToFullScreenBtn");
-            let openNavProfOptBtn = document.querySelectorAll(".open_nav_profileOptions");
-            let navProfileOptionsBdr = document.querySelector(".navBarProfileOptBdr");
-            let navProfileOptionsBox = document.querySelector(".navBarProfileOptBox");
-            let openNavProfOptTimer;
-            let locationOrigin;
-            let backtotopBtn = document.querySelectorAll(".backtotop_btn");
-            let developerProfile = document.querySelectorAll(".developer_profile");
-            openFeedBackForm = document.querySelectorAll(".openFeedBackForm");
-            navBarSignOutBtn = document.querySelector(".navBarSignOutBtn");
-            navbarUnderlayer = document.querySelector(".navbar_UnderLayer");
-            navBarNotificationStatusNoBox = document.querySelectorAll(".navBarNotificationStatusNo_box");
-            openNavBarNotificationBtn = document.querySelectorAll(".openNavNotify");
-            openSwitchProfBtn = document.querySelector(".open_switchProf");
+                // Insert Navbar Profile Menu
+                document.body.insertAdjacentHTML(`beforeend` , navBarProfileMenuStruct);
+                
+                // Insert Footer
+                documentCtnt.insertAdjacentHTML(`afterend` , footerHTML);
 
 
-        // DOCUMENT (WINDOW)
+            // DEFINITION
 
-            // Did it to match github's href style
-            if(window.location.origin == "https://acbennny.github.io")
-            {
-                locationOrigin = window.location.origin + "/Uvid/";
-            }
-            else
-            {
-                locationOrigin = window.location.origin + "/";
-            }
+                let lastWindowScroll = 0;
+                let sideNavLinks = document.querySelectorAll(".sideNavLinks");
+                let btmNavLinks = document.querySelectorAll(".btmNavLinks");
+                let newsNavLink = document.querySelectorAll(".newsNavLink");
+                let goToHomePage = document.querySelectorAll(".Companylogo");
+                let goToFullScreenBtn = document.querySelectorAll(".goToFullScreenBtn");
+                let openNavProfOptBtn = document.querySelectorAll(".open_nav_profileOptions");
+                let navProfileOptionsBdr = document.querySelector(".navBarProfileOptBdr");
+                let navProfileOptionsBox = document.querySelector(".navBarProfileOptBox");
+                let openNavProfOptTimer;
+                let locationOrigin;
+                let backtotopBtn = document.querySelectorAll(".backtotop_btn");
+                let developerProfile = document.querySelectorAll(".developer_profile");
+                openFeedBackForm = document.querySelectorAll(".openFeedBackForm");
+                navBarSignOutBtn = document.querySelector(".navBarSignOutBtn");
+                navbarUnderlayer = document.querySelector(".navbar_UnderLayer");
+                navBarNotificationStatusNoBox = document.querySelectorAll(".navBarNotificationStatusNo_box");
+                openNavBarNotificationBtn = document.querySelectorAll(".openNavNotify");
+                openSwitchProfBtn = document.querySelector(".open_switchProf");
 
-            // Toggle Fullscreen
-            goToFullScreenBtn.forEach((btn) => 
-            {
-                btn.addEventListener("click" , () => 
+
+            // DOCUMENT (WINDOW)
+
+                // Did it to match github's href style
+                if(window.location.origin == "https://acbennny.github.io")
+                {
+                    locationOrigin = window.location.origin + "/Uvid/";
+                }
+                else
+                {
+                    locationOrigin = window.location.origin + "/";
+                }
+
+                // Toggle Fullscreen
+                goToFullScreenBtn.forEach((btn) => 
+                {
+                    btn.addEventListener("click" , () => 
+                    {
+                        if(!(document.fullscreenElement))
+                        {
+                            btn.title = "Exit Fullscreen";
+                            btn.classList.add("isFullScreen");
+                            documentHTML.requestFullscreen();
+                            return;
+                        }
+                        btn.title = "Enter Fullscreen";
+                        btn.classList.remove("isFullScreen");
+                        document.exitFullscreen();
+                    });
+                });
+
+                document.addEventListener("fullscreenchange", () => 
                 {
                     if(!(document.fullscreenElement))
                     {
-                        btn.title = "Exit Fullscreen";
-                        btn.classList.add("isFullScreen");
-                        documentHTML.requestFullscreen();
-                        return;
+                        document.querySelector(".goToFullScreenBtn.isFullScreen").title = "Enter Fullscreen";
+                        document.querySelector(".goToFullScreenBtn.isFullScreen").classList.remove("isFullScreen");
                     }
-                    btn.title = "Enter Fullscreen";
-                    btn.classList.remove("isFullScreen");
-                    document.exitFullscreen();
                 });
-            });
 
-            document.addEventListener("fullscreenchange", () => 
-            {
-                if(!(document.fullscreenElement))
+
+
+            // NAVBAR
+
+                window.addEventListener("scroll" , () => 
                 {
-                    document.querySelector(".goToFullScreenBtn.isFullScreen").title = "Enter Fullscreen";
-                    document.querySelector(".goToFullScreenBtn.isFullScreen").classList.remove("isFullScreen");
-                }
-            });
+                    // Darken NavBar on scroll
+                    topNavBar.classList.toggle("float" , window.scrollY > 0);
 
-
-
-        // NAVBAR
-
-            window.addEventListener("scroll" , () => 
-            {
-                // Darken NavBar on scroll
-                topNavBar.classList.toggle("float" , window.scrollY > 0);
-
-                // Hide/Unhide navbar while scrolling (If fullscreen is disabled)
-                if((!(document.fullscreenElement) && (window.innerHeight != screen.height)))
-                {
-                    let currentWindowScroll = window.scrollY;
-
-                    if((currentWindowScroll > lastWindowScroll))
+                    // Hide/Unhide navbar while scrolling (If fullscreen is disabled)
+                    if((!(document.fullscreenElement) && (window.innerHeight != screen.height)))
                     {
-                        topNavBar.classList.add("isScrollingDown");
-                        btmNavBar.classList.add("isScrollingDown");
+                        let currentWindowScroll = window.scrollY;
+
+                        if((currentWindowScroll > lastWindowScroll))
+                        {
+                            topNavBar.classList.add("isScrollingDown");
+                            btmNavBar.classList.add("isScrollingDown");
+                        }
+        
+                        if((currentWindowScroll < lastWindowScroll))
+                        {
+                            topNavBar.classList.remove("isScrollingDown");
+                            btmNavBar.classList.remove("isScrollingDown");
+                        }
+        
+                        lastWindowScroll = currentWindowScroll;
                     }
-    
-                    if((currentWindowScroll < lastWindowScroll))
+                    else
                     {
                         topNavBar.classList.remove("isScrollingDown");
                         btmNavBar.classList.remove("isScrollingDown");
                     }
-    
-                    lastWindowScroll = currentWindowScroll;
-                }
-                else
-                {
-                    topNavBar.classList.remove("isScrollingDown");
-                    btmNavBar.classList.remove("isScrollingDown");
-                }
-            });
-            
-
-            // Go to Home page
-            goToHomePage.forEach(one => 
-            {
-                one.addEventListener("click" , () => 
-                {
-                    window.location.href = locationOrigin + "Home.html";
                 });
-            });
+                
 
-            // Notify users that the News Page isn't ready
-            newsNavLink.forEach((newsNav) => 
-            {
-                newsNav.removeAttribute("href");
-                newsNav.addEventListener("click" , () => 
+                // Go to Home page
+                goToHomePage.forEach(one => 
                 {
-                    notification(`notifyBad` , `Page unavailable`);
-                });
-            });
-
-            // Profile Options
-            function openNavProfileOptions()
-            {
-                openNavProfOptBtn.forEach((btn) => 
-                {
-                    btn.removeEventListener("click" , openNavProfileOptions);
+                    one.addEventListener("click" , () => 
+                    {
+                        window.location.href = locationOrigin + "Home.html";
+                    });
                 });
 
-                navProfileOptionsBdr.classList.toggle("active");
-                toggleNavBarUnderLayer();
-
-                openNavProfOptTimer = setTimeout(() => 
+                // Notify users that the News Page isn't ready
+                newsNavLink.forEach((newsNav) => 
                 {
-                    document.addEventListener("click" , closeNavProfileOptions);
-                    clearTimeout(openNavProfOptTimer);
-                }, 100);
-            }
+                    newsNav.removeAttribute("href");
+                    newsNav.addEventListener("click" , () => 
+                    {
+                        notification(`notifyBad` , `Page unavailable`);
+                    });
+                });
 
-            function closeNavProfileOptions()
-            {
-                if((navProfileOptionsBdr.classList.contains("active")))
+                // Profile Options
+                function openNavProfileOptions()
                 {
-                    document.removeEventListener("click" , closeNavProfileOptions);
-                    navProfileOptionsBdr.classList.remove("active");
-                    navProfileOptionsBox.scrollTo(null , 0);
-                    toggleNavBarUnderLayer();
-
                     openNavProfOptBtn.forEach((btn) => 
                     {
-                        btn.addEventListener("click" , openNavProfileOptions);
+                        btn.removeEventListener("click" , openNavProfileOptions);
                     });
+
+                    navProfileOptionsBdr.classList.toggle("active");
+                    toggleNavBarUnderLayer();
+
+                    openNavProfOptTimer = setTimeout(() => 
+                    {
+                        document.addEventListener("click" , closeNavProfileOptions);
+                        clearTimeout(openNavProfOptTimer);
+                    }, 100);
                 }
-            }
 
-            openNavProfOptBtn.forEach((btn) => 
-            {
-                btn.addEventListener("click" , openNavProfileOptions);
-            });
-
-            // Signing Out of your Account
-            navBarSignOutBtn.addEventListener("click" , accountSignOut);
-
-
-        
-        // NAVBAR ACTIVE STATE
-
-            let currPagePathName = window.location.pathname;
-            let extractedCurrPagePath = currPagePathName.replace(/\.html$/, "");
-            let currPageSpecificSegment = extractedCurrPagePath.substring(extractedCurrPagePath.lastIndexOf('/') + 1);
-            let currPageSpecificSegmentLC = currPageSpecificSegment.toLowerCase();
-
-            switch(currPageSpecificSegmentLC)
-            {
-                case 'home': 
-                    sideNavLinks[0].classList.add("active");
-                    btmNavLinks[0].classList.add("active");
-                    break;
-                
-                case 'watchlist': 
-                    sideNavLinks[1].classList.add("active");
-                    btmNavLinks[1].classList.add("active");
-                    break;
-                
-                case 'categories': 
-                    sideNavLinks[2].classList.add("active");
-                    btmNavLinks[2].classList.add("active");
-                    break;
-                
-                case 'schedule': 
-                    sideNavLinks[3].classList.add("active");
-                    btmNavLinks[3].classList.add("active");
-                    break;
-
-                case 'news': 
-                    sideNavLinks[4].classList.add("active");
-                    btmNavLinks[4].classList.add("active");
-                    break;
-
-                default: 
-                    console.error("Error: No corresponding navbar item found");
-                    break;
-            }
-
-
-
-        // NAVBAR FEEDBACK FORM
-
-            openFeedBackForm.forEach((btn) => 
-            {
-                btn.addEventListener("click" , () => 
+                function closeNavProfileOptions()
                 {
-                    notification(`notifyBad` , `Feedback form unavailable`);
-                });
-            });
-
-
-
-        // DEVELOPER'S PROFILE
-
-            developerProfile.forEach(dev => 
-            {
-                dev.title = `This website was designed and developed by acbennny (me😁). You can check out my portfolio at: "${developerLink}"`;
-
-                // Opening my portfolio (in a new tab)
-                dev.addEventListener("click" , () => 
-                {
-                    window.open(developerLink , "_blank");
-                });
-
-                // Copying link to clipboard
-                dev.addEventListener("contextmenu" , (e) => 
-                {
-                    // Prevent the default context menu from appearing
-                    e.preventDefault();
-
-                    // Then copy to clipboard and notify user
-                    navigator.clipboard.writeText(developerLink)
-                    .then(() => 
+                    if((navProfileOptionsBdr.classList.contains("active")))
                     {
-                        notification(`notifyGood` , `Link copied to clipboard`);
-                    })
-                    .catch((err) => 
-                    {
-                        notification(`notifyBad` , `Could not copy link, ${err}`);
-                    });
+                        document.removeEventListener("click" , closeNavProfileOptions);
+                        navProfileOptionsBdr.classList.remove("active");
+                        navProfileOptionsBox.scrollTo(null , 0);
+                        toggleNavBarUnderLayer();
+
+                        openNavProfOptBtn.forEach((btn) => 
+                        {
+                            btn.addEventListener("click" , openNavProfileOptions);
+                        });
+                    }
+                }
+
+                openNavProfOptBtn.forEach((btn) => 
+                {
+                    btn.addEventListener("click" , openNavProfileOptions);
                 });
-            });
+
+                // Signing Out of your Account
+                navBarSignOutBtn.addEventListener("click" , accountSignOut);
 
 
             
-        // BACK TO TOP
+            // NAVBAR ACTIVE STATE
 
-            backtotopBtn.forEach(btn => 
-            {
-                btn.addEventListener("click" , () => 
+                let currPagePathName = window.location.pathname;
+                let extractedCurrPagePath = currPagePathName.replace(/\.html$/, "");
+                let currPageSpecificSegment = extractedCurrPagePath.substring(extractedCurrPagePath.lastIndexOf('/') + 1);
+                let currPageSpecificSegmentLC = currPageSpecificSegment.toLowerCase();
+
+                switch(currPageSpecificSegmentLC)
                 {
-                    window.scrollTo(null , 0);
+                    case 'home': 
+                        sideNavLinks[0].classList.add("active");
+                        btmNavLinks[0].classList.add("active");
+                        break;
+                    
+                    case 'watchlist': 
+                        sideNavLinks[1].classList.add("active");
+                        btmNavLinks[1].classList.add("active");
+                        break;
+                    
+                    case 'categories': 
+                        sideNavLinks[2].classList.add("active");
+                        btmNavLinks[2].classList.add("active");
+                        break;
+                    
+                    case 'schedule': 
+                        sideNavLinks[3].classList.add("active");
+                        btmNavLinks[3].classList.add("active");
+                        break;
+
+                    case 'news': 
+                        sideNavLinks[4].classList.add("active");
+                        btmNavLinks[4].classList.add("active");
+                        break;
+
+                    default: 
+                        console.error("Error: No corresponding navbar item found");
+                        break;
+                }
+
+
+
+            // NAVBAR FEEDBACK FORM
+
+                openFeedBackForm.forEach((btn) => 
+                {
+                    btn.addEventListener("click" , () => 
+                    {
+                        notification(`notifyBad` , `Feedback form unavailable`);
+                    });
                 });
-            });
 
 
-        // COMPONENTS
 
-            insertSwitchProfJS();
-            instantiateNavBarNotificationMenu();
-            preQuickSearch();
-            attachAddToWLEventListeners();
-            attachSharePageEventListeners();
+            // DEVELOPER'S PROFILE
 
-    }
+                developerProfile.forEach(dev => 
+                {
+                    dev.title = `This website was designed and developed by acbennny (me😁). You can check out my portfolio at: "${developerLink}"`;
+
+                    // Opening my portfolio (in a new tab)
+                    dev.addEventListener("click" , () => 
+                    {
+                        window.open(developerLink , "_blank");
+                    });
+
+                    // Copying link to clipboard
+                    dev.addEventListener("contextmenu" , (e) => 
+                    {
+                        // Prevent the default context menu from appearing
+                        e.preventDefault();
+
+                        // Then copy to clipboard and notify user
+                        navigator.clipboard.writeText(developerLink)
+                        .then(() => 
+                        {
+                            notification(`notifyGood` , `Link copied to clipboard`);
+                        })
+                        .catch((err) => 
+                        {
+                            notification(`notifyBad` , `Could not copy link, ${err}`);
+                        });
+                    });
+                });
+
+
+                
+            // BACK TO TOP
+
+                backtotopBtn.forEach(btn => 
+                {
+                    btn.addEventListener("click" , () => 
+                    {
+                        window.scrollTo(null , 0);
+                    });
+                });
+
+
+            // COMPONENTS
+
+                insertSwitchProfJS();
+                instantiateNavBarNotificationMenu();
+                preQuickSearch();
+                attachAddToWLEventListeners();
+                attachSharePageEventListeners();
+
+        }
 
 
     // GENERAL MESSAGE FOR FAILED REQUESTS
@@ -1544,126 +1850,6 @@
 
 
     // ADD TO WATCHLIST
-    
-        let addToWLHTML = 
-        `
-            <div class="genAtnModalBcg closeAddToWL"></div>
-            <div class="genAtnModalBox addToWLBox">
-                <div class="genAtnModalCtnt">
-                    <div class="genAtnModalHeader">
-                        <div class="genAtnModalHeaderIconBox closeAddToWL">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="genAtnModalHeaderIcon">
-                                <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
-                            </svg>
-                        </div>
-                        <h3 class="genAtnModalHeaderText">
-                            <span class="large">A</span>
-                            <span class="small">dd to Watchlist</span>
-                        </h3>
-                    </div>
-                    <div class="genAtnModalOptBcg addToWLItemBcg">
-                        <div class="genAtnModalOptBdr addToWLItemBox">
-                            <div class="genAtnModalOptBox newWLBtn" title="Create Watchlist" aria-label="Create-Watchlist-btn">
-                                <div class="genAtnModalOptIconBox">
-                                    <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="genAtnModalOptIcon">
-                                        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
-                                    </svg>
-                                </div>
-                                <div class="genAtnModalOptTextBox ">
-                                    <span class="genAtnModalOptText ">Create Watchlist</span>
-                                </div>
-                            </div>
-                            <div class="newWLBdr">
-                                <div class="newWLBox">
-                                    <div class="newWLInputBdr">
-                                        <div class="newWLInputBox">
-                                            <input type="text" name="newPlayListInputField" id="newWLInputId" class="newWLInputClass" placeholder="Name your watchlist" disabled />
-                                        </div>
-                                    </div>
-                                    <div class="newWLWarnBdr">
-                                        <div class="newWLWarnBox">
-                                            <p id="newWLWarnId" class="newWLWarnText" tabindex="-1"></p>
-                                        </div>
-                                    </div>
-                                    <div class="newWLAtnBdr">
-                                        <div class="newWLAtnBox">
-                                            <button type="button" id="createNewWL" class="newWLAtnBtn inactiveBtn" disabled>Create</button>
-                                            <button type="button" id="cancelNewWL" class="newWLAtnBtn hollowBtn" disabled>Cancel</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <button data-list="" class="genAtnModalOptBox plItem" title="" aria-label="">
-                                <div class="genAtnModalOptIconBox">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genAtnModalOptIcon">
-                                        <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
-                                        <path fill-rule="evenodd" d="M2 8c0 .494.993.89 2.979 1.685l2.808 1.124C9.773 11.603 10.767 12 12 12s2.227-.397 4.213-1.191l2.808-1.124C21.007 8.891 22 8.494 22 8s-.993-.89-2.979-1.685l-2.808-1.123C14.227 4.397 13.233 4 12 4s-2.227.397-4.213 1.192L4.98 6.315C2.993 7.109 2 7.506 2 8" clip-rule="evenodd" />
-                                        <path d="m19.021 13.685l-2.808 1.124C14.227 15.603 13.233 16 12 16s-2.227-.397-4.213-1.191L4.98 13.685C2.993 12.891 2 12.493 2 12c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 12.535 10.572 13 12 13s2.59-.465 4.439-1.205l3.14-1.256C21.194 11.189 22 11.555 22 12c0 .493-.993.89-2.979 1.685" />
-                                        <path d="m19.021 17.685l-2.808 1.123C14.227 19.603 13.233 20 12 20s-2.227-.397-4.213-1.192L4.98 17.685C2.993 16.89 2 16.493 2 16c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 16.535 10.572 17 12 17s2.59-.465 4.439-1.205l3.14-1.256c1.614.65 2.421 1.016 2.421 1.46c0 .494-.993.891-2.979 1.686" />
-                                    </svg>
-                                </div>
-                                <div class="genAtnModalOptTextBox ">
-                                    <span class="genAtnModalOptText ">Planned</span>
-                                </div>
-                            </button>
-                            <button data-list="" class="genAtnModalOptBox plItem" title="" aria-label="">
-                                <div class="genAtnModalOptIconBox">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genAtnModalOptIcon">
-                                        <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
-                                        <path fill-rule="evenodd" d="M2 8c0 .494.993.89 2.979 1.685l2.808 1.124C9.773 11.603 10.767 12 12 12s2.227-.397 4.213-1.191l2.808-1.124C21.007 8.891 22 8.494 22 8s-.993-.89-2.979-1.685l-2.808-1.123C14.227 4.397 13.233 4 12 4s-2.227.397-4.213 1.192L4.98 6.315C2.993 7.109 2 7.506 2 8" clip-rule="evenodd" />
-                                        <path d="m19.021 13.685l-2.808 1.124C14.227 15.603 13.233 16 12 16s-2.227-.397-4.213-1.191L4.98 13.685C2.993 12.891 2 12.493 2 12c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 12.535 10.572 13 12 13s2.59-.465 4.439-1.205l3.14-1.256C21.194 11.189 22 11.555 22 12c0 .493-.993.89-2.979 1.685" />
-                                        <path d="m19.021 17.685l-2.808 1.123C14.227 19.603 13.233 20 12 20s-2.227-.397-4.213-1.192L4.98 17.685C2.993 16.89 2 16.493 2 16c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 16.535 10.572 17 12 17s2.59-.465 4.439-1.205l3.14-1.256c1.614.65 2.421 1.016 2.421 1.46c0 .494-.993.891-2.979 1.686" />
-                                    </svg>
-                                </div>
-                                <div class="genAtnModalOptTextBox ">
-                                    <span class="genAtnModalOptText ">Watching</span>
-                                </div>
-                            </button>
-                            <button data-list="" class="genAtnModalOptBox plItem" title="" aria-label="">
-                                <div class="genAtnModalOptIconBox">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genAtnModalOptIcon">
-                                        <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
-                                        <path fill-rule="evenodd" d="M2 8c0 .494.993.89 2.979 1.685l2.808 1.124C9.773 11.603 10.767 12 12 12s2.227-.397 4.213-1.191l2.808-1.124C21.007 8.891 22 8.494 22 8s-.993-.89-2.979-1.685l-2.808-1.123C14.227 4.397 13.233 4 12 4s-2.227.397-4.213 1.192L4.98 6.315C2.993 7.109 2 7.506 2 8" clip-rule="evenodd" />
-                                        <path d="m19.021 13.685l-2.808 1.124C14.227 15.603 13.233 16 12 16s-2.227-.397-4.213-1.191L4.98 13.685C2.993 12.891 2 12.493 2 12c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 12.535 10.572 13 12 13s2.59-.465 4.439-1.205l3.14-1.256C21.194 11.189 22 11.555 22 12c0 .493-.993.89-2.979 1.685" />
-                                        <path d="m19.021 17.685l-2.808 1.123C14.227 19.603 13.233 20 12 20s-2.227-.397-4.213-1.192L4.98 17.685C2.993 16.89 2 16.493 2 16c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 16.535 10.572 17 12 17s2.59-.465 4.439-1.205l3.14-1.256c1.614.65 2.421 1.016 2.421 1.46c0 .494-.993.891-2.979 1.686" />
-                                    </svg>
-                                </div>
-                                <div class="genAtnModalOptTextBox ">
-                                    <span class="genAtnModalOptText ">On-Hold</span>
-                                </div>
-                            </button>
-                            <button data-list="" class="genAtnModalOptBox plItem" title="" aria-label="">
-                                <div class="genAtnModalOptIconBox">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genAtnModalOptIcon">
-                                        <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
-                                        <path fill-rule="evenodd" d="M2 8c0 .494.993.89 2.979 1.685l2.808 1.124C9.773 11.603 10.767 12 12 12s2.227-.397 4.213-1.191l2.808-1.124C21.007 8.891 22 8.494 22 8s-.993-.89-2.979-1.685l-2.808-1.123C14.227 4.397 13.233 4 12 4s-2.227.397-4.213 1.192L4.98 6.315C2.993 7.109 2 7.506 2 8" clip-rule="evenodd" />
-                                        <path d="m19.021 13.685l-2.808 1.124C14.227 15.603 13.233 16 12 16s-2.227-.397-4.213-1.191L4.98 13.685C2.993 12.891 2 12.493 2 12c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 12.535 10.572 13 12 13s2.59-.465 4.439-1.205l3.14-1.256C21.194 11.189 22 11.555 22 12c0 .493-.993.89-2.979 1.685" />
-                                        <path d="m19.021 17.685l-2.808 1.123C14.227 19.603 13.233 20 12 20s-2.227-.397-4.213-1.192L4.98 17.685C2.993 16.89 2 16.493 2 16c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 16.535 10.572 17 12 17s2.59-.465 4.439-1.205l3.14-1.256c1.614.65 2.421 1.016 2.421 1.46c0 .494-.993.891-2.979 1.686" />
-                                    </svg>
-                                </div>
-                                <div class="genAtnModalOptTextBox ">
-                                    <span class="genAtnModalOptText ">Completed</span>
-                                </div>
-                            </button>
-                            <button data-list="" class="genAtnModalOptBox plItem" title="" aria-label="">
-                                <div class="genAtnModalOptIconBox">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genAtnModalOptIcon">
-                                        <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
-                                        <path fill-rule="evenodd" d="M2 8c0 .494.993.89 2.979 1.685l2.808 1.124C9.773 11.603 10.767 12 12 12s2.227-.397 4.213-1.191l2.808-1.124C21.007 8.891 22 8.494 22 8s-.993-.89-2.979-1.685l-2.808-1.123C14.227 4.397 13.233 4 12 4s-2.227.397-4.213 1.192L4.98 6.315C2.993 7.109 2 7.506 2 8" clip-rule="evenodd" />
-                                        <path d="m19.021 13.685l-2.808 1.124C14.227 15.603 13.233 16 12 16s-2.227-.397-4.213-1.191L4.98 13.685C2.993 12.891 2 12.493 2 12c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 12.535 10.572 13 12 13s2.59-.465 4.439-1.205l3.14-1.256C21.194 11.189 22 11.555 22 12c0 .493-.993.89-2.979 1.685" />
-                                        <path d="m19.021 17.685l-2.808 1.123C14.227 19.603 13.233 20 12 20s-2.227-.397-4.213-1.192L4.98 17.685C2.993 16.89 2 16.493 2 16c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 16.535 10.572 17 12 17s2.59-.465 4.439-1.205l3.14-1.256c1.614.65 2.421 1.016 2.421 1.46c0 .494-.993.891-2.979 1.686" />
-                                    </svg>
-                                </div>
-                                <div class="genAtnModalOptTextBox ">
-                                    <span class="genAtnModalOptText ">Dropped</span>
-                                </div>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-        let addToWLTimer;
 
         function attachAddToWLEventListeners()
         {
@@ -1871,150 +2057,6 @@
 
 
     // SHARE
-        
-        let socialShareHTML = 
-        `
-            <div class="genAtnModalBcg closeSclShare"></div>
-            <div class="genAtnModalBox sclShareBox">
-                <div class="genAtnModalCtnt">
-                    <div class="genAtnModalHeader">
-                        <div class="genAtnModalHeaderIconBox closeSclShare">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="genAtnModalHeaderIcon">
-                                <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
-                            </svg>
-                        </div>
-                        <h3 class="genAtnModalHeaderText">
-                        <span class="large">S</span>
-                        <span class="small">hare this Show</span>
-                        </h3>
-                    </div>
-                    <div class="genAtnModalOptBcg">
-                        <div class="genAtnModalOptBdr">
-                            <button data-share="Facebook" class="genAtnModalOptBox" title="" aria-label="">
-                                <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
-                                    <svg class="share-modal-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" data-t="facebook-logo-svg" aria-labelledby="facebook-logo-svg" aria-hidden="true" role="img"><title id="facebook-logo-svg">Facebook</title><defs><rect id="facebook-logo-a" width="64" height="64" x="0" y="0" rx="32"></rect></defs><g fill="none" fill-rule="evenodd"><mask id="facebook-logo-b" fill="#fff"><use href="#facebook-logo-a"></use></mask><circle cx="32" cy="32" r="32" fill="#3C5A9A" fill-rule="nonzero" mask="url(#facebook-logo-b)"></circle><path fill="#FFF" fill-rule="nonzero" d="M39.976 15h-5.434c-3.225 0-6.811 1.356-6.811 6.03.015 1.63 0 3.189 0 4.944H24v5.937h3.846V49h7.067V31.798h4.665l.422-5.84h-5.208s.011-2.598 0-3.353c0-1.847 1.922-1.741 2.037-1.741.915 0 2.693.003 3.15 0V15h-.003z" mask="url(#facebook-logo-b)"></path></g></svg>
-                                </div>
-                                <div class="genAtnModalOptTextBox shareTextBox">
-                                    <span class="genAtnModalOptText shareText">Facebook</span>
-                                </div>
-                            </button>
-                            <button data-share="Twitter" class="genAtnModalOptBox" title="" aria-label="">
-                                <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
-                                    <svg class="genAtnModalShareIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" data-t="twitter-logo-svg" aria-labelledby="twitter-logo-svg" aria-hidden="true" role="img"><title id="twitter-logo-svg">Twitter</title><defs><rect id="twitter-logo-a" width="64" height="64" x="0" y="0" rx="32"></rect></defs><g fill="none" fill-rule="evenodd"><mask id="twitter-logo-b" fill="#fff"><use href="#twitter-logo-a"></use></mask><g fill="#1B9DF0" fill-rule="nonzero" mask="url(#twitter-logo-b)"><circle cx="32" cy="32" r="32"></circle></g><g fill="#FFF" fill-rule="nonzero" mask="url(#twitter-logo-b)"><path d="M26.144 48.88c14.192 0 21.952-11.76 21.952-21.952 0-.336 0-.672-.016-.992 1.504-1.088 2.816-2.448 3.856-4-1.376.608-2.864 1.024-4.432 1.216 1.6-.96 2.816-2.464 3.392-4.272-1.488.88-3.136 1.52-4.896 1.872-1.408-1.504-3.408-2.432-5.632-2.432-4.256 0-7.712 3.456-7.712 7.712 0 .608.064 1.2.208 1.76-6.416-.32-12.096-3.392-15.904-8.064-.656 1.136-1.04 2.464-1.04 3.872 0 2.672 1.36 5.04 3.44 6.416-1.264-.032-2.448-.384-3.488-.96v.096c0 3.744 2.656 6.848 6.192 7.568-.64.176-1.328.272-2.032.272-.496 0-.976-.048-1.456-.144.976 3.072 3.824 5.296 7.2 5.36-2.64 2.064-5.968 3.296-9.584 3.296-.624 0-1.232-.032-1.84-.112 3.376 2.208 7.44 3.488 11.792 3.488"></path></g></g></svg>
-                                </div>
-                                <div class="genAtnModalOptTextBox shareTextBox">
-                                    <span class="genAtnModalOptText shareText">Twitter</span>
-                                </div>
-                            </button>
-                            <button data-share="WhatsApp" class="genAtnModalOptBox" title="" aria-label="">
-                                <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
-                                    <svg class="genAtnModalShareIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" data-t="whats-app-logo-svg" aria-labelledby="whats-app-logo-svg" aria-hidden="true" role="img">
-                                        <title id="whats-app-logo-svg">WhatsApp</title>
-                                        <defs><linearGradient id="whats-app-logo-c" x1="50%" x2="50%" y1="100%" y2="0%"><stop offset="0%" stop-color="#20B038"></stop><stop offset="100%" stop-color="#60D66A"></stop></linearGradient><rect id="whats-app-logo-a" width="64" height="64" x="0" y="0" rx="32"></rect></defs>
-                                        <g fill="none" fill-rule="evenodd"><mask id="whats-app-logo-b" fill="#fff"><use href="#whats-app-logo-a"></use></mask><use fill="#43C553" href="#whats-app-logo-a"></use>
-                                            <path fill="#E0E0E0" fill-rule="nonzero" d="M46.172 17.813c-3.76-3.746-8.76-5.81-14.088-5.813-10.978 0-19.912 8.891-19.917 19.82-.001 3.493.916 6.903 2.659 9.91L12 52l10.558-2.756c2.909 1.58 6.184 2.411 9.517 2.413h.009c10.976 0 19.911-8.893 19.916-19.821.002-5.297-2.068-10.277-5.828-14.023zM32.084 48.309h-.007c-2.97-.001-5.884-.795-8.425-2.297l-.605-.356-6.265 1.635 1.673-6.08-.394-.623c-1.658-2.623-2.532-5.654-2.531-8.767.003-9.083 7.429-16.473 16.56-16.473 4.422.002 8.578 1.717 11.703 4.831 3.126 3.114 4.845 7.253 4.844 11.656-.004 9.083-7.43 16.474-16.553 16.474z" mask="url(#whats-app-logo-b)"></path>
-                                            <path fill="url(#whats-app-logo-c)" fill-rule="nonzero" d="M12.914 50.86l2.697-9.801c-1.664-2.869-2.539-6.123-2.538-9.457.005-10.429 8.53-18.914 19.006-18.914 5.085.003 9.857 1.973 13.445 5.548 3.588 3.575 5.564 8.327 5.561 13.381-.004 10.43-8.53 18.915-19.005 18.915h-.008c-3.181 0-6.306-.796-9.082-2.302l-10.076 2.63z" mask="url(#whats-app-logo-b)"></path>
-                                            <path fill="#FFF" d="M27.162 23.405c-.368-.815-.756-.832-1.107-.846-.287-.012-.615-.011-.943-.011-.328 0-.86.122-1.311.612-.451.49-1.722 1.675-1.722 4.085s1.763 4.738 2.008 5.065c.246.326 3.404 5.429 8.404 7.392 4.155 1.63 5 1.306 5.903 1.225.902-.082 2.91-1.185 3.32-2.328.41-1.144.41-2.124.287-2.329-.123-.204-.45-.326-.943-.57-.492-.246-2.91-1.43-3.361-1.594-.451-.163-.78-.245-1.107.245-.328.49-1.27 1.593-1.557 1.92-.287.327-.574.368-1.066.123-.492-.246-2.077-.763-3.956-2.43-1.463-1.299-2.45-2.902-2.737-3.392-.287-.49-.03-.755.216-1 .221-.219.492-.571.738-.857.246-.286.328-.49.492-.817.164-.327.082-.613-.041-.858-.123-.244-1.08-2.666-1.517-3.635z" mask="url(#whats-app-logo-b)"></path>
-                                            <path fill="#FFF" fill-rule="nonzero" d="M45.78 17.746c-3.718-3.703-8.66-5.744-13.927-5.746-10.852 0-19.683 8.79-19.688 19.592-.001 3.454.905 6.825 2.628 9.796L12 51.54l10.437-2.725c2.875 1.562 6.113 2.384 9.408 2.386h.008c10.85 0 19.683-8.791 19.688-19.594.002-5.235-2.044-10.158-5.761-13.862zM31.853 47.892h-.006c-2.937-.001-5.817-.786-8.329-2.27l-.598-.353-6.193 1.617 1.653-6.01-.39-.616c-1.637-2.593-2.502-5.59-2.5-8.666.003-8.98 7.343-16.285 16.37-16.285 4.37.002 8.478 1.698 11.568 4.776s4.79 7.17 4.789 11.522c-.004 8.98-7.345 16.285-16.364 16.285z" mask="url(#whats-app-logo-b)"></path>
-                                        </g>
-                                    </svg>
-                                </div>
-                                <div class="genAtnModalOptTextBox shareTextBox">
-                                    <span class="genAtnModalOptText shareText">WhatsApp</span>
-                                </div>
-                            </button>
-                            <button data-share="Pinterest" class="genAtnModalOptBox" title="" aria-label="">
-                                <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
-                                    <svg class="genAtnModalShareIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" data-t="pinterest-logo-svg" aria-labelledby="pinterest-logo-svg" aria-hidden="true" role="img"><title id="pinterest-logo-svg">Pinterest</title><defs><rect id="pinterest-logo-a" width="64" height="64" x="0" y="0" rx="32"></rect></defs><g fill="none" fill-rule="evenodd"><mask id="pinterest-logo-b" fill="#fff"><use href="#pinterest-logo-a"></use></mask><circle cx="32" cy="32" r="32" fill="#CA3737" fill-rule="nonzero" mask="url(#pinterest-logo-b)"></circle><path fill="#FFF" fill-rule="nonzero" d="M32 16.133c-8.8 0-15.867 7.067-15.867 15.867 0 6.533 3.867 12 9.467 14.533 0-1.066 0-2.4.267-3.6.266-1.333 2-8.666 2-8.666s-.534-1.067-.534-2.534c0-2.4 1.334-4.133 3.067-4.133 1.467 0 2.133 1.067 2.133 2.4 0 1.467-.933 3.6-1.333 5.6-.4 1.733.933 3.067 2.533 3.067 3.067 0 5.067-3.867 5.067-8.4 0-3.467-2.4-6-6.533-6-4.8 0-7.734 3.6-7.734 7.6 0 1.333.4 2.4 1.067 3.066.267.4.4.534.267.934-.134.266-.267.933-.267 1.333-.133.4-.4.533-.8.4-2.267-.933-3.2-3.333-3.2-6 0-4.533 3.733-9.867 11.333-9.867 6 0 10 4.4 10 9.067 0 6.267-3.466 10.8-8.533 10.8-1.733 0-3.333-.933-3.867-2 0 0-.933 3.6-1.066 4.4-.4 1.2-.934 2.4-1.6 3.333 1.466.4 2.933.667 4.533.667 8.8 0 15.867-7.067 15.867-15.867-.4-8.933-7.467-16-16.267-16z" mask="url(#pinterest-logo-b)"></path></g></svg>
-                                </div>
-                                <div class="genAtnModalOptTextBox shareTextBox">
-                                    <span class="genAtnModalOptText shareText">Pinterest</span>
-                                </div>
-                            </button>
-                            <button data-share="Reddit" class="genAtnModalOptBox" title="" aria-label="">
-                                <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
-                                    <svg class="genAtnModalShareIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" data-t="reddit-logo-svg" aria-labelledby="reddit-logo-svg" aria-hidden="true" role="img"><title id="reddit-logo-svg">Reddit</title><defs><rect id="reddit-logo-a" width="64" height="64" x="0" y="0" rx="32"></rect></defs><g fill="none" fill-rule="evenodd"><mask id="reddit-logo-b" fill="#fff"><use href="#reddit-logo-a"></use></mask><use fill="#D8D8D8" href="#reddit-logo-a"></use><g fill-rule="nonzero" mask="url(#reddit-logo-b)"><circle cx="32" cy="32" r="32" fill="#FF4500"></circle><path fill="#FFF" d="M52 32.319c0-2.445-1.968-4.43-4.394-4.43-1.195 0-2.25.461-3.023 1.24-2.987-2.16-7.135-3.578-11.704-3.755l2.003-9.46 6.503 1.381c.07 1.666 1.441 3.012 3.128 3.012 1.723 0 3.128-1.417 3.128-3.153 0-1.737-1.405-3.154-3.128-3.154-1.23 0-2.285.709-2.777 1.772l-7.276-1.56c-.21-.035-.421 0-.597.107-.176.106-.281.283-.352.496l-2.214 10.559c-4.675.142-8.858 1.524-11.88 3.756-.774-.744-1.863-1.24-3.023-1.24-2.426 0-4.394 1.984-4.394 4.429 0 1.807 1.054 3.33 2.601 4.04-.07.424-.105.885-.105 1.346 0 6.803 7.838 12.295 17.54 12.295 9.7 0 17.539-5.492 17.539-12.295 0-.46-.035-.886-.106-1.311C50.91 35.685 52 34.126 52 32.319zm-30.053 3.153c0-1.736 1.406-3.153 3.129-3.153 1.722 0 3.128 1.417 3.128 3.153 0 1.737-1.406 3.154-3.128 3.154-1.723 0-3.129-1.417-3.129-3.154zm17.47 8.327c-2.145 2.162-6.222 2.303-7.417 2.303-1.195 0-5.308-.177-7.417-2.303-.316-.319-.316-.85 0-1.17.317-.318.844-.318 1.16 0 1.336 1.347 4.218 1.843 6.292 1.843s4.921-.496 6.292-1.842c.316-.319.843-.319 1.16 0 .246.354.246.85-.07 1.17zm-.563-5.173c-1.722 0-3.128-1.417-3.128-3.154 0-1.736 1.406-3.153 3.128-3.153 1.722 0 3.128 1.417 3.128 3.153 0 1.737-1.406 3.154-3.128 3.154z"></path></g></g></svg>
-                                </div>
-                                <div class="genAtnModalOptTextBox shareTextBox">
-                                    <span class="genAtnModalOptText shareText">Reddit</span>
-                                </div>
-                            </button>
-                            <button data-share="Telegram" class="genAtnModalOptBox" title="" aria-label="">
-                                <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
-                                    <svg class="genAtnModalShareIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" data-t="telegram-logo-svg" aria-labelledby="telegram-logo-svg" aria-hidden="true" role="img"><title id="telegram-logo-svg">Telegram</title><defs><linearGradient id="telegram-logo-b" x1="50%" x2="50%" y1="0%" y2="99.258%"><stop offset="0%" stop-color="#2AABEE"></stop><stop offset="100%" stop-color="#229ED9"></stop></linearGradient><rect id="telegram-logo-a" width="64" height="64" x="0" y="0" rx="32"></rect></defs><g fill="none" fill-rule="evenodd"><mask id="telegram-logo-c" fill="#fff"><use href="#telegram-logo-a"></use></mask><circle cx="32" cy="32" r="32" fill="url(#telegram-logo-b)" fill-rule="nonzero" mask="url(#telegram-logo-c)"></circle><path fill="#FFF" fill-rule="nonzero" d="M14.485 31.662c9.329-4.064 15.55-6.744 18.662-8.038 8.886-3.696 10.733-4.339 11.937-4.36.264-.004.856.061 1.24.372.323.263.412.618.455.867.043.249.096.816.054 1.26-.482 5.06-2.566 17.339-3.626 23.006-.448 2.398-1.332 3.202-2.187 3.28-1.858.172-3.27-1.227-5.07-2.407-2.815-1.846-4.407-2.996-7.14-4.797-3.16-2.082-1.112-3.227.689-5.097.471-.489 8.659-7.936 8.817-8.612.02-.084.038-.4-.149-.566-.187-.166-.463-.11-.662-.064-.283.064-4.782 3.038-13.498 8.922-1.277.877-2.434 1.304-3.47 1.281-1.143-.024-3.34-.646-4.975-1.177-2.004-.651-3.596-.996-3.458-2.102.073-.576.866-1.165 2.381-1.768z" mask="url(#telegram-logo-c)"></path></g></svg>
-                                </div>
-                                <div class="genAtnModalOptTextBox shareTextBox">
-                                    <span class="genAtnModalOptText shareText">Telegram</span>
-                                </div>
-                            </button>
-                            <button data-share="Tumblr" class="genAtnModalOptBox" title="" aria-label="">
-                                <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
-                                    <svg class="genAtnModalShareIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" data-t="tumblr-logo-svg" aria-labelledby="tumblr-logo-svg" aria-hidden="true" role="img"><title id="tumblr-logo-svg">Tumblr</title><defs><rect id="tumblr-logo-a" width="64" height="64" x="0" y="0" rx="32"></rect></defs><g fill="none" fill-rule="evenodd"><mask id="tumblr-logo-b" fill="#fff"><use href="#tumblr-logo-a"></use></mask><path fill="#314358" fill-rule="nonzero" d="M0 0h64v64H0z" mask="url(#tumblr-logo-b)"></path><path fill="#FFF" fill-rule="nonzero" d="M39.494 41.56c-.583.284-1.696.531-2.527.552-2.507.069-2.994-1.8-3.014-3.153v-9.962h6.29v-4.845h-6.268V16h-4.587c-.075 0-.207.068-.226.239-.268 2.495-1.41 6.873-6.162 8.624v4.134h3.17v10.455c0 3.58 2.584 8.666 9.407 8.546 2.302-.04 4.858-1.025 5.423-1.875l-1.506-4.563" mask="url(#tumblr-logo-b)"></path></g></svg>
-                                </div>
-                                <div class="genAtnModalOptTextBox shareTextBox">
-                                    <span class="genAtnModalOptText shareText">Tumblr</span>
-                                </div>
-                            </button>
-                            <button data-share="Yahoo" class="genAtnModalOptBox" title="" aria-label="">
-                                <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
-                                    <svg class="genAtnModalOptIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                        <path d="M223.7 141.1 167 284.2 111 141.1H14.9L120.8 390.2 82.2 480h94.2L317.3 141.1zm105.4 135.8a58.2 58.2 0 1 0 58.2 58.2A58.2 58.2 0 0 0 329.1 276.9zM394.7 32l-93 223.5H406.4L499.1 32z"/>
-                                    </svg>
-                                </div>
-                                <div class="genAtnModalOptTextBox shareTextBox">
-                                    <span class="genAtnModalOptText shareText">Yahoo</span>
-                                </div>
-                            </button>
-                            <button data-share="Line" class="genAtnModalOptBox" title="" aria-label="">
-                                <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
-                                    <svg class="genAtnModalShareIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" data-t="line-logo-svg" aria-labelledby="line-logo-svg" aria-hidden="true" role="img"><title id="line-logo-svg">Line</title><defs><rect id="line-logo-a" width="64" height="64" x="0" y="0" rx="32"></rect></defs><g fill="none" fill-rule="evenodd"><mask id="line-logo-b" fill="#fff"><use href="#line-logo-a"></use></mask><path fill="#3ACE01" d="M13.099 0H50.9C58.106 0 64 5.894 64 13.099V50.9C64 58.106 58.106 64 50.901 64H13.1C5.894 64 0 58.106 0 50.901V13.1C0 5.894 5.894 0 13.099 0z" mask="url(#line-logo-b)"></path><path fill="#FFF" d="M31.938 10.602c12.968 0 23.48 8.417 23.48 18.801 0 3.627-1.283 7.014-3.505 9.886-.11.164-.254.344-.435.544l-.014.015c-.759.908-1.613 1.76-2.553 2.547-6.493 6.002-17.181 13.147-18.592 12.045-1.226-.958 2.02-5.645-1.725-6.425-.261-.03-.522-.062-.78-.1h-.005C16.81 46.353 8.458 38.66 8.458 29.403c0-10.384 10.512-18.801 23.48-18.801z" mask="url(#line-logo-b)"></path><path fill="#3ACE01" d="M18.315 35.4h4.735c.674 0 1.225-.55 1.225-1.224v-.102c0-.674-.551-1.225-1.225-1.225h-3.409v-7.756c0-.673-.55-1.224-1.224-1.224h-.102c-.674 0-1.225.55-1.225 1.224v9.083c0 .674.551 1.225 1.225 1.225zm29.344-5.692v-.102c0-.674-.551-1.225-1.225-1.225h-3.409v-1.939h3.409c.674 0 1.225-.551 1.225-1.225v-.102c0-.673-.551-1.224-1.225-1.224h-4.736c-.673 0-1.224.55-1.224 1.224v9.083c0 .673.55 1.224 1.224 1.224h4.736c.674 0 1.225-.55 1.225-1.224v-.103c0-.673-.551-1.224-1.225-1.224h-3.409v-1.94h3.409c.674.001 1.225-.55 1.225-1.223zm-9.107 5.328v-.001c.227-.228.354-.537.354-.859v-9.082c0-.674-.55-1.225-1.225-1.225h-.102c-.673 0-1.224.551-1.224 1.225v5.331l-4.427-5.937c-.211-.369-.61-.619-1.063-.619h-.102c-.674 0-1.225.551-1.225 1.225v9.082c0 .674.551 1.225 1.225 1.225h.102c.674 0 1.225-.551 1.225-1.225v-5.431l4.458 6.089c.027.043.057.084.09.123.122.167.29.282.476.351.144.06.3.093.465.093h.102c.2 0 .396-.05.572-.143.123-.059.226-.134.299-.222zm-12.064.365h.102c.673 0 1.224-.551 1.224-1.225v-9.082c0-.674-.55-1.225-1.224-1.225h-.102c-.674 0-1.225.551-1.225 1.225v9.082c0 .674.551 1.225 1.225 1.225z" mask="url(#line-logo-b)"></path></g></svg>
-                                </div>
-                                <div class="genAtnModalOptTextBox shareTextBox">
-                                    <span class="genAtnModalOptText shareText">Line</span>
-                                </div>
-                            </button>
-                            <button data-share="OKRU" class="genAtnModalOptBox" title="" aria-label="">
-                                <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
-                                    <svg class="genAtnModalShareIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" data-t="odnoklassniki-logo-svg" aria-labelledby="odnoklassniki-logo-svg" aria-hidden="true" role="img"><title id="odnoklassniki-logo-svg">OK.RU</title><defs><rect id="odnoklassniki-logo-a" width="64" height="64" x="0" y="0" rx="32"></rect></defs><g fill="none" fill-rule="evenodd"><mask id="odnoklassniki-logo-b" fill="#fff"><use href="#odnoklassniki-logo-a"></use></mask><circle cx="32" cy="32" r="32" fill="#EE8208" fill-rule="nonzero" mask="url(#odnoklassniki-logo-b)"></circle><g fill="#FFF" fill-rule="nonzero" mask="url(#odnoklassniki-logo-b)"><path d="M32 32.621c5.274 0 9.57-4.296 9.57-9.57s-4.295-9.57-9.569-9.57-9.57 4.296-9.57 9.57 4.296 9.57 9.57 9.57m0-13.54c2.193 0 3.97 1.778 3.97 3.97 0 2.193-1.777 3.97-3.97 3.97-2.192 0-3.97-1.777-3.97-3.97 0-2.192 1.778-3.97 3.97-3.97m3.881 21.333c1.955-.444 3.822-1.214 5.57-2.31 1.304-.83 1.719-2.549.889-3.882-.83-1.304-2.548-1.719-3.881-.89-3.912 2.46-8.978 2.46-12.89 0-1.303-.829-3.051-.444-3.88.89-.83 1.303-.445 3.052.888 3.881 1.719 1.097 3.615 1.867 5.57 2.311l-5.363 5.363c-1.096 1.097-1.096 2.874 0 3.97.563.534 1.275.83 1.986.83.71 0 1.452-.266 1.985-.83l5.274-5.273 5.274 5.274c1.096 1.096 2.874 1.096 3.97 0 1.097-1.097 1.097-2.874 0-3.97l-5.392-5.364z"></path></g></g></svg>
-                                </div>
-                                <div class="genAtnModalOptTextBox shareTextBox">
-                                    <span class="genAtnModalOptText shareText">OK.RU</span>
-                                </div>
-                            </button>
-                            <button data-share="Vkontakte" class="genAtnModalOptBox" title="" aria-label="">
-                                <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
-                                    <svg class="genAtnModalShareIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" data-t="v-kontakte-logo-svg" aria-labelledby="v-kontakte-logo-svg" aria-hidden="true" role="img"><title id="v-kontakte-logo-svg">ВКонтакте</title><defs><rect id="v-kontakte-logo-a" width="64" height="64" x="0" y="0" rx="32"></rect></defs><g fill="none" fill-rule="evenodd"><mask id="v-kontakte-logo-b" fill="#fff"><use href="#v-kontakte-logo-a"></use></mask><path fill="#2787F5" fill-rule="nonzero" d="M0 30.667C0 16.21 0 8.982 4.491 4.49S16.211 0 30.667 0h2.666C47.79 0 55.018 0 59.51 4.491S64 16.211 64 30.667v2.666c0 14.457 0 21.685-4.491 26.176S47.789 64 33.333 64h-2.666C16.21 64 8.982 64 4.49 59.509S0 47.789 0 33.333v-2.666z" mask="url(#v-kontakte-logo-b)"></path><path fill="#FFF" d="M17.876 20H13.5c-1.25 0-1.5.595-1.5 1.25 0 1.171 1.484 6.98 6.908 14.66 3.616 5.246 8.71 8.09 13.347 8.09 2.781 0 3.125-.632 3.125-1.72v-3.964c0-1.263.264-1.515 1.145-1.515.649 0 1.761.327 4.358 2.857C43.85 42.655 44.339 44 46.008 44h4.376c1.25 0 1.875-.632 1.515-1.878-.395-1.242-1.812-3.045-3.691-5.18-1.02-1.219-2.55-2.53-3.014-3.186-.649-.843-.463-1.218 0-1.967 0 0 5.332-7.588 5.888-10.164.278-.937 0-1.625-1.323-1.625h-4.376c-1.113 0-1.626.595-1.904 1.25 0 0-2.225 5.48-5.378 9.04-1.02 1.03-1.484 1.358-2.04 1.358-.278 0-.68-.328-.68-1.264v-8.759c0-1.124-.324-1.625-1.25-1.625h-6.878c-.695 0-1.113.522-1.113 1.016 0 1.066 1.576 1.312 1.739 4.31v6.51c0 1.427-.256 1.686-.812 1.686-1.483 0-5.092-5.505-7.232-11.803-.42-1.224-.84-1.719-1.959-1.719z" mask="url(#v-kontakte-logo-b)"></path></g></svg>
-                                </div>
-                                <div class="genAtnModalOptTextBox shareTextBox">
-                                    <span class="genAtnModalOptText shareText">ВКонтакте</span>
-                                </div>
-                            </button>
-                            <button data-share="Email" class="genAtnModalOptBox" title="" aria-label="">
-                                <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
-                                    <svg class="genAtnModalShareIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" data-t="email-logo-svg" aria-labelledby="email-logo-svg" aria-hidden="true" role="img"><title id="email-logo-svg">Email</title><g fill="none" fill-rule="evenodd"><rect width="64" height="64" fill="#59595B" rx="32"></rect><path fill="#FFF" d="M44 20H20c-1.656 0-3 1.344-3 3v18c0 1.656 1.344 3 3 3h24c1.656 0 3-1.344 3-3V23c0-1.656-1.344-3-3-3zm0 7.05l-12 8.001-12-8.001v-3.605l12 8 12-8v3.605z"></path></g></svg>
-                                </div>
-                                <div class="genAtnModalOptTextBox shareTextBox">
-                                    <span class="genAtnModalOptText shareText">Email</span>
-                                </div>
-                            </button>
-                            <button data-share="Gmail" class="genAtnModalOptBox" title="" aria-label="">
-                                <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
-                                    <svg class="genAtnModalShareIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" data-t="email-logo-svg" aria-labelledby="email-logo-svg" aria-hidden="true" role="img"><title id="email-logo-svg">Email</title><g fill="none" fill-rule="evenodd"><rect width="64" height="64" fill="#59595B" rx="32"></rect><path fill="#FFF" d="M44 20H20c-1.656 0-3 1.344-3 3v18c0 1.656 1.344 3 3 3h24c1.656 0 3-1.344 3-3V23c0-1.656-1.344-3-3-3zm0 7.05l-12 8.001-12-8.001v-3.605l12 8 12-8v3.605z"></path></g></svg>
-                                </div>
-                                <div class="genAtnModalOptTextBox shareTextBox">
-                                    <span class="genAtnModalOptText shareText">Gmail</span>
-                                </div>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-        let socialShareTimer;
-        let socialDestinationH;
-        let socialDestinationW;
-
-
 
         function attachSharePageEventListeners()
         {
@@ -2200,6 +2242,293 @@
 
                 btn.addEventListener("click" , customSclShareModal);
                 btn.customSclShareModal = customSclShareModal;
+            });
+        }
+
+
+
+    // GENERAL MENU MODAL
+
+        // Load the file if not present
+        function loadGenMenuModalInv()
+        {
+            let genMenuModalScriptID = document.getElementById("genMenuModalScriptID");
+
+            if((genMenuModalScriptID == undefined) || (genMenuModalScriptID == null))
+            {
+                let genMenuModalScriptTag = document.createElement("script");
+                genMenuModalScriptTag.setAttribute(`src` , `/genMenuModal.js`);
+                documentBody.appendChild(genMenuModalScriptTag);
+
+                genMenuModalScriptTag.addEventListener("load" , () => 
+                {
+                    initGenMenuModal();
+                });
+                genMenuModalScriptTag.addEventListener("error" , () => 
+                {
+                    notification(`notifyBad` , `an error occured while parsing scripts`);
+                });
+
+                return;
+            }
+            initGenMenuModal();
+        }
+
+        // Initialization
+        function initGenMenuModal()
+        {
+            // Preprocess genMenuModalInv into a Map for the Menu Modal
+            genMenuModalMap = new Map(
+                genMenuModalInv.map(item => 
+                {
+                    const invMenuId = item.menu_id.toLowerCase();
+                    return [invMenuId, item];
+                })
+            );
+
+            // Generate the menu modal
+            genMenuModalBdr = document.createElement("div");
+            genMenuModalBdr.classList.add("genMenuModalBdr");
+            genMenuModalBdr.innerHTML = genMenuModalBdrStruct;
+            
+            genMenuModalBox = document.createElement("div");
+            genMenuModalBox.classList.add("genMenuModalBox");
+            genMenuModalBox.innerHTML = genMenuModalBoxStruct;
+
+            genMenuModalCtntBdr = document.createElement("div");
+            genMenuModalCtntBdr.classList.add("genMenuModalCtntBdr");
+            genMenuModalCtntBdr.innerHTML = genMenuModalCtntBdrStruct;
+
+            genMenuModalBox.appendChild(genMenuModalCtntBdr);
+            genMenuModalBdr.appendChild(genMenuModalBox);
+            documentCtnt.appendChild(genMenuModalBdr);
+        }
+
+
+        // Calculates the dimensions and position of the menu modal before displaying it
+        function displayGenMenuModal()
+        {
+            // Get button genMenuModalBdrPos and size
+            let btnRect = document.querySelectorAll(".openGenMenuModalBtn")[currOpenGenMenuModalBtnIndex].getBoundingClientRect();
+            let menuHeight = genMenuModalBdr.offsetHeight;
+            let menuWidth = genMenuModalBdr.offsetWidth;
+            let winHeight = window.innerHeight;
+            let winWidth = window.innerWidth;
+
+            // Calculate available spaces
+            let btnTop = btnRect.top;
+            let btnBottom = btnRect.bottom;
+            let btnLeft = btnRect.left;
+            let btnRight = btnRect.right;
+
+            // Only change the position on larger screens (565px)
+            if(winWidth > winWidth768)
+            {
+                // Choose the genMenuModalBdr position
+                btnLeft = btnLeft > winWidth - menuWidth ? btnRight - menuWidth - 5 : btnLeft + 5;
+                btnTop = btnBottom > winHeight - menuHeight ? btnTop - menuHeight - 5 : btnBottom + 5;
+            }
+            else
+            {
+                // Set it to zero if otherwise
+                btnLeft = 0;
+                btnTop = 0;
+            }
+
+            // Set genMenuModalBdr position and display it
+            genMenuModalBdr.style.top = `${btnTop}px`;
+            genMenuModalBdr.style.left = `${btnLeft}px`;
+            genMenuModalBdr.setAttribute("aria-expanded" , "true");
+
+            // Add listener to close the menu when area outisde it is clicked
+            genMenuModalBdr.addEventListener("transitionend", function handleTransitionEnd()
+            {
+                genMenuModalBdr.removeEventListener("transitionend", handleTransitionEnd);
+                document.removeEventListener("click" , callHideGenMenuModal);
+                document.addEventListener("click", callHideGenMenuModal);
+                initGenMenuModalDragging();
+            });
+        }
+
+        // Hides the menu modal
+        function hideGenMenuModal()
+        {
+            document.removeEventListener("click" , callHideGenMenuModal);
+
+            genMenuModalBdr.setAttribute("aria-expanded" , "false");
+            genMenuModalBdr.addEventListener("transitionend", function handleTransitionEnd()
+            {
+                genMenuModalBdr.removeEventListener("transitionend", handleTransitionEnd);
+                genMenuModalCtntBdr.innerHTML = genMenuModalCtntBdrStruct;
+            });
+        }
+
+        // Calls the hideGenMenuModal via clicks 
+        function callHideGenMenuModal(event)
+        {
+            if(
+                !event.target.closest(".openGenMenuModalBtn") &&
+                !event.target.closest(".genMenuModalBox")
+            )
+            {
+                hideGenMenuModal();
+            }
+        }
+
+        // Removes the functions associated with currDraggingGenMenuModal of the gen menu modal
+        function removeGenModalDragging()
+        {
+            updateGenMenuModalBoxHeight("reset");
+
+            genMenuModalBox.removeEventListener("mousedown", startDraggingGenMenuModal);
+            genMenuModalDragIcon.removeEventListener("mousedown", startDraggingGenMenuModal);
+            document.removeEventListener("mousemove", currDraggingGenMenuModal);
+            document.removeEventListener("mouseup", stopDraggingGenMenuModal);
+
+            genMenuModalBox.removeEventListener("touchstart", startDraggingGenMenuModal);
+            genMenuModalDragIcon.removeEventListener("touchstart", startDraggingGenMenuModal);
+            document.removeEventListener("touchmove", currDraggingGenMenuModal);
+            document.removeEventListener("touchend", stopDraggingGenMenuModal);
+
+            hideGenMenuModal();
+        }
+
+        // Initializes the dragging functionality
+        function initGenMenuModalDragging()
+        {
+            // Only works for devices of width smaller than the specified
+            if(window.innerWidth > winWidth768) return;
+
+            genMenuModalBox = document.querySelector(".genMenuModalBox");
+            genMenuModalDragIcon = document.querySelector(".genMenuModalDragHandleIcon");
+
+            genMenuModalBox.addEventListener("mousedown", startDraggingGenMenuModal);
+            genMenuModalDragIcon.addEventListener("mousedown", startDraggingGenMenuModal);
+            document.addEventListener("mousemove", currDraggingGenMenuModal);
+            document.addEventListener("mouseup", stopDraggingGenMenuModal);
+
+            genMenuModalBox.addEventListener("touchstart", startDraggingGenMenuModal);
+            genMenuModalDragIcon.addEventListener("touchstart", startDraggingGenMenuModal);
+            document.addEventListener("touchmove", currDraggingGenMenuModal);
+            document.addEventListener("touchend", stopDraggingGenMenuModal);
+        }
+
+        // Updates the height of the menu modal box
+        const updateGenMenuModalBoxHeight = (height) => 
+        {
+            if(height === "reset")
+            {
+                genMenuModalBox.style.height = `${height}px`;
+                genMenuModalBoxHeightTimer = setTimeout(() => 
+                {
+                    clearTimeout(genMenuModalBoxHeightTimer);
+                    genMenuModalBox.style.height = "fit-content";
+                }, 150);
+            }
+            genMenuModalBox.style.height = `${height}px`;
+        }
+
+        // Sets initial drag position, genMenuModalBox height and adds isDragging class to the menu modal bdr
+        const startDraggingGenMenuModal = (e) => 
+        {
+            genMenuModalIsDragging = true;
+            genMenuBoxStartY = e.pageY || e.touches?.[0].pageY;
+            startGenMenuBoxHeight = parseInt(genMenuModalBox.offsetHeight);
+            genMenuModalBdr.classList.add("isDragging");
+        }
+
+        // Calculates the new height for the menu modal box and calls the updateGenMenuModalBoxHeight function
+        let genAtnModalBoxDragDist = 10;
+        const currDraggingGenMenuModal = (e) => 
+        {
+            if(!genMenuModalIsDragging) return;
+
+            const genMenuBoxDeltaY = (e.pageY || e.touches?.[0].pageY);
+            let newGenMenuBoxHeight = (startGenMenuBoxHeight + genMenuBoxStartY) - genMenuBoxDeltaY;
+            currGenMenuBoxHeight = newGenMenuBoxHeight
+            currGenMenuBoxHeight < startGenMenuBoxHeight ? updateGenMenuModalBoxHeight(currGenMenuBoxHeight) : startGenMenuBoxHeight;
+        
+            // Prevent the cards from being clicked while dragging 
+            if(((Math.abs(genMenuBoxDeltaY - genMenuBoxStartY) > genAtnModalBoxDragDist)))
+            {
+                // Add CSS class to disable clicks during dragging
+                if (!(genMenuModalBox.classList.contains("disableClicks")))
+                {
+                    genMenuModalBox.classList.add("disableClicks");
+                }
+            }
+        }
+
+        // Closes the menu modal if dragged beyond 75% of its height
+        const stopDraggingGenMenuModal = () => 
+        {
+            genMenuModalIsDragging = false;
+            genMenuModalBdr.classList.remove("isDragging");
+            genMenuModalBox.classList.remove("disableClicks");
+            const menuModalBoxH = parseInt(genMenuModalBox.style.height);
+            menuModalBoxH < Math.round((startGenMenuBoxHeight * 0.75)) ? removeGenModalDragging() : updateGenMenuModalBoxHeight(startGenMenuBoxHeight);
+        }
+
+        // Attaches listener for calling the menu modals
+        function attachMenuModalEventListeners()
+        {
+            let openGenMenuModalBtn = document.querySelectorAll(".openGenMenuModalBtn");
+
+            openGenMenuModalBtn.forEach((prevBtn) => 
+            {
+                if(prevBtn.action)
+                {
+                    prevBtn.removeEventListener("click" , prevBtn.action);
+                }
+            });
+            
+            openGenMenuModalBtn.forEach((btn, index) => 
+            {
+                const action = () => 
+                {
+                    // Close if the same button clicked to open the menu is clicked again
+                    if((currOpenGenMenuModalBtnIndex != null) && (index == currOpenGenMenuModalBtnIndex) && (genMenuModalBdr.getAttribute("aria-expanded") === "true"))
+                    {
+                        genMenuModalBdr.setAttribute("aria-expanded" , "false");
+                        genMenuModalBdr.classList.remove("isOpen");
+                        document.removeEventListener("click" , callHideGenMenuModal);
+                    }
+                    else
+                    {
+                        // Set to current index
+                        currOpenGenMenuModalBtnIndex = index;
+                        let menuType = btn.getAttribute("data-gen-menu-modal-type");
+
+                        // Return if attribute is not found
+                        if((menuType == undefined) || (menuType == null))
+                        {
+                            notification(`notifyBad` , `An error occurred`);
+                            return;
+                        }
+
+                        // Fetch the corresponding menu modal
+                        let thisMenu = genMenuModalMap.get(menuType.toLowerCase());
+
+                        if(thisMenu)
+                        {
+                            const {menu_id, menu_ctnt} = thisMenu;
+                            
+                            // Update innerHTML
+                            genMenuModalCtntBdr.innerHTML = menu_ctnt;
+
+                            // Call corresponding function to attach event listeners and display menu
+                            openGenMenuModalBtnTimer = setTimeout(() => 
+                            {
+                                clearTimeout(openGenMenuModalBtnTimer);
+                                callGlobalFunctions(menu_id);
+                                displayGenMenuModal();
+                            }, 100);
+                        }
+                    }
+                }
+
+                btn.addEventListener("click" , action);
+                btn.action = action;
             });
         }
     

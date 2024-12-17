@@ -97,8 +97,8 @@
                                             <div class="userOrderBtnText">Add</div>
                                         </div>
                                     </div>
-                                    <div class="userOrderBtnBdr userWLArrangeBtnBdr">
-                                        <button type="button" aria-haspopup="menu" aria-expanded="false" class="userOrderBtnBox openUserOrderOptBdr">
+                                    <div class="userOrderBtnBdr">
+                                        <button type="button" aria-haspopup="menu" aria-expanded="false" class="userOrderBtnBox openUserOrderOptBdr openGenMenuModalBtn" data-gen-menu-modal-type="wl_body_sort">
                                             <div class="userOrderBtnIcon">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="userOrderBtnSvg">
                                                     <path fill-rule="evenodd" d="M22.75 7a.75.75 0 0 1-.75.75H2a.75.75 0 0 1 0-1.5h20a.75.75 0 0 1 .75.75m-3 5a.75.75 0 0 1-.75.75H5a.75.75 0 0 1 0-1.5h14a.75.75 0 0 1 .75.75m-3 5a.75.75 0 0 1-.75.75H8a.75.75 0 0 1 0-1.5h8a.75.75 0 0 1 .75.75" clip-rule="evenodd" />
@@ -106,33 +106,6 @@
                                             </div>
                                             <div class="userOrderBtnText">Sort</div>
                                         </button>
-                                        <div class="userOrderOptBdr">
-                                            <div class="userOrderOptBox">
-                                                <div class="wlModalAction_MenuCloseBdr closeUserOrderOptBtn closeUserOptModal">
-                                                    <div class="wlModalAction_MenuCloseBox">
-                                                        <div class="wlModalAction_MenuCloseIcon">
-                                                            <svg class="wlModalAction_MenuCloseSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                                                                <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="userOrderOptSect">
-                                                    <div class="userOrderOptSectTitleBox">
-                                                        <p class="userOrderOptSectTitleText">Sort by</p>
-                                                    </div>
-                                                    <div class="userOrderOptTab selected" data-card-sort-opt="0">
-                                                        <p class="userOrderOptText">Added</p>
-                                                    </div>
-                                                    <div class="userOrderOptTab " data-card-sort-opt="1">
-                                                        <p class="userOrderOptText">Name A-Z</p>
-                                                    </div>
-                                                    <div class="userOrderOptTab " data-card-sort-opt="2">
-                                                        <p class="userOrderOptText">Name Z-A</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -254,7 +227,7 @@
                                             <div class="wlModalActionBase">
                                                 <div class="wlModalActionBdr">
                                                     <div class="wlModalActionBox">
-                                                        <button class="wlModalActionBtn">
+                                                        <button class="wlModalActionBtn openGenMenuModalBtn" data-gen-menu-modal-type="wl_modal_header">
                                                             <div class="wlModalActionBtnIcon">
                                                                 <svg class="wlModalActionBtnSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512">
                                                                     <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
@@ -287,7 +260,7 @@
                                         <div class="wlModalCtnt_sortSect wlModalCtnt_sortFilterBdr">
                                             <div class="wlModalCtnt_sortFilterBox">
                                                 <div class="userOrderBtnBdr userSortBtnBdr ">
-                                                    <button type="button" aria-haspopup="menu" aria-expanded="false" class="userOrderBtnBox openUserOrderOptBdr">
+                                                    <button type="button" aria-haspopup="menu" aria-expanded="false" class="userOrderBtnBox openUserOrderOptBdr openGenMenuModalBtn" data-gen-menu-modal-type="wl_modal_sort">
                                                         <div class="userOrderBtnIcon">
                                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="userOrderBtnSvg">
                                                                 <path fill-rule="evenodd" d="M22.75 7a.75.75 0 0 1-.75.75H2a.75.75 0 0 1 0-1.5h20a.75.75 0 0 1 .75.75m-3 5a.75.75 0 0 1-.75.75H5a.75.75 0 0 1 0-1.5h14a.75.75 0 0 1 .75.75m-3 5a.75.75 0 0 1-.75.75H8a.75.75 0 0 1 0-1.5h8a.75.75 0 0 1 .75.75" clip-rule="evenodd" />
@@ -295,53 +268,9 @@
                                                         </div>
                                                         <div class="userOrderBtnText">Sort</div>
                                                     </button>
-                                                    <div class="userOrderOptBdr">
-                                                        <div class="userOrderOptBox">
-                                                            <div class="wlModalAction_MenuCloseBdr closeUserOrderOptBtn closeUserOptModal">
-                                                                <div class="wlModalAction_MenuCloseBox">
-                                                                    <div class="wlModalAction_MenuCloseIcon">
-                                                                        <svg class="wlModalAction_MenuCloseSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                                                                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
-                                                                        </svg>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="userOrderOptSect">
-                                                                <div class="userOrderOptSectTitleBox">
-                                                                    <p class="userOrderOptSectTitleText">Sort by</p>
-                                                                </div>
-                                                                <div class="userOrderOptTab userwlModalSortTypeTabs selected" data-sort-type-opt="0">
-                                                                    <p class="userOrderOptText">Recently Added</p>
-                                                                </div>
-                                                                <div class="userOrderOptTab userwlModalSortTypeTabs" data-sort-type-opt="1">
-                                                                    <p class="userOrderOptText">Recently Updated</p>
-                                                                </div>
-                                                                <div class="userOrderOptTab userwlModalSortTypeTabs" data-sort-type-opt="2">
-                                                                    <p class="userOrderOptText">Alphabetical</p>
-                                                                </div>
-                                                                <div class="userOrderOptTab userwlModalSortTypeTabs" data-sort-type-opt="3">
-                                                                    <p class="userOrderOptText">Release</p>
-                                                                </div>
-                                                                <div class="userOrderOptTab userwlModalSortTypeTabs" data-sort-type-opt="4">
-                                                                    <p class="userOrderOptText">Score</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="userOrderOptSect">
-                                                                <div class="userOrderOptSectTitleBox">
-                                                                    <p class="userOrderOptSectTitleText">Sort Order</p>
-                                                                </div>
-                                                                <div class="userOrderOptTab userwlModalSortOrderTabs selected">
-                                                                    <p class="userOrderOptText">Ascending</p>
-                                                                </div>
-                                                                <div class="userOrderOptTab userwlModalSortOrderTabs">
-                                                                    <p class="userOrderOptText">Descending</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                                 <div class="userOrderBtnBdr userFilterBtnBdr">
-                                                    <button type="button" aria-haspopup="menu" aria-expanded="false" class="userOrderBtnBox openUserOrderOptBdr">
+                                                    <button type="button" aria-haspopup="menu" aria-expanded="false" class="userOrderBtnBox openUserOrderOptBdr openGenMenuModalBtn" data-gen-menu-modal-type="wl_modal_filter">
                                                         <div class="userOrderBtnIcon">
                                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="userOrderBtnSvg">
                                                                 <path fill-rule="evenodd" d="M18.25 7a3.75 3.75 0 1 1-7.5 0a3.75 3.75 0 0 1 7.5 0M14.5 9.25a2.25 2.25 0 1 0 0-4.5a2.25 2.25 0 0 0 0 4.5M5.75 17a3.75 3.75 0 1 0 7.5 0a3.75 3.75 0 0 0-7.5 0m3.75 2.25a2.25 2.25 0 1 1 0-4.5a2.25 2.25 0 0 1 0 4.5" clip-rule="evenodd" />
@@ -350,56 +279,6 @@
                                                         </div>
                                                         <div class="userOrderBtnText">Filter</div>
                                                     </button>
-                                                    <div class="userOrderOptBdr">
-                                                        <div class="userOrderOptBox">
-                                                            <div class="wlModalAction_MenuCloseBdr closeUserOrderOptBtn closeUserOptModal">
-                                                                <div class="wlModalAction_MenuCloseBox">
-                                                                    <div class="wlModalAction_MenuCloseIcon">
-                                                                        <svg class="wlModalAction_MenuCloseSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                                                                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
-                                                                        </svg>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="userOrderOptSect">
-                                                                <div class="userOrderOptSectTitleBox">
-                                                                    <p class="userOrderOptSectTitleText">Show Status</p>
-                                                                </div>
-                                                                <div class="userOrderOptTab selected userWLModalFilterStatusTabs" data-show-status-opt="">
-                                                                    <p class="userOrderOptText">All</p>
-                                                                </div>
-                                                                <div class="userOrderOptTab userWLModalFilterStatusTabs" data-show-status-opt="0">
-                                                                    <p class="userOrderOptText">Planned</p>
-                                                                </div>
-                                                                <div class="userOrderOptTab userWLModalFilterStatusTabs" data-show-status-opt="1">
-                                                                    <p class="userOrderOptText">Watching</p>
-                                                                </div>
-                                                                <div class="userOrderOptTab userWLModalFilterStatusTabs" data-show-status-opt="2">
-                                                                    <p class="userOrderOptText">On-Hold</p>
-                                                                </div>
-                                                                <div class="userOrderOptTab userWLModalFilterStatusTabs" data-show-status-opt="3">
-                                                                    <p class="userOrderOptText">Completed</p>
-                                                                </div>
-                                                                <div class="userOrderOptTab userWLModalFilterStatusTabs" data-show-status-opt="4">
-                                                                    <p class="userOrderOptText">Dropped</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="userOrderOptSect">
-                                                                <div class="userOrderOptSectTitleBox">
-                                                                    <p class="userOrderOptSectTitleText">Show Type</p>
-                                                                </div>
-                                                                <div class="userOrderOptTab userWLModalFilterTypeTabs selected" data-show-type-opt="">
-                                                                    <p class="userOrderOptText">All</p>
-                                                                </div>
-                                                                <div class="userOrderOptTab userWLModalFilterTypeTabs " data-show-type-opt="0">
-                                                                    <p class="userOrderOptText">Movies</p>
-                                                                </div>
-                                                                <div class="userOrderOptTab userWLModalFilterTypeTabs " data-show-type-opt="1">
-                                                                    <p class="userOrderOptText">Tv</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -407,7 +286,7 @@
                                             <div class="wlModalActionBase">
                                                 <div class="wlModalActionBdr">
                                                     <div class="wlModalActionBox">
-                                                        <button class="wlModalActionBtn">
+                                                        <button class="wlModalActionBtn openGenMenuModalBtn" data-gen-menu-modal-type="wl_modal_header">
                                                             <div class="wlModalActionBtnIcon">
                                                                 <svg class="wlModalActionBtnSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512">
                                                                     <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
@@ -435,55 +314,6 @@
 
 
         <!-- Gen WL Action Modal -->
-        <div class="wlModalAction_MenuBdr">
-            <div class="wlModalAction_MenuBox">
-                <div class="wlModalAction_MenuCloseBdr">
-                    <div class="wlModalAction_MenuCloseBox">
-                        <div class="wlModalAction_MenuCloseIcon">
-                            <svg class="wlModalAction_MenuCloseSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                                <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div class="wlModalAction_MenuCtntBdr">
-                    <div class="wlModalAction_MenuCtntBox">
-                        <button class="wlModalAction_MenuCtntBtnBox">
-                            <div class="wlModalAction_MenuCtntBtnIcon">
-                                <svg class="wlModalAction_MenuCtntBtnSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                    <path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/>
-                                </svg>
-                            </div>
-                            <div class="wlModalAction_MenuCtntBtnText">Edit</div>
-                        </button>
-                        <button class="wlModalAction_MenuCtntBtnBox">
-                            <div class="wlModalAction_MenuCtntBtnIcon">
-                                <svg class="wlModalAction_MenuCtntBtnSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                    <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/>
-                                </svg>
-                            </div>
-                            <div class="wlModalAction_MenuCtntBtnText">Add Shows</div>
-                        </button>
-                        <button class="wlModalAction_MenuCtntBtnBox">
-                            <div class="wlModalAction_MenuCtntBtnIcon">
-                                <svg class="wlModalAction_MenuCtntBtnSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                                    <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
-                                </svg>
-                            </div>
-                            <div class="wlModalAction_MenuCtntBtnText">Add all to..</div>
-                        </button>
-                        <button class="wlModalAction_MenuCtntBtnBox">
-                            <div class="wlModalAction_MenuCtntBtnIcon">
-                                <svg class="wlModalAction_MenuCtntBtnSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                    <path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0L284.2 0c12.1 0 23.2 6.8 28.6 17.7L320 32l96 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 96C14.3 96 0 81.7 0 64S14.3 32 32 32l96 0 7.2-14.3zM32 128l384 0 0 320c0 35.3-28.7 64-64 64L96 512c-35.3 0-64-28.7-64-64l0-320zm96 64c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16z"/>
-                                </svg>
-                            </div>
-                            <div class="wlModalAction_MenuCtntBtnText">Delete Watchlist</div>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
     `;
 
 

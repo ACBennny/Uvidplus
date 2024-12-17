@@ -116,6 +116,8 @@ html:root
     --slideCardProgress_currClr: var(--genGreenTypeBright);
     --basicCatalogCardWidth: 175px;
     --basicSingleColPadding: 50px;
+    --wlModalActionMenuSvgSize: 18px;
+    --wlModalActionMenuClr: var(--genWhiteTypeMid);
     --genModalBcg: #141414;
     --genModalOptHover: #222222;
     --notifyGoodBcg: #42af56;
@@ -374,6 +376,39 @@ img
     {
         transform: translateY(-50%);
     }
+}
+
+
+
+
+
+
+/* ================ PRELOADER 2 ============== */
+
+.preload_2_bdr
+{
+    width: 100%;
+    height: 100%;
+    min-height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preload_2_box
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preload_2_spinner
+{
+    width: 50px;
+    height: 50px;
+    fill: var(--genGreenTypeLight);
 }
 
 
@@ -1594,7 +1629,7 @@ img
     visibility: hidden;
     transform: translateY(-100%);
     transition: all var(--notifyTransitionStyle) ease-in;
-    z-index: 150;
+    z-index: 1000;
 }
 
 .notifyBdr.notifyAtv
@@ -4185,6 +4220,218 @@ img
 
 
 
+
+/* ----------- GENERAL MENU MODAL ------------- */
+.genMenuModalBdr
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: fit-content;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    border-radius: 15px;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 130;   
+}
+
+.genMenuModalBdr[aria-expanded="true"]
+{
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 100ms ease-in-out, visibility 0ms;
+}
+
+.genMenuModalBdr.isDragging *
+{
+    overflow: hidden hidden !important;
+    transition: none !important;
+    cursor: grabbing !important;
+}
+
+.genMenuModalBox.disableClicks *
+{
+    pointer-events: none !important;
+}
+
+.genMenuModalBdr .genMenuModalBcg
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000099;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    z-index: -1;
+}
+
+.genMenuModalBdr .genMenuModalBox
+{
+    position: relative;
+    width: 100%;
+    max-width: 565px;
+    background-color: var(--genModalBcg);
+    overflow: hidden hidden;
+    scrollbar-width: none;
+}
+
+.genMenuModalBox::-webkit-scrollbar
+{
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+.genMenuModalBox .genMenuModalDragHandleBdr
+{
+    position: sticky;
+    top: 0;
+    left: 50%;
+    width: -moz-fit-content;
+    width: fit-content;
+    width: fit-content;
+    height: 20px;
+    display: none;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+
+.genMenuModalDragHandleBdr .genMenuModalDragHandleBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.genMenuModalDragHandleBox .genMenuModalDragHandleIcon
+{
+    width: 40px;
+    height: 5px;
+    border-radius: 40px;
+    background-color: #333333;
+    cursor: grab;
+}
+
+.genMenuModalBox .genMenuModalCtntBdr
+{
+    width: 100%;
+}
+
+.genMenuModalCtntBdr .genMenuModalCtntBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.genMenuModalCtntBox .genMenuModalCtntSectBox
+{
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px 20px;
+}
+
+.genMenuModalCtntSectBox:first-child
+{
+    margin-top: 0;
+}
+
+.genMenuModalCtntSectBox .genMenuModalCtntSectText
+{
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--genGreenTypeMid);
+    text-transform: uppercase;
+}
+
+.genMenuModalCtntBox .genMenuModalCtntBtnBox
+{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 15px 20px;
+    outline: none;
+    border: none;
+    background-color: #00000000;
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+}
+
+.genMenuModalCtntBtnBox:active
+{
+    --wlModalActionMenuClr: var(--genWhiteTypeMid2);
+    --wlModalActionMenuSvgFill: var(--genWhiteTypeLight);
+    background-color: var(--genModalOptHover);
+}
+
+.genMenuModalCtntBtnBox.selected
+{
+    --wlModalActionMenuClr: var(--genGreenTypeMid);
+    background-color: var(--genModalOptHover);
+}
+
+.genMenuModalCtntBtnBox.selected::after
+{
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    width: 15px;
+    height: 7px;
+    background-color: #00000000;
+    border-left: 2px solid var(--genGreenTypeLight);
+    border-bottom: 2px solid var(--genGreenTypeLight);
+    transform: translate(-50% , -75%) rotate(-45deg);
+    z-index: 3;
+}
+
+.genMenuModalCtntBtnBox .genMenuModalCtntBtnIcon
+{
+    width: var(--wlModalActionMenuSvgSize);
+    height: var(--wlModalActionMenuSvgSize);
+    margin-right: 15px;
+}
+
+.genMenuModalCtntBtnIcon .genMenuModalCtntBtnSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--wlModalActionMenuClr);
+    transition: all 300ms ease-in-out;
+}
+
+.genMenuModalCtntBtnBox .genMenuModalCtntBtnText
+{
+    margin-right: 20px;
+    font-family: 'Poppins' , sans-serif;
+    font-size: 14px;
+    color: var(--wlModalActionMenuClr);
+    text-align: left;
+    transition: all 300ms ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /* ================== Modal For Playlist, Dwld, Socials ================= */
 .genAtnModalBdr
 {
@@ -4230,8 +4477,8 @@ img
     max-height: 400px;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-100px);
-    transition: all 500ms ease-in-out;
+    transform: translateY(100px);
+    transition: all 300ms ease-in-out;
     z-index: 2;
 }
 
@@ -4240,6 +4487,7 @@ img
     opacity: 1;
     visibility: visible;
     transform: translateY(0px);
+    transition: all 500ms ease-in-out;
 }
 
 .genAtnModalBox .genAtnModalCtnt
@@ -5052,6 +5300,17 @@ img
         background: #00000085;
     }
 
+    .genMenuModalCloseIcon:hover .genMenuModalCloseSvg
+    {
+        --wlModalActionMenuSvgFill: var(--genWhiteTypeMid2);
+    }
+
+    .genMenuModalCtntBtnBox:hover
+    {
+        --wlModalActionMenuSvgFill: var(--genWhiteTypeLight);
+        background-color: var(--genModalOptHover);
+    }
+
     .genAtnModalOptBdr .genAtnModalOptBox:hover
     {
         background-color: #222222;
@@ -5372,11 +5631,59 @@ img
     {
         --basicCatalogCardWidth: 165px;
     }
+    
+    .genMenuModalBdr
+    {
+        position: fixed;
+        left: 0%;
+        right: 0%;
+        bottom: 0%;
+        width: 100%;
+        height: 100%;
+        max-height: none;
+        display: flex;
+        align-items: end;
+        border-radius: 0px;
+        overflow: hidden;
+        transition: all 300ms ease-in-out;
+        z-index: 130;
+    }
+    
+    .genMenuModalBdr[aria-expanded="true"]
+    {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    
+    .genMenuModalBdr .genMenuModalBox
+    {
+        height: -moz-fit-content;
+        height: fit-content;
+        max-height: calc((100% - var(--navBarHeight)));
+        padding: 0;
+        border-radius: 25px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        overflow: hidden auto;
+        transform: translateY(50%);
+        transition: all 150ms ease-in-out;
+    }
+    
+    .genMenuModalBdr[aria-expanded="true"] .genMenuModalBox
+    {
+        transform: translateY(0%);
+    }
 
     .genAtnModalBdr .genAtnModalBox
     {
         max-width: none;
         max-height: none;
+    }
+
+    .genMenuModalBox .genMenuModalDragHandleBdr
+    {
+        display: block;
     }
 
     .genAtnModalBox .genAtnModalCtnt

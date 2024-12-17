@@ -22,11 +22,8 @@
     let closeWLFilterMenu;
     let activeUserOptBdr;
     let createWLTimer;
-    let currUserOrderOptBdrIndex = null;
-    let openUserOrderOptBdr;
-    let userOrderOptBdr;
-    let closeUserOrderOptBtn;
-    let userWLArrangeOptTabs;
+    let wlBodySortTabs;
+    let wlBodySortTabIndex = 0;
     let userWLCatalog_ItemBase;
     let currCatalogItemBase;
     let wlModalCurrIndex;
@@ -38,16 +35,22 @@
     let wlModalHeader_DetInfo_TagsUpdateText;
     let wlModalHeader_DetInfo_DescText;
     let wlModalGridBox;
+    let currOpenWLActionMenuIndex = null;
+    let wlModalActionMenuBdr;
     let wlModalSortTypeText;
     let wlModalSortOrderText;
     let wlModalGrid_CardBdr;
     let closeWLModalTimer;
     let wlModalSortDfltArray = [];
     let wlModalSortUsedArray = [];
-    let userwlModalSortTypeTabs;
-    let userwlModalSortRankTabs;
-    let userWLModalFilterStatusTabs;
-    let userWLModalFilterTypeTabs;
+    let wlModalSortTypeTabs;
+    let wlModalSortTypeTabIndex = 0;
+    let wlModalSortOrderTabs;
+    let wlModalSortOrderTabIndex = 0;
+    let wlModalFilterStatusTabs;
+    let wlModalFilterStatusTabIndex = 0;
+    let wlModalFilterTypeTabs;
+    let wlModalFilterTypeTabIndex = 0;
     let emptyWLStruct = 
     `
         <div class="emptyUserPageBdr">
@@ -137,6 +140,7 @@
         wlLibraryScriptTag.addEventListener("load" , () => 
         {
             loadSearchInventory();
+            loadGenMenuModalInv();
             attachCreateWLEventListeners();
         });
         wlLibraryScriptTag.onerror = function() 
@@ -208,83 +212,6 @@
         let currDay = currentDate.getDate();
         let dateInStr = `${monthArr[currMonth]} ${currDay}, ${currYear}`;
         return dateInStr;
-    }
-
-    // General function to close the sort/filter menus
-    function closeOrderOptBdrByInside(index)
-    {
-        if (index !== null) 
-        {
-            const btn = document.querySelectorAll(".openUserOrderOptBdr")[index];
-    
-            btn.setAttribute("aria-expanded", "false");
-            currUserOrderOptBdrIndex = null;
-    
-            // Remove the click listener to avoid unnecessary calls
-            document.removeEventListener("click", closeOrderOptBdrOutside);
-        }
-    }
-
-    // Called when user clicks outide the menu
-    function closeOrderOptBdrOutside(event)
-    {
-        // Ignore clicks on the currently open menu or its toggle button
-        if (
-            currUserOrderOptBdrIndex !== null &&
-            !event.target.closest(".userOrderOptBdr") &&
-            !event.target.closest(".openUserOrderOptBdr")
-        )
-        {
-            closeOrderOptBdrByInside(currUserOrderOptBdrIndex);
-        }
-    }
-
-    // Initializes the sort/filter menus
-    function initUserOptBdr()
-    {
-        openUserOrderOptBdr = document.querySelectorAll(".openUserOrderOptBdr");
-        userOrderOptBdr = document.querySelectorAll(".userOrderOptBdr");
-        closeUserOrderOptBtn = document.querySelectorAll(".userOrderOptBdr");
-
-        openUserOrderOptBdr.forEach((btn, index) => 
-        {
-
-            // Opening and Closing of the menu through the filter display buttons
-            btn.addEventListener("click" , () =>
-            {
-                // If the clicked button's menu is already open, close it
-                if (btn.getAttribute("aria-expanded") === "true")
-                {
-                    closeOrderOptBdrByInside(index);
-                }
-                else
-                {
-                    // Close any open menu
-                    if (currUserOrderOptBdrIndex !== null)
-                    {
-                        closeOrderOptBdrByInside(currUserOrderOptBdrIndex);
-                    }
-
-                    // Open the clicked menu
-                    btn.setAttribute("aria-expanded", "true");
-                    currUserOrderOptBdrIndex = index;
-
-                    userOrderOptBdr[index].addEventListener("transitionend", function handleTransitionEnd()
-                    {
-                        userOrderOptBdr[index].removeEventListener("transitionend", handleTransitionEnd);
-                        document.addEventListener("click", closeOrderOptBdrOutside);
-                    });
-                }
-            });
-        });
-
-        closeUserOrderOptBtn.forEach((btn, index) => 
-        {
-            btn.addEventListener("click" , () => 
-            {
-                openUserOrderOptBdr[index].click();
-            });
-        });
     }
 
 
@@ -593,16 +520,15 @@
                     notification(`notifyGood` , `"${wlName}" was created successfully`);
 
                     // Update the sorting if 2nd/3rd option was is currently selected
-                    let currSelOpt = userWLArrangeBtnBdr.querySelector(".userOrderOptTab.active").getAttribute("data-card-sort-opt")
-                    // Sort by "A-Z"
-                    if((currSelOpt == "1"))
+                    if((wlBodySortTabIndex == 1))
                     {
+                        // Sort by "A-Z"
                         sortWLByName(sortWLCardsArray, "wl_name", "A-Z");
                         generateWLCards(sortWLCardsArray);
                     }
-                    // Sort by "Z-A"
-                    else if((currSelOpt == "2"))
+                    else if((wlBodySortTabIndex == 2))
                     {
+                        // Sort by "Z-A"
                         sortWLByName(sortWLCardsArray, "wl_name", "A-Z");
                         generateWLCards(sortWLCardsArray);
                     }
@@ -673,24 +599,31 @@
     // Attaches Listeners to enable sorting of WL Cards
     function attachArrangeWLCardListeners()
     {
-        userWLArrangeOptTabs = document.querySelectorAll(".userWLArrangeBtnBdr .userOrderOptTab");
+        wlBodySortTabs = document.querySelectorAll(".wlBodySortCtnt .wlBodySortTabs");
+        
+        // Add selected class to the current button index
+        wlBodySortTabs[wlBodySortTabIndex].classList.add("selected");
 
         // Selecting a sorting option
-        userWLArrangeOptTabs.forEach((tab) => 
+        wlBodySortTabs.forEach((tab) => 
         {
             if(tab.action)
             {
                 tab.removeEventListener("click" , tab.action);
             }
         });
-        userWLArrangeOptTabs.forEach((tab) => 
+        wlBodySortTabs.forEach((tab, index) => 
         {
             const action = () => 
             {
-                let optNo = tab.getAttribute("data-card-sort-opt");
+                // Update button index
+                wlBodySortTabIndex = index;
+
+                // Get option number
+                let optNo = tab.getAttribute("data-body-sort-opt");
 
                 // Add selected class to the currently selected tab
-                userWLArrangeOptTabs.forEach((selectedTab) => 
+                wlBodySortTabs.forEach((selectedTab) => 
                 {
                     selectedTab.classList.remove("selected");
                 });
@@ -833,9 +766,8 @@
         // Generate the Watchlist cards
         generateWLCards(watchlistInventory);
         
-        attachArrangeWLCardListeners();
-
-        initUserOptBdr();
+        // Call the function for operating the menu modals
+        attachMenuModalEventListeners();
     }
     
 
@@ -961,6 +893,7 @@
         wlModalHeader_DetInfo_TagsUpdateText = document.querySelector(".wlModalHeader_DetInfo_TagsUpdateText");
         wlModalHeader_DetInfo_DescText = document.querySelector(".wlModalHeader_DetInfo_DescText");
         wlModalGridBox = document.querySelector(".wlModalGridBox");
+        wlModalActionMenuBdr = document.querySelector(".wlModalAction_MenuBdr");
         wlModalSortTypeText = document.querySelector(".wlModalCtnt_sortStatusText .status_type");
         wlModalSortOrderText = document.querySelector(".wlModalCtnt_sortStatusText .status_order");
         closeWLModalTimer;
@@ -1063,7 +996,7 @@
                                 <div class="wlModalActionBase">
                                     <div class="wlModalActionBdr">
                                         <div class="wlModalActionBox">
-                                            <button type="button" class="wlModalActionBtn">
+                                            <button type="button" class="wlModalActionBtn openWlModalActionMenu">
                                                 <div class="wlModalActionBtnIcon">
                                                     <svg class="wlModalActionBtnSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512">
                                                         <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
@@ -1108,27 +1041,11 @@
             wlModalBase.classList.remove("active");
             document.body.classList.remove("bodystop");
 
-            // Remove any previous sort/filter and sell default option
-            userwlModalSortTypeTabs.forEach((tab) => 
-            {
-                tab.classList.remove("selected");
-            });
-            userwlModalSortTypeTabs[0].classList.add("selected");
-            userwlModalSortRankTabs.forEach((tab) => 
-            {
-                tab.classList.remove("selected");
-            });
-            userwlModalSortRankTabs[0].classList.add("selected");
-            userWLModalFilterStatusTabs.forEach((tab) => 
-            {
-                tab.classList.remove("selected");
-            });
-            userWLModalFilterStatusTabs[0].classList.add("selected");
-            userWLModalFilterTypeTabs.forEach((tab) => 
-            {
-                tab.classList.remove("selected");
-            });
-            userWLModalFilterTypeTabs[0].classList.add("selected");
+            // Resets the sort & filters
+            wlModalSortTypeTabIndex = 0;
+            wlModalSortOrderTabIndex = 0;
+            wlModalFilterStatusTabIndex = 0;
+            wlModalFilterTypeTabIndex = 0;
 
             // Removes the content in the modal
             closeWLModalTimer = setTimeout(() => 
@@ -1151,9 +1068,8 @@
         });
 
         // Attaches listeners
+        attachMenuModalEventListeners();
         attachReadFullDescWLModalEventListeners();
-        attachSortWLModalListeners();
-        attachFilterWLModalListeners();
     }
 
 
@@ -1325,25 +1241,35 @@
     {
 
         // Variable Definitions
-        userwlModalSortTypeTabs = document.querySelectorAll(".userSortBtnBdr .userwlModalSortTypeTabs");
-        userwlModalSortRankTabs = document.querySelectorAll(".userSortBtnBdr .userwlModalSortOrderTabs");
+        wlModalSortTypeTabs = document.querySelectorAll(".wlModalSortCtnt .wlModalSortTypeTabs");
+        wlModalSortOrderTabs = document.querySelectorAll(".wlModalSortCtnt .wlModalSortOrderTabs");
+
+        wlModalSortTypeTabs[wlModalSortTypeTabIndex].classList.add("selected");
+        wlModalSortOrderTabs[wlModalSortOrderTabIndex].classList.add("selected");
+
+        wlModalSortTypeText.innerHTML = wlModalSortTypeTabs[wlModalSortTypeTabIndex].innerHTML;
+        wlModalSortOrderText.innerHTML = wlModalSortOrderTabs[wlModalSortOrderTabIndex].innerHTML;
 
         // Selecting a sorting option for "Show Status"
-        userwlModalSortTypeTabs.forEach((tab) => 
+        wlModalSortTypeTabs.forEach((tab) => 
         {
             if(tab.action)
             {
                 tab.removeEventListener(`click` , tab.action);
             }
         });
-        userwlModalSortTypeTabs.forEach((tab) => 
+        wlModalSortTypeTabs.forEach((tab, index) => 
         {
             const action = () => 
             {
+                // Update button index
+                wlModalSortTypeTabIndex = index;
+
+                // Get option number
                 let optNo = tab.getAttribute("data-sort-type-opt");
 
                 // Add selected class to the currently selected tab
-                userwlModalSortTypeTabs.forEach((activeTab) => 
+                wlModalSortTypeTabs.forEach((activeTab) => 
                 {
                     activeTab.classList.remove("selected");
                 });
@@ -1351,30 +1277,35 @@
 
                 switch(optNo)
                 {
-                    // Recently Added
+                    // Continue
                     case "0":
+                        notification(`notifyBad` , `Not operational`);
+                        break;
+
+                    // Recently Added
+                    case "1":
                         generateWLModalCards(wlModalSortDfltArray);
                         break;
                         
                     // Recently Updated
-                    case "1":
+                    case "2":
                         sortWLByRecUpd(wlModalSortUsedArray, null, 'asc');
                         break;
                         
                     // Alphabetical
-                    case "2":
+                    case "3":
                         sortWLByName(wlModalSortUsedArray, 'show_title', 'A-Z');
                         generateWLModalCards(wlModalSortUsedArray);
                         break;
                         
                     // Release
-                    case "3":
+                    case "4":
                         sortWLByYear(wlModalSortUsedArray, 'show_year', 'asc');
                         generateWLModalCards(wlModalSortUsedArray);
                         break;
                         
                     // Score
-                    case "4":
+                    case "5":
                         sortWLByScore(wlModalSortUsedArray, 'show_scores', 'asc');
                         generateWLModalCards(wlModalSortUsedArray);
                         break;
@@ -1386,7 +1317,7 @@
                 }
 
                 // Update the sort type & order texts
-                wlModalSortTypeText.textContent = tab.querySelector(".userOrderOptText").textContent;
+                wlModalSortTypeText.textContent = tab.querySelector(".genMenuModalCtntBtnText").textContent;
                 wlModalSortOrderText.textContent = `Ascending`;
 
             }
@@ -1395,20 +1326,22 @@
         });
 
         // Selecting a sorting option for "Show Type"
-        userwlModalSortRankTabs.forEach((tab) => 
+        wlModalSortOrderTabs.forEach((tab) => 
         {
             if(tab.action)
             {
                 tab.removeEventListener(`click` , tab.action);
             }
         });
-        userwlModalSortRankTabs.forEach((tab, index) => 
+        wlModalSortOrderTabs.forEach((tab, index) => 
         {
             const action = () => 
             {
+                // Update button index
+                wlModalSortOrderTabIndex = index;
 
                 // Add "selected" class to the tab without it
-                userwlModalSortRankTabs.forEach((selectedTab) => 
+                wlModalSortOrderTabs.forEach((selectedTab) => 
                 {
                     if(selectedTab.classList.contains("selected"))
                     {
@@ -1427,7 +1360,7 @@
                 generateWLModalCards(wlModalSortUsedArray);
 
                 // Update the sort type text
-                wlModalSortOrderText.textContent = document.querySelector(".userwlModalSortOrderTabs.selected .userOrderOptText").textContent;
+                wlModalSortOrderText.textContent = wlModalSortOrderTabs[wlModalSortOrderTabIndex].querySelector(".genMenuModalCtntBtnText").textContent;
 
             }
             tab.addEventListener("click" , action);
@@ -1441,25 +1374,32 @@
     {
 
         // Variable Definitions
-        userWLModalFilterStatusTabs = document.querySelectorAll(".userFilterBtnBdr .userWLModalFilterStatusTabs");
-        userWLModalFilterTypeTabs = document.querySelectorAll(".userFilterBtnBdr .userWLModalFilterTypeTabs");
+        wlModalFilterStatusTabs = document.querySelectorAll(".wlModalFilterCtnt .wlModalFilterStatusTabs");
+        wlModalFilterTypeTabs = document.querySelectorAll(".wlModalFilterCtnt .wlModalFilterTypeTabs");
+        
+        wlModalFilterStatusTabs[wlModalFilterStatusTabIndex].classList.add("selected");
+        wlModalFilterTypeTabs[wlModalFilterTypeTabIndex].classList.add("selected");
 
         // Selecting a sorting option for "Show Status"
-        userWLModalFilterStatusTabs.forEach((tab) => 
+        wlModalFilterStatusTabs.forEach((tab) => 
         {
             if(tab.action)
             {
                 tab.removeEventListener(`click` , tab.action);
             }
         });
-        userWLModalFilterStatusTabs.forEach((tab) => 
+        wlModalFilterStatusTabs.forEach((tab, index) => 
         {
             const action = () => 
             {
+                // Update button index
+                wlModalFilterStatusTabIndex = index;
+
+                // Get option number
                 let optNo = tab.getAttribute("data-show-status-opt");
 
                 // Add selected class to the currently selected tab
-                userWLModalFilterStatusTabs.forEach((selectedTab) => 
+                wlModalFilterStatusTabs.forEach((selectedTab) => 
                 {
                     selectedTab.classList.remove("selected");
                 });
@@ -1467,33 +1407,8 @@
 
                 switch(optNo)
                 {
-                    // Planned
+                    // All
                     case "0":
-                        filterWLModalStatus(0);
-                        break;
-                        
-                    // Watching
-                    case "1":
-                        filterWLModalStatus(1);
-                        break;
-                        
-                    // On-hold
-                    case "2":
-                        filterWLModalStatus(2);
-                        break;
-                        
-                    // Completed
-                    case "3":
-                        filterWLModalStatus(3);
-                        break;
-                        
-                    // Dropped
-                    case "4":
-                        filterWLModalStatus(4);
-                        break;
-                        
-                    // Display All 
-                    default:
                         wlModalGrid_CardBdr.forEach((bdr) => 
                         {
                             if(bdr.classList.contains("notShowStatusMatch"))
@@ -1502,6 +1417,36 @@
                             }
                         });
                         break;
+
+                    // Planned
+                    case "1":
+                        filterWLModalStatus(0);
+                        break;
+                        
+                    // Watching
+                    case "2":
+                        filterWLModalStatus(1);
+                        break;
+                        
+                    // On-hold
+                    case "3":
+                        filterWLModalStatus(2);
+                        break;
+                        
+                    // Completed
+                    case "4":
+                        filterWLModalStatus(3);
+                        break;
+                        
+                    // Dropped
+                    case "5":
+                        filterWLModalStatus(4);
+                        break;
+                        
+                    // Notify of error 
+                    default:
+                        notification(`notifyBad` , `An error occured while filtering`);
+                        break;
                 }
             }
             tab.addEventListener("click" , action);
@@ -1509,21 +1454,25 @@
         });
 
         // Selecting a sorting option for "Show Type"
-        userWLModalFilterTypeTabs.forEach((tab) => 
+        wlModalFilterTypeTabs.forEach((tab) => 
         {
             if(tab.action)
             {
                 tab.removeEventListener(`click` , tab.action);
             }
         });
-        userWLModalFilterTypeTabs.forEach((tab) => 
+        wlModalFilterTypeTabs.forEach((tab, index) => 
         {
             const action = () => 
             {
+                // Update button index
+                wlModalFilterTypeTabIndex = index;
+
+                // Get option number
                 let optNo = tab.getAttribute("data-show-type-opt");
 
                 // Add selected class to the currently selected tab
-                userWLModalFilterTypeTabs.forEach((selectedTab) => 
+                wlModalFilterTypeTabs.forEach((selectedTab) => 
                 {
                     selectedTab.classList.remove("selected");
                 });
@@ -1531,18 +1480,8 @@
 
                 switch(optNo)
                 {
-                    // Movies
+                    // Dispaly All
                     case "0":
-                        filterWLModalType("movies");
-                        break;
-                        
-                    // Tv
-                    case "1":
-                        filterWLModalType("tv");
-                        break;
-                        
-                    // Display All 
-                    default:
                         wlModalGrid_CardBdr.forEach((bdr) => 
                         {
                             if(bdr.classList.contains("notShowTypeMatch"))
@@ -1551,10 +1490,26 @@
                             }
                         });
                         break;
+
+                    // Display Movies
+                    case "1":
+                        filterWLModalType("movies");
+                        break;
+                        
+                    // Display Tv
+                    case "2":
+                        filterWLModalType("tv");
+                        break;
+                        
+                    // Notify of error 
+                    default:
+                        notification(`notifyBad` , `An error occured while filtering`);
+                        break;
                 }
             }
             tab.addEventListener("click" , action);
             tab.action = action;
         });
     }
+
 
