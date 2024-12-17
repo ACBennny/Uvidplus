@@ -165,6 +165,7 @@ body.bodystop
 body[gen-menu-modal-is-dragging="true"]
 {
     overflow: hidden !important;
+    overscroll-behavior: none none !important;
 }
 
 main
