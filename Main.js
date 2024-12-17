@@ -2409,7 +2409,7 @@
             document.addEventListener("mouseup", stopDraggingGenMenuModal);
 
             genMenuModalBox.addEventListener("touchstart", startDraggingGenMenuModal);
-            document.addEventListener("touchmove", currDraggingGenMenuModal);
+            document.addEventListener("touchmove", currDraggingGenMenuModal, false);
             document.addEventListener("touchend", stopDraggingGenMenuModal);
 
             window.addEventListener("resize" , calibrateGenMenuModalBoxHeight);
@@ -2454,6 +2454,7 @@
         const currDraggingGenMenuModal = (e) => 
         {
             if(!genMenuModalIsDragging) return;
+            e.preventDefault();
 
             const genMenuBoxDeltaY = (e.pageY || e.touches?.[0].pageY);
             let newGenMenuBoxHeight = (startGenMenuBoxHeight + genMenuBoxStartY) - genMenuBoxDeltaY;
