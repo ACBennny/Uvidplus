@@ -166,6 +166,7 @@ body[gen-menu-modal-is-dragging="true"]
 {
     overflow: hidden !important;
     overscroll-behavior: none none !important;
+    touch-action: none !important;
 }
 
 main
