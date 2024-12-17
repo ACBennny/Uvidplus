@@ -2409,7 +2409,7 @@
             document.addEventListener("mousemove", currDraggingGenMenuModal);
             document.addEventListener("mouseup", stopDraggingGenMenuModal);
 
-            genMenuModalBox.addEventListener("touchstart", startDraggingGenMenuModal);
+            genMenuModalBox.addEventListener("touchstart", startDraggingGenMenuModal, true);
             document.addEventListener("touchmove", currDraggingGenMenuModal, false);
             document.addEventListener("touchend", stopDraggingGenMenuModal);
 
