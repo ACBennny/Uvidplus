@@ -162,6 +162,11 @@ body.bodystop
     overflow: hidden;
 }
 
+body[gen-menu-modal-is-dragging="true"]
+{
+    overflow: hidden !important;
+}
+
 main
 {
     width: 100%;

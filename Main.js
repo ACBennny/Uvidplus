@@ -2433,6 +2433,7 @@
             genMenuBoxStartY = e.pageY || e.touches?.[0].pageY;
             startGenMenuBoxHeight = parseInt(genMenuModalBox.offsetHeight);
             genMenuModalBdr.classList.add("isDragging");
+            documentBody.setAttribute(`gen-menu-modal-is-dragging` , `true`);
         }
 
         // Calculates the new height for the menu modal box and calls the updateGenMenuModalBoxHeight function
@@ -2463,6 +2464,7 @@
             genMenuModalIsDragging = false;
             genMenuModalBdr.classList.remove("isDragging");
             genMenuModalBox.classList.remove("disableClicks");
+            documentBody.setAttribute(`gen-menu-modal-is-dragging` , `false`);
             const menuModalBoxH = parseInt(genMenuModalBox.style.height);
             menuModalBoxH < Math.round((startGenMenuBoxHeight * 0.75)) ? hideGenMenuModal() : updateGenMenuModalBoxHeight(startGenMenuBoxHeight);
         }
