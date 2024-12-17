@@ -4253,7 +4253,6 @@ img
 
 .genMenuModalBdr.isDragging *
 {
-    /* overflow: hidden hidden !important; */
     transition: none !important;
     cursor: grabbing !important;
 }
