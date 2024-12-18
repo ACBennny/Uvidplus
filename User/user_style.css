@@ -190,7 +190,7 @@ html:root
 {
     width: 100%;
     max-width: calc((var(--genMaxContainerWidth) / 1.00));
-    min-height: 50vh;
+    min-height: 75vh;
     display: flex;
     flex-direction: column;
     padding: 35px var(--genBorderSpacing);
