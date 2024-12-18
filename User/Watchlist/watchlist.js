@@ -16,7 +16,7 @@
     let wlModalBox = document.querySelector(".wlModalBox")
     let emptyUserPageBdr = document.querySelector(".emptyUserPageBdr");
     let wlArray = [];
-    let sortWLCardsArray = [];
+    let wlBodySortArray = [];
     let newWLMaxSize = 10;
     let newWLCurrSize = 0;
     let closeWLFilterMenu;
@@ -442,7 +442,7 @@
                             wl_items: [],
                         }
                     );
-                    sortWLCardsArray.push(
+                    wlBodySortArray.push(
                         {
                             wl_name: `${wlName}`,
                             wl_updated: `${getCurrDate()}`,
@@ -524,14 +524,14 @@
                     if((wlBodySortTabIndex == 1))
                     {
                         // Sort by "A-Z"
-                        sortWLByName(sortWLCardsArray, "wl_name", "A-Z");
-                        generateWLCards(sortWLCardsArray);
+                        sortWLByName(wlBodySortArray, "wl_name", "A-Z");
+                        generateWLCards(wlBodySortArray);
                     }
                     else if((wlBodySortTabIndex == 2))
                     {
                         // Sort by "Z-A"
-                        sortWLByName(sortWLCardsArray, "wl_name", "A-Z");
-                        generateWLCards(sortWLCardsArray);
+                        sortWLByName(wlBodySortArray, "wl_name", "A-Z");
+                        generateWLCards(wlBodySortArray);
                     }
                 
                     addOpenWLListeners();
@@ -639,14 +639,14 @@
                         
                     // Sort from A-Z
                     case "1":
-                        sortWLByName(sortWLCardsArray, "wl_name", "A-Z");
-                        generateWLCards(sortWLCardsArray);
+                        sortWLByName(wlBodySortArray, "wl_name", "A-Z");
+                        generateWLCards(wlBodySortArray);
                         break;
                         
                     // Sort from Z-A
                     case "2":
-                        sortWLByName(sortWLCardsArray, "wl_name", "Z-A");
-                        generateWLCards(sortWLCardsArray);
+                        sortWLByName(wlBodySortArray, "wl_name", "Z-A");
+                        generateWLCards(wlBodySortArray);
                         break;
                         
                     default:
@@ -718,7 +718,7 @@
     {
         // Delete item from invetory
         watchlistInventory.splice(index , 1);
-        sortWLCardsArray.splice(index , 1);
+        wlBodySortArray.splice(index , 1);
 
         // Remove item from catalog
         let delItem = document.getElementsByClassName("userWLCatalog_ItemBase")[index];
@@ -761,7 +761,7 @@
         // Update the sort Wl card array
         watchlistInventory.forEach((val) => 
         {
-            sortWLCardsArray.push(val);
+            wlBodySortArray.push(val);
         });
 
         // Generate the Watchlist cards
@@ -883,7 +883,14 @@
     // Opens the modal containing the info for a single watchlist
     function openWLModal(index)
     {
-        wlModalCurrIndex = sortWLCardsArray[index];
+        if((wlBodySortTabIndex == 0) || (wlBodySortTabIndex == null))
+        {
+            wlModalCurrIndex = watchlistInventory[index];
+        }
+        else
+        {
+            wlModalCurrIndex = wlBodySortArray[index];
+        }
         userWLCatalog_ItemBase = document.querySelectorAll(".userWLCatalog_ItemBase");
         currCatalogItemBase = userWLCatalog_ItemBase[index];
         wlModalBaseClose = document.querySelector(".wlModalBaseClose");
