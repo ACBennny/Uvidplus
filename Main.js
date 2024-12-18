@@ -2372,6 +2372,7 @@
         }
 
         // Calculates the dimensions and position of the menu modal before displaying it
+        let genMenuModalDisplayThreshold = 5;
         function displayGenMenuModal()
         {
             // Get button genMenuModalBdrPos and size
@@ -2382,36 +2383,27 @@
             let winWidth = window.innerWidth;
 
             // Calculate available spaces
-            let btnTop = btnRect.top;
-            let btnBottom = btnRect.bottom;
-            let btnLeft = btnRect.left;
-            let btnRight = btnRect.right;
+            let btnTop = Math.ceil(btnRect.top);
+            let btnBottom = Math.ceil(btnRect.bottom);
+            let btnLeft = Math.ceil(btnRect.left);
+            let btnRight = Math.ceil(btnRect.right);
             let leftSpace;
             let topSpace;
-
-            console.log(`btnTop ==> ${btnTop}`);
-            console.log(`btnBottom ==> ${btnBottom}`);
-            console.log(`btnLeft ==> ${btnLeft}`);
-            console.log(`btnRight ==> ${btnRight}`);
-            console.log(`menuHeight ==> ${menuHeight}`);
-            console.log(`menuWidth ==> ${menuWidth}`);
-            console.log(`winWidth - menuWidth ==> ${winWidth - menuWidth}`);
-            console.log(`winHeight - menuHeight ==> ${winHeight - menuHeight} \n\n\n\n`);
 
 
             // Only change the position on larger screens (565px)
             if(winWidth > winWidth768)
             {
-                // if(menuHeight > )
                 // Choose the genMenuModalBdr position
-                leftSpace = btnLeft > winWidth - menuWidth ? btnRight - menuWidth - 5 : btnLeft + 5;
-                topSpace = btnBottom > winHeight - menuHeight ? btnTop - menuHeight - 5 : btnBottom + 5;
+                leftSpace = btnLeft > winWidth - menuWidth ? btnRight - menuWidth - genMenuModalDisplayThreshold : btnLeft + genMenuModalDisplayThreshold;
+                topSpace = btnBottom > winHeight - menuHeight ? btnTop - menuHeight - genMenuModalDisplayThreshold : btnBottom + genMenuModalDisplayThreshold;
 
+                // If the top value is less than zero i.e. top is outside viewport;
+                // set to top or bottom of viewport and re calibrate the left position
                 if(topSpace < 0)
                 {
-                    topSpace = btnTop > (Math.round(winHeight / 2)) ? winHeight - menuHeight : 0;
-                    leftSpace = btnLeft > winWidth - menuWidth ? btnRight - menuWidth - 5 : btnLeft - menuWidth + 5;
-                    console.log("greater");
+                    topSpace = btnTop > (Math.round(winHeight / 2)) ? winHeight - menuHeight : genMenuModalDisplayThreshold;
+                    leftSpace = btnRight > winWidth - menuWidth ? btnLeft - menuWidth - genMenuModalDisplayThreshold : btnRight + genMenuModalDisplayThreshold;
                 }
             }
             else
@@ -2420,8 +2412,6 @@
                 btnLeft = 0;
                 btnTop = 0;
             }
-            console.log(`btnTop ==> ${btnTop}`);
-            console.log(`btnLeft ==> ${btnLeft} \n\n\n\n`);
 
             // Set genMenuModalBdr position and display it
             genMenuModalBdr.style.top = `${topSpace}px`;
