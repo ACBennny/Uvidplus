@@ -2305,6 +2305,71 @@
             documentCtnt.appendChild(genMenuModalBdr);
         }
 
+        
+
+        // Attaches listener for calling the menu modals
+        function attachMenuModalEventListeners()
+        {
+            let openGenMenuModalBtn = document.querySelectorAll(".openGenMenuModalBtn");
+
+            openGenMenuModalBtn.forEach((prevBtn) => 
+            {
+                if(prevBtn.action)
+                {
+                    prevBtn.removeEventListener("click" , prevBtn.action);
+                }
+            });
+            
+            openGenMenuModalBtn.forEach((btn, index) => 
+            {
+                const action = () => 
+                {
+                    // Close if the same button clicked to open the menu is clicked again
+                    if((currOpenGenMenuModalBtnIndex != null) && (index == currOpenGenMenuModalBtnIndex) && (genMenuModalBdr.getAttribute("aria-expanded") === "true"))
+                    {
+                        genMenuModalBdr.setAttribute("aria-expanded" , "false");
+                        documentBody.setAttribute(`gen-menu-modal-is-dragging` , `false`);
+                        genMenuModalBdr.classList.remove("isOpen");
+                        document.removeEventListener("click" , callHideGenMenuModal);
+                    }
+                    else
+                    {
+                        // Set to current index
+                        currOpenGenMenuModalBtnIndex = index;
+                        let menuType = btn.getAttribute("data-gen-menu-modal-type");
+
+                        // Return if attribute is not found
+                        if((menuType == undefined) || (menuType == null))
+                        {
+                            notification(`notifyBad` , `An error occurred`);
+                            return;
+                        }
+
+                        // Fetch the corresponding menu modal
+                        let thisMenu = genMenuModalMap.get(menuType.toLowerCase());
+
+                        if(thisMenu)
+                        {
+                            const {menu_id, menu_ctnt} = thisMenu;
+                            
+                            // Update innerHTML
+                            genMenuModalCtntBdr.innerHTML = menu_ctnt;
+
+                            // Call corresponding function to attach event listeners and display menu
+                            openGenMenuModalBtnTimer = setTimeout(() => 
+                            {
+                                clearTimeout(openGenMenuModalBtnTimer);
+                                callGlobalFunctions(menu_id);
+                                displayGenMenuModal();
+                            }, 100);
+                        }
+                    }
+                }
+
+                btn.addEventListener("click" , action);
+                btn.action = action;
+            });
+        }
 
         // Calculates the dimensions and position of the menu modal before displaying it
         function displayGenMenuModal()
@@ -2321,13 +2386,33 @@
             let btnBottom = btnRect.bottom;
             let btnLeft = btnRect.left;
             let btnRight = btnRect.right;
+            let leftSpace;
+            let topSpace;
+
+            console.log(`btnTop ==> ${btnTop}`);
+            console.log(`btnBottom ==> ${btnBottom}`);
+            console.log(`btnLeft ==> ${btnLeft}`);
+            console.log(`btnRight ==> ${btnRight}`);
+            console.log(`menuHeight ==> ${menuHeight}`);
+            console.log(`menuWidth ==> ${menuWidth}`);
+            console.log(`winWidth - menuWidth ==> ${winWidth - menuWidth}`);
+            console.log(`winHeight - menuHeight ==> ${winHeight - menuHeight} \n\n\n\n`);
+
 
             // Only change the position on larger screens (565px)
             if(winWidth > winWidth768)
             {
+                // if(menuHeight > )
                 // Choose the genMenuModalBdr position
-                btnLeft = btnLeft > winWidth - menuWidth ? btnRight - menuWidth - 5 : btnLeft + 5;
-                btnTop = btnBottom > winHeight - menuHeight ? btnTop - menuHeight - 5 : btnBottom + 5;
+                leftSpace = btnLeft > winWidth - menuWidth ? btnRight - menuWidth - 5 : btnLeft + 5;
+                topSpace = btnBottom > winHeight - menuHeight ? btnTop - menuHeight - 5 : btnBottom + 5;
+
+                if(topSpace < 0)
+                {
+                    topSpace = btnTop > (Math.round(winHeight / 2)) ? winHeight - menuHeight : 0;
+                    leftSpace = btnLeft > winWidth - menuWidth ? btnRight - menuWidth - 5 : btnLeft - menuWidth + 5;
+                    console.log("greater");
+                }
             }
             else
             {
@@ -2335,10 +2420,12 @@
                 btnLeft = 0;
                 btnTop = 0;
             }
+            console.log(`btnTop ==> ${btnTop}`);
+            console.log(`btnLeft ==> ${btnLeft} \n\n\n\n`);
 
             // Set genMenuModalBdr position and display it
-            genMenuModalBdr.style.top = `${btnTop}px`;
-            genMenuModalBdr.style.left = `${btnLeft}px`;
+            genMenuModalBdr.style.top = `${topSpace}px`;
+            genMenuModalBdr.style.left = `${leftSpace}px`;
             genMenuModalBdr.setAttribute("aria-expanded" , "true");
             documentBody.setAttribute(`gen-menu-modal-is-dragging` , `true`);
 
@@ -2488,70 +2575,6 @@
             genMenuModalBox.classList.remove("disableClicks");
             const menuModalBoxH = parseInt(genMenuModalBox.style.height);
             menuModalBoxH < Math.round((startGenMenuBoxHeight * 0.75)) ? hideGenMenuModal() : updateGenMenuModalBoxHeight(startGenMenuBoxHeight);
-        }
-
-        // Attaches listener for calling the menu modals
-        function attachMenuModalEventListeners()
-        {
-            let openGenMenuModalBtn = document.querySelectorAll(".openGenMenuModalBtn");
-
-            openGenMenuModalBtn.forEach((prevBtn) => 
-            {
-                if(prevBtn.action)
-                {
-                    prevBtn.removeEventListener("click" , prevBtn.action);
-                }
-            });
-            
-            openGenMenuModalBtn.forEach((btn, index) => 
-            {
-                const action = () => 
-                {
-                    // Close if the same button clicked to open the menu is clicked again
-                    if((currOpenGenMenuModalBtnIndex != null) && (index == currOpenGenMenuModalBtnIndex) && (genMenuModalBdr.getAttribute("aria-expanded") === "true"))
-                    {
-                        genMenuModalBdr.setAttribute("aria-expanded" , "false");
-                        documentBody.setAttribute(`gen-menu-modal-is-dragging` , `false`);
-                        genMenuModalBdr.classList.remove("isOpen");
-                        document.removeEventListener("click" , callHideGenMenuModal);
-                    }
-                    else
-                    {
-                        // Set to current index
-                        currOpenGenMenuModalBtnIndex = index;
-                        let menuType = btn.getAttribute("data-gen-menu-modal-type");
-
-                        // Return if attribute is not found
-                        if((menuType == undefined) || (menuType == null))
-                        {
-                            notification(`notifyBad` , `An error occurred`);
-                            return;
-                        }
-
-                        // Fetch the corresponding menu modal
-                        let thisMenu = genMenuModalMap.get(menuType.toLowerCase());
-
-                        if(thisMenu)
-                        {
-                            const {menu_id, menu_ctnt} = thisMenu;
-                            
-                            // Update innerHTML
-                            genMenuModalCtntBdr.innerHTML = menu_ctnt;
-
-                            // Call corresponding function to attach event listeners and display menu
-                            openGenMenuModalBtnTimer = setTimeout(() => 
-                            {
-                                clearTimeout(openGenMenuModalBtnTimer);
-                                callGlobalFunctions(menu_id);
-                                displayGenMenuModal();
-                            }, 100);
-                        }
-                    }
-                }
-
-                btn.addEventListener("click" , action);
-                btn.action = action;
-            });
         }
     
 
