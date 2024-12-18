@@ -33,6 +33,7 @@
     let genMenuModalBox;
     let genMenuModalCtntBdr;
     let openGenMenuModalBtnTimer;
+    let genMenuModalDisplayThreshold = 5;
     let genAtnModalBoxDragDist = 10;
     let genMenuModalIsDragging = false
     let genMenuBoxStartY = 0;
@@ -2372,7 +2373,6 @@
         }
 
         // Calculates the dimensions and position of the menu modal before displaying it
-        let genMenuModalDisplayThreshold = 5;
         function displayGenMenuModal()
         {
             // Get button genMenuModalBdrPos and size
