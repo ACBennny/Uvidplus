@@ -4234,8 +4234,7 @@ img
     position: fixed;
     top: 0;
     left: 0;
-    width: fit-content;
-    width: 200px;
+    width: 225px;
     display: flex;
     justify-content: center;
     align-items: end;
