@@ -311,9 +311,6 @@
                 </div>
             </div>
         </div>
-
-
-        <!-- Gen WL Action Modal -->
     `;
 
 
