@@ -35,7 +35,7 @@
     let openGenMenuModalBtnTimer;
     let genMenuModalDisplayThreshold = 5;
     let genAtnModalBoxDragDist = 10;
-    let genMenuModalIsDragging = false
+    let genMenuModalIsDragging = false;
     let genMenuBoxStartY = 0;
     let startGenMenuBoxHeight = 0;
     let currGenMenuBoxHeight = 0;
@@ -2450,6 +2450,7 @@
             if(
                 !event.target.closest(".openGenMenuModalBtn")
                 // !event.target.closest(".genMenuModalBox")
+                && genMenuModalIsDragging
             )
             {
                 hideGenMenuModal();
