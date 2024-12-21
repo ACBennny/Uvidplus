@@ -2409,8 +2409,8 @@
             else
             {
                 // Set it to zero if otherwise
-                btnLeft = 0;
-                btnTop = 0;
+                leftSpace = 0;
+                topSpace = 0;
             }
 
             // Set genMenuModalBdr position and display it
