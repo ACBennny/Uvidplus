@@ -4258,11 +4258,6 @@ img
     cursor: grabbing !important;
 }
 
-.genMenuModalBox.disableClicks *
-{
-    pointer-events: none !important;
-}
-
 .genMenuModalBdr .genMenuModalBcg
 {
     position: absolute;
@@ -4291,6 +4286,16 @@ img
     width: 0;
     height: 0;
     display: none;
+}
+
+.genMenuModalBox.disableClicks
+{
+    overflow: hidden hidden !important;
+}
+
+.genMenuModalBox.disableClicks *
+{
+    pointer-events: none !important;
 }
 
 .genMenuModalBox .genMenuModalDragHandleBdr
