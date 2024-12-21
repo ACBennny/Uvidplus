@@ -2449,7 +2449,7 @@
         {
             if(
                 !event.target.closest(".openGenMenuModalBtn")
-                // !event.target.closest(".genMenuModalBox")
+                // && !event.target.closest(".genMenuModalBox")
             )
             {
                 hideGenMenuModal();
