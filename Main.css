@@ -4288,11 +4288,6 @@ img
     display: none;
 }
 
-.genMenuModalBox.disableClicks
-{
-    overflow: hidden hidden !important;
-}
-
 .genMenuModalBox.disableClicks *
 {
     pointer-events: none !important;
