@@ -1076,7 +1076,7 @@
             document.body.classList.remove("bodystop");
 
             // Resets the sort & filters
-            wlModalSortTypeTabIndex = 0;
+            wlModalSortTypeTabIndex = 1;
             wlModalSortOrderTabIndex = 0;
             wlModalFilterStatusTabIndex = 0;
             wlModalFilterTypeTabIndex = 0;
