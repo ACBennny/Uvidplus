@@ -949,6 +949,10 @@
         // Setting the description
         wlModalHeader_DetInfo_DescText.textContent = wlModalCurrIndex.wl_desc;
 
+        // Setting the default sort option
+        wlModalSortTypeText.textContent = `Recently Added`;
+        wlModalSortOrderText.textContent = `Asc ↑`;
+
         // Filling in the grid content
         for(let g = 0; g < wlModalCurrIndex.wl_items.length; g++)
         {
@@ -1083,17 +1087,16 @@
                 clearTimeout(closeWLModalTimer);
                 wlModalHeaderBcgImg.setAttribute(`src` , ``);
                 wlModalHeaderThumbImg.setAttribute(`src` , ``);
-                wlModalHeader_DetInfo_TitleText.textContent = ``;
-                wlModalHeader_DetInfo_TagsCountText.textContent = ``;
-                wlModalHeader_DetInfo_TagsUpdateText.textContent = ``;
-                wlModalHeader_DetInfo_DescText.textContent = ``;
-                wlModalSortTypeText.textContent = `Recently Added`;
-                wlModalSortOrderText.textContent = `Ascending`;
+                wlModalHeader_DetInfo_TitleText.textContent = `N/A`;
+                wlModalHeader_DetInfo_TagsCountText.textContent = `N/A`;
+                wlModalHeader_DetInfo_TagsUpdateText.textContent = `N/A`;
+                wlModalHeader_DetInfo_DescText.textContent = `N/A`;
+                wlModalSortTypeText.textContent = `N/A`;
+                wlModalSortOrderText.textContent = `N/A`;
                 wlModalGrid_CardBdr.forEach((card) => 
                 {
                     card.remove();
                 });
-                // wlModalGridBox.innerHTML = "";
             }, 500);
         });
 

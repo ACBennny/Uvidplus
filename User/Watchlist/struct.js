@@ -275,9 +275,9 @@
                                         <div class="wlModalCtnt_sortSect wlModalCtnt_sortStatusBdr">
                                             <div class="wlModalCtnt_sortStatusBox">
                                                 <div class="wlModalCtnt_sortStatusText">
-                                                    <span class="status_type">Recently Updated</span>
+                                                    <span class="status_type">N/A</span>
                                                     <span class="status_divider">•</span>
-                                                    <span class="status_order">Asc ↑</span>
+                                                    <span class="status_order">N/A</span>
                                                 </div>
                                             </div>
                                         </div>
