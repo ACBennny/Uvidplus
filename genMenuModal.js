@@ -62,10 +62,10 @@
                         <p class="genMenuModalCtntSectText">Sort Order</p>
                     </div>
                     <button class="genMenuModalCtntBtnBox wlModalSortOrderTabs">
-                        <div class="genMenuModalCtntBtnText">Ascending</div>
+                        <div class="genMenuModalCtntBtnText">Asc ↑</div>
                     </button>
                     <button class="genMenuModalCtntBtnBox wlModalSortOrderTabs">
-                        <div class="genMenuModalCtntBtnText">Descending</div>
+                        <div class="genMenuModalCtntBtnText">Dsc ↓</div>
                     </button>
                 </div>
             `,

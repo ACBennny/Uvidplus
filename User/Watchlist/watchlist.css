@@ -10,6 +10,7 @@ html:root
     --userWLCatalogItemWidth: 225px;
     --userWLCatalogItemStackLvlBdrRad: 10px;
     --userWLCatalogItemDetPadding: 10px;
+    --wlModalBorderSpacing: 0px;
     --wlModalBaseCloseHeight: 20px;
     --wlModalBaseCloseMargin: 15px;
     --wlModalSectMaxWidth: 70vw;
@@ -332,15 +333,9 @@ html:root
     height: 100%;
 }
 
-.wlModalActionFence.wlModalAction_HeaderFence,
-.wlModalActionFence.wlModalAction_GridCardFence
+.wlModalActionFence.wlModalAction_HeaderFence
 {
     display: block;
-}
-
-.wlModalActionFence.wlModalAction_SortFence
-{
-    display: none;
 }
 
 .wlModalActionFence .wlModalActionBase
@@ -608,18 +603,54 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 }
 
 
-.wlModalBase .wlModalBaseCloseBdr
+
+
+
+/* ---------- Titlebar ---------- */
+.wlModalBase .wlModalBaseBarBdr
 {
-    position: fixed;
-    top: var(--wlModalBaseCloseMargin);
-    left: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc((100% - var(--wlModalBoxScrollbarWidth)));
+    display: flex;
+    padding: var(--wlModalBaseCloseMargin) var(--genBorderSpacing);
+    justify-content: center;
+    background: -o-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
+    background: -moz-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
+    background: -webkit-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
+    background: linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
+    z-index: 25;
+}
+
+.wlModalBaseBarBdr.sticky
+{
+    background-color: #000000;
+}
+
+.wlModalBaseBarBdr .wlModalBaseBarBox
+{
+    width: 100%;
+    max-width: var(--wlModalSectMaxWidth);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.wlModalBaseBarBox .wlModalBaseCloseBdr
+{
     padding: calc((var(--wlModalBaseCloseMargin) / 2));
     font-size: 15px;
     border-radius: 50%;
     background-color: var(--userOrderBtnBcg);
-    transform: translateX(-50%);
+    transition: all 150ms ease-in-out;
     cursor: pointer;
-    z-index: 25;
+}
+
+.wlModalBaseBarBdr.sticky .wlModalBaseCloseBdr
+{
+    background-color: #00000000;
 }
 
 .wlModalBaseCloseBdr .wlModalBaseCloseBox
@@ -638,6 +669,52 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     fill: var(--genWhiteTypeMid);
 }
 
+.wlModalBaseBarBox .wlModalBaseTitleBdr
+{
+    width: calc((100% - var(--wlModalBaseCloseMargin)));
+    padding-left: 15px;
+}
+
+.wlModalBaseTitleBdr .wlModalBaseTitleBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 150ms ease-in-out;
+}
+
+.wlModalBaseBarBdr.sticky .wlModalBaseTitleBox
+{
+    opacity: 1;
+    visibility: visible;
+}
+
+.wlModalBaseTitleBox .wlModalBaseTitleText
+{
+    --wlModalBaseTitleTextNo: 1;
+    --wlModalBaseTitleTextH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--wlModalBaseTitleTextNo);
+    -webkit-box-orient: vertical;
+    line-clamp:  var(--wlModalBaseTitleTextNo);
+    display: -webkit-box;
+    max-height: calc(var(--wlModalBaseTitleTextNo) * 1em * var(--wlModalBaseTitleTextH));
+    line-height: var(--wlModalBaseTitleTextH);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    color: var(--genWhiteTypeMid2);
+    font-size: 16px;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+.wlModalBaseBar_SortFence
+
+
 
 
 /* ------------ Header ----------- */
@@ -655,7 +732,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: var(--navBarHeight);
+    padding: var(--navBarHeight) var(--genBorderSpacing) 0;
     margin-bottom: 25px;
     z-index: 3;
 }
@@ -726,7 +803,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 25px var(--genBorderSpacing) 0;
+    padding-top: 25px;
     z-index: 5;
 }
 
@@ -1418,7 +1495,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     {
         height: 100%;
         flex-direction: column;
-        padding: 15px var(--genBorderSpacing) 0;
+        padding-top: 15px;
     }
 
     .wlModalHeadBox .wlModalHeader_thumbBase,
@@ -1530,7 +1607,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     {
         height: 100%;
         flex-direction: column;
-        padding: 10px var(--genBorderSpacing) 0;
+        padding-top: 10px;
     }
 
     .wlModalHeader_DetBox .wlModalHeader_DetInfoBdr
@@ -1559,11 +1636,6 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
         display: none;
     }
 
-    .wlModalActionFence.wlModalAction_SortFence
-    {
-        display: block;
-    }
-
     .wlModalAction_MenuBdr
     {
         top: 0%;
@@ -1576,8 +1648,27 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     {
         display: block;
     }
-    
-    .wlModalCtnt_sortBox .wlModalCtnt_sortStatusBdr
+
+    .wlModalCtnt_sortStatusBox .wlModalCtnt_sortStatusText
+    {
+        font-size: 13px;
+    }
+
+    .wlModalCtnt_sortFilterBox .userOrderBtnBox
+    {
+        padding: 10px;
+        border-radius: 50%;
+        background-color: #00000000;
+    }
+
+    .wlModalCtnt_sortFilterBox .userOrderBtnIcon
+    {
+        width: 20px;
+        height: 20px;
+        margin: 0;
+    }
+
+    .wlModalCtnt_sortFilterBox .userOrderBtnText
     {
         display: none;
     }

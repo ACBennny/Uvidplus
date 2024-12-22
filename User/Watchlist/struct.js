@@ -148,11 +148,35 @@
         <div class="wlModalBase">
             <div class="wlModalBdr">
                 <div class="wlModalBox">
-                    <div class="wlModalBaseCloseBdr wlModalBaseClose">
-                        <div class="wlModalBaseCloseBox">
-                            <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="wlModalBaseCloseSvg">
-                                <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
-                            </svg>
+                    <div class="wlModalBaseBarBdr">
+                        <div class="wlModalBaseBarBox">
+                            <div class="wlModalBaseCloseBdr wlModalBaseClose">
+                                <div class="wlModalBaseCloseBox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="wlModalBaseCloseSvg">
+                                        <path fill-rule="evenodd" d="M10.53 5.47a.75.75 0 0 1 0 1.06l-4.72 4.72H20a.75.75 0 0 1 0 1.5H5.81l4.72 4.72a.75.75 0 1 1-1.06 1.06l-6-6a.75.75 0 0 1 0-1.06l6-6a.75.75 0 0 1 1.06 0" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="wlModalBaseTitleBdr">
+                                <div class="wlModalBaseTitleBox">
+                                    <div class="wlModalBaseTitleText">N/A</div>
+                                    <div class="wlModalActionFence wlModalBaseBar_SortFence">
+                                        <div class="wlModalActionBase">
+                                            <div class="wlModalActionBdr">
+                                                <div class="wlModalActionBox">
+                                                    <button class="wlModalActionBtn openGenMenuModalBtn" data-gen-menu-modal-type="wl_modal_header">
+                                                        <div class="wlModalActionBtnIcon">
+                                                            <svg class="wlModalActionBtnSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512">
+                                                                <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
+                                                            </svg>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="wlModalHeadBase">
@@ -253,14 +277,14 @@
                                                 <div class="wlModalCtnt_sortStatusText">
                                                     <span class="status_type">Recently Updated</span>
                                                     <span class="status_divider">•</span>
-                                                    <span class="status_order">Ascending</span>
+                                                    <span class="status_order">Asc ↑</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="wlModalCtnt_sortSect wlModalCtnt_sortFilterBdr">
                                             <div class="wlModalCtnt_sortFilterBox">
                                                 <div class="userOrderBtnBdr userSortBtnBdr ">
-                                                    <button type="button" aria-haspopup="menu" aria-expanded="false" class="userOrderBtnBox  openGenMenuModalBtn" data-gen-menu-modal-type="wl_modal_sort">
+                                                    <button type="button" aria-haspopup="menu" aria-expanded="false" class="userOrderBtnBox  openGenMenuModalBtn" data-gen-menu-modal-type="wl_modal_sort" title="Sort">
                                                         <div class="userOrderBtnIcon">
                                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="userOrderBtnSvg">
                                                                 <path fill-rule="evenodd" d="M22.75 7a.75.75 0 0 1-.75.75H2a.75.75 0 0 1 0-1.5h20a.75.75 0 0 1 .75.75m-3 5a.75.75 0 0 1-.75.75H5a.75.75 0 0 1 0-1.5h14a.75.75 0 0 1 .75.75m-3 5a.75.75 0 0 1-.75.75H8a.75.75 0 0 1 0-1.5h8a.75.75 0 0 1 .75.75" clip-rule="evenodd" />
@@ -270,7 +294,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="userOrderBtnBdr userFilterBtnBdr">
-                                                    <button type="button" aria-haspopup="menu" aria-expanded="false" class="userOrderBtnBox  openGenMenuModalBtn" data-gen-menu-modal-type="wl_modal_filter">
+                                                    <button type="button" aria-haspopup="menu" aria-expanded="false" class="userOrderBtnBox  openGenMenuModalBtn" data-gen-menu-modal-type="wl_modal_filter" title="Filter">
                                                         <div class="userOrderBtnIcon">
                                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="userOrderBtnSvg">
                                                                 <path fill-rule="evenodd" d="M18.25 7a3.75 3.75 0 1 1-7.5 0a3.75 3.75 0 0 1 7.5 0M14.5 9.25a2.25 2.25 0 1 0 0-4.5a2.25 2.25 0 0 0 0 4.5M5.75 17a3.75 3.75 0 1 0 7.5 0a3.75 3.75 0 0 0-7.5 0m3.75 2.25a2.25 2.25 0 1 1 0-4.5a2.25 2.25 0 0 1 0 4.5" clip-rule="evenodd" />
@@ -279,21 +303,6 @@
                                                         </div>
                                                         <div class="userOrderBtnText">Filter</div>
                                                     </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="wlModalActionFence wlModalAction_SortFence">
-                                            <div class="wlModalActionBase">
-                                                <div class="wlModalActionBdr">
-                                                    <div class="wlModalActionBox">
-                                                        <button class="wlModalActionBtn openGenMenuModalBtn" data-gen-menu-modal-type="wl_modal_header">
-                                                            <div class="wlModalActionBtnIcon">
-                                                                <svg class="wlModalActionBtnSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512">
-                                                                    <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
-                                                                </svg>
-                                                            </div>
-                                                        </button>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

@@ -13,7 +13,7 @@
     let wlCatalogBdr = wlBodyCtntBox.querySelector(".userWLCatalogBdr");
     let wlCatalogGrid = document.querySelector(".userWLCatalogGrid");
     let wlModalBase = document.querySelector(".wlModalBase");
-    let wlModalBox = document.querySelector(".wlModalBox")
+    let wlModalBox = document.querySelector(".wlModalBox");
     let emptyUserPageBdr = document.querySelector(".emptyUserPageBdr");
     let wlArray = [];
     let wlBodySortArray = [];
@@ -28,7 +28,10 @@
     let currCatalogItemBase;
     let wlModalMap;
     let wlModalCurrIndex;
+    let wlModalBaseBarBdr;
+    let wlModalBaseTitleText;
     let wlModalBaseClose;
+    let wlModalHeadBase;
     let wlModalHeaderBcgImg;
     let wlModalHeaderThumbImg;
     let wlModalHeader_DetInfo_TitleText;
@@ -45,7 +48,7 @@
     let wlModalSortDfltArray = [];
     let wlModalSortUsedArray = [];
     let wlModalSortTypeTabs;
-    let wlModalSortTypeTabIndex = 0;
+    let wlModalSortTypeTabIndex = 1;
     let wlModalSortOrderTabs;
     let wlModalSortOrderTabIndex = 0;
     let wlModalFilterStatusTabs;
@@ -893,7 +896,10 @@
         }
         userWLCatalog_ItemBase = document.querySelectorAll(".userWLCatalog_ItemBase");
         currCatalogItemBase = userWLCatalog_ItemBase[index];
+        wlModalBaseBarBdr = document.querySelector(".wlModalBaseBarBdr");
+        wlModalBaseTitleText = document.querySelector(".wlModalBaseTitleText");
         wlModalBaseClose = document.querySelector(".wlModalBaseClose");
+        wlModalHeadBase = document.querySelector(".wlModalHeadBase");
         wlModalHeaderBcgImg = document.querySelector(".wlModalHeader_BcgImg");
         wlModalHeaderThumbImg = document.querySelector(".wlModalHeader_thumbImg");
         wlModalHeader_DetInfo_TitleText = document.querySelector(".wlModalHeader_DetInfo_TitleText");
@@ -909,6 +915,21 @@
         wlModalSortDfltArray.length = 0;
         wlModalSortUsedArray.length = 0;
 
+        // Setting the titlebar's width
+        let wlModalBoxScrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+        // 
+        wlModalBox.addEventListener("scroll" , toggleModalBar);
+
+        // For scrollbars that are hidden
+        if(wlModalBoxScrollbarWidth == 0)
+        {
+            // If device is not mobile set to 10px
+            if(!(window.matchMedia("(hover: none)").matches)) wlModalBoxScrollbarWidth = 10;
+        }
+        wlModalBaseBarBdr.setAttribute(`style` , `--wlModalBoxScrollbarWidth: ${wlModalBoxScrollbarWidth}px`)
+        console.log(`scrollbar width ${wlModalBoxScrollbarWidth}`);
+
         // Setting the Background
         wlModalHeaderBcgImg.setAttribute(`src` , currCatalogItemBase.querySelector(".userWLCatalog_ItemThumbImg").getAttribute(`src`));
 
@@ -916,6 +937,7 @@
         wlModalHeaderThumbImg.setAttribute(`src` , currCatalogItemBase.querySelector(".userWLCatalog_ItemThumbImg").getAttribute(`src`));
 
         // Setting the title
+        wlModalBaseTitleText.textContent = currCatalogItemBase.querySelector(".userWLCatalog_ItemDetTitleText").textContent;
         wlModalHeader_DetInfo_TitleText.textContent = currCatalogItemBase.querySelector(".userWLCatalog_ItemDetTitleText").textContent;
 
         // Setting the Item count
@@ -1167,6 +1189,22 @@
         wlModalGrid_CardBdr = document.querySelectorAll(".wlModalGrid_CardBdr");
 
         // Re-attach event listeners here
+    }
+
+
+    //
+    function toggleModalBar(event)
+    {
+        if(wlModalBox.scrollTop > wlModalHeadBase.getBoundingClientRect().height)
+        {
+            wlModalBaseBarBdr.classList.add("sticky");
+        }
+        else
+        {
+            wlModalBaseBarBdr.classList.remove("sticky");
+        }
+
+        console.log("dd");
     }
 
 
