@@ -1192,7 +1192,8 @@
     }
 
 
-    //
+    // Adds the 'sticky' class to the wl modal title bar to display the wl name
+    // and provide options for actions to be performed on the watchlist
     function toggleModalBar(event)
     {
         if(wlModalBox.scrollTop > wlModalHeadBase.getBoundingClientRect().height)
@@ -1203,8 +1204,6 @@
         {
             wlModalBaseBarBdr.classList.remove("sticky");
         }
-
-        console.log("dd");
     }
 
 
