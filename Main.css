@@ -5878,6 +5878,16 @@ img
         --quickSearchInputIconWidth: 50px;
     }
 
+    .quickSearchNoteBox .quickSearchNoteText
+    {
+        font-size: 13px;
+    }
+
+    .quickSearchNoteBox .quickSearchNoteKey
+    {
+        font-size: 10px;
+    }
+
     .quickSearchInputIcon.quickSearchInputLeftIcon
     {
         display: none;
