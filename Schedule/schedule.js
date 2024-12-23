@@ -8,7 +8,7 @@
 
 // VARIABLES DECLARATION
 
-    let scheduleMobileWidth = winWidth768;
+    let scheduleMobileWidth;
     let scheduleMobileCondition;
     let lastScroll = 0;
     let boxErrorMargin = 10;
@@ -125,6 +125,7 @@
 
         // DEFINITION
 
+            scheduleMobileWidth = winWidth768;
             viewSelectorsBtn = document.querySelector(".viewSelectorsBtnBdr");
             scheduleSelBase = document.querySelector(".schedule_selBase");
             scheduleSelBdr = document.querySelector(".schedule_selBdr");
