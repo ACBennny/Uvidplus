@@ -1227,6 +1227,22 @@
             `,
         },
         {
+            icon_name: `menu-circle-horizontal`,
+            icon_bold: 
+            `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="">
+                    <path d="M9 12a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2a1 1 0 0 0 0 2" />
+                    <path fill-rule="evenodd" d="M12 1.25C6.063 1.25 1.25 6.063 1.25 12S6.063 22.75 12 22.75S22.75 17.937 22.75 12S17.937 1.25 12 1.25M2.75 12a9.25 9.25 0 1 1 18.5 0a9.25 9.25 0 0 1-18.5 0" clip-rule="evenodd" />
+                </svg>
+            `,
+            icon_outline: 
+            `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="">
+                    <path fill-rule="evenodd" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10M8 13a1 1 0 1 0 0-2a1 1 0 0 0 0 2m4 0a1 1 0 1 0 0-2a1 1 0 0 0 0 2m4 0a1 1 0 1 0 0-2a1 1 0 0 0 0 2" clip-rule="evenodd" />
+                </svg>
+            `,
+        },
+        {
             icon_name: `card-drag-handle`,
             icon_bold: 
             `

@@ -145,7 +145,7 @@
                                     <!-- Quick Actions -->
                                     <div class="quick_atnBcg">
                                         <div class="quick_atnBdr">
-                                            <div class="quick_atnBox like_buttonsBox" title="show cores" aria-label="scores">
+                                            <div class="quick_atnBox like_buttonsBox" title="show score" aria-label="show-score">
                                                 <div class="quick_atnCtnt">
                                                     <div class="topCtnt">
                                                         <div class="scoreBdr">
@@ -164,7 +164,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="quick_atnBox watchShowNowBtn" src="N/A" title="Watch trailer">
+                                            <div class="quick_atnBox watchShowNowBtn" src="N/A" title="Watch Now">
                                                 <div class="quick_atnCtnt">
                                                     <div class="topCtnt">
                                                         <div class="topIconBox">
@@ -182,8 +182,9 @@
                                                 <div class="quick_atnCtnt">
                                                     <div class="topCtnt">
                                                         <div class="topIconBox">
-                                                            <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="topIcon">
-                                                                <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="topIcon">
+                                                                <path d="M9 12a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2a1 1 0 0 0 0 2" />
+                                                                <path fill-rule="evenodd" d="M12 1.25C6.063 1.25 1.25 6.063 1.25 12S6.063 22.75 12 22.75S22.75 17.937 22.75 12S17.937 1.25 12 1.25M2.75 12a9.25 9.25 0 1 1 18.5 0a9.25 9.25 0 0 1-18.5 0" clip-rule="evenodd" />
                                                             </svg>
                                                         </div>
                                                     </div>
