@@ -1280,7 +1280,7 @@
                         break;
 
                     default: 
-                        console.error("Error: No corresponding navbar item found");
+                        console.info("Error: No corresponding navbar item found");
                         break;
                 }
 
