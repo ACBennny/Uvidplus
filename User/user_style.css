@@ -14,7 +14,6 @@ html:root
     --userBodyTitleClr: var(--genWhiteTypeLight);
     --emptyUserPageIconSize: 50px;
     --userOrderBtnClr: var(--genWhiteTypeMid);
-    /* --userOrderBtnBcg: #1f1f1f; */
     --userOrderBtnBcg: var(--navMenuBcgClr);
     --userOrderMenuBcg: var(--genModalBcg);
 }
