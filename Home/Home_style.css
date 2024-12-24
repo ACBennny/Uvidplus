@@ -1051,8 +1051,8 @@ body
 
 .mostViewedCategoryItem.active
 {
-    color: var(--genWhiteTypeLight) !important;
-    background-color: var(--genGreenTypeMid) !important;
+    color: var(--genWhiteTypeLight);
+    background-color: var(--genGreenTypeMid);
 }
 
 .mostViewedCategoryItem:active
