@@ -937,7 +937,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: calc((var(--wlModalBaseCloseHeight) + (var(--wlModalBaseCloseMargin) * 2))) 0 var(--wlModalBaseCloseMargin);
+    padding: calc((var(--wlModalBaseCloseHeight) + (var(--wlModalBaseCloseMargin) * 2.5))) 0 var(--wlModalBaseCloseMargin);
 }
 
 .wlModalCtnt_sortBox .wlModalCtnt_sortStatusBdr
