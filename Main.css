@@ -39,6 +39,9 @@ html:root
     --genWhiteTypeMid: #ababab;
     --genWhiteTypeMid2: #cecece;
     --genWhiteTypeDark: #6b6a6a;
+    --genGreyTypeBright: #333333;
+    --genGreyTypeLight: #3a3a3a;
+    --genGreyTypeMid: #2a2a2a;
     --scrollbarClr: #282828;
     --scrollbarHoverClr: #333333;
     --scrollbarActiveClr: #444444;
@@ -58,6 +61,8 @@ html:root
     --genBorderSpacing: 30px;
     --genMaxContainerWidth: 1200px;
     --scrollBarWidth: 7px;
+    --genBtnIconSize: 16px;
+    --genBtnTextSize: 14px;
     --fzTxt: 12px;
     --fzIcon: 20px;
     --bcgFilt: 2px;
@@ -230,6 +235,224 @@ button
     font-family: 'Zen dots', sans-serif;
     outline: none;
 }
+
+/* ----------- General Button Layout with/without an icon ---------- */
+.genBtnBox
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    background-color: #00000000;
+    transition: all 150ms ease-in-out;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.genBtnBox:active
+{
+    transform: scale(0.96);
+}
+
+.genBtnBox .genBtnIcon
+{
+    width: var(--genBtnIconSize);
+    height: var(--genBtnIconSize);
+    margin-right: 7px;
+}
+
+.genBtnIcon .genBtnSvg
+{
+    width: clamp(100% , 100% , 100%);
+    height: clamp(100% , 100% , 100%);
+    transition: all 300ms ease-in-out;
+}
+
+.genBtnBox .genBtnText
+{
+    font-family: 'Poppins' , sans-serif;
+    font-size: var(--genBtnTextSize);
+    transition: all 300ms ease-in-out;
+}
+
+
+
+/* ------------- Buttons with icons only ------------ */
+.genIconBtn
+{
+    border-radius: 50%;
+    padding: 12px;
+}
+
+.genIconBtn .genBtnIcon
+{
+    width: calc((var(--genBtnIconSize) + (var(--genBtnIconSize) / 7.5)));
+    height: calc((var(--genBtnIconSize) + (var(--genBtnIconSize) / 7.5)));
+    margin: 0;
+}
+
+
+
+/* ============== General button Clrs ============= */
+
+.lightSolidBtn
+{
+    color: var(--genWhiteTypeLight); 
+    fill: var(--genWhiteTypeLight);
+    background-color: var(--genGreenTypeMid);
+}
+
+.midSolidBtn
+{
+    color: var(--genWhiteTypeLight);
+    fill: var(--genWhiteTypeLight);
+    background-color: var(--genGreenTypeMid2);
+}
+
+.darkSolidBtn
+{
+    color: var(--genWhiteTypeMid);
+    fill: var(--genWhiteTypeMid);
+    background-color: var(--genGreenTypeDark2);
+}
+
+.greySolidBtn
+{
+    color: var(--genWhiteTypeMid2);
+    fill: var(--genWhiteTypeMid2);
+    background-color: var(--genGreyTypeMid);
+}
+
+.hollowBtn
+{
+    color: var(--genGreenTypeMid);
+    fill: var(--genGreenTypeMid);
+    border: 2px solid var(--genGreenTypeMid);
+    background-color: #00000000;
+}
+
+
+.inactiveBtn
+{
+    color: var(--navBarBcgSolid);
+    fill: var(--navBarBcgSolid);
+    border: 2px solid var(--navBarBcgSolid);
+    background-color: #00000000;
+    cursor: not-allowed;
+}
+
+
+.lightSolidBtn:active
+{
+    color: var(--genWhiteTypeBright);
+    fill: var(--genWhiteTypeBright);
+    background-color: var(--genGreenTypeLight2);
+}
+
+.midSolidBtn:active
+{
+    background-color: var(--genGreenTypeLight);
+}
+
+.darkSolidBtn:active
+{
+    color: var(--genWhiteTypeLight);
+    fill: var(--genWhiteTypeLight);
+    background-color: var(--genGreenTypeDark1);
+}
+
+.greySolidBtn:active
+{
+    color: var(--genWhiteTypeLight);
+    fill: var(--genWhiteTypeLight);
+    background-color: var(--genGreyTypeLight);
+}
+
+.hollowBtn:active
+{
+    color: var(--genWhiteTypeMid2);
+    fill: var(--genWhiteTypeMid2);
+    border-color: var(--genWhiteTypeMid2);
+}
+
+/* ----- For transparent backgrounds ------ */
+.transBtn,
+.transBtn:active,
+.transBtn:hover
+{
+    background-color: #00000000;
+}
+
+
+
+
+/* ============= Toggle Btn ============= */
+.genCheckBoxBase
+{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+}
+
+.genCheckBoxBase .genCheckBoxInput
+{
+    width: 0;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+}
+
+.genCheckBoxBase .genCheckBoxToggle
+{
+    position: relative;
+    width: 30px;
+    height: 15px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: var(--showlistAutoPlayTogglePadding);
+    border-radius: 20px;
+    background-color: var(--genWhiteTypeDark);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.genCheckBoxToggle .genCheckBoxToggleCircle
+{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--genWhiteTypeLight);
+    transform: translateX(-75%);
+    transition: all 300ms ease;
+}
+
+.genCheckBoxInput:checked ~ .genCheckBoxToggle
+{
+    background-color: var(--genGreenTypeMid);
+}
+
+.genCheckBoxInput:checked ~ .genCheckBoxToggle .genCheckBoxToggleCircle
+{
+    transform: translateX(25%);
+}
+
+
+
+
 
 img
 {
@@ -2120,171 +2343,6 @@ img
     overflow-wrap: break-word;
     overflow: hidden;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-/* ============== General buttons ============= */
-
-.lightSolidBtn,
-.midSolidBtn,
-.darkSolidBtn
-{
-    border: none;
-}
-
-.lightSolidBtn,
-.midSolidBtn,
-.darkSolidBtn,
-.hollowBtn
-{
-    transition: all 150ms ease-in-out;
-    -moz-user-select: -moz-none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    cursor: pointer;
-}
-
-.lightSolidBtn
-{
-    color: var(--genWhiteTypeLight); 
-    fill: var(--genWhiteTypeLight);
-    background-color: var(--genGreenTypeMid);
-}
-
-.midSolidBtn
-{
-    color: var(--genWhiteTypeLight);
-    fill: var(--genWhiteTypeLight);
-    background-color: var(--genGreenTypeMid2);
-}
-
-.darkSolidBtn
-{
-    color: var(--genWhiteTypeMid);
-    fill: var(--genWhiteTypeMid);
-    background-color: var(--genGreenTypeDark2);
-}
-
-.hollowBtn
-{
-    color: var(--genGreenTypeMid);
-    fill: var(--genGreenTypeMid);
-    border: 2px solid var(--genGreenTypeMid);
-    background-color: #00000000;
-}
-
-.inactiveBtn
-{
-    color: var(--navBarBcgSolid);
-    fill: var(--navBarBcgSolid);
-    border: 2px solid var(--navBarBcgSolid);
-    background-color: #00000000;
-    cursor: not-allowed;
-}
-
-.lightSolidBtn:active,
-.midSolidBtn:active,
-.darkSolidBtn:active,
-.hollowBtn:active,
-.inactiveBtn:active
-{
-    transform: scale(0.96);
-}
-
-.lightSolidBtn:active
-{
-    color: var(--genWhiteTypeBright);
-    fill: var(--genWhiteTypeBright);
-    background-color: var(--genGreenTypeLight2);
-}
-
-.midSolidBtn:active
-{
-    background-color: var(--genGreenTypeLight);
-}
-
-.darkSolidBtn:active
-{
-    color: var(--genWhiteTypeLight);
-    fill: var(--genWhiteTypeLight);
-    background-color: var(--genGreenTypeDark1);
-}
-
-.hollowBtn:active
-{
-    color: var(--genWhiteTypeMid2);
-    fill: var(--genWhiteTypeMid2);
-    border-color: var(--genWhiteTypeMid2);
-}
-
-
-
-
-/* ============= Toggle Btn ============= */
-.genCheckBoxBase
-{
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-}
-
-.genCheckBoxBase .genCheckBoxInput
-{
-    width: 0;
-    height: 0;
-    opacity: 0;
-    visibility: hidden;
-    z-index: -1;
-}
-
-.genCheckBoxBase .genCheckBoxToggle
-{
-    position: relative;
-    width: 30px;
-    height: 15px;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    padding: var(--showlistAutoPlayTogglePadding);
-    border-radius: 20px;
-    background-color: var(--genWhiteTypeDark);
-    transition: all 300ms ease;
-    cursor: pointer;
-}
-
-.genCheckBoxToggle .genCheckBoxToggleCircle
-{
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: var(--genWhiteTypeLight);
-    transform: translateX(-75%);
-    transition: all 300ms ease;
-}
-
-.genCheckBoxInput:checked ~ .genCheckBoxToggle
-{
-    background-color: var(--genGreenTypeMid);
-}
-
-.genCheckBoxInput:checked ~ .genCheckBoxToggle .genCheckBoxToggleCircle
-{
-    transform: translateX(25%);
-}
-
-
 
 
 
@@ -5141,6 +5199,44 @@ img
 @media(hover: hover)
 {
 
+    .lightSolidBtn:hover
+    {
+        background-color: var(--genGreenTypeLight2);
+        color: var(--genWhiteTypeBright);
+        fill: var(--genWhiteTypeBright);
+    }
+
+    .midSolidBtn:hover
+    {
+        background-color: var(--genGreenTypeMid);
+    }
+    
+    .darkSolidBtn:hover
+    {
+        background-color: var(--genGreenTypeDark1);
+        color: var(--genWhiteTypeLight);
+        color: var(--genWhiteTypeLight);
+    }
+
+    .greySolidBtn:hover
+    {
+        color: var(--genWhiteTypeLight);
+        fill: var(--genWhiteTypeLight);
+        background-color: var(--genGreyTypeLight);
+    }
+    
+    .hollowBtn:hover
+    {
+        border-color: var(--genWhiteTypeMid2);
+        color: var(--genWhiteTypeMid2);
+        fill: var(--genWhiteTypeMid2);
+    }
+
+    .transBtn:hover
+    {
+        background-color: #00000000;
+    }
+
     .sideNavItemsCardBdr:hover
     {
         --sideNavBarIconClr: var(--genGreenTypeLight2);
@@ -5180,32 +5276,6 @@ img
     {
         --navBarProfileCardLinkClr: var(--navElementColor_green);
         background-color: #3d3d3d;
-    }
-
-    .lightSolidBtn:hover
-    {
-        background-color: var(--genGreenTypeLight2);
-        color: var(--genWhiteTypeBright);
-        fill: var(--genWhiteTypeBright);
-    }
-
-    .midSolidBtn:hover
-    {
-        background-color: var(--genGreenTypeMid);
-    }
-    
-    .darkSolidBtn:hover
-    {
-        background-color: var(--genGreenTypeDark1);
-        color: var(--genWhiteTypeLight);
-        color: var(--genWhiteTypeLight);
-    }
-    
-    .hollowBtn:hover
-    {
-        border-color: var(--genWhiteTypeMid2);
-        color: var(--genWhiteTypeMid2);
-        fill: var(--genWhiteTypeMid2);
     }
     
     .profileNavBox.shorten
@@ -5339,7 +5409,6 @@ img
         visibility: visible;
     }
 }
-
 
 @media(hover: none)
 {
@@ -5793,6 +5862,8 @@ img
 {
     html:root
     {
+        --genBtnIconSize: 14px;
+        --genBtnTextSize: 12px;
         --notifyIconBoxWidth: 50px;
         --switchProfOptImgBoxWidth: 100px;
         --editProfileBcgImgHeight: 150px;
