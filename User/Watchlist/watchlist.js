@@ -30,7 +30,7 @@
     let wlModalCurrIndex;
     let wlModalBaseBarBdr;
     let wlModalBaseTitleText;
-    let wlModalBaseClose;
+    let wlModalBaseCloseBtn;
     let wlModalHeadBase;
     let wlModalHeaderBcgImg;
     let wlModalHeaderThumbImg;
@@ -898,7 +898,7 @@
         currCatalogItemBase = userWLCatalog_ItemBase[index];
         wlModalBaseBarBdr = document.querySelector(".wlModalBaseBarBdr");
         wlModalBaseTitleText = document.querySelector(".wlModalBaseTitleText");
-        wlModalBaseClose = document.querySelector(".wlModalBaseClose");
+        wlModalBaseCloseBtn = document.querySelector(".wlModalBaseCloseBtn");
         wlModalHeadBase = document.querySelector(".wlModalHeadBase");
         wlModalHeaderBcgImg = document.querySelector(".wlModalHeader_BcgImg");
         wlModalHeaderThumbImg = document.querySelector(".wlModalHeader_thumbImg");
@@ -1069,7 +1069,7 @@
         wlModalGrid_CardBdr = document.querySelectorAll(".wlModalGrid_CardBdr");
 
         // Closing the modal
-        wlModalBaseClose.addEventListener("click" , () => 
+        wlModalBaseCloseBtn.addEventListener("click" , () => 
         {
             wlModalBox.scrollTo(null, 0);
             wlModalBase.classList.remove("active");
