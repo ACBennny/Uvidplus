@@ -324,9 +324,8 @@ html:root
 
 
 
-/* --------- Gen Action button & Context Menu --------- */
+/* --------- Gen Action button --------- */
 
-/* ---------- Button ---------- */
 .wlModalActionFence
 {
     width: var(--wlModalActionIconBaseWidth);
@@ -376,12 +375,6 @@ html:root
     cursor: pointer;
 }
 
-.wlModalAction_HeaderFence .wlModalActionBtn,
-.wlModalAction_SortFence .wlModalActionBtn
-{
-    background-color: #ffffff30;
-}
-
 .wlModalActionBtn:active 
 {
     --wlModalActionIconSvgFill: var(--genGreenTypeLight);
@@ -401,145 +394,6 @@ html:root
     fill: var(--wlModalActionIconSvgFill);
     transition: all 150ms ease-in-out;
 }
-
-
-
-
-/* --------- Menu ------- */
-.wlModalAction_MenuBdr
-{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: fit-content;
-    width: 200px;
-    border-radius: 10px;
-    background-color: var(--genModalBcg);
-    overflow: hidden;
-    opacity: 0;
-    visibility: hidden;
-    z-index: 130;
-}
-
-.wlModalAction_MenuBdr[aria-expanded="true"]
-{
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 100ms ease-in-out, visibility 0ms;
-}
-
-.wlModalAction_MenuBdr.active
-{
-    opacity: 1;
-    visibility: visible;
-}
-
-
-.wlModalAction_MenuBdr .wlModalAction_MenuBox
-{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.wlModalAction_MenuCloseBdr
-{
-    width: 100%;
-    height: 50px;
-    display: none;
-    border-bottom: 1px solid #444444;
-    cursor: pointer;
-}
-
-.wlModalAction_MenuCloseBdr .wlModalAction_MenuCloseBox
-{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    padding: 0 10px;
-}
-
-.wlModalAction_MenuCloseBox .wlModalAction_MenuCloseIcon
-{
-    width: var(--wlModalActionMenuSvgSize);
-    height: var(--wlModalActionMenuSvgSize);
-    cursor: pointer;
-}
-
-.wlModalAction_MenuCloseIcon .wlModalAction_MenuCloseSvg
-{
-    width: 100%;
-    height: 100%;
-    fill: var(--wlModalActionMenuSvgFill);
-}
-
-.wlModalAction_MenuCloseIcon:active .wlModalAction_MenuCloseSvg
-{
-    --wlModalActionMenuSvgFill: var(--genWhiteTypeMid2);
-}
-
-.wlModalAction_MenuBox .wlModalAction_MenuCtntBdr
-{
-    width: 100%;
-}
-
-.wlModalAction_MenuCtntBdr .wlModalAction_MenuCtntBox
-{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 10px 0;
-}
-
-.wlModalAction_MenuCtntBox .wlModalAction_MenuCtntBtnBox
-{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 15px 20px;
-    outline: none;
-    border: none;
-    background-color: #00000000;
-    transition: all 300ms ease-in-out;
-    cursor: pointer;
-}
-
-.wlModalAction_MenuCtntBtnBox:active
-{
-    --wlModalActionMenuSvgFill: var(--genWhiteTypeLight);
-    background-color: var(--genModalOptHover);
-}
-
-.wlModalAction_MenuCtntBtnBox .wlModalAction_MenuCtntBtnIcon
-{
-    width: var(--wlModalActionMenuSvgSize);
-    height: var(--wlModalActionMenuSvgSize);
-    margin-right: 15px;
-}
-
-.wlModalAction_MenuCtntBtnIcon .wlModalAction_MenuCtntBtnSvg
-{
-    width: 100%;
-    height: 100%;
-    fill: var(--wlModalActionMenuSvgFill);
-    transition: all 300ms ease-in-out;
-}
-
-.wlModalAction_MenuCtntBtnBox .wlModalAction_MenuCtntBtnText
-{
-    margin-right: 20px;
-    font-family: 'Poppins' , sans-serif;
-    font-size: 14px;
-    color: var(--wlModalActionMenuSvgFill);
-    text-align: left;
-    transition: all 300ms ease-in-out;
-}
-
-
 
 
 
@@ -614,12 +468,12 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     left: 0;
     width: calc((100% - var(--wlModalBoxScrollbarWidth)));
     display: flex;
-    padding: var(--wlModalBaseCloseMargin) var(--genBorderSpacing);
+    padding: calc((var(--wlModalBaseCloseMargin) / 3)) var(--genBorderSpacing);
     justify-content: center;
-    background: -o-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
-    background: -moz-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
-    background: -webkit-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
-    background: linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
+    background: -o-linear-gradient(to bottom, #000000ef, #00000000);
+    background: -moz-linear-gradient(to bottom, #000000ef, #00000000);
+    background: -webkit-linear-gradient(to bottom, #000000ef, #00000000);
+    background: linear-gradient(to bottom, #000000ef, #00000000);
     z-index: 25;
 }
 
@@ -638,35 +492,9 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 }
 
 
-.wlModalBaseBarBox .wlModalBaseCloseBdr
-{
-    padding: calc((var(--wlModalBaseCloseMargin) / 2));
-    font-size: 15px;
-    border-radius: 50%;
-    background-color: var(--userOrderBtnBcg);
-    transition: all 150ms ease-in-out;
-    cursor: pointer;
-}
-
-.wlModalBaseBarBdr.sticky .wlModalBaseCloseBdr
+.wlModalBaseBarBdr.sticky .wlModalBaseCloseBtn
 {
     background-color: #00000000;
-}
-
-.wlModalBaseCloseBdr .wlModalBaseCloseBox
-{
-    width: var(--wlModalBaseCloseHeight);
-    height: var(--wlModalBaseCloseHeight);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.wlModalBaseCloseBox .wlModalBaseCloseSvg
-{
-    width: 100%;
-    height: 100%;
-    fill: var(--genWhiteTypeMid);
 }
 
 .wlModalBaseBarBox .wlModalBaseTitleBdr
@@ -711,10 +539,6 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     overflow-wrap: break-word;
     overflow: hidden;
 }
-
-.wlModalBaseBar_SortFence
-{}
-
 
 
 
@@ -909,7 +733,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 
 .wlModalHeader_DetBox .wlModalHeader_DetInfoBdr
 {
-    width: calc((100% - var(--wlModalActionIconBaseWidth)));
+    width: 100%;
     height: 100%;
 }
 
@@ -1003,7 +827,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 
 .wlModalHeader_DetInfo_DescBox .wlModalHeader_DetInfo_DescText
 {
-    --trendingDetTitleTextNo: 2;
+    --trendingDetTitleTextNo: 1;
     --trendingDetTitleTextH: 1.4;
     position: relative;
     -webkit-line-clamp: var(--trendingDetTitleTextNo);
@@ -1024,7 +848,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 .wlModalHeader_DetInfoBox .wlModalHeader_DetInfo_MoreBdr
 {
     width: 100%;
-    margin-top: 7px;
+    margin-top: 0px;
 }
 
 .wlModalHeader_DetInfo_MoreBdr .wlModalHeader_DetInfo_MoreBtn
@@ -1047,6 +871,21 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     font-size: 13px;
     font-weight: 600;
     color: var(--genWhiteTypeMid);
+}
+
+.wlModalHeader_ActionBdr
+{
+    width: 100%;
+    margin-top: 12px;
+}
+
+.wlModalHeader_ActionBdr .wlModalHeader_ActionBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
 }
 
 
@@ -1098,7 +937,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: calc((var(--wlModalBaseCloseHeight) + (var(--wlModalBaseCloseMargin) * 3.5))) 0 var(--wlModalBaseCloseMargin);
+    padding: calc((var(--wlModalBaseCloseHeight) + (var(--wlModalBaseCloseMargin) * 2))) 0 var(--wlModalBaseCloseMargin);
 }
 
 .wlModalCtnt_sortBox .wlModalCtnt_sortStatusBdr
@@ -1436,22 +1275,6 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     {
         --wlModalActionIconSvgFill: var(--genGreenTypeLight);
     }
-
-    .wlModalAction_MenuCloseIcon:hover .wlModalAction_MenuCloseSvg
-    {
-        --wlModalActionMenuSvgFill: var(--genWhiteTypeMid2);
-    }
-
-    .wlModalAction_MenuCtntBtnBox:hover
-    {
-        --wlModalActionMenuSvgFill: var(--genWhiteTypeLight);
-        background-color: var(--genModalOptHover);
-    }
-    
-    .wlModalGrid_CardBdr:hover
-    {
-        background-color: #3b3b3b75;
-    }
 }
 
 @media(hover: none)
@@ -1559,50 +1382,6 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
         --wlModalGrid_CardCtntThumbWidth: 75px;
         --wlModalGrid_CardHandleBdrWidth: 30px;
     }
-    
-    .wlModalAction_MenuBdr
-    {
-        position: fixed;
-        left: 0%;
-        right: 0%;
-        bottom: 0%;
-        width: 100%;
-        height: 100%;
-        max-height: none;
-        display: flex;
-        align-items: end;
-        border-radius: 0px;
-        background-color: #00000099;
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
-        overflow: hidden;
-        z-index: 130;
-    }
-    
-    .wlModalAction_MenuBdr[aria-expanded="true"]
-    {
-        opacity: 1;
-        visibility: visible;
-    }
-    
-    
-    .wlModalAction_MenuBdr .wlModalAction_MenuBox
-    {
-        height: fit-content;
-        max-height: calc((100% - var(--navBarHeight)));
-        padding: 0;
-        border-radius: 25px;
-        border-bottom-left-radius: 0px;
-        border-bottom-right-radius: 0px;
-        background-color: var(--userOrderMenuBcg);
-        transform: translateY(50%);
-        transition: all 300ms ease-in-out;
-    }
-    
-    .wlModalAction_MenuBdr[aria-expanded="true"] .wlModalAction_MenuBox
-    {
-        transform: translateY(0%);
-    }
 
     .wlModalHeadBdr .wlModalHeadBox
     {
@@ -1635,19 +1414,6 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     .wlModalActionFence.wlModalAction_HeaderFence
     {
         display: none;
-    }
-
-    .wlModalAction_MenuBdr
-    {
-        top: 0%;
-        left: 0%;
-        width: 100%;
-        height: 100%;
-    }
-
-    .wlModalAction_MenuCloseBdr
-    {
-        display: block;
     }
 
     .wlModalCtnt_sortStatusBox .wlModalCtnt_sortStatusText
