@@ -574,13 +574,7 @@
                     createWLTimer = setTimeout(() => 
                     {
                         documentBody.removeChild(createListBdr);
-                        openCreateWLBtn.forEach(btn => 
-                        {
-                            btn.addEventListener("click" , () => 
-                            {
-                                btn.disabled = false;
-                            });
-                        });
+                        btn.disabled = false;
                         documentBody.classList.remove("bodystop");
                         clearTimeout(createWLTimer);
     
