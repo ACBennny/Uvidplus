@@ -84,8 +84,13 @@
                             </div>
                             <div class="userClearAllBdr">
                                 <div class="userClearAllBox ">
-                                    <button class="userClearAllBtn markAllUserNotificationsAsRead darkSolidBtn" title="Mark all as read">
-                                        <p>Mark all as read</p>
+                                    <button type="button" aria-haspopup="false" class="genBtnBox greySolidBtn markAllUserNotificationsAsRead">
+                                        <div class="genBtnIcon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
+                                                <path fill-rule="evenodd" d="M18.493 6.935a.75.75 0 0 1 .072 1.058l-7.857 9a.75.75 0 0 1-1.13 0l-3.143-3.6a.75.75 0 0 1 1.13-.986l2.578 2.953l7.292-8.353a.75.75 0 0 1 1.058-.072" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <div class="genBtnText">Mark all as read</div>
                                     </button>
                                 </div>
                             </div>

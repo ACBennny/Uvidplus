@@ -172,7 +172,7 @@
                                                             </a>
                                                         </div>
                                                     </div>
-                                                    <button class="userProfDetEditBtnBox darkSolidBtn">
+                                                    <button class="genBtnBox darkSolidBtn userProfDetEditBtnBox">
                                                         <div class="userProfDetEditBtnText">Edit Profile</div>
                                                     </button>
                                                 </div>

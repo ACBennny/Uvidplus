@@ -486,9 +486,9 @@
             let seasonSet;
             const showAllEpHtml = 
             `
-                <div class="showall_EpBdr active">
+                <div class=" showall_EpBdr active">
                     <div class="showall_EpBox">
-                        <button type="button" class="showall_EpBtn darkSolidBtn">show more</button>
+                        <button type="button" class="genBtnBox showall_EpBtn darkSolidBtn">show more</button>
                     </div>
                 </div>
             `;
