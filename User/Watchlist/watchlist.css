@@ -652,53 +652,6 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     overflow: hidden;
 }
 
-.wlModalHeader_thumbBdr .wlModalAction_editBtnBdr
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.wlModalAction_editBtnBdr .wlModalAction_editBtnBox
-{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background-color: #000000c3;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 300ms ease-in-out;
-    cursor: pointer;
-}
-
-.wlModalAction_editBtnBox .wlModalAction_editBtnIcon
-{
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-}
-
-.wlModalAction_editBtnIcon .wlModalAction_editBtnSvg
-{
-    width: 100%;
-    height: 100%;
-    fill: var(--genWhiteTypeLight);
-}
-
-.wlModalAction_editBtnBox .wlModalAction_editBtnText
-{
-    font-size: 15px;
-    color: var(--genWhiteTypeLight);
-    display: none;
-}
-
 .wlModalHeader_thumbBdr .wlModalHeader_thumbBox
 {
     width: 100%;
@@ -1264,13 +1217,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     {
         fill: var(--genGreenTypeLight);
     }
-
-    .wlModalHeader_thumbBase:hover .wlModalAction_editBtnBox
-    {
-        opacity: 1;
-        visibility: visible;
-    }
-
+    
     .wlModalActionBtn:hover
     {
         --wlModalActionIconSvgFill: var(--genGreenTypeLight);
