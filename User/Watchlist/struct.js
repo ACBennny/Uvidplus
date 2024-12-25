@@ -301,22 +301,20 @@
                                         </div>
                                         <div class="wlModalCtnt_sortSect wlModalCtnt_sortFilterBdr">
                                             <div class="wlModalCtnt_sortFilterBox">
-                                                <button type="button" aria-haspopup="menu" class="genBtnBox greySolidBtn transBtn openGenMenuModalBtn" data-gen-menu-modal-type="wl_modal_sort" title="Sort">
+                                                <button type="button" aria-haspopup="menu" class="genBtnBox greySolidBtn genIconBtn transBtn openGenMenuModalBtn" data-gen-menu-modal-type="wl_modal_sort" title="Sort">
                                                     <div class="genBtnIcon">
                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
                                                             <path fill-rule="evenodd" d="M22.75 7a.75.75 0 0 1-.75.75H2a.75.75 0 0 1 0-1.5h20a.75.75 0 0 1 .75.75m-3 5a.75.75 0 0 1-.75.75H5a.75.75 0 0 1 0-1.5h14a.75.75 0 0 1 .75.75m-3 5a.75.75 0 0 1-.75.75H8a.75.75 0 0 1 0-1.5h8a.75.75 0 0 1 .75.75" clip-rule="evenodd" />
                                                         </svg>
                                                     </div>
-                                                    <div class="genBtnText">Sort</div>
                                                 </button>
-                                                <button type="button" aria-haspopup="menu" class="genBtnBox greySolidBtn transBtn openGenMenuModalBtn" data-gen-menu-modal-type="wl_modal_filter" title="Filter">
+                                                <button type="button" aria-haspopup="menu" class="genBtnBox greySolidBtn genIconBtn transBtn openGenMenuModalBtn" data-gen-menu-modal-type="wl_modal_filter" title="Filter">
                                                     <div class="genBtnIcon">
                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
                                                             <path fill-rule="evenodd" d="M18.25 7a3.75 3.75 0 1 1-7.5 0a3.75 3.75 0 0 1 7.5 0M14.5 9.25a2.25 2.25 0 1 0 0-4.5a2.25 2.25 0 0 0 0 4.5M5.75 17a3.75 3.75 0 1 0 7.5 0a3.75 3.75 0 0 0-7.5 0m3.75 2.25a2.25 2.25 0 1 1 0-4.5a2.25 2.25 0 0 1 0 4.5" clip-rule="evenodd" />
                                                             <path d="M14.25 16.959a.75.75 0 0 1 .75-.75h7a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1-.75-.75M9 6.209a.75.75 0 0 1 0 1.5H2a.75.75 0 0 1 0-1.5zm-7.75 10.75a.75.75 0 0 1 .75-.75h2a.75.75 0 0 1 0 1.5H2a.75.75 0 0 1-.75-.75M22 6.209a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5z" />
                                                         </svg>
                                                     </div>
-                                                    <div class="genBtnText">Filter</div>
                                                 </button>
                                             </div>
                                         </div>
