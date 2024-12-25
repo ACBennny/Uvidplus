@@ -291,13 +291,13 @@ button
 .genIconBtn
 {
     border-radius: 50%;
-    padding: 12px;
+    padding: 10px;
 }
 
 .genIconBtn .genBtnIcon
 {
-    width: calc((var(--genBtnIconSize) + (var(--genBtnIconSize) / 7.5)));
-    height: calc((var(--genBtnIconSize) + (var(--genBtnIconSize) / 7.5)));
+    width: calc((var(--genBtnIconSize) + (var(--genBtnIconSize) / 2.5)));
+    height: calc((var(--genBtnIconSize) + (var(--genBtnIconSize) / 2.5)));
     margin: 0;
 }
 
