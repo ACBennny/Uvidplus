@@ -29,7 +29,10 @@
                     </a>
                 </div>
                 <div class="switchProfNavLeft">
-                    <div class="switchProfNavBtn lightSolidBtn editProfAtnBtn editProfAtnBtn_Mob">Edit</div>
+                    <!-- <div class="switchProfNavBtn genBtnBox lightSolidBtn editProfAtnBtn editProfAtnBtn_Mob">Edit</div>-->
+                    <button type="button" aria-haspopup="false" class="genBtnBox lightSolidBtn switchProfNavBtn editProfAtnBtn editProfAtnBtn_Mob">
+                        <div class="genBtnText ">Edit</div>
+                    </button>
                 </div>
             </div>
         </div>
@@ -47,8 +50,10 @@
                     <div class="switchProfOptBdr"></div>
                 </div>
                 <div class="editProfAtnBdr editProfAtnBtn_Pc">
-                    <div class="editProfAtnBox">
-                        <div class="editProfAtnBtn editProfAtnBtn">Edit</div>
+                    <div class="editProfAtnBox genBtnBox">
+                        <button type="button" aria-haspopup="false" class="genBtnBox editProfAtnBtn">
+                            <div class="genBtnText ">Edit</div>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -201,7 +206,7 @@
                 {
                     btn.removeEventListener(`${theAtnEv}` , theOldFunc);
                     btn.addEventListener(`${theAtnEv}` , theNewFunc);
-                    btn.textContent = `${theTxtCtnt}`;
+                    btn.querySelector(`.genBtnText`).textContent = `${theTxtCtnt}`;
                 });
             }
 

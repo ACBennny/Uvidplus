@@ -245,6 +245,7 @@ button
     height: fit-content;
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
     padding: 10px 15px;
     border-radius: 25px;
@@ -3057,13 +3058,6 @@ img
     background: linear-gradient(to bottom, #000000ff, #000000f4, #000000ef, #000000dc, #000000ab, #00000045, #00000000, #00000000);
 }
 
-.switchProfNavBtn
-{
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 13px;
-}
-
 
 /* ------ Switch Profile Modal ------ */
 
@@ -3391,7 +3385,6 @@ img
     padding: 15px 20px;
     font-size: 16px;
     color: var(--genWhiteTypeLight);
-    border-radius: 5px;
     border: 2px solid var(--genWhiteTypeLight);
     background-color: #00000000;
     -moz-user-select: -moz-none;
