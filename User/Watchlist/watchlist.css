@@ -276,6 +276,7 @@ html:root
     height: fit-content;
     z-index: 7;
     cursor: pointer;
+    display: none;
 }
 
 .userWLCatalog_ItemBadgeBdr .userWLCatalog_ItemBadgeBox
