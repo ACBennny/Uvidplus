@@ -416,8 +416,9 @@ html:root
     height: 100%;
     opacity: 0;
     visibility: hidden;
-    transform: scale(0.75);
-    transition: all 300ms ease-in-out;
+    /* transform: scale(0.75); */
+    transform: translateY(100%);
+    transition: all 150ms ease-in-out;
     z-index: 125;
 }
 
@@ -425,7 +426,9 @@ html:root
 {
     opacity: 1;
     visibility: visible;
-    transform: scale(1.00);
+    /* transform: scale(1.00); */
+    transform: translateY(0%);
+    transition: all 300ms ease-in-out;
 }
 
 .wlModalBase .wlModalBdr
