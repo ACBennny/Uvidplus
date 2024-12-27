@@ -102,6 +102,7 @@ html:root
     max-width: var(--genMaxContainerWidth);
     display: flex;
     flex-direction: column;
+    margin-bottom: 35px;
     padding: calc((var(--btmNavBarHeight) + 25px)) var(--genBorderSpacing) 0;
 }
 
@@ -209,6 +210,7 @@ html:root
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    display: none;
 }
 
 .catalogSearchItem .catalogSearchIcon
@@ -245,7 +247,8 @@ html:root
     max-height: none;
     margin: 25px 0 50px;
     background-color: #000000;
-    overflow: unset;
+        overflow: unset;
+        display: none;
 }
 
 .catalogFilterBdr.hide
