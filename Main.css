@@ -277,14 +277,14 @@ button
 {
     width: clamp(100% , 100% , 100%);
     height: clamp(100% , 100% , 100%);
-    transition: all 300ms ease-in-out;
+    transition: all 150ms ease-in-out;
 }
 
 .genBtnBox .genBtnText
 {
     font-family: 'Poppins' , sans-serif;
     font-size: var(--genBtnTextSize);
-    transition: all 300ms ease-in-out;
+    transition: all 150ms ease-in-out;
 }
 
 
