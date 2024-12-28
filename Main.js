@@ -1261,7 +1261,16 @@
                 });
 
                 // Signing Out of your Account
-                navBarSignOutBtn.addEventListener("click" , accountSignOut);
+                navBarSignOutBtn.addEventListener("click" , () => 
+                {
+                    initConfirmModal(
+                        `Are you sure you want to sign out?`,
+                        null,
+                        `Yes`,
+                        `No`,
+                        accountSignOut
+                    );
+                });
 
 
             
