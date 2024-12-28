@@ -1468,7 +1468,7 @@
 
             let confirmModalBcg = confirmModalBase.querySelector(".confirmModalBcg");
             let confirmModalQtnText = confirmModalBase.querySelector(".confirmModalQtnText");
-            let confirmModalWarnText = confirmModalBase.querySelector(".confirmModalWarnText");
+            let confirmModalWarnBox = confirmModalBase.querySelector(".confirmModalWarnBox");
             let confirmModalOptPosBtn = confirmModalBase.querySelector(".confirmModalOptPosBtn");
             let confirmModalOptNegBtn = confirmModalBase.querySelector(".confirmModalOptNegBtn");
 
@@ -1476,11 +1476,11 @@
 
             if((theWarnText == null))
             {
-                confirmModalWarnText.textContent = ``;
+                confirmModalWarnBox.classList.add("hidden");
             }
             else
             {
-                confirmModalWarnText.textContent = theWarnText;
+                confirmModalWarnBox.querySelector(".confirmModalWarnText").textContent = theWarnText;
             }
 
             confirmModalOptPosBtn.querySelector(".genBtnText").textContent = positiveOptText;
