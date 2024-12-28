@@ -4362,6 +4362,7 @@ img
 {
     font-size: 16px;
     color: var(--genWhiteTypeLight);
+    text-align: center;
 }
 
 .confirmModalBox .confirmModalWarnBox
@@ -5927,6 +5928,16 @@ img
         --notifyIconBoxWidth: 50px;
         --switchProfOptImgBoxWidth: 100px;
         --editProfileBcgImgHeight: 150px;
+    }
+
+    .confirmModalQtnBox .confirmModalQtnText
+    {
+        font-size: 14px;
+    }
+
+    .confirmModalWarnBox .confirmModalWarnText
+    {
+        font-size: 12px;
     }
 
     .switchProfHeader .switchProfHeaderText
