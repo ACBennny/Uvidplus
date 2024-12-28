@@ -4280,6 +4280,118 @@ img
 
 
 
+/* =============== General Confirmation Modal ============= */
+.confirmModalBase
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 300ms ease-in-out;
+    z-index: 210;
+}
+
+.confirmModalBase.active
+{
+    opacity: 1;
+    visibility: visible;
+}
+
+.confirmModalBase .confirmModalBcg
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000c3;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    z-index: -1;
+}
+
+.confirmModalBase .confirmModalBdr
+{
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    max-height: 250px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100px);
+    transition: all 300ms ease-in-out;
+    z-index: 2;
+}
+
+.confirmModalBase.active .confirmModalBdr
+{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0px);
+    transition: all 500ms ease-in-out;
+}
+
+.confirmModalBdr .confirmModalBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border-left: 3px solid var(--genGreenTypeDark1);
+    border-right: 3px solid var(--genGreenTypeDark1);
+    background-color: var(--genModalBcg);
+    overflow: hidden;
+}
+
+.confirmModalBox .confirmModalQtnBox
+{
+    margin-bottom: 15px;
+}
+
+.confirmModalQtnBox .confirmModalQtnText
+{
+    font-size: 16px;
+    color: var(--genWhiteTypeLight);
+}
+
+.confirmModalBox .confirmModalWarnBox
+{
+    margin-bottom: 10px;
+}
+
+.confirmModalWarnBox .confirmModalWarnText
+{
+    font-size: 13px;
+    color: var(--genWhiteTypeMid);
+}
+
+.confirmModalBox .confirmModalOptBox
+{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+
+
+
+
+
+
+
+
+
 
 /* ----------- GENERAL MENU MODAL ------------- */
 .genMenuModalBdr
@@ -4295,7 +4407,7 @@ img
     overflow: hidden;
     opacity: 0;
     visibility: hidden;
-    z-index: 210;   
+    z-index: 205;   
 }
 
 .genMenuModalBdr[aria-expanded="true"]
@@ -4477,118 +4589,6 @@ img
     color: var(--wlModalActionMenuClr);
     text-align: left;
     transition: all 300ms ease-in-out;
-}
-
-
-
-
-
-
-
-
-
-
-/* =============== General Confirmation Modal ============= */
-.confirmModalBase
-{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    backface-visibility: hidden;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 300ms ease-in-out;
-    z-index: 205;
-}
-
-.confirmModalBase.active
-{
-    opacity: 1;
-    visibility: visible;
-}
-
-.confirmModalBase .confirmModalBcg
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000000c3;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    z-index: -1;
-}
-
-.confirmModalBase .confirmModalBdr
-{
-    width: 100%;
-    max-width: 500px;
-    height: 100%;
-    max-height: 250px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(100px);
-    transition: all 300ms ease-in-out;
-    z-index: 2;
-}
-
-.confirmModalBase.active .confirmModalBdr
-{
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0px);
-    transition: all 500ms ease-in-out;
-}
-
-.confirmModalBdr .confirmModalBox
-{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    border-left: 3px solid var(--genGreenTypeDark1);
-    border-right: 3px solid var(--genGreenTypeDark1);
-    background-color: var(--genModalBcg);
-    overflow: hidden;
-}
-
-.confirmModalBox .confirmModalQtnBox
-{
-    margin-bottom: 15px;
-}
-
-.confirmModalQtnBox .confirmModalQtnText
-{
-    font-size: 16px;
-    color: var(--genWhiteTypeLight);
-}
-
-.confirmModalBox .confirmModalWarnBox
-{
-    margin-bottom: 10px;
-}
-
-.confirmModalWarnBox .confirmModalWarnText
-{
-    font-size: 13px;
-    color: var(--genWhiteTypeMid);
-}
-
-.confirmModalBox .confirmModalOptBox
-{
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    margin-top: 15px;
 }
 
 
