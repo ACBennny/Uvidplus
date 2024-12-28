@@ -5084,52 +5084,6 @@ img
     padding: 10px 0;
 }
 
-.backtotopofpageBox .backtotop
-{
-    width: 100px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    gap: 10px;
-    border-radius: 10px;
-    background-color: var(--color7);
-    transition: 150ms;
-    -moz-user-select: -moz-none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    cursor: pointer;
-}
-
-.backtotop:active
-{
-    transform: scale(0.98);
-}
-
-.backtotop .backtotop_IconBox
-{
-    width: -moz-fit-content;
-    width: fit-content;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.backtotop_IconBox .backtotop_Icon
-{
-    width: 20px;
-    height: 20px;
-    fill: var(--footerTxtClrBright);
-}
-
-.backtotop_textBox .backtotop_text
-{
-    color: var(--footerTxtClrBright);
-    font-size: 12px;
-}
 
 .developer_creditsBdr
 {
