@@ -605,16 +605,14 @@
                         </div>
                     </div>
                     <div class="backtotopofpageBox">
-                        <div class="backtotop backtotop_btn" title="Go to top" draggable="false">
-                            <div class="backtotop_IconBox">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="backtotop_Icon">
+                        <button type="button" class="backtotop_btn genBtnBox lightSolidBtn" title="Go to top" draggable="false">
+                            <div class="genBtnIcon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
                                     <path fill-rule="evenodd" d="M11.512 8.43a.75.75 0 0 1 .976 0l7 6a.75.75 0 1 1-.976 1.14L12 9.987l-6.512 5.581a.75.75 0 1 1-.976-1.138z" clip-rule="evenodd" />
                                 </svg>
                             </div>
-                            <div class="backtotop_textBox">
-                                <span class="backtotop_text">Top</span>
-                            </div>
-                        </div>
+                            <div class="genBtnText">Top</div>
+                        </button>
                     </div>
                     <div class="developer_creditsBdr">
                         <div class="developer_creditsBox">
