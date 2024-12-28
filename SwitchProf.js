@@ -362,7 +362,7 @@
                 });
 
                 // Sets eventlistener to save changes after all edits are done
-                profileOpt.forEach((opt) => 
+                profileOpt.forEach((opt, index) => 
                 {
                     const callOpenEditModal = () => 
                     {
@@ -372,7 +372,7 @@
                         let optBcg = opt.getAttribute("data-background-image");
                         
                         opt.setAttribute(`id` , `${currProfOpt}`);
-                        openEditModal(optName.textContent, optImgSrc, optBcg);
+                        openEditModal(index, optName.textContent, optImgSrc, optBcg);
                     };
 
                     opt.addEventListener("click" , callOpenEditModal);
@@ -420,7 +420,7 @@
             }
 
             // This function instantiates the modal for editing unique profiles
-            function openEditModal(profName, forePic, bcgPic)
+            function openEditModal(index, profName, forePic, bcgPic)
             {
                 let editProfHTML =
                 `
@@ -999,21 +999,31 @@
                 // Deleting a profile
                 deleteProfile.addEventListener("click" , (e) => 
                 {
-                    let warnAlert = confirm(`Are you sure you want to delete this profile? \nThis action can not be undone.`);
-                    if(warnAlert == false)
+                    if((profileInfoArray[index].prof_type === `admin`))
                     {
-                        e.preventDefault();
+                        notification(`notifyBad` , `You can not delete the default profile`);
                     }
                     else
                     {
-                        notification(`notifyBad` , `Profile deleted`);
-                        editProfOptTempName, editProfOptTempFrg, editProfOptTempBcg = null;
-                        let profCurrBeignEdited = document.querySelector("#profile-is-curr-being-edited");
-                        switchProfOptBdr.removeChild(profCurrBeignEdited);
+                        let warnAlert = confirm(`Are you sure you want to delete this profile? \nThis action can not be undone.`);
+                        if(warnAlert == false)
+                        {
+                            e.preventDefault();
+                        }
+                        else
+                        {
+                            notification(`notifyBad` , `Profile deleted`);
+                            editProfOptTempName, editProfOptTempFrg, editProfOptTempBcg = null;
+                            let profCurrBeignEdited = document.querySelector("#profile-is-curr-being-edited");
+                            switchProfOptBdr.removeChild(profCurrBeignEdited);
 
-                        switchProfBdr.removeChild(editProfFence);
-                        editProfAtnBtnMob.classList.remove("active");
-                        changeEditProfAtnListener(`click` , saveCurrProfEdits , switchToChangeProf , `Done`);
+                            switchProfBdr.removeChild(editProfFence);
+                            editProfAtnBtnMob.classList.remove("active");
+                            changeEditProfAtnListener(`click` , saveCurrProfEdits , switchToChangeProf , `Done`);
+
+                            // Remove item from profile Inventory Libary (profileInfoInv)
+                            profileInfoArray.splice(index, 1);
+                        }
                     }
                 });
             }
