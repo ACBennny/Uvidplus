@@ -19,7 +19,7 @@
     [
         {
             prof_name: `acbennny`,
-            prof_type: `normal`,
+            prof_type: `admin`,
             prof_frgImg: `/Images/Uvid_profilebase.png`,
             prof_bcgImg: `/Images/Uvid_green_bcg1_light.jpg`,
         },
