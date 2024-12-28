@@ -1361,6 +1361,60 @@
         }
 
 
+
+    // GENERAL FUNCTION TO LOAD SCRIPTS ONCE
+
+        /**
+         * This is used to load scripts into the DOM only once
+         * @param {string} scriptSrc The source attribute of the script
+         * @param {string} scriptId The id attribute of the script
+         * @param {void} onLoadFunc The function to be called when the script loads successfully
+         * @param {void} onErrorFunc The function to be called when script fails to load
+         * @returns
+         */
+        function loadScriptOnce(scriptSrc, scriptId, onLoadFunc, onErrorFunc)
+        {
+            if (!document.getElementById(scriptId))
+            {
+                console.log(`${scriptId} doesn't exist`);
+                const script = document.createElement('script');
+                script.setAttribute(`src` , `${scriptSrc}`);
+                script.setAttribute(`id` , `${scriptId}`);
+                documentBody.appendChild(script);
+        
+                if (onLoadFunc) script.addEventListener('load', onLoadFunc);
+                if (onErrorFunc) script.addEventListener('error', onErrorFunc);
+            }
+            else
+            {
+                // Trigger onLoad if already loaded
+                console.log(`${scriptId} does exist`);
+                if (onLoadFunc) onLoadFunc(); 
+            }
+        }
+
+
+
+    // GENERAL FUNCTION TO REMOVE SCRIPTS BY ID
+
+        /**
+         * Removes a script by its "id" attribute
+         * 
+         * @param {string} theId The id attribute of the script to be removed
+         */
+        function removeScriptById(theId)
+        {
+            const scriptId = document.getElementById(theId);
+
+            if(scriptId) 
+            {
+                scriptId.remove();
+                console.log(`${theId} was removed`);
+            }
+        }
+
+
+
     // QUICK SEARCH
         
         function preQuickSearch()
@@ -2304,8 +2358,6 @@
             genMenuModalBdr.appendChild(genMenuModalBox);
             documentCtnt.appendChild(genMenuModalBdr);
         }
-
-        
 
         // Attaches listener for calling the menu modals
         function attachMenuModalEventListeners()
