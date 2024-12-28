@@ -27,19 +27,6 @@
     let winWidth565 = 565;
     let winWidth485 = 485;
     let winScrollPos = null;
-    let currOpenGenMenuModalBtnIndex = null;
-    let genMenuModalMap;
-    let genMenuModalBdr;
-    let genMenuModalBox;
-    let genMenuModalCtntBdr;
-    let openGenMenuModalBtnTimer;
-    let genMenuModalDisplayThreshold = 5;
-    let genAtnModalBoxDragDist = 10;
-    let genMenuModalIsDragging = false;
-    let genMenuBoxStartY = 0;
-    let startGenMenuBoxHeight = 0;
-    let currGenMenuBoxHeight = 0;
-    let genMenuModalBoxHeightTimer;
     let notificationQueue = [];
     let isNotificationActive = false;
     let notificationDuration = 3;
@@ -56,6 +43,20 @@
     let navBarSignOutBtn;
     let accountSignOutTimer;
     let openFeedBackForm;
+    let confirmModalBase;
+    let currOpenGenMenuModalBtnIndex = null;
+    let genMenuModalMap;
+    let genMenuModalBdr;
+    let genMenuModalBox;
+    let genMenuModalCtntBdr;
+    let openGenMenuModalBtnTimer;
+    let genMenuModalDisplayThreshold = 5;
+    let genAtnModalBoxDragDist = 10;
+    let genMenuModalIsDragging = false;
+    let genMenuBoxStartY = 0;
+    let startGenMenuBoxHeight = 0;
+    let currGenMenuBoxHeight = 0;
+    let genMenuModalBoxHeightTimer;
     let addToWLTimer;
     let socialShareTimer;
     let socialDestinationH;
@@ -626,6 +627,28 @@
             </div>
         </footer>
     `;
+    const confirmModalStruct = 
+    `
+        <div class="confirmModalBcg"></div>
+        <div class="confirmModalBdr">
+            <div class="confirmModalBox">
+                <div class="confirmModalQtnBox">
+                    <div class="confirmModalQtnText">N/A</div>
+                </div>
+                <div class="confirmModalWarnBox">
+                    <p class="confirmModalWarnText">N/A</p>
+                </div>
+                <div class="confirmModalOptBox">
+                    <button type="button" class="genBtnBox lightSolidBtn confirmModalOptBtn confirmModalOptPosBtn" title="">
+                        <div class="genBtnText">N/A</div>
+                    </button>
+                    <button type="button" class="genBtnBox hollowBtn confirmModalOptBtn confirmModalOptNegBtn" title="">
+                        <div class="genBtnText">N/A</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
     const quickSearchStruct = 
     `
         <div class="quickSearchBase">
@@ -667,7 +690,7 @@
             </div>
         </div>
     `;
-    let addToWLHTML = 
+    const addToWLHTML = 
     `
         <div class="genAtnModalBcg closeAddToWL"></div>
         <div class="genAtnModalBox addToWLBox">
@@ -785,8 +808,7 @@
             </div>
         </div>
     `;
-
-    let socialShareHTML = 
+    const socialShareHTML = 
     `
         <div class="genAtnModalBcg closeSclShare"></div>
         <div class="genAtnModalBox sclShareBox">
@@ -1406,6 +1428,85 @@
             {
                 scriptId.remove();
             }
+        }
+
+
+    
+    // CONFIRMATION MODAL
+        
+        let confirmModalTimer;
+        /**
+         * 
+         * @param {string} theQuestionText This contains the question displayed to the user
+         * @param {string} theWarnText This adds any warning, context, or other info (optional)
+         * @param {string} positiveOptText The text value of the positive option
+         * @param {string} negativeOptText The text value of the negative option
+         * @param {*} positiveFunc This is the function to be called if a positive option is selected
+         * @returns 
+         */
+        
+        function initConfirmModal(theQuestionText = null, theWarnText = null, positiveOptText = `Yes`, negativeOptText = `No`, positiveFunc)
+        {
+
+            // Return if the question text is empty (null)
+            if((theQuestionText == null)) return;
+
+            //
+            confirmModalBase = document.createElement("div");
+            confirmModalBase.classList.add("confirmModalBase");
+            confirmModalBase.innerHTML = confirmModalStruct;
+            documentBody.appendChild(confirmModalBase);
+
+            let confirmModalBcg = confirmModalBase.querySelector(".confirmModalBcg");
+            let confirmModalQtnText = confirmModalBase.querySelector(".confirmModalQtnText");
+            let confirmModalWarnText = confirmModalBase.querySelector(".confirmModalWarnText");
+            let confirmModalOptPosBtn = confirmModalBase.querySelector(".confirmModalOptPosBtn");
+            let confirmModalOptNegBtn = confirmModalBase.querySelector(".confirmModalOptNegBtn");
+
+            confirmModalQtnText.textContent = theQuestionText;
+
+            if((theWarnText == null))
+            {
+                confirmModalWarnText.textContent = ``;
+            }
+            else
+            {
+                confirmModalWarnText.textContent = theWarnText;
+            }
+
+            confirmModalOptPosBtn.querySelector(".genBtnText").textContent = positiveOptText;
+            confirmModalOptNegBtn.querySelector(".genBtnText").textContent = negativeOptText;
+
+            confirmModalOptPosBtn.addEventListener("click" , () => 
+            {
+                positiveFunc();
+                closeConfirmModal();
+            });
+            confirmModalOptNegBtn.addEventListener("click" , closeConfirmModal);
+            confirmModalBcg.addEventListener("click" , closeConfirmModal);
+
+            confirmModalTimer = setTimeout(() => 
+            {
+                confirmModalBase.classList.add("active");
+            }, 100);
+
+            confirmModalBase.addEventListener("transitionend" , function handleTransitionEnd()
+            {
+                confirmModalBase.removeEventListener("transitionend" , handleTransitionEnd);
+                documentBody.classList.add("bodystop");
+            });
+        }
+
+        function closeConfirmModal()
+        {
+            confirmModalBase.classList.remove("active");
+
+            confirmModalBase.addEventListener("transitionend" , function handleTransitionEnd()
+            {
+                documentBody.classList.remove("bodystop");
+                confirmModalBase.removeEventListener("transitionend" , handleTransitionEnd);
+                confirmModalBase.innerHTML = confirmModalStruct;
+            });
         }
 
 
