@@ -1076,9 +1076,9 @@
             wlModalFilterTypeTabIndex = 0;
 
             // Removes the content in the modal
-            closeWLModalTimer = setTimeout(() => 
+            wlModalBase.addEventListener("transitionend" , function handleTransitionEnd()
             {
-                clearTimeout(closeWLModalTimer);
+                wlModalBase.removeEventListener("transitionend" , handleTransitionEnd);
                 wlModalHeaderBcgImg.setAttribute(`src` , ``);
                 wlModalHeaderThumbImg.setAttribute(`src` , ``);
                 wlModalHeader_DetInfo_TitleText.textContent = `N/A`;
@@ -1091,7 +1091,7 @@
                 {
                     card.remove();
                 });
-            }, 500);
+            });
         });
 
         // Attaches listeners
