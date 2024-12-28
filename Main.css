@@ -4370,6 +4370,11 @@ img
     margin-bottom: 10px;
 }
 
+.confirmModalWarnBox.hidden
+{
+    display: none;
+}
+
 .confirmModalWarnBox .confirmModalWarnText
 {
     font-size: 13px;
