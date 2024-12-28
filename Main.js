@@ -1454,7 +1454,7 @@
          * @returns 
          */
         
-        function initConfirmModal(theQuestionText = null, theWarnText = null, positiveOptText = `Yes`, negativeOptText = `No`, positiveFunc)
+        function initConfirmModal(theQuestionText, theWarnText, positiveOptText, negativeOptText, positiveFunc)
         {
 
             // Return if the question text is empty (null)
