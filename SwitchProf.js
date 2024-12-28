@@ -997,12 +997,12 @@
                 });
 
                 // Deleting a profile
-                deleteProfile.addEventListener("click" , () => 
+                deleteProfile.addEventListener("click" , (e) => 
                 {
                     let warnAlert = confirm(`Are you sure you want to delete this profile? \nThis action can not be undone.`);
                     if(warnAlert == false)
                     {
-                        event.preventDefault();
+                        e.preventDefault();
                     }
                     else
                     {
