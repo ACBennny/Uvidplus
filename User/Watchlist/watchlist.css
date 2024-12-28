@@ -974,6 +974,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     height: fit-content;
     padding: var(--wlModalGrid_CardBoxPaddingTB) 0;
     border-radius: 15px;
+    background-color: #00000000;
     overflow: hidden;
     transition: all 300ms ease-in-out;
 }
@@ -1225,6 +1226,11 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     .wlModalActionBtn:hover
     {
         --wlModalActionIconSvgFill: var(--genGreenTypeLight);
+    }
+
+    .wlModalGridBox .wlModalGrid_CardBdr:hover
+    {
+        background-color: #ffffff20;
     }
 }
 
