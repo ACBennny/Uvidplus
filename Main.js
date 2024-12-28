@@ -1376,7 +1376,6 @@
         {
             if (!document.getElementById(scriptId))
             {
-                console.log(`${scriptId} doesn't exist`);
                 const script = document.createElement('script');
                 script.setAttribute(`src` , `${scriptSrc}`);
                 script.setAttribute(`id` , `${scriptId}`);
@@ -1388,7 +1387,6 @@
             else
             {
                 // Trigger onLoad if already loaded
-                console.log(`${scriptId} does exist`);
                 if (onLoadFunc) onLoadFunc(); 
             }
         }
@@ -1405,11 +1403,10 @@
         function removeScriptById(theId)
         {
             const scriptId = document.getElementById(theId);
-
+            
             if(scriptId) 
             {
                 scriptId.remove();
-                console.log(`${theId} was removed`);
             }
         }
 
