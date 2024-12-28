@@ -19,11 +19,10 @@
     let wlBodySortArray = [];
     let newWLMaxSize = 10;
     let newWLCurrSize = 0;
-    let closeWLFilterMenu;
-    let activeUserOptBdr;
     let createWLTimer;
     let wlBodySortTabs;
     let wlBodySortTabIndex = 0;
+    let userWLCatalog_ItemDelWLBtnIndex = null;
     let userWLCatalog_ItemBase;
     let currCatalogItemBase;
     let wlModalMap;
@@ -701,7 +700,14 @@
         {
             const action = () => 
             {
-                delWLCatalogItem(i);
+                userWLCatalog_ItemDelWLBtnIndex = i;
+                initConfirmModal(
+                    `Are you sure you want to delete this watchlist?`,
+                    `Note: This action cannot be undone`,
+                    `Yes`,
+                    `No`,
+                    delWLCatalogItem
+                );
             }
 
             btn.addEventListener("click" , action);
@@ -711,14 +717,14 @@
 
 
     // Deleting your watchlists
-    function delWLCatalogItem(index)
+    function delWLCatalogItem()
     {
         // Delete item from invetory
-        watchlistInventory.splice(index , 1);
-        wlBodySortArray.splice(index , 1);
+        watchlistInventory.splice(userWLCatalog_ItemDelWLBtnIndex , 1);
+        wlBodySortArray.splice(userWLCatalog_ItemDelWLBtnIndex , 1);
 
         // Remove item from catalog
-        let delItem = document.getElementsByClassName("userWLCatalog_ItemBase")[index];
+        let delItem = document.getElementsByClassName("userWLCatalog_ItemBase")[userWLCatalog_ItemDelWLBtnIndex];
         delItem.remove();
 
         // Decrease the current watchlist size
