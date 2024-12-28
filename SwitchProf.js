@@ -11,10 +11,12 @@
     let navProfileName = document.querySelector(".navBarProfileNameWatching");
     let switchProfTimer;
     let switchProfTimer2;
+    let setSwitchBodyStop;
     let currProfOpt = `profile-is-curr-being-edited`;
     let defaultProfName = `acbennny`;
     let defaultProfFrg = `/Images/Uvid_profilebase.png`;
     let defaultProfBcg = `/Images/Uvid_green_bcg1_light.jpg`;
+    let profileInfoArray;
     let switchProfBdrHTML = 
     `
         <div class="switchProfNavBdr">
@@ -92,32 +94,22 @@
         </div>
     `;
 
+
     function errorLoadingProfInfo()
     {
         notification(`notifyBad` , `Error loading profile info`);
     }
 
-    
     function loadProfInfo()
     {
-        let profInfoLibScript = document.createElement("script");
-        profInfoLibScript.setAttribute(`src` , `/SwitchProfile/profInfoLib.js`);
-        profInfoLibScript.setAttribute(`id` , `profInfoLibId`);
-        documentBody.appendChild(profInfoLibScript);
-        profInfoLibScript.addEventListener("load" , () => 
-        {
-            instantiateSwitchProfModal();
-        });
-        profInfoLibScript.onerror = () =>
-        {
-            errorLoadingProfInfo();
-        }
+        loadScriptOnce(`/SwitchProfile/profInfoLib.js` , `profInfoLibId` , instantiateSwitchProfModal , errorLoadingProfInfo);
     }
     
 
-    let setSwitchBodyStop;
     function instantiateSwitchProfModal()
     {
+        profileInfoArray = ProfileInfoLib.profileInfoInv;
+
         // The border holding the elements of the Switch Profile Modal
         const switchProfBdr = document.createElement("div");
         switchProfBdr.classList.add("switchProfBdr");
@@ -134,14 +126,14 @@
         // Fetch the data for the respective profiles
         function fetchProfInfo()
         {
-            if(((profileInfoInv == undefined) || (profileInfoInv.length <=0)))
+            if(((profileInfoArray == undefined) || (profileInfoArray.length <=0)))
             {
                 errorLoadingProfInfo();
                 return;
             }
-            for(let i = 0; i < profileInfoInv.length; i++)
+            for(let i = 0; i < profileInfoArray.length; i++)
             {
-                const item = profileInfoInv[i];
+                const item = profileInfoArray[i];
                 const switchProfCardStruct = 
                 `
                     <div class="switchProfOptBox profileOpt" data-profile-index="${i}" data-profile-type="${item.prof_type}" data-background-image="${item.prof_bcgImg}">
@@ -268,8 +260,7 @@
                     switchProfBdrHTML = switchProfBdr.innerHTML;
 
                     // Remove Child Nodes
-                    let profInfoLibScript = document.querySelector("#profInfoLibId");
-                    documentBody.removeChild(profInfoLibScript);
+                    removeScriptById(`profInfoLibId`);
                     documentBody.removeChild(switchProfBdr);
                     documentBody.classList.remove("bodystop");
                 },800);
@@ -579,25 +570,6 @@
                 });
 
                 // Inserts the modal for changing the foreground picture
-                function loadFrgImgLib()
-                {
-                    let loadFrgImgLibScript = document.createElement("script");
-                    loadFrgImgLibScript.setAttribute(`src` , `/SwitchProfile/frgImgLib.js`);
-                    loadFrgImgLibScript.setAttribute(`id` , `loadFrgImgLibId`);
-                    documentBody.appendChild(loadFrgImgLibScript);
-                    loadFrgImgLibScript.addEventListener("load" , () =>
-                    {
-                        insertFrgImgModal();   
-                    });
-                    loadFrgImgLibScript.addEventListener("error" , () =>
-                    {
-                        errorloadFrgImgLib();  
-                    });
-                }
-                function errorloadFrgImgLib()
-                {
-                    notification(`notifyBad` , `Error loading foreground Images`);
-                }
                 function insertFrgImgModal()
                 {
                     let struct = 
@@ -606,10 +578,11 @@
                             <div class="selectPicBox"></div>
                         </div>
                     `;
+                    let frgImgArray = FrgImgLib.frgImgInv;
                     editProfileBox.insertAdjacentHTML(`beforeend` , struct);
 
                     // Check if the inventory is defined and not empty
-                    if(((frgImgInv == undefined) || (frgImgInv.length == 0)))
+                    if(((frgImgArray == undefined) || (frgImgArray.length == 0)))
                     {
                         errorloadFrgImgLib();
                         return;
@@ -617,9 +590,9 @@
 
                     // Insert the different sections in the modal
                     let selectPicBox = document.querySelector(".selectFrgPicBdr .selectPicBox");
-                    for(let i=0; i < frgImgInv.length; i++)
+                    for(let i=0; i < frgImgArray.length; i++)
                     {
-                        let item = frgImgInv[i];
+                        let item = frgImgArray[i];
                         let sect = 
                         `
                             <div class="selectPicSect">
@@ -631,13 +604,13 @@
 
                                         <!-- Arrows -->
                                         <div class="selectPicCarouselArrBox selectPicCarouselArrLeftBox hide">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="selectPicCarouselArr selectPicCarouselArrLeft selectFrgPicCarouselArrLeft">
-                                                <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="selectPicCarouselArr selectPicCarouselArrLeft">
+                                                <path fill-rule="evenodd" d="M15.488 4.43a.75.75 0 0 1 .081 1.058L9.988 12l5.581 6.512a.75.75 0 1 1-1.138.976l-6-7a.75.75 0 0 1 0-.976l6-7a.75.75 0 0 1 1.057-.081" clip-rule="evenodd" />
                                             </svg>
                                         </div>
                                         <div class="selectPicCarouselArrBox selectPicCarouselArrRightBox hide">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="selectPicCarouselArr selectPicCarouselArrRight selectFrgPicCarouselArrRight">
-                                                <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="selectPicCarouselArr selectPicCarouselArrRight">
+                                                <path fill-rule="evenodd" d="M8.512 4.43a.75.75 0 0 1 1.057.082l6 7a.75.75 0 0 1 0 .976l-6 7a.75.75 0 0 1-1.138-.976L14.012 12L8.431 5.488a.75.75 0 0 1 .08-1.057" clip-rule="evenodd" />
                                             </svg>
                                         </div>
 
@@ -651,10 +624,10 @@
                     }
 
                     // Filling the options of the various sects
-                    for(let i = 0; i < frgImgInv.length; i++)
+                    for(let i = 0; i < frgImgArray.length; i++)
                     {
                         let selectFrgPicCarouselGrid = document.querySelectorAll(".selectFrgPicCarouselGrid")[i];
-                        let frgImgSrcSet = frgImgInv[i].frg_ImgSrcSet;
+                        let frgImgSrcSet = frgImgArray[i].frg_ImgSrcSet;
                         for(let j = 0; j < frgImgSrcSet.length; j++)
                         {
                             let item = frgImgSrcSet[j];
@@ -690,28 +663,13 @@
                         });
                     });
                 }
-                loadFrgImgLib();
+                function errorloadFrgImgLib()
+                {
+                    notification(`notifyBad` , `Error loading foreground Images`);
+                }
+                loadScriptOnce(`/SwitchProfile/frgImgLib.js` , `loadFrgImgLibId` , insertFrgImgModal, errorloadFrgImgLib);
 
                 // Inserts the modal for changing the foreground picture
-                function loadBcgImgLib()
-                {
-                    let loadBcgImgLibScript = document.createElement("script");
-                    loadBcgImgLibScript.setAttribute(`src` , `/SwitchProfile/bcgImgLib.js`);
-                    loadBcgImgLibScript.setAttribute(`id` , `loadBcgImgLibId`);
-                    documentBody.appendChild(loadBcgImgLibScript);
-                    loadBcgImgLibScript.addEventListener("load" , () =>
-                    {
-                        insertBcgImgModal();   
-                    });
-                    loadBcgImgLibScript.addEventListener("error" , () =>
-                    {
-                        errorloadBcgImgLib();  
-                    });
-                }
-                function errorloadBcgImgLib()
-                {
-                    notification(`notifyBad` , `Error loading Background Images`);
-                }
                 function insertBcgImgModal()
                 {
                     let struct = 
@@ -720,10 +678,11 @@
                             <div class="selectPicBox"></div>
                         </div>
                     `;
+                    let bcgImgArray = BcgImgLib.bcgImgInv;
                     editProfileBox.insertAdjacentHTML(`beforeend` , struct);
 
                     // Check if the inventory is defined and not empty
-                    if(((bcgImgInv == undefined) || (bcgImgInv.length == 0)))
+                    if(((bcgImgArray == undefined) || (bcgImgArray.length == 0)))
                     {
                         errorloadBcgImgLib();
                         return;
@@ -731,9 +690,9 @@
 
                     // Insert the different sections in the modal
                     let selectPicBox = document.querySelector(".selectBcgPicBdr .selectPicBox");
-                    for(let i=0; i < bcgImgInv.length; i++)
+                    for(let i=0; i < bcgImgArray.length; i++)
                     {
-                        let item = bcgImgInv[i];
+                        let item = bcgImgArray[i];
                         let sect = 
                         `
                             <div class="selectPicSect">
@@ -745,13 +704,13 @@
 
                                         <!-- Arrows -->
                                         <div class="selectPicCarouselArrBox selectPicCarouselArrLeftBox hide">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="selectPicCarouselArr selectPicCarouselArrLeft selectFrgPicCarouselArrLeft">
-                                                <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="selectPicCarouselArr selectPicCarouselArrLeft">
+                                                <path fill-rule="evenodd" d="M15.488 4.43a.75.75 0 0 1 .081 1.058L9.988 12l5.581 6.512a.75.75 0 1 1-1.138.976l-6-7a.75.75 0 0 1 0-.976l6-7a.75.75 0 0 1 1.057-.081" clip-rule="evenodd" />
                                             </svg>
                                         </div>
                                         <div class="selectPicCarouselArrBox selectPicCarouselArrRightBox hide">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="selectPicCarouselArr selectPicCarouselArrRight selectFrgPicCarouselArrRight">
-                                                <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="selectPicCarouselArr selectPicCarouselArrRight">
+                                                <path fill-rule="evenodd" d="M8.512 4.43a.75.75 0 0 1 1.057.082l6 7a.75.75 0 0 1 0 .976l-6 7a.75.75 0 0 1-1.138-.976L14.012 12L8.431 5.488a.75.75 0 0 1 .08-1.057" clip-rule="evenodd" />
                                             </svg>
                                         </div>
 
@@ -765,10 +724,10 @@
                     }
 
                     // Filling the options of the various sects
-                    for(let i = 0; i < bcgImgInv.length; i++)
+                    for(let i = 0; i < bcgImgArray.length; i++)
                     {
                         let selectBcgPicCarouselGrid = document.querySelectorAll(".selectBcgPicCarouselGrid")[i];
-                        let bcgImgSrcSet = bcgImgInv[i].bcg_ImgSrcSet;
+                        let bcgImgSrcSet = bcgImgArray[i].bcg_ImgSrcSet;
                         for(let j = 0; j < bcgImgSrcSet.length; j++)
                         {
                             let item = bcgImgSrcSet[j];
@@ -804,7 +763,11 @@
                         });
                     });
                 }
-                loadBcgImgLib();
+                function errorloadBcgImgLib()
+                {
+                    notification(`notifyBad` , `Error loading Background Images`);
+                }
+                loadScriptOnce(`/SwitchProfile/bcgImgLib.js` , `loadBcgImgLibId` , insertBcgImgModal, errorloadBcgImgLib);
 
                 // Closing the select Pic Modals
                 function closeSelectPicModals()
@@ -1063,14 +1026,16 @@
                 let profCurrName = profCurrBeignEdited.querySelector(".switchProfOptText");
                 let profCurrFrgImg = profCurrBeignEdited.querySelector(".switchProfOptImg");
                 let profCurrIndex = parseInt(profCurrBeignEdited.getAttribute("data-profile-index"));
-                let profLibCurrObj = profileInfoInv[profCurrIndex];
+                let profLibCurrObj = profileInfoArray[profCurrIndex];
 
-                let loadFrgImgLibId = document.querySelector("#loadFrgImgLibId");
-                let loadBcgImgLibId = document.querySelector("#loadBcgImgLibId");
+                // let loadFrgImgLibId = document.querySelector("#loadFrgImgLibId");
+                // let loadBcgImgLibId = document.querySelector("#loadBcgImgLibId");
 
                 // Remove the image library scripts
-                loadFrgImgLibId.remove();
-                loadBcgImgLibId.remove();
+                // loadFrgImgLibId.remove();
+                // loadBcgImgLibId.remove();
+                removeScriptById(`loadFrgImgLibId`);
+                removeScriptById(`loadBcgImgLibId`);
                 
                 // Update the Profile Name
                 if(((editProfOptTempName != null) || (editProfOptTempName != undefined)))
