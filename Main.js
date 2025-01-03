@@ -2286,7 +2286,7 @@
         function handleAutoScroll(touch) 
         {
             const edgeThreshold = 75; // Distance from edges to trigger scrolling
-            const scrollSpeed = 50;   // Pixels per frame
+            const scrollSpeed = 100;   // Pixels per frame
             const { clientX, clientY } = touch;
         
             // Find the closest scrollable container
