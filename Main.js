@@ -3009,9 +3009,9 @@
             document.addEventListener("mousemove", currDraggingGenMenuModal);
             document.addEventListener("mouseup", stopDraggingGenMenuModal);
 
-            genMenuModalBox.addEventListener("touchstart", startDraggingGenMenuModal, true);
-            document.addEventListener("touchmove", currDraggingGenMenuModal, false);
-            document.addEventListener("touchend", stopDraggingGenMenuModal);
+            genMenuModalBox.addEventListener("touchstart", startDraggingGenMenuModal, { passive: true });
+            document.addEventListener("touchmove", currDraggingGenMenuModal, { passive: false });
+            document.addEventListener("touchend", stopDraggingGenMenuModal,  { passive: true });
 
             window.addEventListener("resize" , calibrateGenMenuModalBoxHeight);
             window.addEventListener("change" , calibrateGenMenuModalBoxHeight);
