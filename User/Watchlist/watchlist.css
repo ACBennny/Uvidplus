@@ -1006,6 +1006,12 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     height: 100%;
 }
 
+.wlModalGridBox[data-sort-handle-visibility="false"]
+.wlModalGrid_CardHandleBdr
+{
+    display: none;
+}
+
 .wlModalGrid_CardHandleBdr .wlModalGrid_CardHandleBox
 {
     width: 100%;
@@ -1028,6 +1034,36 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     height: 100%;
     fill: var(--genWhiteTypeMid);
 }
+
+.wlModalGrid_CardBox .wlModalGrid_CardRankBdr
+{
+    width: var(--wlModalGrid_CardHandleBdrWidth);
+    height: 100%;
+    display: none;
+}
+
+.wlModalGridBox[data-sort-handle-visibility="false"]
+.wlModalGrid_CardRankBdr
+{
+    display: block;
+}
+
+.wlModalGrid_CardBox .wlModalGrid_CardRankBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wlModalGrid_CardRankBox .wlModalGrid_CardRankNo
+{
+    font-size: 14px;
+    color: var(--genWhiteTypeMid2);
+}
+
+
 
 .wlModalGrid_CardBox .wlModalGrid_CardCtntBdr
 {
@@ -1396,6 +1432,11 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     .wlModalCtnt_sortFilterBox .userOrderBtnText
     {
         display: none;
+    }
+
+    .wlModalGrid_CardRankBox .wlModalGrid_CardRankNo
+    {
+        font-size: 12px;
     }
 
     .wlModalGrid_CardCtnt_DetTitleBox .wlModalGrid_CardCtnt_DetTitleText

@@ -44,10 +44,11 @@
     let wlModalSortOrderText;
     let wlModalGrid_CardBdr;
     let closeWLModalTimer;
+    let showStatusDemoNo = 0;
     let wlModalSortDfltArray = [];
     let wlModalSortUsedArray = [];
     let wlModalSortTypeTabs;
-    let wlModalSortTypeTabIndex = 1;
+    let wlModalSortTypeTabIndex = 0;
     let wlModalSortOrderTabs;
     let wlModalSortOrderTabIndex = 0;
     let wlModalFilterStatusTabs;
@@ -911,7 +912,6 @@
         wlModalSortTypeText = document.querySelector(".wlModalCtnt_sortStatusText .status_type");
         wlModalSortOrderText = document.querySelector(".wlModalCtnt_sortStatusText .status_order");
         closeWLModalTimer;
-        showStatusDemoNo = 0;
         wlModalSortDfltArray.length = 0;
         wlModalSortUsedArray.length = 0;
 
@@ -927,8 +927,7 @@
             // If device is not mobile set to 10px
             if(!(window.matchMedia("(hover: none)").matches)) wlModalBoxScrollbarWidth = 10;
         }
-        wlModalBaseBarBdr.setAttribute(`style` , `--wlModalBoxScrollbarWidth: ${wlModalBoxScrollbarWidth}px`)
-        console.log(`scrollbar width ${wlModalBoxScrollbarWidth}`);
+        wlModalBaseBarBdr.setAttribute(`style` , `--wlModalBoxScrollbarWidth: ${wlModalBoxScrollbarWidth}px`);
 
         // Setting the Background
         wlModalHeaderBcgImg.setAttribute(`src` , currCatalogItemBase.querySelector(".userWLCatalog_ItemThumbImg").getAttribute(`src`));
@@ -950,7 +949,7 @@
         wlModalHeader_DetInfo_DescText.textContent = wlModalCurrIndex.wl_desc;
 
         // Setting the default sort option
-        wlModalSortTypeText.textContent = `Recently Added`;
+        wlModalSortTypeText.textContent = `Manual`;
         wlModalSortOrderText.textContent = `Asc ↑`;
 
         // Filling in the grid content
@@ -991,6 +990,11 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="wlModalGrid_CardRankBdr">
+                            <div class="wlModalGrid_CardRankBox">
+                                <div class="wlModalGrid_CardRankNo">${g}</div>
+                            </div>
+                        </div>
                         <div onclick="window.open('${show_link}' , '_self')" class="wlModalGrid_CardCtntBdr">
                             <div class="wlModalGrid_CardCtntBox">
                                 <div class="wlModalGrid_CardCtntThumbBdr">
@@ -999,7 +1003,7 @@
                                         <img class="wlModalGrid_CardCtntThumbImg img_small" src="${show_foreground}" alt="Thumbnail image for ${show_title}">
                                     </div>
                                 </div>
-                                <div class="wlModalGrid_CardCtntDetBdr" data-ctnt-link="${show_link}">
+                                <div class="wlModalGrid_CardCtntDetBdr">
                                     <div class="wlModalGrid_CardCtntDetBox">
                                         <div class="wlModalGrid_CardCtnt_DetTitleBox">
                                             <div class="wlModalGrid_CardCtnt_DetTitleText">${show_title}</div>
@@ -1105,14 +1109,14 @@
         });
 
         // Attaches listeners
-        attachMenuModalEventListeners();
         attachReadFullDescWLModalEventListeners();
+        attachMenuModalEventListeners();
         addDragAndSortListEventListeners();
     }
 
 
     // Generates the WL cards
-    function generateWLModalCards(arr)
+    function generateWLModalCards(arr, order = 'asc')
     {
         // CLear the pevious wlModalGridBox
         wlModalGridBox.innerHTML = "";
@@ -1120,21 +1124,27 @@
         // Fill in the wlModalGridBox with the provided array
         for(let i = 0; i < arr.length; i++)
         {
+            let rank = order == 'dsc' ? (arr.length - i) : (i + 1);
             let item = arr[i]; 
             let itemStruct = 
             `
-                <div class="wlModalGrid_CardBdr" data-show-status-opt="${item.showStatusDemoNo}">
+                <li class="wlModalGrid_CardBdr genDraggableElement" data-show-status-opt="${item.showStatusDemoNo}">
                     <div class="wlModalGrid_CardBox">
-                        <div class="wlModalGrid_CardHandleBdr">
+                        <div class="wlModalGrid_CardHandleBdr" draggable="true">
                             <div class="wlModalGrid_CardHandleBox">
-                                <div class="wlModalGrid_CardHandleIcon">
+                                <div class="wlModalGrid_CardHandleIcon genDraggableHandles">
                                     <svg class="wlModalGrid_CardHandleSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                         <path d="M32 288c-17.7 0-32 14.3-32 32s14.3 32 32 32l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L32 288zm0-128c-17.7 0-32 14.3-32 32s14.3 32 32 32l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L32 160z"/>
                                     </svg>
                                 </div>
                             </div>
                         </div>
-                        <a href="${item.show_link}" class="wlModalGrid_CardCtntBdr">
+                        <div class="wlModalGrid_CardRankBdr">
+                            <div class="wlModalGrid_CardRankBox">
+                                <div class="wlModalGrid_CardRankNo">${rank}</div>
+                            </div>
+                        </div>
+                        <div onclick="window.open('${item.show_link}' , '_self')" class="wlModalGrid_CardCtntBdr">
                             <div class="wlModalGrid_CardCtntBox">
                                 <div class="wlModalGrid_CardCtntThumbBdr">
                                     <div class="wlModalGrid_CardCtntThumbBox">
@@ -1171,12 +1181,12 @@
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                         <div class="wlModalActionFence wlModalAction_GridCardFence">
                             <div class="wlModalActionBase">
                                 <div class="wlModalActionBdr">
                                     <div class="wlModalActionBox">
-                                        <button type="button" class="wlModalActionBtn">
+                                        <button type="button" class="wlModalActionBtn openGenMenuModalBtn" data-gen-menu-modal-type="wl_modal_cards">
                                             <div class="wlModalActionBtnIcon">
                                                 <svg class="wlModalActionBtnSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512">
                                                     <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
@@ -1188,7 +1198,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </li>
             `;
             wlModalGridBox.insertAdjacentHTML(`beforeend` , itemStruct);
         }
@@ -1197,6 +1207,8 @@
         wlModalGrid_CardBdr = document.querySelectorAll(".wlModalGrid_CardBdr");
 
         // Re-attach event listeners here
+        attachMenuModalEventListeners();
+        addDragAndSortListEventListeners();
     }
 
 
@@ -1318,6 +1330,16 @@
                 // Update button index
                 wlModalSortTypeTabIndex = index;
 
+                // Update the card "handle" visibility
+                if(index == 0)
+                {
+                    wlModalGridBox.setAttribute(`data-sort-handle-visibility` , `true`);
+                }
+                else
+                {
+                    wlModalGridBox.setAttribute(`data-sort-handle-visibility` , `false`);
+                }
+
                 // Get option number
                 let optNo = tab.getAttribute("data-sort-type-opt");
 
@@ -1332,7 +1354,7 @@
                 {
                     // Continue
                     case "0":
-                        notification(`notifyBad` , `Not operational`);
+                        wlModalGridBox.setAttribute(`data-sort-handle-visibility` , `true`);
                         break;
 
                     // Recently Added
@@ -1371,7 +1393,8 @@
 
                 // Update the sort type & order texts
                 wlModalSortTypeText.textContent = tab.querySelector(".genMenuModalCtntBtnText").textContent;
-                wlModalSortOrderText.textContent = `Ascending`;
+                wlModalSortOrderText.textContent = `Asc ↑`;
+                wlModalSortOrderTabIndex = 0;
 
             }
             tab.addEventListener("click" , action);
@@ -1391,7 +1414,6 @@
             const action = () => 
             {
                 // Update button index
-                wlModalSortOrderTabIndex = index;
 
                 // Add "selected" class to the tab without it
                 wlModalSortOrderTabs.forEach((selectedTab) => 
@@ -1410,7 +1432,16 @@
                 reverseWLArray(wlModalSortUsedArray);
 
                 // Print the reversed list
-                generateWLModalCards(wlModalSortUsedArray);
+                if(wlModalSortOrderTabIndex == 0)
+                {
+                    wlModalSortOrderTabIndex = 1;
+                    generateWLModalCards(wlModalSortUsedArray, 'dsc');
+                }
+                else if(wlModalSortOrderTabIndex == 1)
+                {
+                    wlModalSortOrderTabIndex = 0;
+                    generateWLModalCards(wlModalSortUsedArray);
+                }
 
                 // Update the sort type text
                 wlModalSortOrderText.textContent = wlModalSortOrderTabs[wlModalSortOrderTabIndex].querySelector(".genMenuModalCtntBtnText").textContent;
