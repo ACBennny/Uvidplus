@@ -2027,11 +2027,11 @@
             {
                 if(draggable.dragStartAction)
                 {
-                    draggable.removeEventListener('dragstart' , dragStartAction);
+                    draggable.removeEventListener('dragstart' , draggable.dragStartAction);
                 }
                 if(draggable.dragEndAction)
                 {
-                    draggable.removeEventListener('dragend' , dragEndAction);
+                    draggable.removeEventListener('dragend' , draggable.dragEndAction);
                 }
             });
             draggables.forEach(draggable => 
@@ -2079,7 +2079,7 @@
             {
                 if(handle.onTouchDragStart)
                 {
-                    handle.removeEventListener('touchstart' , onTouchDragStart);
+                    handle.removeEventListener('touchstart' , dragHandlers.onTouchDragStart);
                 }
             });
             dragHandlers.forEach((handle) => 
@@ -2091,13 +2091,13 @@
 
             containers.forEach((container) => 
             {
-                if(container.dragOverAction)
-                {
-                    container.removeEventListener('dragover' , dragOverAction);
-                }
                 if(container.dragEnterAction)
                 {
-                    container.removeEventListener('dragenter' , dragEnterAction);
+                    container.removeEventListener('dragenter' , container.dragEnterAction);
+                }
+                if(container.dragOverAction)
+                {
+                    container.removeEventListener('dragover' , container.dragOverAction);
                 }
             });
             containers.forEach(container => 
@@ -2201,8 +2201,7 @@
             }, { offset: Number.NEGATIVE_INFINITY }).element;
         }
 
-        
-        // Make touch listeners non-passive
+        // Add touch listeners for dragging
         function addTouchEventListeners() 
         {
             document.addEventListener('touchmove', onTouchDragMove, { passive: false });
