@@ -1120,7 +1120,7 @@
         // CLear the pevious wlModalGridBox
         wlModalGridBox.innerHTML = "";
 
-        // Fill int he wlModalGridBox with the provided array
+        // Fill in the wlModalGridBox with the provided array
         for(let i = 0; i < arr.length; i++)
         {
             let item = arr[i]; 
