@@ -44,7 +44,6 @@
     let wlModalSortOrderText;
     let wlModalGrid_CardBdr;
     let closeWLModalTimer;
-    let showStatusDemoNo = 0;
     let wlModalSortDfltArray = [];
     let wlModalSortUsedArray = [];
     let wlModalSortTypeTabs;
@@ -292,18 +291,31 @@
     // Filtering the wl modal cards based on "Show Status" i.e. watching, planned, etc
     function filterWLModalStatus(filterOptNo)
     {
-        wlModalGrid_CardBdr.forEach((bdr) => 
+        if(filterOptNo == 0)
         {
-            if(bdr.classList.contains("notShowStatusMatch"))
+            wlModalGrid_CardBdr.forEach((bdr) => 
             {
-                bdr.classList.remove("notShowStatusMatch");
-            }
-
-            if(Number(bdr.getAttribute("data-show-status-opt")) != filterOptNo)
+                if(bdr.classList.contains("notShowStatusMatch"))
+                {
+                    bdr.classList.remove("notShowStatusMatch");
+                }
+            });
+        }
+        else
+        {
+            wlModalGrid_CardBdr.forEach((bdr) => 
             {
-                bdr.classList.add("notShowStatusMatch");
-            }
-        });
+                if(bdr.classList.contains("notShowStatusMatch"))
+                {
+                    bdr.classList.remove("notShowStatusMatch");
+                }
+    
+                if(Number(bdr.getAttribute("data-show-status-opt")) != filterOptNo)
+                {
+                    bdr.classList.add("notShowStatusMatch");
+                }
+            });
+        }
     }
 
     // Filtering the wl modal cards based on "Show Type" i.e. movie, tv
@@ -955,6 +967,7 @@
         // Filling in the grid content
         for(let g = 0; g < wlModalCurrIndex.wl_items.length; g++)
         {
+            let itemWatchStatus = wlModalCurrIndex.wl_items[g].wl_itemWatchStatus;
             let itemId = wlModalCurrIndex.wl_items[g].wl_itemId;
             let itemIdLC = itemId.substring(itemId.indexOf('=') + 1).toLowerCase();
             let item = wlModalMap.get(itemIdLC);
@@ -976,7 +989,7 @@
                 wlModalGrid_CardBdr = document.createElement("li");
                 wlModalGrid_CardBdr.classList.add("wlModalGrid_CardBdr");
                 wlModalGrid_CardBdr.classList.add("genDraggableElement");
-                wlModalGrid_CardBdr.setAttribute(`data-show-status-opt` , showStatusDemoNo);
+                wlModalGrid_CardBdr.setAttribute(`data-show-status-opt` , itemWatchStatus);
                 
                 let itemStruct = 
                 `
@@ -1058,16 +1071,6 @@
                 
                 // Append item to the grid
                 wlModalGridBox.appendChild(wlModalGrid_CardBdr);
-
-                // Testing demo 
-                if(showStatusDemoNo == 4)
-                {
-                    showStatusDemoNo = 0;
-                }
-                else
-                {
-                    showStatusDemoNo++;
-                }
             }
         }
 
@@ -1128,7 +1131,7 @@
             let item = arr[i]; 
             let itemStruct = 
             `
-                <li class="wlModalGrid_CardBdr genDraggableElement" data-show-status-opt="${item.showStatusDemoNo}">
+                <li class="wlModalGrid_CardBdr genDraggableElement" data-show-status-opt="${item.itemWatchStatus}">
                     <div class="wlModalGrid_CardBox">
                         <div class="wlModalGrid_CardHandleBdr" draggable="true">
                             <div class="wlModalGrid_CardHandleBox">
@@ -1493,38 +1496,32 @@
                 {
                     // All
                     case "0":
-                        wlModalGrid_CardBdr.forEach((bdr) => 
-                        {
-                            if(bdr.classList.contains("notShowStatusMatch"))
-                            {
-                                bdr.classList.remove("notShowStatusMatch");
-                            }
-                        });
+                        filterWLModalStatus(0);
                         break;
 
                     // Planned
                     case "1":
-                        filterWLModalStatus(0);
+                        filterWLModalStatus(1);
                         break;
                         
                     // Watching
                     case "2":
-                        filterWLModalStatus(1);
+                        filterWLModalStatus(2);
                         break;
                         
                     // On-hold
                     case "3":
-                        filterWLModalStatus(2);
+                        filterWLModalStatus(3);
                         break;
                         
                     // Completed
                     case "4":
-                        filterWLModalStatus(3);
+                        filterWLModalStatus(4);
                         break;
                         
                     // Dropped
                     case "5":
-                        filterWLModalStatus(4);
+                        filterWLModalStatus(5);
                         break;
                         
                     // Notify of error 
