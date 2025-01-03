@@ -1013,7 +1013,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: move;
+    cursor: grab;
 }
 
 .wlModalGrid_CardHandleBox .wlModalGrid_CardHandleIcon
