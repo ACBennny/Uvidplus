@@ -43,6 +43,9 @@
     let navBarSignOutBtn;
     let accountSignOutTimer;
     let openFeedBackForm;
+    let customDragPreview = null;
+    let offsetX = 0;
+    let offsetY = 0;
     let confirmModalBase;
     let currOpenGenMenuModalBtnIndex = null;
     let genMenuModalMap;
@@ -2011,9 +2014,6 @@
 
     // DRAGGABLE AND SORTABLE LIST
 
-    let customDragPreview = null;
-    let offsetX = 0;
-    let offsetY = 0;
         function addDragAndSortListEventListeners()
         {
 
