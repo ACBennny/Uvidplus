@@ -312,7 +312,7 @@
                                 </div>
                                 <div class="wlModalGridBase">
                                     <div class="wlModalGridBdr">
-                                        <div class="wlModalGridBox"></div>
+                                        <ul class="wlModalGridBox genDraggableContainer"></ul>
                                     </div>
                                 </div>
                             </div>

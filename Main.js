@@ -1997,7 +1997,7 @@
 
 
 
-    // SIGNING OUT (TO DO: Add confirmation modal)
+    // SIGNING OUT
 
         function accountSignOut()
         {
@@ -2005,6 +2005,155 @@
             toggleNavBarUnderLayer();
 
             accountSignOutTimer = setTimeout(() => window.open(`/` , `_self`), 3000);
+        }
+
+    
+
+    // DRAGGABLE AND SORTABLE LIST
+
+        function addDragAndSortListEventListeners()
+        {
+
+            const draggables = document.querySelectorAll('.genDraggableElement');
+            const containers = document.querySelectorAll('.genDraggableContainer');
+            let customPreview = null;
+
+            // Remove any old/pre-existing listeners
+            draggables.forEach((draggable) => 
+            {
+                if(draggable.dragStartAction)
+                {
+                    draggable.removeEventListener('dragstart' , dragStartAction);
+                }
+                if(draggable.dragEndAction)
+                {
+                    draggable.removeEventListener('dragend' , dragEndAction);
+                }
+            });
+            draggables.forEach(draggable => 
+            {
+                const dragStartAction = (e) => 
+                {
+                    const transparentImage = new Image();
+                    transparentImage.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
+                    transparentImage.style.opacity = "0";
+                    e.dataTransfer.setDragImage(transparentImage, 0, 0);
+
+
+                    // Get the bounding rectangle of the element
+                    const rect = draggable.getBoundingClientRect();
+                    const offsetY = e.clientY - rect.top;
+                    const offsetX = e.clientX - rect.left;
+
+                    // Create the custom drag preview
+                    customPreview = draggable.cloneNode(true);
+                    customPreview.innerHTML = draggable.innerHTML;
+                    customPreview.removeAttribute('draggable');
+                    customPreview.classList.remove('genDraggableElement');
+                    customPreview.classList.add('genDraggablePreview');
+                    customPreview.style.width = `${rect.width}px`;
+                    customPreview.style.height = `${rect.height}px`;
+                    documentBody.appendChild(customPreview);
+
+                    // Update position as the drag happens
+                    const updatePreviewPosition = (e) => 
+                    {
+                        customPreview.style.top = `${e.clientY - offsetY}px`;
+                        customPreview.style.left = `${e.clientX - offsetX}px`;
+                    };
+                    document.addEventListener('dragover', updatePreviewPosition);
+
+                    // Clean up when dragging ends
+                    document.addEventListener('dragend', () => 
+                    {
+                        document.removeEventListener('dragover', updatePreviewPosition);
+                        document.body.removeChild(customPreview);
+                        customPreview = null;
+                    }, { once: true });
+
+                    // Add dragging class
+                    draggable.classList.add('dragging');
+                    document.querySelectorAll(".genDraggableElement:not(.dragging)").forEach((elem) => 
+                    {
+                        elem.classList.add("notDragging");
+                    });
+                }
+
+                const dragEndAction = () => 
+                {
+                    draggable.classList.remove('dragging');
+                    document.querySelectorAll(".genDraggableElement:not(.dragging)").forEach((elem) => 
+                    {
+                        elem.classList.remove("notDragging");
+                    });
+                }
+            
+                draggable.addEventListener('dragstart', dragStartAction);
+                draggable.dragStartAction = dragStartAction;
+                draggable.addEventListener('dragend', dragEndAction);
+                draggable.dragEndAction = dragEndAction;
+            });
+
+            containers.forEach((container) => 
+            {
+                if(container.dragOverAction)
+                {
+                    container.removeEventListener('dragover' , dragOverAction);
+                }
+                if(container.dragEnterAction)
+                {
+                    container.removeEventListener('dragenter' , dragEnterAction);
+                }
+            });
+            containers.forEach(container => 
+            {
+                const dragEnterAction = (e) => 
+                {
+                    e.preventDefault();
+                }
+
+                const dragOverAction = (e) => 
+                {
+                    e.preventDefault();
+                    const afterElement = getDragAfterElement(container, e.clientY);
+                    const draggable = document.querySelector('.genDraggableElement.dragging');
+
+                    if (afterElement == null)
+                    {
+                        container.appendChild(draggable);
+                    }
+                    else
+                    {
+                        container.insertBefore(draggable, afterElement);
+                    }
+                }
+            
+                container.addEventListener("dragenter", dragEnterAction);
+                container.dragEnterAction = dragEnterAction;
+                container.addEventListener('dragover', dragOverAction);
+                container.dragOverAction = dragOverAction;
+            });
+        }
+
+        // Gets the postion of the closest element being dragged over
+        function getDragAfterElement(container, y)
+        {
+            const draggableElements = [...container.querySelectorAll('.genDraggableElement:not(.dragging)')]
+    
+            return draggableElements.reduce((closest, child) => 
+            {
+                const box = child.getBoundingClientRect()
+                const offset = y - box.top - box.height / 2;
+    
+                if (offset < 0 && offset > closest.offset)
+                {
+                    return { offset: offset, element: child };
+                }
+                else
+                {
+                    return closest;
+                }
+            }, { offset: Number.NEGATIVE_INFINITY }).element;
         }
 
 

@@ -30,7 +30,6 @@ html:root
     --wlModalGrid_CardCtntThumbHeight: 125px;
     --wlModalGrid_CardCtnt_DetTagSectIconSize: 14px;
     --wlModalGrid_CardCtnt_DetTagSectIconFill: var(--genGreenTypeMid);
-    --wlModalGrid_CardBoxPaddingTB: 15px;
 }
 
 
@@ -962,19 +961,21 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 .wlModalGridBdr .wlModalGridBox
 {
     width: 100%;
-    display: flex;
-    flex-direction: column;
     padding-bottom: 25px;
 }
 
-.wlModalGridBox .wlModalGrid_CardBdr
+.wlModalGrid_CardBdr
 {
     width: 100%;
     height: -moz-fit-content;
     height: fit-content;
-    padding: var(--wlModalGrid_CardBoxPaddingTB) 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px 0;
     border-radius: 15px;
     background-color: #00000000;
+    list-style: none;
     overflow: hidden;
     transition: all 300ms ease-in-out;
 }
@@ -1012,7 +1013,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: grab;
+    cursor: move;
 }
 
 .wlModalGrid_CardHandleBox .wlModalGrid_CardHandleIcon
@@ -1407,9 +1408,10 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 
 @media only screen and (max-width: 485px)
 {
-    html:root
+
+    .wlModalGridBox .wlModalGrid_CardBdr
     {
-        --wlModalGrid_CardBoxPaddingTB: 10px;
+        padding: 10px 0;
     }
 
     .wlModalGrid_CardCtnt_DetTitleBox .wlModalGrid_CardCtnt_DetTitleText

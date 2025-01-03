@@ -4278,6 +4278,43 @@ img
 
 
 
+/* =========== DRAG AND SORTABLE LIST ========= */
+
+.genDraggableElement.dragging
+{
+    opacity: 0;
+}
+
+.genDraggableElement.notDragging
+{
+    pointer-events: none;
+}
+
+.genDraggablePreview
+{
+    position: fixed;
+    width: clamp(--cusPrvWidth , --cusPrvWidth, --cusPrvWidth);
+    height: clamp(--cusPrvWidth , --cusPrvWidth, --cusPrvWidth);
+    padding: inherit;
+    background-color: #ffffff20 !important;
+    opacity: 1;
+    transition: none !important;
+    text-decoration: none;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+
+
+
+
+
+
+
 
 
 /* =============== General Confirmation Modal ============= */
@@ -5439,6 +5476,12 @@ img
     .slide_card:hover .cardInfoBdr
     {
         background: #00000085;
+    }
+
+    .genDraggableElement.dragging:hover,
+    .genDraggableElement.notDragging:hover
+    {
+        background-color: #00000000 !important;
     }
 
     .genMenuModalCloseIcon:hover .genMenuModalCloseSvg

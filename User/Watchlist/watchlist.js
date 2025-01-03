@@ -43,6 +43,7 @@
     let wlModalSortTypeText;
     let wlModalSortOrderText;
     let wlModalGrid_CardBdr;
+    let wlModalGrid_CardBox;
     let closeWLModalTimer;
     let wlModalSortDfltArray = [];
     let wlModalSortUsedArray = [];
@@ -974,12 +975,16 @@
                     show_description,
                 } = item;
 
+                wlModalGrid_CardBdr = document.createElement("li");
+                wlModalGrid_CardBdr.classList.add("wlModalGrid_CardBdr");
+                wlModalGrid_CardBdr.classList.add("genDraggableElement");
+                wlModalGrid_CardBdr.setAttribute(`data-show-status-opt` , showStatusDemoNo);
                 
                 let itemStruct = 
                 `
-                    <div class="wlModalGrid_CardBdr" data-show-status-opt="${showStatusDemoNo}">
+                    
                         <div class="wlModalGrid_CardBox">
-                            <div class="wlModalGrid_CardHandleBdr">
+                            <div class="wlModalGrid_CardHandleBdr" draggable="true">
                                 <div class="wlModalGrid_CardHandleBox">
                                     <div class="wlModalGrid_CardHandleIcon">
                                         <svg class="wlModalGrid_CardHandleSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -988,7 +993,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="${show_link}" class="wlModalGrid_CardCtntBdr">
+                            <div href="${show_link}" class="wlModalGrid_CardCtntBdr">
                                 <div class="wlModalGrid_CardCtntBox">
                                     <div class="wlModalGrid_CardCtntThumbBdr">
                                         <div class="wlModalGrid_CardCtntThumbBox">
@@ -1025,7 +1030,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
                             <div class="wlModalActionFence wlModalAction_GridCardFence">
                                 <div class="wlModalActionBase">
                                     <div class="wlModalActionBdr">
@@ -1042,14 +1047,15 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
                 `;
+                wlModalGrid_CardBdr.innerHTML = itemStruct;
                 
                 // Fill up the arrays
                 wlModalSortDfltArray.push(item);
                 wlModalSortUsedArray.push(item);
                 
-                wlModalGridBox.insertAdjacentHTML(`beforeend` , itemStruct);
+                // Append item to the grid
+                wlModalGridBox.appendChild(wlModalGrid_CardBdr);
 
                 // Testing demo 
                 if(showStatusDemoNo == 4)
@@ -1067,6 +1073,7 @@
         wlModalBase.classList.add("active");
         document.body.classList.add("bodystop");
         wlModalGrid_CardBdr = document.querySelectorAll(".wlModalGrid_CardBdr");
+        wlModalGrid_CardBox = document.querySelectorAll(".wlModalGrid_CardBox");
 
         // Closing the modal
         wlModalBaseCloseBtn.addEventListener("click" , () => 
@@ -1103,6 +1110,7 @@
         // Attaches listeners
         attachMenuModalEventListeners();
         attachReadFullDescWLModalEventListeners();
+        addDragAndSortListEventListeners();
     }
 
 
