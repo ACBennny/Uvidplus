@@ -2286,8 +2286,8 @@
         // Auto scrolls for when cursor is close to the top/bottom of viewport (Mobile)
         function handleAutoScroll(touch) 
         {
-            const edgeThreshold = 50; // Distance from edges to trigger scrolling
-            const scrollSpeed = 10;   // Pixels per frame
+            const edgeThreshold = 75; // Distance from edges to trigger scrolling
+            const scrollSpeed = 50;   // Pixels per frame
             const { clientX, clientY } = touch;
         
             // Find the closest scrollable container
