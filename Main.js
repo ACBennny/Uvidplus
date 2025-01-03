@@ -2179,6 +2179,34 @@
             }
         }
 
+        // Gets the postion of the closest element being dragged over
+        function getDragAfterElement(container, y)
+        {
+            const draggableElements = [...container.querySelectorAll('.genDraggableElement:not(.dragging)')]
+    
+            return draggableElements.reduce((closest, child) => 
+            {
+                const box = child.getBoundingClientRect()
+                const offset = y - box.top - box.height / 2;
+    
+                if (offset < 0 && offset > closest.offset)
+                {
+                    return { offset: offset, element: child };
+                }
+                else
+                {
+                    return closest;
+                }
+            }, { offset: Number.NEGATIVE_INFINITY }).element;
+        }
+
+        
+        // Make touch listeners non-passive
+        function addTouchEventListeners() 
+        {
+            document.addEventListener('touchmove', onTouchDragMove, { passive: false });
+            document.addEventListener('touchend', onTouchDragEnd, { passive: true });
+        }
 
         function onTouchDragStart(event) 
         {
@@ -2204,6 +2232,7 @@
             // Prevent default behavior
             event.preventDefault();
         }
+        let autoScrollInterval = null;
         
         function onTouchDragMove(event) 
         {
@@ -2232,6 +2261,8 @@
                         container.insertBefore(draggable, afterElement);
                     }
                 }
+                // Handle auto-scrolling
+                handleAutoScroll(touch, container);
         
                 // Prevent scrolling
                 event.preventDefault();
@@ -2240,6 +2271,9 @@
         
         function onTouchDragEnd() 
         {
+            clearInterval(autoScrollInterval);
+            autoScrollInterval = null;
+
             removeCustomDragPreview();
         
             // Remove dragging and not-dragging classes
@@ -2248,33 +2282,96 @@
                 elem.classList.remove("dragging", "notDragging");
             });
         }
-        
-        // Make touch listeners non-passive
-        function addTouchEventListeners() 
-        {
-            document.addEventListener('touchmove', onTouchDragMove, { passive: false });
-            document.addEventListener('touchend', onTouchDragEnd, { passive: true });
-        }
 
-        // Gets the postion of the closest element being dragged over
-        function getDragAfterElement(container, y)
+        // Auto scrolls for when cursor is close to the top/bottom of viewport (Mobile)
+        function handleAutoScroll(touch) 
         {
-            const draggableElements = [...container.querySelectorAll('.genDraggableElement:not(.dragging)')]
-    
-            return draggableElements.reduce((closest, child) => 
+            const edgeThreshold = 50; // Distance from edges to trigger scrolling
+            const scrollSpeed = 10;   // Pixels per frame
+            const { clientX, clientY } = touch;
+        
+            // Find the closest scrollable container
+            const scrollableElement = findScrollableElement(clientX, clientY);
+        
+            if (!scrollableElement) 
             {
-                const box = child.getBoundingClientRect()
-                const offset = y - box.top - box.height / 2;
-    
-                if (offset < 0 && offset > closest.offset)
+                clearInterval(autoScrollInterval);
+                return;
+            }
+        
+            const rect = scrollableElement.getBoundingClientRect();
+        
+            // Clear previous interval if any
+            clearInterval(autoScrollInterval);
+        
+            if (clientY - rect.top < edgeThreshold) 
+            {
+                // Near the top edge of the scrollable element
+                autoScrollInterval = setInterval(() => 
                 {
-                    return { offset: offset, element: child };
-                }
-                else
+                    scrollableElement.scrollTop -= scrollSpeed;
+                }, 16); // Approx 60 FPS
+            } 
+            else if (rect.bottom - clientY < edgeThreshold) 
+            {
+                // Near the bottom edge of the scrollable element
+                autoScrollInterval = setInterval(() => 
                 {
-                    return closest;
+                    scrollableElement.scrollTop += scrollSpeed;
+                }, 16); // Approx 60 FPS
+            } 
+            else if (clientX - rect.left < edgeThreshold) 
+            {
+                // Near the left edge (for horizontal scrolling)
+                autoScrollInterval = setInterval(() => {
+                    scrollableElement.scrollLeft -= scrollSpeed;
+                }, 16);
+            } 
+            else if (rect.right - clientX < edgeThreshold) 
+            {
+                // Near the right edge (for horizontal scrolling)
+                autoScrollInterval = setInterval(() => 
+                {
+                    scrollableElement.scrollLeft += scrollSpeed;
+                }, 16);
+            } 
+            else 
+            {
+                // Stop auto-scrolling if not near any edge
+                clearInterval(autoScrollInterval);
+            }
+        }
+        
+        function findScrollableElement(x, y) 
+        {
+            // Get the element at the touch position
+            const element = document.elementFromPoint(x, y);
+        
+            // Traverse up the DOM tree to find a scrollable parent
+            let current = element;
+            while (current && current !== document.body) 
+            {
+                const style = window.getComputedStyle(current);
+        
+                // Check if the element is scrollable
+                if (
+                    (style.overflowY === 'scroll' || style.overflowY === 'auto') &&
+                    current.scrollHeight > current.clientHeight
+                ) {
+                    return current;
                 }
-            }, { offset: Number.NEGATIVE_INFINITY }).element;
+                if (
+                    (style.overflowX === 'scroll' || style.overflowX === 'auto') &&
+                    current.scrollWidth > current.clientWidth
+                ) {
+                    return current;
+                }
+        
+                current = current.parentElement;
+            }
+
+            // Default to window if no scrollable element is found
+            return document.scrollingElement || document.documentElement;
         }
 
 
