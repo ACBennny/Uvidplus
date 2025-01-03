@@ -2323,7 +2323,8 @@
             else if (clientX - rect.left < edgeThreshold) 
             {
                 // Near the left edge (for horizontal scrolling)
-                autoScrollInterval = setInterval(() => {
+                autoScrollInterval = setInterval(() => 
+                {
                     scrollableElement.scrollLeft -= scrollSpeed;
                 }, 16);
             } 
