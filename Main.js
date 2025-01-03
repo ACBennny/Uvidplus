@@ -2018,6 +2018,7 @@
         {
 
             const draggables = document.querySelectorAll('.genDraggableElement');
+            const dragHandlers = document.querySelectorAll('.genDraggableHandles');
             const containers = document.querySelectorAll('.genDraggableContainer');
 
             // Remove any old/pre-existing listeners
@@ -2072,8 +2073,19 @@
                 draggable.dragEndAction = dragEndAction;
             });
 
-            document.addEventListener('dragover', updatePreviewPosition);
-            document.addEventListener('dragend', removeCustomDragPreview);
+            
+            dragHandlers.forEach((handle) => 
+            {
+                if(handle.onTouchDragStart)
+                {
+                    handle.removeEventListener('touchstart' , onTouchDragStart);
+                }
+            });
+            dragHandlers.forEach((handle) => 
+            {
+                handle.addEventListener('touchstart' , onTouchDragStart, { passive: false });
+                handle.onTouchDragStart = onTouchDragStart;
+            });
 
 
             containers.forEach((container) => 
@@ -2116,7 +2128,10 @@
                 container.dragOverAction = dragOverAction;
             });
 
-            addTouchEventListeners()
+            
+            document.addEventListener('dragover', updatePreviewPosition);
+            document.addEventListener('dragend', removeCustomDragPreview);
+            addTouchEventListeners();
         }
         
         // Update position as the drag happens
@@ -2237,7 +2252,6 @@
         // Make touch listeners non-passive
         function addTouchEventListeners() 
         {
-            document.addEventListener('touchstart', onTouchDragStart, { passive: false });
             document.addEventListener('touchmove', onTouchDragMove, { passive: false });
             document.addEventListener('touchend', onTouchDragEnd, { passive: true });
         }
