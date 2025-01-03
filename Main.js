@@ -2232,7 +2232,7 @@
             // Prevent default behavior
             event.preventDefault();
         }
-        let autoScrollInterval = null;
+        let autoDragScrollInterval = null;
         
         function onTouchDragMove(event) 
         {
@@ -2271,8 +2271,8 @@
         
         function onTouchDragEnd() 
         {
-            clearInterval(autoScrollInterval);
-            autoScrollInterval = null;
+            clearInterval(autoDragScrollInterval);
+            autoDragScrollInterval = null;
 
             removeCustomDragPreview();
         
@@ -2295,19 +2295,19 @@
         
             if (!scrollableElement) 
             {
-                clearInterval(autoScrollInterval);
+                clearInterval(autoDragScrollInterval);
                 return;
             }
         
             const rect = scrollableElement.getBoundingClientRect();
         
             // Clear previous interval if any
-            clearInterval(autoScrollInterval);
+            clearInterval(autoDragScrollInterval);
         
             if (clientY - rect.top < edgeThreshold) 
             {
                 // Near the top edge of the scrollable element
-                autoScrollInterval = setInterval(() => 
+                autoDragScrollInterval = setInterval(() => 
                 {
                     scrollableElement.scrollTop -= scrollSpeed;
                 }, 16); // Approx 60 FPS
@@ -2315,7 +2315,7 @@
             else if (rect.bottom - clientY < edgeThreshold) 
             {
                 // Near the bottom edge of the scrollable element
-                autoScrollInterval = setInterval(() => 
+                autoDragScrollInterval = setInterval(() => 
                 {
                     scrollableElement.scrollTop += scrollSpeed;
                 }, 16); // Approx 60 FPS
@@ -2323,7 +2323,7 @@
             else if (clientX - rect.left < edgeThreshold) 
             {
                 // Near the left edge (for horizontal scrolling)
-                autoScrollInterval = setInterval(() => 
+                autoDragScrollInterval = setInterval(() => 
                 {
                     scrollableElement.scrollLeft -= scrollSpeed;
                 }, 16);
@@ -2331,7 +2331,7 @@
             else if (rect.right - clientX < edgeThreshold) 
             {
                 // Near the right edge (for horizontal scrolling)
-                autoScrollInterval = setInterval(() => 
+                autoDragScrollInterval = setInterval(() => 
                 {
                     scrollableElement.scrollLeft += scrollSpeed;
                 }, 16);
@@ -2339,7 +2339,7 @@
             else 
             {
                 // Stop auto-scrolling if not near any edge
-                clearInterval(autoScrollInterval);
+                clearInterval(autoDragScrollInterval);
             }
         }
         
