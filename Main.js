@@ -2011,12 +2011,14 @@
 
     // DRAGGABLE AND SORTABLE LIST
 
+    let customDragPreview = null;
+    let offsetX = 0;
+    let offsetY = 0;
         function addDragAndSortListEventListeners()
         {
 
             const draggables = document.querySelectorAll('.genDraggableElement');
             const containers = document.querySelectorAll('.genDraggableContainer');
-            let customPreview = null;
 
             // Remove any old/pre-existing listeners
             draggables.forEach((draggable) => 
@@ -2034,42 +2036,18 @@
             {
                 const dragStartAction = (e) => 
                 {
+                    // Remove Default drag preview
                     const transparentImage = new Image();
                     transparentImage.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
                     transparentImage.style.opacity = "0";
                     e.dataTransfer.setDragImage(transparentImage, 0, 0);
 
-
-                    // Get the bounding rectangle of the element
-                    const rect = draggable.getBoundingClientRect();
-                    const offsetY = e.clientY - rect.top;
-                    const offsetX = e.clientX - rect.left;
-
-                    // Create the custom drag preview
-                    customPreview = draggable.cloneNode(true);
-                    customPreview.innerHTML = draggable.innerHTML;
-                    customPreview.removeAttribute('draggable');
-                    customPreview.classList.remove('genDraggableElement');
-                    customPreview.classList.add('genDraggablePreview');
-                    customPreview.style.width = `${rect.width}px`;
-                    customPreview.style.height = `${rect.height}px`;
-                    documentBody.appendChild(customPreview);
-
-                    // Update position as the drag happens
-                    const updatePreviewPosition = (e) => 
-                    {
-                        customPreview.style.top = `${e.clientY - offsetY}px`;
-                        customPreview.style.left = `${e.clientX - offsetX}px`;
-                    };
-                    document.addEventListener('dragover', updatePreviewPosition);
-
-                    // Clean up when dragging ends
-                    document.addEventListener('dragend', () => 
-                    {
-                        document.removeEventListener('dragover', updatePreviewPosition);
-                        document.body.removeChild(customPreview);
-                        customPreview = null;
-                    }, { once: true });
+                    // Create Custom Drag Preview
+                    const rect = createCustomDragPreview(draggable);
+        
+                    // Calculate touch offset relative to the element
+                    offsetX = e.clientX - rect.left;
+                    offsetY = e.clientY - rect.top;
 
                     // Add dragging class
                     draggable.classList.add('dragging');
@@ -2093,6 +2071,10 @@
                 draggable.addEventListener('dragend', dragEndAction);
                 draggable.dragEndAction = dragEndAction;
             });
+
+            document.addEventListener('dragover', updatePreviewPosition);
+            document.addEventListener('dragend', removeCustomDragPreview);
+
 
             containers.forEach((container) => 
             {
@@ -2133,6 +2115,131 @@
                 container.addEventListener('dragover', dragOverAction);
                 container.dragOverAction = dragOverAction;
             });
+
+            addTouchEventListeners()
+        }
+        
+        // Update position as the drag happens
+        function updatePreviewPosition(e)
+        {
+            if(customDragPreview)
+            {
+                customDragPreview.style.top = `${e.clientY - offsetY}px`;
+                customDragPreview.style.left = `${e.clientX - offsetX}px`;
+            }
+        };
+
+
+        // Create a custom drag Preview
+        function createCustomDragPreview(element)
+        {
+            // Get the bounding rectangle of the element
+            const rect = element.getBoundingClientRect();
+            offsetY = element.clientY - rect.top;
+            offsetX = element.clientX - rect.left;
+
+            // Create the custom drag preview
+            customDragPreview = element.cloneNode(true);
+            customDragPreview.innerHTML = element.innerHTML;
+            customDragPreview.removeAttribute('draggable');
+            customDragPreview.classList.remove('genDraggableElement');
+            customDragPreview.classList.add('genDraggablePreview');
+            customDragPreview.style.width = `${rect.width}px`;
+            customDragPreview.style.height = `${rect.height}px`;
+            documentBody.appendChild(customDragPreview);
+
+            return rect;
+        }
+
+        // Removes custom drag preview
+        function removeCustomDragPreview()
+        {
+            if(customDragPreview)
+            {
+                customDragPreview.remove();
+                customDragPreview = null;
+
+                document.addEventListener('dragover', updatePreviewPosition);
+                document.addEventListener('dragend', removeCustomDragPreview);
+            }
+        }
+
+
+        function onTouchDragStart(event) 
+        {
+            const touch = event.touches[0];
+            const targetElement = event.target.closest(".genDraggableElement");
+        
+            // Ignore if not a draggable element
+            if (!targetElement) return; 
+        
+            const rect = createCustomDragPreview(targetElement);
+        
+            // Calculate offsets
+            offsetX = touch.clientX - rect.left;
+            offsetY = touch.clientY - rect.top;
+        
+            // Add dragging class for styling
+            targetElement.classList.add('dragging');
+            document.querySelectorAll(".genDraggableElement:not(.dragging)").forEach((elem) => 
+            {
+                elem.classList.add("notDragging");
+            });
+        
+            // Prevent default behavior
+            event.preventDefault();
+        }
+        
+        function onTouchDragMove(event) 
+        {
+            if (customDragPreview) 
+            {
+                const touch = event.touches[0];
+        
+                // Update custom preview position
+                customDragPreview.style.left = `${touch.clientX - offsetX}px`;
+                customDragPreview.style.top = `${touch.clientY - offsetY}px`;
+        
+                // Simulate dragover
+                const container = document.elementFromPoint(touch.clientX, touch.clientY)?.closest('.genDraggableContainer');
+        
+                if (container) 
+                {
+                    const afterElement = getDragAfterElement(container, touch.clientY);
+                    const draggable = document.querySelector('.genDraggableElement.dragging');
+        
+                    if (afterElement == null) 
+                    {
+                        container.appendChild(draggable);
+                    } 
+                    else 
+                    {
+                        container.insertBefore(draggable, afterElement);
+                    }
+                }
+        
+                // Prevent scrolling
+                event.preventDefault();
+            }
+        }
+        
+        function onTouchDragEnd() 
+        {
+            removeCustomDragPreview();
+        
+            // Remove dragging and not-dragging classes
+            document.querySelectorAll(".genDraggableElement").forEach((elem) => 
+            {
+                elem.classList.remove("dragging", "notDragging");
+            });
+        }
+        
+        // Make touch listeners non-passive
+        function addTouchEventListeners() 
+        {
+            document.addEventListener('touchstart', onTouchDragStart, { passive: false });
+            document.addEventListener('touchmove', onTouchDragMove, { passive: false });
+            document.addEventListener('touchend', onTouchDragEnd, { passive: true });
         }
 
         // Gets the postion of the closest element being dragged over
