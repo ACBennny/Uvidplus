@@ -46,6 +46,7 @@
     let customDragPreview = null;
     let offsetX = 0;
     let offsetY = 0;
+    let autoDragScrollInterval = null;
     let confirmModalBase;
     let currOpenGenMenuModalBtnIndex = null;
     let genMenuModalMap;
@@ -2232,7 +2233,6 @@
             // Prevent default behavior
             event.preventDefault();
         }
-        let autoDragScrollInterval = null;
         
         function onTouchDragMove(event) 
         {
