@@ -993,7 +993,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div href="${show_link}" class="wlModalGrid_CardCtntBdr">
+                            <div onclick="window.open('${show_link}' , '_self')" class="wlModalGrid_CardCtntBdr">
                                 <div class="wlModalGrid_CardCtntBox">
                                     <div class="wlModalGrid_CardCtntThumbBdr">
                                         <div class="wlModalGrid_CardCtntThumbBox">
