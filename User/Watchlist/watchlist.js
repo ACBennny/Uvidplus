@@ -1302,6 +1302,9 @@
         // Decrease the current watchlist size
         newWLCurrSize--;
 
+        // Notify users that the watchlist has been deleted
+        notification(`notifyGood` , `Watchlist successfully deleted`);
+
         if((watchlistInventory.length <= 0))
         {
             insertEmptyBdr();
