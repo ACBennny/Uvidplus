@@ -2772,7 +2772,7 @@
         
                     addToWLTimer = setTimeout(() => 
                     {
-                        documentBody.setAttribute(`data-modal-state` , `close`);
+                        documentBody.setAttribute(`data-modal-state` , `open`);
                         playListBdr.classList.add("active");
                         playListBox.classList.add("active");
                         clearTimeout(addToWLTimer);
@@ -2907,7 +2907,7 @@
                     // Closes the Playlist modal
                     function closeAddToWL()
                     {
-                        documentBody.setAttribute(`data-modal-state` , `open`);
+                        documentBody.setAttribute(`data-modal-state` , `close`);
                         playListBdr.classList.remove("active");
                         playListBox.classList.remove("active");
         
