@@ -2378,404 +2378,6 @@
 
 
 
-    // ADD TO WATCHLIST
-
-        function attachAddToWLEventListeners()
-        {
-            let openAddToWLBtn = document.querySelectorAll(".openAddToWLBtn");
-
-            openAddToWLBtn.forEach(btn => 
-            {
-                if(btn.addToWLFunc)
-                {
-                    btn.removeEventListener(`click` , btn.addToWLFunc);
-                }
-            });
-
-            openAddToWLBtn.forEach(btn => 
-            {
-                const addToWLFunc = () =>
-                {
-                    const playListBdr = document.createElement("div");
-                    playListBdr.classList.add("genAtnModalBdr");
-                    playListBdr.innerHTML = addToWLHTML;
-                    documentBody.appendChild(playListBdr);
-        
-                    const playListCloseBtn = document.querySelectorAll(".closeAddToWL");
-                    const playListBox = document.querySelector(".addToWLBox");
-                    const playListItemBcg = document.querySelector(".addToWLItemBcg");
-                    const playListItemBox = document.querySelector(".addToWLItemBox");
-                    const playListItem = document.querySelectorAll(".plItem");
-                    const newWLBtn = document.querySelector(".newWLBtn");
-                    const newWLModal = document.querySelector(".newWLBdr");
-                    const newWLInput = document.querySelector("#newWLInputId");
-                    const newWLWarn = document.querySelector("#newWLWarnId");
-                    const createWLBtn = document.querySelector("#createNewWL");
-                    const cancelWLBtn = document.querySelector("#cancelNewWL");
-                    let inputUppBnd = 50;
-                    let inputLowBnd = 2;
-                    let plArr = [];
-                    let lastWLArr;
-                    let lastWLArrLength = 0;
-                    let currLength = 0;
-                    let wordCount = inputUppBnd;
-    
-                    // Disabling btn to prevent multiple calls
-                    btn.disabled = true;
-        
-                    addToWLTimer = setTimeout(() => 
-                    {
-                        documentBody.classList.add("bodystop");
-                        playListBdr.classList.add("active");
-                        playListBox.classList.add("active");
-                        clearTimeout(addToWLTimer);
-                    }, 100);
-        
-        
-                    playListItem.forEach(item => 
-                    {
-                        const itemName = item.querySelector(".genAtnModalOptText").textContent;
-        
-                        // Setting properties
-                        item.setAttribute("data-list" , itemName);
-                        item.title = "Add to " + itemName;
-                        item.ariaLabel = "Add to " + itemName;
-        
-                        // Send notification when show is added
-                        item.addEventListener("click" , () => 
-                        {
-                            notification(`notifyGood` , `Show successfully added to "${itemName}"`);
-                            item.disabled = true;
-                        });
-                    });
-        
-                    // Opens the Create playList modal
-                    newWLBtn.addEventListener("click" , () => 
-                    {
-                        playListItemBcg.scrollTo(0 , 0);
-                        newWLBtn.classList.add("inactive");
-                        newWLModal.classList.add("active");
-        
-                        newWLInput.disabled = false;
-                        cancelWLBtn.disabled = false;
-
-                        newWLInput.focus();
-                    });
-        
-        
-                    function closeNewWLModal()
-                    {
-                        newWLBtn.classList.remove("inactive");
-                        newWLModal.classList.remove("active");
-                        newWLWarn.classList.remove("active");
-                        newWLWarn.classList.remove("empty");
-        
-                        newWLInput.value = "";
-                        newWLWarn.textContent = "";
-        
-                        newWLInput.disabled = true;
-                        cancelWLBtn.disabled = true;
-                        createWLBtn.disabled = true;
-                    }
-        
-                    // Closes the Create playList modal
-                    cancelWLBtn.addEventListener("click" , closeNewWLModal);
-        
-                    // checking input length
-                    function getWordCount(input)
-                    {
-                        plArr.push(input);
-                        lastWLArr = plArr.at(-1);
-                        lastWLArrLength = lastWLArr.length;
-        
-                        // update warn label
-                        currLength = wordCount - lastWLArrLength;
-                        newWLWarn.textContent = currLength;
-        
-                        newWLWarn.classList.toggle("active" , currLength < 16);
-                        newWLWarn.classList.toggle("empty" , currLength < 1);
-        
-                        checkBeforeCreate(lastWLArr);
-                    }
-        
-                    // Check if name is valid (3 - 64 characters)
-                    function checkBeforeCreate(val)
-                    {
-                        if(val.length < inputLowBnd || (val.length > inputUppBnd))
-                        {
-                            createWLBtn.disabled = true;
-                            createWLBtn.classList.replace("midSolidBtn" , "inactiveBtn");
-                            return;
-                        }
-                        createWLBtn.disabled = false;
-                        createWLBtn.classList.replace("inactiveBtn" , "midSolidBtn");
-                    }
-        
-                    newWLInput.addEventListener("input" , () => 
-                    {
-                        getWordCount(newWLInput.value);
-                    });
-        
-                    // Creates and inserts new list
-                    function generateList(plName)
-                    {
-                        let newListHTML = 
-                        `
-                            <button data-list="${plName}" class="genAtnModalOptBox plItem" title="Add to ${plName}" aria-label="Add to ${plName}">
-                                <div class="genAtnModalOptIconBox">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genAtnModalOptIcon">
-                                        <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
-                                        <path fill-rule="evenodd" d="M2 8c0 .494.993.89 2.979 1.685l2.808 1.124C9.773 11.603 10.767 12 12 12s2.227-.397 4.213-1.191l2.808-1.124C21.007 8.891 22 8.494 22 8s-.993-.89-2.979-1.685l-2.808-1.123C14.227 4.397 13.233 4 12 4s-2.227.397-4.213 1.192L4.98 6.315C2.993 7.109 2 7.506 2 8" clip-rule="evenodd" />
-                                        <path d="m19.021 13.685l-2.808 1.124C14.227 15.603 13.233 16 12 16s-2.227-.397-4.213-1.191L4.98 13.685C2.993 12.891 2 12.493 2 12c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 12.535 10.572 13 12 13s2.59-.465 4.439-1.205l3.14-1.256C21.194 11.189 22 11.555 22 12c0 .493-.993.89-2.979 1.685" />
-                                        <path d="m19.021 17.685l-2.808 1.123C14.227 19.603 13.233 20 12 20s-2.227-.397-4.213-1.192L4.98 17.685C2.993 16.89 2 16.493 2 16c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 16.535 10.572 17 12 17s2.59-.465 4.439-1.205l3.14-1.256c1.614.65 2.421 1.016 2.421 1.46c0 .494-.993.891-2.979 1.686" />
-                                    </svg>
-                                </div>
-                                <div class="genAtnModalOptTextBox ">
-                                    <span class="genAtnModalOptText ">${plName}</span>
-                                </div>
-                            </button>
-                        `;
-                        playListItemBox.insertAdjacentHTML("beforeend" , newListHTML);
-                        notification(`notifyGood` , `Show successfully added to "${plName}"`);
-                        
-                        closeNewWLModal();
-                    }
-        
-                    createWLBtn.addEventListener("click" , () => 
-                    {
-                        generateList(newWLInput.value);
-                    });
-    
-                    // Create list by pressing the "Enter" key
-                    newWLInput.addEventListener("keyup" , (e) => 
-                    {
-                        if((e.key === "Enter"))
-                        {
-                            createWLBtn.click();
-                        }
-                    });
-        
-        
-                    // Closes the Playlist modal
-                    function closeAddToWL()
-                    {
-                        documentBody.classList.remove("bodystop");
-                        playListBdr.classList.remove("active");
-                        playListBox.classList.remove("active");
-        
-                        addToWLTimer = setTimeout(() => 
-                        {
-                            documentBody.removeChild(playListBdr);
-                            documentBody.classList.remove("bodystop");
-                            btn.disabled = false;
-                            clearTimeout(addToWLTimer);
-        
-                        }, 300);
-                    }
-        
-                    playListCloseBtn.forEach(one => 
-                    {
-                        one.addEventListener("mousedown" , closeAddToWL);
-                    });
-                }
-                btn.addEventListener("click" , addToWLFunc);
-                btn.addToWLFunc = addToWLFunc;
-            });
-        }
-
-
-
-    // SHARE
-
-        function attachSharePageEventListeners()
-        {
-            let socialShareLink = encodeURI(window.location.href);
-            let socialShareTitle = encodeURIComponent(documentTitle);
-            let socialShareMsg = `Check out ${socialShareTitle}`;
-            let shareShowBtn = document.querySelectorAll(".shareShowBtn");
-
-            shareShowBtn.forEach((btn) => 
-            {
-                if(btn.customSclShareModal)
-                {
-                    btn.removeEventListener("click" , customSclShareModal);
-                }
-            });
-
-            shareShowBtn.forEach((btn) => 
-            {
-                // Fallback called if "navigator.share" is not supported
-                function customSclShareModal()
-                {
-                    let socialShareLink = encodeURI(window.location.href);
-                    let socialShareTitle = encodeURIComponent(documentTitle);
-                    let socialShareMsg = `Check out ${socialShareTitle}`;
-                    const sclShareBdr = document.createElement("div");
-                    sclShareBdr.classList.add("genAtnModalBdr");
-                    sclShareBdr.innerHTML = socialShareHTML;
-                    documentBody.appendChild(sclShareBdr);
-                    
-                    const sclShareCloseBtn = document.querySelectorAll(".closeSclShare");
-                    const sclShareBox = document.querySelector(".sclShareBox");
-                    const sclShareOpt = sclShareBox.querySelectorAll(".genAtnModalOptBox");
-                    socialDestinationH = window.innerHeight;
-                    socialDestinationW = window.innerWidth;
-
-                    let fbLink = `https://www.facebook.com/sharer/sharer.php?u=${socialShareLink}`;
-                    let twLink = `https://twitter.com/intent/tweet?url=${socialShareLink}&text=${socialShareTitle}`;
-                    let waLink = `https://api.whatsapp.com/send?text=${socialShareTitle}: ${socialShareLink}`;
-                    let pnLink = `https://www.pinterest.com/pin/create/button?url=${socialShareLink}&description=${socialShareTitle}`;
-                    let rdlink = `https://reddit.com/submit?url=${socialShareLink}&title=${socialShareTitle}`;
-                    let tgLink = `https://telegram.me/share/url?url=${socialShareLink}&text=${socialShareTitle}`;
-                    let tbLink = `https://www.tumblr.com/widgets/share/tool?canonicalUrl=${socialShareLink}&title=${socialShareTitle}&caption=${socialShareMsg}`;
-                    let yhLink = `https://compose.mail.yahoo.com/?body=${socialShareLink}`;
-                    let lnLink = `https://line.me/R/msg/text/?${socialShareLink}`;
-                    let okLink = `https://connect.ok.ru/dk?st.cmd=WidgetSharePreview&st.shareUrl=${socialShareLink}&title=${socialShareTitle}`;
-                    let vkLink = `https://vk.com/share.php?url=${socialShareLink}`;
-                    let emLink = `mailto:%7Bemail_address%7D?subject=${socialShareLink}&body=${socialShareTitle}%20`;
-                    let gmLink = `https://mail.google.com/mail/?view=cm&to=%7Bemail_address%7D&su=${socialShareTitle}&body=${socialShareLink}&bcc=%7Bemail_address%7D&cc=%7Bemail_address%7D`;
-
-                    // shareShowBtn.forEach(btn => 
-                    // {
-                        btn.addEventListener("click" , () => 
-                        {
-                            btn.disabled = true;
-                        });
-                    // });
-
-                    socialShareTimer = setTimeout(() => 
-                    {
-                        documentBody.classList.add("bodystop");
-                        sclShareBdr.classList.add("active");
-                        sclShareBox.classList.add("active");
-                        clearTimeout(socialShareTimer);
-                    }, 100);
-
-                    // Setting title of Options
-                    sclShareOpt.forEach(opt => 
-                    {
-                        let sclDataShare = opt.getAttribute("data-share").toLowerCase();
-                        const sclShareOptText = opt.querySelector(".shareText");
-                        opt.title = "Share on " + sclShareOptText.textContent;
-                        opt.ariaLabel = sclShareOptText.textContent;
-
-                        opt.addEventListener("click" , () => 
-                        {
-                            shareDestination(sclDataShare);
-                        });
-                    });
-
-                    // Redirecting to share destination
-                    const shareDestination = (destination) =>
-                    {
-                        switch(destination)
-                        {
-                            case "facebook":
-                                window.open(`${fbLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                                break;
-                            case "twitter":
-                                window.open(`${twLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                                break;
-                            case "whatsapp":
-                                window.open(`${waLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                                break;
-                            case "pinterest":
-                                window.open(`${pnLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                                break;
-                            case "reddit":
-                                window.open(`${rdlink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                                break;
-                            case "telegram":
-                                window.open(`${tgLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                                break;
-                            case "tumblr":
-                                window.open(`${tbLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                                break;
-                            case "yahoo":
-                                window.open(`${yhLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                                break;
-                            case "line":
-                                window.open(`${lnLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                                break;
-                            case "okru":
-                                window.open(`${okLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                                break;
-                            case "vkontakte":
-                                window.open(`${vkLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                                break;
-                            case "email":
-                                window.open(`${emLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                                break;
-                            case "gmail":
-                                window.open(`${gmLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                                break;
-                            default:
-                                alert("An error occured");
-                                break;
-                        }
-                    }
-
-                    // Closes the Share modal
-                    function closeSclShareBox()
-                    {
-                        documentBody.classList.remove("bodystop");
-
-                        // Removes style classes
-                        sclShareBdr.classList.remove("active");
-                        sclShareBox.classList.remove("active");
-
-                        socialShareTimer = setTimeout(() => 
-                        {
-                            documentBody.removeChild(sclShareBdr);
-                            // shareShowBtn.forEach(btn => 
-                            // {
-                                btn.addEventListener("click" , () => 
-                                {
-                                    btn.disabled = false;
-                                });
-                            // });
-                            documentBody.classList.remove("bodystop");
-                            clearTimeout(socialShareTimer);
-
-                        }, 300);
-                    }
-
-                    sclShareCloseBtn.forEach(one => 
-                    {
-                        one.addEventListener("mousedown" , closeSclShareBox);
-                    });
-                }
-
-                // navigator.share function
-                const navigatorSclShareModal = () =>
-                {
-                    if(navigator.share)
-                    {
-                        navigator.share(
-                        {
-                            title: `${socialShareTitle}`,
-                            url: `${socialShareLink}`,
-                            msg: `${socialShareMsg}`
-                        })
-                        .then(() => 
-                        {
-                            notification(`notifyGood` , `Thanks for sharing`);
-                        })
-                        .catch(console.error);
-                    }
-                    else
-                    {
-                        customSclShareModal();
-                    }
-                }
-
-                btn.addEventListener("click" , customSclShareModal);
-                btn.customSclShareModal = customSclShareModal;
-            });
-        }
-
-
-
     // GENERAL MENU MODAL
 
         // Load the file if not present
@@ -3146,6 +2748,403 @@
             menuModalBoxH < Math.round((startGenMenuBoxHeight * 0.75)) ? hideGenMenuModal() : updateGenMenuModalBoxHeight(startGenMenuBoxHeight);
         }
     
+
+
+    // ADD TO WATCHLIST
+
+        function attachAddToWLEventListeners()
+        {
+            let openAddToWLBtn = document.querySelectorAll(".openAddToWLBtn");
+
+            openAddToWLBtn.forEach(btn => 
+            {
+                if(btn.addToWLFunc)
+                {
+                    btn.removeEventListener(`click` , btn.addToWLFunc);
+                }
+            });
+
+            openAddToWLBtn.forEach(btn => 
+            {
+                const addToWLFunc = () =>
+                {
+                    const playListBdr = document.createElement("div");
+                    playListBdr.classList.add("genAtnModalBdr");
+                    playListBdr.innerHTML = addToWLHTML;
+                    documentBody.appendChild(playListBdr);
+        
+                    const playListCloseBtn = document.querySelectorAll(".closeAddToWL");
+                    const playListBox = document.querySelector(".addToWLBox");
+                    const playListItemBcg = document.querySelector(".addToWLItemBcg");
+                    const playListItemBox = document.querySelector(".addToWLItemBox");
+                    const playListItem = document.querySelectorAll(".plItem");
+                    const newWLBtn = document.querySelector(".newWLBtn");
+                    const newWLModal = document.querySelector(".newWLBdr");
+                    const newWLInput = document.querySelector("#newWLInputId");
+                    const newWLWarn = document.querySelector("#newWLWarnId");
+                    const createWLBtn = document.querySelector("#createNewWL");
+                    const cancelWLBtn = document.querySelector("#cancelNewWL");
+                    let inputUppBnd = 50;
+                    let inputLowBnd = 2;
+                    let plArr = [];
+                    let lastWLArr;
+                    let lastWLArrLength = 0;
+                    let currLength = 0;
+                    let wordCount = inputUppBnd;
+
+                    // Disabling btn to prevent multiple calls
+                    btn.disabled = true;
+        
+                    addToWLTimer = setTimeout(() => 
+                    {
+                        documentBody.classList.add("bodystop");
+                        playListBdr.classList.add("active");
+                        playListBox.classList.add("active");
+                        clearTimeout(addToWLTimer);
+                    }, 100);
+        
+        
+                    playListItem.forEach(item => 
+                    {
+                        const itemName = item.querySelector(".genAtnModalOptText").textContent;
+        
+                        // Setting properties
+                        item.setAttribute("data-list" , itemName);
+                        item.title = "Add to " + itemName;
+                        item.ariaLabel = "Add to " + itemName;
+        
+                        // Send notification when show is added
+                        item.addEventListener("click" , () => 
+                        {
+                            notification(`notifyGood` , `Show successfully added to "${itemName}"`);
+                            item.disabled = true;
+                        });
+                    });
+        
+                    // Opens the Create playList modal
+                    newWLBtn.addEventListener("click" , () => 
+                    {
+                        playListItemBcg.scrollTo(0 , 0);
+                        newWLBtn.classList.add("inactive");
+                        newWLModal.classList.add("active");
+        
+                        newWLInput.disabled = false;
+                        cancelWLBtn.disabled = false;
+
+                        newWLInput.focus();
+                    });
+        
+        
+                    function closeNewWLModal()
+                    {
+                        newWLBtn.classList.remove("inactive");
+                        newWLModal.classList.remove("active");
+                        newWLWarn.classList.remove("active");
+                        newWLWarn.classList.remove("empty");
+        
+                        newWLInput.value = "";
+                        newWLWarn.textContent = "";
+        
+                        newWLInput.disabled = true;
+                        cancelWLBtn.disabled = true;
+                        createWLBtn.disabled = true;
+                    }
+        
+                    // Closes the Create playList modal
+                    cancelWLBtn.addEventListener("click" , closeNewWLModal);
+        
+                    // checking input length
+                    function getWordCount(input)
+                    {
+                        plArr.push(input);
+                        lastWLArr = plArr.at(-1);
+                        lastWLArrLength = lastWLArr.length;
+        
+                        // update warn label
+                        currLength = wordCount - lastWLArrLength;
+                        newWLWarn.textContent = currLength;
+        
+                        newWLWarn.classList.toggle("active" , currLength < 16);
+                        newWLWarn.classList.toggle("empty" , currLength < 1);
+        
+                        checkBeforeCreate(lastWLArr);
+                    }
+        
+                    // Check if name is valid (3 - 64 characters)
+                    function checkBeforeCreate(val)
+                    {
+                        if(val.length < inputLowBnd || (val.length > inputUppBnd))
+                        {
+                            createWLBtn.disabled = true;
+                            createWLBtn.classList.replace("midSolidBtn" , "inactiveBtn");
+                            return;
+                        }
+                        createWLBtn.disabled = false;
+                        createWLBtn.classList.replace("inactiveBtn" , "midSolidBtn");
+                    }
+        
+                    newWLInput.addEventListener("input" , () => 
+                    {
+                        getWordCount(newWLInput.value);
+                    });
+        
+                    // Creates and inserts new list
+                    function generateList(plName)
+                    {
+                        let newListHTML = 
+                        `
+                            <button data-list="${plName}" class="genAtnModalOptBox plItem" title="Add to ${plName}" aria-label="Add to ${plName}">
+                                <div class="genAtnModalOptIconBox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genAtnModalOptIcon">
+                                        <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
+                                        <path fill-rule="evenodd" d="M2 8c0 .494.993.89 2.979 1.685l2.808 1.124C9.773 11.603 10.767 12 12 12s2.227-.397 4.213-1.191l2.808-1.124C21.007 8.891 22 8.494 22 8s-.993-.89-2.979-1.685l-2.808-1.123C14.227 4.397 13.233 4 12 4s-2.227.397-4.213 1.192L4.98 6.315C2.993 7.109 2 7.506 2 8" clip-rule="evenodd" />
+                                        <path d="m19.021 13.685l-2.808 1.124C14.227 15.603 13.233 16 12 16s-2.227-.397-4.213-1.191L4.98 13.685C2.993 12.891 2 12.493 2 12c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 12.535 10.572 13 12 13s2.59-.465 4.439-1.205l3.14-1.256C21.194 11.189 22 11.555 22 12c0 .493-.993.89-2.979 1.685" />
+                                        <path d="m19.021 17.685l-2.808 1.123C14.227 19.603 13.233 20 12 20s-2.227-.397-4.213-1.192L4.98 17.685C2.993 16.89 2 16.493 2 16c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 16.535 10.572 17 12 17s2.59-.465 4.439-1.205l3.14-1.256c1.614.65 2.421 1.016 2.421 1.46c0 .494-.993.891-2.979 1.686" />
+                                    </svg>
+                                </div>
+                                <div class="genAtnModalOptTextBox ">
+                                    <span class="genAtnModalOptText ">${plName}</span>
+                                </div>
+                            </button>
+                        `;
+                        playListItemBox.insertAdjacentHTML("beforeend" , newListHTML);
+                        notification(`notifyGood` , `Show successfully added to "${plName}"`);
+                        
+                        closeNewWLModal();
+                    }
+        
+                    createWLBtn.addEventListener("click" , () => 
+                    {
+                        generateList(newWLInput.value);
+                    });
+
+                    // Create list by pressing the "Enter" key
+                    newWLInput.addEventListener("keyup" , (e) => 
+                    {
+                        if((e.key === "Enter"))
+                        {
+                            createWLBtn.click();
+                        }
+                    });
+        
+        
+                    // Closes the Playlist modal
+                    function closeAddToWL()
+                    {
+                        documentBody.classList.remove("bodystop");
+                        playListBdr.classList.remove("active");
+                        playListBox.classList.remove("active");
+        
+                        addToWLTimer = setTimeout(() => 
+                        {
+                            documentBody.removeChild(playListBdr);
+                            documentBody.classList.remove("bodystop");
+                            btn.disabled = false;
+                            clearTimeout(addToWLTimer);
+        
+                        }, 300);
+                    }
+        
+                    playListCloseBtn.forEach(one => 
+                    {
+                        one.addEventListener("mousedown" , closeAddToWL);
+                    });
+                }
+                btn.addEventListener("click" , addToWLFunc);
+                btn.addToWLFunc = addToWLFunc;
+            });
+        }
+
+
+
+    // SHARE
+
+        function attachSharePageEventListeners()
+        {
+            let socialShareLink = encodeURI(window.location.href);
+            let socialShareTitle = encodeURIComponent(documentTitle);
+            let socialShareMsg = `Check out ${socialShareTitle}`;
+            let shareShowBtn = document.querySelectorAll(".shareShowBtn");
+
+            shareShowBtn.forEach((btn) => 
+            {
+                if(btn.customSclShareModal)
+                {
+                    btn.removeEventListener("click" , customSclShareModal);
+                }
+            });
+
+            shareShowBtn.forEach((btn) => 
+            {
+                // Fallback called if "navigator.share" is not supported
+                function customSclShareModal()
+                {
+                    let socialShareLink = encodeURI(window.location.href);
+                    let socialShareTitle = encodeURIComponent(documentTitle);
+                    let socialShareMsg = `Check out ${socialShareTitle}`;
+                    const sclShareBdr = document.createElement("div");
+                    sclShareBdr.classList.add("genAtnModalBdr");
+                    sclShareBdr.innerHTML = socialShareHTML;
+                    documentBody.appendChild(sclShareBdr);
+                    
+                    const sclShareCloseBtn = document.querySelectorAll(".closeSclShare");
+                    const sclShareBox = document.querySelector(".sclShareBox");
+                    const sclShareOpt = sclShareBox.querySelectorAll(".genAtnModalOptBox");
+                    socialDestinationH = window.innerHeight;
+                    socialDestinationW = window.innerWidth;
+
+                    let fbLink = `https://www.facebook.com/sharer/sharer.php?u=${socialShareLink}`;
+                    let twLink = `https://twitter.com/intent/tweet?url=${socialShareLink}&text=${socialShareTitle}`;
+                    let waLink = `https://api.whatsapp.com/send?text=${socialShareTitle}: ${socialShareLink}`;
+                    let pnLink = `https://www.pinterest.com/pin/create/button?url=${socialShareLink}&description=${socialShareTitle}`;
+                    let rdlink = `https://reddit.com/submit?url=${socialShareLink}&title=${socialShareTitle}`;
+                    let tgLink = `https://telegram.me/share/url?url=${socialShareLink}&text=${socialShareTitle}`;
+                    let tbLink = `https://www.tumblr.com/widgets/share/tool?canonicalUrl=${socialShareLink}&title=${socialShareTitle}&caption=${socialShareMsg}`;
+                    let yhLink = `https://compose.mail.yahoo.com/?body=${socialShareLink}`;
+                    let lnLink = `https://line.me/R/msg/text/?${socialShareLink}`;
+                    let okLink = `https://connect.ok.ru/dk?st.cmd=WidgetSharePreview&st.shareUrl=${socialShareLink}&title=${socialShareTitle}`;
+                    let vkLink = `https://vk.com/share.php?url=${socialShareLink}`;
+                    let emLink = `mailto:%7Bemail_address%7D?subject=${socialShareLink}&body=${socialShareTitle}%20`;
+                    let gmLink = `https://mail.google.com/mail/?view=cm&to=%7Bemail_address%7D&su=${socialShareTitle}&body=${socialShareLink}&bcc=%7Bemail_address%7D&cc=%7Bemail_address%7D`;
+
+                    // shareShowBtn.forEach(btn => 
+                    // {
+                        btn.addEventListener("click" , () => 
+                        {
+                            btn.disabled = true;
+                        });
+                    // });
+
+                    socialShareTimer = setTimeout(() => 
+                    {
+                        documentBody.classList.add("bodystop");
+                        sclShareBdr.classList.add("active");
+                        sclShareBox.classList.add("active");
+                        clearTimeout(socialShareTimer);
+                    }, 100);
+
+                    // Setting title of Options
+                    sclShareOpt.forEach(opt => 
+                    {
+                        let sclDataShare = opt.getAttribute("data-share").toLowerCase();
+                        const sclShareOptText = opt.querySelector(".shareText");
+                        opt.title = "Share on " + sclShareOptText.textContent;
+                        opt.ariaLabel = sclShareOptText.textContent;
+
+                        opt.addEventListener("click" , () => 
+                        {
+                            shareDestination(sclDataShare);
+                        });
+                    });
+
+                    // Redirecting to share destination
+                    const shareDestination = (destination) =>
+                    {
+                        switch(destination)
+                        {
+                            case "facebook":
+                                window.open(`${fbLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                                break;
+                            case "twitter":
+                                window.open(`${twLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                                break;
+                            case "whatsapp":
+                                window.open(`${waLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                                break;
+                            case "pinterest":
+                                window.open(`${pnLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                                break;
+                            case "reddit":
+                                window.open(`${rdlink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                                break;
+                            case "telegram":
+                                window.open(`${tgLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                                break;
+                            case "tumblr":
+                                window.open(`${tbLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                                break;
+                            case "yahoo":
+                                window.open(`${yhLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                                break;
+                            case "line":
+                                window.open(`${lnLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                                break;
+                            case "okru":
+                                window.open(`${okLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                                break;
+                            case "vkontakte":
+                                window.open(`${vkLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                                break;
+                            case "email":
+                                window.open(`${emLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                                break;
+                            case "gmail":
+                                window.open(`${gmLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                                break;
+                            default:
+                                alert("An error occured");
+                                break;
+                        }
+                    }
+
+                    // Closes the Share modal
+                    function closeSclShareBox()
+                    {
+                        documentBody.classList.remove("bodystop");
+
+                        // Removes style classes
+                        sclShareBdr.classList.remove("active");
+                        sclShareBox.classList.remove("active");
+
+                        socialShareTimer = setTimeout(() => 
+                        {
+                            documentBody.removeChild(sclShareBdr);
+                            // shareShowBtn.forEach(btn => 
+                            // {
+                                btn.addEventListener("click" , () => 
+                                {
+                                    btn.disabled = false;
+                                });
+                            // });
+                            documentBody.classList.remove("bodystop");
+                            clearTimeout(socialShareTimer);
+
+                        }, 300);
+                    }
+
+                    sclShareCloseBtn.forEach(one => 
+                    {
+                        one.addEventListener("mousedown" , closeSclShareBox);
+                    });
+                }
+
+                // navigator.share function
+                const navigatorSclShareModal = () =>
+                {
+                    if(navigator.share)
+                    {
+                        navigator.share(
+                        {
+                            title: `${socialShareTitle}`,
+                            url: `${socialShareLink}`,
+                            msg: `${socialShareMsg}`
+                        })
+                        .then(() => 
+                        {
+                            notification(`notifyGood` , `Thanks for sharing`);
+                        })
+                        .catch(console.error);
+                    }
+                    else
+                    {
+                        customSclShareModal();
+                    }
+                }
+
+                btn.addEventListener("click" , customSclShareModal);
+                btn.customSclShareModal = customSclShareModal;
+            });
+        }
 
 
 
