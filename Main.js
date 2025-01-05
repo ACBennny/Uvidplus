@@ -2715,6 +2715,7 @@
         // Closes the menu modal if dragged beyond 75% of its height
         const stopDraggingGenMenuModal = () => 
         {
+            genMenuModalScreenType = null;
             genMenuModalIsDragging = false;
             genMenuModalBdr.classList.remove("isDragging");
             genMenuModalBox.classList.remove("disableClicks");
