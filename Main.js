@@ -34,6 +34,8 @@
     let preNotifyTimer;
     let midNotifyTimer;
     let endNotifyTimer;
+    let confirmModalTimer;
+    let confirmModalBodyOverflow = false;
     let navbarUnderlayer;
     let navBarNotificationStatusNoBox;
     let navBarNotificationTimer;
@@ -1448,7 +1450,6 @@
     
     // CONFIRMATION MODAL
         
-        let confirmModalTimer;
         /**
          * 
          * @param {string} theQuestionText This contains the question displayed to the user
@@ -1507,7 +1508,7 @@
             confirmModalBase.addEventListener("transitionend" , function handleTransitionEnd()
             {
                 confirmModalBase.removeEventListener("transitionend" , handleTransitionEnd);
-                documentBody.classList.add("bodystop");
+                documentBody.setAttribute(`data-confirm-modal-state` , `open`);
             });
         }
 
@@ -1517,7 +1518,7 @@
 
             confirmModalBase.addEventListener("transitionend" , function handleTransitionEnd()
             {
-                documentBody.classList.remove("bodystop");
+                documentBody.setAttribute(`data-confirm-modal-state` , `close`);
                 confirmModalBase.removeEventListener("transitionend" , handleTransitionEnd);
                 confirmModalBase.innerHTML = confirmModalStruct;
             });

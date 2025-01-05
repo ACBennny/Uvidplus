@@ -22,7 +22,7 @@
     let createWLTimer;
     let wlBodySortTabs;
     let wlBodySortTabIndex = 0;
-    let userWLCatalog_ItemDelWLBtnIndex = null;
+    let wlBodyCardIndex = null;
     let userWLCatalog_ItemBase;
     let currCatalogItemBase;
     let wlModalMap;
@@ -512,7 +512,7 @@
                                     <div class="userWLCatalog_ItemOpenWLBdr">
                                         <button type="button" class="userWLCatalog_ItemOpenWLBtn"></button>
                                     </div>
-                                    <div class="userWLCatalog_ItemBadgeBdr userWLCatalog_ItemDelWLBtn" title="Delete">
+                                    <div class="userWLCatalog_ItemBadgeBdr wlDeleteBtn" title="Delete">
                                         <div class="userWLCatalog_ItemBadgeBox">
                                             <div class="userWLCatalog_ItemBadgeIcon">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="userWLCatalog_ItemBadgeSvg">
@@ -687,71 +687,13 @@
         {
             const action = () => 
             {
-                openWLModal(i);
+                wlBodyCardIndex = i;
+                openWLModal(wlBodyCardIndex);
             }
 
             btn.addEventListener("click" , action);
             btn.action = action;
         });
-    }
-
-
-    // Adding Event listeners for deleting watchlist items
-    function addDelWLEventListeners()
-    {
-        let userWLCatalog_ItemDelWLBtn = document.querySelectorAll(".userWLCatalog_ItemDelWLBtn");
-
-        userWLCatalog_ItemDelWLBtn.forEach((btn) => 
-        {
-            if(btn.action)
-            {
-                btn.removeEventListener("click" , btn.action);
-            }
-        });
-
-        userWLCatalog_ItemDelWLBtn.forEach((btn, i) => 
-        {
-            const action = () => 
-            {
-                userWLCatalog_ItemDelWLBtnIndex = i;
-                initConfirmModal(
-                    `Are you sure you want to delete this watchlist?`,
-                    `Note: This action cannot be undone`,
-                    `Yes`,
-                    `No`,
-                    delWLCatalogItem
-                );
-            }
-
-            btn.addEventListener("click" , action);
-            btn.action = action;
-        });
-    }
-
-
-    // Deleting your watchlists
-    function delWLCatalogItem()
-    {
-        // Delete item from invetory
-        watchlistInventory.splice(userWLCatalog_ItemDelWLBtnIndex , 1);
-        wlBodySortArray.splice(userWLCatalog_ItemDelWLBtnIndex , 1);
-
-        // Remove item from catalog
-        let delItem = document.getElementsByClassName("userWLCatalog_ItemBase")[userWLCatalog_ItemDelWLBtnIndex];
-        delItem.remove();
-
-        // Decrease the current watchlist size
-        newWLCurrSize--;
-
-        if((watchlistInventory.length <= 0))
-        {
-            insertEmptyBdr();
-            return;
-        }
-
-        // Reattach listeners
-        addOpenWLListeners();
-        addDelWLEventListeners();
     }
 
 
@@ -858,7 +800,7 @@
                             <div class="userWLCatalog_ItemOpenWLBdr">
                                 <button type="button" class="userWLCatalog_ItemOpenWLBtn"></button>
                             </div>
-                            <div class="userWLCatalog_ItemBadgeBdr userWLCatalog_ItemDelWLBtn" title="Delete">
+                            <!-- <div class="userWLCatalog_ItemBadgeBdr wlDeleteBtn" title="Delete">
                                 <div class="userWLCatalog_ItemBadgeBox">
                                     <div class="userWLCatalog_ItemBadgeIcon">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="userWLCatalog_ItemBadgeSvg">
@@ -867,7 +809,7 @@
                                         </svg>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -1112,7 +1054,14 @@
         });
 
         // Attaches listeners
+        attachWLModalListeners();
+    }
+
+    // Attaching listeners
+    function attachWLModalListeners()
+    {
         attachReadFullDescWLModalEventListeners();
+        addDelWLEventListeners();
         attachMenuModalEventListeners();
         addDragAndSortListEventListeners();
     }
@@ -1210,8 +1159,7 @@
         wlModalGrid_CardBdr = document.querySelectorAll(".wlModalGrid_CardBdr");
 
         // Re-attach event listeners here
-        attachMenuModalEventListeners();
-        addDragAndSortListEventListeners();
+        attachWLModalListeners();
     }
 
 
@@ -1301,6 +1249,67 @@
             btn.addEventListener("click" , action);
             btn.action = action;
         });
+    }
+
+
+    // Adding Event listeners for deleting watchlist items
+    function addDelWLEventListeners()
+    {
+        let wlDeleteBtn = document.querySelectorAll(".wlDeleteBtn");
+
+        wlDeleteBtn.forEach((btn) => 
+        {
+            if(btn.action)
+            {
+                btn.removeEventListener("click" , btn.action);
+            }
+        });
+
+        wlDeleteBtn.forEach((btn, i) => 
+        {
+            const action = () => 
+            {
+                initConfirmModal(
+                    `Are you sure you want to delete this watchlist?`,
+                    `Note: This action cannot be undone`,
+                    `Yes`,
+                    `No`,
+                    delWLCatalogItem
+                );
+            }
+
+            btn.addEventListener("click" , action);
+            btn.action = action;
+        });
+    }
+
+
+    // Deleting your watchlists
+    function delWLCatalogItem()
+    {
+        // Close the modal
+        wlModalBaseCloseBtn.click();
+
+        // Delete item from invetory
+        watchlistInventory.splice(wlBodyCardIndex , 1);
+        wlBodySortArray.splice(wlBodyCardIndex , 1);
+
+        // Remove item from catalog
+        let delItem = document.getElementsByClassName("userWLCatalog_ItemBase")[wlBodyCardIndex];
+        delItem.remove();
+
+        // Decrease the current watchlist size
+        newWLCurrSize--;
+
+        if((watchlistInventory.length <= 0))
+        {
+            insertEmptyBdr();
+            return;
+        }
+
+        // Reattach listeners
+        addOpenWLListeners();
+        addDelWLEventListeners();
     }
 
 
