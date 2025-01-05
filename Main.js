@@ -2816,7 +2816,7 @@
                         // Send notification when show is added
                         item.addEventListener("click" , () => 
                         {
-                            notification(`notifyGood` , `Show successfully added to "${itemName}"`);
+                            notification(`notifyGood` , `Successfully added to "${itemName}"`);
                             item.disabled = true;
                         });
                     });
@@ -2908,7 +2908,7 @@
                             </button>
                         `;
                         playListItemBox.insertAdjacentHTML("beforeend" , newListHTML);
-                        notification(`notifyGood` , `Show successfully added to "${plName}"`);
+                        notification(`notifyGood` , `Successfully added to "${plName}"`);
                         
                         closeNewWLModal();
                     }
