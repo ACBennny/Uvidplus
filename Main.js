@@ -54,6 +54,7 @@
     let genMenuModalBox;
     let genMenuModalCtntBdr;
     let openGenMenuModalBtnTimer;
+    let genMenuModalScreenType = null;
     let genMenuModalDisplayThreshold = 5;
     let genAtnModalBoxDragDist = 10;
     let genMenuModalIsDragging = false;
@@ -2884,7 +2885,7 @@
                             {
                                 clearTimeout(openGenMenuModalBtnTimer);
                                 callGlobalFunctions(menu_id);
-                                displayGenMenuModal();
+                                calibrateGenMenuModal(true);
                             }, 100);
                         }
                     }
@@ -2895,8 +2896,8 @@
             });
         }
 
-        // Calculates the dimensions and position of the menu modal before displaying it
-        function displayGenMenuModal()
+        // Calculates the dimensions and position of the menu modal
+        function calibrateGenMenuModal(initCall = false)
         {
             // Get button genMenuModalBdrPos and size
             let btnRect = document.querySelectorAll(".openGenMenuModalBtn")[currOpenGenMenuModalBtnIndex].getBoundingClientRect();
@@ -2914,9 +2915,12 @@
             let topSpace;
 
 
-            // Only change the position on larger screens (565px)
+            // Only change the position on larger screens (768px)
             if(winWidth > winWidth768)
             {
+                // Set screen type to small
+                genMenuModalScreenType = "large";
+
                 // Choose the genMenuModalBdr position
                 leftSpace = btnLeft > winWidth - menuWidth ? btnRight - menuWidth - genMenuModalDisplayThreshold : btnLeft + genMenuModalDisplayThreshold;
                 topSpace = btnBottom > winHeight - menuHeight ? btnTop - menuHeight - genMenuModalDisplayThreshold : btnBottom + genMenuModalDisplayThreshold;
@@ -2931,7 +2935,10 @@
             }
             else
             {
-                // Set it to zero if otherwise
+                // Set screen type to small
+                genMenuModalScreenType = "small";
+
+                // Set position values to zero if otherwise
                 leftSpace = 0;
                 topSpace = 0;
             }
@@ -2939,6 +2946,45 @@
             // Set genMenuModalBdr position and display it
             genMenuModalBdr.style.top = `${topSpace}px`;
             genMenuModalBdr.style.left = `${leftSpace}px`;
+
+            if(initCall == true)
+            {
+                initCall = false;
+                displayGenMenuModal();
+            }
+            else
+            {
+                updateGenMenuModalPosition();
+            }
+        }
+
+        // Update the menu modal position when viewport width changes from 768
+        function updateGenMenuModalPosition()
+        {
+            // Return if value is null
+            if(genMenuModalScreenType == null) return;
+            
+            // If screen is large i.e. initial innerWidth IS greater than winWidth768
+            if(genMenuModalScreenType === "large")
+            {
+                if(window.innerWidth <= winWidth768)
+                {
+                    hideGenMenuModal();
+                }
+            }
+            // If screen is small i.e. initial innerWidth NOT greater than winWidth768
+            else if(genMenuModalScreenType === "small")
+            {
+                if(window.innerWidth > winWidth768)
+                {
+                    stopDraggingGenMenuModal();
+                }
+            }
+        }
+
+        // Displays the gen menu modal
+        function displayGenMenuModal()
+        {
             genMenuModalBdr.setAttribute("aria-expanded" , "true");
             documentBody.setAttribute(`gen-menu-modal-is-dragging` , `true`);
 
@@ -2948,6 +2994,7 @@
                 genMenuModalBdr.removeEventListener("transitionend", handleTransitionEnd);
                 document.removeEventListener("click" , callHideGenMenuModal);
                 document.addEventListener("click", callHideGenMenuModal);
+                window.addEventListener("resize" , calibrateGenMenuModal);
                 initGenMenuModalDragging();
             });
         }
@@ -2956,6 +3003,7 @@
         function hideGenMenuModal()
         {
             document.removeEventListener("click" , callHideGenMenuModal);
+            window.removeEventListener("scroll" , calibrateGenMenuModal);
             documentBody.setAttribute(`gen-menu-modal-is-dragging` , `false`);
             removeGenModalDragging();
 
@@ -2964,6 +3012,12 @@
             {
                 genMenuModalBdr.removeEventListener("transitionend", handleTransitionEnd);
                 genMenuModalCtntBdr.innerHTML = genMenuModalCtntBdrStruct;
+
+                if(genMenuModalScreenType != null)
+                {
+                    document.querySelectorAll(".openGenMenuModalBtn")[currOpenGenMenuModalBtnIndex].click();
+                    genMenuModalScreenType = null;
+                }
             });
         }
 
@@ -2975,6 +3029,7 @@
                 // && !event.target.closest(".genMenuModalBox")
             )
             {
+                genMenuModalScreenType = null;
                 hideGenMenuModal();
             }
         }
