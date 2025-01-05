@@ -1061,6 +1061,7 @@
     function attachWLModalListeners()
     {
         attachReadFullDescWLModalEventListeners();
+        attachAddToWLEventListeners();
         addDelWLEventListeners();
         attachMenuModalEventListeners();
         addDragAndSortListEventListeners();
