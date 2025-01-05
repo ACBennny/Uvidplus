@@ -1482,7 +1482,7 @@
             confirmModalBase.addEventListener("transitionend" , function handleTransitionEnd()
             {
                 confirmModalBase.removeEventListener("transitionend" , handleTransitionEnd);
-                documentBody.setAttribute(`data-confirm-modal-state` , `open`);
+                documentBody.setAttribute(`data-modal-state` , `open`);
             });
         }
 
@@ -1492,7 +1492,7 @@
 
             confirmModalBase.addEventListener("transitionend" , function handleTransitionEnd()
             {
-                documentBody.setAttribute(`data-confirm-modal-state` , `close`);
+                documentBody.setAttribute(`data-modal-state` , `close`);
                 confirmModalBase.removeEventListener("transitionend" , handleTransitionEnd);
                 confirmModalBase.innerHTML = confirmModalStruct;
             });
@@ -2771,7 +2771,7 @@
         
                     addToWLTimer = setTimeout(() => 
                     {
-                        documentBody.classList.add("bodystop");
+                        documentBody.setAttribute(`data-modal-state` , `close`);
                         playListBdr.classList.add("active");
                         playListBox.classList.add("active");
                         clearTimeout(addToWLTimer);
@@ -2905,7 +2905,7 @@
                     // Closes the Playlist modal
                     function closeAddToWL()
                     {
-                        documentBody.classList.remove("bodystop");
+                        documentBody.setAttribute(`data-modal-state` , `open`);
                         playListBdr.classList.remove("active");
                         playListBox.classList.remove("active");
         
