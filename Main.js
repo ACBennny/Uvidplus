@@ -2793,6 +2793,7 @@
                         {
                             notification(`notifyGood` , `Successfully added to "${itemName}"`);
                             item.disabled = true;
+                            closeAddToWL();
                         });
                     });
         
