@@ -2934,12 +2934,31 @@
 
     // SHARE
 
-        function attachSharePageEventListeners()
+        function attachSharePageEventListeners(customLink = null, customTitle = null)
         {
-            let socialShareLink = encodeURI(window.location.href);
-            let socialShareTitle = encodeURIComponent(documentTitle);
-            let socialShareMsg = `Check out ${socialShareTitle}`;
+            
             let shareShowBtn = document.querySelectorAll(".shareShowBtn");
+            let socialShareLink;
+            let socialShareTitle;
+            let socialShareMsg;
+
+            if((customLink == undefined) || (customLink == null))
+            {
+                socialShareLink = encodeURI(window.location.href);
+            }
+            else
+            {
+                socialShareLink = customLink;
+            }
+            if((customTitle == undefined) || (customTitle == null))
+            {
+                socialShareTitle = encodeURIComponent(documentTitle);
+            }
+            else
+            {
+                socialShareTitle = encodeURIComponent(documentTitle);
+            }
+            socialShareMsg = `Check out ${socialShareTitle}`;
 
             shareShowBtn.forEach((btn) => 
             {
