@@ -2907,14 +2907,13 @@
                     // Closes the Playlist modal
                     function closeAddToWL()
                     {
-                        documentBody.setAttribute(`data-modal-state` , `close`);
                         playListBdr.classList.remove("active");
                         playListBox.classList.remove("active");
         
                         addToWLTimer = setTimeout(() => 
                         {
                             documentBody.removeChild(playListBdr);
-                            documentBody.classList.remove("bodystop");
+                            documentBody.setAttribute(`data-modal-state` , `close`);
                             btn.disabled = false;
                             clearTimeout(addToWLTimer);
         
