@@ -160,7 +160,7 @@
             menu_ctnt:
             `
                 <div class="genMenuModalCtntBox wlModalCardMenuCtnt">
-                    <button class="genMenuModalCtntBtnBox">
+                    <button class="genMenuModalCtntBtnBox wlModalCardWatchNowBtn">
                         <div class="genMenuModalCtntBtnIcon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genMenuModalCtntBtnSvg">
                                 <path d="M21.409 9.353a2.998 2.998 0 0 1 0 5.294L8.597 21.614C6.534 22.737 4 21.277 4 18.968V5.033c0-2.31 2.534-3.769 4.597-2.648z" />
@@ -176,7 +176,7 @@
                         </div>
                         <div class="genMenuModalCtntBtnText">Edit Status</div>
                     </button>
-                    <button class="genMenuModalCtntBtnBox">
+                    <button class="genMenuModalCtntBtnBox openAddToWLBtn">
                         <div class="genMenuModalCtntBtnIcon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genMenuModalCtntBtnSvg">
                                 <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
@@ -187,7 +187,7 @@
                         </div>
                         <div class="genMenuModalCtntBtnText">Add to Watchlist</div>
                     </button>
-                    <button class="genMenuModalCtntBtnBox">
+                    <button class="genMenuModalCtntBtnBox shareShowBtn">
                         <div class="genMenuModalCtntBtnIcon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genMenuModalCtntBtnSvg">
                                 <path fill-rule="evenodd" d="M13.803 5.333c0-1.84 1.5-3.333 3.348-3.333A3.34 3.34 0 0 1 20.5 5.333c0 1.841-1.5 3.334-3.349 3.334a3.35 3.35 0 0 1-2.384-.994l-4.635 3.156a3.34 3.34 0 0 1-.182 1.917l5.082 3.34a3.35 3.35 0 0 1 2.12-.753a3.34 3.34 0 0 1 3.348 3.334C20.5 20.507 19 22 17.151 22a3.34 3.34 0 0 1-3.348-3.333a3.3 3.3 0 0 1 .289-1.356L9.05 14a3.35 3.35 0 0 1-2.202.821A3.34 3.34 0 0 1 3.5 11.487a3.34 3.34 0 0 1 3.348-3.333c1.064 0 2.01.493 2.623 1.261l4.493-3.059a3.3 3.3 0 0 1-.161-1.023" clip-rule="evenodd" />
@@ -195,7 +195,7 @@
                         </div>
                         <div class="genMenuModalCtntBtnText">Share</div>
                     </button>
-                    <button class="genMenuModalCtntBtnBox">
+                    <button class="genMenuModalCtntBtnBox wlModalGridCardRemoveBtn">
                         <div class="genMenuModalCtntBtnIcon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genMenuModalCtntBtnSvg">
                                 <path d="M3 6.524c0-.395.327-.714.73-.714h4.788c.006-.842.098-1.995.932-2.793A3.68 3.68 0 0 1 12 2a3.68 3.68 0 0 1 2.55 1.017c.834.798.926 1.951.932 2.793h4.788c.403 0 .73.32.73.714a.72.72 0 0 1-.73.714H3.73A.72.72 0 0 1 3 6.524" />
@@ -230,8 +230,7 @@
         callGlobalFunctions(`addDelWLEventListeners`);
     }
 
-    function wl_modal_cards()
+    function wl_modal_cards(btnEvent)
     {
-        // callGlobalFunctions(``);
-        console.log("\n\nmenu modal function reached\n\n\n\n");
+        callGlobalFunctions(`attachWLModalCardListeners` , btnEvent);
     }

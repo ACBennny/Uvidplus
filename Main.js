@@ -959,11 +959,11 @@
     // CALLING GLOBALL SCOPE FUNCTIONS
     
         // Used to dynamically call functions in the global scope
-        function callGlobalFunctions(functionName) 
+        function callGlobalFunctions(functionName, event) 
         {
             if (typeof window[functionName] === 'function') 
             {
-                window[functionName]();
+                window[functionName](event);
             } 
             else
             {
@@ -2408,6 +2408,7 @@
             genMenuModalBdr.appendChild(genMenuModalBox);
             documentCtnt.appendChild(genMenuModalBdr);
         }
+        
 
         // Attaches listener for calling the menu modals
         function attachMenuModalEventListeners()
@@ -2424,7 +2425,7 @@
             
             openGenMenuModalBtn.forEach((btn, index) => 
             {
-                const action = () => 
+                const action = (event) => 
                 {
                     // Close if the same button clicked to open the menu is clicked again
                     if((currOpenGenMenuModalBtnIndex != null) && (index == currOpenGenMenuModalBtnIndex) && (genMenuModalBdr.getAttribute("aria-expanded") === "true"))
@@ -2461,7 +2462,7 @@
                             openGenMenuModalBtnTimer = setTimeout(() => 
                             {
                                 clearTimeout(openGenMenuModalBtnTimer);
-                                callGlobalFunctions(menu_id);
+                                callGlobalFunctions(menu_id, event);
                                 calibrateGenMenuModal(true);
                             }, 100);
                         }
@@ -2722,6 +2723,20 @@
             const menuModalBoxH = parseInt(genMenuModalBox.style.height);
             menuModalBoxH < Math.round((startGenMenuBoxHeight * 0.75)) ? hideGenMenuModal() : updateGenMenuModalBoxHeight(startGenMenuBoxHeight);
         }
+
+
+
+
+    // GENERATING A RANDOM STRING VALUE OF LENGTH 16
+
+        function generateRandomString(size = 16) 
+        {
+            const length = size;
+            var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            var result = '';
+            for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+            return result;
+        }
     
 
 
@@ -2964,7 +2979,7 @@
             {
                 if(btn.customSclShareModal)
                 {
-                    btn.removeEventListener("click" , customSclShareModal);
+                    btn.removeEventListener("click" , btn.customSclShareModal);
                 }
             });
 
@@ -3001,17 +3016,15 @@
                     let emLink = `mailto:%7Bemail_address%7D?subject=${socialShareLink}&body=${socialShareTitle}%20`;
                     let gmLink = `https://mail.google.com/mail/?view=cm&to=%7Bemail_address%7D&su=${socialShareTitle}&body=${socialShareLink}&bcc=%7Bemail_address%7D&cc=%7Bemail_address%7D`;
 
-                    // shareShowBtn.forEach(btn => 
-                    // {
-                        btn.addEventListener("click" , () => 
-                        {
-                            btn.disabled = true;
-                        });
-                    // });
+
+                    btn.addEventListener("click" , () => 
+                    {
+                        btn.disabled = true;
+                    });
 
                     socialShareTimer = setTimeout(() => 
                     {
-                        documentBody.classList.add("bodystop");
+                        documentBody.setAttribute(`data-modal-state` , `open`);
                         sclShareBdr.classList.add("active");
                         sclShareBox.classList.add("active");
                         clearTimeout(socialShareTimer);
@@ -3084,26 +3097,20 @@
                     // Closes the Share modal
                     function closeSclShareBox()
                     {
-                        documentBody.classList.remove("bodystop");
-
                         // Removes style classes
                         sclShareBdr.classList.remove("active");
                         sclShareBox.classList.remove("active");
 
-                        socialShareTimer = setTimeout(() => 
+                        sclShareBdr.addEventListener("transitionend" , function handleTransitionEnd()
                         {
+                            sclShareBdr.removeEventListener("transitionend" , handleTransitionEnd);
                             documentBody.removeChild(sclShareBdr);
-                            // shareShowBtn.forEach(btn => 
-                            // {
-                                btn.addEventListener("click" , () => 
-                                {
-                                    btn.disabled = false;
-                                });
-                            // });
-                            documentBody.classList.remove("bodystop");
-                            clearTimeout(socialShareTimer);
-
-                        }, 300);
+                            documentBody.setAttribute(`data-modal-state` , `close`);
+                            btn.addEventListener("click" , () => 
+                            {
+                                btn.disabled = false;
+                            });
+                        });
                     }
 
                     sclShareCloseBtn.forEach(one => 

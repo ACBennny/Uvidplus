@@ -369,6 +369,7 @@
                 const newWLInput = document.querySelector("#newWLInputId");
                 const newWLWarn = document.querySelector("#newWLWarnId");
                 const createWLBtn = document.querySelector("#createNewWL");
+                const newListId = generateRandomString();
                 let inputUppBnd = 50;
                 let inputLowBnd = 2;
                 let plArr = [];
@@ -450,6 +451,7 @@
                     // Add new entry into the library & sort array
                     watchlistInventory.push(
                         {
+                            wl_id: `${newListId}`,
                             wl_name: `${wlName}`,
                             wl_updated: `${getCurrDate()}`,
                             wl_bcg: `/Images/Uvid_green_bcg1_light.jpg`,
@@ -459,6 +461,7 @@
                     );
                     wlBodySortArray.push(
                         {
+                            wl_id: `${newListId}`,
                             wl_name: `${wlName}`,
                             wl_updated: `${getCurrDate()}`,
                             wl_bcg: `/Images/Uvid_green_bcg1_light.jpg`,
@@ -834,7 +837,6 @@
 
 
 
-
 // WATCHLIST MODAL
 
 
@@ -931,6 +933,7 @@
                 wlModalGrid_CardBdr = document.createElement("li");
                 wlModalGrid_CardBdr.classList.add("wlModalGrid_CardBdr");
                 wlModalGrid_CardBdr.classList.add("genDraggableElement");
+                wlModalGrid_CardBdr.setAttribute(`data-show-index` , g);
                 wlModalGrid_CardBdr.setAttribute(`data-show-status-opt` , itemWatchStatus);
                 
                 let itemStruct = 
@@ -947,10 +950,10 @@
                         </div>
                         <div class="wlModalGrid_CardRankBdr">
                             <div class="wlModalGrid_CardRankBox">
-                                <div class="wlModalGrid_CardRankNo">${g}</div>
+                                <div class="wlModalGrid_CardRankNo">${g + 1}</div>
                             </div>
                         </div>
-                        <div onclick="window.open('${show_link}' , '_self')" class="wlModalGrid_CardCtntBdr">
+                        <div onclick="window.open('${show_link}' , '_self')" data-card-link="${show_link}" class="wlModalGrid_CardCtntBdr">
                             <div class="wlModalGrid_CardCtntBox">
                                 <div class="wlModalGrid_CardCtntThumbBdr">
                                     <div class="wlModalGrid_CardCtntThumbBox">
@@ -1081,7 +1084,7 @@
             let item = arr[i]; 
             let itemStruct = 
             `
-                <li class="wlModalGrid_CardBdr genDraggableElement" data-show-status-opt="${item.itemWatchStatus}">
+                <li class="wlModalGrid_CardBdr genDraggableElement" data-show-index="${i}" data-show-status-opt="${item.itemWatchStatus}">
                     <div class="wlModalGrid_CardBox">
                         <div class="wlModalGrid_CardHandleBdr" draggable="true">
                             <div class="wlModalGrid_CardHandleBox">
@@ -1097,7 +1100,7 @@
                                 <div class="wlModalGrid_CardRankNo">${rank}</div>
                             </div>
                         </div>
-                        <div onclick="window.open('${item.show_link}' , '_self')" class="wlModalGrid_CardCtntBdr">
+                        <div onclick="window.open('${item.show_link}' , '_self')" data-card-link="${item.show_link}" class="wlModalGrid_CardCtntBdr">
                             <div class="wlModalGrid_CardCtntBox">
                                 <div class="wlModalGrid_CardCtntThumbBdr">
                                     <div class="wlModalGrid_CardCtntThumbBox">
@@ -1105,7 +1108,7 @@
                                         <img class="wlModalGrid_CardCtntThumbImg img_small" src="${item.show_foreground}" alt="Thumbnail image for ${item.show_title}">
                                     </div>
                                 </div>
-                                <div class="wlModalGrid_CardCtntDetBdr" data-ctnt-link="${item.show_link}">
+                                <div class="wlModalGrid_CardCtntDetBdr">
                                     <div class="wlModalGrid_CardCtntDetBox">
                                         <div class="wlModalGrid_CardCtnt_DetTitleBox">
                                             <div class="wlModalGrid_CardCtnt_DetTitleText">${item.show_title}</div>
@@ -1275,7 +1278,7 @@
                     `Note: This action cannot be undone`,
                     `Yes`,
                     `No`,
-                    delWLCatalogItem
+                    deleteWatchlist
                 );
             }
 
@@ -1284,15 +1287,16 @@
         });
     }
 
-
     // Deleting your watchlists
-    function delWLCatalogItem()
+    function deleteWatchlist()
     {
         // Close the modal
         wlModalBaseCloseBtn.click();
 
-        // Delete item from invetory
-        watchlistInventory.splice(wlBodyCardIndex , 1);
+        // Delete from the watchlist inv
+        watchlistInventory = watchlistInventory.filter((item) => item.wl_id != wlBodySortArray[wlBodyCardIndex].wl_id);
+
+        // Delete item from sort array
         wlBodySortArray.splice(wlBodyCardIndex , 1);
 
         // Remove item from catalog
@@ -1605,5 +1609,94 @@
             tab.action = action;
         });
     }
+
+
+    // Attaches listeners for the WL Modal cards
+    function attachWLModalCardListeners(event)
+    {
+        // Get the clicked button
+        let wlModalGridCardMenuBtn = event.target.closest("[data-gen-menu-modal-type='wl_modal_cards']");
+        
+        if (!wlModalGridCardMenuBtn)
+        {
+            console.error("Button with attribute [data-gen-menu-modal-type='wl_modal_cards'] not found.");
+            return;
+        }
+    
+        // Find the parent 
+        let wlModalGridCardBdr = wlModalGridCardMenuBtn.closest(".wlModalGrid_CardBdr");
+        if (!wlModalGridCardBdr)
+        {
+            console.error("Parent element not found.");
+            return;
+        }
+    
+        // Get all parents elements to obtain the current index
+        let allGridCards = Array.from(document.querySelectorAll(".wlModalGrid_CardBdr"));
+        let wlModalGridCardIndex = allGridCards.indexOf(wlModalGridCardBdr);
+    
+        if (wlModalGridCardIndex === -1)
+        {
+            console.error("Failed to find the index of the clicked card.");
+            return;
+        }
+    
+        // Add selectors
+        let wlModalGridCardLink = wlModalGridCardBdr.querySelector(".wlModalGrid_CardCtntBdr")?.getAttribute("data-card-link");
+        let wlModalGridCardTitle = wlModalGridCardBdr.querySelector(".wlModalGrid_CardCtnt_DetTitleText")?.textContent;
+        let watchShowBtn = document.querySelector(".wlModalCardWatchNowBtn");
+        let removeShowBtn = document.querySelector(".wlModalGridCardRemoveBtn");
+
+
+        // Watch Now
+        watchShowBtn.onclick = () => window.open(`${wlModalGridCardLink}` , `_self`);
+
+        // Add to watchlist
+        attachAddToWLEventListeners();
+
+        // Sharing the Show
+        attachSharePageEventListeners(wlModalGridCardLink , wlModalGridCardTitle);
+
+        // Confirm before removing the show
+        removeShowBtn.onclick = () => 
+        {
+            initConfirmModal(
+                "Are you sure you want to remove this show?",
+                "Note: Action can not be undone",
+                "Remove",
+                "Cancel",
+                removeWlModalGridCard
+            );
+        }
+
+        // Removes the selected wl modal card from the watchlist
+        const removeWlModalGridCard = () =>
+        {
+            // Remove element from watchlist inventory
+            watchlistInventory.forEach(item => 
+            {
+                if (item.wl_items)
+                {
+                    item.wl_items = item.wl_items.filter(subItem => subItem.wl_itemId !== wlModalGridCardLink);
+                }
+            });
+            console.log(watchlistInventory);
+    
+            // Remove from the 'dflt' sort arrays
+            wlModalSortDfltArray = wlModalSortDfltArray.filter((item) => item.show_link !== wlModalGridCardLink);
+            console.log(wlModalSortDfltArray);
+
+            // Remove from the 'used' sort array
+            wlModalSortUsedArray = wlModalSortUsedArray.filter((item) => item.show_link !== wlModalGridCardLink);
+            console.log(wlModalSortUsedArray);
+
+            // Remove the wl card
+            wlModalGridCardBdr.remove();
+        }
+    
+    }
+
+    
+    
 
 

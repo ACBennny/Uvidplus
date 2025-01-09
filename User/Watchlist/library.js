@@ -14,9 +14,10 @@
  *
 ****************************************************************/
 
-const watchlistInventory = 
+let watchlistInventory = 
 [
     {
+        wl_id: `w6nHpnvOfa5xyO7O`,
         wl_name: `The Greatest Anime Shows`,
         wl_updated: `Sep 12, 2024`,
         wl_bcg: `/Library/TV/Watch/OnePunchMan/img/2.jpg`,
@@ -54,6 +55,7 @@ const watchlistInventory =
         ],
     },
     {
+        wl_id: `4e2JxuOgAgcPGubd`,
         wl_name: `Fullmetal Collection`,
         wl_updated: `Oct 1, 2024`,
         wl_bcg: `/Library/TV/Watch/FullmetalAlchemistBrotherhood/img/2.jpg`,
@@ -75,6 +77,7 @@ const watchlistInventory =
         ],
     },
     {
+        wl_id: `8NcKxlNq0V5I9IPD`,
         wl_name: `Intriguing Classics`,
         wl_updated: `March 13, 2024`,
         wl_bcg: `/Library/TV/Watch/OnePiece/img/2.jpg`,
