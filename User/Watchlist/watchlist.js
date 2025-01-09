@@ -1645,7 +1645,7 @@
         let wlModalGridCardLink = wlModalGridCardBdr.querySelector(".wlModalGrid_CardCtntBdr")?.getAttribute("data-card-link");
         let wlModalGridCardTitle = wlModalGridCardBdr.querySelector(".wlModalGrid_CardCtnt_DetTitleText")?.textContent;
         let watchShowBtn = document.querySelector(".wlModalCardWatchNowBtn");
-        let changeShowStatusBtn = document.querySelector(".wlModalCardWatchNowBtn");
+        let editShowStatusBtn = document.querySelector(".wlModalEditWatchStatusBtn");
         let removeShowBtn = document.querySelector(".wlModalGridCardRemoveBtn");
 
 
@@ -1653,7 +1653,7 @@
         watchShowBtn.onclick = () => window.open(`${wlModalGridCardLink}` , `_self`);
 
         // Edit show status (unavailable)
-        changeShowStatusBtn.onclick = () => notification(`notifyBad` , `Option unavailable`);
+        editShowStatusBtn.onclick = () => notification(`notifyBad` , `Option unavailable`);
 
         // Add to watchlist
         attachAddToWLEventListeners();
