@@ -1684,15 +1684,12 @@
                     item.wl_items = item.wl_items.filter(subItem => subItem.wl_itemId !== wlModalGridCardLink);
                 }
             });
-            console.log(watchlistInventory);
     
             // Remove from the 'dflt' sort arrays
             wlModalSortDfltArray = wlModalSortDfltArray.filter((item) => item.show_link !== wlModalGridCardLink);
-            console.log(wlModalSortDfltArray);
 
             // Remove from the 'used' sort array
             wlModalSortUsedArray = wlModalSortUsedArray.filter((item) => item.show_link !== wlModalGridCardLink);
-            console.log(wlModalSortUsedArray);
 
             // Remove the wl card
             wlModalGridCardBdr.remove();
