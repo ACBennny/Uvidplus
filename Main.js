@@ -1430,7 +1430,7 @@
 
             confirmModalBase.addEventListener("transitionend" , function handleTransitionEnd()
             {
-                documentBody.setAttribute(`data-modal-state` , `close`);
+                documentBody.removeAttribute(`data-modal-state`);
                 confirmModalBase.removeEventListener("transitionend" , handleTransitionEnd);
                 confirmModalBase.innerHTML = confirmModalStruct;
             });
@@ -1494,7 +1494,7 @@
                 quickSearchBase.classList.add("active");
                 quickSearchBase.addEventListener("transitionend" , function handleTransitionEnd()
                 {
-                    documentBody.classList.add("bodystop");
+                    documentBody.setAttribute(`data-modal-state` , `open`);
                     quickSearchInputField.focus();
                     quickSearchBase.removeEventListener("transitionend" , handleTransitionEnd);
                 });
@@ -1525,7 +1525,7 @@
             quickSearchBcg.addEventListener("click" , () => 
             {
                 quickSearchBase.classList.remove("active");
-                documentBody.classList.remove("bodystop");
+                documentBody.removeAttribute(`data-modal-state`);
             });
 
             // Function to search results
@@ -2520,7 +2520,7 @@
         {
             document.removeEventListener("click" , callHideGenMenuModal);
             window.removeEventListener("scroll" , calibrateGenMenuModal);
-            documentBody.setAttribute(`gen-menu-modal-is-dragging` , `false`);
+            documentBody.removeAttribute(`gen-menu-modal-is-dragging`);
             removeGenModalDragging();
 
             genMenuModalBdr.setAttribute("aria-expanded" , "false");
@@ -2866,7 +2866,7 @@
                         addToWLTimer = setTimeout(() => 
                         {
                             documentBody.removeChild(playListBdr);
-                            documentBody.setAttribute(`data-modal-state` , `close`);
+                            documentBody.removeAttribute(`data-modal-state`);
                             btn.disabled = false;
                             clearTimeout(addToWLTimer);
         
@@ -3043,7 +3043,7 @@
                         {
                             sclShareBdr.removeEventListener("transitionend" , handleTransitionEnd);
                             documentBody.removeChild(sclShareBdr);
-                            documentBody.setAttribute(`data-modal-state` , `close`);
+                            documentBody.removeAttribute(`data-modal-state`);
                             btn.addEventListener("click" , () => 
                             {
                                 btn.disabled = false;
