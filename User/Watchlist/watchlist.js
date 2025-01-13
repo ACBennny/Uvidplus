@@ -1644,8 +1644,10 @@
         // Add selectors
         let wlModalGridCardLink = wlModalGridCardBdr.querySelector(".wlModalGrid_CardCtntBdr")?.getAttribute("data-card-link");
         let wlModalGridCardTitle = wlModalGridCardBdr.querySelector(".wlModalGrid_CardCtnt_DetTitleText")?.textContent;
+        let wlModalGridCardImage = wlModalGridCardBdr.querySelector(".wlModalGrid_CardCtntThumbImg.img_large")?.getAttribute("src");
         let watchShowBtn = document.querySelector(".wlModalCardWatchNowBtn");
         let editShowStatusBtn = document.querySelector(".wlModalEditWatchStatusBtn");
+        let setWLThumbBtn = document.querySelector(".setWLThumbnailBtn");
         let removeShowBtn = document.querySelector(".wlModalGridCardRemoveBtn");
 
 
@@ -1658,6 +1660,28 @@
         // Add to watchlist
         attachAddToWLEventListeners();
 
+        // Set as watchlist thumbnail
+        setWLThumbBtn.onclick = () => 
+        {
+            // UPdate the watchlist inventory
+            watchlistInventory.forEach((item) => 
+            {
+                if(item.wl_id = wlBodySortArray[wlBodyCardIndex].wl_id)
+                {
+                    item.wl_bcg = wlModalGridCardImage;
+                }
+            });
+
+            // Update the sort array
+            wlBodySortArray[wlBodyCardIndex].wl_bcg = wlModalGridCardImage;
+
+            // Update the WL Header Bcg img
+            document.querySelector(".wlModalHeader_BcgImg").setAttribute(`src` , `${wlModalGridCardImage}`);
+
+            // Update the WL Header Thumbnail img
+            document.querySelector(".wlModalHeader_thumbImg").setAttribute(`src` , `${wlModalGridCardImage}`);
+        }
+
         // Sharing the Show
         attachSharePageEventListeners(wlModalGridCardLink , wlModalGridCardTitle);
 
@@ -1666,7 +1690,7 @@
         {
             initConfirmModal(
                 "Are you sure you want to remove this show?",
-                "Note: Action can not be undone",
+                null,
                 "Remove",
                 "Cancel",
                 removeWlModalGridCard

@@ -1993,7 +1993,7 @@ img
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 0 25px;
+    padding: 0 var(--genBorderSpacing);
     transform: translateY(25%) scale(0.75);
     transition: all var(--quickSearchTransition) ease-in-out;
 }
@@ -2693,6 +2693,7 @@ img
     left: 0;
     margin: var(--slideCardSpacing);
     z-index: 4;
+    display: none;
 }
 
 .cardQualityBox .cardQualityText
