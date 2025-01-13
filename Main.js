@@ -2553,7 +2553,7 @@
         // Removes the functions associated with currDraggingGenMenuModal of the gen menu modal
         function removeGenModalDragging()
         {
-            genMenuModalBox.style.height = "fit-content";
+            updateGenMenuModalBoxHeight("reset");
 
             genMenuModalBox.removeEventListener("mousedown", startDraggingGenMenuModal);
             document.removeEventListener("mousemove", currDraggingGenMenuModal);
@@ -2597,7 +2597,19 @@
         // Updates the height of the menu modal box
         const updateGenMenuModalBoxHeight = (height) => 
         {
-            genMenuModalBox.style.height = `${height}px`;
+            if(height === "reset")
+            {
+                genMenuModalBox.style.height = `${height}px`;
+                genMenuModalBoxHeightTimer = setTimeout(() => 
+                {
+                    clearTimeout(genMenuModalBoxHeightTimer);
+                    genMenuModalBox.style.height = "fit-content";
+                }, 150);
+            }
+            else
+            {
+                genMenuModalBox.style.height = `${height}px`;
+            }
         }
 
         // Sets initial drag position, genMenuModalBox height and adds isDragging class to the menu modal bdr
