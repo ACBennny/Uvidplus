@@ -1995,12 +1995,15 @@ img
     flex-direction: column;
     padding: 0 var(--genBorderSpacing);
     transform: translateY(25%) scale(0.75);
+    opacity: 0;
+    visibility: hidden;
     transition: all var(--quickSearchTransition) ease-in-out;
 }
 
 .quickSearchBase.active .quickSearchBox
 {
     opacity: 1;
+    visibility: visible;
     transform: translateY(0%) scale(1.0);
 }
 

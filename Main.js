@@ -2091,6 +2091,9 @@
 
                 document.addEventListener('dragover', updatePreviewPosition);
                 document.addEventListener('dragend', removeCustomDragPreview);
+
+                // Re attaches listeners for context menu
+                attachMenuModalEventListeners();
             }
         }
 
@@ -2368,10 +2371,11 @@
                     // Close if the same button clicked to open the menu is clicked again
                     if((currOpenGenMenuModalBtnIndex != null) && (index == currOpenGenMenuModalBtnIndex) && (genMenuModalBdr.getAttribute("aria-expanded") === "true"))
                     {
-                        genMenuModalBdr.setAttribute("aria-expanded" , "false");
-                        documentBody.setAttribute(`gen-menu-modal-is-dragging` , `false`);
-                        genMenuModalBdr.classList.remove("isOpen");
-                        document.removeEventListener("click" , callHideGenMenuModal);
+                        // genMenuModalBdr.setAttribute("aria-expanded" , "false");
+                        // documentBody.setAttribute(`gen-menu-modal-is-dragging` , `false`);
+                        // genMenuModalBdr.classList.remove("isOpen");
+                        // document.removeEventListener("click" , callHideGenMenuModal);
+                        hideGenMenuModal(false);
                     }
                     else
                     {
@@ -2465,11 +2469,13 @@
 
             if(initCall == true)
             {
+                // For initial configuration
                 initCall = false;
                 displayGenMenuModal();
             }
             else
             {
+                // For updating the position after configuration
                 updateGenMenuModalPosition();
             }
         }
@@ -2516,7 +2522,7 @@
         }
 
         // Hides the menu modal
-        function hideGenMenuModal()
+        function hideGenMenuModal(genModalScreenBool = false)
         {
             document.removeEventListener("click" , callHideGenMenuModal);
             window.removeEventListener("scroll" , calibrateGenMenuModal);
@@ -2529,7 +2535,7 @@
                 genMenuModalBdr.removeEventListener("transitionend", handleTransitionEnd);
                 genMenuModalCtntBdr.innerHTML = genMenuModalCtntBdrStruct;
 
-                if(genMenuModalScreenType != null)
+                if((genModalScreenBool == true) && (genMenuModalScreenType != null))
                 {
                     document.querySelectorAll(".openGenMenuModalBtn")[currOpenGenMenuModalBtnIndex].click();
                     genMenuModalScreenType = null;
@@ -2545,8 +2551,7 @@
                 // && !event.target.closest(".genMenuModalBox")
             )
             {
-                genMenuModalScreenType = null;
-                hideGenMenuModal();
+                hideGenMenuModal(false);
             }
         }
 
@@ -2654,12 +2659,11 @@
         // Closes the menu modal if dragged beyond 75% of its height
         const stopDraggingGenMenuModal = () => 
         {
-            genMenuModalScreenType = null;
             genMenuModalIsDragging = false;
             genMenuModalBdr.classList.remove("isDragging");
             genMenuModalBox.classList.remove("disableClicks");
             const menuModalBoxH = parseInt(genMenuModalBox.style.height);
-            menuModalBoxH < Math.round((startGenMenuBoxHeight * 0.75)) ? hideGenMenuModal() : updateGenMenuModalBoxHeight(startGenMenuBoxHeight);
+            menuModalBoxH < Math.round((startGenMenuBoxHeight * 0.75)) ? hideGenMenuModal(false) : updateGenMenuModalBoxHeight(startGenMenuBoxHeight);
         }
 
 
