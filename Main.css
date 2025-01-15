@@ -1964,7 +1964,7 @@ img
     visibility: hidden;
     transition: all var(--quickSearchTransition) ease-in-out;
     pointer-events: none;
-    z-index: 105;
+    z-index: 125;
 }
 
 .quickSearchBase.active
