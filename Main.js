@@ -1585,7 +1585,7 @@
                                     </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         `;
                     }
                     else
