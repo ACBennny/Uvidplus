@@ -1490,7 +1490,7 @@
             // Open quick Search 
             function openQuickSearchModal()
             {
-                if(quickSearchBase.classList.contains("active")) return;;
+                if((documentBody.classList.contains("bodystop")) || (quickSearchBase.classList.contains("active"))) return;
                 quickSearchBase.classList.add("active");
                 quickSearchBase.addEventListener("transitionend" , function handleTransitionEnd()
                 {
@@ -1528,7 +1528,7 @@
                 documentBody.removeAttribute(`data-modal-state`);
             });
 
-            // Function to search results
+            // Function to display search results
             const displayQuickSearchResult = (items) => 
             {
                 // Only seven results are displayed
