@@ -26,31 +26,24 @@ let watchlistInventory =
         [
             {
                 wl_itemId: `/Library.html?info=JujutsuKaisen`,
-                wl_itemWatchStatus: 1,
             },
             {
                 wl_itemId: `/Library.html?info=OnePiece`,
-                wl_itemWatchStatus: 2,
             },
             {
                 wl_itemId: `/Library.html?info=Naruto`,
-                wl_itemWatchStatus: 3,
             },
             {
                 wl_itemId: `/Library.html?info=DemonSlayer`,
-                wl_itemWatchStatus: 4,
             },
             {
                 wl_itemId: `/Library.html?info=OnePunchMan`,
-                wl_itemWatchStatus: 5,
             },
             {
                 wl_itemId: `/Library.html?info=FullmetalAlchemistBrotherhood`,
-                wl_itemWatchStatus: 1,
             },
             {
                 wl_itemId: `/Library.html?info=AttackOnTitan`,
-                wl_itemWatchStatus: 2,
             },
         ],
     },
@@ -64,15 +57,12 @@ let watchlistInventory =
         [
             {
                 wl_itemId: `/Library.html?info=FullmetalPanic`,
-                wl_itemWatchStatus: 1,
             },
             {
                 wl_itemId: `/Library.html?info=FullmetalAlchemist`,
-                wl_itemWatchStatus: 2,
             },
             {
                 wl_itemId: `/Library.html?info=FullmetalAlchemistBrotherhood`,
-                wl_itemWatchStatus: 3,
             },
         ],
     },
@@ -86,11 +76,9 @@ let watchlistInventory =
         [
             {
                 wl_itemId: `/Library.html?info=OnePiece`,
-                wl_itemWatchStatus: 1,
             },
             {
                 wl_itemId: `/Library.html?info=Naruto`,
-                wl_itemWatchStatus: 2,
             },
         ],
     },
