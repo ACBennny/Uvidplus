@@ -109,7 +109,7 @@
                 show_scores, 
                 show_trailers, 
                 show_year, 
-                show_status, 
+                show_airing_status, 
                 show_aired, 
                 show_genre, 
                 show_theme, 
@@ -262,7 +262,7 @@
                                                     <p class="abt-cardText"><span class="abt-cardText-major">Languages</span><span class="abt-cardText-minor">${show_languages}</span></p>
                                                     <p class="abt-cardText"><span class="abt-cardText-major">Subtitles</span><span class="abt-cardText-minor">${show_subtitles}</span></p>
                                                     <p class="abt-cardText"><span class="abt-cardText-major">Release Year</span><span class="abt-cardText-minor">${show_year}</span></p>
-                                                    <p class="abt-cardText"><span class="abt-cardText-major">Status</span><span class="abt-cardText-minor">${show_status}</span></p>
+                                                    <p class="abt-cardText"><span class="abt-cardText-major">Status</span><span class="abt-cardText-minor">${show_airing_status}</span></p>
                                                     <p class="abt-cardText"><span class="abt-cardText-major">Aired</span><span class="abt-cardText-minor">${show_aired}</span></p>
                                                     <p class="abt-cardText"><span class="abt-cardText-major">Studios</span><span class="abt-cardText-minor">${show_studios}</span></p>
                                                     <p class="abt-cardText"><span class="abt-cardText-major">Country</span><span class="abt-cardText-minor">${show_country}</span></p>
