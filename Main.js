@@ -1536,7 +1536,7 @@
 
                 quickSearchResultBox.innerHTML = resultRange.map((item) => 
                 {
-                    const { show_link, show_thumbnail, show_title, show_scores, show_type, show_year, show_status } = item;
+                    const { show_link, show_thumbnail, show_title, show_scores, show_type, show_year, show_airing_status } = item;
                     if((quickSearchQuery.length > 0) && (quickSearchQuery != undefined) && (quickSearchQuery != null) && (quickSearchQuery != " "))
                     {
                         return `
@@ -1578,7 +1578,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="quickSearchResultDetDescBox">
-                                                    <h3 class="quickSearchResultDetDescText">${show_status}</h3>
+                                                    <h3 class="quickSearchResultDetDescText">${show_airing_status}</h3>
                                                 </div>
                                             </div>
                                         </div>
