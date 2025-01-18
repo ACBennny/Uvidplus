@@ -15,8 +15,7 @@
     let wlModalBase = document.querySelector(".wlModalBase");
     let wlModalBox = document.querySelector(".wlModalBox");
     let emptyUserPageBdr = document.querySelector(".emptyUserPageBdr");
-    let wlArray = [];
-    let wlBodySortArray = [];
+    let wlLibraryIndexedInv;
     let newWLMaxSize = 10;
     let newWLCurrSize = 0;
     let createWLTimer;
@@ -26,7 +25,6 @@
     let userWLCatalog_ItemBase;
     let currCatalogItemBase;
     let wlModalMap;
-    let wlModalCurrIndex;
     let wlModalBaseBarBdr;
     let wlModalBaseTitleText;
     let wlModalBaseCloseBtn;
@@ -44,8 +42,8 @@
     let wlModalSortOrderText;
     let wlModalGrid_CardBdr;
     let closeWLModalTimer;
-    let wlModalSortDfltArray = [];
-    let wlModalSortUsedArray = [];
+    let wlModalDfltInv = [];
+    let wlModalIndexedInv;
     let wlModalSortTypeTabs;
     let wlModalSortTypeTabIndex = 0;
     let wlModalSortOrderTabs;
@@ -54,6 +52,8 @@
     let wlModalFilterStatusTabIndex = 0;
     let wlModalFilterTypeTabs;
     let wlModalFilterTypeTabIndex = 0;
+    let addShowToWLArray = [];
+    let addShowToWLBase;
     let emptyWLStruct = 
     `
         <div class="emptyUserPageBdr">
@@ -224,6 +224,11 @@
 
 // SORTING FUNCTIONS
 
+    // Sort the WL by Recently Added  (AKA Sort to original order)
+    function sortWLByRecAdded(arr)
+    {
+        return arr.sort((a, b) => a.index - b.index);
+    }
 
     // Sorting the watchlist cards by Name
     function sortWLByName(arr, arrPrpty, order = 'A-Z')
@@ -449,17 +454,7 @@
                     }
 
                     // Add new entry into the library & sort array
-                    watchlistInventory.push(
-                        {
-                            wl_id: `${newListId}`,
-                            wl_name: `${wlName}`,
-                            wl_updated: `${getCurrDate()}`,
-                            wl_bcg: `/Images/Uvid_green_bcg1_light.jpg`,
-                            wl_desc: `No description`,
-                            wl_items: [],
-                        }
-                    );
-                    wlBodySortArray.push(
+                    wlLibraryIndexedInv.push(
                         {
                             wl_id: `${newListId}`,
                             wl_name: `${wlName}`,
@@ -542,14 +537,14 @@
                     if((wlBodySortTabIndex == 1))
                     {
                         // Sort by "A-Z"
-                        sortWLByName(wlBodySortArray, "wl_name", "A-Z");
-                        generateWLCards(wlBodySortArray);
+                        sortWLByName(wlLibraryIndexedInv, "wl_name", "A-Z");
+                        generateWLCards(wlLibraryIndexedInv);
                     }
                     else if((wlBodySortTabIndex == 2))
                     {
                         // Sort by "Z-A"
-                        sortWLByName(wlBodySortArray, "wl_name", "A-Z");
-                        generateWLCards(wlBodySortArray);
+                        sortWLByName(wlLibraryIndexedInv, "wl_name", "A-Z");
+                        generateWLCards(wlLibraryIndexedInv);
                     }
                 
                     addOpenWLListeners();
@@ -646,19 +641,20 @@
                 {
                     // Sort by date Added
                     case "0":
-                        generateWLCards(watchlistInventory);
+                        sortWLByRecAdded(wlLibraryIndexedInv);
+                        generateWLCards(wlLibraryIndexedInv);
                         break;
                         
                     // Sort from A-Z
                     case "1":
-                        sortWLByName(wlBodySortArray, "wl_name", "A-Z");
-                        generateWLCards(wlBodySortArray);
+                        sortWLByName(wlLibraryIndexedInv, "wl_name", "A-Z");
+                        generateWLCards(wlLibraryIndexedInv);
                         break;
                         
                     // Sort from Z-A
                     case "2":
-                        sortWLByName(wlBodySortArray, "wl_name", "Z-A");
-                        generateWLCards(wlBodySortArray);
+                        sortWLByName(wlLibraryIndexedInv, "wl_name", "Z-A");
+                        generateWLCards(wlLibraryIndexedInv);
                         break;
                         
                     default:
@@ -691,7 +687,7 @@
             const action = () => 
             {
                 wlBodyCardIndex = i;
-                openWLModal(wlBodyCardIndex);
+                openWLModal();
             }
 
             btn.addEventListener("click" , action);
@@ -718,15 +714,15 @@
 
         // Remove the empty bdr
         removingEmptyBdr();
-
-        // Update the sort Wl card array
-        watchlistInventory.forEach((val) => 
+        
+        // Map the watchistlist invenory with its item index
+        wlLibraryIndexedInv = watchlistInventory.map((watchlist, index) => 
         {
-            wlBodySortArray.push(val);
+            return { ...watchlist, index };
         });
 
         // Generate the Watchlist cards
-        generateWLCards(watchlistInventory);
+        generateWLCards(wlLibraryIndexedInv);
         
         // Call the function for operating the menu modals
         attachMenuModalEventListeners();
@@ -841,18 +837,8 @@
 
 
     // Opens the modal containing the info for a single watchlist
-    function openWLModal(index)
+    function openWLModal()
     {
-        if((wlBodySortTabIndex == 0) || (wlBodySortTabIndex == null))
-        {
-            wlModalCurrIndex = watchlistInventory[index];
-        }
-        else
-        {
-            wlModalCurrIndex = wlBodySortArray[index];
-        }
-        userWLCatalog_ItemBase = document.querySelectorAll(".userWLCatalog_ItemBase");
-        currCatalogItemBase = userWLCatalog_ItemBase[index];
         wlModalBaseBarBdr = document.querySelector(".wlModalBaseBarBdr");
         wlModalBaseTitleText = document.querySelector(".wlModalBaseTitleText");
         wlModalBaseCloseBtn = document.querySelector(".wlModalBaseCloseBtn");
@@ -868,13 +854,11 @@
         wlModalSortTypeText = document.querySelector(".wlModalCtnt_sortStatusText .status_type");
         wlModalSortOrderText = document.querySelector(".wlModalCtnt_sortStatusText .status_order");
         closeWLModalTimer;
-        wlModalSortDfltArray.length = 0;
-        wlModalSortUsedArray.length = 0;
 
         // Setting the titlebar's width
         let wlModalBoxScrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
 
-        // 
+        // Getting scrollbar width
         wlModalBox.addEventListener("scroll" , toggleModalBar);
 
         // For scrollbars that are hidden
@@ -886,40 +870,36 @@
         wlModalBaseBarBdr.setAttribute(`style` , `--wlModalBoxScrollbarWidth: ${wlModalBoxScrollbarWidth}px`);
 
         // Setting the Background
-        wlModalHeaderBcgImg.setAttribute(`src` , currCatalogItemBase.querySelector(".userWLCatalog_ItemThumbImg").getAttribute(`src`));
-
-        // Setting the Thumbnail
-        wlModalHeaderThumbImg.setAttribute(`src` , currCatalogItemBase.querySelector(".userWLCatalog_ItemThumbImg").getAttribute(`src`));
+        updWLModalImg();
 
         // Setting the title
-        wlModalBaseTitleText.textContent = currCatalogItemBase.querySelector(".userWLCatalog_ItemDetTitleText").textContent;
-        wlModalHeader_DetInfo_TitleText.textContent = currCatalogItemBase.querySelector(".userWLCatalog_ItemDetTitleText").textContent;
+        updWLModalTitle();
 
         // Setting the Item count
-        wlModalHeader_DetInfo_TagsCountText.textContent = currCatalogItemBase.querySelector(".userWLCatalog_ItemCountText").textContent;
+        updWLModalShowCount();
 
         // Setting the update date
-        wlModalHeader_DetInfo_TagsUpdateText.textContent = currCatalogItemBase.querySelector(".userWLCatalog_ItemYearText").textContent;
+        updWLModalTimePrpty(wlLibraryIndexedInv[wlBodyCardIndex].wl_updated);
 
         // Setting the description
-        wlModalHeader_DetInfo_DescText.textContent = wlModalCurrIndex.wl_desc;
+        updWLModalDesc();
 
         // Setting the default sort option
         wlModalSortTypeText.textContent = `Manual`;
         wlModalSortOrderText.textContent = `Asc ↑`;
 
         // Filling in the grid content
-        for(let g = 0; g < wlModalCurrIndex.wl_items.length; g++)
+        for(let g = 0; g < wlLibraryIndexedInv[wlBodyCardIndex].wl_items.length; g++)
         {
-            let itemWatchStatus = wlModalCurrIndex.wl_items[g].wl_itemWatchStatus;
-            let itemId = wlModalCurrIndex.wl_items[g].wl_itemId;
+            let itemId = wlLibraryIndexedInv[wlBodyCardIndex].wl_items[g].wl_itemId;
             let itemIdLC = itemId.substring(itemId.indexOf('=') + 1).toLowerCase();
-            let item = wlModalMap.get(itemIdLC);
+            let itemMatch = wlModalMap.get(itemIdLC);
 
             // If match found, add to grid
-            if (item) 
+            if (itemMatch) 
             {
                 const {
+                    show_watch_status,
                     show_background,
                     show_foreground,
                     show_link,
@@ -928,13 +908,13 @@
                     show_type,
                     show_year,
                     show_description,
-                } = item;
+                } = itemMatch;
 
                 wlModalGrid_CardBdr = document.createElement("li");
                 wlModalGrid_CardBdr.classList.add("wlModalGrid_CardBdr");
                 wlModalGrid_CardBdr.classList.add("genDraggableElement");
                 wlModalGrid_CardBdr.setAttribute(`data-show-index` , g);
-                wlModalGrid_CardBdr.setAttribute(`data-show-status-opt` , itemWatchStatus);
+                wlModalGrid_CardBdr.setAttribute(`data-show-status-opt` , show_watch_status);
                 
                 let itemStruct = 
                 `
@@ -1010,14 +990,19 @@
                 `;
                 wlModalGrid_CardBdr.innerHTML = itemStruct;
                 
-                // Fill up the arrays
-                wlModalSortDfltArray.push(item);
-                wlModalSortUsedArray.push(item);
+                // Fill up the array
+                wlModalDfltInv.push(itemMatch);
                 
                 // Append item to the grid
                 wlModalGridBox.appendChild(wlModalGrid_CardBdr);
             }
         }
+
+        // Create map with index
+        wlModalIndexedInv = wlModalDfltInv.map((show, index) => 
+        {
+            return { ...show, index };
+        });
 
         // Opening the modal
         wlModalBase.classList.add("active");
@@ -1027,6 +1012,9 @@
         // Closing the modal
         wlModalBaseCloseBtn.addEventListener("click" , () => 
         {
+            // Regenerate the wl body cards
+            generateWLCards(wlLibraryIndexedInv);
+
             wlModalBox.scrollTo(null, 0);
             wlModalBase.classList.remove("active");
             document.body.classList.remove("bodystop");
@@ -1068,6 +1056,7 @@
         addDelWLEventListeners();
         attachMenuModalEventListeners();
         addDragAndSortListEventListeners();
+        attachAddShowsToWLListeners();
     }
 
 
@@ -1084,7 +1073,7 @@
             let item = arr[i]; 
             let itemStruct = 
             `
-                <li class="wlModalGrid_CardBdr genDraggableElement" data-show-index="${i}" data-show-status-opt="${item.itemWatchStatus}">
+                <li class="wlModalGrid_CardBdr genDraggableElement" data-show-index="${i}" data-show-status-opt="${item.show_watch_status}">
                     <div class="wlModalGrid_CardBox">
                         <div class="wlModalGrid_CardHandleBdr" draggable="true">
                             <div class="wlModalGrid_CardHandleBox">
@@ -1164,6 +1153,60 @@
 
         // Re-attach event listeners here
         attachWLModalListeners();
+    }
+
+
+    // Update the wl Modal bcg/thumbnail
+    function updWLModalImg(ctnt = wlLibraryIndexedInv[wlBodyCardIndex].wl_bcg)
+    {
+        // Updating the array
+        wlLibraryIndexedInv[wlBodyCardIndex].wl_bcg = ctnt;
+
+        // Setting the Background
+        wlModalHeaderBcgImg.setAttribute(`src` , `${ctnt}`);
+
+        // Setting the Thumbnail
+        wlModalHeaderThumbImg.setAttribute(`src` , `${ctnt}`);
+    }
+
+    // Update the watchlist title
+    function updWLModalTitle(ctnt = wlLibraryIndexedInv[wlBodyCardIndex].wl_name)
+    {
+        // Updating the array
+        wlLibraryIndexedInv[wlBodyCardIndex].wl_name = ctnt;
+
+        // Setting the title Bar Title
+        wlModalBaseTitleText.textContent = `${ctnt}`;
+
+        // Setting the Header title
+        wlModalHeader_DetInfo_TitleText.textContent = `${ctnt}`;
+    }
+
+    // Update the watchlist description
+    function updWLModalDesc(ctnt = wlLibraryIndexedInv[wlBodyCardIndex].wl_desc)
+    {
+        // Updating the array 
+        wlLibraryIndexedInv[wlBodyCardIndex].wl_desc = ctnt;
+
+        // Updating the description text
+        wlModalHeader_DetInfo_DescText.textContent = `${ctnt}`;
+    }
+
+    // Update the watchlist total show count
+    function updWLModalShowCount()
+    {
+        // Updating the count text
+        wlModalHeader_DetInfo_TagsCountText.textContent = `${wlLibraryIndexedInv[wlBodyCardIndex].wl_items.length} items`;
+    }
+
+    // Update "last updated" property
+    function updWLModalTimePrpty(ctnt = getCurrDate())
+    {
+        // Update array
+        wlLibraryIndexedInv[wlBodyCardIndex].wl_updated = `${ctnt}`;
+
+        // Update text
+        wlModalHeader_DetInfo_TagsUpdateText.textContent = `${wlLibraryIndexedInv[wlBodyCardIndex].wl_updated}`;
     }
 
 
@@ -1294,10 +1337,7 @@
         wlModalBaseCloseBtn.click();
 
         // Delete from the watchlist inv
-        watchlistInventory = watchlistInventory.filter((item) => item.wl_id != wlBodySortArray[wlBodyCardIndex].wl_id);
-
-        // Delete item from sort array
-        wlBodySortArray.splice(wlBodyCardIndex , 1);
+        wlLibraryIndexedInv = wlLibraryIndexedInv.filter((item) => item.wl_id != wlLibraryIndexedInv[wlBodyCardIndex].wl_id);
 
         // Remove item from catalog
         let delItem = document.getElementsByClassName("userWLCatalog_ItemBase")[wlBodyCardIndex];
@@ -1324,7 +1364,6 @@
     // Attaches Listeners to enable Sorting shows in the WL Modal
     function attachSortWLModalListeners()
     {
-
         // Variable Definitions
         wlModalSortTypeTabs = document.querySelectorAll(".wlModalSortCtnt .wlModalSortTypeTabs");
         wlModalSortOrderTabs = document.querySelectorAll(".wlModalSortCtnt .wlModalSortOrderTabs");
@@ -1361,7 +1400,7 @@
                 }
 
                 // Get option number
-                let optNo = tab.getAttribute("data-sort-type-opt");
+                let optNo = Number(tab.getAttribute("data-sort-type-opt"));
 
                 // Add selected class to the currently selected tab
                 wlModalSortTypeTabs.forEach((activeTab) => 
@@ -1370,46 +1409,7 @@
                 });
                 tab.classList.add("selected");
 
-                switch(optNo)
-                {
-                    // Continue
-                    case "0":
-                        wlModalGridBox.setAttribute(`data-sort-handle-visibility` , `true`);
-                        break;
-
-                    // Recently Added
-                    case "1":
-                        generateWLModalCards(wlModalSortDfltArray);
-                        break;
-                        
-                    // Recently Updated
-                    case "2":
-                        sortWLByRecUpd(wlModalSortUsedArray, null, 'asc');
-                        break;
-                        
-                    // Alphabetical
-                    case "3":
-                        sortWLByName(wlModalSortUsedArray, 'show_title', 'A-Z');
-                        generateWLModalCards(wlModalSortUsedArray);
-                        break;
-                        
-                    // Release
-                    case "4":
-                        sortWLByYear(wlModalSortUsedArray, 'show_year', 'asc');
-                        generateWLModalCards(wlModalSortUsedArray);
-                        break;
-                        
-                    // Score
-                    case "5":
-                        sortWLByScore(wlModalSortUsedArray, 'show_scores', 'asc');
-                        generateWLModalCards(wlModalSortUsedArray);
-                        break;
-                        
-                    // If none, display error
-                    default:
-                        notification(`notifyBad` , `An error occurred`);
-                        break;
-                }
+                sortWLModalCards(optNo);
 
                 // Update the sort type & order texts
                 wlModalSortTypeText.textContent = tab.querySelector(".genMenuModalCtntBtnText").textContent;
@@ -1449,18 +1449,18 @@
                 });
 
                 // Reverse the list
-                reverseWLArray(wlModalSortUsedArray);
+                reverseWLArray(wlModalIndexedInv);
 
                 // Print the reversed list
                 if(wlModalSortOrderTabIndex == 0)
                 {
                     wlModalSortOrderTabIndex = 1;
-                    generateWLModalCards(wlModalSortUsedArray, 'dsc');
+                    generateWLModalCards(wlModalIndexedInv, 'dsc');
                 }
                 else if(wlModalSortOrderTabIndex == 1)
                 {
                     wlModalSortOrderTabIndex = 0;
-                    generateWLModalCards(wlModalSortUsedArray);
+                    generateWLModalCards(wlModalIndexedInv);
                 }
 
                 // Update the sort type text
@@ -1470,6 +1470,52 @@
             tab.addEventListener("click" , action);
             tab.action = action;
         });
+    }
+
+    // Sorts the WL Modal Cards in the provided order
+    function sortWLModalCards(optNo)
+    {
+        switch(optNo)
+        {
+            // Manual
+            case 0:
+                generateWLModalCards(wlModalIndexedInv);
+                wlModalGridBox.setAttribute(`data-sort-handle-visibility` , `true`);
+                break;
+
+            // Recently Added
+            case 1:
+                generateWLModalCards(wlModalIndexedInv);
+                break;
+                
+            // Recently Updated
+            case 2:
+                sortWLByRecUpd(wlModalIndexedInv, null, 'asc');
+                break;
+                
+            // Alphabetical
+            case 3:
+                sortWLByName(wlModalIndexedInv, 'show_title', 'A-Z');
+                generateWLModalCards(wlModalIndexedInv);
+                break;
+                
+            // Release
+            case 4:
+                sortWLByYear(wlModalIndexedInv, 'show_year', 'asc');
+                generateWLModalCards(wlModalIndexedInv);
+                break;
+                
+            // Score
+            case 5:
+                sortWLByScore(wlModalIndexedInv, 'show_scores', 'asc');
+                generateWLModalCards(wlModalIndexedInv);
+                break;
+                
+            // If none, display error
+            default:
+                notification(`notifyBad` , `An error occurred while sorting`);
+                break;
+        }
     }
 
 
@@ -1500,7 +1546,7 @@
                 wlModalFilterStatusTabIndex = index;
 
                 // Get option number
-                let optNo = tab.getAttribute("data-show-status-opt");
+                let optNo = Number(tab.getAttribute("data-show-status-opt"));
 
                 // Add selected class to the currently selected tab
                 wlModalFilterStatusTabs.forEach((selectedTab) => 
@@ -1509,44 +1555,9 @@
                 });
                 tab.classList.add("selected");
 
-                switch(optNo)
-                {
-                    // All
-                    case "0":
-                        filterWLModalStatus(0);
-                        break;
-
-                    // Planned
-                    case "1":
-                        filterWLModalStatus(1);
-                        break;
-                        
-                    // Watching
-                    case "2":
-                        filterWLModalStatus(2);
-                        break;
-                        
-                    // On-hold
-                    case "3":
-                        filterWLModalStatus(3);
-                        break;
-                        
-                    // Completed
-                    case "4":
-                        filterWLModalStatus(4);
-                        break;
-                        
-                    // Dropped
-                    case "5":
-                        filterWLModalStatus(5);
-                        break;
-                        
-                    // Notify of error 
-                    default:
-                        notification(`notifyBad` , `An error occured while filtering`);
-                        break;
-                }
+                filterWLCardsByWatchStatus(optNo);
             }
+
             tab.addEventListener("click" , action);
             tab.action = action;
         });
@@ -1610,6 +1621,48 @@
         });
     }
 
+    // Filter WL Cards based on show watch status
+    function filterWLCardsByWatchStatus(optNo)
+    {
+        switch(optNo)
+        {
+            // All
+            case 0:
+                filterWLModalStatus(0);
+                break;
+
+            // Planned
+            case 1:
+                filterWLModalStatus(1);
+                break;
+                
+            // Watching
+            case 2:
+                filterWLModalStatus(2);
+                break;
+                
+            // On-hold
+            case 3:
+                filterWLModalStatus(3);
+                break;
+                
+            // Completed
+            case 4:
+                filterWLModalStatus(4);
+                break;
+                
+            // Dropped
+            case 5:
+                filterWLModalStatus(5);
+                break;
+                
+            // Notify of error 
+            default:
+                notification(`notifyBad` , `An error occured while filtering`);
+                break;
+        }
+    }
+
 
     // Attaches listeners for the WL Modal cards
     function attachWLModalCardListeners(event)
@@ -1657,29 +1710,20 @@
         // Edit show status (unavailable)
         editShowStatusBtn.onclick = () => notification(`notifyBad` , `Option unavailable`);
 
-        // Add to watchlist
+        // Add to watchlist 
         attachAddToWLEventListeners();
 
         // Set as watchlist thumbnail
         setWLThumbBtn.onclick = () => 
         {
-            // UPdate the watchlist inventory
-            watchlistInventory.forEach((item) => 
-            {
-                if(item.wl_id = wlBodySortArray[wlBodyCardIndex].wl_id)
-                {
-                    item.wl_bcg = wlModalGridCardImage;
-                }
-            });
-
-            // Update the sort array
-            wlBodySortArray[wlBodyCardIndex].wl_bcg = wlModalGridCardImage;
+            // Update the watchlist inventory
+            wlLibraryIndexedInv[wlBodyCardIndex].wl_bcg = wlModalGridCardImage;
 
             // Update the WL Header Bcg img
-            document.querySelector(".wlModalHeader_BcgImg").setAttribute(`src` , `${wlModalGridCardImage}`);
-
-            // Update the WL Header Thumbnail img
-            document.querySelector(".wlModalHeader_thumbImg").setAttribute(`src` , `${wlModalGridCardImage}`);
+            updWLModalImg(wlModalGridCardImage);
+            
+            // Set "Last updated"
+            updWLModalTimePrpty();
         }
 
         // Sharing the Show
@@ -1698,27 +1742,307 @@
         }
 
         // Removes the selected wl modal card from the watchlist
-        const removeWlModalGridCard = () =>
+        const removeWlModalGridCard = () => 
         {
             // Remove element from watchlist inventory
-            watchlistInventory.forEach(item => 
+            if(wlLibraryIndexedInv[wlBodyCardIndex].wl_items)
             {
-                if (item.wl_items)
-                {
-                    item.wl_items = item.wl_items.filter(subItem => subItem.wl_itemId !== wlModalGridCardLink);
-                }
-            });
+                wlLibraryIndexedInv[wlBodyCardIndex].wl_items = wlLibraryIndexedInv[wlBodyCardIndex].wl_items.filter(subItem => subItem.wl_itemId !== wlModalGridCardLink);
+            }
     
-            // Remove from the 'dflt' sort arrays
-            wlModalSortDfltArray = wlModalSortDfltArray.filter((item) => item.show_link !== wlModalGridCardLink);
-
-            // Remove from the 'used' sort array
-            wlModalSortUsedArray = wlModalSortUsedArray.filter((item) => item.show_link !== wlModalGridCardLink);
+            // Remove from the wl modal arrays
+            wlModalIndexedInv = wlModalIndexedInv.filter((item) => item.show_link !== wlModalGridCardLink);
 
             // Remove the wl card
             wlModalGridCardBdr.remove();
+
+            // Update Show count
+            updWLModalShowCount();
+            
+            // Set "Last updated"
+            updWLModalTimePrpty();
+
+            // Reattach listeners
+            attachMenuModalEventListeners();
         }
     
+    }
+
+
+    // Add Shows to your watchlist
+    function attachAddShowsToWLListeners()
+    {
+        let addShowToWLBtn = document.querySelectorAll(".addShowsToWL");
+
+        addShowToWLBtn.forEach((btn) => 
+        {
+            if(btn.action)
+            {
+                btn.removeEventListener("click" , btn.action);
+            }
+        });
+
+        addShowToWLBtn.forEach((btn) => 
+        {
+
+            btn.addEventListener("click" , initAddShowToWLModal);
+            btn.action = initAddShowToWLModal;
+        });
+    }
+
+    function initAddShowToWLModal()
+    {
+        let addShowToWLStruct = 
+        `
+            <div class="quickSearchBase addShowToWLBase">
+                <div class="quickSearchBcg"></div>
+                <div class="quickSearchBdr">
+                    <div class="quickSearchBox">
+                        <div class="quickSearchNoteBdr">
+                            <div class="quickSearchNoteBox">
+                                <p class="quickSearchNoteText">Click on a show to add</p>
+                            </div>
+                        </div>
+                        <div class="quickSearchInputBdr">
+                            <div class="quickSearchInputBox">
+                                <div class="quickSearchInputIcon quickSearchInputLeftIcon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="quickSearchInputSvg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 2.75a8.75 8.75 0 1 0 0 17.5a8.75 8.75 0 0 0 0-17.5M1.25 11.5c0-5.66 4.59-10.25 10.25-10.25S21.75 5.84 21.75 11.5c0 2.56-.939 4.902-2.491 6.698l3.271 3.272a.75.75 0 1 1-1.06 1.06l-3.272-3.271A10.2 10.2 0 0 1 11.5 21.75c-5.66 0-10.25-4.59-10.25-10.25"/>
+                                    </svg>
+                                </div>
+                                <input type="text" name="quickSearchInputFieldName" id="addShowToWLInputField" class="quickSearchInputFieldClass" placeholder="Search..">
+                                <label for="addShowToWLInputField" class="quickSearchInputIcon quickSearchInputRightIcon quickSearchClearInput">
+                                    <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="quickSearchInputSvg">
+                                        <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                                    </svg>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="quickSearchResultBdr">
+                            <div class="quickSearchResultBox catalogBox"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        let timer;
+
+        documentBody.insertAdjacentHTML(`beforeend` , addShowToWLStruct);
+        timer = setTimeout(() => 
+        {
+            clearTimeout(timer);
+            initAddShowToWL();
+        }, 10);
+    }
+
+
+    // Initializes the modal for users to search up shows to add to their watchlist
+    function initAddShowToWL()
+    {
+
+        // Definitions
+        addShowToWLBase = document.querySelector(".addShowToWLBase");
+        let addShowToWLBcg = addShowToWLBase.querySelector(".quickSearchBcg");
+        let addShowToWLInputField = addShowToWLBase.querySelector("#addShowToWLInputField");
+        let addShowToWLClearInput = addShowToWLBase.querySelector(".quickSearchClearInput");
+        let addShowToWLResultBox = addShowToWLBase.querySelector(".quickSearchResultBox");
+        let addShowToWLQuery;
+
+        // Display modal
+        addShowToWLBase.classList.add("active");
+        addShowToWLBase.addEventListener("transitionend" , function handleTransitionEnd()
+        {
+            documentBody.setAttribute(`data-modal-state` , `open`);
+            addShowToWLInputField.focus();
+            addShowToWLBase.removeEventListener("transitionend" , handleTransitionEnd);
+        });
+
+
+        // Function to display search results
+        const displayAddShowToWLResult = (items) => 
+        {
+            // empty the array
+            addShowToWLArray.length = 0;
+
+            // Only seven results are displayed
+            const resultRange = items.slice(0, 7);
+
+            addShowToWLResultBox.innerHTML = resultRange.map((item) => 
+            {
+                const { show_link, show_thumbnail, show_title, show_scores, show_type, show_year, show_airing_status } = item;
+                if((addShowToWLQuery.length > 0) && (addShowToWLQuery != undefined) && (addShowToWLQuery != null) && (addShowToWLQuery != " "))
+                {
+                    // Add found items into the array
+                    addShowToWLArray.push(item);
+                    return `
+                        <div class="quickSearchResultCardBdr addItemToWLBtn" data-link="${show_link}">
+                            <div class="quickSearchResultCardBox">
+                                <div class="quickSearchResultCardThumbBdr">
+                                    <div class="quickSearchResultCardThumbBox">
+                                        <img src="${show_thumbnail}" alt="Thumbnail image of ${show_title}" class="quickSearchResultCardThumbImg">
+                                    </div>
+                                </div>
+                                <div class="quickSearchResultDetBdr">
+                                    <div class="quickSearchResultDetBox">
+                                        <div class="cardInfoBox">
+                                            <div class="quickSearchResultDetTitleBox">
+                                                <h3 class="quickSearchResultDetTitleText">${show_title}</h3>
+                                            </div>
+                                            <div class="quickSearchResultDetTagBdr">
+                                                <div class="quickSearchResultDetTagBox">
+                                                    <div class="quickSearchResultDetTagSectBox quickSearchResultDetTagScoreBox">
+                                                        <div class="quickSearchResultDetTagScoreIcon">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="quickSearchResultDetTagScoreSvg">
+                                                                <path d="M9.153 5.408C10.42 3.136 11.053 2 12 2s1.58 1.136 2.847 3.408l.328.588c.36.646.54.969.82 1.182s.63.292 1.33.45l.636.144c2.46.557 3.689.835 3.982 1.776c.292.94-.546 1.921-2.223 3.882l-.434.507c-.476.557-.715.836-.822 1.18c-.107.345-.071.717.001 1.46l.066.677c.253 2.617.38 3.925-.386 4.506s-1.918.051-4.22-1.009l-.597-.274c-.654-.302-.981-.452-1.328-.452s-.674.15-1.328.452l-.596.274c-2.303 1.06-3.455 1.59-4.22 1.01c-.767-.582-.64-1.89-.387-4.507l.066-.676c.072-.744.108-1.116 0-1.46c-.106-.345-.345-.624-.821-1.18l-.434-.508c-1.677-1.96-2.515-2.941-2.223-3.882S3.58 8.328 6.04 7.772l.636-.144c.699-.158 1.048-.237 1.329-.45s.46-.536.82-1.182z" />
+                                                            </svg>
+                                                        </div>
+                                                        <p class="quickSearchResultDetTagSectText">${show_scores}</p>
+                                                    </div>
+                                                    <div class="quickSearchResultDetTagSectBox">
+                                                        <p class="quickSearchResultDetTagSectText">•</p>
+                                                    </div>
+                                                    <div class="quickSearchResultDetTagSectBox">
+                                                        <p class="quickSearchResultDetTagSectText">${show_type}</p>
+                                                    </div>
+                                                    <div class="quickSearchResultDetTagSectBox">
+                                                        <p class="quickSearchResultDetTagSectText">•</p>
+                                                    </div>
+                                                    <div class="quickSearchResultDetTagSectBox">
+                                                        <p class="quickSearchResultDetTagSectText">${show_year}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="quickSearchResultDetDescBox">
+                                                <h3 class="quickSearchResultDetDescText">${show_airing_status}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+                else
+                {
+                    return null;
+                }
+            }).join('');
+
+            // Reattaching listeners
+            addItemToWL();
+        };
+
+        // Filter and display result based on user's entry
+        function filterAddShowToWLInput()
+        {
+            addShowToWLQuery = addShowToWLInputField.value.trim().toLowerCase();
+            encodedSearchQuery = encodeURIComponent(addShowToWLQuery);
+
+            // Filter Items
+            const filteredData = searchInventory.filter((item) => item.show_searchKey.toLowerCase().includes(addShowToWLQuery));
+            displayAddShowToWLResult(filteredData);
+            
+            // Toggle the clear input & catalog Icons
+            if(addShowToWLInputField.value.length > 0)
+            {
+                addShowToWLClearInput.classList.add("isTyping");
+                return;
+            }
+            addShowToWLClearInput.classList.remove("isTyping");
+        }
+        
+        // Get user entry
+        addShowToWLInputField.addEventListener("keyup", e => 
+        {
+            filterAddShowToWLInput(e);
+        });
+
+        // Clears the search field
+        addShowToWLClearInput.addEventListener("click" , () => 
+        {
+            addShowToWLInputField.value = "";
+            addShowToWLQuery = "";
+            addShowToWLClearInput.classList.remove("active");
+            filterAddShowToWLInput();
+        });
+
+        // Close Quick Search
+        addShowToWLBcg.addEventListener("click" , closeAddShowToWL);
+    }
+
+    // Closes the watchist
+    function closeAddShowToWL()
+    {
+        addShowToWLBase.classList.remove("active");
+        documentBody.removeAttribute(`data-modal-state`);
+        addShowToWLBase.addEventListener("transitionend" , function handleTransitionEnd()
+        {
+            addShowToWLBase.removeEventListener("transitionend" , handleTransitionEnd);
+            addShowToWLBase.remove();
+        });
+    }
+
+    // Performs the addition of the selected show to the watchlist
+    function addItemToWL()
+    {
+        const btn = document.querySelectorAll('.addItemToWLBtn');
+
+        btn.forEach((btn) => 
+        {
+            if(btn.action)
+            {
+                btn.removeEventListener("click" , btn.action);
+            }
+        });
+
+        btn.forEach((btn, index) => 
+        {
+            const action = () =>
+            {
+
+                // check if show exists in watchlist
+                let thisItem = wlModalIndexedInv.filter(item => item.show_link === addShowToWLArray[index].show_link)
+                if(thisItem.length <= 0)
+                {
+
+                    // Add new item into the library array
+                    if(wlLibraryIndexedInv[wlBodyCardIndex].wl_items)
+                    {
+                        wlLibraryIndexedInv[wlBodyCardIndex].wl_items.push(
+                            {
+                                wl_itemId: `${addShowToWLArray[index].show_link}`,
+                            }
+                        );
+                    }
+
+                    // Adds item to the default & sort array of that specific watchlist
+                    wlModalIndexedInv.push(addShowToWLArray[index]);
+
+                    // Append item to the DOM
+                    sortWLModalCards(wlModalSortTypeTabIndex);
+
+                    // Update Show Count
+                    updWLModalShowCount();
+            
+                    // Set "Last updated"
+                    updWLModalTimePrpty();
+
+                    // Notify user
+                    notification(`notifyGood` , `Show added successfully`);
+
+                    // Close the modal
+                    closeAddShowToWL();
+                }
+                else
+                {
+                    notification(`notifyBad` , `Show already in watchlist`);
+                }
+            }
+
+            btn.addEventListener("click" , action);
+            btn.action = action;
+        });
     }
 
     
