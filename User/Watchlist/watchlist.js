@@ -1727,6 +1727,9 @@
             
             // Set "Last updated"
             updWLModalTimePrpty();
+
+            //Notify users
+            notification(`notifyGood` , `Thumbnail set successfully`);
         }
 
         // Sharing the Show
