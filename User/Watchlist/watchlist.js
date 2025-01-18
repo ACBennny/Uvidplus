@@ -724,8 +724,8 @@
         // Generate the Watchlist cards
         generateWLCards(wlLibraryIndexedInv);
         
-        // Call the function for operating the menu modals
-        attachMenuModalEventListeners();
+        // Call the function for the gen menu modals
+        attachGenMenuModalEventListeners();
 
         // Preprocess searchInventory into a Map for the WL Modal
         wlModalMap = new Map(
@@ -1054,7 +1054,7 @@
         attachReadFullDescWLModalEventListeners();
         attachAddToWLEventListeners();
         addDelWLEventListeners();
-        attachMenuModalEventListeners();
+        attachGenMenuModalEventListeners();
         addDragAndSortListEventListeners();
         attachAddShowsToWLListeners();
     }
@@ -1763,11 +1763,21 @@
             updWLModalTimePrpty();
 
             // Reattach listeners
-            attachMenuModalEventListeners();
+            attachGenMenuModalEventListeners();
         }
     
     }
 
+
+
+    // Update show's watch status (TO DO)
+    function attachShowWatchStatusListeners(event)
+    {
+        // ----> <---- \\
+    }
+
+
+    
 
     // Add Shows to your watchlist
     function attachAddShowsToWLListeners()
