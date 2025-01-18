@@ -2439,7 +2439,7 @@
                 genMenuModalScreenType = "large";
 
                 // Choose the genMenuModalBdr position
-                leftSpace = btnLeft > winWidth - menuWidth ? btnRight - menuWidth - genMenuModalDisplayThreshold : btnLeft + genMenuModalDisplayThreshold;
+                leftSpace = btnLeft > winWidth - menuWidth ? btnRight - menuWidth - genMenuModalDisplayThreshold : btnRight - menuWidth - genMenuModalDisplayThreshold //btnLeft + genMenuModalDisplayThreshold;
                 topSpace = btnBottom > winHeight - menuHeight ? btnTop - menuHeight - genMenuModalDisplayThreshold : btnBottom + genMenuModalDisplayThreshold;
 
                 // If the top value is less than zero i.e. top is outside viewport;
