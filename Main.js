@@ -2094,7 +2094,7 @@
                 document.addEventListener('dragend', removeCustomDragPreview);
 
                 // Re attaches listeners for context menu
-                attachMenuModalEventListeners();
+                attachGenMenuModalEventListeners();
             }
         }
 
@@ -2353,7 +2353,7 @@
         
 
         // Attaches listener for calling the menu modals
-        function attachMenuModalEventListeners()
+        function attachGenMenuModalEventListeners()
         {
             let openGenMenuModalBtn = document.querySelectorAll(".openGenMenuModalBtn");
 
