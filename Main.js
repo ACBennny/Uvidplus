@@ -2582,8 +2582,8 @@
             document.addEventListener("mousemove", currDraggingGenMenuModal);
             document.addEventListener("mouseup", stopDraggingGenMenuModal);
 
-            genMenuModalBox.addEventListener("touchstart", startDraggingGenMenuModal, true);
-            document.addEventListener("touchmove", currDraggingGenMenuModal, false);
+            genMenuModalBox.addEventListener("touchstart", startDraggingGenMenuModal, {passive: true});
+            document.addEventListener("touchmove", currDraggingGenMenuModal, {passive: false});
             document.addEventListener("touchend", stopDraggingGenMenuModal);
 
             window.addEventListener("resize" , calibrateGenMenuModalBoxHeight);
