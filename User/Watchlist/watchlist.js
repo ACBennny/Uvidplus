@@ -1708,7 +1708,10 @@
         watchShowBtn.onclick = () => window.open(`${wlModalGridCardLink}` , `_self`);
 
         // Edit show status (unavailable)
-        editShowStatusBtn.onclick = () => notification(`notifyBad` , `Option unavailable`);
+        editShowStatusBtn.onclick = () =>
+        {
+            notification(`notifyBad` , `Option unavailable`);
+        }
 
         // Add to watchlist 
         attachAddToWLEventListeners();
@@ -1777,7 +1780,7 @@
     }
 
 
-    
+
 
     // Add Shows to your watchlist
     function attachAddShowsToWLListeners()
