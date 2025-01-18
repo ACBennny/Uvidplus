@@ -2372,10 +2372,6 @@
                     // Close if the same button clicked to open the menu is clicked again
                     if((currOpenGenMenuModalBtnIndex != null) && (index == currOpenGenMenuModalBtnIndex) && (genMenuModalBdr.getAttribute("aria-expanded") === "true"))
                     {
-                        // genMenuModalBdr.setAttribute("aria-expanded" , "false");
-                        // documentBody.setAttribute(`gen-menu-modal-is-dragging` , `false`);
-                        // genMenuModalBdr.classList.remove("isOpen");
-                        // document.removeEventListener("click" , callHideGenMenuModal);
                         hideGenMenuModal(false);
                     }
                     else
