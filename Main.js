@@ -601,7 +601,7 @@
     `;
     const quickSearchStruct = 
     `
-        <div class="quickSearchBase">
+        <div class="quickSearchBase quickSearchModal">
             <div class="quickSearchBcg"></div>
             <div class="quickSearchBdr">
                 <div class="quickSearchBox">
@@ -1476,12 +1476,12 @@
 
             // Definitions
             let openQuickSearchBtn = document.querySelectorAll(".openQuickSearchBtn");
-            let quickSearchBase = document.querySelector(".quickSearchBase");
-            let quickSearchBcg = document.querySelector(".quickSearchBcg");
-            let quickSearchInputField = document.querySelector("#quickSearchInputFieldId");
-            let quickSearchClearInput = document.querySelector(".quickSearchClearInput");
-            let quickSearchToCatalog = document.querySelector(".quickSearchToCatalog");
-            let quickSearchResultBox = document.querySelector(".quickSearchResultBox");
+            let quickSearchBase = document.querySelector(".quickSearchModal");
+            let quickSearchBcg = quickSearchBase.querySelector(".quickSearchBcg");
+            let quickSearchInputField = quickSearchBase.querySelector("#quickSearchInputFieldId");
+            let quickSearchClearInput = quickSearchBase.querySelector(".quickSearchClearInput");
+            let quickSearchToCatalog = quickSearchBase.querySelector(".quickSearchToCatalog");
+            let quickSearchResultBox = quickSearchBase.querySelector(".quickSearchResultBox");
             let quickSearchResultAllBtn;
             let quickSearchQuery;
             let encodedSearchQuery;
@@ -1503,6 +1503,7 @@
             // Open by Shortcut: Ctrl + Q 
             function quickSearchShortcut(e)
             {
+                if(!e.target.closest(".quickSearchModal .quickSearchInputFieldId")) return;
                 let keyVal = e.key.toLowerCase();
                 if((e.ctrlKey && keyVal === "q"))
                 {
