@@ -1015,9 +1015,14 @@
             // Regenerate the wl body cards
             generateWLCards(wlLibraryIndexedInv);
 
+            // Closethe modal
             wlModalBox.scrollTo(null, 0);
             wlModalBase.classList.remove("active");
             document.body.classList.remove("bodystop");
+
+            // Clear the array
+            wlModalDfltInv.length = 0;
+            wlModalIndexedInv.length = 0;
 
             // Resets the sort & filters
             wlModalSortTypeTabIndex = 0;
