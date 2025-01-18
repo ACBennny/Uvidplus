@@ -69,7 +69,7 @@ let watchlistInventory =
     {
         wl_id: `8NcKxlNq0V5I9IPD`,
         wl_name: `Intriguing Classics`,
-        wl_updated: `March 13, 2024`,
+        wl_updated: `December 13, 2024`,
         wl_bcg: `/Library/TV/Watch/OnePiece/img/2.jpg`,
         wl_desc: `Compiled in this watchlist are some of the best classics in the anime universe.`,
         wl_items:
