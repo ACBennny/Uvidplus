@@ -254,7 +254,7 @@
     // Sort the WL by Recently Updated
     function sortWLByRecUpd(arr, arrPrpty, order = 'asc')
     {
-        notification(`notifyBad` , `Option unavailable`);
+        notification(`notifyBad` , `An error occurred`);
     }
 
     // Sort the WL by Year
@@ -1215,6 +1215,13 @@
     }
 
 
+    // Editing the watchlist
+    function editWLModalDet()
+    {
+        // 
+    }
+
+
     // Adds the 'sticky' class to the wl modal title bar to display the wl name
     // and provide options for actions to be performed on the watchlist
     function toggleModalBar(event)
@@ -1394,16 +1401,6 @@
                 // Update button index
                 wlModalSortTypeTabIndex = index;
 
-                // Update the card "handle" visibility
-                if(index == 0)
-                {
-                    wlModalGridBox.setAttribute(`data-sort-handle-visibility` , `true`);
-                }
-                else
-                {
-                    wlModalGridBox.setAttribute(`data-sort-handle-visibility` , `false`);
-                }
-
                 // Get option number
                 let optNo = Number(tab.getAttribute("data-sort-type-opt"));
 
@@ -1490,6 +1487,7 @@
 
             // Recently Added
             case 1:
+                wlModalGridBox.setAttribute(`data-sort-handle-visibility` , `false`);
                 generateWLModalCards(wlModalIndexedInv);
                 break;
                 
@@ -1500,18 +1498,21 @@
                 
             // Alphabetical
             case 3:
+                wlModalGridBox.setAttribute(`data-sort-handle-visibility` , `false`);
                 sortWLByName(wlModalIndexedInv, 'show_title', 'A-Z');
                 generateWLModalCards(wlModalIndexedInv);
                 break;
                 
             // Release
             case 4:
+                wlModalGridBox.setAttribute(`data-sort-handle-visibility` , `false`);
                 sortWLByYear(wlModalIndexedInv, 'show_year', 'asc');
                 generateWLModalCards(wlModalIndexedInv);
                 break;
                 
             // Score
             case 5:
+                wlModalGridBox.setAttribute(`data-sort-handle-visibility` , `false`);
                 sortWLByScore(wlModalIndexedInv, 'show_scores', 'asc');
                 generateWLModalCards(wlModalIndexedInv);
                 break;
