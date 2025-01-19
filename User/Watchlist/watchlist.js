@@ -248,9 +248,6 @@
         });
     }
 
-    // Sort the WL by Recently Added 
-        // NO FUNCTION NEEDED ATM AS IT GENERATES THE DEFUALT LIST
-
     // Sort the WL by Recently Updated
     function sortWLByRecUpd(arr, arrPrpty, order = 'asc')
     {
