@@ -56,7 +56,6 @@
     let genMenuModalBox;
     let genMenuModalCtntBdr;
     let openGenMenuModalBtnTimer;
-    let genMenuModalScreenType = null;
     let genMenuModalDisplayThreshold = 5;
     let genAtnModalBoxDragDist = 10;
     let genMenuModalIsDragging = false;
@@ -2435,9 +2434,6 @@
             // Only change the position on larger screens (768px)
             if(winWidth > winWidth768)
             {
-                // Set screen type to small
-                genMenuModalScreenType = "large";
-
                 // Choose the genMenuModalBdr position
                 leftSpace = btnLeft > winWidth - menuWidth ? btnRight - menuWidth - genMenuModalDisplayThreshold : btnRight - menuWidth - genMenuModalDisplayThreshold //btnLeft + genMenuModalDisplayThreshold;
                 topSpace = btnBottom > winHeight - menuHeight ? btnTop - menuHeight - genMenuModalDisplayThreshold : btnBottom + genMenuModalDisplayThreshold;
@@ -2452,9 +2448,6 @@
             }
             else
             {
-                // Set screen type to small
-                genMenuModalScreenType = "small";
-
                 // Set position values to zero if otherwise
                 leftSpace = 0;
                 topSpace = 0;
@@ -2473,31 +2466,7 @@
             else
             {
                 // For updating the position after configuration
-                updateGenMenuModalPosition();
-            }
-        }
-
-        // Update the menu modal position when viewport width changes from 768
-        function updateGenMenuModalPosition()
-        {
-            // Return if value is null
-            if(genMenuModalScreenType == null) return;
-            
-            // If screen is large i.e. initial innerWidth IS greater than winWidth768
-            if(genMenuModalScreenType === "large")
-            {
-                if(window.innerWidth <= winWidth768)
-                {
-                    hideGenMenuModal();
-                }
-            }
-            // If screen is small i.e. initial innerWidth NOT greater than winWidth768
-            else if(genMenuModalScreenType === "small")
-            {
-                if(window.innerWidth > winWidth768)
-                {
-                    stopDraggingGenMenuModal();
-                }
+                hideGenMenuModal();
             }
         }
 
@@ -2519,10 +2488,10 @@
         }
 
         // Hides the menu modal
-        function hideGenMenuModal(genModalScreenBool = false)
+        function hideGenMenuModal()
         {
             document.removeEventListener("click" , callHideGenMenuModal);
-            window.removeEventListener("scroll" , calibrateGenMenuModal);
+            window.removeEventListener("resize" , calibrateGenMenuModal);
             documentBody.removeAttribute(`gen-menu-modal-is-dragging`);
             removeGenModalDragging();
 
@@ -2531,12 +2500,6 @@
             {
                 genMenuModalBdr.removeEventListener("transitionend", handleTransitionEnd);
                 genMenuModalCtntBdr.innerHTML = genMenuModalCtntBdrStruct;
-
-                if((genModalScreenBool == true) && (genMenuModalScreenType != null))
-                {
-                    document.querySelectorAll(".openGenMenuModalBtn")[currOpenGenMenuModalBtnIndex].click();
-                    genMenuModalScreenType = null;
-                }
             });
         }
 
@@ -2660,7 +2623,7 @@
             genMenuModalBdr.classList.remove("isDragging");
             genMenuModalBox.classList.remove("disableClicks");
             const menuModalBoxH = parseInt(genMenuModalBox.style.height);
-            menuModalBoxH < Math.round((startGenMenuBoxHeight * 0.75)) ? hideGenMenuModal(false) : updateGenMenuModalBoxHeight(startGenMenuBoxHeight);
+            menuModalBoxH < Math.round((startGenMenuBoxHeight * 0.75)) ? hideGenMenuModal() : updateGenMenuModalBoxHeight(startGenMenuBoxHeight);
         }
 
 
