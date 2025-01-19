@@ -63,7 +63,7 @@
     let createWLStruct = 
     `
         <div class="genAtnModalBcg closeCreateWLBtn"></div>
-        <div class="genAtnModalBox createWLBox">
+        <div class="genAtnModalBox">
             <div class="genAtnModalCtnt">
                 <div class="genAtnModalHeader">
                     <div class="genAtnModalHeaderIconBox closeCreateWLBtn">
@@ -92,8 +92,12 @@
                                 </div>
                                 <div class="newWLAtnBdr">
                                     <div class="newWLAtnBox">
-                                        <button type="button" id="createNewWL" class="newWLAtnBtn inactiveBtn" disabled>Create</button>
-                                        <button type="button" id="cancelNewWL" class="newWLAtnBtn hollowBtn closeCreateWLBtn">Cancel</button>
+                                        <button type="button" id="createNewWL" class="genBtnBox inactiveBtn" disabled>
+                                            <div class="genBtnText">Create</div>
+                                        </button>
+                                        <button type="button" id="cancelNewWL" class="genBtnBox hollowBtn closeCreateWLBtn">
+                                            <div class="genBtnText">Cancel</div>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -127,7 +131,97 @@
             </div>
         </div>
     `;
-
+    let editWLStruct =
+    `
+        <div class="genAtnModalBcg closeEditWLModalBtn"></div>
+        <div class="genAtnModalBox">
+            <div class="genAtnModalCtnt">
+                <div class="genAtnModalHeader">
+                    <div class="genAtnModalHeaderIconBox closeEditWLModalBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="genAtnModalHeaderIcon">
+                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                        </svg>
+                    </div>
+                    <h3 class="genAtnModalHeaderText">
+                        <span class="large">E</span>
+                        <span class="small">dit Watchlist</span>
+                    </h3>
+                </div>
+                <div class="genAtnModalOptBcg editWLItemBcg">
+                    <div class="genAtnModalOptBdr editWLItemBox">
+                        <div class="genAtnModalOptBox editSectionBtn" title="Edit Title" aria-label="edit-title-btn">
+                            <div class="genAtnModalOptIconBox">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genAtnModalOptIcon">
+                                    <path d="m11.4 18.161l7.396-7.396a10.3 10.3 0 0 1-3.326-2.234a10.3 10.3 0 0 1-2.235-3.327L5.839 12.6c-.577.577-.866.866-1.114 1.184a6.6 6.6 0 0 0-.749 1.211c-.173.364-.302.752-.56 1.526l-1.362 4.083a1.06 1.06 0 0 0 1.342 1.342l4.083-1.362c.775-.258 1.162-.387 1.526-.56q.647-.308 1.211-.749c.318-.248.607-.537 1.184-1.114m9.448-9.448a3.932 3.932 0 0 0-5.561-5.561l-.887.887l.038.111a8.75 8.75 0 0 0 2.092 3.32a8.75 8.75 0 0 0 3.431 2.13z" />
+                                </svg>
+                            </div>
+                            <div class="genAtnModalOptTextBox ">
+                                <span class="genAtnModalOptText ">Title</span>
+                            </div>
+                        </div>
+                        <div class="newWLBdr">
+                            <div class="newWLBox">
+                                <div class="newWLInputBdr">
+                                    <div class="newWLInputBox">
+                                        <input data-initial-value-type="title" type="text" name="editWLTitleInputField" id="editWLTitleInputId" class="newWLInputClass editWLInputClass" placeholder="Enter title" disabled />
+                                    </div>
+                                </div>
+                                <div class="newWLWarnBdr">
+                                    <div class="newWLWarnBox">
+                                        <p id="editWLWarnId" class="newWLWarnText" tabindex="-1" data-word-limit="100"></p>
+                                    </div>
+                                </div>
+                                <div class="newWLAtnBdr">
+                                    <div class="newWLAtnBox">
+                                        <button type="button" id="saveWLTitleEdit" class="genBtnBox inactiveBtn saveWLEditBtn" data-save-type="title" disabled>
+                                            <div class="genBtnText">Update</div>
+                                        </button>
+                                        <button type="button" id="cancelWLTitleEdit" class="genBtnBox hollowBtn closeEditSectionBtn">
+                                            <div class="genBtnText">Cancel</div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="genAtnModalOptBox editSectionBtn" title="Edit Description" aria-label="edit-description-btn">
+                            <div class="genAtnModalOptIconBox">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genAtnModalOptIcon">
+                                    <path d="m11.4 18.161l7.396-7.396a10.3 10.3 0 0 1-3.326-2.234a10.3 10.3 0 0 1-2.235-3.327L5.839 12.6c-.577.577-.866.866-1.114 1.184a6.6 6.6 0 0 0-.749 1.211c-.173.364-.302.752-.56 1.526l-1.362 4.083a1.06 1.06 0 0 0 1.342 1.342l4.083-1.362c.775-.258 1.162-.387 1.526-.56q.647-.308 1.211-.749c.318-.248.607-.537 1.184-1.114m9.448-9.448a3.932 3.932 0 0 0-5.561-5.561l-.887.887l.038.111a8.75 8.75 0 0 0 2.092 3.32a8.75 8.75 0 0 0 3.431 2.13z" />
+                                </svg>
+                            </div>
+                            <div class="genAtnModalOptTextBox ">
+                                <span class="genAtnModalOptText ">Description</span>
+                            </div>
+                        </div>
+                        <div class="newWLBdr">
+                            <div class="newWLBox">
+                                <div class="newWLInputBdr">
+                                    <div class="newWLInputBox">
+                                        <textarea data-initial-value-type="description" type="text" name="editWLDescInputField" id="editWLDescInputId" class="newWLInputClass editWLInputClass" placeholder="Enter description" disabled></textarea>
+                                    </div>
+                                </div>
+                                <div class="newWLWarnBdr">
+                                    <div class="newWLWarnBox">
+                                        <p id="editWLWarnId" class="newWLWarnText" tabindex="-1" data-word-limit="1000"></p>
+                                    </div>
+                                </div>
+                                <div class="newWLAtnBdr">
+                                    <div class="newWLAtnBox">
+                                        <button type="button" id="saveWLDescEdit" class="genBtnBox inactiveBtn saveWLEditBtn" data-save-type="description" disabled>
+                                            <div class="genBtnText">Update</div>
+                                        </button>
+                                        <button type="button" id="cancelWLDescEdit" class="genBtnBox hollowBtn closeEditSectionBtn">
+                                            <div class="genBtnText">Cancel</div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
     
 
 
@@ -367,7 +461,6 @@
                 documentBody.appendChild(createListBdr);
     
                 const createListCloseBtn = document.querySelectorAll(".closeCreateWLBtn");
-                const createListBox = document.querySelector(".createWLBox");
                 const newWLInput = document.querySelector("#newWLInputId");
                 const newWLWarn = document.querySelector("#newWLWarnId");
                 const createWLBtn = document.querySelector("#createNewWL");
@@ -386,17 +479,16 @@
                 // Transitioning elements
                 createWLTimer = setTimeout(() => 
                 {
-                    documentBody.classList.add("bodystop");
+                    documentBody.setAttribute(`data-modal-state` , `open`);
                     createListBdr.classList.add("active");
-                    createListBox.classList.add("active");
                     clearTimeout(createWLTimer);
                 }, 100);
                 
                 // Automatically focus on input feild after transition
-                createListBox.addEventListener("transitionend" , function handleTransitionEnd()
+                createListBdr.addEventListener("transitionend" , function handleTransitionEnd()
                 {
+                    createListBdr.removeEventListener("transitionend" , handleTransitionEnd);
                     newWLInput.focus();
-                    createListBox.removeEventListener("transitionend" , handleTransitionEnd);
                 });
     
                 // checking input length
@@ -404,13 +496,15 @@
                 {
                     plArr.push(input);
                     lastWLArr = plArr.at(-1);
+                    lastWLArr = lastWLArr.toString();
+                    lastWLArr = lastWLArr.trim().replace(/\s+/g, ' ');
                     lastWLArrLength = lastWLArr.length;
     
                     // update warn label
                     currLength = wordCount - lastWLArrLength;
                     newWLWarn.textContent = currLength;
-    
-                    newWLWarn.classList.toggle("active" , currLength < 16);
+
+                    newWLWarn.classList.toggle("active" , currLength > 0);
                     newWLWarn.classList.toggle("empty" , currLength < 1);
     
                     checkBeforeCreate(lastWLArr);
@@ -419,14 +513,16 @@
                 // Check if name is valid (3 - 64 characters)
                 function checkBeforeCreate(val)
                 {
-                    if(val.length < inputLowBnd || (val.length > inputUppBnd))
+                    if((val.length < inputUppBnd) && (val !== ""))
+                    {
+                        createWLBtn.disabled = false;
+                        createWLBtn.classList.replace("inactiveBtn" , "midSolidBtn");
+                    }
+                    else
                     {
                         createWLBtn.disabled = true;
                         createWLBtn.classList.replace("midSolidBtn" , "inactiveBtn");
-                        return;
                     }
-                    createWLBtn.disabled = false;
-                    createWLBtn.classList.replace("inactiveBtn" , "midSolidBtn");
                 }
     
                 newWLInput.addEventListener("input" , () => 
@@ -574,18 +670,15 @@
                     newWLWarn.textContent = "";
                     newWLInput.disabled = true;
                     createWLBtn.disabled = true;
-                    documentBody.classList.remove("bodystop");
                     createListBdr.classList.remove("active");
-                    createListBox.classList.remove("active");
-    
-                    createWLTimer = setTimeout(() => 
+                    
+                    createListBdr.addEventListener("transitionend" , function handleTransitionEnd()
                     {
+                        createListBdr.removeEventListener("transitionend" , handleTransitionEnd);
                         documentBody.removeChild(createListBdr);
                         btn.disabled = false;
-                        documentBody.classList.remove("bodystop");
-                        clearTimeout(createWLTimer);
-    
-                    }, 300);
+                        documentBody.removeAttribute(`data-modal-state`);
+                    });
                 }
     
                 // Closes the modal
@@ -1054,6 +1147,7 @@
     function attachWLModalListeners()
     {
         attachReadFullDescWLModalEventListeners();
+        attachEditWLEventListeners();
         attachAddToWLEventListeners();
         addDelWLEventListeners();
         attachGenMenuModalEventListeners();
@@ -1213,9 +1307,212 @@
 
 
     // Editing the watchlist
-    function editWLModalDet()
+
+    // opening the modal for creating a new watchlist
+    function attachEditWLEventListeners()
     {
-        // 
+        let openEditWLBtn = document.querySelectorAll(".openEditWLBtn");
+
+        openEditWLBtn.forEach(btn => 
+        {
+            if(btn.editWLFunc)
+            {
+                btn.removeEventListener(`click` , btn.editWLFunc);
+            }
+        });
+
+        openEditWLBtn.forEach(btn => 
+        {
+            const editWLFunc = () =>
+            {
+                const editListBdr = document.createElement("div");
+                editListBdr.classList.add("genAtnModalBdr");
+                editListBdr.innerHTML = editWLStruct;
+                documentBody.appendChild(editListBdr);
+    
+                const editListCloseBtn = document.querySelectorAll(".closeEditWLModalBtn");
+                const editSectBtn = document.querySelectorAll(".editSectionBtn");
+                const editSectBdr = document.querySelectorAll(".newWLBdr");
+                const closeEditSectBtn = document.querySelectorAll(".closeEditSectionBtn");
+                const editWLInput = document.querySelectorAll(".editWLInputClass");
+                const editWLWarn = document.querySelectorAll("#editWLWarnId");
+                const saveWLEditBtn = document.querySelectorAll(".saveWLEditBtn");
+    
+                // Disabling btn to prevent multiple calls
+                btn.disabled = true;
+    
+                // Transitioning elements
+                editWLTimer = setTimeout(() => 
+                {
+                    documentBody.setAttribute(`data-modal-state` , `open`);
+                    editListBdr.classList.add("active");
+                    clearTimeout(editWLTimer);
+                }, 100);
+
+                // Setting word limit
+                editWLWarn.forEach((warn) => 
+                {
+                    warn.textContent = warn.getAttribute("data-word-limit");
+                });
+
+                // Opening the edit fields
+                editSectBtn.forEach((sectBtn, index) => 
+                {
+                    sectBtn.addEventListener("click" , () => 
+                    {
+                        editSectBtn.forEach((openSect) => 
+                        {
+                            openSect.classList.add("inactive");
+                        });
+                        editSectBdr.forEach((openSect) => 
+                        {
+                            openSect.classList.remove("active");
+                        });
+                        saveWLEditBtn.forEach((btn) => 
+                        {
+                            btn.classList.replace("midSolidBtn" , "inactiveBtn");
+                            btn.disabled = true;
+                        });
+                        editWLInput.forEach((field) => 
+                        {
+                            field.disabled = true;
+                        });
+                        sectBtn.classList.remove("inactive");
+                        editSectBdr[index].classList.add("active");
+                        saveWLEditBtn[index].classList.replace("midSolidBtn" , "inactiveBtn");
+                        saveWLEditBtn[index].disabled = false;
+                        editWLInput[index].disabled = false;
+                        editWLInput[index].focus();
+                    });
+                });
+
+                // Closing the edit fields
+                closeEditSectBtn.forEach((sectBtn, index) => 
+                {
+                    sectBtn.addEventListener("click" , () => 
+                    {
+                        editSectBtn.forEach((openSect) => 
+                        {
+                            openSect.classList.remove("inactive");
+                        });
+                        editSectBdr.forEach((openSect) => 
+                        {
+                            openSect.classList.remove("active");
+                        });
+                        saveWLEditBtn.forEach((btn) => 
+                        {
+                            btn.classList.replace("midSolidBtn" , "inactiveBtn");
+                            btn.disabled = true;
+                        });
+                        editWLInput.forEach((field) => 
+                        {
+                            field.disabled = true;
+                        });
+                    });
+                });
+    
+                // checking input length
+                function getWordCount(index, fieldinput)
+                {
+                    let input = fieldinput.toString();
+                    input = input.trim().replace(/\s+/g, ' ');
+    
+                    // update warn label
+                    let wordCount = Number(editWLWarn[index].getAttribute(`data-word-limit`));
+                    let currLength = wordCount - input.length;
+                    editWLWarn[index].textContent = currLength;
+    
+                    editWLWarn[index].classList.toggle("active" , currLength > 0);
+                    editWLWarn[index].classList.toggle("empty" , currLength < 1);
+    
+                    // Check if input length is valid
+                    if((input.length < wordCount) && (input !== ""))
+                    {
+                        saveWLEditBtn[index].disabled = false;
+                        saveWLEditBtn[index].classList.replace("inactiveBtn" , "midSolidBtn");
+                    }
+                    else
+                    {
+                        saveWLEditBtn[index].disabled = true;
+                        saveWLEditBtn[index].classList.replace("midSolidBtn" , "inactiveBtn");
+                    }
+                }
+    
+                editWLInput.forEach((field , index) => 
+                {
+                    // Fctching the fields' initial value
+                    if(field.getAttribute("data-initial-value-type") == "title")
+                    {
+                        field.value = wlLibraryIndexedInv[wlBodyCardIndex].wl_name;
+                    }
+                    else if(field.getAttribute("data-initial-value-type") == "description")
+                    {
+                        field.value = wlLibraryIndexedInv[wlBodyCardIndex].wl_desc;
+                    }
+
+                    // Capturing newly inputed values
+                    field.addEventListener("input" , () => 
+                    {
+                        getWordCount(index, field.value);
+                    });
+                });
+    
+                // Saves call changes made
+                function saveEdit(type, ctnt)
+                {
+                    // Update the specified property
+                    if(type == "title")
+                    {
+                        updWLModalTitle(ctnt);
+                    }
+                    else if(type == "description")
+                    {
+                        updWLModalDesc(ctnt);
+                    }
+
+                    // Update the "last updated"
+                    updWLModalTimePrpty(getCurrDate());
+
+                    // Notify user of saved edits
+                    notification(`notifyGood` , `Changes saved`);
+                }
+                
+                saveWLEditBtn.forEach((btn, index) => 
+                {
+                    btn.addEventListener("click" , () => 
+                    {
+                        saveEdit(btn.getAttribute("data-save-type"), editWLInput[index].value);
+                        btn.classList.replace("midSolidBtn" , "inactiveBtn");
+                        btn.disabled = true;
+                        closeEditSectBtn[index].click();
+                    });
+                });
+    
+    
+                // Closes the edit watchlist modal
+                function closeCreateWL()
+                {
+                    editListBdr.classList.remove("active");
+
+                    editListBdr.addEventListener("transitionend" , function handleTransitionEnd()
+                    {
+                        editListBdr.removeEventListener("transitionend" , handleTransitionEnd);
+                        documentBody.removeChild(editListBdr);
+                        btn.disabled = false;
+                        documentBody.removeAttribute(`data-modal-state`);
+                    });
+                }
+    
+                // Closes the modal
+                editListCloseBtn.forEach(one => 
+                {
+                    one.addEventListener("mousedown" , closeCreateWL);
+                });
+            }
+            
+            btn.addEventListener("click" , editWLFunc);
+            btn.editWLFunc = editWLFunc;
+        });
     }
 
 
@@ -1804,12 +2101,13 @@
         addShowToWLBtn.forEach((btn) => 
         {
 
-            btn.addEventListener("click" , initAddShowToWLModal);
-            btn.action = initAddShowToWLModal;
+            btn.addEventListener("click" , preAddShowToWLModal);
+            btn.action = preAddShowToWLModal;
         });
     }
 
-    function initAddShowToWLModal()
+    // Constructs the modal for adding shows to your watchlist
+    function preAddShowToWLModal()
     {
         let addShowToWLStruct = 
         `
@@ -1850,13 +2148,13 @@
         timer = setTimeout(() => 
         {
             clearTimeout(timer);
-            initAddShowToWL();
+            initAddShowToWLModal();
         }, 10);
     }
 
 
     // Initializes the modal for users to search up shows to add to their watchlist
-    function initAddShowToWL()
+    function initAddShowToWLModal()
     {
 
         // Definitions
