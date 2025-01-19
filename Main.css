@@ -4707,7 +4707,7 @@ img
     z-index: 2;
 }
 
-.genAtnModalBox.active
+.genAtnModalBdr.active .genAtnModalBox
 {
     opacity: 1;
     visibility: visible;
@@ -4810,6 +4810,11 @@ img
     cursor: pointer;
 }
 
+.genAtnModalOptBox.inactive
+{
+    display: none;
+}
+
 .genAtnModalOptBdr .genAtnModalOptBox:active
 {
     background-color: #222222;
@@ -4909,10 +4914,6 @@ img
 
 
 /* ------------ Create New Watchlist Modal ------------ */
-.newWLBtn.inactive
-{
-    display: none;
-}
 
 .newWLBdr
 {

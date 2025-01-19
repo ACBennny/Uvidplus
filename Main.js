@@ -642,7 +642,7 @@
     const addToWLHTML = 
     `
         <div class="genAtnModalBcg closeAddToWL"></div>
-        <div class="genAtnModalBox addToWLBox">
+        <div class="genAtnModalBox">
             <div class="genAtnModalCtnt">
                 <div class="genAtnModalHeader">
                     <div class="genAtnModalHeaderIconBox closeAddToWL">
@@ -681,8 +681,12 @@
                                 </div>
                                 <div class="newWLAtnBdr">
                                     <div class="newWLAtnBox">
-                                        <button type="button" id="createNewWL" class="newWLAtnBtn inactiveBtn" disabled>Create</button>
-                                        <button type="button" id="cancelNewWL" class="newWLAtnBtn hollowBtn" disabled>Cancel</button>
+                                        <button type="button" id="createNewWL" class="genBtnBox inactiveBtn" disabled>
+                                            <div class="genBtnText">Create</div>
+                                        </button>
+                                        <button type="button" id="cancelNewWL" class="genBtnBox hollowBtn closeCreateWLBtn">
+                                            <div class="genBtnText">Cancel</div>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -2666,7 +2670,6 @@
                     documentBody.appendChild(playListBdr);
         
                     const playListCloseBtn = document.querySelectorAll(".closeAddToWL");
-                    const playListBox = document.querySelector(".addToWLBox");
                     const playListItemBcg = document.querySelector(".addToWLItemBcg");
                     const playListItemBox = document.querySelector(".addToWLItemBox");
                     const playListItem = document.querySelectorAll(".plItem");
@@ -2691,7 +2694,6 @@
                     {
                         documentBody.setAttribute(`data-modal-state` , `open`);
                         playListBdr.classList.add("active");
-                        playListBox.classList.add("active");
                         clearTimeout(addToWLTimer);
                     }, 100);
         
@@ -2751,6 +2753,8 @@
                     {
                         plArr.push(input);
                         lastWLArr = plArr.at(-1);
+                        lastWLArr = lastWLArr.toString();
+                        lastWLArr = lastWLArr.trim().replace(/\s+/g, ' ');
                         lastWLArrLength = lastWLArr.length;
         
                         // update warn label
@@ -2766,7 +2770,7 @@
                     // Check if name is valid (3 - 64 characters)
                     function checkBeforeCreate(val)
                     {
-                        if(val.length < inputLowBnd || (val.length > inputUppBnd))
+                        if(((val.length < inputLowBnd) || (val.length > inputUppBnd)) && (val === ""))
                         {
                             createWLBtn.disabled = true;
                             createWLBtn.classList.replace("midSolidBtn" , "inactiveBtn");
@@ -2825,7 +2829,6 @@
                     function closeAddToWL()
                     {
                         playListBdr.classList.remove("active");
-                        playListBox.classList.remove("active");
         
                         addToWLTimer = setTimeout(() => 
                         {
