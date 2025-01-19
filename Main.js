@@ -2760,8 +2760,8 @@
                         // update warn label
                         currLength = wordCount - lastWLArrLength;
                         newWLWarn.textContent = currLength;
-        
-                        newWLWarn.classList.toggle("active" , currLength < 16);
+
+                        newWLWarn.classList.toggle("active" , currLength > 0);
                         newWLWarn.classList.toggle("empty" , currLength < 1);
         
                         checkBeforeCreate(lastWLArr);
@@ -2770,14 +2770,16 @@
                     // Check if name is valid (3 - 64 characters)
                     function checkBeforeCreate(val)
                     {
-                        if(((val.length < inputLowBnd) || (val.length > inputUppBnd)) && (val === ""))
+                        if((val.length < inputUppBnd) && (val !== ""))
+                        {
+                            createWLBtn.disabled = false;
+                            createWLBtn.classList.replace("inactiveBtn" , "midSolidBtn");
+                        }
+                        else
                         {
                             createWLBtn.disabled = true;
                             createWLBtn.classList.replace("midSolidBtn" , "inactiveBtn");
-                            return;
                         }
-                        createWLBtn.disabled = false;
-                        createWLBtn.classList.replace("inactiveBtn" , "midSolidBtn");
                     }
         
                     newWLInput.addEventListener("input" , () => 
@@ -2829,15 +2831,13 @@
                     function closeAddToWL()
                     {
                         playListBdr.classList.remove("active");
-        
-                        addToWLTimer = setTimeout(() => 
+                        playListBdr.addEventListener("transitionend" , function handleTransitionEnd()
                         {
+                            playListBdr.removeEventListener("transitionend" , handleTransitionEnd);
                             documentBody.removeChild(playListBdr);
                             documentBody.removeAttribute(`data-modal-state`);
                             btn.disabled = false;
-                            clearTimeout(addToWLTimer);
-        
-                        }, 300);
+                        });
                     }
         
                     playListCloseBtn.forEach(one => 
