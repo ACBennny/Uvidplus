@@ -5952,7 +5952,8 @@ img
         width: 30px;
     }
 
-    .newWLInputBdr .newWLInputBox
+    .newWLInputBdr .newWLInputBox,
+    .newWLWarnBox .newWLWarnText
     {
         width: 100%;
     }
