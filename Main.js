@@ -2747,7 +2747,7 @@
         
                     // Closes the Create playList modal
                     cancelWLBtn.addEventListener("click" , closeNewWLModal);
-        
+    
                     // checking input length
                     function getWordCount(input)
                     {
@@ -2760,8 +2760,8 @@
                         // update warn label
                         currLength = wordCount - lastWLArrLength;
                         newWLWarn.textContent = currLength;
-
-                        newWLWarn.classList.toggle("active" , currLength > 0);
+    
+                        if(!(newWLWarn.classList.contains("active"))) newWLWarn.classList.add("active");
                         newWLWarn.classList.toggle("empty" , currLength < 1);
         
                         checkBeforeCreate(lastWLArr);
@@ -2770,7 +2770,7 @@
                     // Check if name is valid (3 - 64 characters)
                     function checkBeforeCreate(val)
                     {
-                        if((val.length < inputUppBnd) && (val !== ""))
+                        if((val.length <= inputUppBnd) && (val !== ""))
                         {
                             createWLBtn.disabled = false;
                             createWLBtn.classList.replace("inactiveBtn" , "midSolidBtn");

@@ -504,7 +504,7 @@
                     currLength = wordCount - lastWLArrLength;
                     newWLWarn.textContent = currLength;
 
-                    newWLWarn.classList.toggle("active" , currLength > 0);
+                    if(!(newWLWarn.classList.contains("active"))) newWLWarn.classList.add("active");
                     newWLWarn.classList.toggle("empty" , currLength < 1);
     
                     checkBeforeCreate(lastWLArr);
@@ -513,7 +513,7 @@
                 // Check if name is valid (3 - 64 characters)
                 function checkBeforeCreate(val)
                 {
-                    if((val.length < inputUppBnd) && (val !== ""))
+                    if((val.length <= inputUppBnd) && (val !== ""))
                     {
                         createWLBtn.disabled = false;
                         createWLBtn.classList.replace("inactiveBtn" , "midSolidBtn");
@@ -1420,11 +1420,11 @@
                     let currLength = wordCount - input.length;
                     editWLWarn[index].textContent = currLength;
     
-                    editWLWarn[index].classList.toggle("active" , currLength > 0);
+                    editWLWarn[index].classList.add("active");
                     editWLWarn[index].classList.toggle("empty" , currLength < 1);
     
                     // Check if input length is valid
-                    if((input.length < wordCount) && (input !== ""))
+                    if((input.length <= wordCount) && (input !== ""))
                     {
                         saveWLEditBtn[index].disabled = false;
                         saveWLEditBtn[index].classList.replace("inactiveBtn" , "midSolidBtn");
