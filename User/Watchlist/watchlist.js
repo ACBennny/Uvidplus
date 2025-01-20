@@ -914,8 +914,6 @@
         // Add listeneners
         addOpenWLListeners();
         addDelWLEventListeners();
-        
-        window.scrollTo(0,0);
     }
 
 
