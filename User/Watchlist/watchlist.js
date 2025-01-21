@@ -549,6 +549,7 @@
                     // Add new entry into the library & sort array
                     wlLibraryIndexedInv.push(
                         {
+                            index: wlLibraryIndexedInv.length,
                             wl_id: `${newListId}`,
                             wl_name: `${wlName}`,
                             wl_updated: `${getCurrDate()}`,
@@ -557,6 +558,7 @@
                             wl_items: [],
                         }
                     );
+                    console.log(wlLibraryIndexedInv)
 
                     // Insert new list into DOM
                     let newListHTML = 
