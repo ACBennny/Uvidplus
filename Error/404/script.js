@@ -5,7 +5,7 @@
  * @version (v0.01)
  *********************************************************************************************************/
 
-const errorStruct = 
+const error404Struct = 
 `
     <div class="error_bdr">
         <div class="error_box">
@@ -44,5 +44,5 @@ const errorStruct =
 
 window.addEventListener("load" , () => 
 {
-    document.body.insertAdjacentHTML(`afterbegin` , errorStruct);
+    document.body.insertAdjacentHTML(`afterbegin` , error404Struct);
 });
