@@ -6550,11 +6550,23 @@ only screen and (max-height: 486px)
 {
     html:root
     {
+        --scrollBarWidth: 0px;
         --genBtnIconSize: 15px;
         --genBtnTextSize: 13px;
         --notifyIconBoxWidth: 50px;
         --switchProfOptImgBoxWidth: 100px;
         --editProfileBcgImgHeight: 150px;
+    }
+
+    ::-webkit-scrollbar
+    {
+        display: none;
+        pointer-events: none;
+    }
+
+    html
+    {
+        scrollbar-width: none;
     }
 
     .confirmModalQtnBox .confirmModalQtnText
