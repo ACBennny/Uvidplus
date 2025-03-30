@@ -8,7 +8,6 @@
 ****************************************************************************************************************************************/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 *{
     margin: 0;
@@ -20,7 +19,14 @@
 
 html
 {
-    scroll-behavior: smooth;
+    display: block;
+    font-family: 'Zen Dots', sans-serif;
+    background-color: #000000;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    /* scroll-behavior: auto; */
 }
 
 html:root
@@ -39,8 +45,8 @@ html:root
     --genWhiteTypeMid: #ababab;
     --genWhiteTypeMid2: #cecece;
     --genWhiteTypeDark: #6b6a6a;
-    --genGreyTypeBright: #333333;
-    --genGreyTypeLight: #3a3a3a;
+    --genGreyTypeBright: #3a3a3a;
+    --genGreyTypeLight: #333333;
     --genGreyTypeMid: #2a2a2a;
     --scrollbarClr: #282828;
     --scrollbarHoverClr: #333333;
@@ -58,11 +64,16 @@ html:root
     --color10: #888888;
     --color11: #252525;
     --warningClr: #ff0000;
+    --genModalBcg: #171717;
+    --genModalOptHover: #222222;
+    --notifyGoodBcg: #42af56;
+    --notifyBadBcg: #d95a5a;
     --genBorderSpacing: 30px;
-    --genMaxContainerWidth: 1200px;
+    --genMaxContainerWidth: 1770px;
     --scrollBarWidth: 7px;
     --genBtnIconSize: 16px;
     --genBtnTextSize: 14px;
+    --genTick_chkBaseW: 0px;
     --fzTxt: 12px;
     --fzIcon: 20px;
     --bcgFilt: 2px;
@@ -121,12 +132,8 @@ html:root
     --slideCardProgress_currClr: var(--genGreenTypeBright);
     --basicCatalogCardWidth: 175px;
     --basicSingleColPadding: 50px;
-    --wlModalActionMenuSvgSize: 18px;
-    --wlModalActionMenuClr: var(--genWhiteTypeMid);
-    --genModalBcg: #141414;
-    --genModalOptHover: #222222;
-    --notifyGoodBcg: #42af56;
-    --notifyBadBcg: #d95a5a;
+    --clModalActionMenuSvgSize: 18px;
+    --clModalActionMenuClr: var(--genWhiteTypeMid);
     --notifyIconBoxWidth: 60px;
     --footerTextClrGreen: var(--genGreenTypeLight);
     --footerTxtClrBright: var(--color8);
@@ -138,15 +145,6 @@ body
 {
     width: 100%;
     min-height: 100vh;
-    font-family: 'Zen dots', sans-serif;
-    /* font-family: 'Bebas Neue', sans-serif; */
-    background-color: #000;
-    -moz-user-select: -moz-none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    overflow: hidden;
-    scroll-behavior: smooth;
 }
 
 @supports(-webkit-tap-highlight-color: #00000000)
@@ -155,6 +153,14 @@ body
     {
         -webkit-tap-highlight-color: #00000000;
     }
+}
+
+body.bcg_0
+{
+    background-image: url(/images/uvid-bcg0.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 body.bodystart
@@ -167,16 +173,16 @@ body.bodystop
     overflow: hidden;
 }
 
-body[gen-menu-modal-is-dragging="true"]
+html:has(body[gen-menu-modal-is-dragging="true"])
 {
-    overflow: hidden !important;
     overscroll-behavior: none none !important;
     touch-action: none !important;
+    scroll-behavior: auto;
 }
 
-body[data-modal-state="open"]
+html:has(body[data-modal-state="open"])
 {
-    overflow: hidden;
+    overflow: hidden !important;
 }
 
 main
@@ -230,6 +236,14 @@ ul
     user-select: none;
 }
 
+@supports(-webkit-user-drag: none)
+{
+    a, a:active, a:link, a:visited, a:any-link, a:focus, a:focus-visible, a:focus-within
+    {
+        -webkit-user-drag: none;
+    }
+}
+
 p
 {
     font-family: 'Poppins', sans-serif;
@@ -240,6 +254,12 @@ button
     font-family: 'Zen dots', sans-serif;
     outline: none;
 }
+
+.openGenMenuModalBtn
+{
+    cursor: pointer;
+}
+
 
 /* ----------- General Button Layout with/without an icon ---------- */
 .genBtnBox
@@ -264,6 +284,11 @@ button
     -webkit-user-select: none;
     user-select: none;
     cursor: pointer;
+}
+
+.genBtnBox.hide
+{
+    display: none;
 }
 
 .genBtnBox:active
@@ -309,6 +334,15 @@ button
     margin: 0;
 }
 
+.wlIconSvg.hide
+{
+    display: none;
+}
+
+.wlIconSvg.wlIconIN
+{
+    fill: var(--warningClr);
+}
 
 
 /* ============== General button Clrs ============= */
@@ -398,7 +432,42 @@ button
 .transBtn:active,
 .transBtn:hover
 {
+    color: var(--genWhiteTypeLight);
+    fill: var(--genWhiteTypeLight);
+    border-color: #00000000;
     background-color: #00000000;
+}
+
+.transBtn .genBtnIcon
+{
+    transition: all 150ms ease-in-out;
+}
+
+
+
+
+
+/* ========== Floating back-to-top Button ========= */
+.backtotop_float
+{
+    position: fixed;
+    bottom: calc((var(--btmNavBarHeight) + var(--genBorderSpacing)));
+    right: var(--genBorderSpacing);
+    box-shadow: 0px 2px 2px 2px #111111;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transform: translateX(100%);
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.backtotop_float.float
+{
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
 }
 
 
@@ -431,7 +500,7 @@ button
     display: flex;
     justify-content: end;
     align-items: center;
-    padding: var(--showlistAutoPlayTogglePadding);
+    padding: var(--shoclistAutoPlayTogglePadding);
     border-radius: 20px;
     background-color: var(--genWhiteTypeDark);
     transition: all 300ms ease;
@@ -456,6 +525,105 @@ button
 .genCheckBoxInput:checked ~ .genCheckBoxToggle .genCheckBoxToggleCircle
 {
     transform: translateX(25%);
+}
+
+
+
+/* ============ Tick Checkbox Buttons ========= */
+
+.genTick_chkBase
+{
+    width: var(--genTick_chkBaseW);
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: all 300ms ease-in-out;
+}
+
+.genTick_chkSelState[data-cards-are-selectable="true"] .genTick_chkBase
+{
+    --genTick_chkBaseW: 35px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.genTick_chkBdr
+{
+    width: 100%;
+    height: 100%;
+}
+
+.genTick_chkBdr .genTick_chkBox
+{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.genTick_chkBox .genTick_chkFldLbl
+{
+    position: relative;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    background-color: #00000000;
+    cursor: pointer;
+}
+
+.genTick_chkFldLbl:has(.genTick_chkFldCls:checked)
+{
+    background-color: var(--genGreenTypeMid);
+}
+
+.genTick_chkFldLbl:has(.genTick_chkFldCls:not(:checked))::after
+{
+    --space: 2.5px;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc((100% - (var(--space) * 2)));
+    height: calc((100% - (var(--space) * 2)));
+    border-radius: 5px;
+    border: var(--space) solid var(--genWhiteTypeMid);
+    background-color: #00000000;
+    transition: all 300ms ease-in-out;
+}
+
+.genTick_chkFldLbl .genTick_chkFldCls
+{
+    position: fixed;
+    top: -1000%;
+    left: -1000%;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.genTick_chkFldCls:not(:checked) ~ .genTick_chkFldIconBox
+{
+    opacity: 0;
+}
+
+.genTick_chkFldLbl .genTick_chkFldIconBox
+{
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: all 300ms ease-in-out;
+    pointer-events: none;
+}
+
+.genTick_chkFldIconBox .genTick_chkFldIconSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--genWhiteTypeMid);
+    fill: #000000;
 }
 
 
@@ -571,7 +739,7 @@ img
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #000000a8;
+    background-color: #000000cd;
     -webkit-backdrop-filter: blur(25px);
     backdrop-filter: blur(25px);
     display: flex;
@@ -767,6 +935,7 @@ img
     right: 0;
     width: 100%;
     height: var(--btmNavBarHeight);
+    padding-left: var(--sideNavBarWidth);
     background: -o-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
     background: -moz-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
     background: -webkit-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
@@ -787,20 +956,43 @@ img
     background: linear-gradient(to bottom, #000000ff, #000000f4, #000000ef, #000000dc, #000000ab, #00000045, #00000000, #00000000);
 }
 
+.topNavBar.darken 
+{
+    background: #000000;
+}
+
+.topNavBar.initialize
+{
+    --btmNavBarHeight:64px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
+.topNavBar.active
+{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
 .topNavBar.isScrollingDown
 {
-    --btmNavBarHeight: 0px;
+    /* --btmNavBarHeight: 0px; */
 }
 
 .topNavBar .topNavBdr
 {
     width: 100%;
     height: 100%;
+    display: grid;
+    place-items: center;
 }
 
 .topNavBdr .topNavBox
 {
     width: 100%;
+    max-width: var(--genMaxContainerWidth);
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -815,6 +1007,7 @@ img
     flex-direction: row;
     align-items: center;
     flex-wrap: nowrap;
+    gap: 5px;
 }
 
 .topNav_section .topNav_openNavNotify
@@ -952,7 +1145,7 @@ img
     transition: all 300ms ease-in-out;
 }
 
-.sideNavItemsCardSvg.watchlistSvg path
+.sideNavItemsCardSvg.myListSvg path
 {
     stroke: var(--sideNavBarIconClr);
     color: var(--sideNavBarIconClr);
@@ -984,6 +1177,10 @@ img
     position: absolute;
     top: 50%;
     left: 50%;
+    min-width: -moz-fit-content;
+    min-width: fit-content;
+    width: fit-content;
+    width: 100px;
     margin-left: calc((var(--sideNavBarWidth) / 2));
     padding: 7px 15px;
     border-radius: 10px;
@@ -1004,6 +1201,9 @@ img
 
 .sideNavItemsCardTitleBox .sideNavItemsCardTitleText
 {
+    width: 100%;
+    text-wrap: none;
+    text-align: center;
     font-size: 12px;
     color: var(--genWhiteTypeBright);
 }
@@ -1051,7 +1251,6 @@ img
 .btmNavBdr .btmNavBox
 {
     width: 100%;
-    max-width: 600px;
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -1069,10 +1268,14 @@ img
 {
     position: relative;
     height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px 5px;
+    outline: none;
+    border: none;
+    background-color: #00000000;
     transition: all 300ms ease-in-out;
     cursor: pointer;
 }
@@ -1145,7 +1348,7 @@ img
     display: block;
 }
 
-.btmNavItemsCardSvg.watchlistSvg path
+.btmNavItemsCardSvg.myListSvg path
 {
     stroke: var(--btmNavBarIconClr);
     color: var(--btmNavBarIconClr);
@@ -1633,15 +1836,10 @@ img
 
 .navBarProfileOptBdr
 {
-    position: fixed;
-    bottom: calc(0% + (var(--navBarProfilePosT) / 2));
-    left: calc(0% + (var(--sideNavBarWidth) + var(--navBarProfilePosR)));
-    width: var(--navBarMenuWidth);
-    height: 400px;
-    max-width: calc(100% - (var(--navBarProfilePosR) * 2));
-    max-height: calc(100% - ((var(--navBarProfilePosT)) + 10px));
-    opacity: 0;
-    visibility: hidden;
+    width: 100%;
+    height: fit-content;
+    opacity: 1;
+    visibility: visible;
     transition: all 300ms ease-in-out;
     overflow: hidden;
     z-index: 96;
@@ -1650,8 +1848,6 @@ img
 .navBarProfileOptBdr.active
 {
     --navBarProfilePosR: var(--genBorderSpacing);
-    opacity: 1;
-    visibility: visible;
 }
 
 .navBarProfileOptBdr .navBarProfileOptBox
@@ -1662,13 +1858,9 @@ img
     flex-direction: column;
     gap: 5px;
     padding: 15px;
-    border-radius: var(--navMenuBorderRadius);
-    border-bottom: var(--navMenuBorderThickness) solid var(--navMenuBorderClr);
-    background-color: var(--navMenuBcgClr);
     scrollbar-width: none;
     scrollbar-color: #00000000 #00000000;
     overflow: hidden;
-    overflow-y: visible;
 }
 
 .navBarProfileOptBox::-webkit-scrollbar
@@ -2550,6 +2742,18 @@ img
     /* max-height: 400px; */
 }
 
+.slide_card_base.notShowStatusMatch
+{
+    display: none;
+    overflow: hidden;
+}
+
+.slide_card_base.notShowTypeMatch
+{
+    display: none;
+    overflow: hidden;
+}
+
 .slide_card_base .slide_card_bdr
 {
     position: relative;
@@ -2649,6 +2853,8 @@ img
     height: -moz-fit-content;
     height: fit-content;
     border-radius: 50%;
+    outline: none;
+    border: none;
     background-color: #000000b4;
     transition: border-radius 0ms 300ms ease-in-out;
 }
@@ -2675,6 +2881,7 @@ img
 {
     width: 100%;
     height: 100%;
+    border-radius: var(--slideCardBorderRadius);
     overflow: hidden;
     z-index: 2;
 }
@@ -2685,7 +2892,6 @@ img
     height: clamp(100%, 100%, 100%);
     object-fit: cover;
     object-position: center;
-    border-radius: var(--slideCardBorderRadius);
     transition: all 300ms ease-in-out;
 }
 
@@ -2973,7 +3179,6 @@ img
     grid-template-columns: repeat(auto-fill, minmax(var(--basicCatalogCardWidth), 1fr));
     grid-template-rows: auto;
     justify-items: center;
-    padding: 0 var(--genBorderSpacing);
     gap: 15px;
     transition: 100ms;
 }
@@ -4455,14 +4660,13 @@ img
     position: fixed;
     top: 0;
     left: 0;
-    width: 225px;
-    display: flex;
-    justify-content: center;
-    align-items: end;
-    border-radius: 15px;
-    overflow: hidden;
+    width: 250px;
+    height: -moz-fit-content;
+    height: fit-content;
+    max-height: 100%;
     opacity: 0;
     visibility: hidden;
+    overflow: hidden auto;
     z-index: 205;   
 }
 
@@ -4486,6 +4690,7 @@ img
     left: 0;
     width: 100%;
     height: 100%;
+    display: none;
     background-color: #00000099;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
@@ -4497,16 +4702,11 @@ img
     position: relative;
     width: 100%;
     max-width: 565px;
+    height: 100%;
+    max-height: calc((100vh - 10px));
+    border-radius: 15px;
     background-color: var(--genModalBcg);
-    overflow: hidden hidden;
-    scrollbar-width: none;
-}
-
-.genMenuModalBox::-webkit-scrollbar
-{
-    width: 0;
-    height: 0;
-    display: none;
+    overflow: hidden auto;
 }
 
 .genMenuModalBox.disableClicks *
@@ -4520,7 +4720,6 @@ img
     top: 0;
     left: 50%;
     width: -moz-fit-content;
-    width: fit-content;
     width: fit-content;
     height: 20px;
     display: none;
@@ -4546,16 +4745,36 @@ img
     cursor: grab;
 }
 
-.genMenuModalBox .genMenuModalCtntBdr
+.genMenuModalStickyBdr
+{
+   position: sticky;
+   bottom: 0;
+   width: 100%;
+   background-color: var(--genModalBcg);
+   z-index: 5;
+}
+
+.genMenuModalStickyBdr .genMenuModalStickyBox
+{
+   width: 100%;
+   padding: 16px 0;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 8px;
+}
+
+.genMenuModalCtntBdr
 {
     width: 100%;
 }
 
-.genMenuModalCtntBdr .genMenuModalCtntBox
+.genMenuModalCtntBox
 {
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding: 10px 0;
 }
 
@@ -4566,6 +4785,11 @@ img
     padding: 10px 20px;
 }
 
+.genMenuModalCtntSectBox:has(+ .genMenuModalCtntDescBox)
+{
+    padding-bottom: 0;
+}
+
 .genMenuModalCtntSectBox:first-child
 {
     margin-top: 0;
@@ -4573,10 +4797,23 @@ img
 
 .genMenuModalCtntSectBox .genMenuModalCtntSectText
 {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
     color: var(--genGreenTypeMid);
     text-transform: uppercase;
+}
+
+.genMenuModalCtntBox .genMenuModalCtntDescBox
+{
+    width: 100%;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+.genMenuModalCtntDescBox .genMenuModalCtntDescText
+{
+    font-size: 13px;
+    color: var(--genWhiteTypeMid);
 }
 
 .genMenuModalCtntBox .genMenuModalCtntBtnBox
@@ -4596,14 +4833,14 @@ img
 
 .genMenuModalCtntBtnBox:active
 {
-    --wlModalActionMenuClr: var(--genWhiteTypeMid2);
-    --wlModalActionMenuSvgFill: var(--genWhiteTypeLight);
+    --clModalActionMenuClr: var(--genWhiteTypeMid2);
+    --clModalActionMenuSvgFill: var(--genWhiteTypeLight);
     background-color: var(--genModalOptHover);
 }
 
 .genMenuModalCtntBtnBox.selected
 {
-    --wlModalActionMenuClr: var(--genGreenTypeMid);
+    --clModalActionMenuClr: var(--genGreenTypeMid);
     background-color: var(--genModalOptHover);
 }
 
@@ -4622,10 +4859,21 @@ img
     z-index: 3;
 }
 
+.genMenuModalCtntBtnBox.important
+{
+    --clModalActionMenuClr: var(--notifyBadBcg);
+}
+
+.genMenuModalCtntBtnBox.hidden
+{
+    display: none;
+}
+
+
 .genMenuModalCtntBtnBox .genMenuModalCtntBtnIcon
 {
-    width: var(--wlModalActionMenuSvgSize);
-    height: var(--wlModalActionMenuSvgSize);
+    width: var(--clModalActionMenuSvgSize);
+    height: var(--clModalActionMenuSvgSize);
     margin-right: 15px;
 }
 
@@ -4633,7 +4881,7 @@ img
 {
     width: 100%;
     height: 100%;
-    fill: var(--wlModalActionMenuClr);
+    fill: var(--clModalActionMenuClr);
     transition: all 300ms ease-in-out;
 }
 
@@ -4642,7 +4890,7 @@ img
     margin-right: 20px;
     font-family: 'Poppins' , sans-serif;
     font-size: 14px;
-    color: var(--wlModalActionMenuClr);
+    color: var(--clModalActionMenuClr);
     text-align: left;
     transition: all 300ms ease-in-out;
 }
@@ -4657,7 +4905,8 @@ img
 
 
 
-/* ================== Modal For Playlist, Dwld, Socials ================= */
+
+/* ================== Modal For Playlist, Dcld, Socials ================= */
 .genAtnModalBdr
 {
     position: fixed;
@@ -4834,7 +5083,7 @@ img
 }
 
 .genAtnModalHeaderIconBox .genAtnModalHeaderIcon,
-.genAtnModalOptIconBox .genAtnModalOptIcon
+.genAtnModalOptIconBox .genAtnModalOptIconSvg
 {
     width: 20px;
     height: 20px;
@@ -4862,6 +5111,8 @@ img
     height: 100%;
     color: #cdcdcd;
     font-size: 14px;
+    font-family: 'Poppins' , sans-serif;
+    font-weight: 500;
     text-align: left;
 }
 
@@ -4877,12 +5128,19 @@ img
 
 .genAtnModalDescTextBdr .genAtnModalDescTextBox
 {
+    position: relative;
+    max-height: calc(var(--trendingDetTitleTextNo) * 1em * var(--trendingDetTitleTextH));
+    line-height: var(--trendingDetTitleTextH);
+    -webkit-hyphens: auto;
+    hyphens: auto;
     width: 100%;
     height: 100%;
     padding: 15px 20px;
     color: var(--genWhiteTypeMid);
     font-size: 16px;
     font-family: 'Poppins' , sans-serif;
+    overflow-wrap: break-word;
+    overflow: hidden;
 }
 
 
@@ -4915,26 +5173,26 @@ img
 
 /* ------------ Create New Watchlist Modal ------------ */
 
-.newWLBdr
+.newCLBdr
 {
     width: 100%;
     display: none;
     margin-bottom: 40px;
 }
 
-.newWLBdr.active
+.newCLBdr.active
 {
     display: block;
 }
 
-.newWLBdr .newWLBox
+.newCLBdr .newCLBox
 {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.newWLBox .newWLInputBdr
+.newCLBox .newCLInputBdr
 {
     width: 100%;
     display: flex;
@@ -4943,25 +5201,27 @@ img
     padding: 20px 10px 0;
 }
 
-.newWLInputBdr .newWLInputBox
+.newCLInputBdr .newCLInputBox
 {
     width: 80%;
-    height: 40px;
+    /* height: 40px; */
+    height: fit-content;
     border-bottom: 2px solid var(--genWhiteTypeDark);
     transition: all 300ms ease-in-out;
     overflow: hidden;
 }
 
-.newWLInputBox:focus-within
+.newCLInputBox:focus-within
 {
     border-color: var(--genGreenTypeDark1);
 }
 
-.newWLInputBox .newWLInputClass
+.newCLInputBox .newCLInputClass
 {
     font-family: 'Zen dots' , sans-serif;   
     width: 100%;
     height: 100%;
+    height: 40px;
     padding: 5px;
     color: var(--genWhiteTypeLight);
     font-size: 14px;
@@ -4970,12 +5230,38 @@ img
     background-color: transparent;
 }
 
-.newWLBox .newWLWarnBdr
+.newCLInputBox .newCLTextAreaClass
+{
+    font-family: 'Zen dots' , sans-serif;   
+    width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+    max-height: 250px;
+    padding: 5px;
+    color: var(--genWhiteTypeLight);
+    font-size: 14px;
+    outline: none;
+    border: none;
+    resize: none;
+    background-color: transparent;
+}
+
+@supports(field-sizing: content)
+{
+    .newCLInputBox .newCLTextAreaClass
+    {
+        field-sizing: content;
+        max-height: -moz-fit-content;
+        max-height: fit-content;
+    }
+}
+
+.newCLBox .newCLWarnBdr
 {
     width: 100%;
 }
 
-.newWLWarnBdr .newWLWarnBox
+.newCLWarnBdr .newCLWarnBox
 {
     width: 100%;
     display: flex;
@@ -4984,7 +5270,7 @@ img
     padding: 10px;
 }
 
-.newWLWarnBox .newWLWarnText
+.newCLWarnBox .newCLWarnText
 {
     width: 80%;
     display: none;
@@ -4997,22 +5283,22 @@ img
     pointer-events: none;
 }
 
-.newWLWarnText.active
+.newCLWarnText.active
 {
     display: block;
 }
 
-.newWLWarnText.empty
+.newCLWarnText.empty
 {
     color: var(--warningClr);
 }
 
-.newWLBox .newWLAtnBdr
+.newCLBox .newCLAtnBdr
 {
     width: 100%;
 }
 
-.newWLAtnBdr .newWLAtnBox
+.newCLAtnBdr .newCLAtnBox
 {
     width: 100%;
     display: flex;
@@ -5026,7 +5312,7 @@ img
     user-select: none;
 }
 
-.newWLAtnBox .newWLAtnBtn
+.newCLAtnBox .newCLAtnBtn
 {
     display: flex;
     justify-content: center;
@@ -5036,6 +5322,259 @@ img
     border-radius: 5px;
     outline: none;
     transition: all 300ms ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+/* =========== FEEDBACK FORM ========= */
+.feedback_bdr
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    background-color: #000000;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    opacity: 0;
+    visibility: hidden;
+    opacity: 1;
+    visibility: visible;
+    overflow: hidden auto;
+    transition: all 500ms ease-in-out;
+    z-index: 105;
+}
+
+.feedback_bdr.static
+{
+    position: static;
+}
+
+.feedback_bdr.active
+{
+    opacity: 1;
+    visibility: visible;
+}
+
+.feedback_bdr .feedback_bcg
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(/images/uvid-green-bcg1-dark.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+    z-index: -1;
+}
+
+.feedback_bdr .feedback_box
+{
+    width: 100%;
+    max-width: 450px;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin: 48px 16px;
+}
+
+.feedback_box .feedback_form
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 24px;
+    border-radius: 16px;
+    box-shadow: 0px 0px 5px 0px #00000099;
+    background-color: var(--genModalBcg);
+    transform: translateY(50%);
+    transition: all 500ms ease-in-out;
+}
+
+.feedback_bdr.active .feedback_form
+{
+    transform: translateY(0%);
+}
+
+.feedback_form .feedback_closeBdr
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin: 8px;
+    border-radius: 50%;
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+}
+
+.feedback_closeBdr .feedback_closeBox
+{
+    width: 16px;
+    height: 16px;
+    margin: 8px;
+}
+
+.feedback_closeBox .feedback_closeIcon
+{
+    width: clamp(100% , 100%, 100%);
+    height: clamp(100% , 100%, 100%);
+    fill: var(--genWhiteTypeDark);
+}
+
+.feedback_form .feedback_header
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.feedback_header .feedback_name
+{
+    font-size: 18px;
+    color: var(--genWhiteTypeBright);
+}
+
+.feedback_form .feedback_ctnt
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 16px 0;
+}
+
+.feedback_ctnt .feedback_sectBox
+{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+    padding: 32px 14px 10px;
+    border-radius: 16px;
+    background-color: #ffffff10;
+    transition: all 300ms ease-in-out;
+}
+
+.feedback_sectBox.feedback_sectInputBox
+{
+    cursor: text;
+}
+
+.feedback_sectBox .feedback_sectLabel
+{
+    position: absolute;
+    top: 10px;
+    font-family: 'Poppins' , sans-serif;
+    font-size: 12px;
+    color: var(--genGreenTypeLight2);
+    pointer-events: none;
+}
+
+.feedback_sectInputBox .feedback_sectLabel::after
+{
+    content: '*';
+    color: var(--warningClr);
+    margin-left: 2px;
+}
+
+.feedback_sectSelectBox .feedback_sectLabel
+{
+    margin-left: 4px;
+}
+
+.feedback_sectBox .feedback_sectField
+{
+    width: 100%;
+    font-family: 'Poppins' , sans-serif;
+    font-size: 14px;
+    color: var(--genWhiteTypeLight);
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: #00000000;
+    background-color: #00000000;
+    transition: all 300ms ease-in-out;
+    cursor: text;
+}
+
+.feedback_sectField.feedback_sectTextArea
+{
+    height: 60px;
+    resize: none;
+}
+
+.feedback_ctnt .feedback_selectBdr
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.feedback_sectField.feedback_sectSelect
+{
+    display: inline-block;
+    vertical-align: middle;
+    color: var(--genWhiteTypeMid2);
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.feedback_sectSelect option
+{
+    color: var(--genWhiteTypeLight);
+    background-color: var(--genModalBcg);
+}
+
+.feedback_form .feedback_atnBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+}
+
+.feedback_form .poweredBy_text
+{
+    width: 100%;
+    margin: 16px 0 0;
+    text-align: center;
+    font-size: 10px;
+    color: var(--genWhiteTypeMid);
+}
+
+.feedback_form .poweredBy_text .poweredBy_link
+{
+    color: var(--genGreenTypeMid2);
+    cursor: pointer;
 }
 
 
@@ -5061,7 +5600,7 @@ img
     width: calc((100% - var(--sideNavBarWidth)));
     padding: 0 var(--genBorderSpacing);
     background-color: var(--navMenuBcgClr);
-    background-image: url(/Images/bcg_footer.jpg);
+    background-image: url(/Images/bcg-footer.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 30%;
@@ -5255,7 +5794,6 @@ img
 .developer_creditsBdr
 {
     width: 100%;
-    margin-top: 40px;
 }
 
 .developer_creditsBdr .developer_creditsBox
@@ -5352,6 +5890,11 @@ img
     .transBtn:hover
     {
         background-color: #00000000;
+    }
+
+    .transBtn:hover .genBtnIcon
+    {
+        fill: var(--genGreenTypeLight);
     }
 
     .sideNavItemsCardBdr:hover
@@ -5500,18 +6043,28 @@ img
 
     .genMenuModalCloseIcon:hover .genMenuModalCloseSvg
     {
-        --wlModalActionMenuSvgFill: var(--genWhiteTypeMid2);
+        --clModalActionMenuSvgFill: var(--genWhiteTypeMid2);
     }
 
     .genMenuModalCtntBtnBox:hover
     {
-        --wlModalActionMenuSvgFill: var(--genWhiteTypeLight);
+        --clModalActionMenuSvgFill: var(--genWhiteTypeLight);
         background-color: var(--genModalOptHover);
     }
 
     .genAtnModalOptBdr .genAtnModalOptBox:hover
     {
         background-color: #222222;
+    }
+
+    .feedback_closeBdr:hover
+    {
+        background-color: #ffffff10;
+    }
+    
+    .feedback_sectBox:hover
+    {
+        background-color: #ffffff20;
     }
 
     .footer_Important_links:hover
@@ -5551,6 +6104,12 @@ img
         cursor: pointer;
         pointer-events: all;
 
+    }
+
+    .slide_card .cardAddToListBdr
+    {
+        opacity: 1;
+        visibility: visible;
     }
 }
 
@@ -5660,6 +6219,11 @@ img
         gap: 0;
         margin: 0 0 10px;
     }
+
+    .developer_creditsBdr .developer_creditsBox
+    {
+        justify-content: start;
+    }
 }
 
 
@@ -5667,41 +6231,15 @@ img
 {
     html:root
     {
-        --navbarGradientSize: 0px;
-        --sideNavBarWidth: 0px;
-        --btmNavBarHeight: 64px;
         --navBarNotificationPosT: calc(var(--navBarHeight) - 10px);
         --navBarNotificationPosR: -300px;
         --navBarProfilePosT: calc(var(--navBarHeight) - 10px);
         --navBarProfilePosR: -300px;
     }
 
-    .pageGradient
+    body[gen-menu-modal-is-dragging="true"]
     {
-        opacity: 0;
-        visibility: hidden;
-    }
-    
-    .topNavBar
-    {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: all;
-    }
-    
-    .sideNavBar
-    {
-        opacity: 0;
-        visibility: hidden;
-        overflow: hidden;
-        pointer-events: none;
-    }
-
-    .btmNavBar
-    {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: all;
+        overflow: hidden !important;
     }
 
     .navBarNotificationMain
@@ -5727,29 +6265,6 @@ img
     .navBarNotificationMain.notify_atv
     {
         --navBarNotificationPosR: var(--genBorderSpacing);
-        opacity: 1;
-        visibility: visible;
-    }
-    
-    .navBarProfileOptBdr
-    {
-        position: fixed;
-        bottom: calc(100% - (400px + var(--navBarProfilePosT)));
-        left: calc(100% - (var(--navBarMenuWidth) + var(--navBarProfilePosR)));
-        width: var(--navBarMenuWidth);
-        height: 400px;
-        max-width: calc(100% - (var(--navBarProfilePosR) * 2));
-        max-height: calc(100% - ((var(--navBarProfilePosT)) + 10px));
-        opacity: 0;
-        visibility: hidden;
-        transition: all 300ms ease-in-out;
-        overflow: hidden;
-        z-index: 96;
-    }
-    
-    .navBarProfileOptBdr.active
-    {
-        --navBarProfilePosR: var(--genBorderSpacing);
         opacity: 1;
         visibility: visible;
     }
@@ -5839,6 +6354,7 @@ img
         height: 100%;
         max-height: none;
         display: flex;
+        justify-content: center;
         align-items: end;
         border-radius: 0px;
         overflow: hidden;
@@ -5852,6 +6368,10 @@ img
         visibility: visible;
     }
     
+    .genMenuModalBdr .genMenuModalBcg
+    {
+        display: block;
+    }
     
     .genMenuModalBdr .genMenuModalBox
     {
@@ -5921,7 +6441,7 @@ img
     }
 
     .genAtnModalHeaderIconBox .genAtnModalHeaderIcon,
-    .genAtnModalOptIconBox .genAtnModalOptIcon
+    .genAtnModalOptIconBox .genAtnModalOptIconSvg
     {
         width: 16px;
     }
@@ -5938,6 +6458,56 @@ img
 
 }
 
+
+@media only screen and (max-width: 768px),
+only screen and (max-height: 486px)
+{
+    html:root
+    {
+        --navbarGradientSize: 0px;
+        --sideNavBarWidth: 0px;
+        --btmNavBarHeight: 64px;
+    }
+
+    .pageGradient
+    {
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+    .sideNavBar
+    {
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .btmNavBar
+    {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+    }
+}
+
+@media only screen and (max-width: 768px) and (hover: hover)
+{
+    .genMenuModalBdr .genMenuModalBox
+    {
+        scrollbar-width: none;
+    }
+
+    .genMenuModalBox::-webkit-scrollbar
+    {
+        width: 0;
+        height: 0;
+        display: none;
+    }
+}
+
+
+
 @media only screen and (max-width: 600px)
 {
     html:root
@@ -5952,10 +6522,16 @@ img
         width: 30px;
     }
 
-    .newWLInputBdr .newWLInputBox,
-    .newWLWarnBox .newWLWarnText
+    .newCLInputBdr .newCLInputBox,
+    .newCLWarnBox .newCLWarnText
     {
         width: 100%;
+    }
+
+    .feedback_ctnt .feedback_selectBdr
+    {
+        flex-direction: column;
+        gap: 0;
     }
     
 }
@@ -6103,11 +6679,6 @@ img
         padding-left: 15px;
     }
 
-    .basic_slider_title_bdr .basic_slider_title_box
-    {
-        align-items: center;
-    }
-
     .basic_slider_card_box
     {
         --basicSliderCardDivision: 2;
@@ -6162,7 +6733,7 @@ img
 {
     html:root
     {
-        --genBorderSpacing: 10px;
+        /* --genBorderSpacing: 10px; */
     }
 
     .addNewProfIconBox .addNewProfIcon
@@ -6227,7 +6798,8 @@ img
         margin-block: 3px 3px;
     }
 
-    ::-webkit-scrollbar-thumb{
+    ::-webkit-scrollbar-thumb
+    {
         background-color: var(--scrollbarClr);
         border-radius: 3px;
     }
@@ -6264,6 +6836,13 @@ img
     .navBarNotificationSub::-webkit-scrollbar-thumb:active
     {
         background-color: #444444;
+    }
+
+
+    /* ------- Gen Menu Modal --------- */
+    .genMenuModalBox::-webkit-scrollbar-track
+    {
+        margin-block: 10px 10px;
     }
 
 
