@@ -6219,10 +6219,22 @@ img
 {
     html:root
     {
+        --scrollBarWidth: 0px;
         --navBarNotificationPosT: calc(var(--navBarHeight) - 10px);
         --navBarNotificationPosR: -300px;
         --navBarProfilePosT: calc(var(--navBarHeight) - 10px);
         --navBarProfilePosR: -300px;
+    }
+
+    ::-webkit-scrollbar
+    {
+        display: none;
+        pointer-events: none;
+    }
+
+    html
+    {
+        scrollbar-width: none;
     }
 
     body[gen-menu-modal-is-dragging="true"]
@@ -6550,23 +6562,11 @@ only screen and (max-height: 486px)
 {
     html:root
     {
-        --scrollBarWidth: 0px;
         --genBtnIconSize: 15px;
         --genBtnTextSize: 13px;
         --notifyIconBoxWidth: 50px;
         --switchProfOptImgBoxWidth: 100px;
         --editProfileBcgImgHeight: 150px;
-    }
-
-    ::-webkit-scrollbar
-    {
-        display: none;
-        pointer-events: none;
-    }
-
-    html
-    {
-        scrollbar-width: none;
     }
 
     .confirmModalQtnBox .confirmModalQtnText
