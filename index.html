@@ -4,10 +4,24 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Uvid • Stream Movies, Series, and so much more</title>
-    <link rel="shortcut icon" href="Logo/Logo.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="Main.css">
-	<link rel="stylesheet" type="text/css" href="Uvid_style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="logo/Logo.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/error/error-all-style.css">
+	<link rel="stylesheet" type="text/css" href="/explore/explore.css">
+	<link rel="stylesheet" type="text/css" href="/home/home-style.css">
+	<link rel="stylesheet" type="text/css" href="/info.css">
+	<link rel="stylesheet" type="text/css" href="/landing.css">
+	<link rel="stylesheet" type="text/css" href="/uvid-player-style.css">
+	<link rel="stylesheet" type="text/css" href="/watch-style.css">
+    <link rel="stylesheet" type="text/css" href="/main.css">
+	<link rel="stylesheet" type="text/css" href="/profile/notification.css">
+	<link rel="stylesheet" type="text/css" href="/profile/profile.css">
+	<link rel="stylesheet" type="text/css" href="/schedule/schedule.css">
+	<link rel="stylesheet" type="text/css" href="/settings/settings.css">
+	<link rel="stylesheet" type="text/css" href="/trending/trending.css">
+	<link rel="stylesheet" type="text/css" href="/my-list/watchlist/watchlist.css">
+	<link rel="stylesheet" type="text/css" href="/my-list/collections/collections.css">
+	<link rel="stylesheet" type="text/css" href="/my-list/downloads/downloads.css">
+	<link rel="stylesheet" type="text/css" href="/my-list/my-list.css">
     </head>
     <body class="bodystart">
         
@@ -15,9 +29,61 @@
         <div id="preloader">
             <div id="spinner"></div>
         </div>
+        
+        <main>
+            <div>
+                <header class="topNavBar"></header>
+                <aside class="sideNavBar"></aside>
+                <nav class="btmNavBar"></nav>
+                <div class="pageGradient topPageGradient"></div>
+                <div class="pageGradient btmPageGradient"></div>
+                <div class="navbar_UnderLayer"></div>
+                <content class="">
+                    <div class="content"></div>
+                    <div class="genBtnBox genIconBtn greySolidBtn backtotop_float backtotop_btn">
+                        <div class="genBtnIcon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
+                                <path fill-rule="evenodd" d="M11.47 3.47a.75.75 0 0 1 1.06 0l6 6a.75.75 0 1 1-1.06 1.06l-4.72-4.72V20a.75.75 0 0 1-1.5 0V5.81l-4.72 4.72a.75.75 0 1 1-1.06-1.06z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                    </div>
+                </content>
+            </div>
+        </main>
 
-        <!-- script -->
-        <script src="Uvid_script.js"></script>
+        <script src="/main.js"id="mainScriptID"></script>
+        <script src="/app.js" id="appScriptID"></script>
+        <script src="/nav.js" id="navScriptID"></script>
+        <script src="/inventory.js" id="inventoryID"></script>
+        <script src="/feedback/feedback-script.js" id="feedbackScriptID"></script>
+        <script src="/my-list/my-list.js" id="myListScriptID"></script>
+        <script src="/my-list/collections/collections.js" id="collectionsScriptID"></script>
+        <script src="/my-list/downloads/dwld_lib.js" id="dlLibScriptID"></script>
+        <script src="/my-list/downloads/downloads.js" id="downloadsScriptID"></script>
+        <script src="/my-list/watchlist/watchlist.js" id="watchlistScriptID"></script>
+        <script src="/basic-slider.js"></script>
+        <script src="/gen-menu-modal.js"></script>
+        <script src="/explore/catalog.js"></script>
+        <script src="/explore/category.js"></script>
+        <script src="/explore/feature-category.js"></script>
+        <script src="/explore/genre-category.js"></script>
+        <script src="/explore/filter-inventory.js"></script>
+        <script src="/home/temp-lib.js"></script>
+        <script src="/home/home-script.js"></script>
+        <script src="/home/home-struct.js"></script>
+        <script src="/info.js"></script>
+        <script src="/profile/history.js"></script>
+        <script src="/profile/dislikes.js"></script>
+        <script src="/profile/likes.js"></script>
+        <script src="/profile/notification.js"></script>
+        <script src="/profile/profile.js"></script>
+        <script src="/profile/switch-prof.js"></script>
+        <script src="/profile/bcg-img-lib.js"></script>
+        <script src="/profile/frg-img-lib.js"></script>
+        <script src="/profile/lang-opt-lib.js"></script>
+        <script src="/profile/prof-info-lib.js"></script>
+        <script src="/schedule/library.js"></script>
+        <script src="/schedule/schedule.js"></script>
 
     </body>
 </html>
