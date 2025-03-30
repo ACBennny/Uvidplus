@@ -2840,8 +2840,8 @@ img
     top: 0;
     right: 0;
     margin: calc(var(--slideCardSpacing) - 4px);
-    opacity: 0;
-    visibility: hidden;
+    opacity: 1;
+    visibility: visible;
     transition: all 300ms ease-in-out;
     z-index: 6;
 }
@@ -6019,12 +6019,6 @@ img
         transform: scale(1.15);
     }
 
-    .slide_card:hover .cardAddToListBdr
-    {
-        opacity: 1;
-        visibility: visible;
-    }
-
     .cardAddToListIconBox:hover .cardAddToListIcon
     {
         fill: var(--genGreenTypeLight);
@@ -6104,12 +6098,6 @@ img
         cursor: pointer;
         pointer-events: all;
 
-    }
-
-    .slide_card .cardAddToListBdr
-    {
-        opacity: 1;
-        visibility: visible;
     }
 }
 
