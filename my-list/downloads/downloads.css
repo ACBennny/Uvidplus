@@ -1,0 +1,737 @@
+/*************************************************************
+ * This is the style for the MyList Download page
+ * 
+ * @author (Anyanwu Benedict Chukwuemeka)
+ * @version (v0.01)
+ *************************************************************/
+
+
+
+html:root
+{
+    --dlElemMaxWidthFactor: 1.726;
+    --dlCtgGridCard_sect1W: 0px;
+    --dlCtgGridCard_ImgBdrW: 250px;
+    --dlCtgGridCard_ImgBdrH: 125px;
+    --dlMdlBdrH: 100px;
+    --dLMdlGridCard_editW: 0px;
+    --dLMdlGridCard_atnW: 45px;
+    --dlMdl_pd: 16px;
+}
+
+
+
+
+
+.dwldListBodyBox .myListBodyTitleBdr .myListNavAtnBdr
+{
+    margin-top: 20px;
+}
+
+.dwldListBodyBox .myListNavAtnBdr .myListNavAtnBox
+{
+    justify-content: space-between;
+}
+
+.dlBodyHdr_ssnSelAllBdr
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+}
+
+.topNavBdr[data-cards-are-selectable="true"] .dlBodyHdr_ssnSelAllBdr,
+.dwldListBodyBox[data-cards-are-selectable="true"] .dlBodyHdr_ssnSelAllBdr
+{
+    opacity: 1;
+    visibility: visible;
+}
+
+.dlBodyAtnBtnsBox
+{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.myListBodyBdr .dwldListBodyBox.myListBodyBox
+{
+    /* max-width: calc((var(--genMaxContainerWidth) / var(--dlElemMaxWidthFactor))); */
+}
+
+.myListDLCatalogBdr
+{
+    width: 100%;
+}
+
+.myListDLCatalogBdr .myListDLCatalogBox
+{
+    width: 100%;
+}
+
+
+
+
+
+
+/* =============== DL CATALOG GRID ============= */
+
+.myListDLCatalogBox .myListDLCatalogGrid
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.dlCtgGridCardBdr
+{
+    width: 100%;
+}
+
+.dlCtgGridCardBdr .dlCtgGridCardBox
+{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.dlCtgGridCardBox .dLCtgGridCard_ovrlyLbl
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000000;
+    pointer-events: none;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.dwldListBodyBox[data-cards-are-selectable="true"] .dLCtgGridCard_ovrlyLbl
+{
+    pointer-events: all;
+}
+
+.dlCtgGridCardBox .dlCtgGridCard_sect2
+{
+    position: relative;
+    width: calc((100% - var(--dlCtgGridCard_sect1W)));
+    transition: all 150ms ease-in-out;
+    cursor: pointer;
+}
+
+.dlCtgGridCardBox:has(.genTick_chkFldCls:checked) .dlCtgGridCard_sect2
+{
+    filter: brightness(0.45);
+}
+
+.dwldListBodyBox[data-cards-are-selectable="true"] .dlCtgGridCard_sect2
+{
+    padding-left: 12px;
+}
+
+.dlCtgGridCard_sect2 .dlCtgGridCard_sect2Btn
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.dlCtgGridCard_sect2 .dlCtgGridCard_sectInfo
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 12px 0px;
+}
+
+.dlCtgGridCard_sectInfo .dlCtgGridCard_ImgBdr
+{
+    width: var(--dlCtgGridCard_ImgBdrW);
+    height: var(--dlCtgGridCard_ImgBdrH);
+}
+
+.dlCtgGridCard_ImgBdr .dlCtgGridCard_ImgBox
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    filter: brightness(0.75);
+    overflow: hidden;
+}
+
+.dlCtgGridCard_ImgBox .dlCtgGridCard_ImgSrc
+{
+    width: clamp(100%, 100%, 100%);
+    height: clamp(100%, 100%, 100%);
+    object-fit: cover;
+    object-position: center;
+}
+
+.dlCtgGridCard_ImgSrc.dlCtgGridCard_ImgSrcSml
+{
+    display: none;
+}
+
+.dlCtgGridCard_sectInfo .dlCtgGridCard_detBdr
+{
+    width: calc((100% - var(--dlCtgGridCard_ImgBdrW)));
+    padding: 0 20px;
+}
+
+.dlCtgGridCard_detBdr .dlCtgGridCard_detBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dlCtgGridCard_detBox .dlCtgGridCard_detTitleBox
+{
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.dlCtgGridCard_detTitleBox .dlCtgGridCard_detTitleText
+{
+    --dlCtgGridCard_detTitleTextNo: 2;
+    --dlCtgGridCard_detTitleTextH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--dlCtgGridCard_detTitleTextNo);
+    -webkit-box-orient: vertical;
+    line-clamp:  var(--dlCtgGridCard_detTitleTextNo);
+    display: -webkit-box;
+    max-height: calc(var(--dlCtgGridCard_detTitleTextNo) * 1em * var(--dlCtgGridCard_detTitleTextH));
+    line-height: var(--dlCtgGridCard_detTitleTextH);
+    font-size: 16px;
+    color: var(--genWhiteTypeLight);
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+.dlCtgGridCard_detBox .dlCtgGridCard_detPrptyBdr
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.dlCtgGridCard_detPrptyBdr .dlCtgGridCard_detPrptyBox
+{
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.dlCtgGridCard_detPrptyBox .dlCtgGridCard_detPrptyText
+{
+    font-size: 14px;
+    color: var(--genWhiteTypeMid);
+}
+
+
+
+
+
+
+/* ============== DL MODAL =========== */
+
+.dlMdlBase
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: #00000099;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: all 300ms ease-in-out;
+    z-index: 115;
+}
+
+.dlMdlBase.active
+{
+    opacity: 1;
+    visibility: visible;
+}
+
+.dlMdlBase .dlMdlBcg
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    z-index: -1;
+}
+
+.dlMdlBase .dlMdlBdr
+{
+    width: 100%;
+    max-width: 700px;
+    height: 0;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #111111;
+    overflow: hidden;
+    transition: all 300ms ease-in-out;
+}
+
+.dlMdlBase.active .dlMdlBdr
+{
+    height: calc((100% - var(--dlMdlBdrH)));
+}
+
+.dlMdlBdr .dlMdlBox
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden auto;
+}
+
+
+
+/* -------- DL Modal Header ------- */
+.dlMdlBox .dlMdlHdrBdr
+{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    margin-bottom: 16px;
+    background-color: #111111;
+    z-index: 10;
+}
+
+.dlMdlHdrBdr .dlMdlHdrBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: var(--dlMdl_pd) var(--dlMdl_pd) 0;
+    border-bottom: 1px solid #ffffff20;
+}
+
+.dlMdlHdrBox .dlMdlHdr_top
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.dlMdlHdr_top .dlMdlHdr_BckBtnBdr
+{
+    margin-right: 8px;
+}
+
+.dlMdlHdr_top .dlMdlHdr_TitleBox
+{
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.dlMdlHdr_TitleBox .dlMdlHdr_TitleText
+{
+    font-size: 16px;
+    color: var(--genWhiteTypeLight);
+}
+
+.dlMdlHdrBox .dlMdlHdr_btm
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.dlMdlHdr_btm .dlMdlHdr_ssnDetBdr
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.dlMdlBox[data-cards-are-selectable="true"] .dlMdlHdr_ssnDetBdr
+{
+    display: none;
+}
+
+.dlMdlHdr_ssnDetBdr .dlMdlHdr_epDetBox
+{
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.dlMdlHdr_epDetBox .dlMdlHdr_epDetText
+{
+    font-size: 14px;
+    color: var(--genWhiteTypeMid);
+}
+
+.dlMdlHdr_btm .dlMdlHdr_ssnSelAllBdr
+{
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.dlMdlBox[data-cards-are-selectable="true"] .dlMdlHdr_ssnSelAllBdr
+{
+    display: flex;
+}
+
+.dlMdlHdr_btm .dlMdlHdr_ssnAtnBdr
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+
+
+
+/* --------- DL Modal Ctnt ------- */
+.dlMdlBox .dlMdlCtntBdr
+{
+    width: 100%;
+}
+
+.dlMdlCtntBdr .dlMdlCtntBox
+{
+    width: 100%;
+}
+
+.dlMdlCtntBox .dlMdlCtntGrid
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: var(--dlMdl_pd);
+}
+
+.dlMdlCtntGrid .dLMdlGridCardBdr
+{
+    width: 100%;
+    transition: all 300ms ease-in-out;
+}
+
+.dLMdlGridCardBdr .dLMdlGridCardBox
+{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: all 300ms ease-in-out;
+}
+
+.dlMdlBox[data-cards-are-selectable="true"] .dLMdlGridCardBox
+{
+    padding-left: var(--dlMdl_pd);
+}
+
+.dLMdlGridCardBox .dLMdlGridCard_ovrlyLbl
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000000;
+    pointer-events: none;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.dlMdlBox[data-cards-are-selectable="true"] .dLMdlGridCard_ovrlyLbl
+{
+    pointer-events: all;
+}
+
+
+.dLMdlGridCardBox .dLMdlGridCard_AtnBdr
+{
+    width: var(--dLMdlGridCard_atnW);
+}
+
+.dLMdlGridCardBox .dLMdlGridCard_detBdr
+{
+    width: calc((100% - (var(--dLMdlGridCard_editW) + var(--dLMdlGridCard_atnW))));
+    padding: var(--dlMdl_pd) 0 var(--dlMdl_pd) var(--dlMdl_pd);
+    cursor: pointer;
+}
+
+.dLMdlGridCard_detBdr .dLMdlGridCard_detBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    transition: all 150ms ease-in-out;
+}
+
+.dLMdlGridCardBox:has(.genTick_chkFldCls:checked) .dLMdlGridCard_detBox
+{
+    filter: brightness(0.45);
+}
+
+.dLMdlGridCard_detBox .dLMdlGridCard_detTitleBox,
+.dLMdlGridCard_detBox .dLMdlGridCard_sizeBox
+{
+    width: 100%;
+}
+
+.dLMdlGridCard_detTitleBox .dLMdlGridCard_detTitleText
+{
+    font-size: 14px;
+    color: var(--genWhiteTypeMid2);
+}
+
+.dLMdlGridCard_prptyBdr
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.dLMdlGridCard_prptyBdr .dLMdlGridCard_prptyBox
+{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.dLMdlGridCard_prptyBox .dLMdlGridCard_prptyText
+{
+    font-size: 12px;
+    color: var(--genWhiteTypeMid);
+}
+
+.dLMdlGridCard_sizeBox .dLMdlGridCard_sizeText
+{
+    font-size: 14px;
+    color: var(--genGreenTypeMid);
+}
+
+.dlMdlBox[data-cards-are-selectable="true"] .dLMdlGridCard_AtnBdr
+{
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media(hover: hover)
+{
+
+    .dLMdlGridCardBdr:hover
+    {
+        background-color: #ffffff10;
+    }
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 768px) 
+{
+    html:root
+    {
+        --dlCtgGridCard_ImgBdrW: 200px;
+        --dlCtgGridCard_ImgBdrH: 100px;
+        --dlMdlBdrH: 0px;
+    }
+
+    .dlCtgGridCard_sectInfo .dlCtgGridCard_detBdr
+    {
+        padding: 0px 14px;
+    }
+
+    .dlMdlBase .dlMdlBdr
+    {
+        max-width: none;
+        border-radius: 0px;
+    }
+}
+
+
+
+@media only screen and (max-width: 565px) 
+{
+    html:root
+    {
+        --dlCtgGridCard_ImgBdrW: 75px;
+        --dlCtgGridCard_ImgBdrH: 120px;
+    }
+
+    .myListDLCatalogGrid[data-cards-are-selectable="true"] .dlCtgGridCard_sect1
+    {
+        --dlCtgGridCard_sect1W: 35px;
+    }
+
+    .dlCtgGridCard_chkBox .dlCtgGridCard_chkFldLbl
+    {
+        width: 20px;
+        height: 20px;
+    }
+
+    .dlCtgGridCard_ImgSrc.dlCtgGridCard_ImgSrcLrg
+    {
+        display: none;
+    }
+
+    .dlCtgGridCard_ImgSrc.dlCtgGridCard_ImgSrcSml
+    {
+        display: block;
+    }
+    
+    .dlCtgGridCard_detTitleBox .dlCtgGridCard_detTitleText
+    {
+        font-size: 14px;
+    }
+
+    .dlCtgGridCard_detPrptyBox .dlCtgGridCard_detPrptyText
+    {
+        font-size: 12px;
+    }
+}
+
+
+
+@media only screen and (max-width: 485px) 
+{
+
+    .dwldListBodyBox .myListNavAtnBdr .myListNavAtnBox
+    {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .dlBodyHdr_ssnSelAllBdr
+    {
+        display: none;
+    }
+
+    .topNavBdr[data-cards-are-selectable="true"] .dlBodyHdr_ssnSelAllBdr,
+    .dwldListBodyBox[data-cards-are-selectable="true"] .dlBodyHdr_ssnSelAllBdr
+    {
+        display: flex;
+    }
+
+    .dlCtgGridCard_sect2 .dlCtgGridCard_sectInfo
+    {
+        padding: 10px 0;
+    }
+
+    .dlCtgGridCard_sectInfo .dlCtgGridCard_detBdr
+    {
+        padding: 0px 12px;
+    }
+
+    .dlCtgGridCard_detBox .dlCtgGridCard_detTitleBox
+    {
+        margin-bottom: 2.5px;
+    }
+    
+    .dlCtgGridCard_detTitleBox .dlCtgGridCard_detTitleText
+    {
+        --dlCtgGridCard_detTitleTextNo: 3;
+    }
+
+    .dlMdlHdr_TitleBox .dlMdlHdr_TitleText
+    {
+        font-size: 15px;
+    }
+
+    .dlMdlHdr_epDetBox .dlMdlHdr_epDetText
+    {
+        font-size: 13px;
+    }
+
+    .dlMdlHdrBox .dlMdlHdr_btm
+    {
+        flex-direction: column;
+        gap: var(--dlMdl_pd);
+    }
+}
+
+
+
+@media only screen and (max-width: 350px) 
+{
+    .topNavBdr.dlPgNav[data-cards-are-selectable="true"] .genBtnBox
+    {
+        min-width: -moz-fit-content;
+        min-width: fit-content;
+        padding: 10px 16px;
+    }
+
+    .topNavBdr.dlPgNav[data-cards-are-selectable="true"] .genBtnBox .genBtnText
+    {
+        font-size: 11px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
