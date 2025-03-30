@@ -1,0 +1,1474 @@
+/*************************************************************
+ * This is the style for the MyList Watchlist pages
+ * 
+ * @author (Anyanwu Benedict Chukwuemeka)
+ * @version (v0.01)
+ *************************************************************/
+
+html:root
+{
+    --myListCLCatalogItemWidth: 225px;
+    --myListCLCatalogItemStackLvlBdrRad: 10px;
+    --myListCLCatalogItemDetPadding: 10px;
+    --clModalBorderSpacing: 0px;
+    --clModalBaseCloseHeight: 20px;
+    --clModalBaseCloseMargin: 15px;
+    --clModalSectMaxWidth: 70vw;
+    --clModalHeadBdrHeight: 300px;
+    --clModalHeadBoxHeight: 250px;
+    --clModalHeadThumbWidth: 340px;
+    --clModalHeadThumbHeight: 190px;
+    --clModalActionIconBaseWidth: 50px;
+    --clModalActionIconBtnSize: 40px;
+    --clModalActionIconSvgSize: 16px;
+    --clModalActionIconSvgFill: var(--genWhiteTypeLight);
+    --clModalActionMenuSvgSize: 18px;
+    --clModalActionMenuSvgFill: var(--genWhiteTypeMid);
+    --clModalHeader_DetInfo_TagsCountIconSize: 16px;
+    --clModalGrid_CardHandleBdrWidth: 40px;
+    --clModalGrid_CardCtntThumbWidth: 225px;
+    --clModalGrid_CardCtntThumbHeight: 125px;
+    --clModalGrid_CardCtnt_DetTagSectIconSize: 14px;
+    --clModalGrid_CardCtnt_DetTagSectIconFill: var(--genGreenTypeMid);
+}
+
+
+.myListCLCatalogBdr
+{
+    width: 100%;
+}
+
+.myListCLCatalogBdr .myListCLCatalogBox
+{
+    width: 100%;
+}
+
+.myListCLCatalogBox .myListCLCatalogGrid
+{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--myListCLCatalogItemWidth), 1fr));
+    grid-template-rows: auto;
+    justify-items: center;
+    gap: 15px;
+    transition: 100ms;
+}
+
+.myListCLCatalogGrid .myListCLCatalog_ItemBase
+{
+    margin-bottom: 20px;
+}
+
+.myListCLCatalog_ItemBase .myListCLCatalog_ItemBdr
+{
+    width: 100%;
+}
+
+.myListCLCatalog_ItemBdr .myListCLCatalog_ItemBox
+{
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    max-height: 200px;
+}
+
+
+/* ---------- The Watchlist Thumbnail ------ */
+.myListCLCatalog_ItemBox .myListCLCatalog_ItemStackBdr
+{
+    width: 100%;
+    z-index: 1;
+}
+
+.myListCLCatalog_ItemStackBdr .myListCLCatalog_ItemStackBox
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16/9;
+}
+
+.myListCLCatalog_ItemStackBox .myListCLCatalog_ItemStackLvlAll
+{
+    border-radius: var(--myListCLCatalogItemStackLvlBdrRad);
+    border: 1px solid #000000;
+}
+
+.myListCLCatalog_ItemStackBox .myListCLCatalog_ItemStackLvl3
+{
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    right: 10px;
+    width: calc((100% - 20px));
+    height: 100%;
+    background-color: #404040;
+}
+
+.myListCLCatalog_ItemStackBox .myListCLCatalog_ItemStackLvl2
+{
+    position: absolute;
+    top: -5px;
+    left: 5px;
+    right: 5px;
+    width: calc((100% - 10px));
+    height: 100%;
+    background-color: #666666;
+}
+
+.myListCLCatalog_ItemStackBox .myListCLCatalog_ItemStackLvl1
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: var(--genGreenTypeMid);
+    overflow: hidden;
+}
+
+.myListCLCatalog_ItemStackLvl1 .myListCLCatalog_ItemThumbBdr
+{
+    width: 100%;
+    height: 100%;
+}
+
+.myListCLCatalog_ItemThumbBdr .myListCLCatalog_ItemThumbBox
+{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.myListCLCatalog_ItemThumbBox .myListCLCatalog_ItemThumbImg
+{
+    width: clamp(100% , 100% , 100%);
+    height: clamp(100% , 100% , 100%);
+    object-fit: cover;
+    object-position: center;
+}
+
+
+/* ---------- The Watchlist Info ------ */
+.myListCLCatalog_ItemBox .myListCLCatalog_ItemDetBase
+{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+.myListCLCatalog_ItemDetBase .myListCLCatalog_ItemDetBdr
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    background-color: #00000065;
+    transition: all 300ms ease-in-out;
+}
+
+.myListCLCatalog_ItemBox:active .myListCLCatalog_ItemDetBdr
+{
+    background-color: #00000099;
+}
+
+.myListCLCatalog_ItemDetBdr .myListCLCatalog_ItemDetBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: var(--myListCLCatalogItemDetPadding);
+    background: linear-gradient(to top, #000000, #000000de, #000000be, #00000099, #00000000);
+}
+
+.myListCLCatalog_ItemDetBox .myListCLCatalog_ItemDetMajorBox
+{
+    width: 100%;
+}
+
+.myListCLCatalog_ItemDetMajorBox .myListCLCatalog_ItemDetMajorText
+{
+    --myListCLCatalogItemDetTitleTextNo: 1;
+    --myListCLCatalogItemDetTitleTextH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--myListCLCatalogItemDetTitleTextNo);
+    -webkit-box-orient: vertical;
+    line-clamp:  var(--myListCLCatalogItemDetTitleTextNo);
+    display: -webkit-box;
+    max-height: calc(var(--myListCLCatalogItemDetTitleTextNo) * 1em * var(--myListCLCatalogItemDetTitleTextH));
+    line-height: var(--myListCLCatalogItemDetTitleTextH);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    color: var(--genWhiteTypeLight);
+    font-size: 14px;
+    font-family: 'Poppins' , sans-serif;
+    font-weight: 600;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+.myListCLCatalog_ItemDetBox .myListCLCatalog_ItemDetMinorBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.myListCLCatalog_ItemDetMinorBox .myListCLCatalog_ItemDetMinorIcon
+{
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+}
+
+.myListCLCatalog_ItemDetMinorIcon .myListCLCatalog_ItemDetMinorSvg
+{
+    width: clamp(100% , 100% , 100%);
+    height: clamp(100% , 100% , 100%);
+    fill: var(--genGreenTypeMid);
+}
+
+.myListCLCatalog_ItemDetMinorBox .myListCLCatalog_ItemDetMinorText
+{
+    font-size: 12px;
+    color: var(--genWhiteTypeMid);
+}
+
+
+
+/* ------- Open Watch List ------ */
+.myListCLCatalog_ItemBox .myListCLCatalog_ItemOpenCLBdr
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+}
+
+.myListCLCatalog_ItemOpenCLBdr .myListCLCatalog_ItemOpenCLBtn
+{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    background-color: #00000000;
+    cursor: pointer;
+}
+
+
+
+
+/* --------- Deletes Watchlist ---------- */
+.myListCLCatalog_ItemBox .myListCLCatalog_ItemBadgeBdr
+{
+    position: absolute;
+    top: var(--myListCLCatalogItemDetPadding);
+    right: var(--myListCLCatalogItemDetPadding);
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    z-index: 7;
+    cursor: pointer;
+    display: none;
+}
+
+.myListCLCatalog_ItemBadgeBdr .myListCLCatalog_ItemBadgeBox
+{
+    width: 100%;
+    height: 100%;
+}
+
+.myListCLCatalog_ItemBadgeBox .myListCLCatalog_ItemBadgeIcon
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #00000099;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 300ms ease-in-out;
+}
+
+.myListCLCatalog_ItemBox:active .myListCLCatalog_ItemBadgeIcon
+{
+    opacity: 1;
+    visibility: visible;
+}
+
+.myListCLCatalog_ItemBadgeIcon .myListCLCatalog_ItemBadgeSvg
+{
+    width: 18px;
+    height: 18px;
+    fill: var(--genWhiteTypeMid);
+    transition: all 300ms ease-in-out;
+}
+
+.myListCLCatalog_ItemBadgeBdr:active .myListCLCatalog_ItemBadgeSvg
+{
+    fill: var(--genGreenTypeLight);
+}
+
+
+
+
+
+
+
+/* --------- Gen Action button --------- */
+
+.clModalActionFence
+{
+    width: var(--clModalActionIconBaseWidth);
+    height: 100%;
+}
+
+.clModalActionFence.clModalAction_HeaderFence
+{
+    display: block;
+}
+
+.clModalActionFence .clModalActionBase
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clModalActionBase .clModalActionBdr
+{
+    width: var(--clModalActionIconBtnSize);
+    height: var(--clModalActionIconBtnSize);
+}
+
+.clModalActionBase .clModalActionBox
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.clModalActionBox .clModalActionBtn
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: none;
+    background-color: #00000000;
+    border-radius: 50%;
+    transition: all 150ms ease-in-out;
+    cursor: pointer;
+}
+
+.clModalActionBtn:active 
+{
+    --clModalActionIconSvgFill: var(--genGreenTypeLight);
+    background-color: #ffffff20;
+}
+
+.clModalActionBtn .clModalActionBtnIcon
+{
+    width: var(--clModalActionIconSvgSize);
+    height: var(--clModalActionIconSvgSize);
+}
+
+.clModalActionBtnIcon .clModalActionBtnSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--clModalActionIconSvgFill);
+    transition: all 150ms ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+/* ============= WATCHLIST MODAL ============ */
+.clModalBase
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    /* transform: scale(0.75); */
+    transform: translateY(100%);
+    transition: all 150ms ease-in-out;
+    z-index: 125;
+}
+
+.clModalBase.active
+{
+    opacity: 1;
+    visibility: visible;
+    /* transform: scale(1.00); */
+    transform: translateY(0%);
+    transition: all 300ms ease-in-out;
+}
+
+.clModalBase .clModalBdr
+{
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+}
+
+.clModalBdr .clModalBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden auto;
+    scroll-behavior: smooth;
+}
+
+.clModalBox.atnMenuOpen
+{
+    overflow: hidden hidden;
+}
+
+body[gen-menu-modal-is-dragging="true"] .clModalBox
+{
+    overflow: hidden hidden;
+}
+
+
+
+
+
+/* ---------- Titlebar ---------- */
+.clModalBase .clModalBaseBarBdr
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc((100% - var(--clModalBoxScrollbarWidth)));
+    display: flex;
+    padding: calc((var(--clModalBaseCloseMargin) / 3)) var(--genBorderSpacing);
+    justify-content: center;
+    background: -o-linear-gradient(to bottom, #000000ef, #00000000);
+    background: -moz-linear-gradient(to bottom, #000000ef, #00000000);
+    background: -webkit-linear-gradient(to bottom, #000000ef, #00000000);
+    background: linear-gradient(to bottom, #000000ef, #00000000);
+    z-index: 25;
+}
+
+.clModalBaseBarBdr.sticky
+{
+    background-color: #000000;
+}
+
+.clModalBaseBarBdr .clModalBaseBarBox
+{
+    width: 100%;
+    max-width: var(--clModalSectMaxWidth);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.clModalBaseBarBdr.sticky .clModalBaseCloseBtn
+{
+    background-color: #00000000;
+}
+
+.clModalBaseBarBox .clModalBaseTitleBdr
+{
+    width: calc((100% - var(--clModalBaseCloseMargin)));
+    padding-left: 15px;
+}
+
+.clModalBaseTitleBdr .clModalBaseTitleBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 150ms ease-in-out;
+}
+
+.clModalBaseBarBdr.sticky .clModalBaseTitleBox
+{
+    opacity: 1;
+    visibility: visible;
+}
+
+.clModalBaseTitleBox .clModalBaseTitleText
+{
+    --clModalBaseTitleTextNo: 1;
+    --clModalBaseTitleTextH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--clModalBaseTitleTextNo);
+    -webkit-box-orient: vertical;
+    line-clamp:  var(--clModalBaseTitleTextNo);
+    display: -webkit-box;
+    max-height: calc(var(--clModalBaseTitleTextNo) * 1em * var(--clModalBaseTitleTextH));
+    line-height: var(--clModalBaseTitleTextH);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    color: var(--genWhiteTypeMid2);
+    font-size: 16px;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+
+
+/* ------------ Header ----------- */
+
+.clModalBox .clModalHeadBase
+{
+    width: 100%;
+}
+
+.clModalHeadBase .clModalHeadBdr
+{
+    position: relative;
+    width: 100%;
+    min-height: calc((var(--clModalHeadBdrHeight)));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--navBarHeight) var(--genBorderSpacing) 0;
+    margin-bottom: 25px;
+    z-index: 3;
+}
+
+.clModalHeadBdr .clModalHead_underlayerBdr
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.clModalHead_underlayerBdr .clModalHead_underlayerBox
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 3;
+}
+
+.clModalHead_underlayerBox .clModalHeader_BcgBdr
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -3;
+}
+
+.clModalHeader_BcgBdr .clModalHeader_BcgBox
+{
+    width: 100%;
+    height: 150%;
+    opacity: 0.75;
+    filter: blur(25px);
+}
+
+.clModalHeader_BcgBox .clModalHeader_BcgImg
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.clModalHead_underlayerBox .clModalHeader_Shadow
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom , #00000000 , #000000);
+    z-index: -2;
+}
+
+.clModalHeadBdr .clModalHeadBox
+{
+    width: 100%;
+    height: var(--clModalHeadBoxHeight);
+    max-width: var(--clModalSectMaxWidth);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 25px;
+    z-index: 5;
+}
+
+.clModalHeadBox .clModalHeader_thumbBase
+{
+    width: 100%;
+    height: 100%;
+    max-width: var(--clModalHeadThumbWidth);
+    max-height: var(--clModalHeadThumbHeight);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clModalHeader_thumbBase .clModalHeader_thumbBdr
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.clModalHeader_thumbBdr .clModalHeader_thumbBox
+{
+    width: 100%;
+    height: 100%;
+    background-color: #2c2c2c;
+    filter: brightness(0.75);
+    overflow: hidden;
+}
+
+.clModalHeader_thumbBox .clModalHeader_thumbImg
+{
+    width: clamp(100% , 100% , 100%);
+    height: clamp(100% , 100% , 100%);
+    object-fit: cover;
+    object-position: center;
+}
+
+.clModalHeadBox .clModalHeader_DetBdr
+{
+    width: calc((100% - var(--clModalHeadThumbWidth)));
+    height: 100%;
+    padding-left: 15px;
+}
+
+.clModalHeader_DetBdr .clModalHeader_DetBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.clModalHeader_DetBox .clModalHeader_DetInfoBdr
+{
+    width: 100%;
+    height: 100%;
+}
+
+.clModalHeader_DetInfoBdr .clModalHeader_DetInfoBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.clModalHeader_DetInfoBox .clModalHeader_DetInfo_TitleBox
+{
+    width: 100%;
+}
+
+.clModalHeader_DetInfo_TitleBox .clModalHeader_DetInfo_TitleText
+{
+    --clModalHeader_DetInfo_TitleTextNo: 2;
+    --clModalHeader_DetInfo_TitleTextH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--clModalHeader_DetInfo_TitleTextNo);
+    -webkit-box-orient: vertical;
+    line-clamp:  var(--clModalHeader_DetInfo_TitleTextNo);
+    display: -webkit-box;
+    max-height: calc(var(--clModalHeader_DetInfo_TitleTextNo) * 1em * var(--clModalHeader_DetInfo_TitleTextH));
+    line-height: var(--clModalHeader_DetInfo_TitleTextH);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    color: var(--genWhiteTypeLight);
+    font-size: 22px;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+.clModalHeader_DetInfoBox .clModalHeader_DetInfo_TagsBdr
+{
+    width: 100%;
+    margin: 12px 0;
+}
+
+.clModalHeader_DetInfo_TagsBdr .clModalHeader_DetInfo_TagsBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.clModalHeader_DetInfo_TagsBox .clModalHeader_DetInfo_TagsItem
+{
+    margin-right: 10px;
+    color: var(--genWhiteTypeMid);
+    font-size: 12px;
+}
+
+.clModalHeader_DetInfo_TagsBox .clModalHeader_DetInfo_TagsCount
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.clModalHeader_DetInfo_TagsCount .clModalHeader_DetInfo_TagsCountIcon
+{
+    width: var(--clModalHeader_DetInfo_TagsCountIconSize);
+    height: var(--clModalHeader_DetInfo_TagsCountIconSize);
+    margin-right: 5px;
+}
+
+.clModalHeader_DetInfo_TagsCountIcon .clModalHeader_DetInfo_TagsCountSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--genGreenTypeMid);
+}
+
+.clModalHeader_DetInfo_TagsCount .clModalHeader_DetInfo_TagsCountText,
+.clModalHeader_DetInfo_TagsSeparator .clModalHeader_DetInfo_TagsUpdate
+{
+    font-size: inherit;
+    color: inherit;
+}
+
+.clModalHeader_DetInfoBox .clModalHeader_DetInfo_DescBox
+{
+    width: 100%;
+}
+
+.clModalHeader_DetInfo_DescBox .clModalHeader_DetInfo_DescText
+{
+    --trendingDetTitleTextNo: 1;
+    --trendingDetTitleTextH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--trendingDetTitleTextNo);
+    -webkit-box-orient: vertical;
+    line-clamp:  var(--trendingDetTitleTextNo);
+    display: -webkit-box;
+    max-height: calc(var(--trendingDetTitleTextNo) * 1em * var(--trendingDetTitleTextH));
+    line-height: var(--trendingDetTitleTextH);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    color: var(--genWhiteTypeMid);
+    font-size: 13px;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+
+.clModalHeader_DetInfoBox .clModalHeader_DetInfo_MoreBdr
+{
+    width: 100%;
+    margin-top: 0px;
+}
+
+.clModalHeader_DetInfo_MoreBdr .clModalHeader_DetInfo_MoreBtn
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: none;
+    background-color: #00000000;
+    cursor: pointer;
+}
+
+.clModalHeader_DetInfo_MoreBtn .clModalHeader_DetInfo_MoreText
+{
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--genWhiteTypeMid);
+}
+
+.clModalHeader_ActionBdr
+{
+    width: 100%;
+    margin-top: 12px;
+}
+
+.clModalHeader_ActionBdr .clModalHeader_ActionBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* --------- CL Modal Body ---------- */
+.clModalBox .clModalCtntBase
+{
+    width: 100%;
+}
+
+.clModalCtntBase .clModalCtntBdr
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 var(--genBorderSpacing);
+}
+
+.clModalCtntBdr .clModalCtntBox
+{
+    width: 100%;
+    max-width: var(--clModalSectMaxWidth);
+    display: flex;
+    flex-direction: column;
+}
+
+.clModalCtntBox .clModalCtnt_sortBdr
+{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #000000;
+    z-index: 10;
+}
+
+.clModalCtnt_sortBdr .clModalCtnt_sortBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc((var(--clModalBaseCloseHeight) + (var(--clModalBaseCloseMargin) * 2.5))) 0 var(--clModalBaseCloseMargin);
+}
+
+.clModalCtnt_sortBox .clModalCtnt_sortStatusBdr
+{
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.clModalCtnt_sortStatusBdr .clModalCtnt_sortStatusBox
+{
+    width: 100%;
+    height: 100%;
+}
+
+.clModalCtnt_sortStatusBox .clModalCtnt_sortStatusText
+{
+    display: flex;
+    flex-direction: row;
+    font-family: 'Poppins' , sans-serif;
+    font-size: 15px;
+}
+
+.clModalCtnt_sortStatusText .status_type
+{
+    color: var(--genWhiteTypeMid);
+}
+
+.clModalCtnt_sortStatusText .status_divider
+{
+    margin: 0 7px;
+    color: var(--genWhiteTypeMid);
+}
+
+.clModalCtnt_sortStatusText .status_order
+{
+    color: var(--genGreenTypeMid);
+}
+
+
+.clModalCtnt_sortBox .clModalCtnt_sortFilterBdr
+{
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.clModalCtnt_sortFilterBdr .clModalCtnt_sortFilterBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.clModalCtntBox .clModalGridBase
+{
+    width: 100%;
+}
+
+.clModalGridBase .clModalGridBdr
+{
+    width: 100%;
+}
+
+.clModalGridBdr .clModalGridBox
+{
+    width: 100%;
+    padding-bottom: 25px;
+}
+
+.clModalGrid_CardBdr
+{
+    width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px 0;
+    border-radius: 15px;
+    background-color: #00000000;
+    list-style: none;
+    overflow: hidden;
+    transition: all 300ms ease-in-out;
+}
+
+.clModalGrid_CardBdr.active
+{
+    display: block;
+}
+
+.clModalGrid_CardBdr.notShowStatusMatch,
+.clModalGrid_CardBdr.notShowTypeMatch
+{
+    display: none;
+}
+
+.clModalGrid_CardBdr .clModalGrid_CardBox
+{
+    width: 100%;
+    height: var(--clModalGrid_CardCtntThumbHeight);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.clModalGrid_CardBox .clModalGrid_CardHandleBdr
+{
+    width: var(--clModalGrid_CardHandleBdrWidth);
+    height: 100%;
+}
+
+.clModalGridBox[data-sort-handle-visibility="false"]
+.clModalGrid_CardHandleBdr
+{
+    display: none;
+}
+
+.clModalGrid_CardHandleBdr .clModalGrid_CardHandleBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: grab;
+}
+
+.clModalGrid_CardHandleBox .clModalGrid_CardHandleIcon
+{
+    width: 20px;
+    height: 20px;
+}
+
+.clModalGrid_CardHandleIcon .clModalGrid_CardHandleSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--genWhiteTypeMid);
+}
+
+.clModalGrid_CardBox .clModalGrid_CardRankBdr
+{
+    width: var(--clModalGrid_CardHandleBdrWidth);
+    height: 100%;
+    display: none;
+}
+
+.clModalGridBox[data-sort-handle-visibility="false"]
+.clModalGrid_CardRankBdr
+{
+    display: block;
+}
+
+.clModalGrid_CardBox .clModalGrid_CardRankBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clModalGrid_CardRankBox .clModalGrid_CardRankNo
+{
+    font-size: 14px;
+    color: var(--genWhiteTypeMid2);
+}
+
+
+
+.clModalGrid_CardBox .clModalGrid_CardCtntBdr
+{
+    width: calc((100% - (var(--clModalGrid_CardHandleBdrWidth) + var(--clModalActionIconBaseWidth))));
+    height: 100%;
+}
+
+.clModalGrid_CardCtntBdr .clModalGrid_CardCtntBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.clModalGrid_CardCtntBox .clModalGrid_CardCtntThumbBdr
+{
+    width: var(--clModalGrid_CardCtntThumbWidth);
+    height: 100%;
+}
+
+.clModalGrid_CardCtntThumbBdr .clModalGrid_CardCtntThumbBox
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #2c2c2c;
+    filter: brightness(0.75);
+    overflow: hidden;
+}
+
+.clModalGrid_CardCtntThumbBox .clModalGrid_CardCtntThumbImg
+{
+    width: clamp(100% , 100% , 100%);
+    height: clamp(100% , 100% , 100%);
+    object-fit: cover;
+    object-position: center;
+}
+
+.clModalGrid_CardCtntThumbImg.img_large
+{
+    display: block;
+}
+
+.clModalGrid_CardCtntThumbImg.img_small
+{
+    display: none;
+}
+
+.clModalGrid_CardCtntBox .clModalGrid_CardCtntDetBdr
+{
+    width: calc((100% - var(--clModalGrid_CardCtntThumbWidth)));
+    padding-left: 10px;
+}
+
+.clModalGrid_CardCtntDetBdr .clModalGrid_CardCtntDetBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.clModalGrid_CardCtntDetBox .clModalGrid_CardCtnt_DetTitleBox
+{
+    width: 100%;
+}
+
+.clModalGrid_CardCtnt_DetTitleBox .clModalGrid_CardCtnt_DetTitleText
+{
+    --clModalGrid_CardCtnt_DetTitleTextNo: 1;
+    --clModalGrid_CardCtnt_DetTitleTextH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--clModalGrid_CardCtnt_DetTitleTextNo);
+    -webkit-box-orient: vertical;
+    line-clamp:  var(--clModalGrid_CardCtnt_DetTitleTextNo);
+    display: -webkit-box;
+    max-height: calc(var(--clModalGrid_CardCtnt_DetTitleTextNo) * 1em * var(--clModalGrid_CardCtnt_DetTitleTextH));
+    line-height: var(--clModalGrid_CardCtnt_DetTitleTextH);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    color: var(--genWhiteTypeLight);
+    font-size: 16px;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+.clModalGrid_CardCtntDetBox .clModalGrid_CardCtnt_DetTagBdr
+{
+    width: 100%;
+    margin: 10px 0;
+}
+
+.clModalGrid_CardCtnt_DetTagBdr .clModalGrid_CardCtnt_DetTagBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.clModalGrid_CardCtnt_DetTagBox .clModalGrid_CardCtnt_DetTagSectBox
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+    padding: 5px 7px;
+    border-radius: 5px;
+    background-color: var(--genGreenGradMid2);
+}
+
+.clModalGrid_CardCtnt_DetTagSectBox .clModalGrid_CardCtnt_DetTagSectText
+{
+    font-family: 'Poppins' , sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--genWhiteTypeMid);
+}
+
+.clModalGrid_CardCtnt_DetTagSectBox.clModalGrid_CardCtnt_DetTagDividerBox
+{
+    display: none;
+}
+
+.clModalGrid_CardCtnt_DetTagScoreBox .clModalGrid_CardCtnt_DetTagScoreIcon
+{
+    width: var(--clModalGrid_CardCtnt_DetTagSectIconSize);
+    height: var(--clModalGrid_CardCtnt_DetTagSectIconSize);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 3px;
+}
+
+.clModalGrid_CardCtnt_DetTagScoreIcon .clModalGrid_CardCtnt_DetTagScoreSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--clModalGrid_CardCtnt_DetTagSectIconFill);
+}
+
+.clModalGrid_CardCtntDetBox .clModalGrid_CardCtnt_DetDescBox
+{
+    width: 100%;
+}
+
+.clModalGrid_CardCtnt_DetDescBox .clModalGrid_CardCtnt_DetDescText
+{
+    --clModalGrid_CardCtnt_DetDescTextNo: 2;
+    --clModalGrid_CardCtnt_DetDescTextH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--clModalGrid_CardCtnt_DetDescTextNo);
+    -webkit-box-orient: vertical;
+    line-clamp:  var(--clModalGrid_CardCtnt_DetDescTextNo);
+    display: -webkit-box;
+    max-height: calc(var(--clModalGrid_CardCtnt_DetDescTextNo) * 1em * var(--clModalGrid_CardCtnt_DetDescTextH));
+    line-height: var(--clModalGrid_CardCtnt_DetDescTextH);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    color: var(--genWhiteTypeMid);
+    font-size: 13px;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+@media(hover: hover)
+{
+
+    .myListCLCatalog_ItemBox:hover .myListCLCatalog_ItemDetBdr
+    {
+        background-color: #00000099;
+    }
+
+    .myListCLCatalog_ItemBox:hover .myListCLCatalog_ItemBadgeIcon
+    {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .myListCLCatalog_ItemBadgeBdr:hover .myListCLCatalog_ItemBadgeSvg
+    {
+        fill: var(--genGreenTypeLight);
+    }
+    
+    .clModalActionBtn:hover
+    {
+        --clModalActionIconSvgFill: var(--genGreenTypeLight);
+    }
+
+    .clModalGridBox .clModalGrid_CardBdr:hover
+    {
+        background-color: #ffffff20;
+    }
+}
+
+@media(hover: none)
+{
+    .myListCLCatalog_ItemBadgeBox .myListCLCatalog_ItemBadgeIcon
+    {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+
+
+
+
+/* ============= RESPONSIVESNESS ============= */
+@media only screen and (max-width: 1200px)
+{
+    html:root
+    {
+        --clModalSectMaxWidth: 840px;
+    }
+}
+
+@media only screen and (max-width: 768px)
+{
+    
+    html:root
+    {
+        --clModalHeadBdrHeight: 415px;
+        --clModalHeadBoxHeight: 250px;
+        --clModalHeadThumbWidth: 340px;
+        --clModalHeadThumbHeight: 190px;
+        --clModalActionIconBaseWidth: 40px;
+        --clModalActionIconBtnSize: 35px;
+        --clModalActionIconSvgSize: 16px;
+        --clModalHeader_DetInfo_TagsCountIconSize: 14px;
+        --clModalGrid_CardCtntThumbWidth: 85px;
+    }
+
+    .clModalHeadBdr .clModalHeadBox
+    {
+        height: 100%;
+        flex-direction: column;
+        padding-top: 15px;
+    }
+
+    .clModalHeadBox .clModalHeader_thumbBase,
+    .clModalHeadBox .clModalHeader_DetBdr
+    {
+        width: 100%;
+        height: -moz-fit-content;
+        height: fit-content;
+    }
+
+    .clModalHeadBox .clModalHeader_DetBdr
+    {
+        width: 100%;
+        margin-top: 25px;
+        padding: 0;
+    }
+
+    .clModalCtnt_sortStatusBox .clModalCtnt_sortStatusText
+    {
+        font-size: 14px;
+    }
+
+    .clModalGrid_CardCtntThumbImg.img_large
+    {
+        display: none;
+    }
+    
+    .clModalGrid_CardCtntThumbImg.img_small
+    {
+        display: block;
+    }
+
+    .clModalGrid_CardHandleBox .clModalGrid_CardHandleIcon
+    {
+        width: 16px;
+        height: 16px;
+    }
+
+    .clModalGrid_CardCtnt_DetTitleBox .clModalGrid_CardCtnt_DetTitleText
+    {
+        font-size: 15px;
+    }
+}
+
+
+
+@media only screen and (max-width: 565px)
+{
+    
+    html:root
+    {
+        --clModalHeadBdrHeight: 375px;
+        --clModalHeadBoxHeight: 250px;
+        --clModalHeadThumbWidth: 265px;
+        --clModalHeadThumbHeight: 140px;
+        --clModalActionIconBaseWidth: 40px;
+        --clModalActionIconBtnSize: 30px;
+        --clModalActionIconSvgSize: 14px;
+        --clModalHeader_DetInfo_TagsCountIconSize: 14px;
+        --clModalGrid_CardCtntThumbWidth: 75px;
+        --clModalGrid_CardHandleBdrWidth: 30px;
+    }
+
+    .clModalHeadBdr .clModalHeadBox
+    {
+        height: 100%;
+        flex-direction: column;
+        padding-top: 10px;
+    }
+
+    .clModalHeader_DetBox .clModalHeader_DetInfoBdr
+    {
+        width: 100%;
+    }
+
+    .clModalHeader_DetInfo_TitleBox .clModalHeader_DetInfo_TitleText
+    {
+        font-size: 16px;
+    }
+
+    .clModalHeader_DetInfo_TagsBox .clModalHeader_DetInfo_TagsItem
+    {
+        font-size: 11px;
+    }
+
+    .clModalHeader_DetInfo_DescBox .clModalHeader_DetInfo_DescText,
+    .clModalHeader_DetInfo_MoreBtn .clModalHeader_DetInfo_MoreText
+    {
+        font-size: 12px;
+    }
+
+    .clModalActionFence.clModalAction_HeaderFence
+    {
+        display: none;
+    }
+
+    .clModalCtnt_sortStatusBox .clModalCtnt_sortStatusText
+    {
+        font-size: 13px;
+    }
+
+    .clModalCtnt_sortFilterBox .myListOrderBtnBox
+    {
+        padding: 10px;
+        border-radius: 50%;
+        background-color: #00000000;
+    }
+
+    .clModalCtnt_sortFilterBox .myListOrderBtnIcon
+    {
+        width: 20px;
+        height: 20px;
+        margin: 0;
+    }
+
+    .clModalCtnt_sortFilterBox .myListOrderBtnText
+    {
+        display: none;
+    }
+
+    .clModalGrid_CardRankBox .clModalGrid_CardRankNo
+    {
+        font-size: 12px;
+    }
+
+    .clModalGrid_CardCtnt_DetTitleBox .clModalGrid_CardCtnt_DetTitleText
+    {
+        font-size: 14px;
+    }
+}
+
+
+
+@media only screen and (max-width: 485px)
+{
+
+    .clModalGridBox .clModalGrid_CardBdr
+    {
+        padding: 10px 0;
+    }
+
+    .clModalGrid_CardCtnt_DetTitleBox .clModalGrid_CardCtnt_DetTitleText
+    {
+        font-size: 14px;
+        --clModalGrid_CardCtnt_DetTitleTextNo: 2;
+    }
+
+    .clModalGrid_CardCtnt_DetTagSectBox .clModalGrid_CardCtnt_DetTagSectText
+    {
+        font-size: 11px;
+    }
+
+    .clModalGrid_CardCtntDetBox .clModalGrid_CardCtnt_DetDescBox
+    {
+        display: none;
+    }
+}
+ 
+ 
