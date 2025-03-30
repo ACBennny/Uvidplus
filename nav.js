@@ -65,13 +65,13 @@ function page_router()
             page_route_success(``);
             break;
             
-        case 'home': // search page
+        case 'home': // home page
             page_route_success(`preHomeSection`);
             sideNavLinks[1].classList.add("active");
             btmNavLinks[0].classList.add("active");
             break;
             
-        case 'explore': // home page
+        case 'explore': // search page
             page_route_success(`initCategories`);
             sideNavLinks[0].classList.add("active");
             btmNavLinks[1].classList.add("active");
@@ -147,8 +147,8 @@ function page_router()
             page_route_error(`construction`);
             break;
         
-        default:
-            page_route_error(); // displays a 404 error
+        default: // redirects to home page
+            window.location.hash = "#/home";
             break;
     }
 }
