@@ -65,10 +65,10 @@ html
 
 html:root
 {
-    --color0: #000000;
-    --color1: #14d60d;
-    --color2: #d7d7d7;
-    --color3: #888888;
+    --errClr0: #000000;
+    --errClr1: #14d60d;
+    --errClr2: #d7d7d7;
+    --errClr3: #888888;
 }
 
 body
@@ -76,7 +76,7 @@ body
     width: 100%;
     min-height: 100vh;
     font-family: 'Zen dots', sans-serif;
-    background-color: var(--color0);
+    background-color: var(--errClr0);
 }
 
 a
@@ -135,19 +135,19 @@ p
 .header .header_note.hN1
 {
     transform: rotate(20deg) translateX(20px);
-    color: var(--color1);
+    color: var(--errClr1);
 }
 
 .header .header_note.hN2
 {
     transform: rotate(0deg);
-    color: var(--color2);
+    color: var(--errClr2);
 }
 
 .header .header_note.hN3
 {
     transform: rotate(-20deg) translateX(-20px);
-    color: var(--color1);
+    color: var(--errClr1);
 }
 
 .error_note .middle
@@ -162,20 +162,20 @@ p
 
 .middle .mid_Title
 {
-    color: var(--color2);
+    color: var(--errClr2);
     font-size: 18px;
 }
 
 .middle .mid_Note
 {
-    color: var(--color3);
+    color: var(--errClr3);
     font-size: 15px;
 }
 
 .middle .goToHome
 {
     position: relative;
-    color: var(--color1);
+    color: var(--errClr1);
     font-size: 16px;
 }
 
@@ -188,7 +188,7 @@ p
     height: 3px;
     bottom: calc(0% - 5px);
     border-radius: 5px;
-    background-color: var(--color1);
+    background-color: var(--errClr1);
     opacity: 0;
     visibility: hidden;
     transition: 300ms;
@@ -227,12 +227,12 @@ p
 
 .logoBox .logo .logo1
 {
-    color: var(--color1);
+    color: var(--errClr1);
     font-size: 25px;
 }
 
 .logoBox .logo .logo2
 {
-    color: var(--color2);
+    color: var(--errClr2);
     font-size: 16px;
 }
