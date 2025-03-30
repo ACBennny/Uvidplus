@@ -860,6 +860,7 @@
                     `${type}`,
                     `${dlItem[0].dl_mov_qlty}`,
                     `${movLnk}`,
+                    `${dlItem[0].dl_mov_lang}`,
                     `movie`,
                     `Full movie`,
                     `${size}`,
