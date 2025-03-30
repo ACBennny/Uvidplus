@@ -34,7 +34,7 @@ html:root
     max-width: var(--genMaxContainerWidth);
     display: flex;
     flex-direction: column;
-    padding: var(--btmNavBarHeight) var(--genBorderSpacing);
+    padding: 0 var(--genBorderSpacing);
 }
 
 
@@ -44,67 +44,6 @@ html:root
 
 
 /* =================== SELECTORS ==================== */
-
-/* ----------- View all selectors Button -------- */
-.viewSelectorsBtnBdr
-{
-    position: fixed;
-    bottom: calc((var(--btmNavBarHeight) + var(--genBorderSpacing)));
-    right: var(--genBorderSpacing);
-    display: none;
-    width: var(--viewSelectorsBtnSize);
-    height: var(--viewSelectorsBtnSize);
-    border-radius: 50%;
-    background-color: var(--genGreenTypeMid);
-    overflow: hidden;
-    transition: all 300ms ease-in-out;
-    cursor: pointer;
-    z-index: 101;
-}
-
-.viewSelectorsBtnBdr .viewSelectorsBtnBox
-{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.viewSelectorsBtnBox .viewSelectorsBtnIcon
-{
-    width: var(--viewSelectorsBtnIconSize);
-    height: var(--viewSelectorsBtnIconSize);
-}
-
-.viewSelectorsBtnIcon .viewSelectorsBtnSvg
-{
-    width: clamp(100% , 100% , 100%);
-    height: clamp(100% , 100% , 100%);
-    fill: var(--genWhiteTypeLight);
-}
-
-.viewSelectorsBtnBdr .viewSelectorsBtnSvg:nth-child(1)
-{
-    display: block;
-}
-
-.viewSelectorsBtnBdr .viewSelectorsBtnSvg:nth-child(2)
-{
-    display: none;
-}
-
-.viewSelectorsBtnBdr.menuOpen .viewSelectorsBtnSvg:nth-child(1)
-{
-    display: none;
-}
-
-.viewSelectorsBtnBdr.menuOpen .viewSelectorsBtnSvg:nth-child(2)
-{
-    display: block;
-}
-
-
 
 /* -------------- Selector Wrapper ---------- */
 .schedule_selBase
@@ -131,10 +70,10 @@ html:root
     right: 0;
     width: calc((100% - var(--sideNavBarWidth)));
     margin-bottom: 0;
-    background: -o-linear-gradient(to bottom, #000000fe, #000000ef, #000000dc, #000000cd, #00000050, #00000000);
-    background: -moz-linear-gradient(to bottom, #000000fe, #000000ef, #000000dc, #000000cd, #00000050, #00000000);
-    background: -webkit-linear-gradient(to bottom, #000000fe, #000000ef, #000000dc, #000000cd, #00000050, #00000000);
-    background: linear-gradient(to bottom, #000000fe, #000000ef, #000000dc, #000000cd, #00000050, #00000000);
+    background-image: -o-linear-gradient(to bottom, #000000fe, #000000ef, #000000dc, #000000cd, #00000050, #00000000);
+    background-image: -moz-linear-gradient(to bottom, #000000fe, #000000ef, #000000dc, #000000cd, #00000050, #00000000);
+    background-image: -webkit-linear-gradient(to bottom, #000000fe, #000000ef, #000000dc, #000000cd, #00000050, #00000000);
+    background-image: linear-gradient(to bottom, #000000fe, #000000ef, #000000dc, #000000cd, #00000050, #00000000);
     transition: 0ms;
     z-index: 50;
 }
@@ -212,7 +151,7 @@ html:root
 
 /* -------------- Date Section -------------- */
 
-.schedule_box .schedule_dateBdr
+.schedule_selBox .schedule_dateBdr
 {
     width: 100%;
     height: var(--filterHeight);
@@ -224,7 +163,6 @@ html:root
 .schedule_selBase.sticky .schedule_dateBdr
 {
     height: 0px;
-    /* padding: 0; */
     transition: all 150ms ease-in-out;
 }
 
@@ -577,7 +515,7 @@ html:root
     -webkit-box-orient: vertical;
     line-clamp:  var(--trendingDetDescTextNo);
     display: -webkit-box;
-    max-height: calc(var(--trendingDetDescTextNo) * 1em * var(--trendingDetTitleTextH));
+    max-height: calc(var(--trendingDetDescTextNo) * 1em * var(--trendingDetDescTextH));
     line-height: var(--trendingDetDescTextH);
     -webkit-hyphens: auto;
     hyphens: auto;
@@ -597,7 +535,7 @@ html:root
 
     .schedule_selBase.sticky:hover .schedule_selBdr
     {
-        background: #000000;
+        background-color: #000000;
     }
 
     .schedule_selBase.sticky:hover .schedule_dateBdr
@@ -640,88 +578,41 @@ html:root
 @media only screen and (max-width: 768px)
 {
 
-    .viewSelectorsBtnBdr.active
-    {
-        display: block;
-    }
-
-    .viewSelectorsBtnBdr.menuOpen
-    {
-        --btmNavBarHeight: 0px;
-    }
-
     .schedule_selBase.sticky .schedule_selBdr
     {
-        height: 0px;
-        opacity: 0;
-        visibility: hidden;
-        background: none;
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
-        z-index: 101;
-    }
-
-    .schedule_selBase.sticky .schedule_selBdr.active
-    {
-        height: 100%;
-        opacity: 1;
-        visibility: visible;
-        transition: all 300ms ease-in-out;
+        background-image: -o-linear-gradient(to bottom, #000000fe, #000000ef, #000000dc, #000000cd, #00000050);
+        background-image: -moz-linear-gradient(to bottom, #000000fe, #000000ef, #000000dc, #000000cd, #00000050);
+        background-image: -webkit-linear-gradient(to bottom, #000000fe, #000000ef, #000000dc, #000000cd, #00000050);
+        background-image: linear-gradient(to bottom, #000000fe, #000000ef, #000000dc, #000000cd, #00000050);
+        background-color: #00000000;
     }
 
     .schedule_selBase.sticky .schedule_selBox
     {
         height: 100%;
+    }
+    
+    .schedule_selBox .schedule_filterBox
+    {
+        transition: all 300ms ease-in-out;
+    }
+    
+    .schedule_selBase.sticky .schedule_filterBox
+    {
+        max-height: 0;
         padding: 0;
-        background-color: #000000;
-    }
-
-    .schedule_selBase.sticky .schedule_filterBdr
-    {
-        height: var(--filterHeight);
-    }
-
-    .schedule_selBase.sticky .schedule_dateAllBorder
-    {
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    .schedule_selBase.sticky .schedule_dateBdr
-    {
-        height: calc((100% - var(--filterHeight)));
-        margin: 0;
-    }
-
-    .schedule_selBase.sticky .schedule_dateBox
-    {
-        height: 100%;
-    }
-
-    .schedule_selBase.sticky .schedule_dateSlider
-    {
-        max-width: none;
-        height: 100%;
-        flex-direction: column;
-        gap: 12px;
-        padding: 0 var(--genBorderSpacing) 25px;
-        overflow: hidden auto;
-    }
-
-    .schedule_selBase.sticky .schedule_dateCard
-    {
-        max-width: fit-content;
-    }
-
-    .schedule_selBase.sticky .schedule_dateSlider
-    {
-        scrollbar-width: unset;
     }
 
     .schedule_selBase.sticky .schedule_currDateBdr
     {
         height: 0px;
-        transition-delay: 100ms;
+    }
+
+    .schedule_selBase.sticky .schedule_dateBdr
+    {
+        height: var(--filterHeight);
+        margin: 0;
+        padding-bottom: 0;
     }
 }
 
@@ -730,12 +621,7 @@ html:root
 
     .schedule_selBase.sticky:hover .schedule_selBdr
     {
-        background: none;
-    }
-
-    .schedule_selBase.sticky:hover .schedule_dateBdr
-    {
-        height: calc((100% - var(--filterHeight)));
+        background-color: #00000000;
     }
 }
 

@@ -39,10 +39,10 @@
     let scheduleCtntCards;
 
 
-    window.addEventListener("load" , () => 
-    {
-        initSchedule();
-    });
+    // window.addEventListener("load" , () => 
+    // {
+    //     initSchedule();
+    // });
 
 
     function initSchedule()
@@ -296,130 +296,18 @@
         
                 // Fixes the selector to the top of the screen when user scrolls past it
                 scheduleSelBase.classList.toggle("sticky" , currScroll > (scheduleSelBdr.offsetTop * 2));
-                viewSelectorsBtn.classList.toggle("active" , currScroll > (scheduleSelBdr.offsetTop * 2));
-        
-                // Hide/Unhide the selector while scrolling (If fullscreen is disabled)
-                if((window.innerHeight != screen.height))
-                {
-                    if((currScroll > lastScroll))
-                    {
-                        viewSelectorsBtn.classList.add("isScrollingDown");
-                    }
-        
-                    if((currScroll < lastScroll))
-                    {
-                        viewSelectorsBtn.classList.remove("isScrollingDown");
-                    }
-        
-                    lastScroll = currScroll;
-                }
-            });
-
-            window.addEventListener("resize" , () => 
-            {
-                if(((scheduleDateBdr.classList.contains("active")) && (window.innerWidth > scheduleMobileWidth)))
-                {
-                    viewAllSelectors();
-                }
-            });
-            window.addEventListener("change" , () => 
-            {
-                if(((scheduleDateBdr.classList.contains("active")) && (window.innerWidth > scheduleMobileWidth)))
-                {
-                    viewAllSelectors();
-                }
-            });
-
-
-        // VIEWING ALL SELCTORS
-
-            function viewAllSelectors() 
-            {
-                scheduleMobileCondition = scheduleMobileCondFunc();
-                if(scheduleMobileCondition)
-                {
-                        viewSelectorsBtn.classList.add("menuOpen");
-                        scheduleSelBdr.classList.add("active");
-                        scheduleSelBdr.addEventListener("transitionend" , function handleTransitionEnd()
-                        {
-                            documentBody.classList.add("bodystop");
-                            scheduleSelBdr.removeEventListener("transitionend" , handleTransitionEnd);
-                        });
-                        return;
-                }
-                viewSelectorsBtn.classList.remove("menuOpen");
-                scheduleSelBdr.classList.remove("active");
-                documentBody.classList.remove("bodystop");
-            }
-            viewSelectorsBtn.addEventListener("click" , viewAllSelectors);
-
-            // Closes the modal and scrolls back to top when after a date/filter is selected
-            scheduleFilterTab.forEach((card) => 
-            {
-                card.addEventListener("click" , () => 
-                {
-                    viewAllSelectors();
-                    window.scrollTo(null , 0);
-                });
-            });
-            scheduleDateCards.forEach((card) => 
-            {
-                card.addEventListener("click" , () => 
-                {
-                    viewAllSelectors();
-                    window.scrollTo(null , 0);
-                });
             });
 
 
         // LOADING THE SCHEDULE CONTENT
 
-            loadScheduleLib();
-    }
-
-
-    function loadScheduleLib()
-    {
-        // Check if inventory.js has been initialized
-        let invScriptID = document.querySelector("#inventoryID");
-
-        if(!(invScriptID == undefined))
-        {
-            fillScheduleLib();
-            return;
-        }
-
-        // If not, initialize
-        let invScriptTag = document.createElement("script");
-        invScriptTag.setAttribute(`id` , `inventoryID`);
-        invScriptTag.setAttribute(`src` , `/inventory.js`);
-        document.body.appendChild(invScriptTag);
-
-        invScriptTag.addEventListener("load" , () => 
-        {
-            fillScheduleLib();
-        });
-        invScriptTag.addEventListener("error" , () => 
-        {
-            notification(`notifyBad` , `Error loading Schedule`);
-        });
-    }
-
-
-    function shuffleArray(array) 
-    {
-        for (let i = array.length - 1; i > 0; i--) 
-        {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
+        fillScheduleLib();
     }
 
     // Fill the shecduleInv Array with the 30 items currenetly available
     function fillScheduleLib()
     {
-        for(let i = 0; i < 30; i++)
+        for(let i = 0; i < searchInventory.length; i++)
         {
             const item = searchInventory[i];
             scheduleInv.push(
@@ -509,25 +397,11 @@
             // Scrolls to the currently selected date
             let currDateOffsetLeft = scheduleDateCards[next].offsetLeft - 50;
 
-            // If window is in mobile width, wait for transition end before executing
-            scheduleMobileCondition = scheduleMobileCondFunc();
-            if(scheduleMobileCondition)
-            {
-                let timer = setTimeout(() => 
-                {
-                scheduleDateSlider.scrollTo((scheduleDateCards[next].offsetLeft - 50), null);
-                    console.log("don");
-                    clearTimeout(timer);
-                }, 1500);
-                // scheduleDateSlider.addEventListener("transitionend" , function handleTransitionEnd()
-                // {
-                //     scheduleDateSlider.scrollTo((scheduleDateCards[next].offsetLeft - 50), null);
-                //     scheduleDateSlider.removeEventListener("transitionend" , handleTransitionEnd);
-                // });
-                return;
-            }
-            // On larger screens execute immediately
+            // Scroll to the selected date
             scheduleDateSlider.scrollTo(currDateOffsetLeft, null);
+
+            // Scroll to top of list
+            window.scrollTo(null, 0);
         }
 
         
@@ -563,8 +437,7 @@
             });
         });
 
-        // CHANGING THE FILTER
-
+        // Changing the filter
         scheduleCtntCards.forEach((card) => 
         {
             let scheduleCtntCardType = card.getAttribute("data-show-type").toLowerCase();
