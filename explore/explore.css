@@ -25,6 +25,7 @@ html:root
 
 .categoriesBase, .catalogBase
 {
+    min-height: 100vh;
     padding: 0 var(--genBorderSpacing);
 }
 
