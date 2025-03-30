@@ -11,7 +11,7 @@
     let basicHistorySliderCardBox;
 
 
-    function preFetchingShowsFromHistory()
+    function preFetchingShowsFromHistory(type)
     {
         basicHistorySliderCardBox = document.querySelectorAll(".basic_history_slider_card_box");
 
@@ -20,11 +20,20 @@
             notification(`notifyBad` , `Failed to fetch History`);
             return;
         }
-        fetchProfileHistory();
+        fetchProfileHistory(type);
+    }
+
+    function hist_or_contd_cond(type = "continue")
+    {
+        if(type.trim().toLowerCase() === "continue")
+        {
+            return true;
+        }
+        return false;
     }
 
 
-    function fetchProfileHistory() 
+    function fetchProfileHistory(type) 
     {
         // Check if content of library is available
         if(((selectedProfile.prof_history === undefined)))
@@ -53,8 +62,9 @@
             let currentTime = timeToSeconds(item.hist_currTime);
             let totalTime = timeToSeconds(item.hist_totalTime);
             let percentage = Math.round(((currentTime / totalTime) * 100));
+            let percent_bound = hist_or_contd_cond(type) ? 100 : 1000;
 
-            if(itemMatch && (percentage < 100))
+            if(itemMatch && (percentage < percent_bound))
             {
                 const {
                     show_title,

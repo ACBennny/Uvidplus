@@ -243,7 +243,7 @@
         document.querySelector(".open_ntfy_btn .navBarNotificationStatusNo_box").classList.add("active");
 
         // Fetch watch history
-        preFetchingShowsFromHistory();
+        preFetchingShowsFromHistory("history");
 
         // Fetch liked shows
         preFetchingShowsFromLikes();
