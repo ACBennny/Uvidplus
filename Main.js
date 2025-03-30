@@ -10,7 +10,7 @@
 
 // DEFINITION
 
-    const documentHTML = document.querySelector("html");;
+    const documentHTML = document.querySelector("html");
     const documentBody = document.body;
     const documentTitle = document.title;
     const documentMain = document.querySelector("main");
@@ -21,12 +21,17 @@
     const topNavBar = document.querySelector(".topNavBar");
     const sideNavBar = document.querySelector(".sideNavBar");
     const btmNavBar = document.querySelector(".btmNavBar");
-    let genContainerMaxWidth = 1200;
+    let locationOrigin = window.location.origin == "https://acbennny.github.io" ? window.location.origin + "/Uvid/" : window.location.origin + "/";
+    let sideNavLinks;
+    let btmNavLinks;
+    let genContainerMaxWidth = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--genMaxContainerWidth').trim());
     let winWidth1025 = 1025;
     let winWidth768 = 768;
     let winWidth565 = 565;
     let winWidth485 = 485;
     let winScrollPos = null;
+    let lastWindowScroll = 0;
+    let lockMenuAtvBool = false;
     let notificationQueue = [];
     let isNotificationActive = false;
     let notificationDuration = 3;
@@ -37,25 +42,29 @@
     let confirmModalTimer;
     let confirmModalBodyOverflow = false;
     let navbarUnderlayer;
+    let navProfImgSrc;
+    let navProfileNameText;
     let navBarNotificationStatusNoBox;
     let navBarNotificationTimer;
     let openNavBarNotificationBtn;
-    let openSwitchProfBtn;
     let switchProfScript;
     let navBarSignOutBtn;
     let accountSignOutTimer;
     let openFeedBackForm;
     let customDragPreview = null;
-    let offsetX = 0;
-    let offsetY = 0;
+    let dragOffsetX = 0;
+    let dragOffsetY = 0;
     let autoDragScrollInterval = null;
     let confirmModalBase;
     let currOpenGenMenuModalBtnIndex = null;
+    let genMenuModalBtnTop;
+    let genMenuModalBtnLeft;
     let genMenuModalMap;
     let genMenuModalBdr;
     let genMenuModalBox;
     let genMenuModalCtntBdr;
-    let openGenMenuModalBtnTimer;
+    let openGenMenuModalBtnTimer
+    let openGenMenuModalTimer;
     let genMenuModalDisplayThreshold = 5;
     let genAtnModalBoxDragDist = 10;
     let genMenuModalIsDragging = false;
@@ -63,10 +72,77 @@
     let startGenMenuBoxHeight = 0;
     let currGenMenuBoxHeight = 0;
     let genMenuModalBoxHeightTimer;
-    let addToWLTimer;
+    let genShowLinkForCL;
+    let addToCLTimer;
     let socialShareTimer;
     let socialDestinationH;
     let socialDestinationW;
+    const error404Struct = 
+    `
+        <div class="error_bdr">
+            <div class="error_box">
+                <div class="error_note">
+                    <div class="header">
+                        <h1 class="header_note hN1">4</h1>
+                        <h1 class="header_note hN2">0</h1>
+                        <h1 class="header_note hN3">4</h1>
+                    </div>
+                    <div class="middle">
+                        <h3 class="mid_Title">Page Not Found</h3>
+                        <p class="mid_Note">
+                            It seems you may have: 
+                            <br>
+                            - entered a URL that doesn't exist,
+                            <br>
+                            - followed a broken link,
+                            <br>
+                            - or page is not available at the current time. 
+                            <br>
+                        </p>
+                        <a href="#/home" class="goToHome">Back to home</a>
+                    </div>
+                    <div class="footer">
+                        <div class="logoBox">
+                            <a href="#/home" class="logo">
+                                <h2 class="logo1">U</h2>
+                                <h2 class="logo2">VID</h2>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    const error503Struct = 
+    `
+        <div class="error_bdr">
+            <div class="error_box">
+                <div class="error_note">
+                    <div class="header">
+                        <h1 class="header_note hN1">5</h1>
+                        <h1 class="header_note hN2">0</h1>
+                        <h1 class="header_note hN3">3</h1>
+                    </div>
+                    <div class="middle">
+                        <h3 class="mid_Title">Page under Construction</h3>
+                        <p class="mid_Note">
+                            We apologize for any inconveniences incurred.
+                            <br>
+                        </p>
+                        <a href="#/home" class="goToHome">Back to home</a>
+                    </div>
+                    <div class="footer">
+                        <div class="logoBox">
+                            <a href="#/home" class="logo">
+                                <h2 class="logo1">U</h2>
+                                <h2 class="logo2">VID</h2>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
     const topNavBarStruct = 
     `
         <div class="topNavBdr">
@@ -74,46 +150,28 @@
                 <section class="topNav_section">
                     <div class="company_logoBdr">
                         <div class="company_logoBox Companylogo">
-                            <img src="/Images/uvidLogo.png" alt="" class="company_logoImg">
+                            <img src="/images/uvid-logo.png" alt="" class="company_logoImg">
                         </div>
                     </div>
                 </section>
                 <section class="topNav_section">
                     <div class="sideNavItemsCardBase">
-                        <div class="sideNavItemsCardBdr openQuickSearchBtn">
+                        <div class="sideNavItemsCardBdr openCastingOptBtn" onclick="notification('notifyBad' , 'Feature currently unavailable')">
                             <div class="sideNavItemsCardBox">
                                 <div class="sideNavItemsCardIcon">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 2.75a8.75 8.75 0 1 0 0 17.5a8.75 8.75 0 0 0 0-17.5M1.25 11.5c0-5.66 4.59-10.25 10.25-10.25S21.75 5.84 21.75 11.5c0 2.56-.939 4.902-2.491 6.698l3.271 3.272a.75.75 0 1 1-1.06 1.06l-3.272-3.271A10.2 10.2 0 0 1 11.5 21.75c-5.66 0-10.25-4.59-10.25-10.25"/>
+                                        <path d="M6.452 3.25c-.418 0-.685 0-.918.023a4.75 4.75 0 0 0-4.261 4.261c-.023.233-.023.5-.023.918V8.5a.75.75 0 1 0 1.5 0c0-.482 0-.669.016-.819A3.25 3.25 0 0 1 5.68 4.766c.15-.015.337-.016.819-.016H14c1.907 0 3.262.002 4.29.14c1.005.135 1.585.389 2.008.812s.677 1.003.812 2.009c.138 1.028.14 2.382.14 4.289s-.002 3.262-.14 4.29c-.135 1.005-.389 1.585-.812 2.008s-1.003.677-2.009.812c-1.027.138-2.382.14-4.289.14a.75.75 0 0 0 0 1.5h.056c1.838 0 3.294 0 4.433-.153c1.172-.158 2.121-.49 2.87-1.238c.748-.749 1.08-1.698 1.238-2.87c.153-1.14.153-2.595.153-4.433v-.112c0-1.838 0-3.294-.153-4.433c-.158-1.172-.49-2.121-1.238-2.87c-.749-.748-1.698-1.08-2.87-1.238c-1.14-.153-2.595-.153-4.433-.153z" />
+                                        <path d="M2 10.25a.75.75 0 0 0 0 1.5A8.25 8.25 0 0 1 10.25 20a.75.75 0 0 0 1.5 0A9.75 9.75 0 0 0 2 10.25" />
+                                        <path d="M1.25 14a.75.75 0 0 1 .75-.75A6.75 6.75 0 0 1 8.75 20a.75.75 0 0 1-1.5 0c0-2.9-2.35-5.25-5.25-5.25a.75.75 0 0 1-.75-.75" />
+                                        <path d="M2 16.25a.75.75 0 0 0 0 1.5A2.25 2.25 0 0 1 4.25 20a.75.75 0 0 0 1.5 0A3.75 3.75 0 0 0 2 16.25" />
                                     </svg>
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavBoldIcon">
-                                        <path d="M20.313 11.157a9.157 9.157 0 1 1-18.313 0a9.157 9.157 0 0 1 18.313 0" />
-                                        <path fill-rule="evenodd" d="M18.838 18.838a.723.723 0 0 1 1.023 0l1.927 1.928a.723.723 0 0 1-1.022 1.022l-1.928-1.927a.723.723 0 0 1 0-1.023" clip-rule="evenodd" />
+                                        <path d="M6.5 4H14c3.772 0 5.657 0 6.829 1.172S22 8.229 22 12s0 5.657-1.171 6.828c-1.1 1.1-3.708 1.168-7.141 1.172a.687.687 0 0 1-.688-.687C13 13.617 8.383 9 2.688 9a.685.685 0 0 1-.686-.688c.002-.31.007-.593.018-.704a4 4 0 0 1 3.588-3.589C5.804 4 6.036 4 6.5 4" />
+                                        <path d="M2 10.25a.75.75 0 0 0 0 1.5A8.25 8.25 0 0 1 10.25 20a.75.75 0 0 0 1.5 0A9.75 9.75 0 0 0 2 10.25" />
+                                        <path d="M2 13.25a.75.75 0 0 0 0 1.5c2.9 0 5.25 2.35 5.25 5.25a.75.75 0 0 0 1.5 0A6.75 6.75 0 0 0 2 13.25" />
+                                        <path d="M2 16.25a.75.75 0 0 0 0 1.5A2.25 2.25 0 0 1 4.25 20a.75.75 0 0 0 1.5 0A3.75 3.75 0 0 0 2 16.25" />
                                     </svg>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sideNavItemsCardBase topNav_openNavNotify">
-                        <button type="button" class="sideNavItemsCardBdr openNavNotify">
-                            <div class="sideNavItemsCardBox">
-                                <div class="sideNavItemsCardIcon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg">
-                                        <path d="M8.352 20.242A4.63 4.63 0 0 0 12 22a4.63 4.63 0 0 0 3.648-1.758a27.2 27.2 0 0 1-7.296 0M18.75 9v.704c0 .845.24 1.671.692 2.374l1.108 1.723c1.011 1.574.239 3.713-1.52 4.21a25.8 25.8 0 0 1-14.06 0c-1.759-.497-2.531-2.636-1.52-4.21l1.108-1.723a4.4 4.4 0 0 0 .693-2.374V9c0-3.866 3.022-7 6.749-7s6.75 3.134 6.75 7" />
-                                    </svg>
-                                </div>
-                                <div class="navBarNotificationStatusNo_bdr">
-                                    <div class="navBarNotificationStatusNo_box">
-                                        <div class="navBarNotificationStatusNo_text"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="navBarProfileBdr">
-                        <div class="navBarProfileBox open_nav_profileOptions">
-                            <div class="navBarProfileImageBox">
-                                <img src="/Images/Uvid_profilebase.png" alt="Profile Image" class="navBarProfileImage" loading="eager">
                             </div>
                         </div>
                     </div>
@@ -128,13 +186,13 @@
                 <section class="sideNav_section">
                     <div class="company_logoBdr">
                         <div class="company_logoBox Companylogo">
-                            <img src="/Images/uvidLogo.png" alt="" class="company_logoImg">
+                            <img src="/images/uvid-logo.png" alt="" class="company_logoImg">
                         </div>
                     </div>
                     <div class="sideNavItemsBdr">
                         <div class="sideNavItemsBox">
                             <div class="sideNavItemsCardBase">
-                                <button type="button" class="sideNavItemsCardBdr openQuickSearchBtn">
+                                <a href="#/explore" class="sideNavItemsCardBdr sideNavLinks">
                                     <div class="sideNavItemsCardBox">
                                         <div class="sideNavItemsCardIcon">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
@@ -147,14 +205,14 @@
                                         </div>
                                         <div class="sideNavItemsCardTitleBdr">
                                             <div class="sideNavItemsCardTitleBox">
-                                                <div class="sideNavItemsCardTitleText">Search</div>
+                                                <div class="sideNavItemsCardTitleText">Explore</div>
                                             </div>
                                         </div>
                                     </div>
-                                </button>
+                                </a>
                             </div>
                             <div class="sideNavItemsCardBase">
-                                <a href="/Home.html" class="sideNavItemsCardBdr sideNavLinks">
+                                <a href="#/home" class="sideNavItemsCardBdr sideNavLinks">
                                     <div class="sideNavItemsCardBox">
                                         <div class="sideNavItemsCardIcon">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
@@ -174,10 +232,10 @@
                                 </a>
                             </div>
                             <div class="sideNavItemsCardBase">
-                                <a href="/User/Watchlist.html" class="sideNavItemsCardBdr sideNavLinks">
+                                <a href="#/my-list/watchlist" class="sideNavItemsCardBdr sideNavLinks">
                                     <div class="sideNavItemsCardBox">
                                         <div class="sideNavItemsCardIcon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg watchlistSvg sideNavOutlineIcon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg myListSvg sideNavOutlineIcon">
                                                 <g fill="none" stroke="currentColor" stroke-width="1.5">
                                                     <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
                                                     <path d="m5.766 10l-.787.315C2.993 11.109 2 11.507 2 12s.993.89 2.979 1.685l2.808 1.124C9.773 15.603 10.767 16 12 16s2.227-.397 4.213-1.191l2.808-1.124C21.007 12.891 22 12.493 22 12s-.993-.89-2.979-1.685L18.234 10" />
@@ -193,14 +251,14 @@
                                         </div>
                                         <div class="sideNavItemsCardTitleBdr">
                                             <div class="sideNavItemsCardTitleBox">
-                                                <div class="sideNavItemsCardTitleText">Watchlist</div>
+                                                <div class="sideNavItemsCardTitleText">My Lists</div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
                             </div>
                             <div class="sideNavItemsCardBase">
-                                <a href="/Schedule.html" class="sideNavItemsCardBdr sideNavLinks">
+                                <a href="#/schedule" class="sideNavItemsCardBdr sideNavLinks">
                                     <div class="sideNavItemsCardBox">
                                         <div class="sideNavItemsCardIcon">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
@@ -221,7 +279,7 @@
                                 </a>
                             </div>
                             <div class="sideNavItemsCardBase">
-                                <a href="/News.html" class="sideNavItemsCardBdr newsNavLink sideNavLinks">
+                                <a href="#/news" class="sideNavItemsCardBdr sideNavLinks">
                                     <div class="sideNavItemsCardBox">
                                         <div class="sideNavItemsCardIcon">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
@@ -247,50 +305,52 @@
                     <div class="sideNavItemsBdr">
                         <div class="sideNavItemsBox">
                             <div class="sideNavItemsCardBase">
-                                <button type="button" class="sideNavItemsCardBdr openFeedBackForm">
+                                <a href="#/settings" class="sideNavItemsCardBdr sideNavLinks">
                                     <div class="sideNavItemsCardBox">
                                         <div class="sideNavItemsCardIcon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg">
-                                                <path fill-rule="evenodd" d="M8.95 8.25h6.1c.664 0 1.237 0 1.696.062c.492.066.963.215 1.345.597s.531.854.597 1.345c.062.459.062 1.032.062 1.697v4.098c0 .665 0 1.238-.062 1.697c-.066.492-.215.963-.597 1.345s-.854.531-1.345.597c-.459.062-1.032.062-1.696.062h-6.1c-.664 0-1.237 0-1.696-.062c-.491-.066-.963-.215-1.345-.597s-.531-.854-.597-1.345c-.062-.459-.062-1.032-.062-1.697v-4.098c0-.665 0-1.238.062-1.697c.066-.491.215-.963.597-1.345s.854-.531 1.345-.597c.459-.062 1.032-.062 1.697-.062M7.455 9.798c-.325.044-.427.115-.484.172s-.128.159-.172.484c-.046.347-.048.818-.048 1.546v4c0 .728.002 1.2.048 1.546c.044.325.115.427.172.484s.159.128.484.172c.347.046.818.048 1.546.048h6c.728 0 1.2-.002 1.546-.048c.325-.044.427-.115.484-.172s.128-.159.172-.484c.046-.347.048-.818.048-1.546v-4c0-.728-.002-1.2-.048-1.546c-.044-.325-.115-.427-.172-.484s-.159-.128-.484-.172c-.347-.046-.818-.048-1.546-.048H9c-.728 0-1.2.002-1.546.048" clip-rule="evenodd" />
-                                                <path d="M7 5.25a.75.75 0 0 0 0 1.5h5a.75.75 0 0 0 0-1.5z" />
-                                                <path fill-rule="evenodd" d="M10.944 1.25h2.112c1.838 0 3.294 0 4.433.153c1.172.158 2.121.49 2.87 1.238c.748.749 1.08 1.698 1.238 2.87c.153 1.14.153 2.595.153 4.433v4.112c0 1.838 0 3.294-.153 4.433c-.158 1.172-.49 2.121-1.238 2.87c-.749.748-1.698 1.08-2.87 1.238c-1.14.153-2.595.153-4.433.153h-2.112c-1.838 0-3.294 0-4.433-.153c-1.172-.158-2.121-.49-2.87-1.238c-.748-.749-1.08-1.698-1.238-2.87c-.153-1.14-.153-2.595-.153-4.433V9.944c0-1.838 0-3.294.153-4.433c.158-1.172.49-2.121 1.238-2.87c.749-.748 1.698-1.08 2.87-1.238c1.14-.153 2.595-.153 4.433-.153M6.71 2.89c-1.006.135-1.586.389-2.01.812c-.422.423-.676 1.003-.811 2.009c-.138 1.028-.14 2.382-.14 4.289v4c0 1.907.002 3.262.14 4.29c.135 1.005.389 1.585.812 2.008s1.003.677 2.009.812c1.028.138 2.382.14 4.289.14h2c1.907 0 3.262-.002 4.29-.14c1.005-.135 1.585-.389 2.008-.812s.677-1.003.812-2.009c.138-1.027.14-2.382.14-4.289v-4c0-1.907-.002-3.261-.14-4.29c-.135-1.005-.389-1.585-.812-2.008s-1.003-.677-2.009-.812c-1.027-.138-2.382-.14-4.289-.14h-2c-1.907 0-3.261.002-4.29.14" clip-rule="evenodd" />
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
+                                                <path d="M12 8.25a3.75 3.75 0 1 0 0 7.5a3.75 3.75 0 0 0 0-7.5M9.75 12a2.25 2.25 0 1 1 4.5 0a2.25 2.25 0 0 1-4.5 0" />
+                                                <path d="M11.975 1.25c-.445 0-.816 0-1.12.02a2.8 2.8 0 0 0-.907.19a2.75 2.75 0 0 0-1.489 1.488c-.145.35-.184.72-.2 1.122a.87.87 0 0 1-.415.731a.87.87 0 0 1-.841-.005c-.356-.188-.696-.339-1.072-.389a2.75 2.75 0 0 0-2.033.545a2.8 2.8 0 0 0-.617.691c-.17.254-.356.575-.578.96l-.025.044c-.223.385-.408.706-.542.98c-.14.286-.25.568-.29.88a2.75 2.75 0 0 0 .544 2.033c.231.301.532.52.872.734a.87.87 0 0 1 .426.726a.87.87 0 0 1-.426.726c-.34.214-.64.433-.872.734a2.75 2.75 0 0 0-.545 2.033c.041.312.15.594.29.88c.135.274.32.595.543.98l.025.044c.222.385.408.706.578.96c.177.263.367.5.617.69a2.75 2.75 0 0 0 2.033.546c.376-.05.716-.2 1.072-.389a.87.87 0 0 1 .84-.005a.86.86 0 0 1 .417.731c.015.402.054.772.2 1.122a2.75 2.75 0 0 0 1.488 1.489c.29.12.59.167.907.188c.304.021.675.021 1.12.021h.05c.445 0 .816 0 1.12-.02c.318-.022.617-.069.907-.19a2.75 2.75 0 0 0 1.489-1.488c.145-.35.184-.72.2-1.122a.87.87 0 0 1 .415-.732a.87.87 0 0 1 .841.006c.356.188.696.339 1.072.388a2.75 2.75 0 0 0 2.033-.544c.25-.192.44-.428.617-.691c.17-.254.356-.575.578-.96l.025-.044c.223-.385.408-.706.542-.98c.14-.286.25-.569.29-.88a2.75 2.75 0 0 0-.544-2.033c-.231-.301-.532-.52-.872-.734a.87.87 0 0 1-.426-.726c0-.278.152-.554.426-.726c.34-.214.64-.433.872-.734a2.75 2.75 0 0 0 .545-2.033a2.8 2.8 0 0 0-.29-.88a18 18 0 0 0-.543-.98l-.025-.044a18 18 0 0 0-.578-.96a2.8 2.8 0 0 0-.617-.69a2.75 2.75 0 0 0-2.033-.546c-.376.05-.716.2-1.072.389a.87.87 0 0 1-.84.005a.87.87 0 0 1-.417-.731c-.015-.402-.054-.772-.2-1.122a2.75 2.75 0 0 0-1.488-1.489c-.29-.12-.59-.167-.907-.188c-.304-.021-.675-.021-1.12-.021zm-1.453 1.595c.077-.032.194-.061.435-.078c.247-.017.567-.017 1.043-.017s.796 0 1.043.017c.241.017.358.046.435.078c.307.127.55.37.677.677c.04.096.073.247.086.604c.03.792.439 1.555 1.165 1.974s1.591.392 2.292.022c.316-.167.463-.214.567-.227a1.25 1.25 0 0 1 .924.247c.066.051.15.138.285.338c.139.206.299.483.537.895s.397.69.506.912c.107.217.14.333.15.416a1.25 1.25 0 0 1-.247.924c-.064.083-.178.187-.48.377c-.672.422-1.128 1.158-1.128 1.996s.456 1.574 1.128 1.996c.302.19.416.294.48.377c.202.263.29.595.247.924c-.01.083-.044.2-.15.416c-.109.223-.268.5-.506.912s-.399.689-.537.895c-.135.2-.219.287-.285.338a1.25 1.25 0 0 1-.924.247c-.104-.013-.25-.06-.567-.227c-.7-.37-1.566-.398-2.292.021s-1.135 1.183-1.165 1.975c-.013.357-.046.508-.086.604a1.25 1.25 0 0 1-.677.677c-.077.032-.194.061-.435.078c-.247.017-.567.017-1.043.017s-.796 0-1.043-.017c-.241-.017-.358-.046-.435-.078a1.25 1.25 0 0 1-.677-.677c-.04-.096-.073-.247-.086-.604c-.03-.792-.439-1.555-1.165-1.974s-1.591-.392-2.292-.022c-.316.167-.463.214-.567.227a1.25 1.25 0 0 1-.924-.247c-.066-.051-.15-.138-.285-.338a17 17 0 0 1-.537-.895c-.238-.412-.397-.69-.506-.912c-.107-.217-.14-.333-.15-.416a1.25 1.25 0 0 1 .247-.924c.064-.083.178-.187.48-.377c.672-.422 1.128-1.158 1.128-1.996s-.456-1.574-1.128-1.996c-.302-.19-.416-.294-.48-.377a1.25 1.25 0 0 1-.247-.924c.01-.083.044-.2.15-.416c.109-.223.268-.5.506-.912s.399-.689.537-.895c.135-.2.219-.287.285-.338a1.25 1.25 0 0 1 .924-.247c.104.013.25.06.567.227c.7.37 1.566.398 2.292-.022c.726-.419 1.135-1.182 1.165-1.974c.013-.357.046-.508.086-.604c.127-.307.37-.55.677-.677" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavBoldIcon">
+                                                <path fill-rule="evenodd" d="M14.279 2.152C13.909 2 13.439 2 12.5 2s-1.408 0-1.779.152a2 2 0 0 0-1.09 1.083c-.094.223-.13.484-.145.863a1.62 1.62 0 0 1-.796 1.353a1.64 1.64 0 0 1-1.579.008c-.338-.178-.583-.276-.825-.308a2.03 2.03 0 0 0-1.49.396c-.318.242-.553.646-1.022 1.453c-.47.807-.704 1.21-.757 1.605c-.07.526.074 1.058.4 1.479c.148.192.357.353.68.555c.477.297.783.803.783 1.361s-.306 1.064-.782 1.36c-.324.203-.533.364-.682.556a2 2 0 0 0-.399 1.479c.053.394.287.798.757 1.605s.704 1.21 1.022 1.453c.424.323.96.465 1.49.396c.242-.032.487-.13.825-.308a1.64 1.64 0 0 1 1.58.008c.486.28.774.795.795 1.353c.015.38.051.64.145.863c.204.49.596.88 1.09 1.083c.37.152.84.152 1.779.152s1.409 0 1.779-.152a2 2 0 0 0 1.09-1.083c.094-.223.13-.483.145-.863c.02-.558.309-1.074.796-1.353a1.64 1.64 0 0 1 1.579-.008c.338.178.583.276.825.308c.53.07 1.066-.073 1.49-.396c.318-.242.553-.646 1.022-1.453c.47-.807.704-1.21.757-1.605a2 2 0 0 0-.4-1.479c-.148-.192-.357-.353-.68-.555c-.477-.297-.783-.803-.783-1.361s.306-1.064.782-1.36c.324-.203.533-.364.682-.556a2 2 0 0 0 .399-1.479c-.053-.394-.287-.798-.757-1.605s-.704-1.21-1.022-1.453a2.03 2.03 0 0 0-1.49-.396c-.242.032-.487.13-.825.308a1.64 1.64 0 0 1-1.58-.008a1.62 1.62 0 0 1-.795-1.353c-.015-.38-.051-.64-.145-.863a2 2 0 0 0-1.09-1.083M12.5 15c1.67 0 3.023-1.343 3.023-3S14.169 9 12.5 9s-3.023 1.343-3.023 3s1.354 3 3.023 3" clip-rule="evenodd" />
                                             </svg>
                                         </div>
                                         <div class="sideNavItemsCardTitleBdr">
                                             <div class="sideNavItemsCardTitleBox">
-                                                <div class="sideNavItemsCardTitleText">Feedback</div>
+                                                <div class="sideNavItemsCardTitleText">Settings</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- <div class="sideNavItemsCardBase">
+                                <a href="#/profile" class="sideNavItemsCardBdr">
+                                    <div class="navBarProfileBdr">
+                                        <div class="navBarProfileBox open_nav_profileOptions">
+                                            <div class="navBarProfileImageBox">
+                                                <img src="/images/uvid-profile-base.png" alt="Profile Image" class="navBarProfileImage" loading="eager">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div> -->
+                            <div class="sideNavItemsCardBase">
+                                <button type="button" class="sideNavItemsCardBdr openGenMenuModalBtn" data-gen-menu-modal-type="gen_more_menu">
+                                    <div class="sideNavItemsCardBox">
+                                        <div class="sideNavItemsCardIcon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
+                                                <path d="M9 12a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2a1 1 0 0 0 0 2" />
+                                                <path fill-rule="evenodd" d="M12 1.25C6.063 1.25 1.25 6.063 1.25 12S6.063 22.75 12 22.75S22.75 17.937 22.75 12S17.937 1.25 12 1.25M2.75 12a9.25 9.25 0 1 1 18.5 0a9.25 9.25 0 0 1-18.5 0" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <div class="sideNavItemsCardTitleBdr">
+                                            <div class="sideNavItemsCardTitleBox">
+                                                <div class="sideNavItemsCardTitleText">More</div>
                                             </div>
                                         </div>
                                     </div>
                                 </button>
-                            </div>
-                            <div class="sideNavItemsCardBase">
-                                <div class="sideNavItemsCardBdr openNavNotify">
-                                    <div class="sideNavItemsCardBox">
-                                        <div class="sideNavItemsCardIcon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg">
-                                                <path d="M8.352 20.242A4.63 4.63 0 0 0 12 22a4.63 4.63 0 0 0 3.648-1.758a27.2 27.2 0 0 1-7.296 0M18.75 9v.704c0 .845.24 1.671.692 2.374l1.108 1.723c1.011 1.574.239 3.713-1.52 4.21a25.8 25.8 0 0 1-14.06 0c-1.759-.497-2.531-2.636-1.52-4.21l1.108-1.723a4.4 4.4 0 0 0 .693-2.374V9c0-3.866 3.022-7 6.749-7s6.75 3.134 6.75 7" />
-                                            </svg>
-                                        </div>
-                                        <div class="sideNavItemsCardTitleBdr">
-                                            <div class="sideNavItemsCardTitleBox">
-                                                <div class="sideNavItemsCardTitleText">Notifications</div>
-                                            </div>
-                                        </div>
-                                        <div class="navBarNotificationStatusNo_bdr">
-                                            <div class="navBarNotificationStatusNo_box">
-                                                <div class="navBarNotificationStatusNo_text"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="navBarProfileBdr">
-                                <div class="navBarProfileBox open_nav_profileOptions">
-                                    <div class="navBarProfileImageBox">
-                                        <img src="/Images/Uvid_profilebase.png" alt="Profile Image" class="navBarProfileImage" loading="eager">
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -303,7 +363,7 @@
         <div class="btmNavBdr">
             <div class="btmNavBox">
                 <div class="btmNavItemsCardBase">
-                    <a href="/Home.html" class="btmNavItemsCardBdr btmNavLinks ">
+                    <a href="#/home" class="btmNavItemsCardBdr btmNavLinks ">
                         <div class="btmNavItemsCardBox">
                             <div class="btmNavItemsCardIcon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="btmNavItemsCardSvg btmNavOutlineIcon">
@@ -323,10 +383,30 @@
                     </a>
                 </div>
                 <div class="btmNavItemsCardBase">
-                    <a href="/User/Watchlist.html" class="btmNavItemsCardBdr btmNavLinks ">
+                    <a href="#/explore" class="btmNavItemsCardBdr btmNavLinks">
                         <div class="btmNavItemsCardBox">
                             <div class="btmNavItemsCardIcon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="btmNavItemsCardSvg watchlistSvg btmNavOutlineIcon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="btmNavItemsCardSvg btmNavOutlineIcon">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 2.75a8.75 8.75 0 1 0 0 17.5a8.75 8.75 0 0 0 0-17.5M1.25 11.5c0-5.66 4.59-10.25 10.25-10.25S21.75 5.84 21.75 11.5c0 2.56-.939 4.902-2.491 6.698l3.271 3.272a.75.75 0 1 1-1.06 1.06l-3.272-3.271A10.2 10.2 0 0 1 11.5 21.75c-5.66 0-10.25-4.59-10.25-10.25"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="btmNavItemsCardSvg btmNavBoldIcon">
+                                    <path d="M20.313 11.157a9.157 9.157 0 1 1-18.313 0a9.157 9.157 0 0 1 18.313 0" />
+                                    <path fill-rule="evenodd" d="M18.838 18.838a.723.723 0 0 1 1.023 0l1.927 1.928a.723.723 0 0 1-1.022 1.022l-1.928-1.927a.723.723 0 0 1 0-1.023" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="btmNavItemsCardTitleBdr">
+                                <div class="btmNavItemsCardTitleBox">
+                                    <div class="btmNavItemsCardTitleText">Explore</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="btmNavItemsCardBase">
+                    <a href="#/my-list/watchlist" class="btmNavItemsCardBdr btmNavLinks ">
+                        <div class="btmNavItemsCardBox">
+                            <div class="btmNavItemsCardIcon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="btmNavItemsCardSvg myListSvg btmNavOutlineIcon">
                                     <g fill="none" stroke="currentColor" stroke-width="1.5">
                                         <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
                                         <path d="m5.766 10l-.787.315C2.993 11.109 2 11.507 2 12s.993.89 2.979 1.685l2.808 1.124C9.773 15.603 10.767 16 12 16s2.227-.397 4.213-1.191l2.808-1.124C21.007 12.891 22 12.493 22 12s-.993-.89-2.979-1.685L18.234 10" />
@@ -342,14 +422,14 @@
                             </div>
                             <div class="btmNavItemsCardTitleBdr">
                                 <div class="btmNavItemsCardTitleBox">
-                                    <div class="btmNavItemsCardTitleText">Watchlist</div>
+                                    <div class="btmNavItemsCardTitleText">My Lists</div>
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="btmNavItemsCardBase">
-                    <a href="/Schedule.html" class="btmNavItemsCardBdr btmNavLinks ">
+                    <a href="#/schedule" class="btmNavItemsCardBdr btmNavLinks ">
                         <div class="btmNavItemsCardBox">
                             <div class="btmNavItemsCardIcon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="btmNavItemsCardSvg btmNavOutlineIcon">
@@ -370,101 +450,23 @@
                     </a>
                 </div>
                 <div class="btmNavItemsCardBase">
-                    <a href="/News.html" class="btmNavItemsCardBdr btmNavLinks newsNavLink">
+                    <button type="button" class="btmNavItemsCardBdr btmNavLinks openGenMenuModalBtn" data-gen-menu-modal-type="gen_more_menu">
                         <div class="btmNavItemsCardBox">
                             <div class="btmNavItemsCardIcon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="btmNavItemsCardSvg btmNavOutlineIcon">
-                                    <path fill-rule="evenodd" d="M10.945 1.25h2.11c1.367 0 2.47 0 3.337.117c.9.12 1.658.38 2.26.981c.298.299.512.636.667 1.01c.932.116 1.715.372 2.333.99c.602.602.86 1.36.982 2.26c.116.867.116 1.97.116 3.337v4.11c0 1.367 0 2.47-.116 3.337c-.122.9-.38 1.658-.982 2.26c-.618.618-1.4.874-2.333.991c-.155.373-.369.71-.667 1.009c-.602.602-1.36.86-2.26.982c-.867.116-1.97.116-3.337.116h-2.11c-1.367 0-2.47 0-3.337-.116c-.9-.122-1.658-.38-2.26-.982a3.1 3.1 0 0 1-.667-1.009c-.932-.117-1.715-.373-2.333-.991c-.602-.602-.86-1.36-.981-2.26c-.117-.867-.117-1.97-.117-3.337v-4.11c0-1.367 0-2.47.117-3.337c.12-.9.38-1.658.981-2.26c.618-.618 1.4-.874 2.333-.99a3.1 3.1 0 0 1 .667-1.01c.602-.602 1.36-.86 2.26-.981c.867-.117 1.97-.117 3.337-.117M4.328 4.94c-.437.106-.71.26-.919.47c-.277.276-.457.664-.556 1.398c-.101.756-.103 1.757-.103 3.192v4c0 1.435.002 2.437.103 3.192c.099.734.28 1.122.556 1.399c.209.209.482.363.92.469c-.079-.812-.079-1.806-.079-3.005v-8.11c0-1.198 0-2.193.078-3.005m15.344 14.12c.437-.106.71-.26.919-.469c.277-.277.457-.665.556-1.4c.101-.754.103-1.755.103-3.19v-4c0-1.436-.002-2.437-.103-3.193c-.099-.734-.28-1.122-.556-1.399c-.209-.209-.482-.363-.92-.469c.079.812.079 1.807.079 3.005v8.11c0 1.198 0 2.193-.078 3.005M7.808 2.853c-.734.099-1.122.28-1.399.556c-.277.277-.457.665-.556 1.4C5.752 5.562 5.75 6.564 5.75 8v8c0 1.435.002 2.436.103 3.192c.099.734.28 1.122.556 1.399c.277.277.665.457 1.4.556c.754.101 1.756.103 3.191.103h2c1.435 0 2.437-.002 3.192-.103c.734-.099 1.122-.28 1.399-.556c.277-.277.457-.665.556-1.4c.101-.755.103-1.756.103-3.191V8c0-1.435-.002-2.437-.103-3.192c-.099-.734-.28-1.122-.556-1.399c-.277-.277-.665-.457-1.4-.556c-.754-.101-1.756-.103-3.191-.103h-2c-1.435 0-2.437.002-3.192.103M8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9m0 4a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75m0 4a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/>
+                                    <path d="M9 12a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2a1 1 0 0 0 0 2" />
+                                    <path fill-rule="evenodd" d="M12 1.25C6.063 1.25 1.25 6.063 1.25 12S6.063 22.75 12 22.75S22.75 17.937 22.75 12S17.937 1.25 12 1.25M2.75 12a9.25 9.25 0 1 1 18.5 0a9.25 9.25 0 0 1-18.5 0" clip-rule="evenodd" />
                                 </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="btmNavItemsCardSvg btmNavBoldIcon">
-                                    <path d="M1.75 10v4c0 2.829 0 4.243.879 5.122c.217.217.467.38.763.504l-.019-.134c-.123-.918-.123-2.063-.123-3.393V7.902c0-1.33 0-2.476.123-3.393l.02-.134a2.3 2.3 0 0 0-.764.504C1.75 5.758 1.75 7.172 1.75 10m20 0v4c0 2.829 0 4.243-.879 5.122c-.217.217-.467.38-.763.504l.019-.134c.123-.918.123-2.063.123-3.393V7.902c0-1.33 0-2.476-.123-3.393l-.02-.134c.297.123.547.287.764.504c.879.879.879 2.293.879 5.121" />
-                                    <path fill-rule="evenodd" d="M5.629 2.879C4.75 3.757 4.75 5.172 4.75 8v8c0 2.828 0 4.243.879 5.121C6.507 22 7.922 22 10.75 22h2c2.828 0 4.243 0 5.121-.879c.879-.878.879-2.293.879-5.121V8c0-2.828 0-4.243-.879-5.121C16.993 2 15.578 2 12.75 2h-2c-2.828 0-4.243 0-5.121.879M8 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5h-3A.75.75 0 0 1 8 17m.75-4.75a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8 9a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5h-6A.75.75 0 0 1 8 9" clip-rule="evenodd" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="btmNavItemsCardSvg btmNavBoldIcon"><path fill-rule="evenodd" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10M8 13a1 1 0 1 0 0-2a1 1 0 0 0 0 2m4 0a1 1 0 1 0 0-2a1 1 0 0 0 0 2m4 0a1 1 0 1 0 0-2a1 1 0 0 0 0 2" clip-rule="evenodd" />
                                 </svg>
                             </div>
                             <div class="btmNavItemsCardTitleBdr">
                                 <div class="btmNavItemsCardTitleBox">
-                                    <div class="btmNavItemsCardTitleText">News</div>
+                                    <div class="btmNavItemsCardTitleText">More</div>
                                 </div>
                             </div>
                         </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    `;
-    const navBarProfileMenuStruct = 
-    `
-        <div class="navBarProfileOptBdr navBarMenuFixed">
-            <div class="navBarProfileOptBox">
-                <div class="navBarProfileNameBox">
-                    <p class="navBarProfileNameText navBarProfileNameTextMajor navBarProfileNameWatching">acbennny</p>
-                    <p class="navBarProfileNameText navBarProfileNameTextMinor navBarProfileNameUser">uvidtestuser</p>
-                </div>
-                <div class="navBarProfileCardBox">
-                    <button type="button" class="navBarProfileCard">
-                        <a href="/User/Profile.html" class="navBarProfileCardLink">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="navBarProfileCardLinkIcon">
-                                <circle cx="12" cy="6" r="4" />
-                                <ellipse cx="12" cy="17" rx="7" ry="4" />
-                            </svg>
-                            <p class="navBarProfileCardLinkText">Profile</p>
-                        </a>
                     </button>
-                    <button type="button" class="navBarProfileCard">
-                        <a href="javascript:;" class="navBarProfileCardLink open_switchProf">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="navBarProfileCardLinkIcon">
-                                <path d="M13.125 12a.75.75 0 0 1 1.272-.538l4.125 4a.75.75 0 0 1 0 1.076l-4.125 4A.75.75 0 0 1 13.125 20v-3.25H6a.75.75 0 0 1 0-1.5h7.125z" />
-                                <path d="M10.875 4a.75.75 0 0 0-1.272-.538l-4.125 4a.75.75 0 0 0 0 1.076l4.125 4A.75.75 0 0 0 10.875 12V8.75H18a.75.75 0 0 0 0-1.5h-7.125z" />
-                            </svg>
-                            <p class="navBarProfileCardLinkText">Switch Profile</p>
-                        </a>
-                    </button>
-                    <button type="button" class="navBarProfileCard">
-                        <a href="/User/History.html" class="navBarProfileCardLink">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="navBarProfileCardLinkIcon">
-                                <path fill-rule="evenodd" d="M11.25 2a.75.75 0 0 1 .75-.75c5.937 0 10.75 4.813 10.75 10.75S17.937 22.75 12 22.75S1.25 17.937 1.25 12a.75.75 0 0 1 1.5 0A9.25 9.25 0 1 0 12 2.75a.75.75 0 0 1-.75-.75M12 8.25a.75.75 0 0 1 .75.75v3.25H16a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1-.75-.75V9a.75.75 0 0 1 .75-.75M9.1 2.398a.75.75 0 0 1-.43.97a9 9 0 0 0-.42.173a.75.75 0 1 1-.608-1.37q.24-.108.488-.203a.75.75 0 0 1 .97.43M5.648 4.24a.75.75 0 0 1-.026 1.06a9 9 0 0 0-.321.322a.75.75 0 1 1-1.087-1.035q.183-.19.373-.373a.75.75 0 0 1 1.06.026M3.16 7.261a.75.75 0 0 1 .381.99q-.092.207-.174.419a.75.75 0 0 1-1.399-.54q.094-.247.202-.488a.75.75 0 0 1 .99-.381" clip-rule="evenodd" />
-                            </svg>
-                            <p class="navBarProfileCardLinkText">History</p>
-                        </a>
-                    </button>
-                    <button type="button" class="navBarProfileCard">
-                        <a href="/User/Notification.html" class="navBarProfileCardLink">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="navBarProfileCardLinkIcon">
-                                <path d="M8.352 20.242A4.63 4.63 0 0 0 12 22a4.63 4.63 0 0 0 3.648-1.758a27.2 27.2 0 0 1-7.296 0M18.75 9v.704c0 .845.24 1.671.692 2.374l1.108 1.723c1.011 1.574.239 3.713-1.52 4.21a25.8 25.8 0 0 1-14.06 0c-1.759-.497-2.531-2.636-1.52-4.21l1.108-1.723a4.4 4.4 0 0 0 .693-2.374V9c0-3.866 3.022-7 6.749-7s6.75 3.134 6.75 7" />
-                            </svg>
-                            <p class="navBarProfileCardLinkText">Notification</p>
-                        </a>
-                    </button>
-                    <button type="button" class="navBarProfileCard">
-                        <a href="/User/Settings.html" class="navBarProfileCardLink">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="navBarProfileCardLinkIcon">
-                                <path fill-rule="evenodd" d="M14.279 2.152C13.909 2 13.439 2 12.5 2s-1.408 0-1.779.152a2 2 0 0 0-1.09 1.083c-.094.223-.13.484-.145.863a1.62 1.62 0 0 1-.796 1.353a1.64 1.64 0 0 1-1.579.008c-.338-.178-.583-.276-.825-.308a2.03 2.03 0 0 0-1.49.396c-.318.242-.553.646-1.022 1.453c-.47.807-.704 1.21-.757 1.605c-.07.526.074 1.058.4 1.479c.148.192.357.353.68.555c.477.297.783.803.783 1.361s-.306 1.064-.782 1.36c-.324.203-.533.364-.682.556a2 2 0 0 0-.399 1.479c.053.394.287.798.757 1.605s.704 1.21 1.022 1.453c.424.323.96.465 1.49.396c.242-.032.487-.13.825-.308a1.64 1.64 0 0 1 1.58.008c.486.28.774.795.795 1.353c.015.38.051.64.145.863c.204.49.596.88 1.09 1.083c.37.152.84.152 1.779.152s1.409 0 1.779-.152a2 2 0 0 0 1.09-1.083c.094-.223.13-.483.145-.863c.02-.558.309-1.074.796-1.353a1.64 1.64 0 0 1 1.579-.008c.338.178.583.276.825.308c.53.07 1.066-.073 1.49-.396c.318-.242.553-.646 1.022-1.453c.47-.807.704-1.21.757-1.605a2 2 0 0 0-.4-1.479c-.148-.192-.357-.353-.68-.555c-.477-.297-.783-.803-.783-1.361s.306-1.064.782-1.36c.324-.203.533-.364.682-.556a2 2 0 0 0 .399-1.479c-.053-.394-.287-.798-.757-1.605s-.704-1.21-1.022-1.453a2.03 2.03 0 0 0-1.49-.396c-.242.032-.487.13-.825.308a1.64 1.64 0 0 1-1.58-.008a1.62 1.62 0 0 1-.795-1.353c-.015-.38-.051-.64-.145-.863a2 2 0 0 0-1.09-1.083M12.5 15c1.67 0 3.023-1.343 3.023-3S14.169 9 12.5 9s-3.023 1.343-3.023 3s1.354 3 3.023 3" clip-rule="evenodd" />
-                            </svg>
-                            <p class="navBarProfileCardLinkText">Settings</p>
-                        </a>
-                    </button>
-                    <button type="button" class="navBarProfileCard">
-                        <a href="javascript:;" class="navBarProfileCardLink goToFullScreenBtn">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="navBarProfileCardLinkIcon maximize">
-                                <path d="M16.143 1.25a.75.75 0 1 0 0 1.5h4.046l-5.72 5.72a.75.75 0 0 0 1.061 1.06l5.72-5.72v4.047a.75.75 0 0 0 1.5 0V2a.75.75 0 0 0-.75-.75zm-8.286 21.5a.75.75 0 0 0 0-1.5H3.811l5.72-5.72a.75.75 0 1 0-1.061-1.06l-5.72 5.72v-4.047a.75.75 0 1 0-1.5 0V22c0 .414.336.75.75.75z" />
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="navBarProfileCardLinkIcon minimize">
-                                <path d="M20.857 9.75a.75.75 0 1 0 0-1.5h-4.046l5.72-5.72a.75.75 0 0 0-1.061-1.06l-5.72 5.72V3.142a.75.75 0 0 0-1.5 0V9c0 .414.336.75.75.75zm-17.714 4.5a.75.75 0 0 0 0 1.5h4.046l-5.72 5.72a.75.75 0 1 0 1.061 1.06l5.72-5.72v4.047a.75.75 0 1 0 1.5 0V15a.75.75 0 0 0-.75-.75z" />
-                            </svg>
-                            <p class="navBarProfileCardLinkText">Fullscreen</p>
-                        </a>
-                    </button>
-                </div>
-                <div class="navBarSignOutBdr">
-                    <div class="navBarSignOutBox">
-                        <button type="button" class="navBarSignOutBtn">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="navBarSignOutBtnIcon">
-                                <path d="M14.945 1.25c-1.367 0-2.47 0-3.337.117c-.9.12-1.658.38-2.26.981c-.524.525-.79 1.17-.929 1.928c-.135.737-.161 1.638-.167 2.72a.75.75 0 0 0 1.5.008c.006-1.093.034-1.868.142-2.457c.105-.566.272-.895.515-1.138c.277-.277.666-.457 1.4-.556c.755-.101 1.756-.103 3.191-.103h1c1.436 0 2.437.002 3.192.103c.734.099 1.122.28 1.4.556c.276.277.456.665.555 1.4c.102.754.103 1.756.103 3.191v8c0 1.435-.001 2.436-.103 3.192c-.099.734-.279 1.122-.556 1.399s-.665.457-1.399.556c-.755.101-1.756.103-3.192.103h-1c-1.435 0-2.436-.002-3.192-.103c-.733-.099-1.122-.28-1.399-.556c-.243-.244-.41-.572-.515-1.138c-.108-.589-.136-1.364-.142-2.457a.75.75 0 1 0-1.5.008c.006 1.082.032 1.983.167 2.72c.14.758.405 1.403.93 1.928c.601.602 1.36.86 2.26.982c.866.116 1.969.116 3.336.116h1.11c1.368 0 2.47 0 3.337-.116c.9-.122 1.658-.38 2.26-.982s.86-1.36.982-2.26c.116-.867.116-1.97.116-3.337v-8.11c0-1.367 0-2.47-.116-3.337c-.121-.9-.38-1.658-.982-2.26s-1.36-.86-2.26-.981c-.867-.117-1.97-.117-3.337-.117z" />
-                                <path d="M15 11.25a.75.75 0 0 1 0 1.5H4.027l1.961 1.68a.75.75 0 1 1-.976 1.14l-3.5-3a.75.75 0 0 1 0-1.14l3.5-3a.75.75 0 1 1 .976 1.14l-1.96 1.68z" />
-                            </svg>
-                            <p class="navBarSignOutBtnText">Sign Out</p>
-                        </button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -488,7 +490,7 @@
                 <div class="navBarNotificationCtntBox"></div>
             </div>
             <div class="navBarNotificationFooterBdr">
-                <a href="/User/Notification.html" class="navBarNotificationFooterBox">
+                <a href="#/my-list/notification" class="navBarNotificationFooterBox">
                     <p class="navBarNotificationFooterText">View all</p>
                 </a>
             </div>
@@ -528,9 +530,9 @@
                                 </p>
                             </div>
                             <div class="footer_Important_linksBox">
-                                <a href="/User/Settings/Preferences.html" title="Preferences" class="footerlinks footer_Important_links">Preferences</a>
-                                <a href="/Policies/Privacy.html" title="Privacy" class="footerlinks footer_Important_links">Privacy</a>
-                                <a href="/Policies/TOU.html" title="Terms of Use" class="footerlinks footer_Important_links">Terms of Use</a>
+                                <a href="#/settings/Preferences" title="Preferences" class="footerlinks footer_Important_links">Preferences</a>
+                                <a href="#/privacy" title="Privacy" class="footerlinks footer_Important_links">Privacy</a>
+                                <a href="#/tou" title="Terms of Use" class="footerlinks footer_Important_links">Terms of Use</a>
                             </div>
                         </div>
                         <div class="footer_boxCtnt footer_OtherLinks">
@@ -540,34 +542,24 @@
                             </div>
                             <div class="footer_UsefulLinksBdr">
                                 <div class="footer_UsefulLinksBox">
-                                    <a href="/Help.html#faq" title="Frequently Asked Questions" class="footerlinks footer_UsefulLinks">FAQ</a>
-                                    <a href="/Help.html" title="Help Center" class="footerlinks footer_UsefulLinks">Help</a>
-                                    <a href="/Feedback.html" title="Feedback" class="footerlinks footer_UsefulLinks">Feedback</a>
-                                    <a href="/Support.html" title="Support Us" class="footerlinks footer_UsefulLinks">Support</a>
+                                    <a href="#/help/faq" title="Frequently Asked Questions" class="footerlinks footer_UsefulLinks">FAQ</a>
+                                    <a href="#/help" title="Help Center" class="footerlinks footer_UsefulLinks">Help</a>
+                                    <a href="#/feedback" title="Feedback" class="footerlinks footer_UsefulLinks">Feedback</a>
+                                    <a href="#/news" title="News" class="footerlinks footer_UsefulLinks">News</a>
                                 </div>
                                 <div class="footer_UsefulLinksBox">
-                                    <a href="/Help/Contact.html" title="Contact Us" class="footerlinks footer_UsefulLinks">Contact Us</a>
-                                    <a href="/Policies/Cookies.html" title="Cookies" class="footerlinks footer_UsefulLinks">Cookies</a>
-                                    <a href="/Policies/AdChoices.html" title="Ad Choices" class="footerlinks footer_UsefulLinks">Ad Choices</a>
-                                    <a href="/Policies/Copyright.html" title="Copyright" class="footerlinks footer_UsefulLinks">Copyright</a>
+                                    <a href="#/help/contact" title="Contact Us" class="footerlinks footer_UsefulLinks">Contact Us</a>
+                                    <a href="#/policies/cookies" title="Cookies" class="footerlinks footer_UsefulLinks">Cookies</a>
+                                    <a href="#/policies/ad-choices" title="Ad Choices" class="footerlinks footer_UsefulLinks">Ad Choices</a>
+                                    <a href="#/policies/copyright" title="Copyright" class="footerlinks footer_UsefulLinks">Copyright</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="backtotopofpageBox">
-                        <button type="button" class="backtotop_btn genBtnBox lightSolidBtn" title="Go to top" draggable="false">
-                            <div class="genBtnIcon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
-                                    <path fill-rule="evenodd" d="M11.512 8.43a.75.75 0 0 1 .976 0l7 6a.75.75 0 1 1-.976 1.14L12 9.987l-6.512 5.581a.75.75 0 1 1-.976-1.138z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                            <div class="genBtnText">Top</div>
-                        </button>
-                    </div>
                     <div class="developer_creditsBdr">
                         <div class="developer_creditsBox">
                             <div class="developer_creditsText">
-                                Designed by <span class="developer_creditsName developer_profile">acbennny</span>
+                                Designed with 💚 by <span class="developer_creditsName developer_profile">acbennny</span>
                             </div>
                         </div>
                     </div>
@@ -575,6 +567,29 @@
                 </div>
             </div>
         </footer>
+    `;
+    const viewMoreHistoryStruct = 
+    `
+        <div class="slide_card_base history_card">
+            <div class="slide_card_bdr">
+                <div class="slide_card_box">
+                    <div class="slide_card ">
+                        <a href="#/history.html" class="cardLinkCover"></a>
+                        <div class="view_more_bdr">
+                            <div class="view_more_box">
+                                <p class="view_more_name">View more</p>
+                                <div class="view_more_dot_box">
+                                    <span class="view_more_dots"></span>
+                                    <span class="view_more_dots"></span>
+                                    <span class="view_more_dots"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide_card_bcg"></div>
+            </div>
+        </div>
     `;
     const confirmModalStruct = 
     `
@@ -606,7 +621,7 @@
                 <div class="quickSearchBox">
                     <div class="quickSearchNoteBdr">
                         <div class="quickSearchNoteBox">
-                            <p class="quickSearchNoteText">For quick access:</p>
+                            <p class="quickSearchNoteText">Quick Search:</p>
                             <div class="quickSearchNoteKey">CTRL</div>
                             <span class="quickSearchNoteText">+</span>
                             <div class="quickSearchNoteKey">Q</div>
@@ -619,13 +634,13 @@
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 2.75a8.75 8.75 0 1 0 0 17.5a8.75 8.75 0 0 0 0-17.5M1.25 11.5c0-5.66 4.59-10.25 10.25-10.25S21.75 5.84 21.75 11.5c0 2.56-.939 4.902-2.491 6.698l3.271 3.272a.75.75 0 1 1-1.06 1.06l-3.272-3.271A10.2 10.2 0 0 1 11.5 21.75c-5.66 0-10.25-4.59-10.25-10.25"/>
                                 </svg>
                             </div>
-                            <input type="text" name="quickSearchInputFieldName" id="quickSearchInputFieldId" class="quickSearchInputFieldClass" placeholder="Search..">
+                            <input type="text" name="quickSearchInputFieldName" id="quickSearchInputFieldId" class="quickSearchInputFieldClass" placeholder="Enter title">
                             <label for="quickSearchInputFieldId" class="quickSearchInputIcon quickSearchInputRightIcon quickSearchClearInput">
                                 <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="quickSearchInputSvg">
                                     <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
                                 </svg>
                             </label>
-                            <div onclick="window.open('/Catalog.html' , '_self')" title="Catalog" class="quickSearchInputIcon quickSearchInputRightIcon quickSearchToCatalog">
+                            <div onclick="window.open('#/explore' , '_self')" title="Explore" class="quickSearchInputIcon quickSearchInputRightIcon quickSearchToCatalog">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="quickSearchInputSvg">
                                     <path fill-rule="evenodd" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10m1.956-7.905c-.193.17-.44.268-.932.465c-2.31.924-3.465 1.386-4.124.938a1.5 1.5 0 0 1-.398-.398c-.448-.66.014-1.814.938-4.124c.197-.493.295-.74.465-.933q.065-.073.139-.138c.193-.17.44-.268.932-.465c2.31-.924 3.464-1.386 4.124-.938a1.5 1.5 0 0 1 .398.398c.448.66-.014 1.814-.938 4.124c-.197.493-.295.739-.465.932q-.065.075-.139.139" clip-rule="evenodd" />
                                 </svg>
@@ -639,97 +654,58 @@
             </div>
         </div>
     `;
-    const addToWLHTML = 
+    const addToCLHTML = 
     `
-        <div class="genAtnModalBcg closeAddToWL"></div>
+        <div class="genAtnModalBcg closeAddToCL"></div>
         <div class="genAtnModalBox">
             <div class="genAtnModalCtnt">
                 <div class="genAtnModalHeader">
-                    <div class="genAtnModalHeaderIconBox closeAddToWL">
+                    <div class="genAtnModalHeaderIconBox closeAddToCL">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="genAtnModalHeaderIcon">
                             <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
                         </svg>
                     </div>
-                    <h3 class="genAtnModalHeaderText">
+                    <div class="genAtnModalHeaderText">
                         <span class="large">A</span>
-                        <span class="small">dd to Watchlist</span>
-                    </h3>
+                        <span class="small">dd to Collections</span>
+                    </div>
                 </div>
-                <div class="genAtnModalOptBcg addToWLItemBcg">
-                    <div class="genAtnModalOptBdr addToWLItemBox">
-                        <div class="genAtnModalOptBox newWLBtn" title="Create Watchlist" aria-label="Create-Watchlist-btn">
+                <div class="genAtnModalOptBcg addToCLItemBcg">
+                    <div class="genAtnModalOptBdr addToCLItemBox">
+                        <div class="genAtnModalOptBox newCLBtn" title="Create Colletion" aria-label="create-collection-btn">
                             <div class="genAtnModalOptIconBox">
-                                <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="genAtnModalOptIcon">
+                                <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="genAtnModalOptIconSvg">
                                     <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
                                 </svg>
                             </div>
                             <div class="genAtnModalOptTextBox ">
-                                <span class="genAtnModalOptText ">Create Watchlist</span>
+                                <span class="genAtnModalOptText ">Create Collection</span>
                             </div>
                         </div>
-                        <div class="newWLBdr">
-                            <div class="newWLBox">
-                                <div class="newWLInputBdr">
-                                    <div class="newWLInputBox">
-                                        <input type="text" name="newPlayListInputField" id="newWLInputId" class="newWLInputClass" placeholder="Name your watchlist" disabled />
+                        <div class="newCLBdr">
+                            <div class="newCLBox">
+                                <div class="newCLInputBdr">
+                                    <div class="newCLInputBox">
+                                        <input type="text" name="newCLInputField" id="newCLInputId" class="newCLInputClass" placeholder="Name your collection" disabled />
                                     </div>
                                 </div>
-                                <div class="newWLWarnBdr">
-                                    <div class="newWLWarnBox">
-                                        <p id="newWLWarnId" class="newWLWarnText" tabindex="-1"></p>
+                                <div class="newCLWarnBdr">
+                                    <div class="newCLWarnBox">
+                                        <p id="newCLWarnId" class="newCLWarnText" tabindex="-1"></p>
                                     </div>
                                 </div>
-                                <div class="newWLAtnBdr">
-                                    <div class="newWLAtnBox">
-                                        <button type="button" id="createNewWL" class="genBtnBox inactiveBtn" disabled>
+                                <div class="newCLAtnBdr">
+                                    <div class="newCLAtnBox">
+                                        <button type="button" id="createNewCL" class="genBtnBox inactiveBtn" disabled>
                                             <div class="genBtnText">Create</div>
                                         </button>
-                                        <button type="button" id="cancelNewWL" class="genBtnBox hollowBtn closeCreateWLBtn">
+                                        <button type="button" id="cancelNewCL" class="genBtnBox hollowBtn closeCreateCLBtn">
                                             <div class="genBtnText">Cancel</div>
                                         </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <button data-list="" class="genAtnModalOptBox plItem" title="" aria-label="">
-                            <div class="genAtnModalOptIconBox">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genAtnModalOptIcon">
-                                    <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
-                                    <path fill-rule="evenodd" d="M2 8c0 .494.993.89 2.979 1.685l2.808 1.124C9.773 11.603 10.767 12 12 12s2.227-.397 4.213-1.191l2.808-1.124C21.007 8.891 22 8.494 22 8s-.993-.89-2.979-1.685l-2.808-1.123C14.227 4.397 13.233 4 12 4s-2.227.397-4.213 1.192L4.98 6.315C2.993 7.109 2 7.506 2 8" clip-rule="evenodd" />
-                                    <path d="m19.021 13.685l-2.808 1.124C14.227 15.603 13.233 16 12 16s-2.227-.397-4.213-1.191L4.98 13.685C2.993 12.891 2 12.493 2 12c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 12.535 10.572 13 12 13s2.59-.465 4.439-1.205l3.14-1.256C21.194 11.189 22 11.555 22 12c0 .493-.993.89-2.979 1.685" />
-                                    <path d="m19.021 17.685l-2.808 1.123C14.227 19.603 13.233 20 12 20s-2.227-.397-4.213-1.192L4.98 17.685C2.993 16.89 2 16.493 2 16c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 16.535 10.572 17 12 17s2.59-.465 4.439-1.205l3.14-1.256c1.614.65 2.421 1.016 2.421 1.46c0 .494-.993.891-2.979 1.686" />
-                                </svg>
-                            </div>
-                            <div class="genAtnModalOptTextBox ">
-                                <span class="genAtnModalOptText ">The Greatest Anime Shows</span>
-                            </div>
-                        </button>
-                        <button data-list="" class="genAtnModalOptBox plItem" title="" aria-label="">
-                            <div class="genAtnModalOptIconBox">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genAtnModalOptIcon">
-                                    <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
-                                    <path fill-rule="evenodd" d="M2 8c0 .494.993.89 2.979 1.685l2.808 1.124C9.773 11.603 10.767 12 12 12s2.227-.397 4.213-1.191l2.808-1.124C21.007 8.891 22 8.494 22 8s-.993-.89-2.979-1.685l-2.808-1.123C14.227 4.397 13.233 4 12 4s-2.227.397-4.213 1.192L4.98 6.315C2.993 7.109 2 7.506 2 8" clip-rule="evenodd" />
-                                    <path d="m19.021 13.685l-2.808 1.124C14.227 15.603 13.233 16 12 16s-2.227-.397-4.213-1.191L4.98 13.685C2.993 12.891 2 12.493 2 12c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 12.535 10.572 13 12 13s2.59-.465 4.439-1.205l3.14-1.256C21.194 11.189 22 11.555 22 12c0 .493-.993.89-2.979 1.685" />
-                                    <path d="m19.021 17.685l-2.808 1.123C14.227 19.603 13.233 20 12 20s-2.227-.397-4.213-1.192L4.98 17.685C2.993 16.89 2 16.493 2 16c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 16.535 10.572 17 12 17s2.59-.465 4.439-1.205l3.14-1.256c1.614.65 2.421 1.016 2.421 1.46c0 .494-.993.891-2.979 1.686" />
-                                </svg>
-                            </div>
-                            <div class="genAtnModalOptTextBox ">
-                                <span class="genAtnModalOptText ">Fullmetal Collection</span>
-                            </div>
-                        </button>
-                        <button data-list="" class="genAtnModalOptBox plItem" title="" aria-label="">
-                            <div class="genAtnModalOptIconBox">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genAtnModalOptIcon">
-                                    <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
-                                    <path fill-rule="evenodd" d="M2 8c0 .494.993.89 2.979 1.685l2.808 1.124C9.773 11.603 10.767 12 12 12s2.227-.397 4.213-1.191l2.808-1.124C21.007 8.891 22 8.494 22 8s-.993-.89-2.979-1.685l-2.808-1.123C14.227 4.397 13.233 4 12 4s-2.227.397-4.213 1.192L4.98 6.315C2.993 7.109 2 7.506 2 8" clip-rule="evenodd" />
-                                    <path d="m19.021 13.685l-2.808 1.124C14.227 15.603 13.233 16 12 16s-2.227-.397-4.213-1.191L4.98 13.685C2.993 12.891 2 12.493 2 12c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 12.535 10.572 13 12 13s2.59-.465 4.439-1.205l3.14-1.256C21.194 11.189 22 11.555 22 12c0 .493-.993.89-2.979 1.685" />
-                                    <path d="m19.021 17.685l-2.808 1.123C14.227 19.603 13.233 20 12 20s-2.227-.397-4.213-1.192L4.98 17.685C2.993 16.89 2 16.493 2 16c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 16.535 10.572 17 12 17s2.59-.465 4.439-1.205l3.14-1.256c1.614.65 2.421 1.016 2.421 1.46c0 .494-.993.891-2.979 1.686" />
-                                </svg>
-                            </div>
-                            <div class="genAtnModalOptTextBox ">
-                                <span class="genAtnModalOptText ">Intruiging Classics</span>
-                            </div>
-                        </button>
                     </div>
                 </div>
             </div>
@@ -746,10 +722,10 @@
                             <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
                         </svg>
                     </div>
-                    <h3 class="genAtnModalHeaderText">
-                    <span class="large">S</span>
-                    <span class="small">hare this Show</span>
-                    </h3>
+                    <div class="genAtnModalHeaderText">
+                        <span class="large">S</span>
+                        <span class="small">hare this Show</span>
+                    </div>
                 </div>
                 <div class="genAtnModalOptBcg">
                     <div class="genAtnModalOptBdr">
@@ -820,7 +796,7 @@
                         </button>
                         <button data-share="Yahoo" class="genAtnModalOptBox" title="" aria-label="">
                             <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
-                                <svg class="genAtnModalOptIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <svg class="genAtnModalOptIconSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                     <path d="M223.7 141.1 167 284.2 111 141.1H14.9L120.8 390.2 82.2 480h94.2L317.3 141.1zm105.4 135.8a58.2 58.2 0 1 0 58.2 58.2A58.2 58.2 0 0 0 329.1 276.9zM394.7 32l-93 223.5H406.4L499.1 32z"/>
                                 </svg>
                             </div>
@@ -868,6 +844,16 @@
                                 <span class="genAtnModalOptText shareText">Gmail</span>
                             </div>
                         </button>
+                        <button data-share="navigatorShareModal" class="genAtnModalOptBox" title="" aria-label="">
+                            <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
+                                <svg class="genAtnModalOptIconSvg" transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
+                                </svg>
+                            </div>
+                            <div class="genAtnModalOptTextBox shareTextBox">
+                                <span class="genAtnModalOptText shareText">More</span>
+                            </div>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -909,11 +895,18 @@
         {
             if (typeof window[functionName] === 'function') 
             {
-                window[functionName](event);
+                if (event != null && typeof event[Symbol.iterator] === 'function') 
+                {
+                    window[functionName](...event);
+                } 
+                else 
+                {
+                    window[functionName](event);
+                }
             } 
             else
             {
-                console.error("Function name is invalid!");
+                console.error(`Function name: '${functionName}' is invalid!`);
             }
         }
 
@@ -1016,300 +1009,316 @@
 
         function startApplication()
         {
+            // Confirm before refresh
+            window.addEventListener("beforeunload" , b4UnloadHandler);
             
-            // INSERT
-                
-                // Insert the NavBars
-                topNavBar.insertAdjacentHTML(`afterbegin` , topNavBarStruct);
-                sideNavBar.insertAdjacentHTML(`afterbegin` , sideNavBarStruct);
-                btmNavBar.insertAdjacentHTML(`afterbegin` , btmNavBarStruct);
-
-                // Insert Navbar Profile Menu
-                document.body.insertAdjacentHTML(`beforeend` , navBarProfileMenuStruct);
-                
-                // Insert Footer
-                documentCtnt.insertAdjacentHTML(`afterend` , footerHTML);
-
-
-            // DEFINITION
-
-                let lastWindowScroll = 0;
-                let sideNavLinks = document.querySelectorAll(".sideNavLinks");
-                let btmNavLinks = document.querySelectorAll(".btmNavLinks");
-                let newsNavLink = document.querySelectorAll(".newsNavLink");
-                let goToHomePage = document.querySelectorAll(".Companylogo");
-                let goToFullScreenBtn = document.querySelectorAll(".goToFullScreenBtn");
-                let openNavProfOptBtn = document.querySelectorAll(".open_nav_profileOptions");
-                let navProfileOptionsBdr = document.querySelector(".navBarProfileOptBdr");
-                let navProfileOptionsBox = document.querySelector(".navBarProfileOptBox");
-                let openNavProfOptTimer;
-                let locationOrigin;
-                let backtotopBtn = document.querySelectorAll(".backtotop_btn");
-                let developerProfile = document.querySelectorAll(".developer_profile");
-                openFeedBackForm = document.querySelectorAll(".openFeedBackForm");
-                navBarSignOutBtn = document.querySelector(".navBarSignOutBtn");
-                navbarUnderlayer = document.querySelector(".navbar_UnderLayer");
-                navBarNotificationStatusNoBox = document.querySelectorAll(".navBarNotificationStatusNo_box");
-                openNavBarNotificationBtn = document.querySelectorAll(".openNavNotify");
-                openSwitchProfBtn = document.querySelector(".open_switchProf");
-
-
-            // DOCUMENT (WINDOW)
-
-                // Did it to match github's href style
-                if(window.location.origin == "https://acbennny.github.io")
-                {
-                    locationOrigin = window.location.origin + "/Uvid/";
-                }
-                else
-                {
-                    locationOrigin = window.location.origin + "/";
-                }
-
-                // Toggle Fullscreen
-                goToFullScreenBtn.forEach((btn) => 
-                {
-                    btn.addEventListener("click" , () => 
-                    {
-                        if(!(document.fullscreenElement))
-                        {
-                            btn.title = "Exit Fullscreen";
-                            btn.classList.add("isFullScreen");
-                            documentHTML.requestFullscreen();
-                            return;
-                        }
-                        btn.title = "Enter Fullscreen";
-                        btn.classList.remove("isFullScreen");
-                        document.exitFullscreen();
-                    });
-                });
-
-                document.addEventListener("fullscreenchange", () => 
-                {
-                    if(!(document.fullscreenElement))
-                    {
-                        document.querySelector(".goToFullScreenBtn.isFullScreen").title = "Enter Fullscreen";
-                        document.querySelector(".goToFullScreenBtn.isFullScreen").classList.remove("isFullScreen");
-                    }
-                });
-
-
-
-            // NAVBAR
-
-                window.addEventListener("scroll" , () => 
-                {
-                    // Darken NavBar on scroll
-                    topNavBar.classList.toggle("float" , window.scrollY > 0);
-
-                    // Hide/Unhide navbar while scrolling (If fullscreen is disabled)
-                    if((!(document.fullscreenElement) && (window.innerHeight != screen.height)))
-                    {
-                        let currentWindowScroll = window.scrollY;
-
-                        if((currentWindowScroll > lastWindowScroll))
-                        {
-                            topNavBar.classList.add("isScrollingDown");
-                            btmNavBar.classList.add("isScrollingDown");
-                        }
-        
-                        if((currentWindowScroll < lastWindowScroll))
-                        {
-                            topNavBar.classList.remove("isScrollingDown");
-                            btmNavBar.classList.remove("isScrollingDown");
-                        }
-        
-                        lastWindowScroll = currentWindowScroll;
-                    }
-                    else
-                    {
-                        topNavBar.classList.remove("isScrollingDown");
-                        btmNavBar.classList.remove("isScrollingDown");
-                    }
-                });
-                
-
-                // Go to Home page
-                goToHomePage.forEach(one => 
-                {
-                    one.addEventListener("click" , () => 
-                    {
-                        window.location.href = locationOrigin + "Home.html";
-                    });
-                });
-
-                // Notify users that the News Page isn't ready
-                newsNavLink.forEach((newsNav) => 
-                {
-                    newsNav.removeAttribute("href");
-                    newsNav.addEventListener("click" , () => 
-                    {
-                        notification(`notifyBad` , `Page unavailable`);
-                    });
-                });
-
-                // Profile Options
-                function openNavProfileOptions()
-                {
-                    openNavProfOptBtn.forEach((btn) => 
-                    {
-                        btn.removeEventListener("click" , openNavProfileOptions);
-                    });
-
-                    navProfileOptionsBdr.classList.toggle("active");
-                    toggleNavBarUnderLayer();
-
-                    openNavProfOptTimer = setTimeout(() => 
-                    {
-                        document.addEventListener("click" , closeNavProfileOptions);
-                        clearTimeout(openNavProfOptTimer);
-                    }, 100);
-                }
-
-                function closeNavProfileOptions()
-                {
-                    if((navProfileOptionsBdr.classList.contains("active")))
-                    {
-                        document.removeEventListener("click" , closeNavProfileOptions);
-                        navProfileOptionsBdr.classList.remove("active");
-                        navProfileOptionsBox.scrollTo(null , 0);
-                        toggleNavBarUnderLayer();
-
-                        openNavProfOptBtn.forEach((btn) => 
-                        {
-                            btn.addEventListener("click" , openNavProfileOptions);
-                        });
-                    }
-                }
-
-                openNavProfOptBtn.forEach((btn) => 
-                {
-                    btn.addEventListener("click" , openNavProfileOptions);
-                });
-
-                // Signing Out of your Account
-                navBarSignOutBtn.addEventListener("click" , () => 
-                {
-                    initConfirmModal(
-                        `Are you sure you want to sign out?`,
-                        null,
-                        `Yes`,
-                        `No`,
-                        accountSignOut
-                    );
-                });
-
-
+            // Insert the NavBars
+            // topNavBar.insertAdjacentHTML(`afterbegin` , topNavBarStruct);
+            sideNavBar.insertAdjacentHTML(`afterbegin` , sideNavBarStruct);
+            btmNavBar.insertAdjacentHTML(`afterbegin` , btmNavBarStruct);
             
-            // NAVBAR ACTIVE STATE
-
-                let currPagePathName = window.location.pathname;
-                let extractedCurrPagePath = currPagePathName.replace(/\.html$/, "");
-                let currPageSpecificSegment = extractedCurrPagePath.substring(extractedCurrPagePath.lastIndexOf('/') + 1);
-                let currPageSpecificSegmentLC = currPageSpecificSegment.toLowerCase();
-
-                switch(currPageSpecificSegmentLC)
-                {
-                    case 'home': 
-                        sideNavLinks[0].classList.add("active");
-                        btmNavLinks[0].classList.add("active");
-                        break;
-                    
-                    case 'watchlist': 
-                        sideNavLinks[1].classList.add("active");
-                        btmNavLinks[1].classList.add("active");
-                        break;
-                    
-                    case 'schedule': 
-                        sideNavLinks[2].classList.add("active");
-                        btmNavLinks[2].classList.add("active");
-                        break;
-
-                    case 'news': 
-                        sideNavLinks[3].classList.add("active");
-                        btmNavLinks[3].classList.add("active");
-                        break;
-
-                    default: 
-                        console.info("Error: No corresponding navbar item found");
-                        break;
-                }
+            // Insert Footer
+            documentCtnt.insertAdjacentHTML(`afterend` , footerHTML);
 
 
-
-            // NAVBAR FEEDBACK FORM
-
-                openFeedBackForm.forEach((btn) => 
-                {
-                    btn.addEventListener("click" , () => 
-                    {
-                        notification(`notifyBad` , `Feedback form unavailable`);
-                    });
-                });
+            // Definition
+            sideNavLinks = document.querySelectorAll(".sideNavLinks");
+            btmNavLinks = document.querySelectorAll(".btmNavLinks");
+            navbarUnderlayer = document.querySelector(".navbar_UnderLayer");
+            navBarNotificationStatusNoBox = document.querySelectorAll(".navBarNotificationStatusNo_box");
+            openNavBarNotificationBtn = document.querySelectorAll(".openNavNotify");
 
 
-
-            // DEVELOPER'S PROFILE
-
-                developerProfile.forEach(dev => 
-                {
-                    dev.title = `This website was designed and developed by acbennny (me😁). You can check out my portfolio at: "${developerLink}"`;
-
-                    // Opening my portfolio (in a new tab)
-                    dev.addEventListener("click" , () => 
-                    {
-                        window.open(developerLink , "_blank");
-                    });
-
-                    // Copying link to clipboard
-                    dev.addEventListener("contextmenu" , (e) => 
-                    {
-                        // Prevent the default context menu from appearing
-                        e.preventDefault();
-
-                        // Then copy to clipboard and notify user
-                        navigator.clipboard.writeText(developerLink)
-                        .then(() => 
-                        {
-                            notification(`notifyGood` , `Link copied to clipboard`);
-                        })
-                        .catch((err) => 
-                        {
-                            notification(`notifyBad` , `Could not copy link, ${err}`);
-                        });
-                    });
-                });
+            // Scrolling
+            window.addEventListener("scroll" , genScrollingAtn);
+            window.addEventListener('wheel', menuIsOpenScrl, { passive: false });
+            window.addEventListener('touchmove', menuIsOpenScrl, { passive: false });
 
 
-                
-            // BACK TO TOP
-
-                backtotopBtn.forEach(btn => 
-                {
-                    btn.addEventListener("click" , () => 
-                    {
-                        window.scrollTo(null , 0);
-                    });
-                });
-
-
-            // COMPONENTS
-
-                insertSwitchProfJS();
-                instantiateNavBarNotificationMenu();
-                preQuickSearch();
-                attachAddToWLEventListeners();
-                attachSharePageEventListeners();
-
+            // Components
+            attachReturnToHomePageListeners();
+            attachReturnToTopOfPageListeners();
+            attachVisitDevPageEventListeners();
+            attachAddToCLEventListeners();
+            attachSharePageEventListeners();
+            initGenMenuModal();
         }
 
 
-    // GENERAL MESSAGE FOR FAILED REQUESTS
+    // VISIT DEVELOPER PAGE
 
-        function failedLoadErrorMsg()
+        function attachVisitDevPageEventListeners()
+        {
+            let developerProfile = document.querySelectorAll(".developer_profile");
+
+            developerProfile.forEach((dev) => 
+            {
+                if(dev.d_click)
+                {
+                    dev.removeEventListener("click" , dev.d_click);
+                }
+                if(dev.d_menu)
+                {
+                    dev.removeEventListener("contextmenu" , dev.d_menu);
+                }
+            });
+
+            developerProfile.forEach((dev) => 
+            {
+                dev.title = `This website was designed and developed by acbennny (me😁). You can check out my portfolio at: "${developerLink}"`;
+
+                // Opening my portfolio (in a new tab)
+                const d_click = () =>
+                {
+
+                    window.open(developerLink , "_blank");
+                }
+
+                // Copying link to clipboard
+                const d_menu = (e) => 
+                {
+                    // Prevent the default context menu from appearing
+                    e.preventDefault();
+
+                    // Then copy to clipboard and notify user
+                    navigator.clipboard.writeText(developerLink)
+                    .then(() => 
+                    {
+                        notification(`notifyGood` , `Link copied to clipboard`);
+                    })
+                    .catch((err) => 
+                    {
+                        notification(`notifyBad` , `Could not copy link, ${err}`);
+                    });
+                }
+
+                dev.addEventListener("click" , d_click);
+                dev.d_click = d_click;
+                dev.addEventListener("contextmenu" , d_menu);
+                dev.d_menu = d_menu;
+            });
+        }
+
+
+    
+    // RELOADING
+
+        // Warns if user tries to refresh
+        function b4UnloadHandler(event)
+        {
+            event.preventDefault();
+            event.returnValue = '';
+        };
+
+
+    // GO TO:
+
+        // Home page
+        function attachReturnToHomePageListeners()
+        {
+            let goToHomePage = document.querySelectorAll(".Companylogo");
+            
+            goToHomePage.forEach((oldbtn) => 
+            {
+                if(oldbtn.atn)
+                {
+                    oldbtn.removeEventListener("click" , oldbtn.atn);
+                }
+            });
+
+            goToHomePage.forEach((newbtn) => 
+            {
+                const h_atn = () =>
+                {
+                    window.location.href = locationOrigin + "#/home";
+                }
+            
+                newbtn.addEventListener("click" , h_atn);
+                newbtn.atn = h_atn;
+            });
+        }
+
+        // Top of page
+        function attachReturnToTopOfPageListeners()
+        {
+            let backtotopBtn = document.querySelectorAll(".backtotop_btn");
+
+            backtotopBtn.forEach((oldbtn) => 
+            {
+                if(oldbtn.atn)
+                {
+                    oldbtn.removeEventListener("click" , oldbtn.atn);
+                }
+            });
+            
+            backtotopBtn.forEach(newbtn => 
+            {
+                const btt_atn = () =>
+                {
+                    window.scrollTo(null , 0);
+                }
+            
+                newbtn.addEventListener("click" , btt_atn);
+                newbtn.atn = btt_atn;
+            });
+        }
+
+        // Previous page
+        function attachReturnToPrevPageListeners()
+        {
+            let return_btn = document.querySelectorAll(".returnToPrevPage");
+
+            return_btn.forEach((old) => 
+            {
+                if(old.return_atn)
+                {
+                    old.removeEventListener("click" , old.return_atn);
+                }
+            });
+
+            return_btn.forEach((btn) => 
+            {
+                btn.addEventListener("click" , prev_page_route);
+                btn.return_atn = prev_page_route;
+            });
+        }
+
+
+
+    // SCROLLING
+
+        // General scrolling actions
+        function genScrollingAtn(e)
+        {
+            // Toggle back to top button on scroll
+            document.querySelectorAll(".backtotop_btn").forEach((btn) =>
+            {
+                btn.classList.toggle("float", window.scrollY > 100)
+            });
+
+            // Darken NavBar on scroll
+            topNavBar.classList.toggle("float" , window.scrollY > 0);
+
+            // Hide/Unhide navbar while scrolling (If fullscreen is disabled)
+            if((!(document.fullscreenElement) && (window.innerHeight != screen.height)))
+            {
+                let currentWindowScroll = window.scrollY;
+
+                if((currentWindowScroll > lastWindowScroll))
+                {
+                    topNavBar.classList.add("isScrollingDown");
+                    btmNavBar.classList.add("isScrollingDown");
+                }
+
+                if((currentWindowScroll < lastWindowScroll))
+                {
+                    topNavBar.classList.remove("isScrollingDown");
+                    btmNavBar.classList.remove("isScrollingDown");
+                }
+
+                lastWindowScroll = currentWindowScroll;
+            }
+            else
+            {
+                topNavBar.classList.remove("isScrollingDown");
+                btmNavBar.classList.remove("isScrollingDown");
+            }
+
+            // Hide/Unhide navbar on My-List pages (currently only on Downloads)
+            if((hash_parts[1] === "my-list") && (hash_parts[2] === "downloads"))
+            {
+                topNavBar.classList.toggle("initialize" , window.scrollY > titleBdrBtm);
+            }
+
+            // Lock scrollbar if modal or menu open
+            if((documentBody.getAttribute("gen-menu-modal-is-dragging") === "true"))
+            {
+                document.documentElement.scrollTop = docBodyInitScrollPos;
+                e.target.scrollTop = docBodyInitScrollPos;
+                lockMenuAtvBool = true;
+            }
+            else
+            {
+                if((lockMenuAtvBool == true))
+                {
+                    window.scrollTo(null, docBodyInitScrollPos);
+                    lockMenuAtvBool = false;
+                }
+                docBodyInitScrollPos = window.scrollY;
+            }
+        }
+
+        // *** TO DO **** Locks scrolling when menu is open
+        const menuIsOpenScrl = (e) =>
+        {
+            if(
+                (documentBody.getAttribute("gen-menu-modal-is-dragging") === "true")
+                && (window.innerWidth > winWidth768)
+                && !(e.target.closest(".genMenuModalBdr"))
+            )
+            {
+                e.preventDefault();
+            }
+        }
+
+
+
+    // GENERAL ERROR MESSAGE FOR:
+
+        // Failed Requests
+        function failedRequest()
         {
             notification(`notifyBad` , `Error processing request`);
         }
+
+        // Failed Script loading
+        function failedScriptLoad()
+        {
+            notification(`notifyBad` , `An error occured during loading`);
+        }
+
+
+
+    // GENERAL ARRAY SHUFFLING
+
+        function shuffleArray(array) 
+        {
+            for (let i = array.length - 1; i > 0; i--) 
+            {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+
+
+    // GENERATING A RANDOM STRING VALUE OF A GIVEN LENGTH
+
+        function generateRandomString(size = 16) 
+        {
+            const length = size;
+            var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            var result = '';
+            for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+            return result;
+        }
+
+
+    
+    // GETTING CURRENT DATE IN FORMAT MMM : DD : YYYY
+
+        function getCurrDate()
+        {
+            let currentDate = new Date();
+            let currYear = currentDate.getFullYear();
+            let currMonth = currentDate.getMonth() + 0;
+            let monthArr = [`Jan` , `Feb` , `Mar` , `Apr` , `May` , `Jun` , `Jul` , `Aug` , `Sep` , `Oct` , `Nov` , `Dec`];
+            let currDay = currentDate.getDate();
+            let dateInStr = `${monthArr[currMonth]} ${currDay}, ${currYear}`;
+            return dateInStr;
+        }
+
 
 
 
@@ -1319,26 +1328,59 @@
          * This is used to load scripts into the DOM only once
          * @param {string} scriptSrc The source attribute of the script
          * @param {string} scriptId The id attribute of the script
-         * @param {void} onLoadFunc The function to be called when the script loads successfully
-         * @param {void} onErrorFunc The function to be called when script fails to load
-         * @returns
+         * @param {Array} onLoadFuncArray An array containing functions and their events to be called when the script loads successfully
+         * @param {void} onErrorFuncArray An array containing functions and their events to be called when script fails to load
+         * @returns {void}
+         * 
+         * Sample usage
+         * 
+            loadScriptOnce(
+                `/script_file_path.js`,
+                `script_id`,
+                [
+                    {func_name: `onloadFunc_name`, ev_name: null,},
+                ],
+                [
+                    {func_name: `failedScriptLoad`, ev_name: null,},
+                ],
+            );
          */
-        function loadScriptOnce(scriptSrc, scriptId, onLoadFunc, onErrorFunc)
+        function loadScriptOnce(scriptSrc, scriptId, onLoadFuncArray, onErrorFuncArray)
         {
             if (!document.getElementById(scriptId))
             {
-                const script = document.createElement('script');
+                const script = document.createElement("script");
                 script.setAttribute(`src` , `${scriptSrc}`);
                 script.setAttribute(`id` , `${scriptId}`);
                 documentBody.appendChild(script);
         
-                if (onLoadFunc) script.addEventListener('load', onLoadFunc);
-                if (onErrorFunc) script.addEventListener('error', onErrorFunc);
+                if (onLoadFuncArray.length > 0)
+                {
+                    script.addEventListener("load", () => 
+                    {
+                        callFuncsInLoadScriptOnceArr(onLoadFuncArray);
+                    });
+                }
+                if (onErrorFuncArray.length > 0)
+                {
+                    script.addEventListener("error", () => 
+                    {
+                        callFuncsInLoadScriptOnceArr(onErrorFuncArray);
+                    });
+                }
             }
             else
             {
-                // Trigger onLoad if already loaded
-                if (onLoadFunc) onLoadFunc(); 
+                // Call the functions if already loaded
+                if (onLoadFuncArray.length > 0) callFuncsInLoadScriptOnceArr(onLoadFuncArray);
+            }
+        }
+
+        function callFuncsInLoadScriptOnceArr(onloadArr)
+        {
+            for(let i = 0; i < onloadArr.length; i++)
+            {
+                callGlobalFunctions(onloadArr[i].func_name , onloadArr[i].ev_name);
             }
         }
 
@@ -1442,229 +1484,239 @@
 
 
     // QUICK SEARCH
-        
-        function preQuickSearch()
-        {
-            // Check if inventory.js has been initialized
-            let invScriptID = document.querySelector("#inventoryID");
 
-            if(!(invScriptID == undefined))
+        function initQuickSearch(load = false)
+        {
+            if(load == false)
             {
-                initQuickSearch();
+                let openQuickSearchBtn = document.querySelectorAll(".openQuickSearchBtn");
+                openQuickSearchBtn.forEach((btn) => 
+                {
+                    btn.addEventListener("click" , failedRequest);
+                });
                 return;
             }
 
-            // If not, initialize
-            let invScriptTag = document.createElement("script");
-            invScriptTag.setAttribute(`id` , `inventoryID`);
-            invScriptTag.setAttribute(`src` , `/inventory.js`);
-            document.body.appendChild(invScriptTag);
-    
-            invScriptTag.addEventListener("load" , () => 
-            {
-                initQuickSearch();
-            });
-            invScriptTag.addEventListener("error" , () => 
-            {
-                notification(`notifyBad` , `An error occurred`);
-                let openQuickSearchBtn = document.querySelectorAll(".openQuickSearchBtn");
-                openQuickSearchBtn.addEventListener("click" , failedLoadErrorMsg)
-            });
-        }
-
-        function initQuickSearch()
-        {
-            // Insert struct into the DOM
-            documentBody.insertAdjacentHTML(`beforeend` , quickSearchStruct);
 
             // Definitions
             let openQuickSearchBtn = document.querySelectorAll(".openQuickSearchBtn");
-            let quickSearchBase = document.querySelector(".quickSearchModal");
-            let quickSearchBcg = quickSearchBase.querySelector(".quickSearchBcg");
-            let quickSearchInputField = quickSearchBase.querySelector("#quickSearchInputFieldId");
-            let quickSearchClearInput = quickSearchBase.querySelector(".quickSearchClearInput");
-            let quickSearchToCatalog = quickSearchBase.querySelector(".quickSearchToCatalog");
-            let quickSearchResultBox = quickSearchBase.querySelector(".quickSearchResultBox");
-            let quickSearchResultAllBtn;
-            let quickSearchQuery;
-            let encodedSearchQuery;
 
-
-            // Open quick Search 
-            function openQuickSearchModal()
+            openQuickSearchBtn.forEach((btn) => 
             {
-                if((documentBody.classList.contains("bodystop")) || (quickSearchBase.classList.contains("active"))) return;
-                quickSearchBase.classList.add("active");
-                quickSearchBase.addEventListener("transitionend" , function handleTransitionEnd()
+                if(btn.srch)
                 {
-                    documentBody.setAttribute(`data-modal-state` , `open`);
-                    quickSearchInputField.focus();
-                    quickSearchBase.removeEventListener("transitionend" , handleTransitionEnd);
-                });
-            }
-            
+                    btn.removeEventListener("click" , btn.srch);
+                }
+            });
+
+            openQuickSearchBtn.forEach((btn) => 
+            {
+                const quick_srch = () => 
+                {
+                    // Insert struct into the DOM
+                    documentBody.insertAdjacentHTML(`beforeend` , quickSearchStruct);
+                    
+                    let quickSearchBase = document.querySelector(".quickSearchModal");
+                    let quickSearchBcg = quickSearchBase.querySelector(".quickSearchBcg");
+                    let quickSearchInputField = quickSearchBase.querySelector("#quickSearchInputFieldId");
+                    let quickSearchClearInput = quickSearchBase.querySelector(".quickSearchClearInput");
+                    let quickSearchToCatalog = quickSearchBase.querySelector(".quickSearchToCatalog");
+                    let quickSearchResultBox = quickSearchBase.querySelector(".quickSearchResultBox");
+                    let quickSearchResultAllBtn;
+                    let quickSearchQuery;
+                    let encodedSearchQuery;
+                    let quickSearchTimer;
+
+
+
+                    // Open quick Search 
+                    quickSearchTimer = setTimeout(() =>
+                    {
+                        clearTimeout(quickSearchTimer);
+                        openQuickSearchModal();
+                    }, 10);
+
+                    function openQuickSearchModal()
+                    {
+                        if((documentBody.classList.contains("bodystop")) || (quickSearchBase.classList.contains("active"))) return;
+                        btn.disabled = true;
+                        quickSearchBase.classList.add("active");
+                        quickSearchBase.addEventListener("transitionend" , function handleTransitionEnd()
+                        {
+                            documentBody.setAttribute(`data-modal-state` , `open`);
+                            quickSearchInputField.focus();
+                            quickSearchBase.removeEventListener("transitionend" , handleTransitionEnd);
+                        });
+                    }
+
+
+                    // Close Quick Search
+                    function closeQuickSearchModal()
+                    {
+                        quickSearchBase.classList.remove("active");
+                        quickSearchBase.addEventListener("transitionend" , function handleTransitionEnd()
+                        {
+                            quickSearchBase.removeEventListener("transitionend" , handleTransitionEnd);
+                            quickSearchBase.remove()
+                            btn.disabled = false;
+                            documentBody.removeAttribute(`data-modal-state`);
+                        });
+                    }
+                    quickSearchBcg.addEventListener("click" , closeQuickSearchModal);
+
+                    // Function to display search results
+                    const displayQuickSearchResult = (items) => 
+                    {
+                        // Only seven results are displayed
+                        const resultRange = items.slice(0, 7);
+
+                        quickSearchResultBox.innerHTML = resultRange.map((item) => 
+                        {
+                            const { show_link, show_thumbnail, show_title, show_scores, show_type, show_year, show_airing_status } = item;
+                            if((quickSearchQuery.length > 0) && (quickSearchQuery !== ""))
+                            {
+                                return `
+                                    <a href="${show_link}" class="quickSearchResultCardBdr">
+                                        <div class="quickSearchResultCardBox">
+                                            <div class="quickSearchResultCardThumbBdr">
+                                                <div class="quickSearchResultCardThumbBox">
+                                                    <img src="${show_thumbnail}" alt="Thumbnail image of ${show_title}" class="quickSearchResultCardThumbImg">
+                                                </div>
+                                            </div>
+                                            <div class="quickSearchResultDetBdr">
+                                                <div class="quickSearchResultDetBox">
+                                                    <div class="cardInfoBox">
+                                                        <div class="quickSearchResultDetTitleBox">
+                                                            <h3 class="quickSearchResultDetTitleText">${show_title}</h3>
+                                                        </div>
+                                                        <div class="quickSearchResultDetTagBdr">
+                                                            <div class="quickSearchResultDetTagBox">
+                                                                <div class="quickSearchResultDetTagSectBox quickSearchResultDetTagScoreBox">
+                                                                    <div class="quickSearchResultDetTagScoreIcon">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="quickSearchResultDetTagScoreSvg">
+                                                                            <path d="M9.153 5.408C10.42 3.136 11.053 2 12 2s1.58 1.136 2.847 3.408l.328.588c.36.646.54.969.82 1.182s.63.292 1.33.45l.636.144c2.46.557 3.689.835 3.982 1.776c.292.94-.546 1.921-2.223 3.882l-.434.507c-.476.557-.715.836-.822 1.18c-.107.345-.071.717.001 1.46l.066.677c.253 2.617.38 3.925-.386 4.506s-1.918.051-4.22-1.009l-.597-.274c-.654-.302-.981-.452-1.328-.452s-.674.15-1.328.452l-.596.274c-2.303 1.06-3.455 1.59-4.22 1.01c-.767-.582-.64-1.89-.387-4.507l.066-.676c.072-.744.108-1.116 0-1.46c-.106-.345-.345-.624-.821-1.18l-.434-.508c-1.677-1.96-2.515-2.941-2.223-3.882S3.58 8.328 6.04 7.772l.636-.144c.699-.158 1.048-.237 1.329-.45s.46-.536.82-1.182z" />
+                                                                        </svg>
+                                                                    </div>
+                                                                    <p class="quickSearchResultDetTagSectText">${show_scores}</p>
+                                                                </div>
+                                                                <div class="quickSearchResultDetTagSectBox">
+                                                                    <p class="quickSearchResultDetTagSectText">•</p>
+                                                                </div>
+                                                                <div class="quickSearchResultDetTagSectBox">
+                                                                    <p class="quickSearchResultDetTagSectText">${show_type}</p>
+                                                                </div>
+                                                                <div class="quickSearchResultDetTagSectBox">
+                                                                    <p class="quickSearchResultDetTagSectText">•</p>
+                                                                </div>
+                                                                <div class="quickSearchResultDetTagSectBox">
+                                                                    <p class="quickSearchResultDetTagSectText">${show_year}</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="quickSearchResultDetDescBox">
+                                                            <h3 class="quickSearchResultDetDescText">${show_airing_status}</h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                `;
+                            }
+                            else
+                            {
+                                return null;
+                            }
+                        }).join('');
+                        
+                        // Configure View More btn
+                        viewMoreSearchResults();
+
+                        // Reattaching listeners
+                        attachAddToCLEventListeners();
+                    };
+
+                    // Viewing More Results
+                    function viewMoreSearchResults()
+                    {
+                        // Ensure there is content in the result box
+                        if(!(quickSearchResultBox.innerHTML == ``))
+                        {
+                            quickSearchResultBox.insertAdjacentHTML(`beforeend` , 
+                                `<a href="/Catalog.html?search=${encodedSearchQuery}" class="darkSolidBtn quickSearchResultAllBtn">View More</a>`
+                            );
+                            quickSearchResultAllBtn = document.querySelector(".quickSearchResultAllBtn");
+                            return;
+                        }
+
+                        // If there is none, and the button is not undefined, remove the button
+                        if((quickSearchResultAllBtn == undefined)) return;
+                        quickSearchResultAllBtn.remove();
+                    }
+
+                    // Filter and display result based on user's entry
+                    function filterQuickSearchInput(e)
+                    {
+                        quickSearchQuery = quickSearchInputField.value.toString().trim().replace(/\s+/g, ' ').toLowerCase();
+                        encodedSearchQuery = encodeURIComponent(quickSearchQuery);
+
+                        // Open the catalog page with the search input if "ENTER" key is pressed
+                        if(((quickSearchQuery != "") && (e.key.toLowerCase() === "enter")))
+                        {
+                            e.preventDefault();
+                            window.open(`#/explore/search=${encodedSearchQuery}` , `_self`);
+                            return;
+                        }
+
+                        // Filter Items
+                        const filteredData = searchInventory.filter((item) => item.show_searchKey.toLowerCase().includes(quickSearchQuery));
+                        displayQuickSearchResult(filteredData);
+                        
+                        // Toggle the clear input & catalog Icons
+                        if(quickSearchInputField.value.length > 0)
+                        {
+                            quickSearchClearInput.classList.add("isTyping");
+                            quickSearchToCatalog.classList.add("isTyping");
+                            return;
+                        }
+                        quickSearchClearInput.classList.remove("isTyping");
+                        quickSearchToCatalog.classList.remove("isTyping");
+                    }
+                    
+                    quickSearchInputField.addEventListener("keyup", e => 
+                    {
+                        filterQuickSearchInput(e);
+                    });
+
+                    // Clears the search field
+                    quickSearchClearInput.addEventListener("click" , () => 
+                    {
+                        quickSearchInputField.value = "";
+                        quickSearchQuery = "";
+                        quickSearchClearInput.classList.remove("active");
+                        filterQuickSearchInput();
+                    });
+                }
+
+                btn.addEventListener("click" , quick_srch);
+                btn.srch = quick_srch;
+            });
+                    
             // Open by Shortcut: Ctrl + Q 
             function quickSearchShortcut(e)
             {
-                if(!e.target.closest(".quickSearchModal .quickSearchInputFieldId")) return;
+                if(!e.target.closest("input")) return;
                 let keyVal = e.key.toLowerCase();
                 if((e.ctrlKey && keyVal === "q"))
                 {
                     e.preventDefault();
                     openQuickSearchBtn[0].click();
+                    console.log("hm");
                 }
             }
-            document.addEventListener("keydown" , e =>
-            {
-                quickSearchShortcut(e);
-            });
-
-            // Open by Search button
-            openQuickSearchBtn.forEach((btn) => 
-            {
-                btn.addEventListener("click" , openQuickSearchModal);
-            });
-
-            // Close Quick Search
-            quickSearchBcg.addEventListener("click" , () => 
-            {
-                quickSearchBase.classList.remove("active");
-                documentBody.removeAttribute(`data-modal-state`);
-            });
-
-            // Function to display search results
-            const displayQuickSearchResult = (items) => 
-            {
-                // Only seven results are displayed
-                const resultRange = items.slice(0, 7);
-
-                quickSearchResultBox.innerHTML = resultRange.map((item) => 
-                {
-                    const { show_link, show_thumbnail, show_title, show_scores, show_type, show_year, show_airing_status } = item;
-                    if((quickSearchQuery.length > 0) && (quickSearchQuery != undefined) && (quickSearchQuery != null) && (quickSearchQuery != " "))
-                    {
-                        return `
-                            <a href="${show_link}" class="quickSearchResultCardBdr">
-                                <div class="quickSearchResultCardBox">
-                                    <div class="quickSearchResultCardThumbBdr">
-                                        <div class="quickSearchResultCardThumbBox">
-                                            <img src="${show_thumbnail}" alt="Thumbnail image of ${show_title}" class="quickSearchResultCardThumbImg">
-                                        </div>
-                                    </div>
-                                    <div class="quickSearchResultDetBdr">
-                                        <div class="quickSearchResultDetBox">
-                                            <div class="cardInfoBox">
-                                                <div class="quickSearchResultDetTitleBox">
-                                                    <h3 class="quickSearchResultDetTitleText">${show_title}</h3>
-                                                </div>
-                                                <div class="quickSearchResultDetTagBdr">
-                                                    <div class="quickSearchResultDetTagBox">
-                                                        <div class="quickSearchResultDetTagSectBox quickSearchResultDetTagScoreBox">
-                                                            <div class="quickSearchResultDetTagScoreIcon">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="quickSearchResultDetTagScoreSvg">
-                                                                    <path d="M9.153 5.408C10.42 3.136 11.053 2 12 2s1.58 1.136 2.847 3.408l.328.588c.36.646.54.969.82 1.182s.63.292 1.33.45l.636.144c2.46.557 3.689.835 3.982 1.776c.292.94-.546 1.921-2.223 3.882l-.434.507c-.476.557-.715.836-.822 1.18c-.107.345-.071.717.001 1.46l.066.677c.253 2.617.38 3.925-.386 4.506s-1.918.051-4.22-1.009l-.597-.274c-.654-.302-.981-.452-1.328-.452s-.674.15-1.328.452l-.596.274c-2.303 1.06-3.455 1.59-4.22 1.01c-.767-.582-.64-1.89-.387-4.507l.066-.676c.072-.744.108-1.116 0-1.46c-.106-.345-.345-.624-.821-1.18l-.434-.508c-1.677-1.96-2.515-2.941-2.223-3.882S3.58 8.328 6.04 7.772l.636-.144c.699-.158 1.048-.237 1.329-.45s.46-.536.82-1.182z" />
-                                                                </svg>
-                                                            </div>
-                                                            <p class="quickSearchResultDetTagSectText">${show_scores}</p>
-                                                        </div>
-                                                        <div class="quickSearchResultDetTagSectBox">
-                                                            <p class="quickSearchResultDetTagSectText">•</p>
-                                                        </div>
-                                                        <div class="quickSearchResultDetTagSectBox">
-                                                            <p class="quickSearchResultDetTagSectText">${show_type}</p>
-                                                        </div>
-                                                        <div class="quickSearchResultDetTagSectBox">
-                                                            <p class="quickSearchResultDetTagSectText">•</p>
-                                                        </div>
-                                                        <div class="quickSearchResultDetTagSectBox">
-                                                            <p class="quickSearchResultDetTagSectText">${show_year}</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="quickSearchResultDetDescBox">
-                                                    <h3 class="quickSearchResultDetDescText">${show_airing_status}</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </div>
-                                </div>
-                            </a>
-                        `;
-                    }
-                    else
-                    {
-                        return null;
-                    }
-                }).join('');
-                
-                // Configure View More btn
-                viewMoreSearchResults();
-
-                // Reattaching listeners
-                attachAddToWLEventListeners();
-            };
-
-            // Viewing More Results
-            function viewMoreSearchResults()
-            {
-                // Ensure there is content in the result box
-                if(!(quickSearchResultBox.innerHTML == ``))
-                {
-                    quickSearchResultBox.insertAdjacentHTML(`beforeend` , 
-                        `<a href="/Catalog.html?search=${encodedSearchQuery}" class="darkSolidBtn quickSearchResultAllBtn">View More</a>`
-                    );
-                    quickSearchResultAllBtn = document.querySelector(".quickSearchResultAllBtn");
-                    return;
-                }
-
-                // If there is none, and the button is not undefined, remove the button
-                if((quickSearchResultAllBtn == undefined)) return;
-                quickSearchResultAllBtn.remove();
-            }
-
-            // Filter and display result based on user's entry
-            function filterQuickSearchInput(e)
-            {
-                quickSearchQuery = quickSearchInputField.value.trim().toLowerCase();
-                encodedSearchQuery = encodeURIComponent(quickSearchQuery);
-
-                // Open the catalog page with the search input if "ENTER" key is pressed
-                if(((quickSearchQuery != "") && (e.key.toLowerCase() === "enter")))
-                {
-                    e.preventDefault();
-                    window.open(`/Catalog.html?search=${encodedSearchQuery}` , `_self`);
-                    return;
-                }
-
-                // Filter Items
-                const filteredData = searchInventory.filter((item) => item.show_searchKey.toLowerCase().includes(quickSearchQuery));
-                displayQuickSearchResult(filteredData);
-                
-                // Toggle the clear input & catalog Icons
-                if(quickSearchInputField.value.length > 0)
-                {
-                    quickSearchClearInput.classList.add("isTyping");
-                    quickSearchToCatalog.classList.add("isTyping");
-                    return;
-                }
-                quickSearchClearInput.classList.remove("isTyping");
-                quickSearchToCatalog.classList.remove("isTyping");
-            }
-            
-            quickSearchInputField.addEventListener("keyup", e => 
-            {
-                filterQuickSearchInput(e);
-            });
-
-            // Clears the search field
-            quickSearchClearInput.addEventListener("click" , () => 
-            {
-                quickSearchInputField.value = "";
-                quickSearchQuery = "";
-                quickSearchClearInput.classList.remove("active");
-                filterQuickSearchInput();
-            });
+            document.removeEventListener("keydown" , quickSearchShortcut);
+            document.addEventListener("keydown" , quickSearchShortcut);
         }
 
 
@@ -1708,27 +1760,7 @@
             let navBarNotificationCtntBox = document.querySelector(".navBarNotificationCtntBox");
 
             // Fetch the Notifications
-            let notificationLibraryScriptId = document.querySelector("#notificationLibraryScriptId");
-            if((notificationLibraryScriptId == undefined))
-            {
-                let notificationLibraryScriptTag = document.createElement("script");
-                notificationLibraryScriptTag.setAttribute(`id` , `notificationLibraryScriptId`);
-                notificationLibraryScriptTag.setAttribute(`src` , `/User/Notification/library.js`);
-                document.body.appendChild(notificationLibraryScriptTag);
-
-                notificationLibraryScriptTag.addEventListener("load" , () => 
-                {
-                    fetchNavBarNotifications();
-                });
-                notificationLibraryScriptTag.onerror = function() 
-                {
-                    errorLoadingNavBarNotifications();
-                };
-            }
-            else
-            {
-                fetchNavBarNotifications();
-            }
+            fetchNavBarNotifications();
 
             // For error events
             function errorLoadingNavBarNotifications()
@@ -1736,7 +1768,7 @@
                 notification(`notifyBad` , `An error occurred while loading notifications`);
                 openNavBarNotificationBtn.forEach((btn) => 
                 {
-                    btn.addEventListener("click" , failedLoadErrorMsg);
+                    btn.addEventListener("click" , failedRequest);
                 });
             }
 
@@ -1895,38 +1927,151 @@
             }
         }
 
+
+    // NAVBAR MORE OPTIONS
+
+        function attachNavbarMoreListeners()
+        {
+            // Updates the profile name based on current profile
+            document.querySelector(".navBarProfileNameWatching").textContent = selectedProfile.prof_name;
+
+            // Sets the username
+
+            // Listeners
+            attachSwitchProfEventListeners(true);
+            attachSignOutEventlisteners();
+            attachToggleFullScreenEventListeners();
+
+        }
+
+
       
 
     // SWITCH PROFILES
 
-        function insertSwitchProfJS()
+        function attachSwitchProfEventListeners(switch_prof_state = false)
         {
-            switchProfScript = document.createElement('script');
-            switchProfScript.setAttribute(`src` , `/SwitchProf.js`);
-            switchProfScript.setAttribute(`id` , `switchProfScriptID`);
+            let openSwitchProfBtn = document.querySelectorAll(".open_switchProf");
 
-            switchProfScript.addEventListener("load" , () => 
+            openSwitchProfBtn.forEach((btn) => 
             {
-                openSwitchProfBtn.addEventListener("click" , loadProfInfo);
+                if(btn.open_atn)
+                {
+                    btn.removeEventListener("click" , btn.open_atn);
+                }
             });
-            switchProfScript.onerror = function() 
+
+            openSwitchProfBtn.forEach((btn) => 
             {
-                notification(`notifyBad` , `An error occurred during loading`);
-                openSwitchProfBtn.addEventListener("click" , failedLoadErrorMsg);
-            };
-            document.body.appendChild(switchProfScript);
+                const action = () =>
+                {
+                    if(switch_prof_state == true)
+                    {
+                        loadProfInfo();
+                    }
+                    else
+                    {
+                        failedLoadErrorMsg();
+                    }
+                }
+
+                btn.addEventListener("click" , action);
+                btn.open_atn = action;
+            });
         }
 
 
 
     // SIGNING OUT
 
+        function attachSignOutEventlisteners()
+        {
+            let navBarSignOutBtn = document.querySelectorAll(".navBarSignOutBtn");
+
+            navBarSignOutBtn.forEach((btn) => 
+            {
+                if(btn.atn)
+                {
+                    btn.removeEventListener("click" , btn.atn);
+                }
+            });
+
+            navBarSignOutBtn.forEach((btn) => 
+            {
+                const action = () =>
+                {
+                    initConfirmModal(
+                        `Are you sure you want to sign out?`,
+                        null,
+                        `Yes`,
+                        `No`,
+                        accountSignOut
+                    );
+                }
+                btn.addEventListener("click" , action);
+                btn.atn = action;
+            });
+        }
+
         function accountSignOut()
         {
             notification(`notifyBad` , `Signing Out`);
             toggleNavBarUnderLayer();
 
-            accountSignOutTimer = setTimeout(() => window.open(`/` , `_self`), 3000);
+            // Remove the beforeunload listener
+            window.removeEventListener("beforeunload" , b4UnloadHandler);
+
+            // Remove the signed in user from local storage
+            localStorage.removeItem('uvidSignedInUser');
+
+            // Go to anding page
+            accountSignOutTimer = setTimeout(() => window.open(`/landing.html` , `_self`), 3000);
+        }
+
+
+    // TOGGLE FULLSCREEN
+
+        function attachToggleFullScreenEventListeners()
+        {
+            // Toggle Fullscreen
+            let goToFullScreenBtn = document.querySelectorAll(".goToFullScreenBtn");
+
+            goToFullScreenBtn.forEach((btn) => 
+            {
+                if(btn.action)
+                {
+                    btn.removeEventListener("click" , btn.action);
+                }
+            });
+
+            goToFullScreenBtn.forEach((btn) => 
+            {
+                const f_atn = () =>
+                {
+                    if(!(document.fullscreenElement))
+                    {
+                        btn.classList.add("isFullScreen");
+                        documentHTML.requestFullscreen();
+                        return;
+                    }
+                    btn.classList.remove("isFullScreen");
+                    document.exitFullscreen();
+                }
+                btn.addEventListener("click" , f_atn);
+                btn.action = f_atn;
+            });
+
+            document.addEventListener("fullscreenchange", () => 
+            {
+                if(!(document.fullscreenElement))
+                {
+                    goToFullScreenBtn.forEach((btn) => 
+                    {
+                        btn.title = "Enter Fullscreen";
+                        btn.classList.remove("isFullScreen");
+                    });
+                }
+            });
         }
 
     
@@ -1966,8 +2111,8 @@
                     const rect = createCustomDragPreview(draggable);
         
                     // Calculate touch offset relative to the element
-                    offsetX = e.clientX - rect.left;
-                    offsetY = e.clientY - rect.top;
+                    dragOffsetX = e.clientX - rect.left;
+                    dragOffsetY = e.clientY - rect.top;
 
                     // Add dragging class
                     draggable.classList.add('dragging');
@@ -2058,8 +2203,8 @@
         {
             if(customDragPreview)
             {
-                customDragPreview.style.top = `${e.clientY - offsetY}px`;
-                customDragPreview.style.left = `${e.clientX - offsetX}px`;
+                customDragPreview.style.top = `${e.clientY - dragOffsetY}px`;
+                customDragPreview.style.left = `${e.clientX - dragOffsetX}px`;
             }
         };
 
@@ -2069,8 +2214,8 @@
         {
             // Get the bounding rectangle of the element
             const rect = element.getBoundingClientRect();
-            offsetY = element.clientY - rect.top;
-            offsetX = element.clientX - rect.left;
+            dragOffsetY = element.clientY - rect.top;
+            dragOffsetX = element.clientX - rect.left;
 
             // Create the custom drag preview
             customDragPreview = element.cloneNode(true);
@@ -2098,6 +2243,9 @@
 
                 // Re attaches listeners for context menu
                 attachGenMenuModalEventListeners();
+
+                // Updates CL items order
+                updCLMdlArrFromDragAndSortList();
             }
         }
 
@@ -2122,7 +2270,7 @@
             }, { offset: Number.NEGATIVE_INFINITY }).element;
         }
 
-        // Add touch listeners for dragging
+        // Add touch listeners for dragging the list cards
         function addTouchEventListeners() 
         {
             document.addEventListener('touchmove', onTouchDragMove, { passive: false });
@@ -2140,8 +2288,8 @@
             const rect = createCustomDragPreview(targetElement);
         
             // Calculate offsets
-            offsetX = touch.clientX - rect.left;
-            offsetY = touch.clientY - rect.top;
+            dragOffsetX = touch.clientX - rect.left;
+            dragOffsetY = touch.clientY - rect.top;
         
             // Add dragging class for styling
             targetElement.classList.add('dragging');
@@ -2161,8 +2309,8 @@
                 const touch = event.touches[0];
         
                 // Update custom preview position
-                customDragPreview.style.left = `${touch.clientX - offsetX}px`;
-                customDragPreview.style.top = `${touch.clientY - offsetY}px`;
+                customDragPreview.style.left = `${touch.clientX - dragOffsetX}px`;
+                customDragPreview.style.top = `${touch.clientY - dragOffsetY}px`;
         
                 // Simulate dragover
                 const container = document.elementFromPoint(touch.clientX, touch.clientY)?.closest('.genDraggableContainer');
@@ -2300,29 +2448,6 @@
     // GENERAL MENU MODAL
 
         // Load the file if not present
-        function loadGenMenuModalInv()
-        {
-            let genMenuModalScriptID = document.getElementById("genMenuModalScriptID");
-
-            if((genMenuModalScriptID == undefined) || (genMenuModalScriptID == null))
-            {
-                let genMenuModalScriptTag = document.createElement("script");
-                genMenuModalScriptTag.setAttribute(`src` , `/genMenuModal.js`);
-                documentBody.appendChild(genMenuModalScriptTag);
-
-                genMenuModalScriptTag.addEventListener("load" , () => 
-                {
-                    initGenMenuModal();
-                });
-                genMenuModalScriptTag.addEventListener("error" , () => 
-                {
-                    notification(`notifyBad` , `an error occured while parsing scripts`);
-                });
-
-                return;
-            }
-            initGenMenuModal();
-        }
 
         // Initialization
         function initGenMenuModal()
@@ -2351,7 +2476,9 @@
 
             genMenuModalBox.appendChild(genMenuModalCtntBdr);
             genMenuModalBdr.appendChild(genMenuModalBox);
-            documentCtnt.appendChild(genMenuModalBdr);
+            documentBody.appendChild(genMenuModalBdr);
+
+            attachGenMenuModalEventListeners();
         }
         
 
@@ -2372,15 +2499,31 @@
             {
                 const action = (event) => 
                 {
+                    // Cooldown to prevent extreme rapid clicks
+                    openGenMenuModalBtn.forEach((currBtn) => 
+                    {
+                        currBtn.disabled = true;
+                    });
+                    openGenMenuModalBtnTimer = setTimeout(() => 
+                    {
+                        clearTimeout(openGenMenuModalBtnTimer);
+                        openGenMenuModalBtn.forEach((currBtn) => 
+                        {
+                            currBtn.disabled = false;
+                        });
+                    }, 500);
+
                     // Close if the same button clicked to open the menu is clicked again
                     if((currOpenGenMenuModalBtnIndex != null) && (index == currOpenGenMenuModalBtnIndex) && (genMenuModalBdr.getAttribute("aria-expanded") === "true"))
                     {
-                        hideGenMenuModal(false);
+                        hideGenMenuModal();
                     }
                     else
                     {
                         // Set to current index
                         currOpenGenMenuModalBtnIndex = index;
+
+                        // Get menu type
                         let menuType = btn.getAttribute("data-gen-menu-modal-type");
 
                         // Return if attribute is not found
@@ -2401,12 +2544,12 @@
                             genMenuModalCtntBdr.innerHTML = menu_ctnt;
 
                             // Call corresponding function to attach event listeners and display menu
-                            openGenMenuModalBtnTimer = setTimeout(() => 
+                            openGenMenuModalTimer = setTimeout(() => 
                             {
-                                clearTimeout(openGenMenuModalBtnTimer);
+                                clearTimeout(openGenMenuModalTimer);
                                 callGlobalFunctions(menu_id, event);
                                 calibrateGenMenuModal(true);
-                            }, 100);
+                            }, 1);
                         }
                     }
                 }
@@ -2419,47 +2562,58 @@
         // Calculates the dimensions and position of the menu modal
         function calibrateGenMenuModal(initCall = false)
         {
+
             // Get button genMenuModalBdrPos and size
-            let btnRect = document.querySelectorAll(".openGenMenuModalBtn")[currOpenGenMenuModalBtnIndex].getBoundingClientRect();
-            let menuHeight = genMenuModalBdr.offsetHeight;
-            let menuWidth = genMenuModalBdr.offsetWidth;
-            let winHeight = window.innerHeight;
-            let winWidth = window.innerWidth;
+            let btnNode = document.querySelectorAll(".openGenMenuModalBtn")[currOpenGenMenuModalBtnIndex];
 
-            // Calculate available spaces
-            let btnTop = Math.ceil(btnRect.top);
-            let btnBottom = Math.ceil(btnRect.bottom);
-            let btnLeft = Math.ceil(btnRect.left);
-            let btnRight = Math.ceil(btnRect.right);
-            let leftSpace;
-            let topSpace;
-
-
-            // Only change the position on larger screens (768px)
-            if(winWidth > winWidth768)
+            if((btnNode != undefined) && (btnNode != null))
             {
-                // Choose the genMenuModalBdr position
-                leftSpace = btnLeft > winWidth - menuWidth ? btnRight - menuWidth - genMenuModalDisplayThreshold : btnRight - menuWidth - genMenuModalDisplayThreshold //btnLeft + genMenuModalDisplayThreshold;
-                topSpace = btnBottom > winHeight - menuHeight ? btnTop - menuHeight - genMenuModalDisplayThreshold : btnBottom + genMenuModalDisplayThreshold;
-
-                // If the top value is less than zero i.e. top is outside viewport;
-                // set to top or bottom of viewport and re calibrate the left position
-                if(topSpace < 0)
+                let btnRect = btnNode.getBoundingClientRect();
+                let menuHeight = genMenuModalBdr.offsetHeight;
+                let menuWidth = genMenuModalBdr.offsetWidth;
+                let winHeight = window.innerHeight;
+                let winWidth = window.innerWidth;
+    
+                // Calculate available spaces
+                let btnTop = Math.ceil(btnRect.top);
+                let btnBottom = Math.ceil(btnRect.bottom);
+                let btnLeft = Math.ceil(btnRect.left);
+                let btnRight = Math.ceil(btnRect.right);
+                let leftSpace; 
+                let topSpace;
+    
+    
+                // Only change the position on larger screens (768px)
+                if(winWidth > winWidth768)
                 {
-                    topSpace = btnTop > (Math.round(winHeight / 2)) ? winHeight - menuHeight : genMenuModalDisplayThreshold;
-                    leftSpace = btnRight > winWidth - menuWidth ? btnLeft - menuWidth - genMenuModalDisplayThreshold : btnRight + genMenuModalDisplayThreshold;
+                    // Choose the genMenuModalBdr position
+                    // leftSpace = btnRight > winWidth - menuWidth ? btnLeft - menuWidth - genMenuModalDisplayThreshold : btnRight + genMenuModalDisplayThreshold;
+                    leftSpace = btnRight > winWidth - menuWidth ? btnRight - menuWidth - genMenuModalDisplayThreshold : btnRight + genMenuModalDisplayThreshold;
+                    topSpace = btnBottom > winHeight - menuHeight ? btnTop - menuHeight - genMenuModalDisplayThreshold : btnBottom + genMenuModalDisplayThreshold;
+    
+                    // If the top value is less than zero i.e. top is outside viewport;
+                    // set to top or bottom of viewport and re calibrate the left position
+                    if(topSpace < 0)
+                    {
+                        topSpace = btnTop > (Math.round(winHeight / 2)) ? winHeight - menuHeight : genMenuModalDisplayThreshold;
+                        leftSpace = btnRight > winWidth - menuWidth ? btnLeft - menuWidth - genMenuModalDisplayThreshold : btnRight + genMenuModalDisplayThreshold;
+                    }
                 }
-            }
-            else
-            {
-                // Set position values to zero if otherwise
-                leftSpace = 0;
-                topSpace = 0;
+                else
+                {
+                    // Set position values to zero if otherwise
+                    leftSpace = 0;
+                    topSpace = 0;
+                }
+    
+                // Update global variables
+                genMenuModalBtnTop = topSpace;
+                genMenuModalBtnLeft = leftSpace;
             }
 
             // Set genMenuModalBdr position and display it
-            genMenuModalBdr.style.top = `${topSpace}px`;
-            genMenuModalBdr.style.left = `${leftSpace}px`;
+            genMenuModalBdr.style.top = `${genMenuModalBtnTop}px`;
+            genMenuModalBdr.style.left = `${genMenuModalBtnLeft}px`;
 
             if(initCall == true)
             {
@@ -2515,7 +2669,7 @@
                 // && !event.target.closest(".genMenuModalBox")
             )
             {
-                hideGenMenuModal(false);
+                hideGenMenuModal();
             }
         }
 
@@ -2630,141 +2784,210 @@
             menuModalBoxH < Math.round((startGenMenuBoxHeight * 0.75)) ? hideGenMenuModal() : updateGenMenuModalBoxHeight(startGenMenuBoxHeight);
         }
 
+    
+    
+    // PROFILE
 
-
-
-    // GENERATING A RANDOM STRING VALUE OF LENGTH 16
-
-        function generateRandomString(size = 16) 
+        // Updates the selected Profile's array with it's index array map
+        function update_profArr_with_indexedArr(profArrayKey, indexedArrMap)
         {
-            const length = size;
-            var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            var result = '';
-            for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
-            return result;
+            if((selectedProfile.hasOwnProperty(profArrayKey)))
+            {
+                selectedProfile[profArrayKey] = indexedArrMap;
+            }
+            else
+            {
+                notification(`An error occurred while saving changes`);
+                console.error(`The property: ${profArr} does not exist`);
+            }
         }
     
 
 
-    // ADD TO WATCHLIST
+    // ADD TO COLLECTIONS
 
-        function attachAddToWLEventListeners()
+        function attachAddToCLEventListeners()
         {
-            let openAddToWLBtn = document.querySelectorAll(".openAddToWLBtn");
+            let openAddToCLBtn = document.querySelectorAll(".openAddToCLBtn");
 
-            openAddToWLBtn.forEach(btn => 
+            openAddToCLBtn.forEach(btn => 
             {
-                if(btn.addToWLFunc)
+                if(btn.addToCLFunc)
                 {
-                    btn.removeEventListener(`click` , btn.addToWLFunc);
+                    btn.removeEventListener(`click` , btn.addToCLFunc);
                 }
             });
 
-            openAddToWLBtn.forEach(btn => 
+            openAddToCLBtn.forEach(btn => 
             {
-                const addToWLFunc = () =>
+                const addToCLFunc = () =>
                 {
-                    const playListBdr = document.createElement("div");
-                    playListBdr.classList.add("genAtnModalBdr");
-                    playListBdr.innerHTML = addToWLHTML;
-                    documentBody.appendChild(playListBdr);
+                    const clBdr = document.createElement("div");
+                    clBdr.classList.add("genAtnModalBdr");
+                    clBdr.innerHTML = addToCLHTML;
+                    documentBody.appendChild(clBdr);
         
-                    const playListCloseBtn = document.querySelectorAll(".closeAddToWL");
-                    const playListItemBcg = document.querySelector(".addToWLItemBcg");
-                    const playListItemBox = document.querySelector(".addToWLItemBox");
-                    const playListItem = document.querySelectorAll(".plItem");
-                    const newWLBtn = document.querySelector(".newWLBtn");
-                    const newWLModal = document.querySelector(".newWLBdr");
-                    const newWLInput = document.querySelector("#newWLInputId");
-                    const newWLWarn = document.querySelector("#newWLWarnId");
-                    const createWLBtn = document.querySelector("#createNewWL");
-                    const cancelWLBtn = document.querySelector("#cancelNewWL");
+                    let clCloseBtn = document.querySelectorAll(".closeAddToCL");
+                    let clItemBcg = document.querySelector(".addToCLItemBcg");
+                    let clItemBox = document.querySelector(".addToCLItemBox");
+                    let newCLBtn = document.querySelector(".newCLBtn");
+                    let newCLModal = document.querySelector(".newCLBdr");
+                    let newCLInput = document.querySelector("#newCLInputId");
+                    let newCLWarn = document.querySelector("#newCLWarnId");
+                    let createCLBtn = document.querySelector("#createNewCL");
+                    let cancelCLBtn = document.querySelector("#cancelNewCL");
+                    let clItem;
                     let inputUppBnd = 50;
                     let inputLowBnd = 2;
                     let plArr = [];
-                    let lastWLArr;
-                    let lastWLArrLength = 0;
+                    let lastCLArr;
+                    let lastCLArrLength = 0;
                     let currLength = 0;
                     let wordCount = inputUppBnd;
 
                     // Disabling btn to prevent multiple calls
                     btn.disabled = true;
         
-                    addToWLTimer = setTimeout(() => 
+                    addToCLTimer = setTimeout(() => 
                     {
                         documentBody.setAttribute(`data-modal-state` , `open`);
-                        playListBdr.classList.add("active");
-                        clearTimeout(addToWLTimer);
+                        clBdr.classList.add("active");
+                        clearTimeout(addToCLTimer);
                     }, 100);
-        
-        
-                    playListItem.forEach(item => 
+
+                    // Fetch and display the available collections
+                    let clItemStruct = ``;
+                    for(let i = 0; i < selectedProfile.prof_collections.length; i++)
                     {
-                        const itemName = item.querySelector(".genAtnModalOptText").textContent;
+                        let item = selectedProfile.prof_collections[i];
+                        clItemStruct +=
+                        `
+                            <button data-cl-id="${item.cl_id}" class="genAtnModalOptBox plItem" title="Add to ${item.cl_name}" aria-label="add-to-cl-opt">
+                                <div class="genAtnModalOptIconBox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genAtnModalOptIconSvg">
+                                        <path d="M13 15.4c0-2.074 0-3.111.659-3.756S15.379 11 17.5 11s3.182 0 3.841.644C22 12.29 22 13.326 22 15.4v2.2c0 2.074 0 3.111-.659 3.756S19.621 22 17.5 22s-3.182 0-3.841-.644C13 20.71 13 19.674 13 17.6zM2 8.6c0 2.074 0 3.111.659 3.756S4.379 13 6.5 13s3.182 0 3.841-.644C11 11.71 11 10.674 11 8.6V6.4c0-2.074 0-3.111-.659-3.756S8.621 2 6.5 2s-3.182 0-3.841.644C2 3.29 2 4.326 2 6.4zm11-3.1c0-1.087 0-1.63.171-2.06a2.3 2.3 0 0 1 1.218-1.262C14.802 2 15.327 2 16.375 2h2.25c1.048 0 1.573 0 1.986.178c.551.236.99.69 1.218 1.262c.171.43.171.973.171 2.06s0 1.63-.171 2.06a2.3 2.3 0 0 1-1.218 1.262C20.198 9 19.673 9 18.625 9h-2.25c-1.048 0-1.573 0-1.986-.178a2.3 2.3 0 0 1-1.218-1.262C13 7.13 13 6.587 13 5.5m-11 13c0 1.087 0 1.63.171 2.06a2.3 2.3 0 0 0 1.218 1.262c.413.178.938.178 1.986.178h2.25c1.048 0 1.573 0 1.986-.178c.551-.236.99-.69 1.218-1.262c.171-.43.171-.973.171-2.06s0-1.63-.171-2.06a2.3 2.3 0 0 0-1.218-1.262C9.198 15 8.673 15 7.625 15h-2.25c-1.048 0-1.573 0-1.986.178c-.551.236-.99.69-1.218 1.262C2 16.87 2 17.413 2 18.5" />
+                                    </svg>
+                                </div>
+                                <div class="genAtnModalOptTextBox ">
+                                    <span class="genAtnModalOptText ">${item.cl_name}</span>
+                                </div>
+                            </button>
+                        `
+                    }
+                    clItemBox.insertAdjacentHTML(`beforeend` , clItemStruct);
+                    clItem = document.querySelectorAll(".plItem");
         
-                        // Setting properties
-                        item.setAttribute("data-list" , itemName);
-                        item.title = "Add to " + itemName;
-                        item.ariaLabel = "Add to " + itemName;
-        
-                        // Send notification when show is added
+                    clItem.forEach(item => 
+                    {
+                        let itemId = item.getAttribute("data-cl-id");
+                        let itemName = item.querySelector(".genAtnModalOptText").textContent;
+
                         item.addEventListener("click" , () => 
                         {
-                            notification(`notifyGood` , `Successfully added to "${itemName}"`);
+                            addShowsToCL(itemId, itemName);
                             item.disabled = true;
-                            closeAddToWL();
                         });
                     });
-        
-                    // Opens the Create playList modal
-                    newWLBtn.addEventListener("click" , () => 
-                    {
-                        playListItemBcg.scrollTo(0 , 0);
-                        newWLBtn.classList.add("inactive");
-                        newWLModal.classList.add("active");
-        
-                        newWLInput.disabled = false;
-                        cancelWLBtn.disabled = false;
 
-                        newWLInput.focus();
-                    });
-        
-        
-                    function closeNewWLModal()
+                    // Adds show to cl modal
+                    const addShowsToCL = (clId, clName) =>
                     {
-                        newWLBtn.classList.remove("inactive");
-                        newWLModal.classList.remove("active");
-                        newWLWarn.classList.remove("active");
-                        newWLWarn.classList.remove("empty");
-        
-                        newWLInput.value = "";
-                        newWLWarn.textContent = "";
-        
-                        newWLInput.disabled = true;
-                        cancelWLBtn.disabled = true;
-                        createWLBtn.disabled = true;
+                        // Filter the selected collection
+                        let clickedCL = selectedProfile.prof_collections.filter(item => item.cl_id === clId);
+
+                        // Adds a single item to that collection
+                        if(typeof genShowLinkForCL === "string")
+                        {
+                            let isShowInCL = clickedCL[0].cl_items.filter(item => item.cl_itemId === genShowLinkForCL);
+
+                            // Return if show already exists in collection
+                            if((isShowInCL.length > 0))
+                            {
+                                notification(`notifyBad` , `Show already added`);
+                            }
+                            else
+                            {
+                                // Add the show into the collection
+                                clickedCL[0].cl_items.push(
+                                    {
+                                        cl_itemId: `${genShowLinkForCL}`,
+                                    }
+                                );
+                            }
+                        }
+                        else if(Array.isArray(genShowLinkForCL))
+                        {
+                            // Adds multiple items to that collection
+                            // Only add shows that aren't in the collection
+                            for(let i = 0; i < genShowLinkForCL.length; i++)
+                            {
+                                let isShowInCL = clickedCL[0].cl_items.filter(item => item.cl_itemId === genShowLinkForCL[i].cl_itemId);
+
+                                if(isShowInCL.length == 0)
+                                {
+                                    clickedCL[0].cl_items.push(
+                                        {
+                                            cl_itemId: `${genShowLinkForCL[i].cl_itemId}`,
+                                        }
+                                    );
+                                }
+                            }
+                        }
+
+                        // Send notification when show is added
+                        notification(`notifyGood` , `Successfully added to collection`);
+
+                        // Close the modal
+                        closeAddToCL();
                     }
         
-                    // Closes the Create playList modal
-                    cancelWLBtn.addEventListener("click" , closeNewWLModal);
-    
+                    // Opens the Create cl modal
+                    newCLBtn.addEventListener("click" , () => 
+                    {
+                        clItemBcg.scrollTo(0 , 0);
+                        newCLBtn.classList.add("inactive");
+                        newCLModal.classList.add("active");
+        
+                        newCLInput.disabled = false;
+                        cancelCLBtn.disabled = false;
+
+                        newCLInput.focus();
+                    });
+        
+                    // Closes the Create cl modal
+                    function closeNewCLModal()
+                    {
+                        newCLBtn.classList.remove("inactive");
+                        newCLModal.classList.remove("active");
+                        newCLWarn.classList.remove("active");
+                        newCLWarn.classList.remove("empty");
+        
+                        newCLInput.value = "";
+                        newCLWarn.textContent = "";
+        
+                        newCLInput.disabled = true;
+                        cancelCLBtn.disabled = true;
+                        createCLBtn.disabled = true;
+                    }
+                    cancelCLBtn.addEventListener("click" , closeNewCLModal);
+
                     // checking input length
                     function getWordCount(input)
                     {
                         plArr.push(input);
-                        lastWLArr = plArr.at(-1);
-                        lastWLArr = lastWLArr.toString();
-                        lastWLArr = lastWLArr.trim().replace(/\s+/g, ' ');
-                        lastWLArrLength = lastWLArr.length;
+                        lastCLArr = plArr.at(-1);
+                        lastCLArr = lastCLArr.toString();
+                        lastCLArr = lastCLArr.trim().replace(/\s+/g, ' ');
+                        lastCLArrLength = lastCLArr.length;
         
                         // update warn label
-                        currLength = wordCount - lastWLArrLength;
-                        newWLWarn.textContent = currLength;
+                        currLength = wordCount - lastCLArrLength;
+                        newCLWarn.textContent = currLength;
     
-                        if(!(newWLWarn.classList.contains("active"))) newWLWarn.classList.add("active");
-                        newWLWarn.classList.toggle("empty" , currLength < 1);
+                        if(!(newCLWarn.classList.contains("active"))) newCLWarn.classList.add("active");
+                        newCLWarn.classList.toggle("empty" , currLength < 1);
         
-                        checkBeforeCreate(lastWLArr);
+                        checkBeforeCreate(lastCLArr);
                     }
         
                     // Check if name is valid (3 - 64 characters)
@@ -2772,81 +2995,124 @@
                     {
                         if((val.length <= inputUppBnd) && (val !== ""))
                         {
-                            createWLBtn.disabled = false;
-                            createWLBtn.classList.replace("inactiveBtn" , "midSolidBtn");
+                            createCLBtn.disabled = false;
+                            createCLBtn.classList.replace("inactiveBtn" , "midSolidBtn");
                         }
                         else
                         {
-                            createWLBtn.disabled = true;
-                            createWLBtn.classList.replace("midSolidBtn" , "inactiveBtn");
+                            createCLBtn.disabled = true;
+                            createCLBtn.classList.replace("midSolidBtn" , "inactiveBtn");
                         }
                     }
         
-                    newWLInput.addEventListener("input" , () => 
+                    newCLInput.addEventListener("input" , () => 
                     {
-                        getWordCount(newWLInput.value);
+                        getWordCount(newCLInput.value);
                     });
         
                     // Creates and inserts new list
-                    function generateList(plName)
+                    function generateList(clName)
                     {
+                        let new_cl_id = generateRandomString().toLowerCase();
+
+                        // Create new collection based on typeof genShowLinkForCL
+                        if(typeof genShowLinkForCL === "string")
+                        {
+                            // For addition of single items
+                            selectedProfile.prof_collections.push(
+                                {
+                                    cl_id: `${new_cl_id}`,
+                                    cl_name: `${clName}`,
+                                    cl_updated: `${getCurrDate()}`,
+                                    cl_bcg: `/images/uvid-green-bcg1-light.jpg`,
+                                    cl_desc: `No description`,
+                                    cl_items: 
+                                    [
+                                        {
+                                            cl_itemId: `${genShowLinkForCL}`,
+                                        },
+                                    ],
+                                }
+                            );
+                            console.log("item added to CL is a string");
+                        }
+                        else if(Array.isArray(genShowLinkForCL))
+                        {
+                            // For addition of multiple items at once
+                            selectedProfile.prof_collections.push(
+                                {
+                                    cl_id: `${new_cl_id}`,
+                                    cl_name: `${clName}`,
+                                    cl_updated: `${getCurrDate()}`,
+                                    cl_bcg: `/images/uvid-green-bcg1-light.jpg`,
+                                    cl_desc: `No description`,
+                                    cl_items: genShowLinkForCL,
+                                }
+                            );
+                            console.log("item added to CL is an array");
+                        }
+
+                        // Append the new option set to disabled
                         let newListHTML = 
                         `
-                            <button data-list="${plName}" class="genAtnModalOptBox plItem" title="Add to ${plName}" aria-label="Add to ${plName}">
+                            <button data-cl-id="${new_cl_id}" class="genAtnModalOptBox plItem" title="Add to ${clName}" aria-label="add-to-cl-opt" disabled>
                                 <div class="genAtnModalOptIconBox">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genAtnModalOptIcon">
-                                        <path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4s2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12s-2.227-.397-4.213-1.191z" />
-                                        <path fill-rule="evenodd" d="M2 8c0 .494.993.89 2.979 1.685l2.808 1.124C9.773 11.603 10.767 12 12 12s2.227-.397 4.213-1.191l2.808-1.124C21.007 8.891 22 8.494 22 8s-.993-.89-2.979-1.685l-2.808-1.123C14.227 4.397 13.233 4 12 4s-2.227.397-4.213 1.192L4.98 6.315C2.993 7.109 2 7.506 2 8" clip-rule="evenodd" />
-                                        <path d="m19.021 13.685l-2.808 1.124C14.227 15.603 13.233 16 12 16s-2.227-.397-4.213-1.191L4.98 13.685C2.993 12.891 2 12.493 2 12c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 12.535 10.572 13 12 13s2.59-.465 4.439-1.205l3.14-1.256C21.194 11.189 22 11.555 22 12c0 .493-.993.89-2.979 1.685" />
-                                        <path d="m19.021 17.685l-2.808 1.123C14.227 19.603 13.233 20 12 20s-2.227-.397-4.213-1.192L4.98 17.685C2.993 16.89 2 16.493 2 16c0-.445.807-.812 2.42-1.461l3.141 1.256C9.411 16.535 10.572 17 12 17s2.59-.465 4.439-1.205l3.14-1.256c1.614.65 2.421 1.016 2.421 1.46c0 .494-.993.891-2.979 1.686" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genAtnModalOptIconSvg">
+                                        <path d="M13 15.4c0-2.074 0-3.111.659-3.756S15.379 11 17.5 11s3.182 0 3.841.644C22 12.29 22 13.326 22 15.4v2.2c0 2.074 0 3.111-.659 3.756S19.621 22 17.5 22s-3.182 0-3.841-.644C13 20.71 13 19.674 13 17.6zM2 8.6c0 2.074 0 3.111.659 3.756S4.379 13 6.5 13s3.182 0 3.841-.644C11 11.71 11 10.674 11 8.6V6.4c0-2.074 0-3.111-.659-3.756S8.621 2 6.5 2s-3.182 0-3.841.644C2 3.29 2 4.326 2 6.4zm11-3.1c0-1.087 0-1.63.171-2.06a2.3 2.3 0 0 1 1.218-1.262C14.802 2 15.327 2 16.375 2h2.25c1.048 0 1.573 0 1.986.178c.551.236.99.69 1.218 1.262c.171.43.171.973.171 2.06s0 1.63-.171 2.06a2.3 2.3 0 0 1-1.218 1.262C20.198 9 19.673 9 18.625 9h-2.25c-1.048 0-1.573 0-1.986-.178a2.3 2.3 0 0 1-1.218-1.262C13 7.13 13 6.587 13 5.5m-11 13c0 1.087 0 1.63.171 2.06a2.3 2.3 0 0 0 1.218 1.262c.413.178.938.178 1.986.178h2.25c1.048 0 1.573 0 1.986-.178c.551-.236.99-.69 1.218-1.262c.171-.43.171-.973.171-2.06s0-1.63-.171-2.06a2.3 2.3 0 0 0-1.218-1.262C9.198 15 8.673 15 7.625 15h-2.25c-1.048 0-1.573 0-1.986.178c-.551.236-.99.69-1.218 1.262C2 16.87 2 17.413 2 18.5" />
                                     </svg>
                                 </div>
                                 <div class="genAtnModalOptTextBox ">
-                                    <span class="genAtnModalOptText ">${plName}</span>
+                                    <span class="genAtnModalOptText ">${clName}</span>
                                 </div>
                             </button>
                         `;
-                        playListItemBox.insertAdjacentHTML("beforeend" , newListHTML);
-                        notification(`notifyGood` , `Successfully added to "${plName}"`);
+                        clItemBox.insertAdjacentHTML("beforeend" , newListHTML);
+
+                        // Notify user of change
+                        notification(`notifyGood` , `Successfully added to "${clName}"`);
                         
-                        closeNewWLModal();
+                        // Close the Create modal
+                        closeNewCLModal();
+
+                        // Close the Add to CL modal
+                        closeAddToCL();
                     }
         
-                    createWLBtn.addEventListener("click" , () => 
+                    createCLBtn.addEventListener("click" , () => 
                     {
-                        generateList(newWLInput.value);
+                        generateList(newCLInput.value);
                     });
 
                     // Create list by pressing the "Enter" key
-                    newWLInput.addEventListener("keyup" , (e) => 
+                    newCLInput.addEventListener("keyup" , (e) => 
                     {
                         if((e.key === "Enter"))
                         {
-                            createWLBtn.click();
+                            createCLBtn.click();
                         }
                     });
         
         
-                    // Closes the Playlist modal
-                    function closeAddToWL()
+                    // Closes the modal
+                    function closeAddToCL()
                     {
-                        playListBdr.classList.remove("active");
-                        playListBdr.addEventListener("transitionend" , function handleTransitionEnd()
+                        clBdr.classList.remove("active");
+                        clBdr.addEventListener("transitionend" , function handleTransitionEnd()
                         {
-                            playListBdr.removeEventListener("transitionend" , handleTransitionEnd);
-                            documentBody.removeChild(playListBdr);
+                            clBdr.removeEventListener("transitionend" , handleTransitionEnd);
+                            documentBody.removeChild(clBdr);
                             documentBody.removeAttribute(`data-modal-state`);
                             btn.disabled = false;
                         });
                     }
         
-                    playListCloseBtn.forEach(one => 
+                    clCloseBtn.forEach(one => 
                     {
-                        one.addEventListener("mousedown" , closeAddToWL);
+                        one.addEventListener("mousedown" , closeAddToCL);
                     });
                 }
-                btn.addEventListener("click" , addToWLFunc);
-                btn.addToWLFunc = addToWLFunc;
+                btn.addEventListener("click" , addToCLFunc);
+                btn.addToCLFunc = addToCLFunc;
             });
         }
 
@@ -2891,7 +3157,7 @@
             shareShowBtn.forEach((btn) => 
             {
                 // Fallback called if "navigator.share" is not supported
-                function customSclShareModal()
+                const customSclShareModal = () =>
                 {
                     let socialShareLink = encodeURI(window.location.href);
                     let socialShareTitle = encodeURIComponent(documentTitle);
@@ -2918,8 +3184,8 @@
                     let lnLink = `https://line.me/R/msg/text/?${socialShareLink}`;
                     let okLink = `https://connect.ok.ru/dk?st.cmd=WidgetSharePreview&st.shareUrl=${socialShareLink}&title=${socialShareTitle}`;
                     let vkLink = `https://vk.com/share.php?url=${socialShareLink}`;
-                    let emLink = `mailto:%7Bemail_address%7D?subject=${socialShareLink}&body=${socialShareTitle}%20`;
                     let gmLink = `https://mail.google.com/mail/?view=cm&to=%7Bemail_address%7D&su=${socialShareTitle}&body=${socialShareLink}&bcc=%7Bemail_address%7D&cc=%7Bemail_address%7D`;
+                    let emLink = `mailto:%7Bemail_address%7D?subject=${socialShareLink}&body=${socialShareTitle}%20`;
 
 
                     btn.addEventListener("click" , () => 
@@ -2987,14 +3253,17 @@
                             case "vkontakte":
                                 window.open(`${vkLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
                                 break;
-                            case "email":
-                                window.open(`${emLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
-                                break;
                             case "gmail":
                                 window.open(`${gmLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
                                 break;
+                            case "email":
+                                window.open(`${emLink}`, "_blank" , `height=${socialDestinationH}, width=${socialDestinationW}`);
+                                break;
+                            case "navigatorsharemodal":
+                                navigatorSclShareModal();
+                                break;
                             default:
-                                alert("An error occured");
+                                notification(`notifyBad` , "An error occured while sharing");
                                 break;
                         }
                     }
@@ -3043,7 +3312,7 @@
                     }
                     else
                     {
-                        customSclShareModal();
+                        notification(`notifyBad`, `None found`);
                     }
                 }
 
