@@ -1024,8 +1024,8 @@
 
         function startApplication()
         {
-            // Confirm before refresh
-            window.addEventListener("beforeunload" , b4UnloadHandler);
+            // Confirm before refresh (Annoying)
+            // window.addEventListener("beforeunload" , b4UnloadHandler);
             
             // Insert the NavBars
             // topNavBar.insertAdjacentHTML(`afterbegin` , topNavBarStruct);
