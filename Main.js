@@ -1002,7 +1002,7 @@
 
     // VERIFICATION
 
-        // Check if user signed in. If not, redirect to landing page
+        // Check if user signed in. If not, redirect to landing page (Locally done)
         function getSignedInUser() 
         {
             const user = JSON.parse(localStorage.getItem('uvidSignedInUser'));
