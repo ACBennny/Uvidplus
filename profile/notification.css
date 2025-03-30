@@ -1,0 +1,340 @@
+/*************************************************************
+ * This is the style for the MyList Notification pages
+ * 
+ * @author (Anyanwu Benedict Chukwuemeka)
+ * @version (v0.01)
+ *************************************************************/
+
+
+
+html:root
+{
+    --notification_thumbnail_width: 100px;
+    --notification_thumbnail_height: 150px;
+    --notification_SubTopic_margin: 10px;
+}
+
+
+
+.ntfy_base
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: #00000099;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: all 300ms ease-in-out;
+    z-index: 115;
+}
+
+.ntfy_base.active
+{
+    opacity: 1;
+    visibility: visible;
+}
+
+.ntfy_base .ntfy_bcg
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    z-index: -1;
+}
+
+.ntfy_base .ntfy_bdr
+{
+    width: 100%;
+    max-width: 700px;
+    height: 0;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #111111;
+    overflow: hidden;
+    transition: all 300ms ease-in-out;
+}
+
+.ntfy_base.active .ntfy_bdr
+{
+    height: calc((100% - var(--dlMdlBdrH)));
+}
+
+.ntfy_bdr .ntfy_box
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden auto;
+}
+
+.ntfy_box .ntfy_hdr_bdr
+{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    margin-bottom: 16px;
+    background-color: #111111;
+    z-index: 10;
+}
+
+.ntfy_hdr_bdr .ntfy_hdr_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: var(--dlMdl_pd) var(--dlMdl_pd) 0;
+    border-bottom: 1px solid #ffffff20;
+}
+
+.ntfy_hdr_box .ntfy_hdr_TitleBdr
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* padding: var(--dlMdl_pd) var(--dlMdl_pd); */
+}
+
+.ntfy_hdr_TitleBdr .ntfy_hdr_TitleBox
+{
+    padding-left: 10px;
+}
+
+.ntfy_hdr_TitleBox .ntfy_hdr_TitleText
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 18px;
+}
+
+.ntfy_hdr_box .ntfy_hdr_atnBdr
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    margin: 10px 0;
+    gap: 5px;
+}
+
+.ntfy_hdr_atnBdr .clear_ntfy_half
+{
+    display: none;
+}
+
+.ntfy_ctnt_bdr
+{
+    width: 100%;
+}
+
+.ntfy_ctnt_bdr .ntfy_ctnt_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 var(--genBorderSpacing);
+}
+
+.ntfy_ctnt_box .notification_card_bdr
+{
+    width: 100%;
+    margin-bottom: 20px;
+    transition: all 300ms ease-in-out;
+    overflow: hidden;
+}
+
+.notification_card_bdr:active
+{
+    border-radius: 10px;
+    background-color: #171717;
+}
+
+.notification_card_bdr[data-read-status="read"]
+{
+    filter: brightness(0.5);
+}
+
+.notification_card_bdr .notification_card_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.notification_card_box .notification_thumbnail_bdr
+{
+    width: var(--notification_thumbnail_width);
+    height: var(--notification_thumbnail_height);
+}
+
+.notification_thumbnail_bdr .notification_thumbnail_box
+{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.notification_thumbnail_box .notification_thumbnail_img
+{
+    width: clamp(100% , 100% , 100%);
+    height: clamp(100% , 100% , 100%);
+    object-fit: cover;
+    object-position: center;
+}
+
+.notification_card_box .notification_detail_bdr
+{
+    width: calc(100% - var(--notification_thumbnail_width));
+    height: 100%;
+    margin-left: 10px;
+}
+
+.notification_detail_bdr .notification_detail_box
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.notification_detail_box .notification_MainTopic_bdr
+{
+    width: 100%;
+}
+
+.notification_MainTopic_bdr .notification_MainTopic_box
+{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+}
+
+.notification_MainTopic_box .notification_MainTopic_text
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    color: var(--genWhiteTypeLight);
+    font-size: 18px;
+    text-align: left;
+}
+
+.notification_detail_box .notification_SubTopic_bdr
+{
+    width: 100%;
+    margin: var(--notification_SubTopic_margin) 0;
+}
+
+.notification_SubTopic_bdr .notification_SubTopic_box
+{
+    width: 100%;
+}
+
+.notification_SubTopic_box .notification_SubTopic_text
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    color: var(--genWhiteTypeMid);
+    font-size: 14px;
+    text-align: left;
+}
+
+.notification_detail_box .notification_action_bdr
+{
+    width: 100%;
+}
+
+.notification_action_bdr .notification_action_box
+{
+    width: 100%;
+}
+
+.notification_action_box .notification_action_text
+{
+    font-family: 'Poppins' , sans-serif;
+    color: var(--genGreenTypeMid);
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all 300ms ease-in-out;
+}
+
+.notification_action_text:active
+{
+    color: var(--genGreenTypeLight);
+}
+
+
+
+
+@media(hover: hover)
+{
+
+    .notification_card_bdr:hover
+    {
+        border-radius: 10px;
+        background-color: #171717;
+    }
+
+    .notification_action_text:hover
+    {
+        color: var(--genGreenTypeLight);
+    }
+}
+
+
+
+
+
+
+
+/* ================== RESPONSIVENESS ================ */
+
+@media only screen and (max-width: 565px)
+{
+    html:root
+    {
+        --notification_thumbnail_width: 85px;
+        --notification_SubTopic_margin: 7px;
+    }
+
+    .ntfy_hdr_atnBdr .clear_ntfy_full
+    {
+        display: none;
+    }
+
+    .ntfy_hdr_atnBdr .clear_ntfy_half
+    {
+        display: flex;
+    }
+
+    .notification_MainTopic_box .notification_MainTopic_text
+    {
+        font-size: 18px;
+    }
+
+    .notification_SubTopic_box .notification_SubTopic_text
+    {
+        font-size: 13px;
+    }
+
+    .notification_action_box .notification_action_text
+    {
+        font-size: 13px;
+    }
+}
+ 
