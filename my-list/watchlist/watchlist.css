@@ -1,0 +1,1474 @@
+/*************************************************************
+ * This is the style for the MyList Watchlist pages
+ * 
+ * @author (Anyanwu Benedict Chukwuemeka)
+ * @version (v0.01)
+ *************************************************************/
+
+html:root
+{
+    --myListWLCatalogItemWidth: 225px;
+    --myListWLCatalogItemStackLvlBdrRad: 10px;
+    --myListWLCatalogItemDetPadding: 10px;
+    --wlModalBorderSpacing: 0px;
+    --wlModalBaseCloseHeight: 20px;
+    --wlModalBaseCloseMargin: 15px;
+    --wlModalSectMaxWidth: 70vw;
+    --wlModalHeadBdrHeight: 300px;
+    --wlModalHeadBoxHeight: 250px;
+    --wlModalHeadThumbWidth: 340px;
+    --wlModalHeadThumbHeight: 190px;
+    --wlModalActionIconBaseWidth: 50px;
+    --wlModalActionIconBtnSize: 40px;
+    --wlModalActionIconSvgSize: 16px;
+    --wlModalActionIconSvgFill: var(--genWhiteTypeLight);
+    --wlModalActionMenuSvgSize: 18px;
+    --wlModalActionMenuSvgFill: var(--genWhiteTypeMid);
+    --wlModalHeader_DetInfo_TagsCountIconSize: 16px;
+    --wlModalGrid_CardHandleBdrWidth: 40px;
+    --wlModalGrid_CardCtntThumbWidth: 225px;
+    --wlModalGrid_CardCtntThumbHeight: 125px;
+    --wlModalGrid_CardCtnt_DetTagSectIconSize: 14px;
+    --wlModalGrid_CardCtnt_DetTagSectIconFill: var(--genGreenTypeMid);
+}
+
+
+.myListWLCatalogBdr
+{
+    width: 100%;
+}
+
+.myListWLCatalogBdr .myListWLCatalogBox
+{
+    width: 100%;
+}
+
+.myListWLCatalogBox .myListWLCatalogGrid
+{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--myListWLCatalogItemWidth), 1fr));
+    grid-template-rows: auto;
+    justify-items: center;
+    gap: 15px;
+    transition: 100ms;
+}
+
+.myListWLCatalogGrid .myListWLCatalog_ItemBase
+{
+    margin-bottom: 20px;
+}
+
+.myListWLCatalog_ItemBase .myListWLCatalog_ItemBdr
+{
+    width: 100%;
+}
+
+.myListWLCatalog_ItemBdr .myListWLCatalog_ItemBox
+{
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    max-height: 200px;
+}
+
+
+/* ---------- The Watchlist Thumbnail ------ */
+.myListWLCatalog_ItemBox .myListWLCatalog_ItemStackBdr
+{
+    width: 100%;
+    z-index: 1;
+}
+
+.myListWLCatalog_ItemStackBdr .myListWLCatalog_ItemStackBox
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16/9;
+}
+
+.myListWLCatalog_ItemStackBox .myListWLCatalog_ItemStackLvlAll
+{
+    border-radius: var(--myListWLCatalogItemStackLvlBdrRad);
+    border: 1px solid #000000;
+}
+
+.myListWLCatalog_ItemStackBox .myListWLCatalog_ItemStackLvl3
+{
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    right: 10px;
+    width: calc((100% - 20px));
+    height: 100%;
+    background-color: #404040;
+}
+
+.myListWLCatalog_ItemStackBox .myListWLCatalog_ItemStackLvl2
+{
+    position: absolute;
+    top: -5px;
+    left: 5px;
+    right: 5px;
+    width: calc((100% - 10px));
+    height: 100%;
+    background-color: #666666;
+}
+
+.myListWLCatalog_ItemStackBox .myListWLCatalog_ItemStackLvl1
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: var(--genGreenTypeMid);
+    overflow: hidden;
+}
+
+.myListWLCatalog_ItemStackLvl1 .myListWLCatalog_ItemThumbBdr
+{
+    width: 100%;
+    height: 100%;
+}
+
+.myListWLCatalog_ItemThumbBdr .myListWLCatalog_ItemThumbBox
+{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.myListWLCatalog_ItemThumbBox .myListWLCatalog_ItemThumbImg
+{
+    width: clamp(100% , 100% , 100%);
+    height: clamp(100% , 100% , 100%);
+    object-fit: cover;
+    object-position: center;
+}
+
+
+/* ---------- The Watchlist Info ------ */
+.myListWLCatalog_ItemBox .myListWLCatalog_ItemDetBase
+{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+.myListWLCatalog_ItemDetBase .myListWLCatalog_ItemDetBdr
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    background-color: #00000065;
+    transition: all 300ms ease-in-out;
+}
+
+.myListWLCatalog_ItemBox:active .myListWLCatalog_ItemDetBdr
+{
+    background-color: #00000099;
+}
+
+.myListWLCatalog_ItemDetBdr .myListWLCatalog_ItemDetBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: var(--myListWLCatalogItemDetPadding);
+    background: linear-gradient(to top, #000000, #000000de, #000000be, #00000099, #00000000);
+}
+
+.myListWLCatalog_ItemDetBox .myListWLCatalog_ItemDetMajorBox
+{
+    width: 100%;
+}
+
+.myListWLCatalog_ItemDetMajorBox .myListWLCatalog_ItemDetMajorText
+{
+    --myListWLCatalogItemDetTitleTextNo: 1;
+    --myListWLCatalogItemDetTitleTextH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--myListWLCatalogItemDetTitleTextNo);
+    -webkit-box-orient: vertical;
+    line-clamp:  var(--myListWLCatalogItemDetTitleTextNo);
+    display: -webkit-box;
+    max-height: calc(var(--myListWLCatalogItemDetTitleTextNo) * 1em * var(--myListWLCatalogItemDetTitleTextH));
+    line-height: var(--myListWLCatalogItemDetTitleTextH);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    color: var(--genWhiteTypeLight);
+    font-size: 14px;
+    font-family: 'Poppins' , sans-serif;
+    font-weight: 600;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+.myListWLCatalog_ItemDetBox .myListWLCatalog_ItemDetMinorBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.myListWLCatalog_ItemDetMinorBox .myListWLCatalog_ItemDetMinorIcon
+{
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+}
+
+.myListWLCatalog_ItemDetMinorIcon .myListWLCatalog_ItemDetMinorSvg
+{
+    width: clamp(100% , 100% , 100%);
+    height: clamp(100% , 100% , 100%);
+    fill: var(--genGreenTypeMid);
+}
+
+.myListWLCatalog_ItemDetMinorBox .myListWLCatalog_ItemDetMinorText
+{
+    font-size: 12px;
+    color: var(--genWhiteTypeMid);
+}
+
+
+
+/* ------- Open Watch List ------ */
+.myListWLCatalog_ItemBox .myListWLCatalog_ItemOpenWLBdr
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+}
+
+.myListWLCatalog_ItemOpenWLBdr .myListWLCatalog_ItemOpenWLBtn
+{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    background-color: #00000000;
+    cursor: pointer;
+}
+
+
+
+
+/* --------- Deletes Watchlist ---------- */
+.myListWLCatalog_ItemBox .myListWLCatalog_ItemBadgeBdr
+{
+    position: absolute;
+    top: var(--myListWLCatalogItemDetPadding);
+    right: var(--myListWLCatalogItemDetPadding);
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    z-index: 7;
+    cursor: pointer;
+    display: none;
+}
+
+.myListWLCatalog_ItemBadgeBdr .myListWLCatalog_ItemBadgeBox
+{
+    width: 100%;
+    height: 100%;
+}
+
+.myListWLCatalog_ItemBadgeBox .myListWLCatalog_ItemBadgeIcon
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #00000099;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 300ms ease-in-out;
+}
+
+.myListWLCatalog_ItemBox:active .myListWLCatalog_ItemBadgeIcon
+{
+    opacity: 1;
+    visibility: visible;
+}
+
+.myListWLCatalog_ItemBadgeIcon .myListWLCatalog_ItemBadgeSvg
+{
+    width: 18px;
+    height: 18px;
+    fill: var(--genWhiteTypeMid);
+    transition: all 300ms ease-in-out;
+}
+
+.myListWLCatalog_ItemBadgeBdr:active .myListWLCatalog_ItemBadgeSvg
+{
+    fill: var(--genGreenTypeLight);
+}
+
+
+
+
+
+
+
+/* --------- Gen Action button --------- */
+
+.wlModalActionFence
+{
+    width: var(--wlModalActionIconBaseWidth);
+    height: 100%;
+}
+
+.wlModalActionFence.wlModalAction_HeaderFence
+{
+    display: block;
+}
+
+.wlModalActionFence .wlModalActionBase
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wlModalActionBase .wlModalActionBdr
+{
+    width: var(--wlModalActionIconBtnSize);
+    height: var(--wlModalActionIconBtnSize);
+}
+
+.wlModalActionBase .wlModalActionBox
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.wlModalActionBox .wlModalActionBtn
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: none;
+    background-color: #00000000;
+    border-radius: 50%;
+    transition: all 150ms ease-in-out;
+    cursor: pointer;
+}
+
+.wlModalActionBtn:active 
+{
+    --wlModalActionIconSvgFill: var(--genGreenTypeLight);
+    background-color: #ffffff20;
+}
+
+.wlModalActionBtn .wlModalActionBtnIcon
+{
+    width: var(--wlModalActionIconSvgSize);
+    height: var(--wlModalActionIconSvgSize);
+}
+
+.wlModalActionBtnIcon .wlModalActionBtnSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--wlModalActionIconSvgFill);
+    transition: all 150ms ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+/* ============= WATCHLIST MODAL ============ */
+.wlModalBase
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    /* transform: scale(0.75); */
+    transform: translateY(100%);
+    transition: all 150ms ease-in-out;
+    z-index: 125;
+}
+
+.wlModalBase.active
+{
+    opacity: 1;
+    visibility: visible;
+    /* transform: scale(1.00); */
+    transform: translateY(0%);
+    transition: all 300ms ease-in-out;
+}
+
+.wlModalBase .wlModalBdr
+{
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+}
+
+.wlModalBdr .wlModalBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden auto;
+    scroll-behavior: smooth;
+}
+
+body[gen-menu-modal-is-dragging="true"] .wlModalBox
+{
+    overflow: hidden hidden !important;
+    overscroll-behavior: none none !important;
+}
+
+.wlModalBox.atnMenuOpen
+{
+    overflow: hidden hidden;
+}
+
+
+
+
+
+/* ---------- Titlebar ---------- */
+.wlModalBase .wlModalBaseBarBdr
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc((100% - var(--wlModalBoxScrollbarWidth)));
+    display: flex;
+    padding: calc((var(--wlModalBaseCloseMargin) / 3)) var(--genBorderSpacing);
+    justify-content: center;
+    background: -o-linear-gradient(to bottom, #000000ef, #00000000);
+    background: -moz-linear-gradient(to bottom, #000000ef, #00000000);
+    background: -webkit-linear-gradient(to bottom, #000000ef, #00000000);
+    background: linear-gradient(to bottom, #000000ef, #00000000);
+    z-index: 25;
+}
+
+.wlModalBaseBarBdr.sticky
+{
+    background-color: #000000;
+}
+
+.wlModalBaseBarBdr .wlModalBaseBarBox
+{
+    width: 100%;
+    max-width: var(--wlModalSectMaxWidth);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.wlModalBaseBarBdr.sticky .wlModalBaseCloseBtn
+{
+    background-color: #00000000;
+}
+
+.wlModalBaseBarBox .wlModalBaseTitleBdr
+{
+    width: calc((100% - var(--wlModalBaseCloseMargin)));
+    padding-left: 15px;
+}
+
+.wlModalBaseTitleBdr .wlModalBaseTitleBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 150ms ease-in-out;
+}
+
+.wlModalBaseBarBdr.sticky .wlModalBaseTitleBox
+{
+    opacity: 1;
+    visibility: visible;
+}
+
+.wlModalBaseTitleBox .wlModalBaseTitleText
+{
+    --wlModalBaseTitleTextNo: 1;
+    --wlModalBaseTitleTextH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--wlModalBaseTitleTextNo);
+    -webkit-box-orient: vertical;
+    line-clamp:  var(--wlModalBaseTitleTextNo);
+    display: -webkit-box;
+    max-height: calc(var(--wlModalBaseTitleTextNo) * 1em * var(--wlModalBaseTitleTextH));
+    line-height: var(--wlModalBaseTitleTextH);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    color: var(--genWhiteTypeMid2);
+    font-size: 16px;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+
+
+/* ------------ Header ----------- */
+
+.wlModalBox .wlModalHeadBase
+{
+    width: 100%;
+}
+
+.wlModalHeadBase .wlModalHeadBdr
+{
+    position: relative;
+    width: 100%;
+    min-height: calc((var(--wlModalHeadBdrHeight)));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--navBarHeight) var(--genBorderSpacing) 0;
+    margin-bottom: 25px;
+    z-index: 3;
+}
+
+.wlModalHeadBdr .wlModalHead_underlayerBdr
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.wlModalHead_underlayerBdr .wlModalHead_underlayerBox
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 3;
+}
+
+.wlModalHead_underlayerBox .wlModalHeader_BcgBdr
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -3;
+}
+
+.wlModalHeader_BcgBdr .wlModalHeader_BcgBox
+{
+    width: 100%;
+    height: 150%;
+    opacity: 0.75;
+    filter: blur(25px);
+}
+
+.wlModalHeader_BcgBox .wlModalHeader_BcgImg
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.wlModalHead_underlayerBox .wlModalHeader_Shadow
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom , #00000000 , #000000);
+    z-index: -2;
+}
+
+.wlModalHeadBdr .wlModalHeadBox
+{
+    width: 100%;
+    height: var(--wlModalHeadBoxHeight);
+    max-width: var(--wlModalSectMaxWidth);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 25px;
+    z-index: 5;
+}
+
+.wlModalHeadBox .wlModalHeader_thumbBase
+{
+    width: 100%;
+    height: 100%;
+    max-width: var(--wlModalHeadThumbWidth);
+    max-height: var(--wlModalHeadThumbHeight);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wlModalHeader_thumbBase .wlModalHeader_thumbBdr
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.wlModalHeader_thumbBdr .wlModalHeader_thumbBox
+{
+    width: 100%;
+    height: 100%;
+    background-color: #2c2c2c;
+    filter: brightness(0.75);
+    overflow: hidden;
+}
+
+.wlModalHeader_thumbBox .wlModalHeader_thumbImg
+{
+    width: clamp(100% , 100% , 100%);
+    height: clamp(100% , 100% , 100%);
+    object-fit: cover;
+    object-position: center;
+}
+
+.wlModalHeadBox .wlModalHeader_DetBdr
+{
+    width: calc((100% - var(--wlModalHeadThumbWidth)));
+    height: 100%;
+    padding-left: 15px;
+}
+
+.wlModalHeader_DetBdr .wlModalHeader_DetBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.wlModalHeader_DetBox .wlModalHeader_DetInfoBdr
+{
+    width: 100%;
+    height: 100%;
+}
+
+.wlModalHeader_DetInfoBdr .wlModalHeader_DetInfoBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wlModalHeader_DetInfoBox .wlModalHeader_DetInfo_TitleBox
+{
+    width: 100%;
+}
+
+.wlModalHeader_DetInfo_TitleBox .wlModalHeader_DetInfo_TitleText
+{
+    --wlModalHeader_DetInfo_TitleTextNo: 2;
+    --wlModalHeader_DetInfo_TitleTextH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--wlModalHeader_DetInfo_TitleTextNo);
+    -webkit-box-orient: vertical;
+    line-clamp:  var(--wlModalHeader_DetInfo_TitleTextNo);
+    display: -webkit-box;
+    max-height: calc(var(--wlModalHeader_DetInfo_TitleTextNo) * 1em * var(--wlModalHeader_DetInfo_TitleTextH));
+    line-height: var(--wlModalHeader_DetInfo_TitleTextH);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    color: var(--genWhiteTypeLight);
+    font-size: 22px;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+.wlModalHeader_DetInfoBox .wlModalHeader_DetInfo_TagsBdr
+{
+    width: 100%;
+    margin: 12px 0;
+}
+
+.wlModalHeader_DetInfo_TagsBdr .wlModalHeader_DetInfo_TagsBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.wlModalHeader_DetInfo_TagsBox .wlModalHeader_DetInfo_TagsItem
+{
+    margin-right: 10px;
+    color: var(--genWhiteTypeMid);
+    font-size: 12px;
+}
+
+.wlModalHeader_DetInfo_TagsBox .wlModalHeader_DetInfo_TagsCount
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.wlModalHeader_DetInfo_TagsCount .wlModalHeader_DetInfo_TagsCountIcon
+{
+    width: var(--wlModalHeader_DetInfo_TagsCountIconSize);
+    height: var(--wlModalHeader_DetInfo_TagsCountIconSize);
+    margin-right: 5px;
+}
+
+.wlModalHeader_DetInfo_TagsCountIcon .wlModalHeader_DetInfo_TagsCountSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--genGreenTypeMid);
+}
+
+.wlModalHeader_DetInfo_TagsCount .wlModalHeader_DetInfo_TagsCountText,
+.wlModalHeader_DetInfo_TagsSeparator .wlModalHeader_DetInfo_TagsUpdate
+{
+    font-size: inherit;
+    color: inherit;
+}
+
+.wlModalHeader_DetInfoBox .wlModalHeader_DetInfo_DescBox
+{
+    width: 100%;
+}
+
+.wlModalHeader_DetInfo_DescBox .wlModalHeader_DetInfo_DescText
+{
+    --trendingDetTitleTextNo: 1;
+    --trendingDetTitleTextH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--trendingDetTitleTextNo);
+    -webkit-box-orient: vertical;
+    line-clamp:  var(--trendingDetTitleTextNo);
+    display: -webkit-box;
+    max-height: calc(var(--trendingDetTitleTextNo) * 1em * var(--trendingDetTitleTextH));
+    line-height: var(--trendingDetTitleTextH);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    color: var(--genWhiteTypeMid);
+    font-size: 13px;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+
+.wlModalHeader_DetInfoBox .wlModalHeader_DetInfo_MoreBdr
+{
+    width: 100%;
+    margin-top: 0px;
+}
+
+.wlModalHeader_DetInfo_MoreBdr .wlModalHeader_DetInfo_MoreBtn
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: none;
+    background-color: #00000000;
+    cursor: pointer;
+}
+
+.wlModalHeader_DetInfo_MoreBtn .wlModalHeader_DetInfo_MoreText
+{
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--genWhiteTypeMid);
+}
+
+.wlModalHeader_ActionBdr
+{
+    width: 100%;
+    margin-top: 12px;
+}
+
+.wlModalHeader_ActionBdr .wlModalHeader_ActionBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* --------- Wl Modal Body ---------- */
+.wlModalBox .wlModalCtntBase
+{
+    width: 100%;
+}
+
+.wlModalCtntBase .wlModalCtntBdr
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 var(--genBorderSpacing);
+}
+
+.wlModalCtntBdr .wlModalCtntBox
+{
+    width: 100%;
+    max-width: var(--wlModalSectMaxWidth);
+    display: flex;
+    flex-direction: column;
+}
+
+.wlModalCtntBox .wlModalCtnt_sortBdr
+{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #000000;
+    z-index: 10;
+}
+
+.wlModalCtnt_sortBdr .wlModalCtnt_sortBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc((var(--wlModalBaseCloseHeight) + (var(--wlModalBaseCloseMargin) * 2.5))) 0 var(--wlModalBaseCloseMargin);
+}
+
+.wlModalCtnt_sortBox .wlModalCtnt_sortStatusBdr
+{
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.wlModalCtnt_sortStatusBdr .wlModalCtnt_sortStatusBox
+{
+    width: 100%;
+    height: 100%;
+}
+
+.wlModalCtnt_sortStatusBox .wlModalCtnt_sortStatusText
+{
+    display: flex;
+    flex-direction: row;
+    font-family: 'Poppins' , sans-serif;
+    font-size: 15px;
+}
+
+.wlModalCtnt_sortStatusText .status_type
+{
+    color: var(--genWhiteTypeMid);
+}
+
+.wlModalCtnt_sortStatusText .status_divider
+{
+    margin: 0 7px;
+    color: var(--genWhiteTypeMid);
+}
+
+.wlModalCtnt_sortStatusText .status_order
+{
+    color: var(--genGreenTypeMid);
+}
+
+
+.wlModalCtnt_sortBox .wlModalCtnt_sortFilterBdr
+{
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.wlModalCtnt_sortFilterBdr .wlModalCtnt_sortFilterBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.wlModalCtntBox .wlModalGridBase
+{
+    width: 100%;
+}
+
+.wlModalGridBase .wlModalGridBdr
+{
+    width: 100%;
+}
+
+.wlModalGridBdr .wlModalGridBox
+{
+    width: 100%;
+    padding-bottom: 25px;
+}
+
+.wlModalGrid_CardBdr
+{
+    width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px 0;
+    border-radius: 15px;
+    background-color: #00000000;
+    list-style: none;
+    overflow: hidden;
+    transition: all 300ms ease-in-out;
+}
+
+.wlModalGrid_CardBdr.active
+{
+    display: block;
+}
+
+.wlModalGrid_CardBdr.notShowStatusMatch,
+.wlModalGrid_CardBdr.notShowTypeMatch
+{
+    display: none;
+}
+
+.wlModalGrid_CardBdr .wlModalGrid_CardBox
+{
+    width: 100%;
+    height: var(--wlModalGrid_CardCtntThumbHeight);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.wlModalGrid_CardBox .wlModalGrid_CardHandleBdr
+{
+    width: var(--wlModalGrid_CardHandleBdrWidth);
+    height: 100%;
+}
+
+.wlModalGridBox[data-sort-handle-visibility="false"]
+.wlModalGrid_CardHandleBdr
+{
+    display: none;
+}
+
+.wlModalGrid_CardHandleBdr .wlModalGrid_CardHandleBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: grab;
+}
+
+.wlModalGrid_CardHandleBox .wlModalGrid_CardHandleIcon
+{
+    width: 20px;
+    height: 20px;
+}
+
+.wlModalGrid_CardHandleIcon .wlModalGrid_CardHandleSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--genWhiteTypeMid);
+}
+
+.wlModalGrid_CardBox .wlModalGrid_CardRankBdr
+{
+    width: var(--wlModalGrid_CardHandleBdrWidth);
+    height: 100%;
+    display: none;
+}
+
+.wlModalGridBox[data-sort-handle-visibility="false"]
+.wlModalGrid_CardRankBdr
+{
+    display: block;
+}
+
+.wlModalGrid_CardBox .wlModalGrid_CardRankBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wlModalGrid_CardRankBox .wlModalGrid_CardRankNo
+{
+    font-size: 14px;
+    color: var(--genWhiteTypeMid2);
+}
+
+
+
+.wlModalGrid_CardBox .wlModalGrid_CardCtntBdr
+{
+    width: calc((100% - (var(--wlModalGrid_CardHandleBdrWidth) + var(--wlModalActionIconBaseWidth))));
+    height: 100%;
+}
+
+.wlModalGrid_CardCtntBdr .wlModalGrid_CardCtntBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.wlModalGrid_CardCtntBox .wlModalGrid_CardCtntThumbBdr
+{
+    width: var(--wlModalGrid_CardCtntThumbWidth);
+    height: 100%;
+}
+
+.wlModalGrid_CardCtntThumbBdr .wlModalGrid_CardCtntThumbBox
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #2c2c2c;
+    filter: brightness(0.75);
+    overflow: hidden;
+}
+
+.wlModalGrid_CardCtntThumbBox .wlModalGrid_CardCtntThumbImg
+{
+    width: clamp(100% , 100% , 100%);
+    height: clamp(100% , 100% , 100%);
+    object-fit: cover;
+    object-position: center;
+}
+
+.wlModalGrid_CardCtntThumbImg.img_large
+{
+    display: block;
+}
+
+.wlModalGrid_CardCtntThumbImg.img_small
+{
+    display: none;
+}
+
+.wlModalGrid_CardCtntBox .wlModalGrid_CardCtntDetBdr
+{
+    width: calc((100% - var(--wlModalGrid_CardCtntThumbWidth)));
+    padding-left: 10px;
+}
+
+.wlModalGrid_CardCtntDetBdr .wlModalGrid_CardCtntDetBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wlModalGrid_CardCtntDetBox .wlModalGrid_CardCtnt_DetTitleBox
+{
+    width: 100%;
+}
+
+.wlModalGrid_CardCtnt_DetTitleBox .wlModalGrid_CardCtnt_DetTitleText
+{
+    --wlModalGrid_CardCtnt_DetTitleTextNo: 1;
+    --wlModalGrid_CardCtnt_DetTitleTextH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--wlModalGrid_CardCtnt_DetTitleTextNo);
+    -webkit-box-orient: vertical;
+    line-clamp:  var(--wlModalGrid_CardCtnt_DetTitleTextNo);
+    display: -webkit-box;
+    max-height: calc(var(--wlModalGrid_CardCtnt_DetTitleTextNo) * 1em * var(--wlModalGrid_CardCtnt_DetTitleTextH));
+    line-height: var(--wlModalGrid_CardCtnt_DetTitleTextH);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    color: var(--genWhiteTypeLight);
+    font-size: 16px;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+.wlModalGrid_CardCtntDetBox .wlModalGrid_CardCtnt_DetTagBdr
+{
+    width: 100%;
+    margin: 10px 0;
+}
+
+.wlModalGrid_CardCtnt_DetTagBdr .wlModalGrid_CardCtnt_DetTagBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.wlModalGrid_CardCtnt_DetTagBox .wlModalGrid_CardCtnt_DetTagSectBox
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+    padding: 5px 7px;
+    border-radius: 5px;
+    background-color: var(--genGreenGradMid2);
+}
+
+.wlModalGrid_CardCtnt_DetTagSectBox .wlModalGrid_CardCtnt_DetTagSectText
+{
+    font-family: 'Poppins' , sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--genWhiteTypeMid);
+}
+
+.wlModalGrid_CardCtnt_DetTagSectBox.wlModalGrid_CardCtnt_DetTagDividerBox
+{
+    display: none;
+}
+
+.wlModalGrid_CardCtnt_DetTagScoreBox .wlModalGrid_CardCtnt_DetTagScoreIcon
+{
+    width: var(--wlModalGrid_CardCtnt_DetTagSectIconSize);
+    height: var(--wlModalGrid_CardCtnt_DetTagSectIconSize);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 3px;
+}
+
+.wlModalGrid_CardCtnt_DetTagScoreIcon .wlModalGrid_CardCtnt_DetTagScoreSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--wlModalGrid_CardCtnt_DetTagSectIconFill);
+}
+
+.wlModalGrid_CardCtntDetBox .wlModalGrid_CardCtnt_DetDescBox
+{
+    width: 100%;
+}
+
+.wlModalGrid_CardCtnt_DetDescBox .wlModalGrid_CardCtnt_DetDescText
+{
+    --wlModalGrid_CardCtnt_DetDescTextNo: 2;
+    --wlModalGrid_CardCtnt_DetDescTextH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--wlModalGrid_CardCtnt_DetDescTextNo);
+    -webkit-box-orient: vertical;
+    line-clamp:  var(--wlModalGrid_CardCtnt_DetDescTextNo);
+    display: -webkit-box;
+    max-height: calc(var(--wlModalGrid_CardCtnt_DetDescTextNo) * 1em * var(--wlModalGrid_CardCtnt_DetDescTextH));
+    line-height: var(--wlModalGrid_CardCtnt_DetDescTextH);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    color: var(--genWhiteTypeMid);
+    font-size: 13px;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+@media(hover: hover)
+{
+
+    .myListWLCatalog_ItemBox:hover .myListWLCatalog_ItemDetBdr
+    {
+        background-color: #00000099;
+    }
+
+    .myListWLCatalog_ItemBox:hover .myListWLCatalog_ItemBadgeIcon
+    {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .myListWLCatalog_ItemBadgeBdr:hover .myListWLCatalog_ItemBadgeSvg
+    {
+        fill: var(--genGreenTypeLight);
+    }
+    
+    .wlModalActionBtn:hover
+    {
+        --wlModalActionIconSvgFill: var(--genGreenTypeLight);
+    }
+
+    .wlModalGridBox .wlModalGrid_CardBdr:hover
+    {
+        background-color: #ffffff20;
+    }
+}
+
+@media(hover: none)
+{
+    .myListWLCatalog_ItemBadgeBox .myListWLCatalog_ItemBadgeIcon
+    {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+
+
+
+
+/* ============= RESPONSIVESNESS ============= */
+@media only screen and (max-width: 1200px)
+{
+    html:root
+    {
+        --wlModalSectMaxWidth: 840px;
+    }
+}
+
+@media only screen and (max-width: 768px)
+{
+    
+    html:root
+    {
+        --wlModalHeadBdrHeight: 415px;
+        --wlModalHeadBoxHeight: 250px;
+        --wlModalHeadThumbWidth: 340px;
+        --wlModalHeadThumbHeight: 190px;
+        --wlModalActionIconBaseWidth: 40px;
+        --wlModalActionIconBtnSize: 35px;
+        --wlModalActionIconSvgSize: 16px;
+        --wlModalHeader_DetInfo_TagsCountIconSize: 14px;
+        --wlModalGrid_CardCtntThumbWidth: 85px;
+    }
+
+    .wlModalHeadBdr .wlModalHeadBox
+    {
+        height: 100%;
+        flex-direction: column;
+        padding-top: 15px;
+    }
+
+    .wlModalHeadBox .wlModalHeader_thumbBase,
+    .wlModalHeadBox .wlModalHeader_DetBdr
+    {
+        width: 100%;
+        height: -moz-fit-content;
+        height: fit-content;
+    }
+
+    .wlModalHeadBox .wlModalHeader_DetBdr
+    {
+        width: 100%;
+        margin-top: 25px;
+        padding: 0;
+    }
+
+    .wlModalCtnt_sortStatusBox .wlModalCtnt_sortStatusText
+    {
+        font-size: 14px;
+    }
+
+    .wlModalGrid_CardCtntThumbImg.img_large
+    {
+        display: none;
+    }
+    
+    .wlModalGrid_CardCtntThumbImg.img_small
+    {
+        display: block;
+    }
+
+    .wlModalGrid_CardHandleBox .wlModalGrid_CardHandleIcon
+    {
+        width: 16px;
+        height: 16px;
+    }
+
+    .wlModalGrid_CardCtnt_DetTitleBox .wlModalGrid_CardCtnt_DetTitleText
+    {
+        font-size: 15px;
+    }
+}
+
+
+
+@media only screen and (max-width: 565px)
+{
+    
+    html:root
+    {
+        --wlModalHeadBdrHeight: 375px;
+        --wlModalHeadBoxHeight: 250px;
+        --wlModalHeadThumbWidth: 265px;
+        --wlModalHeadThumbHeight: 140px;
+        --wlModalActionIconBaseWidth: 40px;
+        --wlModalActionIconBtnSize: 30px;
+        --wlModalActionIconSvgSize: 14px;
+        --wlModalHeader_DetInfo_TagsCountIconSize: 14px;
+        --wlModalGrid_CardCtntThumbWidth: 75px;
+        --wlModalGrid_CardHandleBdrWidth: 30px;
+    }
+
+    .wlModalHeadBdr .wlModalHeadBox
+    {
+        height: 100%;
+        flex-direction: column;
+        padding-top: 10px;
+    }
+
+    .wlModalHeader_DetBox .wlModalHeader_DetInfoBdr
+    {
+        width: 100%;
+    }
+
+    .wlModalHeader_DetInfo_TitleBox .wlModalHeader_DetInfo_TitleText
+    {
+        font-size: 16px;
+    }
+
+    .wlModalHeader_DetInfo_TagsBox .wlModalHeader_DetInfo_TagsItem
+    {
+        font-size: 11px;
+    }
+
+    .wlModalHeader_DetInfo_DescBox .wlModalHeader_DetInfo_DescText,
+    .wlModalHeader_DetInfo_MoreBtn .wlModalHeader_DetInfo_MoreText
+    {
+        font-size: 12px;
+    }
+
+    .wlModalActionFence.wlModalAction_HeaderFence
+    {
+        display: none;
+    }
+
+    .wlModalCtnt_sortStatusBox .wlModalCtnt_sortStatusText
+    {
+        font-size: 13px;
+    }
+
+    .wlModalCtnt_sortFilterBox .myListOrderBtnBox
+    {
+        padding: 10px;
+        border-radius: 50%;
+        background-color: #00000000;
+    }
+
+    .wlModalCtnt_sortFilterBox .myListOrderBtnIcon
+    {
+        width: 20px;
+        height: 20px;
+        margin: 0;
+    }
+
+    .wlModalCtnt_sortFilterBox .myListOrderBtnText
+    {
+        display: none;
+    }
+
+    .wlModalGrid_CardRankBox .wlModalGrid_CardRankNo
+    {
+        font-size: 12px;
+    }
+
+    .wlModalGrid_CardCtnt_DetTitleBox .wlModalGrid_CardCtnt_DetTitleText
+    {
+        font-size: 14px;
+    }
+}
+
+
+
+@media only screen and (max-width: 485px)
+{
+
+    .wlModalGridBox .wlModalGrid_CardBdr
+    {
+        padding: 10px 0;
+    }
+
+    .wlModalGrid_CardCtnt_DetTitleBox .wlModalGrid_CardCtnt_DetTitleText
+    {
+        font-size: 14px;
+        --wlModalGrid_CardCtnt_DetTitleTextNo: 2;
+    }
+
+    .wlModalGrid_CardCtnt_DetTagSectBox .wlModalGrid_CardCtnt_DetTagSectText
+    {
+        font-size: 11px;
+    }
+
+    .wlModalGrid_CardCtntDetBox .wlModalGrid_CardCtnt_DetDescBox
+    {
+        display: none;
+    }
+}
+
