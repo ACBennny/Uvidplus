@@ -1,0 +1,455 @@
+/*************************************************************
+ * This is the style for the MyList pages
+ * 
+ * @author (Anyanwu Benedict Chukwuemeka)
+ * @version (v0.01)
+ *************************************************************/
+
+
+html:root
+{
+    --myListHeaderBdrHeight: 175px;
+    --myListHeaderNavLinkClr: var(--genWhiteTypeMid);
+    --myListHeaderNavLinkIconSizing: 18px;
+    --myListBodyTitleClr: var(--genWhiteTypeLight);
+    --emptyMyListPageIconSize: 50px;
+    --myListOrderBtnClr: var(--genWhiteTypeMid);
+    --myListOrderBtnBcg: var(--navMenuBcgClr);
+    --myListOrderMenuBcg: var(--genModalBcg);
+}
+
+.myListMainBdr
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.myListMainBdr .myListMainBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ============= USER HEADER ============= */
+.myListMainBox .myListHeaderBdr
+{
+    width: 100%;
+    height: var(--myListHeaderBdrHeight);
+}
+
+.myListHeaderBdr .myListHeaderBox
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+
+/* ----- Header Bcg Image ----- */
+.myListHeaderBox .myListHeaderBcgBdr
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.myListHeaderBcgBdr .myListHeaderBcgBox
+{
+    width: 100%;
+    height: 100%;
+    -webkit-filter: blur(10px) brightness(0.50);
+    filter: blur(10px) brightness(0.50);
+}
+
+.myListHeaderBcgBox .myListHeaderBcgImg
+{
+    width: clamp(100%, 100%, 100%);
+    height: clamp(100%, 100%, 100%);
+    object-position: center;
+    object-fit: cover;
+}
+
+
+/* ----- Header Det Content ----- */
+.myListHeaderBox .myListHeaderDetBdr
+{
+    width: 100%;
+    height: 100%;
+}
+
+.myListHeaderDetBdr .myListHeaderDetBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.myListHeaderDetBox .myListHeaderTitleBdr
+{
+    width: 100%;
+}
+
+.myListHeaderTitleBdr .myListHeaderTitleBox
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+}
+
+.myListHeaderTitleBox .myListHeaderTitleText
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-size: 24px;
+    color: var(--genWhiteTypeLight);
+    letter-spacing: 0.05em;
+}
+
+.myListHeaderTitleBox .myListHeaderTitleIconBox
+{
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+}
+
+.myListHeaderTitleIconBox .myListHeaderTitleIconSvg
+{
+    width: clamp(100% , 100% , 100%);
+    height: clamp(100% , 100% , 100%);
+    fill: var(--genWhiteTypeLight);
+}
+
+
+.myListHeaderDetBox .myListHeaderNavBdr
+{
+    width: 100%;
+}
+
+.myListHeaderNavBdr .myListHeaderNavBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+}
+
+.myListHeaderNavBox .myListHeaderNavLink
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 10px;
+}
+
+.myListHeaderNavLink:active
+{
+    --myListHeaderNavLinkClr: var(--genGreenTypeLight);
+}
+
+.myListHeaderNavLink.active
+{
+    --myListHeaderNavLinkClr: var(--genGreenTypeLight);
+    border-bottom: 2px solid var(--myListHeaderNavLinkClr);
+}
+
+.myListHeaderNavLink .myListHeaderNavLinkIcon
+{
+    width: var(--myListHeaderNavLinkIconSizing);
+    height: var(--myListHeaderNavLinkIconSizing);
+    fill: var(--myListHeaderNavLinkClr);
+    transition: all 300ms ease-in-out;
+}
+
+.myListHeaderNavLink .myListHeaderNavLinkText
+{
+    font-family: 'Poppins' , sans-serif;
+    font-size: 14px;
+    margin-left: 7px;
+    color: var(--myListHeaderNavLinkClr);
+    transition: all 300ms ease-in-out;
+}
+
+
+
+/* =========== USER BODY ========= */
+.myListMainBox .myListBodyBdr
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.myListBodyBdr .myListBodyBox
+{
+    width: 100%;
+    max-width: calc((var(--genMaxContainerWidth) / 1.00));
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    padding: 35px var(--genBorderSpacing);
+}
+
+.myListBodyBox .myListBodyTitleBdr
+{
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.myListBodyTitleBdr .myListBodyTitleBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+.myListBodyTitleBox .myListBodyTitleIconBox
+{
+    width: 26px;
+    height: 26px;
+}
+
+.myListBodyTitleIconBox .myListBodyTitleIconSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--myListBodyTitleClr);
+}
+
+.myListBodyTitleBox .myListBodyTitleText
+{
+    margin-left: 10px;
+    color: var(--myListBodyTitleClr);
+    font-size: 24px;
+}
+
+.myListBodyBox .myListBodyCtntBdr
+{
+    width: 100%;
+}
+
+.myListBodyCtntBdr .myListBodyCtntBox
+{
+    width: 100%;
+}
+
+.myListNavAtnBdr
+{
+    width: 100%;
+    margin: 0 0 25px;
+}
+
+.myListNavAtnBdr .myListNavAtnBox
+{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    gap: 5px;
+}
+
+.myListNavAtnBox .myListNavAtnBtn
+{
+    padding: 7px 15px;
+    color: var(--genWhiteTypeMid2);
+    font-size: 12px;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+/* ============= Empty USer Page (When ctnt cleared) ============= */
+
+.emptyMyListPageBdr
+{
+    width: 100%;
+    height: 50vh;
+}
+
+.emptyMyListPageBdr .emptyMyListPageBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.emptyMyListPageBox .emptyMyListPageCtnt
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.emptyMyListPageCtnt .emptyMyListPageIconBox
+{
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.emptyMyListPageIconBox .emptyMyListPageIconSvg
+{
+    width: clamp(var(--emptyMyListPageIconSize) , var(--emptyMyListPageIconSize) , var(--emptyMyListPageIconSize));
+    height: clamp(var(--emptyMyListPageIconSize) , var(--emptyMyListPageIconSize) , var(--emptyMyListPageIconSize));
+    fill: var(--genWhiteTypeDark);
+}
+
+.emptyMyListPageCtnt .emptyMyListPageNoteBox
+{
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.emptyMyListPageNoteBox .emptyMyListPageNoteText
+{
+    font-size: 14px;
+    color: var(--genWhiteTypeDark);
+    text-align: center;
+    margin-top: 10px;
+}
+
+.emptyMyListCreateBtn
+{
+    margin-top: 15px;
+    padding: 20px 25px;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media(hover: hover)
+{
+    .myListHeaderNavLink:hover
+    {
+        --myListHeaderNavLinkClr: var(--genGreenTypeLight);
+    }
+
+    .myListOrderBtnBdr:hover .myListOrderBtnBox
+    {
+        --myListOrderBtnClr: var(--genWhiteTypeMid);
+        --myListOrderBtnBcg: #333333;
+    }
+
+    .myListOrderOptTab:hover
+    {
+        background-color: var(--genModalOptHover);
+    }
+
+    .myListOrderOptTab:hover .myListOrderOptText
+    {
+        color: var(--genWhiteTypeMid2);
+    }
+}
+
+
+
+
+
+/* ================== RESPONSIVENESS ================ */
+
+@media only screen and (max-width: 768px)
+{
+    .myListHeaderNavBdr .myListHeaderNavBox
+    {
+        gap: 15px;
+    }
+}
+
+
+@media only screen and (max-width: 485px)
+{
+
+    html:root
+    {
+        --myListHeaderBdrHeight: 100px;
+        --myListHeaderNavLinkIconSizing: 24px;
+    }
+
+    .myListHeaderDetBox .myListHeaderTitleBdr
+    {
+        display: none;
+    }
+
+    .myListHeaderNavBdr .myListHeaderNavBox
+    {
+        gap: 32px;
+    }
+
+    .myListHeaderNavLink .myListHeaderNavLinkText
+    {
+        display: none;
+    }
+
+    .myListBodyTitleBdr .myListBodyTitleBox
+    {
+        justify-content: center;
+    }
+
+    .myListNavAtnBdr
+    {
+        margin: 25px 0;
+    }
+
+    .myListNavAtnBdr .myListNavAtnBox
+    {
+        justify-content: center;
+    }
+}
+
+
+@media only screen and (max-width: 300px)
+{
+    .myListHeaderNavBdr .myListHeaderNavBox
+    {
+        gap: 16px;
+    }
+}
+
+
+
+
+
+
