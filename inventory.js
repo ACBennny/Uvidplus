@@ -1549,7 +1549,7 @@
             show_thumbnail: `/library/hunter-x-hunter/img/0.jpg`,
             show_title: `Hunter X Hunter`,
             show_type: `TV`,
-            show_airing_status: `N/A`,
+            show_airing_status: `Finished`,
             show_languages: `Japanese`,
             show_subtitles: `English`,
             show_genre: `Anime, Action, Adventure, Fantasy`,
@@ -1557,15 +1557,17 @@
             show_year: `2011`,
             show_aired: `Oct 16, 2011 to Sep 24, 2014`,
             show_studios: `Madhouse`,
-            show_country: `N/A`,
+            show_country: `Japanese`,
             show_foreground: `/library/hunter-x-hunter/img/1.jpg`,
             show_background: `/library/hunter-x-hunter/img/2.jpg`,
-            show_quality: `N/A`,
-            show_rating: `N/A`,
+            show_quality: `HD`,
+            show_rating: `PG13`,
             show_scores: `9.0`,
-            show_trailers: [{show_trl: `N/A`}],
-            show_movies: [{show_mov: `N/A`}],
-            show_episodes: [{show_ep: `N/A`,}],
+            show_trailers: 
+            [
+                {show_trl: `https://www.youtube.com/embed/D9iTQRB4XRk?enablejsapi=1&wmode=opaque&autoplay=1`},
+            ],
+            show_episodes: [{show_ep: 148,}],
             show_description: 
             `
                 Hunters devote themselves to accomplishing hazardous tasks, all from traversing the world's uncharted territories to locating rare items and monsters. Before becoming a Hunter, one must pass the Hunter Examination—a high-risk selection process in which most applicants end up handicapped or worse, deceased.
