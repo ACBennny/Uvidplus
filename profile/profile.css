@@ -1,0 +1,266 @@
+/*************************************************************
+ * This is the style for the MyList Profile pages
+ * 
+ * @author (Anyanwu Benedict Chukwuemeka)
+ * @version (v0.01)
+ *************************************************************/
+
+
+
+html:root
+{
+    --profHeaderBdrH: 325px;
+    --profHeaderFrgImgSize: 125px;
+}
+
+.profBdr
+{
+    width: 100%;
+}
+
+.profBdr .profBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========== Profile Header ============ */
+.profBox .profHeaderBdr
+{
+    width: 100%;
+    height: var(--profHeaderBdrH);
+}
+
+.profHeaderBdr .profHeaderBox
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.profHeaderBox .profHeaderBcgBdr
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.profHeaderBcgBdr .profHeaderBcgBox
+{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.profHeaderBcgBox .profHeaderBcgImg
+{
+    width: clamp(100%, 100%, 100%);
+    height: clamp(100%, 100%, 100%);
+    object-position: center;
+    object-fit: cover;
+}
+
+.profHeaderBox .profHeaderFrgBdr
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: -o-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
+    background: -moz-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
+    background: -webkit-linear-gradient(to bottom, #000000ef, #000000dc, #000000ab, #00000045, #00000000);
+    background: linear-gradient(to top, #000000ff, #00000099, #00000045);
+}
+
+.profHeaderFrgBdr .profHeaderFrgBox
+{
+    position: absolute;
+    left: 0;
+    bottom: 50px;
+    width: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 var(--genBorderSpacing);
+    gap: 10px;
+}
+
+.profHeaderFrgBox .profHeaderFrgImgBdr
+{
+    width: var(--profHeaderFrgImgSize);
+    height: var(--profHeaderFrgImgSize);
+}
+
+.profHeaderFrgImgBdr .profHeaderFrgImgBox
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profHeaderFrgImgBox .profHeaderFrgImgSrc
+{
+    width: clamp(100%, 100%, 100%);
+    height: clamp(100%, 100%, 100%);
+    object-position: center;
+    object-fit: cover;
+}
+
+.profHeaderFrgBox .profHeaderFrgTitleBdr
+{
+    width: calc((100% - var(--profHeaderFrgImgSize)));
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.profHeaderFrgTitleBdr .profHeaderFrgTitleBox
+{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.profHeaderFrgTitleBox .profHeaderFrgTitle_major
+{
+    --profHeaderFrgTitle_majorTextNo: 2;
+    --profHeaderFrgTitle_majorTextH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--profHeaderFrgTitle_majorTextNo);
+    -webkit-box-orient: vertical;
+    line-clamp:  var(--profHeaderFrgTitle_majorTextNo);
+    display: -webkit-box;
+    max-height: calc(var(--profHeaderFrgTitle_majorTextNo) * 1em * var(--profHeaderFrgTitle_majorTextH));
+    line-height: var(--profHeaderFrgTitle_majorTextH);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    color: var(--genWhiteTypeLight);
+    font-size: 22px;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+.profHeaderFrgTitleBox .profHeaderFrgTitle_minor
+{
+    color: var(--genWhiteTypeMid);
+    font-family: 'Poppins' , sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+.profHeaderFrgTitleBdr .profHeaderFrgTitleAtnBox
+{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+
+
+
+
+
+/* =========== Profile Body =========== */
+.profBox .profBodyBdr
+{
+    width: 100%;
+    margin-top: var(--genBorderSpacing);
+}
+
+.profBodyBdr .profBodyBox
+{
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============== RESPONSIVENESS ============== */
+
+@media only screen and (max-width: 768px)
+{
+
+    .profHeaderFrgTitleBox .profHeaderFrgTitle_major
+    {
+        font-size: 18px;
+    }
+
+    .profHeaderFrgTitleBox .profHeaderFrgTitle_minor
+    {
+        font-size: 14px;
+    }
+}
+
+
+@media only screen and (max-width: 485px)
+{
+    html:root
+    {
+        --profHeaderBdrH: 350px;
+        --profHeaderFrgImgSize: 100px;
+    }
+
+    .profHeaderFrgBdr .profHeaderFrgBox
+    {
+        flex-direction: column;
+    }
+
+    .profHeaderFrgBox .profHeaderFrgTitleBdr
+    {
+        width: 100%;
+    }
+
+    .profHeaderFrgTitleBox .profHeaderFrgTitleText
+    {
+        text-align: center;
+    }
+
+    .profHeaderFrgTitleBox .profHeaderFrgTitle_major
+    {
+        font-size: 16px;
+    }
+
+    .profHeaderFrgTitleBox .profHeaderFrgTitle_minor
+    {
+        font-size: 12px;
+    }
+
+    .profHeaderFrgTitleBdr .profHeaderFrgTitleAtnBox
+    {
+        justify-content: center;
+    }
+}
+
+
+@media only screen and (max-width: 320px)
+{
+
+    .profHeaderFrgTitleBdr .profHeaderFrgTitleAtnBox
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+
+
