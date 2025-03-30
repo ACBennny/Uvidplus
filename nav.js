@@ -156,22 +156,6 @@ function page_router()
 
 
 
-// Check if user signed in. If not, redirect to landing page
-window.onload = getSignedInUser;
-function getSignedInUser() 
-{
-    const user = JSON.parse(localStorage.getItem('uvidSignedInUser'));
-    if(user) 
-    {
-        page_router();
-        console.log('yes, user is signed in.');
-    }
-    else
-    {
-        console.log('No user is signed in.');
-        window.open(`/landing.html` , `_self`);
-    }
-}
 
 function page_route_success(funcName)
 {
