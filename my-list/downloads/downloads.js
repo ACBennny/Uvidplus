@@ -1389,6 +1389,9 @@
 
                 // Remove the card from the Grid
                 dlCardBdr.remove();
+
+                // Send notification when episode is deleted
+                notification(`notifyGood` , `Episode ${dlCardEpLnk.split('/')[5]} deleted`);
             }
 
             // Update the DL Map
