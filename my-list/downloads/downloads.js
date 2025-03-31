@@ -1353,7 +1353,7 @@
         let dlCardViewDetBtn = document.querySelector(".dlModalCardViewDetBtn");
 
         // Display the episode number
-        dlCardTitle.textContent = `Episode ${dlCardEpLnk.split('/')[4]}`;
+        dlCardTitle.textContent = `Episode ${dlCardEpLnk.split('/')[5]}`;
 
         // Watch the Episode
         dlCardPlyBtn.onclick = () => window.open(`${dlCardEpLnk}` , `_self`);
