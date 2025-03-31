@@ -2928,6 +2928,9 @@
                                         cl_itemId: `${genShowLinkForCL}`,
                                     }
                                 );
+
+                                // Send notification when show is added
+                                notification(`notifyGood` , `Successfully added to collection`);
                             }
                         }
                         else if(Array.isArray(genShowLinkForCL))
