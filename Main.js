@@ -2947,10 +2947,10 @@
                                     );
                                 }
                             }
-                        }
 
-                        // Send notification when show is added
-                        notification(`notifyGood` , `Successfully added to collection`);
+                            // Send notification when show is added
+                            notification(`notifyGood` , `Successfully added to collection`);
+                        }
 
                         // Close the modal
                         closeAddToCL();
