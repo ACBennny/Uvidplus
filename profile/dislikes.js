@@ -23,6 +23,11 @@
         fetchProfileDislikes();
     }
 
+    function errorLoadingMyListDislikes()
+    {
+        notification(`notifyBad` , `An error occured while loading dislikes`);
+    }
+
 
     function fetchProfileDislikes() 
     {
