@@ -38,7 +38,7 @@
                                             </div>
                                             <div class="genBtnText">Edit Profile</div>
                                         </button>
-                                        <button type="button" class="genBtnBox greySolidBtn openSwitchProfBtn" title="Switch your profile" onclick="notification('notifyBad' , 'Feature currently unavailable')">
+                                        <button type="button" class="genBtnBox greySolidBtn openSwitchProfBtn" title="Switch your profile" onclick="window.open('#/profile/switch' , '_self')">
                                             <div class="genBtnIcon">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
                                                     <path d="M13.125 12a.75.75 0 0 1 1.272-.538l4.125 4a.75.75 0 0 1 0 1.076l-4.125 4A.75.75 0 0 1 13.125 20v-3.25H6a.75.75 0 0 1 0-1.5h7.125z" />
@@ -219,6 +219,34 @@
 
     function initProfilePage()
     {
+        let prof_nav_sect = hash_parts[2];
+
+        if(prof_nav_sect === "create")
+        {
+            console.log("Create profile..");
+        }
+        else if(prof_nav_sect === "switch")
+        {
+            initManageProfileModal('switch');
+        }
+        else if(prof_nav_sect === "edit")
+        {
+            if((hash_parts[3]) && (hash_parts[3] !== ""))
+            {
+                console.log("Edit Specific profile..");
+                return;
+            }
+            initManageProfileModal('edit');
+            console.log("EDit profile..");
+        }
+        else
+        {
+            startProfileYou();
+        }
+    }
+
+    function startProfileYou()
+    {
         // Insert document element
         documentCtnt.insertAdjacentHTML(`afterbegin` , profPageStruct);
 
@@ -239,8 +267,12 @@
         document.querySelector(".profHeaderFrgTitle_minor").textContent = getGreeting();
 
         // Set the Notifications number
-        document.querySelector(".open_ntfy_btn .navBarNotificationStatusNo_text").textContent = `${selectedProfile.prof_notifications.length}`;
-        document.querySelector(".open_ntfy_btn .navBarNotificationStatusNo_box").classList.add("active");
+        let ntfyLength = Number(selectedProfile.prof_notifications.length);
+        if(ntfyLength > 0)
+        {
+            document.querySelector(".open_ntfy_btn .navBarNotificationStatusNo_text").textContent = `${ntfyLength}`;
+            document.querySelector(".open_ntfy_btn .navBarNotificationStatusNo_box").classList.add("active");
+        }
 
         // Fetch watch history
         preFetchingShowsFromHistory("history");
