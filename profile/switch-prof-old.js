@@ -117,7 +117,7 @@
 
     function instantiateSwitchProfModal()
     {
-        profileInfoArray = ProfileInfoLib.profileInfoInv;
+        // profileInfoArray = ProfileInfoLib.profileInfoInv;
 
         // The border holding the elements of the Switch Profile Modal
         const switchProfBdr = document.createElement("div");
@@ -135,14 +135,14 @@
         // Fetch the data for the respective profiles
         function fetchProfInfo()
         {
-            if(((profileInfoArray == undefined) || (profileInfoArray.length <=0)))
+            if(((profileInfoInv == undefined) || (profileInfoInv.length <=0)))
             {
                 errorLoadingProfInfo();
                 return;
             }
-            for(let i = 0; i < profileInfoArray.length; i++)
+            for(let i = 0; i < profileInfoInv.length; i++)
             {
-                const item = profileInfoArray[i];
+                const item = profileInfoInv[i];
                 const switchProfCardStruct = 
                 `
                     <div class="switchProfOptBox profileOpt" data-profile-index="${i}" data-profile-type="${item.prof_type}" data-background-image="${item.prof_bcgImg}">
@@ -1040,7 +1040,7 @@
                 // Deleting a profile
                 deleteProfile.addEventListener("click" , (e) => 
                 {
-                    if((profileInfoArray[index].prof_type === `admin`))
+                    if((profileInfoInv[index].prof_type === `admin`))
                     {
                         notification(`notifyBad` , `You can not delete the default profile`);
                     }
@@ -1063,7 +1063,7 @@
                             changeEditProfAtnListener(`click` , saveCurrProfEdits , switchToChangeProf , `Done`);
 
                             // Remove item from profile Inventory Libary (profileInfoInv)
-                            profileInfoArray.splice(index, 1);
+                            profileInfoInv.splice(index, 1);
                         }
                     }
                 });
@@ -1077,7 +1077,7 @@
                 let profCurrName = profCurrBeignEdited.querySelector(".switchProfOptText");
                 let profCurrFrgImg = profCurrBeignEdited.querySelector(".switchProfOptImg");
                 let profCurrIndex = parseInt(profCurrBeignEdited.getAttribute("data-profile-index"));
-                let profLibCurrObj = profileInfoArray[profCurrIndex];
+                let profLibCurrObj = profileInfoInv[profCurrIndex];
 
                 // let loadFrgImgLibId = document.querySelector("#loadFrgImgLibId");
                 // let loadBcgImgLibId = document.querySelector("#loadBcgImgLibId");
