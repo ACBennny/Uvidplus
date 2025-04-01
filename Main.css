@@ -206,6 +206,7 @@ content
 content .content
 {
     width: 100%;
+    min-height: 100vh;
     padding-left: var(--sideNavBarWidth);
     overflow: hidden;
 }
@@ -3308,6 +3309,19 @@ img
     filter: brightness(1.0);
     opacity: 1;
     visibility: visible;
+    animation: switchProfBdr_flick 500ms linear 0ms normal;
+}
+
+@keyframes switchProfBdr_flick 
+{
+    from
+    {
+        filter: brightness(0.0);
+    }
+    to
+    {
+        filter: brightness(1.0);
+    }
 }
 
 .switchProfBdr.inactive
