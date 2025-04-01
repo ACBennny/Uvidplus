@@ -17,6 +17,7 @@
     const profileInfoInv = 
     [
         {
+            prof_id: `wer392w2fj293gfo`,
             prof_selected: `yes`,
             prof_name: `acbennny`,
             prof_type: `admin`,
@@ -274,6 +275,7 @@
             ],
         },
         {
+            prof_id: `ghf340i8jdeo5r32`,
             prof_selected: `no`,
             prof_name: `Alvare`,
             prof_type: `normal`,
@@ -332,6 +334,8 @@
                     ls_item: `#/info/cowboy-bebop`,
                 },
             ],
+            prof_dislikes:
+            [],
             prof_watchlist:
             [
                 {
@@ -481,6 +485,7 @@
             [],
         },
         {
+            prof_id: `p734ednt98g73w2q`,
             prof_selected: `no`,
             prof_name: `Aston`,
             prof_type: `normal`,
@@ -499,6 +504,8 @@
             [],
             prof_likes:
             [],
+            prof_dislikes:
+            [],
             prof_watchlist:
             [],
             prof_collections:
@@ -510,15 +517,22 @@
         },
     ];
 
-    let profInfoMap = new Map(
-        profileInfoInv.map(item => 
-        {
-            const theSelProf = item.prof_selected;
-            return [theSelProf, item];
-        })
-    );
-    // let selectedProfile = profileInfoInv.filter(item => item.prof_selected === "yes");
-    let selectedProfile = profInfoMap.get("yes");
+    
+    
+    let selectedProfile;
+
+    function getSelectedProfile()
+    {
+        let profInfoMap = new Map(
+            profileInfoInv.map(item => 
+            {
+                const theSelProf = item.prof_selected;
+                return [theSelProf, item];
+            })
+        );
+        selectedProfile = profInfoMap.get("yes");
+    }
+    getSelectedProfile();
 
     // Exporting the variable to a global namespace
     // window.ProfileInfoLib = window.ProfileInfoLib || {}; // Ensure namespace exists
