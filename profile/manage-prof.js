@@ -254,7 +254,7 @@
 
             const box_atn = () =>
             {
-                window.open(`#/profile/edit/${boxId}`);
+                window.open(`#/profile/edit/${boxId}`, `_self`);
             }
 
             // Visual reference for editing
