@@ -1124,6 +1124,17 @@
             event.preventDefault();
             event.returnValue = '';
         };
+        
+        // Refreshes page content without reloading the page
+        function refreshPage()
+        {
+            window.dispatchEvent(new HashChangeEvent("hashchange", 
+            {
+                oldURL: window.location.href,
+                newURL: window.location.href
+            }));
+        }
+
 
 
     // GO TO:
