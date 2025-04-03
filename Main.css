@@ -3377,9 +3377,8 @@ img
 {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    place-items: center;
     gap: 25px;
     padding: calc(var(--navBarHeight) * 1.5) 0;
     overflow: hidden;
@@ -3668,9 +3667,8 @@ img
     position: relative;
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-items: center;
     padding: calc(var(--switchProfHeaderHeight) * 2) var(--switchProfHeaderHeight) var(--switchProfHeaderHeight);
     background-color: #00000095;
     scrollbar-width: none;
