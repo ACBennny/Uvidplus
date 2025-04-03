@@ -291,7 +291,28 @@
             prof_lock_pin: `0000`,
             prof_ctnt_restriction: `18+`,
             prof_history:
-            [],
+            [
+                {
+                    hist_link: `#/tv/watch/violet-evergarden/1/10`,
+                    hist_currTime: `22:47`,
+                    hist_totalTime: `23:40`,
+                },
+                {
+                    hist_link: `#/tv/watch/spy-x-family/1/12`,
+                    hist_currTime: `23:44`,
+                    hist_totalTime: `24:00`,
+                },
+                {
+                    hist_link: `#/tv/watch/initial-d/6/4`,
+                    hist_currTime: `23:44`,
+                    hist_totalTime: `23:59`,
+                },
+                {
+                    hist_link: `#/tv/watch/mf-ghost/2/12`,
+                    hist_currTime: `23:51`,
+                    hist_totalTime: `23:59`,
+                },
+            ],
             prof_likes:
             [
                 {
@@ -518,7 +539,7 @@
     ];
 
     
-    
+
     let selectedProfile;
 
     function getSelectedProfile()
