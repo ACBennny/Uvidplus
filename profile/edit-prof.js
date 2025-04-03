@@ -159,7 +159,7 @@
             notification(`notifyBad` , `An error occured`);
             return;
         }
-        console.log("profID exists here..");
+        documentBody.classList.add("bodystop");
 
         let profItem = isProfId[0];
 
@@ -310,33 +310,57 @@
             });
         });
 
-        // Deleting a profile
-        deleteProfile.addEventListener("click" , (e) => 
+        // Remove delete section if default
+        if((profItem.prof_type === `default`))
         {
-            if((profileInfoInv[index].prof_type === `admin`))
+            document.querySelector(".delProfileDetSect").remove();
+        }
+
+        // Confirm before deleting a profile
+        deleteProfile.addEventListener("click" , () => 
+        {
+            if((profItem.prof_type === `default`))
             {
                 notification(`notifyBad` , `You can not delete the default profile`);
             }
             else
             {
-                let warnAlert = confirm(`Are you sure you want to delete this profile? \nThis action can not be undone.`);
-                if(warnAlert == false)
+                initConfirmModal(
+                    `Are you sure you want to delete this profile?`,
+                    `This action can not be undone.`,
+                    `Delete`,
+                    `Cancel`,
+                    enfDelProf
+                );
+            }
+        });
+
+        // Deleting a profile
+        const enfDelProf = () => 
+        {
+            // Remove item from profile Inventory Libary (profileInfoInv)
+            profileInfoInv = profileInfoInv.filter(item => item.prof_id !== profId);
+
+            // Select the default profile
+            profileInfoInv.forEach((elem) => 
+            {
+                if(elem.prof_id === "default")
                 {
-                    e.preventDefault();
+                    elem.prof_selected = "yes";
+                    getSelectedProfile();
                 }
                 else
                 {
-                    // Return back to manage profiles
-                    window.open("#/profile/switch" , "_self");
-
-                    // Notify the user
-                    notification(`notifyBad` , `Profile deleted`);
-
-                    // Remove item from profile Inventory Libary (profileInfoInv)
-                    profileInfoInv.filter(item => item.prof_id !== profId);
+                    elem.prof_selected = "no";
                 }
-            }
-        });
+            });
+
+            // Return back to manage profiles
+            window.open("#/profile/switch" , "_self");
+
+            // Notify the user
+            notification(`notifyBad` , `Profile deleted`);
+        }
     }
 
 
