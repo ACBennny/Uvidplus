@@ -1106,7 +1106,7 @@
             `,
         },
         {
-            icon_name: `maximize`,
+            icon_name: `maximize, enter-fullscreen, expand`,
             icon_bold: 
             `
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="">
@@ -1121,7 +1121,7 @@
             `,
         },
         {
-            icon_name: `minimize`,
+            icon_name: `minimize, exit-fullscreen, contract`,
             icon_bold: 
             `
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="">
