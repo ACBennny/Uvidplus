@@ -14,13 +14,13 @@
 
 // (() => 
 // {
-    const profileInfoInv = 
+    let profileInfoInv = 
     [
         {
             prof_id: `wer392w2fj293gfo`,
             prof_selected: `yes`,
             prof_name: `acbennny`,
-            prof_type: `admin`,
+            prof_type: `default`,
             prof_frgImg: `/images/uvid-profile-base.png`,
             prof_bcgImg: `/images/uvid-green-bcg1-dark.jpg`,
             prof_audio_lang: `English`,
