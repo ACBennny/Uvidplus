@@ -79,8 +79,6 @@
             let boxChildrenWidth = boxChildrenDimension.width;
             singleCardSlide = boxChildrenWidth;
 
-            console.log(boxChildrenDimension)
-
             // Unhide/hide right arrow if content is overflowing
             if((item.scrollWidth) > (Math.ceil((item.clientWidth)) + boxErrorMargin))
             {
