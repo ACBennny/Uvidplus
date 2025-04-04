@@ -156,7 +156,7 @@
         {
             window.open("#/profile" , "_self");
 
-            notification(`notifyBad` , `An error occured`);
+            notification(`notifyBad` , `Profile not found`);
             return;
         }
         documentBody.classList.add("bodystop");
