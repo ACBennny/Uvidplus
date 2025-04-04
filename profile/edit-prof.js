@@ -33,8 +33,8 @@
         </div>
         <div class="editProfileBase">
             <div class="editProfileBdr">
-                <div class="editBcgImgBtnBdr openSelectBcgPicModal">
-                    <!-- <button type="button" class="editBcgImgBtnBox">
+                <!--<div class="editBcgImgBtnBdr openSelectBcgPicModal">
+                    <button type="button" class="editBcgImgBtnBox">
                         <div class="editBcgImgBtnIconBox">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="editBcgImgBtnIcon">
                                 <path d="M16.143 1.25a.75.75 0 1 0 0 1.5h4.046l-5.72 5.72a.75.75 0 0 0 1.061 1.06l5.72-5.72v4.047a.75.75 0 0 0 1.5 0V2a.75.75 0 0 0-.75-.75zm-8.286 21.5a.75.75 0 0 0 0-1.5H3.811l5.72-5.72a.75.75 0 1 0-1.061-1.06l-5.72 5.72v-4.047a.75.75 0 1 0-1.5 0V22c0 .414.336.75.75.75z" />
@@ -43,8 +43,8 @@
                         <div class="editBcgImgBtnTextBox">
                             <p class="editBcgImgBtnText">View Background Image</p>
                         </div>
-                    </button> -->
-                </div>
+                    </button>
+                </div> -->
                 <div class="editProfileBcgImgOverlayBdr openSelectBcgPicModal">
                     <div class="editProfileBcgImgOverlayBox">
                         <p class="editProfileBcgImgOverlayText">Update Background Image</p>
@@ -123,6 +123,8 @@
             </div>
         </div>
     `;
+    let isProfId;
+    let profItem;
     let editProfFence;
     let editProfAtnBtn;
     let editProfileBase;
@@ -149,7 +151,7 @@
     function initProfEditModal()
     {
         let profId = hash_parts[3];
-        let isProfId = profileInfoInv.filter(item => item.prof_id === profId);
+        isProfId = profileInfoInv.filter(item => item.prof_id === profId);
 
         // Return to profile page if id doesn't exist
         if(isProfId.length < 1)
@@ -161,7 +163,7 @@
         }
         documentBody.classList.add("bodystop");
 
-        let profItem = isProfId[0];
+        profItem = isProfId[0];
 
         editProfFence = document.createElement("div");
         editProfFence.classList.add("editProfileFence");
@@ -192,20 +194,6 @@
         editProfileFrgImg.setAttribute(`src` , `${profItem.prof_frgImg}`);
         editProfileBcgImg.setAttribute(`src` , `${profItem.prof_bcgImg}`);
         
-        // Save Edits made to a profile and return back to the "Edits profile" modal
-        const saveCurrProfEdits = () =>
-        {
-            // Notify users
-            notification(`notifyGood` , `Changes saved`);
-
-            // Update attributes
-            profItem.prof_name = editProfileNameField.value;
-            profItem.prof_bcgImg = editProfileBcgImg.getAttribute("src");
-            profItem.prof_frgImg = editProfileFrgImg.getAttribute("src");
-
-            // Switch back to "Manage Profiles" section
-            window.open("#/profile/switch", "_self");
-        }
 
         // Set the action button listener
         changeEditProfAtnListener(`click` , null , saveCurrProfEdits , `Save`);
@@ -287,6 +275,8 @@
                 editProfileDetBox.classList.add("inactive");
                 editProfileTitle.textContent = `Choose your Avatar`;
 
+                basicSlider();
+                changeEditProfAtnListener(`click` , saveCurrProfEdits , closeSelectPicModals , `Back`);
             });
         });
 
@@ -307,6 +297,9 @@
                 selectBcgPicBdr.classList.add("active");
                 editProfileDetBox.classList.add("inactive");
                 editProfileTitle.textContent = `Choose your Background Image`;
+                
+                basicSlider();
+                changeEditProfAtnListener(`click` , saveCurrProfEdits , closeSelectPicModals , `Back`);
             });
         });
 
@@ -376,6 +369,21 @@
     }
 
 
+    // Save Edits made to a profile and return back to the "Edits profile" modal
+    function saveCurrProfEdits()
+    {
+        // Notify users
+        notification(`notifyGood` , `Changes saved`);
+
+        // Update attributes
+        profItem.prof_name = editProfileNameField.value;
+        profItem.prof_bcgImg = editProfileBcgImg.getAttribute("src");
+        profItem.prof_frgImg = editProfileFrgImg.getAttribute("src");
+
+        // Switch back to "Manage Profiles" section
+        window.open("#/profile/switch", "_self");
+    }
+
      
     // Closing the select Pic Modals
     function closeSelectPicModals()
@@ -391,6 +399,8 @@
         selectFrgPicBdr.classList.remove("active");
         selectBcgPicBdr.classList.remove("active");
         editProfileDetBox.classList.remove("inactive");
+
+        changeEditProfAtnListener(`click` , closeSelectPicModals , saveCurrProfEdits , `Save`);
     }
 
 
@@ -421,7 +431,7 @@
             let item = frgImgArray[i];
             let sect = 
             `
-                <div class="selectPicSect">
+                <div class="selectPicSect basic_carousel">
                     <div class="selectPicSectHeader">
                         <p class="selectPicSectHeaderText">${item.frg_sectname}</p>
                     </div>
@@ -429,19 +439,19 @@
                         <div class="selectPicSectCarouselBox">
 
                             <!-- Arrows -->
-                            <div class="selectPicCarouselArrBox selectPicCarouselArrLeftBox hide">
+                            <div class="selectPicCarouselArrBox selectPicCarouselArrLeftBox arr_left hide">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="selectPicCarouselArr selectPicCarouselArrLeft">
                                     <path fill-rule="evenodd" d="M15.488 4.43a.75.75 0 0 1 .081 1.058L9.988 12l5.581 6.512a.75.75 0 1 1-1.138.976l-6-7a.75.75 0 0 1 0-.976l6-7a.75.75 0 0 1 1.057-.081" clip-rule="evenodd" />
                                 </svg>
                             </div>
-                            <div class="selectPicCarouselArrBox selectPicCarouselArrRightBox hide">
+                            <div class="selectPicCarouselArrBox selectPicCarouselArrRightBox arr_right hide">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="selectPicCarouselArr selectPicCarouselArrRight">
                                     <path fill-rule="evenodd" d="M8.512 4.43a.75.75 0 0 1 1.057.082l6 7a.75.75 0 0 1 0 .976l-6 7a.75.75 0 0 1-1.138-.976L14.012 12L8.431 5.488a.75.75 0 0 1 .08-1.057" clip-rule="evenodd" />
                                 </svg>
                             </div>
 
                             <!-- Grid -->
-                            <div class="selectPicCarouselGrid selectFrgPicCarouselGrid"></div>
+                            <div class="selectPicCarouselGrid selectFrgPicCarouselGrid basic_carousel_slider"></div>
                         </div>
                     </div>
                 </div>
@@ -459,7 +469,7 @@
                 let item = frgImgSrcSet[j];
                 let struct = 
                 `
-                    <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox">
+                    <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox basic_carousel_card">
                         <div class="selectFrgPicCarouselCard">
                             <div class="selectFrgPicCarouselImgBox">
                                 <img src="${item.img_src}" alt="Profile foreground image ${j}" class="selectFrgPicCarouselImg">
@@ -480,8 +490,13 @@
             let img = card.querySelector(".selectFrgPicCarouselImg");
             let imgSrc = img.getAttribute("src");
 
-            card.addEventListener("click" , () => 
+            card.addEventListener("click" , (e) => 
             {
+                if(isBasicSliderDragging)
+                {
+                    e.preventDefault();
+                    return;
+                }
                 editProfileFrgImg.setAttribute(`src` , `${imgSrc}`);
                 editProfOptTempFrg = imgSrc;
                 closeSelectPicModals();
@@ -521,7 +536,7 @@
             let item = bcgImgArray[i];
             let sect = 
             `
-                <div class="selectPicSect">
+                <div class="selectPicSect basic_carousel">
                     <div class="selectPicSectHeader">
                         <p class="selectPicSectHeaderText">${item.bcg_sectname}</p>
                     </div>
@@ -529,19 +544,19 @@
                         <div class="selectPicSectCarouselBox">
 
                             <!-- Arrows -->
-                            <div class="selectPicCarouselArrBox selectPicCarouselArrLeftBox hide">
+                            <div class="selectPicCarouselArrBox selectPicCarouselArrLeftBox arr_left hide">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="selectPicCarouselArr selectPicCarouselArrLeft">
                                     <path fill-rule="evenodd" d="M15.488 4.43a.75.75 0 0 1 .081 1.058L9.988 12l5.581 6.512a.75.75 0 1 1-1.138.976l-6-7a.75.75 0 0 1 0-.976l6-7a.75.75 0 0 1 1.057-.081" clip-rule="evenodd" />
                                 </svg>
                             </div>
-                            <div class="selectPicCarouselArrBox selectPicCarouselArrRightBox hide">
+                            <div class="selectPicCarouselArrBox selectPicCarouselArrRightBox arr_right hide">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="selectPicCarouselArr selectPicCarouselArrRight">
                                     <path fill-rule="evenodd" d="M8.512 4.43a.75.75 0 0 1 1.057.082l6 7a.75.75 0 0 1 0 .976l-6 7a.75.75 0 0 1-1.138-.976L14.012 12L8.431 5.488a.75.75 0 0 1 .08-1.057" clip-rule="evenodd" />
                                 </svg>
                             </div>
 
                             <!-- Grid -->
-                            <div class="selectPicCarouselGrid selectBcgPicCarouselGrid"></div>
+                            <div class="selectPicCarouselGrid selectBcgPicCarouselGrid basic_carousel_slider"></div>
                         </div>
                     </div>
                 </div>
@@ -559,7 +574,7 @@
                 let item = bcgImgSrcSet[j];
                 let struct = 
                 `
-                    <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox">
+                    <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox basic_carousel_card">
                         <div class="selectBcgPicCarouselCard">
                             <div class="selectBcgPicCarouselImgBox">
                                 <img src="${item.img_src}" alt="Profile background image ${j}" class="selectBcgPicCarouselImg">
@@ -580,8 +595,13 @@
             let img = card.querySelector(".selectBcgPicCarouselImg");
             let imgSrc = img.getAttribute("src");
 
-            card.addEventListener("click" , () => 
+            card.addEventListener("click" , (e) => 
             {
+                if(isBasicSliderDragging)
+                {
+                    e.preventDefault();
+                    return;
+                }
                 editProfileBcgImg.setAttribute(`src` , `${imgSrc}`);
                 editProfOptTempBcg = imgSrc;
                 closeSelectPicModals();

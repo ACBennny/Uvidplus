@@ -79,6 +79,8 @@
             let boxChildrenWidth = boxChildrenDimension.width;
             singleCardSlide = boxChildrenWidth;
 
+            console.log(boxChildrenDimension)
+
             // Unhide/hide right arrow if content is overflowing
             if((item.scrollWidth) > (Math.ceil((item.clientWidth)) + boxErrorMargin))
             {
@@ -195,10 +197,15 @@
         // Slide Card details (title, alt etc)
         basic_slide_CardBase.forEach((base) => 
         {
-            const showCardLink = base.querySelector(".cardLinkCover");
-            const showCards = base.querySelector(".slide_card");
-            const showCardImgs = base.querySelector(".cardImg");
-            const showCardInfoName = showCards.querySelector(".cardInfo_titleText");
+            let showCardLink = base.querySelector(".cardLinkCover");
+            let showCards = base.querySelector(".slide_card");
+            let showCardImgs = base.querySelector(".cardImg");
+            let showCardInfoName;
+
+            if((showCards != undefined))
+            {
+                showCardInfoName = showCards.querySelector(".cardInfo_titleText")
+            }
     
             // Slide Card Link
             if((showCardLink != undefined))
@@ -232,6 +239,7 @@
                     return;
                 }
             }
+            
             base.addEventListener("click" , card_details_atn);
             base.card_details_atn = card_details_atn;
         });

@@ -4352,6 +4352,12 @@ img
     overflow-y: hidden;
 }
 
+.selectPicCarouselGrid.isBasicSliderDown
+{
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+}
+
 
 /* ----- Profile (Frg) Carousel ----- */
 .selectPicCarouselGrid.selectFrgPicCarouselGrid
@@ -4369,9 +4375,6 @@ img
 .selectFrgPicCarouselGrid .selectFrgPicCarouselCardBox
 {
     scroll-snap-align: start;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .selectFrgPicCarouselCardBox .selectFrgPicCarouselCard
@@ -4434,9 +4437,6 @@ img
 .selectBcgPicCarouselGrid .selectBcgPicCarouselCardBox
 {
     scroll-snap-align: start;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .selectBcgPicCarouselCardBox .selectBcgPicCarouselCard
