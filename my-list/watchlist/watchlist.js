@@ -302,12 +302,12 @@
                 
             // Dropped
             case 4:
-                filterWLModalStatus(5);
+                filterWLModalStatus(4);
                 break;
                 
             // Completed
             case 5:
-                filterWLModalStatus(4);
+                filterWLModalStatus(5);
                 break;
                 
             // Notify of error 
