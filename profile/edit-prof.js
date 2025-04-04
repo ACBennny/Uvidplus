@@ -186,8 +186,6 @@
         editProfileBcgImg = document.querySelector(".editProfileBcgImg");
 
         // Initialize the foreground and background modals
-        insertFrgImgModal();
-        insertBcgImgModal();
 
         // Set the default Values
         editProfileNameField.value = `${profItem.prof_name.toString().trim().replace(/\s+/g, ' ')}`;
@@ -270,12 +268,16 @@
                 {
                     currBcgModal.classList.add("inactive");
                 });
-                selectBcgPicBdr.classList.remove("active");
-                selectFrgPicBdr.classList.add("active");
+
+                // Remove the foreground modal
+                if(selectBcgPicBdr) selectBcgPicBdr.remove();
+
+                // Initialize the foreground modal
+                insertFrgImgModal();
+
                 editProfileDetBox.classList.add("inactive");
                 editProfileTitle.textContent = `Choose your Avatar`;
 
-                basicSlider();
                 changeEditProfAtnListener(`click` , saveCurrProfEdits , closeSelectPicModals , `Back`);
             });
         });
@@ -293,12 +295,16 @@
                 {
                     currBcgModal.classList.add("inactive");
                 });
-                selectFrgPicBdr.classList.remove("active");
-                selectBcgPicBdr.classList.add("active");
+
+                // Remove the foreground modal
+                if(selectFrgPicBdr) selectFrgPicBdr.remove();
+
+                // Initialize the background modal
+                insertBcgImgModal();
+
                 editProfileDetBox.classList.add("inactive");
                 editProfileTitle.textContent = `Choose your Background Image`;
                 
-                basicSlider();
                 changeEditProfAtnListener(`click` , saveCurrProfEdits , closeSelectPicModals , `Back`);
             });
         });
@@ -396,10 +402,13 @@
         {
             currBcgModal.classList.remove("inactive");
         });
-        selectFrgPicBdr.classList.remove("active");
-        selectBcgPicBdr.classList.remove("active");
         editProfileDetBox.classList.remove("inactive");
 
+        // Remove the foreground and background modals
+        if(selectFrgPicBdr) selectFrgPicBdr.remove();
+        if(selectBcgPicBdr) selectBcgPicBdr.remove();
+
+        // Update listeners
         changeEditProfAtnListener(`click` , closeSelectPicModals , saveCurrProfEdits , `Save`);
     }
 
@@ -409,7 +418,7 @@
     {
         let struct = 
         `
-            <div class="selectPicBdr selectFrgPicBdr">
+            <div class="selectPicBdr selectFrgPicBdr active">
                 <div class="selectPicBox"></div>
             </div>
         `;
@@ -502,6 +511,9 @@
                 closeSelectPicModals();
             });
         });
+
+        // Initialize slider functionalities
+        basicSlider();
     }
 
     function errorloadFrgImgLib()
@@ -515,7 +527,7 @@
     {
         let struct = 
         `
-            <div class="selectPicBdr selectBcgPicBdr">
+            <div class="selectPicBdr selectBcgPicBdr active">
                 <div class="selectPicBox"></div>
             </div>
         `;
@@ -607,6 +619,9 @@
                 closeSelectPicModals();
             });
         });
+
+        // Initialize slider functionalities
+        basicSlider();
     }
 
     function errorloadBcgImgLib()
