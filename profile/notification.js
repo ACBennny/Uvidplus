@@ -175,7 +175,7 @@
                                 </div>
                                 <div class="notification_action_bdr">
                                     <div class="notification_action_box">
-                                        <a href="${item.notify_actionLink}" title="${item.notify_actionText}" class="notification_action_text">${item.notify_actionText} →</a>
+                                        <a href="${item.notify_actionLink}" title="${item.notify_actionText}" class="notification_action_text ntfy_close">${item.notify_actionText} →</a>
                                     </div>
                                 </div>
                             </div>
@@ -185,11 +185,11 @@
             `;
             ntfyCtntBox.insertAdjacentHTML('beforeend', notificationCardStruct);
         }
-        let notificationCardBdr = document.querySelectorAll(".notification_card_bdr");
 
         // Add listeners
         attackMarkAllNtfyAsReadListeners();
         attackClearAllNtfyListeners();
+        attachCloseNtfyModalListeners();
     }
 
     // Removes the status after user opens the notifications
