@@ -16,7 +16,6 @@
     let defaultProfName = `acbennny`;
     let defaultProfFrg = `/images/uvid-profile-base.png`;
     let defaultProfBcg = `/images/uvid-green-bcg1-light.jpg`;
-    let profileInfoArray;
     let switchProfBdrHTML = 
     `
         <div class="switchProfNavBdr">
@@ -117,7 +116,6 @@
 
     function instantiateSwitchProfModal()
     {
-        // profileInfoArray = ProfileInfoLib.profileInfoInv;
 
         // The border holding the elements of the Switch Profile Modal
         const switchProfBdr = document.createElement("div");
