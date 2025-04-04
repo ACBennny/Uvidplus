@@ -466,7 +466,7 @@
             // Notify myList of the necly created playlist
             notification(`notifyGood` , `Profile created successfully`);
 
-            closeCreateProf();
+            closeCreateProf(true);
         }
 
         createProfBtn.addEventListener("click" , () => 
@@ -485,7 +485,7 @@
 
 
         // Closes the createList modal
-        function closeCreateProf()
+        function closeCreateProf(isProfNew = false)
         {
             createProfBtn.classList.replace("midSolidBtn" , "inactiveBtn");
             newProfWarn.classList.remove("active");
@@ -504,7 +504,7 @@
                 documentBody.removeAttribute(`data-modal-state`);
 
                 // Go to edit page
-                window.open(`#/profile/edit/${newProfId}`, `_self`);
+                if(isProfNew == true) window.open(`#/profile/edit/${newProfId}`, `_self`);
             });
         }
 
