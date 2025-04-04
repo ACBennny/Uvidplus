@@ -3736,6 +3736,7 @@ img
     display: flex;
     flex-direction: column;
     padding: var(--switchProfHeaderHeight) 10px 10px;
+    background-color: #181818;
     overflow: hidden;
 }
 
@@ -6303,6 +6304,7 @@ img
 
     .editProfileBase .editProfileBdr
     {
+        max-height: calc((100% - (var(--editProfileBcgImgHeightPlus) * 2)));
         min-height: 100%;
         max-width: none;
         padding: 10px 0 0;
