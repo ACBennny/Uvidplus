@@ -268,15 +268,14 @@
                 {
                     currBcgModal.classList.add("inactive");
                 });
+                editProfileDetBox.classList.add("inactive");
+                editProfileTitle.textContent = `Choose your Avatar`;
 
                 // Remove the foreground modal
                 if(selectBcgPicBdr) selectBcgPicBdr.remove();
 
                 // Initialize the foreground modal
                 insertFrgImgModal();
-
-                editProfileDetBox.classList.add("inactive");
-                editProfileTitle.textContent = `Choose your Avatar`;
 
                 changeEditProfAtnListener(`click` , saveCurrProfEdits , closeSelectPicModals , `Back`);
             });
@@ -295,15 +294,14 @@
                 {
                     currBcgModal.classList.add("inactive");
                 });
+                editProfileDetBox.classList.add("inactive");
+                editProfileTitle.textContent = `Choose your Background Image`;
 
                 // Remove the foreground modal
                 if(selectFrgPicBdr) selectFrgPicBdr.remove();
 
                 // Initialize the background modal
                 insertBcgImgModal();
-
-                editProfileDetBox.classList.add("inactive");
-                editProfileTitle.textContent = `Choose your Background Image`;
                 
                 changeEditProfAtnListener(`click` , saveCurrProfEdits , closeSelectPicModals , `Back`);
             });
@@ -403,6 +401,7 @@
             currBcgModal.classList.remove("inactive");
         });
         editProfileDetBox.classList.remove("inactive");
+        editProfileTitle.textContent = `Edit Profile`;
 
         // Remove the foreground and background modals
         if(selectFrgPicBdr) selectFrgPicBdr.remove();
