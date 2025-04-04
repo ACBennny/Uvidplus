@@ -3482,7 +3482,7 @@
             show_thumbnail: `/library/solo-leveling/img/0.jpg`,
             show_title: `Solo Leveling`,
             show_type: `TV`,
-            show_airing_status: `Airing`,
+            show_airing_status: `Finished`,
             show_languages: `Japanese`,
             show_subtitles: `English`,
             show_genre: `Action, Adventure, Fantasy, Anime`, 
