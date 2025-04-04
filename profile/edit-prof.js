@@ -33,18 +33,6 @@
         </div>
         <div class="editProfileBase">
             <div class="editProfileBdr">
-                <!--<div class="editBcgImgBtnBdr openSelectBcgPicModal">
-                    <button type="button" class="editBcgImgBtnBox">
-                        <div class="editBcgImgBtnIconBox">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="editBcgImgBtnIcon">
-                                <path d="M16.143 1.25a.75.75 0 1 0 0 1.5h4.046l-5.72 5.72a.75.75 0 0 0 1.061 1.06l5.72-5.72v4.047a.75.75 0 0 0 1.5 0V2a.75.75 0 0 0-.75-.75zm-8.286 21.5a.75.75 0 0 0 0-1.5H3.811l5.72-5.72a.75.75 0 1 0-1.061-1.06l-5.72 5.72v-4.047a.75.75 0 1 0-1.5 0V22c0 .414.336.75.75.75z" />
-                            </svg>
-                        </div>
-                        <div class="editBcgImgBtnTextBox">
-                            <p class="editBcgImgBtnText">View Background Image</p>
-                        </div>
-                    </button>
-                </div> -->
                 <div class="editProfileBcgImgOverlayBdr openSelectBcgPicModal">
                     <div class="editProfileBcgImgOverlayBox">
                         <p class="editProfileBcgImgOverlayText">Update Background Image</p>
