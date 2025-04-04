@@ -188,7 +188,7 @@
         insertBcgImgModal();
 
         // Set the default Values
-        editProfileNameField.value = `${profItem.prof_name}`;
+        editProfileNameField.value = `${profItem.prof_name.toString().trim().replace(/\s+/g, ' ')}`;
         editProfileFrgImg.setAttribute(`src` , `${profItem.prof_frgImg}`);
         editProfileBcgImg.setAttribute(`src` , `${profItem.prof_bcgImg}`);
         
