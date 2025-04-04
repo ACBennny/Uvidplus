@@ -6,10 +6,57 @@
  *********************************************************************************************************/
 
 
-
+    
+    let createProfStruct = 
+    `
+        <div class="genAtnModalBcg closeCreateProfBtn"></div>
+        <div class="genAtnModalBox">
+            <div class="genAtnModalCtnt">
+                <div class="genAtnModalHeader">
+                    <div class="genAtnModalHeaderIconBox closeCreateProfBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="genAtnModalHeaderIcon">
+                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                        </svg>
+                    </div>
+                    <div class="genAtnModalHeaderText">
+                        <span class="large">A</span>
+                        <span class="small">dd Profile</span>
+                    </div>
+                </div>
+                <div class="genAtnModalOptBcg createProfItemBcg">
+                    <div class="genAtnModalOptBdr createProfItemBox">
+                        <div class="newCLBdr active">
+                            <div class="newCLBox">
+                                <div class="newCLInputBdr">
+                                    <div class="newCLInputBox">
+                                        <input type="text" name="newProfInputField" id="newProfInputId" class="newCLInputClass" placeholder="Name your profile" />
+                                    </div>
+                                </div>
+                                <div class="newCLWarnBdr">
+                                    <div class="newCLWarnBox">
+                                        <p id="newProfWarnId" class="newCLWarnText" tabindex="-1"></p>
+                                    </div>
+                                </div>
+                                <div class="newCLAtnBdr">
+                                    <div class="newCLAtnBox">
+                                        <button type="button" id="createNewProf" class="genBtnBox inactiveBtn" disabled>
+                                            <div class="genBtnText">Create</div>
+                                        </button>
+                                        <button type="button" id="cancelNewProf" class="genBtnBox hollowBtn closeCreateProfBtn">
+                                            <div class="genBtnText">Cancel</div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
     let createNewProfStruct = 
     `
-        <div class="switchProfOptBox createProfile" onclick="window.open('#/profile/create', '_self')">
+        <div class="switchProfOptBox createProfileBtn">
             <div class="addNewProfIconBox">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="addNewProfIcon">
                     <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
@@ -20,6 +67,7 @@
             </div>
         </div>
     `;
+    let profileLimit = 5;
     let mngProfTrstnTime = 10;
     
 
@@ -51,11 +99,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="switchProfNavLeft">
-                        <button type="button" aria-haspopup="false" class="genBtnBox lightSolidBtn switchProfNavBtn editProfAtnBtn editProfAtnBtn_Mob">
-                            <div class="genBtnText ">Edit</div>
-                        </button>
-                    </div>
+                    <div class="switchProfNavLeft"></div>
                 </div>
             </div>
             <div class="switchProfBcg closeSwitchProf">
@@ -146,6 +190,9 @@
             // Adds style class
             switchProfBdr.classList.remove("inactive");
             switchProfBdr.classList.add("active");
+
+            // Add Create new profile listener
+            attachCreateProfListeners();
 
             switchProfTimer2 = setTimeout(() => 
             {
@@ -267,5 +314,204 @@
         // Update action button
         atnBtn.querySelector(".genBtnText").textContent = "Done";
         atnBtn.onclick = () => window.open('#/profile/switch' , '_self');
+    }
+
+
+    // opening the modal for creating a new collection
+    function attachCreateProfListeners()
+    {
+        let openCreateProfBtn = document.querySelectorAll(".createProfileBtn");
+
+        openCreateProfBtn.forEach(btn => 
+        {
+            if(btn.createProfFunc)
+            {
+                btn.removeEventListener(`click` , btn.createProfFunc);
+            }
+        });
+
+        openCreateProfBtn.forEach(btn => 
+        {
+            let btn_create = () =>
+            {
+                if(profileInfoInv.length < profileLimit)
+                {
+                    createProfFunc(btn);
+                    return;
+                }
+                notification(`notifyBad` , `You have created the max(${profileLimit}) number of profile`);
+            }
+            
+            btn.addEventListener("click" , btn_create);
+            btn.createProfFunc = btn_create;
+        });
+    }
+
+    const createProfFunc = (e) =>
+    {
+        const createProfBdr = document.createElement("div");
+        createProfBdr.classList.add("genAtnModalBdr");
+        createProfBdr.innerHTML = createProfStruct;
+        documentBody.appendChild(createProfBdr);
+
+        const createListCloseBtn = document.querySelectorAll(".closeCreateProfBtn");
+        const newProfInput = document.querySelector("#newProfInputId");
+        const newProfWarn = document.querySelector("#newProfWarnId");
+        const createProfBtn = document.querySelector("#createNewProf");
+        const newProfId = generateRandomString().toLowerCase();
+        let inputUppBnd = 50;
+        let plArr = [];
+        let lastProfArr;
+        let lastProfArrLength = 0;
+        let currLength = 0;
+        let wordCount = inputUppBnd;
+        let createProfTimer;
+
+        // Disabling btn to prevent multiple calls
+        e.disabled = true;
+
+        // Transitioning elements
+        createProfTimer = setTimeout(() => 
+        {
+            documentBody.setAttribute(`data-modal-state` , `open`);
+            createProfBdr.classList.add("active");
+            clearTimeout(createProfTimer);
+        }, 100);
+        
+        // Automatically focus on input feild after transition
+        createProfBdr.addEventListener("transitionend" , function handleTransitionEnd()
+        {
+            createProfBdr.removeEventListener("transitionend" , handleTransitionEnd);
+            newProfInput.focus();
+        });
+
+        // checking input length
+        function getWordCount(input)
+        {
+            plArr.push(input);
+            lastProfArr = plArr.at(-1);
+            lastProfArr = lastProfArr.toString();
+            lastProfArr = lastProfArr.trim().replace(/\s+/g, ' ');
+            lastProfArrLength = lastProfArr.length;
+
+            // update warn label
+            currLength = wordCount - lastProfArrLength;
+            newProfWarn.textContent = currLength;
+
+            if(!(newProfWarn.classList.contains("active"))) newProfWarn.classList.add("active");
+            newProfWarn.classList.toggle("empty" , currLength < 1);
+
+            checkBeforeCreate(lastProfArr);
+        }
+
+        // Check if name is valid (3 - 64 characters)
+        function checkBeforeCreate(val)
+        {
+            if((val.length <= inputUppBnd) && (val !== ""))
+            {
+                createProfBtn.disabled = false;
+                createProfBtn.classList.replace("inactiveBtn" , "midSolidBtn");
+            }
+            else
+            {
+                createProfBtn.disabled = true;
+                createProfBtn.classList.replace("midSolidBtn" , "inactiveBtn");
+            }
+        }
+
+        newProfInput.addEventListener("input" , () => 
+        {
+            getWordCount(newProfInput.value);
+        });
+
+        // Create list
+        function generateProfile(profName)
+        {
+            // Add new entry into the library
+            profileInfoInv.push(
+                {
+                    prof_id: `${newProfId}`,
+                    prof_selected: `no`,
+                    prof_name: `${profName}`,
+                    prof_type: `normal`,
+                    prof_frgImg: `/images/uvid-profile-base.png`,
+                    prof_bcgImg: `/images/uvid-green-bcg1-dark.jpg`,
+                    prof_audio_lang: `English`,
+                    prof_subtitle_lang: `English`,
+                    prof_show_subtitles: `on`,
+                    prof_auto_play: `off`,
+                    prof_auto_next: `off`,
+                    prof_auto_skip: `off`,
+                    prof_lock_state: `unlocked`,
+                    prof_lock_pin: `0000`,
+                    prof_ctnt_restriction: `18+`,
+                    prof_history:
+                    [],
+                    prof_likes:
+                    [],
+                    prof_dislikes:
+                    [],
+                    prof_watchlist:
+                    [],
+                    prof_collections:
+                    [],
+                    prof_downloads:
+                    [],
+                    prof_notifications:
+                    [],
+                }
+            );
+            console.log(profileInfoInv.at(-1));
+
+            // Notify myList of the necly created playlist
+            notification(`notifyGood` , `Profile created successfully`);
+
+            closeCreateProf();
+        }
+
+        createProfBtn.addEventListener("click" , () => 
+        {
+            generateProfile(newProfInput.value.toString().trim().replace(/\s+/g, ' '));
+        });
+
+        // Create list by pressing the "Enter" key
+        newProfInput.addEventListener("keyup" , (e) => 
+        {
+            if((e.key === "Enter"))
+            {
+                createProfBtn.click();
+            }
+        });
+
+
+        // Closes the createList modal
+        function closeCreateProf()
+        {
+            createProfBtn.classList.replace("midSolidBtn" , "inactiveBtn");
+            newProfWarn.classList.remove("active");
+            newProfWarn.classList.remove("empty");
+            newProfInput.value = "";
+            newProfWarn.textContent = "";
+            newProfInput.disabled = true;
+            createProfBtn.disabled = true;
+            createProfBdr.classList.remove("active");
+            
+            createProfBdr.addEventListener("transitionend" , function handleTransitionEnd()
+            {
+                createProfBdr.removeEventListener("transitionend" , handleTransitionEnd);
+                documentBody.removeChild(createProfBdr);
+                e.disabled = false;
+                documentBody.removeAttribute(`data-modal-state`);
+
+                // Go to edit page
+                window.open(`#/profile/edit/${newProfId}`, `_self`);
+            });
+        }
+
+        // Closes the modal
+        createListCloseBtn.forEach(one => 
+        {
+            one.addEventListener("mousedown" , closeCreateProf);
+        });
     }
 
