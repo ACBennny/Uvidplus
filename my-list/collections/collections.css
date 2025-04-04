@@ -1308,6 +1308,11 @@ body[gen-menu-modal-is-dragging="true"] .clModalBox
         --clModalGrid_CardCtntThumbWidth: 85px;
     }
 
+    .clModalBase .clModalBaseBarBdr
+    {
+        width: 100%;
+    }
+
     .clModalHeadBdr .clModalHeadBox
     {
         height: 100%;
