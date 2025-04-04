@@ -395,12 +395,14 @@
     // Store the new user credentials
     function storeNewCred(username, password)
     {
+        console.log(`User: ${username}\nPass: ${password}`);
         const users = JSON.parse(localStorage.getItem('uvidSignedInUser')) || [];        
 
         const existingUser = users.find(user => user.username === username);
         if (!existingUser) 
         {
             users.push({ username, password });
+            localStorage.setItem('uvidSignedInUser', JSON.stringify(users));
         }
     }
 
@@ -1499,7 +1501,7 @@
                         verCodeBox_loader.classList.add("active");
                         if((verCodeBox_loader.classList.contains("active")))
                         {
-                            setTimeout(() => verCodeBox_loader.classList.remove("active") , 5000);
+                            setTimeout(() => verCodeBox_loader.classList.remove("active") , 2500);
                         }
                     }
                         
@@ -1545,100 +1547,31 @@
 
                         // Countdown timer for verification code
                         const timePeriod = 300;
+                        const askForCdeSet = 25;
 
                         function verTimer() 
                         {
                             let sec = timePeriod;
+                            let askForCdeRun = askForCdeSet;
                             timer = setInterval(function()
                             {
                                 sec--;
+                                askForCdeRun--;
 
                                 // Displays timer in page
                                 verCodeTimer.textContent = sec;
 
-                                // Ask to show user their code since verification isn't ready
-                                if(sec == 275)
-                                {
-                                    let askIfNoCode = confirm("Haven't seen your code? \nWill you like to have it displayed? (for dev testing)");
-                                    if(askIfNoCode == false)
-                                    {
-                                        event.preventDefault();
-                                    }
-                                    else
-                                    {
-                                        askIfNoCode = "";
-                                        alert("Your code is : " + thisVercart);
-                                    }
-                                }
 
-                                if(sec == 200)
+                                if((askForCdeRun == 1) && (sec > 0))
                                 {
+                                    console.log("Haven't seen your code? \nWill you like to have it displayed? (for dev testing)");
                                     let askIfNoCode = confirm("Haven't seen your code? \nWill you like to have it displayed? (for dev testing)");
-                                    if(askIfNoCode == false)
-                                    {
-                                        event.preventDefault();
-                                    }
-                                    else
+                                    if(!(askIfNoCode == false))
                                     {
                                         askIfNoCode = "";
                                         alert("Your code is : " + thisVercart);
                                     }
-                                }
-
-                                if(sec == 150)
-                                {
-                                    let askIfNoCode = confirm("Haven't seen your code? \nWill you like to have it displayed? (for dev testing)");
-                                    if(askIfNoCode == false)
-                                    {
-                                        event.preventDefault();
-                                    }
-                                    else
-                                    {
-                                        askIfNoCode = "";
-                                        alert("Your code is : " + thisVercart);
-                                    }
-                                }
-
-                                if(sec == 100)
-                                {
-                                    let askIfNoCode = confirm("Haven't seen your code? \nWill you like to have it displayed? (for dev testing)");
-                                    if(askIfNoCode == false)
-                                    {
-                                        event.preventDefault();
-                                    }
-                                    else
-                                    {
-                                        askIfNoCode = "";
-                                        alert("Your code is : " + thisVercart);
-                                    }
-                                }
-
-                                if(sec == 50)
-                                {
-                                    let askIfNoCode = confirm("Haven't seen your code? \nWill you like to have it displayed? (for dev testing)");
-                                    if(askIfNoCode == false)
-                                    {
-                                        event.preventDefault();
-                                    }
-                                    else
-                                    {
-                                        askIfNoCode = "";
-                                        alert("Your code is : " + thisVercart);
-                                    }
-                                }
-
-                                if(sec == 10)
-                                {
-                                    let askIfNoCode = confirm("Haven't seen your code? \nWill you like to have it displayed? (for dev testing)");
-                                    if(askIfNoCode == false)
-                                    {
-                                        event.preventDefault();
-                                    }
-                                    else
-                                    {
-                                        askIfNoCode = "";
-                                        alert("Your code is : " + thisVercart);
-                                    }
+                                    askForCdeRun = askForCdeSet;
                                 }
                                 
                                 // Once timer hits "0" , a notification is diplayed and field for vercode is closed. User would need to request a new one
@@ -1671,48 +1604,6 @@
                         // Send Email
                         sendVerCode.addEventListener("click" , () => 
                         {
-
-                            /* ========= Code by Post Mail =========== starts ===*/
-                                // var form_id_js = "signUp_form";
-
-                                // var data_js = {
-                                //     "access_token": "0m8ikok0thqv6rtoucea493n"
-                                // };
-
-                                // function js_send() {
-                                //     var request = new XMLHttpRequest();
-
-                                //     var subject = new_email_verSubject;
-                                //     var message = new_email_verBody;
-                                //     data_js['subject'] = subject;
-                                //     data_js['text'] = message;
-                                //     var params = toParams(data_js);
-
-                                //     request.open("POST", "https://postmail.invotes.com/send", true);
-                                //     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-                                //     request.send(params);
-
-                                //     return false;
-                                // }
-
-                                // setTimeout(() => js_send(), 1);
-
-                                // function toParams(data_js) {
-                                //     var form_data = [];
-                                //     for ( var key in data_js ) {
-                                //         form_data.push(encodeURIComponent(key) + "=" + encodeURIComponent(data_js[key]));
-                                //     }
-
-                                //     return form_data.join("&");
-                                // }
-
-                                // var js_form = document.getElementById(form_id_js);
-                                // js_form.addEventListener("submit", function (e) {
-                                //     e.preventDefault();
-                                // });
-                            /* ========= Code by Post Mail =========== ends ==*/
-                            /* ===== ==> Visit https://postmail.invotes.com <== testing only! === */
                             
                             // Removes the submit button and Replaces with validation button
                             sendVerCode.classList.add("hideBtn");
@@ -1722,13 +1613,13 @@
                             verCodeBox_loader.classList.add("active") 
                             if((verCodeBox_loader.classList.contains("active")))
                             {
-                                let loadtimeVerSuccess = 10;
+                                let loadtimeVerSuccess = 7;
                                 let sec = loadtimeVerSuccess;
                                 let verSuccesstimer = setInterval(
                                     function ()
                                     {
                                         sec--;
-                                        if(sec == 9)
+                                        if(sec == 6)
                                         {
                                             ver_loader_note_ctnt.textContent = "Generating code";
                                         }
@@ -1807,45 +1698,43 @@
                                         clearInterval(timer);
 
                                         // Sequence of messages displayed at differnet points ove a second period before is redirected to homepage
-                                        setTimeout(
-                                            function()
+                                        setTimeout(function()
+                                        {
+                                            let loadtimeVerSuccess = 10;
+                                            let seconds = loadtimeVerSuccess;
+                                            let verSuccesstimer = setInterval(function ()
                                             {
-                                                let loadtimeVerSuccess = 20;
-                                                let seconds = loadtimeVerSuccess;
-                                                let verSuccesstimer = setInterval(
-                                                    function (){
-                                                        seconds--;
-                                                        if(seconds == 19)
-                                                        {
-                                                            ver_loader_note_ctnt.textContent = "Verified";
-                                                        }
-                                                        if(seconds == 17)
-                                                        {
-                                                            ver_loader_note_ctnt.textContent = "Creating Account";
-                                                        }
-                                                        if(seconds == 7)
-                                                        {
-                                                            ver_loader_note_ctnt.textContent = "Account Created";
-                                                        }
-                                                        if(seconds == 5)
-                                                        {
-                                                            ver_loader_note_ctnt.textContent = "Redirecting";
-                                                        }
-                                                        if(seconds == 0)
-                                                        {
-                                                            clearInterval(verSuccesstimer);
-                                                            window.removeEventListener("beforeunload" , beforeUnloadHandler);
-                                                            storeNewCred(newUserName.value, newPassword.value);
-                                                            preloaderBdr.style.display = "flex";
-                                                            setTimeout(() => 
-                                                            {
-                                                                opn_dtn();
-                                                            }, 3000);
-                                                        }
-                                                    }
-                                                , 1000);
-                                            }
-                                        ,2500);
+                                                seconds--;
+                                                if(seconds == 9)
+                                                {
+                                                    ver_loader_note_ctnt.textContent = "Verified";
+                                                }
+                                                if(seconds == 8)
+                                                {
+                                                    ver_loader_note_ctnt.textContent = "Creating Account";
+                                                }
+                                                if(seconds == 4)
+                                                {
+                                                    ver_loader_note_ctnt.textContent = "Account Created";
+                                                }
+                                                if(seconds == 2)
+                                                {
+                                                    ver_loader_note_ctnt.textContent = "Redirecting";
+                                                    storeNewCred(newUserName.value, newPassword.value);
+                                                }
+                                                if(seconds == 0)
+                                                {
+                                                    clearInterval(verSuccesstimer);
+                                                    window.removeEventListener("beforeunload" , beforeUnloadHandler);
+                                                    storeNewCred(newUserName.value, newPassword.value);
+                                                    preloaderBdr.style.display = "flex";
+                                                    setTimeout(() => 
+                                                    {
+                                                        opn_dtn();
+                                                    }, 3000);
+                                                }
+                                            }, 1000);
+                                        },2500);
                                     }
                                     // If User makes more than three (3) wrong attempts this occurs
                                     else if(invalidVerArray.length > 2)
