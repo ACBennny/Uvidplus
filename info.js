@@ -1134,37 +1134,41 @@
             {
                 const mark_atn = () => 
                 {
-                    let hist_item = selectedProfile.prof_history.filter(item => 
-                        item.hist_link.split('/')[3] === showsStructData.show_link.split('/')[2]
-                    );
+                    let currSsnNo = 1 + Number(document.querySelector(".seasons_selector.active").getAttribute("data-index"));
                     let currSsnLength = Number(document.querySelector(".seasons_selector.active").getAttribute("ep-length"));
                     let show_type = `${showsStructData.show_type.toLowerCase()}`;
                     let show_name = `${showsStructData.show_link.split('/')[2]}`;
 
-                    // Only Relplace if entire season hasn't been marked as watched
+                    // Get all current season items from history
+                    let hist_item = selectedProfile.prof_history.filter(item => 
+                        item.hist_link.split('/')[3] === showsStructData.show_link.split('/')[2]
+                        && Number(item.hist_link.split('/')[4]) == currSsnNo
+                    );
+
+                    // Only Replace if entire season hasn't been marked as watched
                     if(hist_item.length != currSsnLength)
                     {
-                        // Remove the old entry
-                        selectedProfile.prof_history = selectedProfile.prof_history.filter(item => 
-                            item.hist_link.split('/')[3] !== showsStructData.show_link.split('/')[2]
-                        );
+                        // Remove the old entry if any
+                        if(hist_item.length > 0)
+                        {
+                            selectedProfile.prof_history = selectedProfile.prof_history.filter(item => 
+                                !(item.hist_link.split('/')[3] === showsStructData.show_link.split('/')[2]
+                                && Number(item.hist_link.split('/')[4]) === currSsnNo)
+                            );
+                        }
     
                         // Add the updated entries
-                        for(let i = 0; i < showsStructData.show_episodes.length; i++)
+                        for(let i = 0; i < currSsnLength; i++)
                         {
-                            for(let j = 0; j < showsStructData.show_episodes[i].show_ep; j++)
-                            {
-                                selectedProfile.prof_history.push(
-                                    {
-                                        hist_link: `#/watch/${show_type}/${show_name}/${(i+1)}/${(j+1)}`,
-                                        hist_currTime: `23:59`, // Random value as no shows are streamed
-                                        hist_totalTime: `23:59`, // Random value as no shows are streamed
-                                    }
-                                );
-                            }
+                            selectedProfile.prof_history.push(
+                                {
+                                    hist_link: `#/watch/${show_type}/${show_name}/${currSsnNo}/${(i+1)}`,
+                                    hist_currTime: `23:59`, // Random value as no shows are streamed
+                                    hist_totalTime: `23:59`, // Random value as no shows are streamed
+                                }
+                            );
                         }
                     }
-                    console.log(selectedProfile.prof_history);
 
                     // Notify the user
                     notification(`notifyGood` , `Season marked as watched`);
