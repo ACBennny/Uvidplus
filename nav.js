@@ -101,25 +101,9 @@ function page_router()
             page_route_success(`initProfilePage`);
             break;
             
-        case 'edit-profile': // Customize your profile
-            page_route_success(``);
-            break;
-            
-        case 'switch-profile': // switch to another profile
-            page_route_success(``);
-            break;
-            
-        case 'history': // View your watch history (a.k.a. Continue Watching)
-            page_route_success(``);
-            break;
-            
-        case 'notifications': // might end up being a modal
-            page_route_success(``);
-            break;
-            
         case 'settings': // settings
             sideNavLinks[5].classList.add("active");
-            page_route_error(`construction`);
+            page_route_success(`initSettPage`);
             break;
             
         case 'news': // more navigation will be added later
