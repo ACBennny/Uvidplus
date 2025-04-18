@@ -2321,8 +2321,8 @@
             show_foreground: `/library/black-clover/img/1.jpg`,
             show_background: `/library/black-clover/img/2.jpg`,
             show_quality: `4K`,
-            show_rating: `8.1`,
-            show_scores: `PG13`,
+            show_rating: `PG13`,
+            show_scores: `8.1`,
             show_trailers: 
             [
                 {show_trl: `https://www.youtube.com/embed/vUjAxk1qYzQ?enablejsapi=1&wmode=opaque&autoplay=1`},
