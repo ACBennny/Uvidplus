@@ -1219,7 +1219,7 @@
             // Toggle back to top button on scroll
             document.querySelectorAll(".backtotop_btn").forEach((btn) =>
             {
-                btn.classList.toggle("float", window.scrollY > 100)
+                btn.classList.toggle("float", window.scrollY > 100);
             });
 
             // Darken NavBar on scroll
