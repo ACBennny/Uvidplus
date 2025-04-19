@@ -31,6 +31,7 @@
     let winWidth485 = 485;
     let winScrollPos = null;
     let lastWindowScroll = 0;
+    let docBodyInitScrollPos = 0;
     let lockMenuAtvBool = false;
     let notificationQueue = [];
     let isNotificationActive = false;
@@ -1009,7 +1010,6 @@
             if(user) 
             {
                 startApplication();
-                page_router();
                 console.log('yes, user is signed in.');
             }
             else
@@ -1057,6 +1057,8 @@
             attachAddToCLEventListeners();
             attachSharePageEventListeners();
             initGenMenuModal();
+            page_router();
+            genScrollingAtn();
         }
 
 
