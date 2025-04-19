@@ -3,4 +3,123 @@
  * 
  * @author (Anyanwu Benedict Chukwuemeka)
  * @version (v0.01)
- *************************************************************/
+ *************************************************************/ 
+
+
+
+
+.settingBdr
+{
+    width: 100%;
+}
+
+.settingBdr .settingBox
+{
+    position: relative;
+    width: 100%;
+    padding: 0 var(--genBorderSpacing);
+}
+
+.settingBox .settingNavBdr
+{
+    position: fixed;
+    top: 0;
+    left: calc((var(--sideNavBarWidth) + var(--genBorderSpacing)));
+    width: 325px;
+    z-index: 0;
+}
+
+.settingNavBdr .settingNavBox
+{
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 7rem;
+}
+
+.settingNavBox .settingNavTitleBox
+{
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.settingNavTitleBox .settingNavTitleText
+{
+    color: var(--genWhiteTypeMid);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.settingNavBox .settingNavOptBox
+{
+    --settingNavOptClr: var(--genWhiteTypeLight);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 12px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: #00000000;
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+}
+
+.settingNavOptBox.active 
+{
+    --settingNavOptClr: var(--genGreenTypeLight);
+    background-color: #ffffff15;
+}
+
+.settingNavOptBox .settingNavOptIcon
+{
+    width: 25px;
+    height: 25px;
+}
+
+.settingNavOptIcon .settingNavOptSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--settingNavOptClr);
+}
+
+.settingNavOptBox .settingNavOptText
+{
+    margin-left: 10px;
+    color: var(--settingNavOptClr);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+
+
+
+
+
+
+
+
+@media(hover: hover)
+{
+    .settingNavOptBox:hover
+    {
+        background-color: #ffffff15;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
