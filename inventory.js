@@ -2187,7 +2187,7 @@
             show_genre: `Anime, Sports`,
             show_theme: `Racing`,
             show_year: `2023`,
-            show_aired: `Oct 2, 2023 to Dec 18, 2023`,
+            show_aired: `Oct 2, 2023 to Dec 23, 2024`,
             show_studios: `Felix Film`,
             show_country: `Japan`,
             show_foreground: `/library/mf-ghost/img/1.jpg`,
@@ -2195,10 +2195,16 @@
             show_quality: `HD`,
             show_rating: `PG13`,
             show_scores: `7.5`,
-            show_trailers: [{show_trl: `https://www.youtube.com/embed/zNWZjjkKfXs?enablejsapi=1&wmode=opaque&autoplay=1`}],
-            show_movies: [{show_mov: `N/A`}],
-            show_episodes: [{show_ep: 12,}],
-            show_watch: [{show_wtp: `tv`, show_wep: 12,},],
+            show_trailers: 
+            [
+                {show_trl: `https://www.youtube.com/embed/zNWZjjkKfXs?enablejsapi=1&wmode=opaque&autoplay=1`},
+                {show_trl: `https://www.youtube.com/embed/iVP02kre9rM?enablejsapi=1&wmode=opaque&autoplay=1`},
+            ],
+            show_episodes: 
+            [
+                {show_ep: 12,},
+                {show_ep: 12,},
+            ],
             show_description: `As electric vehicles dominate everyday life in the 2020s, interest in traditional combustion engine cars is maintained through a motorsports series known as the MFG. Hundreds of ambitious drivers, with a staggering 30 million viewers online, fiercely compete for a spot in the Godly Fifteen—the leading 15 racers—and a chance at the grand prize of 100 million yen. Among these individuals aiming for the top is 19-year-old Kanata Rivington.
             </br></br>
             Having attended a famous racing school in England, Kanata sets his sights on the upcoming MFG tournament and enrolls in the competition under the alias "Kanata Katagiri." In comparison to his opponents' flashy vehicles, Kanata's Toyota 86 GT, passed down from a former MFG contestant, puts him at a considerable disadvantage. Kanata receives guidance from a Godly Fifteen member, but he still treats the MFG as only a stepping stone for his true goal: locating his estranged father. Meanwhile, Kanata's appearance sends shockwaves through the scene as his driving style eerily resembles that of a once legendary racer.`,
