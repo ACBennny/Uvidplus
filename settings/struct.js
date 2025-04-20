@@ -187,7 +187,11 @@ let settPageNav =
 `
     <div class="topNavBdr dlPgNav">
         <div class="topNavBox">
-            <section class="topNav_section"></section>
+            <section class="topNav_section">
+                <div class="topNav_titleBox">
+                    <div class="topNav_titleText">Settings</div>
+                </div>
+            </section>
             <section class="topNav_section">
                 <button type="button" class="genBtnBox greySolidBtn openGenMenuModalBtn" data-gen-menu-modal-type="sett_sect_nav">
                     <div class="genBtnIcon">

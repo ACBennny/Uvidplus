@@ -151,6 +151,9 @@
         <div class="topNavBdr">
             <div class="topNavBox">
                 <section class="topNav_section">
+                    <div class="topNav_titleBox">
+                        <div class="topNav_titleText">Profile</div>
+                    </div>
                 </section>
                 <section class="topNav_section">
                     <div class="sideNavItemsCardBase ">

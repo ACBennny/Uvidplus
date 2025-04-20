@@ -54,9 +54,12 @@ let gen_cmpnt_lib =
         `,
     },
     {
-        cmpnt_name: ``,
+        cmpnt_name: `topnavbartitle title`,
         cmpnt_struct: 
         `
+            <div class="topNav_titleBox">
+                <div class="topNav_titleText"></div>
+            </div>
         `,
     },
 ];

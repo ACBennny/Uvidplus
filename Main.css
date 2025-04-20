@@ -1015,6 +1015,12 @@ img
     margin-right: 0.4375rem;
 }
 
+.topNav_titleBox .topNav_titleText
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 18px;
+}
+
 
 
 
