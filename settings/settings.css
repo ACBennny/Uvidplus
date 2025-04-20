@@ -198,13 +198,17 @@ html:root
 {
     html:root
     {
-        /* --settingNavBdrWidth: 0rem;
-        --settingNavBoxWidth: 0rem; */
     }
 
     .settingBox .settCtntBdr
     {
         width: 100%;
+    }
+
+    .settCtntTitleBox .settCtntTitleText
+    {
+        color: var(--genWhiteTypeLight);
+        font-size: 1.375rem;
     }
 
 }
