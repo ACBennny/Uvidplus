@@ -11,7 +11,7 @@ let sett_base_struct =
 `
     <div class="settingBdr">
         <div class="settingBox">
-            <div class="settingNavBdr">
+            <div class="settingNavBdr hidden">
                 <div class="settingNavBox">
                     <div class="settingNavTitleBox">
                         <p class="settingNavTitleText">Settings</p>
