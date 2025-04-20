@@ -560,7 +560,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="give_space"></div>
                 </div>
             </div>
         </footer>
