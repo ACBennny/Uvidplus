@@ -58,11 +58,6 @@ html:root
     gap: 0.3125rem;
 }
 
-.myListBodyBdr .dwldListBodyBox.myListBodyBox
-{
-    /* max-width: calc((var(--genMaxContainerWidth) / var(--dlElemMaxWidthFactor))); */
-}
-
 .myListDLCatalogBdr
 {
     width: 100%;
