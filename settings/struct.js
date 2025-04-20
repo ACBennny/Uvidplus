@@ -65,7 +65,10 @@ let sett_base_struct =
                 <div class="settCtntBox">
                     <section class="settCtntTab" id="sett_membership">
                         <div class="settCtntTitleBox">
-                            <div class="settCtntTitleText">Membership & Billing</div>
+                            <div class="settCtntTitleText">
+                                <span class="major">M</span>
+                                <span class="minor">embership & Billing</span>
+                            </div>
                         </div>
                         <div class="settCtntSectBdr">
                             <div class="settCtntSectInfo">
@@ -85,7 +88,10 @@ let sett_base_struct =
                     </section>
                     <section class="settCtntTab" id="sett_parenting">
                         <div class="settCtntTitleBox">
-                            <div class="settCtntTitleText">Profile & Parental Controls</div>
+                            <div class="settCtntTitleText">
+                                <span class="major">P</span>
+                                <span class="minor">rofile & Parental Controls</span>
+                            </div>
                         </div>
                         <div class="settCtntSectBdr">
                             <div class="settCtntSectInfo">
@@ -105,7 +111,10 @@ let sett_base_struct =
                     </section>
                     <section class="settCtntTab" id="sett_experience">
                         <div class="settCtntTitleBox">
-                            <div class="settCtntTitleText">App Experience</div>
+                            <div class="settCtntTitleText">
+                                <span class="major">A</span>
+                                <span class="minor">pp Experience</span>
+                            </div>
                         </div>
                         <div class="settCtntSectBdr">
                             <div class="settCtntSectInfo">
@@ -125,7 +134,10 @@ let sett_base_struct =
                     </section>
                     <section class="settCtntTab" id="sett_privacy">
                         <div class="settCtntTitleBox">
-                            <div class="settCtntTitleText">Privacy & Security</div>
+                            <div class="settCtntTitleText">
+                                <span class="major">P</span>
+                                <span class="minor">rivacy & Security</span>
+                            </div>
                         </div>
                         <div class="settCtntSectBdr">
                             <div class="settCtntSectInfo">
@@ -145,7 +157,10 @@ let sett_base_struct =
                     </section>
                     <section class="settCtntTab" id="sett_information">
                         <div class="settCtntTitleBox">
-                            <div class="settCtntTitleText">About & Legal</div>
+                            <div class="settCtntTitleText">
+                                <span class="major">A</span>
+                                <span class="minor">bout & Legal</span>
+                            </div>
                         </div>
                         <div class="settCtntSectBdr">
                             <div class="settCtntSectInfo">
