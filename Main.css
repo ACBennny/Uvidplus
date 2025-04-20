@@ -976,11 +976,6 @@ img
     pointer-events: all;
 }
 
-.topNavBar.isScrollingDown
-{
-    /* --btmNavBarHeight: 0rem; */
-}
-
 .topNavBar .topNavBdr
 {
     width: 100%;
@@ -1239,11 +1234,6 @@ img
     transition: all 300ms ease-in-out;
     pointer-events: none;
     z-index: 100;
-}
-
-.btmNavBar.isScrollingDown
-{
-    /* --btmNavBarHeight: 0rem; */
 }
 
 .btmNavBar .btmNavBdr
@@ -2730,11 +2720,6 @@ img
 {
     scroll-snap-type: none;
     scroll-behavior: auto;
-}
-
-.basic_slider_card_box.isBasicSliderDown .slide_card_base
-{
-    /* scroll-snap-align: unset; */
 }
 
 .basic_slider_card_box .slide_card_base
@@ -6184,16 +6169,6 @@ img
 
 @media only screen and (max-width: 55.25rem)
 {
-
-    .editProfAtnBtn_Pc
-    {
-        /* display: none; */
-    }
-
-    .editProfAtnBtn_Mob
-    {
-        /* display: block; */
-    }
 
     .basic_slider_card_box
     {
