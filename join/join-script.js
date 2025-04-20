@@ -364,8 +364,22 @@
 
 
 
-    window.addEventListener("load", callprepare);
+    window.addEventListener("load", getSignedInUser);
 
+    function getSignedInUser() 
+    {
+        const user = JSON.parse(localStorage.getItem('uvidSignedInUser'));
+        if(user) 
+        {
+            console.log('yes, user is signed in.');
+            window.open(`/` , `_self`);
+        }
+        else
+        {
+            console.log('No user is signed in.');
+            callprepare();
+        }
+    }
 
     function callprepare()
     {
@@ -972,43 +986,31 @@
                     // If conditions are met, function is called to send the email
                     else
                     {
-                        resetPass_SubmitBtn.value='Email Sent';
-                        resetPass_SubmitBtn.disabled=true;
+                        notification(`notifyGood` , `Processing request..`);
+                        resetPass_SubmitBtn.disabled = true;
                         resetPass_warn.textContent = "";
                         resetPass_warn.classList.remove("active");
                         emailPassLink();
 
-                        // Generating link String Function
-                        function generateRandomString() {
-                            const length = 16;
-                            var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-                            var result = '';
-                            for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
-                            return result;
-                        };
-
                         // Carries out the sending of the email
                         function emailPassLink()
                         {
-                            // Gets string for link
-                            let thisLinkcart1 = generateRandomString();
-                            let thisLinkcart2 = generateRandomString();
-
                             // Email content
-                            let link_part1 = thisLinkcart1;
-                            let link_part2 = thisLinkcart2;
                             let new_email_verBtn = resetPass_email.value;
-                            let new_email_verSubject = "Password Reset";
-                            let new_email_verBody= "This is a test (jokes) Password request for " + resetPass_email.value + ". Click here to reset your password " 
-                            + "https://bluecraftologies.com/Join/LogIn/?=Password+Error+Req+%20%Request+Reset+Email=?%value!/" + link_part1 
-                            + "/blueCrafts_Request+Error+%201%+Req+open=null?/Users/" + link_part2 + "/if+fall=open!+%call%lessChange.aspx";
-                            // console.log("email val => " + new_email_verBody);
 
                             // Send Email
                             setTimeout(() => 
                             {
-                                // Reloads page after  seconds
-                                setTimeout(() => window.location.reload(), 10000);
+                                // Send request
+                                fdbk_send(
+                                    `Password Reset`,
+                                    `This is a demo password reset request for ${new_email_verBtn}.`,
+                                    `Login issue`,
+                                    `critical`
+                                );
+
+                                // Reloads page after (5) seconds
+                                setTimeout(() => window.location.reload(), 5000);
 
                             } , 1000);
                         }
@@ -1053,7 +1055,8 @@
                 // Validation function For "Username"
 
                 // Sepcifies the allowed characters for Before input
-                newUserName.addEventListener("beforeinput", (event) => {
+                newUserName.addEventListener("beforeinput", (event) => 
+                {
                     if(event.data != null && !(userName_Condition).test(event.data))
                     event.preventDefault();
                 });
@@ -1373,7 +1376,7 @@
                     // If not filled correctly, alert user 
                     else
                     {
-                        alert("Please Check that all fields have been filled correctly");
+                        notification(`notifyBad` , `Please Check that all fields have been filled correctly`);
                     }
                 });
 
