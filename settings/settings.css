@@ -215,6 +215,19 @@ html:root
 
 
 
+@media only screen and (max-width: 30.3125rem)
+{
+
+    .settCtntTitleBox .settCtntTitleText
+    {
+        color: var(--genWhiteTypeLight);
+        font-size: 1.125rem;
+    }
+
+}
+
+
+
 
 
 
