@@ -218,12 +218,12 @@ html:root
         width: 100%;
     }
 
-    .settCtntBox .settCtntTab
+    .settCtntBdr .settCtntBox
     {
-        padding-top: 1.25rem;
+        gap: 0rem;
     }
 
-    .settCtntTab:first-child
+    .settCtntBox .settCtntTab
     {
         padding-top: calc((4rem + 1.25rem));
     }
