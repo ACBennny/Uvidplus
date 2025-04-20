@@ -162,8 +162,21 @@ html:root
 
 .settCtntTitleBox .settCtntTitleText
 {
-    color: var(--genWhiteTypeLight);
+    display: flex;
+    flex-direction: row;
     font-size: 1.75rem;
+}
+
+.settCtntTitleText .major
+{
+
+    color: var(--genGreenTypeLight);
+}
+
+.settCtntTitleText .minor
+{
+
+    color: var(--genWhiteTypeLight);
 }
 
 
