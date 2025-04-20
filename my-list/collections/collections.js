@@ -1178,7 +1178,7 @@ let editCLStruct =
         // For scrollbars that are hidden
         if(clModalBoxScrollbarWidth == 0)
         {
-            // If device is not mobile set to 10px
+            // If device is not mobile set to 0.625rem
             if(!(window.matchMedia("(hover: none)").matches)) clModalBoxScrollbarWidth = 10;
         }
         clModalBaseBarBdr.setAttribute(`style` , `--clModalBoxScrollbarWidth: ${clModalBoxScrollbarWidth}px`);

@@ -9,9 +9,9 @@
 
 html:root
 {
-    --trendingCardBdrPseudoInset: -25px;
-    --trendingImgBdrWidth: 150px;
-    --trendingImgBdrHeight: 215px;
+    --trendingCardBdrPseudoInset: -1.5625rem;
+    --trendingImgBdrWidth: 9.375rem;
+    --trendingImgBdrHeight: 13.4375rem;
     --trendingDetAboutTextClr: var(--color10);
 }
 
@@ -31,7 +31,7 @@ html:root
     max-width: var(--genMaxContainerWidth);
     display: flex;
     flex-direction: column;
-    padding: 20px var(--genBorderSpacing);
+    padding: 1.25rem var(--genBorderSpacing);
 }
 
 .trendingBdr .trendingSiteNameBdr
@@ -50,13 +50,13 @@ html:root
 .trendingSiteNameBox .trendingSiteNameTop
 {
     color: var(--genWhiteTypeLight);
-    font-size: 23px;
+    font-size: 1.4375rem;
 }
 
 .trendingSiteNameBox .trendingSiteNameBtm
 {
     color: var(--trendingDetAboutTextClr);
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
 .trendingBdr .trendingBox
@@ -79,7 +79,7 @@ html:root
     content: '';
     position: absolute;
     inset: var(--trendingCardBdrPseudoInset);
-    border-radius: 10px;
+    border-radius: 0.625rem;
     background-color: #1f1f1f;
     opacity: 0;
     visibility: hidden;
@@ -114,7 +114,7 @@ html:root
 {
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     overflow: hidden;
 }
 
@@ -143,7 +143,7 @@ html:root
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 20px;
+    padding-left: 1.25rem;
 }
 
 .trendingDetBox .trendingDetTitleBdr
@@ -172,7 +172,7 @@ html:root
     -webkit-hyphens: auto;
     hyphens: auto;
     color: var(--genWhiteTypeLight);
-    font-size: 22px;
+    font-size: 1.375rem;
     overflow-wrap: break-word;
     overflow: hidden;
 }
@@ -180,7 +180,7 @@ html:root
 .trendingDetBox .trendingDetFeatureBdr
 {
     width: 100%;
-    margin: 12px 0;
+    margin: 0.75rem 0;
 }
 
 .trendingDetFeatureBdr .trendingDetFeatureBox
@@ -188,7 +188,7 @@ html:root
     width: 100%;
     display: flex;
     flex-direction: row;
-    gap: 25px;
+    gap: 1.5625rem;
 }
 
 .trendingDetFeatureBox .trendingDetFeatureCard
@@ -200,20 +200,20 @@ html:root
 .trendingDetFeatureCard .trendingDetFeatureCard_Top
 {
     font-family: 'Poppins' , sans-serif;
-    font-size: 13px;
+    font-size: 0.8125rem;
     color: var(--genGreenTypeLight2);
 }
 
 .trendingDetFeatureCard .trendingDetFeatureCard_Btm
 {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--genWhiteTypeLight);
 }
 
 .trendingDetBox .trendingDetAboutBdr
 {
     width: 100%;
-    margin-bottom: 12px;
+    margin-bottom: 0.75rem;
 }
 
 .trendingDetAboutBdr .trendingDetAboutBox
@@ -235,7 +235,7 @@ html:root
     -webkit-hyphens: auto;
     hyphens: auto;
     color: var(--trendingDetAboutTextClr);
-    font-size: 13px;
+    font-size: 0.8125rem;
     overflow-wrap: break-word;
     overflow: hidden;
 }
@@ -255,13 +255,13 @@ html:root
 {
     width: -moz-fit-content;
     width: fit-content;
-    width: 185px;
+    width: 11.5625rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 12px 20px;
-    border-radius: 10px;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.625rem;
     background-color: var(--genGreenTypeMid2);
 }
 
@@ -272,15 +272,15 @@ html:root
 
 .trendingDetWatchBtn .trendingDetWatchBtnIcon
 {
-    width: 18px;
+    width: 1.125rem;
     fill: var(--genWhiteTypeLight);
 }
 
 .trendingDetWatchBtn .trendingDetWatchBtnText
 {
-    margin-left: 5px;
+    margin-left: 0.3125rem;
     color: var(--genWhiteTypeLight);
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
 
@@ -298,90 +298,90 @@ html:root
 
 /* ================ RESPONSIVENESs ============== */
 
-@media only screen and (max-width: 768px)
+@media only screen and (max-width: 48rem)
 {
     html:root
     {
-        --trendingCardBdrPseudoInset: -15px;
+        --trendingCardBdrPseudoInset: -0.9375rem;
     }
 }
 
 
-@media only screen and (max-width: 565px)
+@media only screen and (max-width: 35.125rem)
 {
     html:root
     {
-        --trendingCardBdrPseudoInset: 0px;
-        --trendingImgBdrWidth: 120px;
-        --trendingImgBdrHeight: 195px;
+        --trendingCardBdrPseudoInset: 0rem;
+        --trendingImgBdrWidth: 7.5rem;
+        --trendingImgBdrHeight: 12.1875rem;
     }
 
     .trendingBase .trendingBdr
     {
-        padding: 20px 15px;
+        padding: 1.25rem 0.9375rem;
     }
 
     .trendingBdr .trendingSiteNameBdr
     {
-        margin-bottom: 20px;
+        margin-bottom: 1.25rem;
     }
 
     .trendingSiteNameBox .trendingSiteNameTop
     {
-        font-size: 20px;
+        font-size: 1.25rem;
     }
     
     .trendingSiteNameBox .trendingSiteNameBtm
     {
-        font-size: 13px;
+        font-size: 0.8125rem;
     }
 
     .trendingBox .trendingCardBdr
     {
-        margin-bottom: 0px;
-        padding: 10px;
+        margin-bottom: 0rem;
+        padding: 0.625rem;
     }
 
     .trendingDetBdr .trendingDetBox
     {
-        padding-left: 15px;
+        padding-left: 0.9375rem;
     }
     
     .trendingDetTitleBox .trendingDetTitleText
     {
-        font-size: 17px;
+        font-size: 1.0625rem;
     }
 
     .trendingDetFeatureCard .trendingDetFeatureCard_Top,
     .trendingDetFeatureCard .trendingDetFeatureCard_Btm,
     .trendingDetAboutBox .trendingDetAboutText
     {
-        font-size: 12px;
+        font-size: 0.75rem;
     }
 }
 
 
-@media only screen and (max-width: 400px)
+@media only screen and (max-width: 25rem)
 {
     html:root
     {
-        --trendingImgBdrWidth: 100px;
-        --trendingImgBdrHeight: 170px;
+        --trendingImgBdrWidth: 6.25rem;
+        --trendingImgBdrHeight: 10.625rem;
     }
 
     .trendingDetBdr .trendingDetBox
     {
-        padding-left: 12px;
+        padding-left: 0.75rem;
     }
 
     .trendingDetBox .trendingDetFeatureBdr
     {
-        margin: 7px 0;
+        margin: 0.4375rem 0;
     }
 
     .trendingDetFeatureBdr .trendingDetFeatureBox
     {
-        gap: 15px;
+        gap: 0.9375rem;
     }
 }
 

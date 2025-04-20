@@ -7,14 +7,14 @@
 ************************************************************************************************/
 html:root
 {
-    --titleImgBdrWidth: 200px;
-    --titleImgBdrHeight: 300px;
-    --sect_abt_det_width: 300px;
-    --abtCardTextMajorW: 100px;
+    --titleImgBdrWidth: 12.5rem;
+    --titleImgBdrHeight: 18.75rem;
+    --sect_abt_det_width: 18.75rem;
+    --abtCardTextMajorW: 6.25rem;
     --seasons_BdrHeight: var(--switchProfHeaderHeight);
-    --episodesSearchWidth: 150px;
-    --episodesSearchHeight: 35px;
-    --episodesBoxWidth: 200px;
+    --episodesSearchWidth: 9.375rem;
+    --episodesSearchHeight: 2.1875rem;
+    --episodesBoxWidth: 12.5rem;
 }
 
 
@@ -26,7 +26,7 @@ html:root
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 0px;
+    gap: 0rem;
     background: #000;
     scroll-behavior: smooth;
 }
@@ -41,7 +41,7 @@ html:root
 {
     position: relative;
     width: 100%;
-    min-height: 250px;
+    min-height: 15.625rem;
     aspect-ratio: 16/4;
     pointer-events: none;
 }
@@ -50,14 +50,14 @@ html:root
 {
     width: 100%;
     height: var(--ImgHeight);
-    min-height: 500px;
+    min-height: 31.25rem;
 }
 
 .bcg_img_box .bcgImg
 {
     width: 100%;
     height: 100%;
-    min-height: 500px;
+    min-height: 31.25rem;
     object-fit: cover;
     object-position: top;
 }
@@ -70,7 +70,7 @@ html:root
     width: 100%;
     height: 100%;
     height: var(--ImgHeight);
-    min-height: 525px;
+    min-height: 32.8125rem;
     background-image: -o-radial-gradient(100% 80% at 50% 20%, #00000000 0%, #000000 100%);
     background-image: -moz-radial-gradient(100% 80% at 50% 20%, #00000000 0%, #000000 100%);
     background-image: -webkit-radial-gradient(100% 80% at 50% 20%, #00000000 0%, #000000 100%);
@@ -105,7 +105,7 @@ html:root
     width: 100%;
     display: flex;
     flex-direction: row;
-    margin-bottom: 50px;
+    margin-bottom: 3.125rem;
 }
 
 
@@ -126,7 +126,7 @@ html:root
 {
     width: 100%;
     height: 100%;
-    border-radius: 15px;
+    border-radius: 0.9375rem;
     overflow: hidden;
 }
 
@@ -147,17 +147,17 @@ html:root
     display: flex;
     flex-direction: column;
     justify-content: end;
-    gap: 10px;
-    padding-left: 30px;
-    padding-bottom: 30px;
+    gap: 0.625rem;
+    padding-left: 1.875rem;
+    padding-bottom: 1.875rem;
 }
 
 .title_ctntBdr #show_Header_Name
 {
     color: var(--genWhiteTypeBright);
-    font-size: 30px;
+    font-size: 1.875rem;
     text-align: left;
-    letter-spacing: 1.5px;
+    letter-spacing: 0.0938rem;
 }
 
 
@@ -190,24 +190,24 @@ html:root
 .quick_det_item .quick_det_text
 {
     color: var(--genWhiteTypeMid);
-    font-size: 14px;
+    font-size: 0.875rem;
     font-family: 'poppins' , sans-serif;
     text-transform: uppercase;
 }
 
 .quick_det_item .quick_det_divider
 {
-    margin: 0 5px;
+    margin: 0 0.3125rem;
 }
 
 .quick_det_item .quick_det_rating_icon
 {
-    width: 14px;
-    height: 14px;
+    width: 0.875rem;
+    height: 0.875rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 3px;
+    margin-right: 0.1875rem;
 }
 
 .quick_det_rating_icon .quick_det_rating_svg
@@ -226,7 +226,7 @@ html:root
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 0.625rem;
 }
 
 .info_atn_bdr .info_atn_box
@@ -235,13 +235,13 @@ html:root
     width: fit-content;
     display: flex;
     flex-direction: row;
-    gap: 5px;
+    gap: 0.3125rem;
 }
 
 .quick_atnBcg
 {
     position: relative;
-    height: 60px;
+    height: 3.75rem;
     -moz-user-select: none;
     -moz-user-select: -moz-none;
     -webkit-user-select: none;
@@ -270,7 +270,7 @@ html:root
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 15px;
+    padding: 0.9375rem;
     transition: 300ms;
     cursor: pointer;
 }
@@ -278,7 +278,7 @@ html:root
 .quick_atnCtnt:active
 {
     background-color: #222222;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
 }
 
 .quick_atnCtnt .scoreBox
@@ -297,7 +297,7 @@ html:root
 
 .scoreBox .scoreIconBox
 {
-    width: 18px;
+    width: 1.125rem;
 }
 
 .scoreIconBox .scoreIcon
@@ -309,13 +309,13 @@ html:root
 .scoreBox .scoreIconNo
 {
     color: #dfdfdf;
-    font-size: 12px;
-    margin-left: 5px;
+    font-size: 0.75rem;
+    margin-left: 0.3125rem;
 }
 
 .topIconBox
 {
-    width: 18px;
+    width: 1.125rem;
 }
 
 .topIconBox .topIcon
@@ -328,8 +328,8 @@ html:root
 {
     width: 100%;
     color: var(--genWhiteTypeLight);
-    font-size: 12px;
-    margin-top: 5px;
+    font-size: 0.75rem;
+    margin-top: 0.3125rem;
     text-align: center;
 }
 
@@ -342,10 +342,10 @@ html:root
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 300px;
+    width: 18.75rem;
     height: fit-content;
     background-color: #141414;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
     transform: translate(0%, 50%);
     transition: 300ms;
     opacity: 0;
@@ -374,20 +374,20 @@ html:root
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 12px 16px;
+    padding: 0.75rem 1rem;
 }
 
 .quickAtnModalBox .quickAtnModal_btn
 {
     position: relative;
     width: 100%;
-    height: 50px;
+    height: 3.125rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     outline: none;
     border: none;
-    padding: 10px;
+    padding: 0.625rem;
     background-color: transparent;
     cursor: pointer;
     transition: 300ms;
@@ -400,8 +400,8 @@ html:root
 
 .quickAtnModal_btn .quickAtnModal_btnIcon
 {
-    width: 18px;
-    width: 18px;
+    width: 1.125rem;
+    width: 1.125rem;
     fill: var(--genWhiteTypeMid);
     transition: 300ms;
 }
@@ -414,9 +414,9 @@ html:root
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 10px;
+    margin-left: 0.625rem;
     color: var(--genWhiteTypeMid);
-    font-size: 12px;
+    font-size: 0.75rem;
     transition: 300ms;
 }
 
@@ -458,8 +458,8 @@ html:root
 
 .score_btn.selected
 {
-    border-left: 3px solid var(--genGreenTypeMid);
-    border-radius: 5px;
+    border-left: 0.1875rem solid var(--genGreenTypeMid);
+    border-radius: 0.3125rem;
     background-color: #ffffff10;
 }
 
@@ -479,8 +479,8 @@ html:root
     justify-content: center;
     align-items: center;
     background: #00000099;
-    -webkit-backdrop-filter: blur(15px);
-    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(0.9375rem);
+    backdrop-filter: blur(0.9375rem);
     opacity: 0;
     transform: scale(0.6) translateY(30%);
     transition: 300ms;
@@ -500,11 +500,11 @@ html:root
 {
     position: relative;
     width: 98%;
-    max-width: 1150px;
-    border-radius: 5px;
+    max-width: 71.875rem;
+    border-radius: 0.3125rem;
     background: #000000;
     aspect-ratio: 16 / 9;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.625rem 1.25rem rgba(0, 0, 0, 0.1);
     -moz-user-select: none;
     -moz-user-select: -moz-none;
     -webkit-user-select: none;
@@ -523,8 +523,8 @@ html:root
 
 .closeTrailerIcon .closeTrailerSvg
 {
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
     fill: var(--genWhiteTypeBright);
 }
 
@@ -558,7 +558,7 @@ html:root
     top: 0;
     left: 0;
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
 }
 
 .ctnt-tab-headerBcg .ctnt-tab-headerBdr
@@ -610,8 +610,8 @@ html:root
     position: relative;
     width: -moz-fit-content;
     width: fit-content;
-    margin: 6px 12px;
-    padding: 5px;
+    margin: 0.375rem 0.75rem;
+    padding: 0.3125rem;
     cursor: pointer;
 }
 
@@ -622,8 +622,8 @@ html:root
     left: 0;
     bottom: 0;
     width: 0%;
-    height: 2px;
-    border-radius: 10px;
+    height: 0.125rem;
+    border-radius: 0.625rem;
     background-color: var(--genWhiteTypeLight);
     transition: all 300ms ease-in-out;
 }
@@ -635,7 +635,7 @@ html:root
 
 .ctnt-tab-headerOpt .ctnt-tab-headerText
 {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--genGreenTypeMid);
     transition: all 300ms ease-in-out;
 }
@@ -652,7 +652,7 @@ html:root
 {
     width: 100%;
     display: none;
-    margin-bottom: 50px;
+    margin-bottom: 3.125rem;
 }
 
 .sect-tab.selected
@@ -663,8 +663,8 @@ html:root
 .sect-coming-soon-bdr
 {
     width: 100%;
-    margin: 10px 0 16px;
-    border-radius: 16px;
+    margin: 0.625rem 0 1rem;
+    border-radius: 1rem;
     background-color: var(--genModalBcg);
 }
 
@@ -679,27 +679,27 @@ html:root
 
 .sect-coming-soon-box .sect-coming-soon-text
 {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--genWhiteTypeLight);
 }
 
 .sect-head
 {
     width: 100%;
-    padding: 5px 0;
+    padding: 0.3125rem 0;
 }
 
 .sect-headText
 {
     display: flex;
     align-items: center;
-    font-size: 17px;
+    font-size: 1.0625rem;
     color: var(--genWhiteTypeBright);
 }
 
 .sect-headText .major
 {
-    /* font-size: 20px; */
+    /* font-size: 1.25rem; */
     color: var(--genGreenTypeLight);
 }
 
@@ -714,9 +714,9 @@ html:root
     width: 100%;
     display: flex;
     flex-direction: row-reverse;
-    gap: 25px;
+    gap: 1.5625rem;
     padding: var(--genBorderSpacing);
-    border-radius: 15px;
+    border-radius: 0.9375rem;
     background-color: var(--genModalBcg);
 }
 
@@ -739,13 +739,13 @@ html:root
 .sect-abt-card .sect-abt-header
 {
     width: 100%;
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
 }
 
 .sect-abt-header .sect-abt-headerText
 {
     color: var(--genWhiteTypeLight);
-    font-size: 18px;
+    font-size: 1.125rem;
     display: none;
 }
 
@@ -757,7 +757,7 @@ html:root
 .abt-stmt-long .abt-stmt-longText
 {
     width: 100%;
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--genWhiteTypeMid);
 }
 
@@ -783,7 +783,7 @@ html:root
     line-clamp: unset;
     -webkit-hyphens: auto;
     hyphens: auto;
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--genWhiteTypeMid);
     overflow-wrap: break-word;
     overflow: hidden;
@@ -793,7 +793,7 @@ html:root
 .abt-stmt-short .abt-stmt-detBdr
 {
     width: 100%;
-    margin-top: 5px;
+    margin-top: 0.3125rem;
 }
 
 .abt-stmt-detBdr .abt-stmt-detBox
@@ -829,7 +829,7 @@ html:root
 {
     content: 'Read More';
     font-family: 'Poppins' , sans-serif;
-    font-size:  14px;
+    font-size:  0.875rem;
     font-weight: 500;
     transition: all 150ms ease-in-out;
 }
@@ -856,7 +856,7 @@ html:root
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 0.625rem;
 }
 
 .abt-detText
@@ -865,14 +865,14 @@ html:root
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap: 3px;
+    gap: 0.1875rem;
 }
 
 .abt-detText .abt-detText-major
 {
     width: var(--abtCardTextMajorW);
     color: var(--genGreenTypeMid);
-    font-size: 13px;
+    font-size: 0.8125rem;
     font-weight: 500;
 }
 
@@ -880,7 +880,7 @@ html:root
 {
     width: calc((100% - var(--abtCardTextMajorW)));
     color: var(--genWhiteTypeLight);
-    font-size: 13px;
+    font-size: 0.8125rem;
 }
 
 
@@ -894,7 +894,7 @@ html:root
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
 }
 
 .sect-ep-navBox.hidden
@@ -947,16 +947,16 @@ html:root
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 0.625rem;
     transition: all 300ms ease-in-out;
     cursor: pointer;
 }
 
 .seasons_headerBox .seasons_headerIconBox
 {
-    width: 18px;
-    height: 18px;
-    margin-left: 10px;
+    width: 1.125rem;
+    height: 1.125rem;
+    margin-left: 0.625rem;
 }
 
 .seasons_headerIconBox .seasons_headerIconSvg
@@ -970,7 +970,7 @@ html:root
 .seasons_headerBox .seasons_headerText
 {
     color: var(--seasons_headerClrs);
-    font-size: 13px;
+    font-size: 0.8125rem;
     transition: all 300ms ease-in-out;
 }
 
@@ -984,7 +984,7 @@ html:root
     position: absolute;
     top: 100%;
     left: 0;
-    width: 485px;
+    width: 30.3125rem;
     height: fit-content;
     max-height: 0;
     display: flex;
@@ -999,7 +999,7 @@ html:root
 
 .seasons_selectorBdr.active
 {
-    max-height: 250px;
+    max-height: 15.625rem;
     opacity: 1;
     visibility: visible;
     z-index: 10;
@@ -1014,7 +1014,7 @@ html:root
     justify-content: space-between;
     align-items: center;
     background-color: #141414;
-    border-bottom: 1px solid #444444;
+    border-bottom: 0.0625rem solid #444444;
 }
 
 .seasons_selectorHeader .seasons_selectorHeaderText
@@ -1022,7 +1022,7 @@ html:root
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-left: 15px;
+    margin-left: 0.9375rem;
     color: var(--genWhiteTypeBright);
     text-align: center;
 }
@@ -1030,22 +1030,22 @@ html:root
 .seasons_selectorHeaderText .large
 {
     color: var(--genGreenTypeLight);
-    font-size: 18px;
+    font-size: 1.125rem;
 }
 
 .seasons_selectorHeaderText .small
 {
     color: var(--genWhiteTypeLight);
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .seasons_selectorHeader .seasons_selectorHeaderIcon
 {
     position: relative;
-    width: 15px;
-    height: 2px;
-    margin-right: 10px;
-    border-radius: 5px;
+    width: 0.9375rem;
+    height: 0.125rem;
+    margin-right: 0.625rem;
+    border-radius: 0.3125rem;
     background-color: var(--genWhiteTypeLight);
     transform: rotate(45deg);
     cursor: pointer;
@@ -1057,9 +1057,9 @@ html:root
     position: absolute;
     top: 50%;
     right: 50%;
-    width: 2px;
-    height: 15px;
-    border-radius: 5px;
+    width: 0.125rem;
+    height: 0.9375rem;
+    border-radius: 0.3125rem;
     background-color: var(--genWhiteTypeLight);
     transform: translate(50%, -50%);
 }
@@ -1080,7 +1080,7 @@ html:root
     flex-direction: row;
     justify-content: space-between;
     color: var(--genWhiteTypeDark);
-    padding: 15px;
+    padding: 0.9375rem;
     -moz-user-select: none;
     -moz-user-select: -moz-none;
     -webkit-user-select: none;
@@ -1103,14 +1103,14 @@ html:root
     line-height: var(--selectorMainTextH);
     -webkit-hyphens: auto;
     hyphens: auto;
-    max-width: calc(100% - 85px);
-    font-size: 12px;
+    max-width: calc(100% - 5.3125rem);
+    font-size: 0.75rem;
     overflow: hidden;
 }
 
 .seasons_selector .selectorMinor
 {
-    font-size: 11px;
+    font-size: 0.6875rem;
 }
 
 .seasons_selector:active
@@ -1139,7 +1139,7 @@ html:root
 {
     width: var(--episodesSearchWidth);
     height: var(--episodesSearchHeight);
-    border-radius: 10px;
+    border-radius: 0.625rem;
     background-color: var(--genModalBcg);
     transition: all 300ms ease-in-out;
     overflow: hidden;
@@ -1149,11 +1149,11 @@ html:root
 {
     width: 100%;
     height: 100%;
-    padding: 0px 15px;
+    padding: 0rem 0.9375rem;
     outline: none;
     border: none;
     color: var(--genWhiteTypeLight);
-    font-size: 12px;
+    font-size: 0.75rem;
     font-family: 'Poppins', sans-serif;
     background-color: #00000000;
 }
@@ -1163,8 +1163,8 @@ html:root
     position: absolute;
     top: 50%;
     right: 0;
-    width: 16px;
-    height: 16px;
+    width: 1rem;
+    height: 1rem;
     transform: translate(-50%, -50%);
     pointer-events: none;
 }
@@ -1183,7 +1183,7 @@ html:root
     width: -moz-fit-content;
     width: fit-content;
     display: none;
-    margin-left: 5px;
+    margin-left: 0.3125rem;
 }
 
 .episode_setBdr.active
@@ -1204,10 +1204,10 @@ html:root
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 10px;
+    padding: 0.625rem;
     outline: none;
     border: none;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     background-color: var(--genModalBcg);
     cursor: pointer;
 }
@@ -1224,7 +1224,7 @@ html:root
     max-height: calc(var(--episode_setTextNo) * 1em * var(--episode_setTextH));
     line-height: var(--episode_setTextH);
     color: var(--genWhiteTypeLight);
-    font-size: 12px;
+    font-size: 0.75rem;
     font-family: 'Poppins', sans-serif;
     -webkit-hyphens: auto;
     hyphens: auto;
@@ -1234,8 +1234,8 @@ html:root
 
 .episode_setBtn .episode_setIcon
 {
-    width: 16px;
-    height: 16px;
+    width: 1rem;
+    height: 1rem;
 }
 
 .episode_setIcon .episode_setSvg
@@ -1259,7 +1259,7 @@ html:root
 {
     display: flex;
     width: 100%;
-    min-height: 125px;
+    min-height: 7.8125rem;
     overflow: hidden;
 }
 
@@ -1314,7 +1314,7 @@ html:root
     grid-template-columns: repeat(auto-fill, minmax(var(--episodesBoxWidth), 1fr));
     grid-template-rows: auto;
     justify-items: center;
-    gap: 10px;
+    gap: 0.625rem;
 }
 
 
@@ -1329,7 +1329,7 @@ html:root
 {
     position: relative;
     aspect-ratio: 16/9;
-    border-radius: 15px;
+    border-radius: 0.9375rem;
     overflow: hidden;
 }
 
@@ -1375,7 +1375,7 @@ html:root
     height: 100%;
     display: flex;
     align-items: flex-end;
-    padding: 10px;
+    padding: 0.625rem;
     background: linear-gradient(to top, #000000, #00000000);
     transition: all 300ms ease-in-out;
 }
@@ -1392,15 +1392,15 @@ html:root
 
 .ep_cardCtntBox .ep_cardCtnt_titleBox
 {
-    padding: 5px;
-    border-radius: 5px;
+    padding: 0.3125rem;
+    border-radius: 0.3125rem;
     background-color: #00000099;
 }
 
 .ep_cardCtnt_titleBox .ep_cardCtnt_titleText
 {
     color: var(--genWhiteTypeLight);
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 500;
 }
 
@@ -1417,10 +1417,10 @@ html:root
     width: 100%;
     height: 100%;
     background: #00000099;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 15px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 0px;
+    border-top-left-radius: 0rem;
+    border-top-right-radius: 0.9375rem;
+    border-bottom-left-radius: 0.9375rem;
+    border-bottom-right-radius: 0rem;
 }
 
 
@@ -1459,15 +1459,15 @@ html:root
     left: 0;
     width: 100%;
     height: 100%;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(0.625rem);
+    backdrop-filter: blur(0.625rem);
     z-index: -1;
 }
 
 .dwldShowModalBase .dwldShowModalBdr
 {
     width: 100%;
-    max-width: 350px;
+    max-width: 21.875rem;
     height: -moz-fit-content;
     height: fit-content;
 }
@@ -1477,8 +1477,8 @@ html:root
     position: relative;
     width: 100%;
     height: 100%;
-    max-height: 400px;
-    border-radius: 15px;
+    max-height: 25rem;
+    border-radius: 0.9375rem;
     background-color: var(--genModalBcg);
     overflow: hidden auto;
     transform: translateY(50%);
@@ -1519,7 +1519,7 @@ html:root
     .quick_atnCtnt:hover
     {
         background-color: #222222;
-        border-radius: 5px;
+        border-radius: 0.3125rem;
     }
 
     .quickAtnModal_btn:hover .quickAtnModal_btnIcon
@@ -1556,7 +1556,7 @@ html:root
     .episodes:hover .episodesIcon
     {
         display: flex;
-        font-size: 25px;
+        font-size: 1.5625rem;
     }
 }
 
@@ -1571,13 +1571,13 @@ html:root
 
 /* ------------- Width ------------ */
 
-@media only screen and (max-width: 884px)
+@media only screen and (max-width: 55.25rem)
 {
     
     .sect-abt-bdr .sect-abt-box
     {
         flex-direction: column;
-        gap: 35px;
+        gap: 2.1875rem;
     }
 
     .sect-abt-box .sect-abt-card
@@ -1592,7 +1592,7 @@ html:root
 
     .sect-abt-header .sect-abt-headerText
     {
-        font-size: 16px;
+        font-size: 1rem;
     }
 
     .sect-abt-card .abt-stmt-long
@@ -1608,7 +1608,7 @@ html:root
 
 
 
-@media only screen and (max-width: 768px)
+@media only screen and (max-width: 48rem)
 {
 
     .bcg_img_bdr .bcg_img_gradient
@@ -1622,7 +1622,7 @@ html:root
     .main_box
     {
         flex-direction: column;
-        gap: 10px;
+        gap: 0.625rem;
     }
 
     .title_ImgBdr
@@ -1635,21 +1635,21 @@ html:root
         width: 100%;
         align-items: center;
         padding: 0;
-        gap: 5px;
+        gap: 0.3125rem;
     }
 
     .title_ctntBdr #show_Header_Name
     {
         text-align: center;
-        font-size: 25px;
+        font-size: 1.5625rem;
     }
 
     .info_atn_bdr
     {
         flex-direction: column;
         align-items: center;
-        margin-top: 10px;
-        gap: 15px;
+        margin-top: 0.625rem;
+        gap: 0.9375rem;
     }
 
     .quick_atnBcg
@@ -1764,33 +1764,33 @@ html:root
 }
 
 
-@media only screen and (max-width: 485px)
+@media only screen and (max-width: 30.3125rem)
 {
     html:root
     {
-        /* --episodesSearchWidth: 100px; */
-        --episodesBoxWidth: 160px;
+        /* --episodesSearchWidth: 6.25rem; */
+        --episodesBoxWidth: 10rem;
     }
 
     .ep_cardCtnt_titleBox .ep_cardCtnt_titleText
     {
-        font-size: 12px;
+        font-size: 0.75rem;
     }
 
 }
 
-@media only screen and (max-width: 350px)
+@media only screen and (max-width: 21.875rem)
 {
     html:root
     {
-        --episodesSearchWidth: 125px;
+        --episodesSearchWidth: 7.8125rem;
     }
 
     .quickAtnModalBdr
     {
         left: 0;
         width: 100%;
-        border-radius: 0px;
+        border-radius: 0rem;
         transform: translate(0%, 50%);
     }
 

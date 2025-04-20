@@ -10,13 +10,13 @@
 html:root
 {
     --dlElemMaxWidthFactor: 1.726;
-    --dlCtgGridCard_sect1W: 0px;
-    --dlCtgGridCard_ImgBdrW: 250px;
-    --dlCtgGridCard_ImgBdrH: 125px;
-    --dlMdlBdrH: 100px;
-    --dLMdlGridCard_editW: 0px;
-    --dLMdlGridCard_atnW: 45px;
-    --dlMdl_pd: 16px;
+    --dlCtgGridCard_sect1W: 0rem;
+    --dlCtgGridCard_ImgBdrW: 15.625rem;
+    --dlCtgGridCard_ImgBdrH: 7.8125rem;
+    --dlMdlBdrH: 6.25rem;
+    --dLMdlGridCard_editW: 0rem;
+    --dLMdlGridCard_atnW: 2.8125rem;
+    --dlMdl_pd: 1rem;
 }
 
 
@@ -25,7 +25,7 @@ html:root
 
 .dwldListBodyBox .myListBodyTitleBdr .myListNavAtnBdr
 {
-    margin-top: 20px;
+    margin-top: 1.25rem;
 }
 
 .dwldListBodyBox .myListNavAtnBdr .myListNavAtnBox
@@ -38,7 +38,7 @@ html:root
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 10px;
+    gap: 0.625rem;
     opacity: 0;
     visibility: hidden;
     cursor: pointer;
@@ -55,7 +55,7 @@ html:root
 {
     display: flex;
     flex-direction: row;
-    gap: 5px;
+    gap: 0.3125rem;
 }
 
 .myListBodyBdr .dwldListBodyBox.myListBodyBox
@@ -136,7 +136,7 @@ html:root
 
 .dwldListBodyBox[data-cards-are-selectable="true"] .dlCtgGridCard_sect2
 {
-    padding-left: 12px;
+    padding-left: 0.75rem;
 }
 
 .dlCtgGridCard_sect2 .dlCtgGridCard_sect2Btn
@@ -159,7 +159,7 @@ html:root
     width: 100%;
     display: flex;
     flex-direction: row;
-    padding: 12px 0px;
+    padding: 0.75rem 0rem;
 }
 
 .dlCtgGridCard_sectInfo .dlCtgGridCard_ImgBdr
@@ -172,7 +172,7 @@ html:root
 {
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     filter: brightness(0.75);
     overflow: hidden;
 }
@@ -193,7 +193,7 @@ html:root
 .dlCtgGridCard_sectInfo .dlCtgGridCard_detBdr
 {
     width: calc((100% - var(--dlCtgGridCard_ImgBdrW)));
-    padding: 0 20px;
+    padding: 0 1.25rem;
 }
 
 .dlCtgGridCard_detBdr .dlCtgGridCard_detBox
@@ -208,7 +208,7 @@ html:root
 .dlCtgGridCard_detBox .dlCtgGridCard_detTitleBox
 {
     width: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 0.3125rem;
 }
 
 .dlCtgGridCard_detTitleBox .dlCtgGridCard_detTitleText
@@ -222,7 +222,7 @@ html:root
     display: -webkit-box;
     max-height: calc(var(--dlCtgGridCard_detTitleTextNo) * 1em * var(--dlCtgGridCard_detTitleTextH));
     line-height: var(--dlCtgGridCard_detTitleTextH);
-    font-size: 16px;
+    font-size: 1rem;
     color: var(--genWhiteTypeLight);
     overflow-wrap: break-word;
     overflow: hidden;
@@ -233,7 +233,7 @@ html:root
     width: 100%;
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 0.625rem;
 }
 
 .dlCtgGridCard_detPrptyBdr .dlCtgGridCard_detPrptyBox
@@ -244,7 +244,7 @@ html:root
 
 .dlCtgGridCard_detPrptyBox .dlCtgGridCard_detPrptyText
 {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--genWhiteTypeMid);
 }
 
@@ -286,18 +286,18 @@ html:root
     left: 0;
     width: 100%;
     height: 100%;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(0.625rem);
+    backdrop-filter: blur(0%);
     z-index: -1;
 }
 
 .dlMdlBase .dlMdlBdr
 {
     width: 100%;
-    max-width: 700px;
+    max-width: 43.75rem;
     height: 0;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border-top-left-radius: 0.9375rem;
+    border-top-right-radius: 0.9375rem;
     background-color: #111111;
     overflow: hidden;
     transition: all 300ms ease-in-out;
@@ -326,7 +326,7 @@ html:root
     position: sticky;
     top: 0;
     width: 100%;
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
     background-color: #111111;
     z-index: 10;
 }
@@ -337,7 +337,7 @@ html:root
     display: flex;
     flex-direction: column;
     padding: var(--dlMdl_pd) var(--dlMdl_pd) 0;
-    border-bottom: 1px solid #ffffff20;
+    border-bottom: 0.0625rem solid #ffffff20;
 }
 
 .dlMdlHdrBox .dlMdlHdr_top
@@ -346,12 +346,12 @@ html:root
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
 }
 
 .dlMdlHdr_top .dlMdlHdr_BckBtnBdr
 {
-    margin-right: 8px;
+    margin-right: 0.5rem;
 }
 
 .dlMdlHdr_top .dlMdlHdr_TitleBox
@@ -362,7 +362,7 @@ html:root
 
 .dlMdlHdr_TitleBox .dlMdlHdr_TitleText
 {
-    font-size: 16px;
+    font-size: 1rem;
     color: var(--genWhiteTypeLight);
 }
 
@@ -373,7 +373,7 @@ html:root
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
 }
 
 .dlMdlHdr_btm .dlMdlHdr_ssnDetBdr
@@ -382,7 +382,7 @@ html:root
     width: fit-content;
     display: flex;
     flex-direction: row;
-    gap: 12px;
+    gap: 0.75rem;
 }
 
 .dlMdlBox[data-cards-are-selectable="true"] .dlMdlHdr_ssnDetBdr
@@ -398,7 +398,7 @@ html:root
 
 .dlMdlHdr_epDetBox .dlMdlHdr_epDetText
 {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--genWhiteTypeMid);
 }
 
@@ -407,7 +407,7 @@ html:root
     display: none;
     flex-direction: row;
     align-items: center;
-    gap: 8px;
+    gap: 0.5rem;
     cursor: pointer;
 }
 
@@ -421,7 +421,7 @@ html:root
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 8px;
+    gap: 0.5rem;
 }
 
 
@@ -505,7 +505,7 @@ html:root
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 0.3125rem;
     transition: all 150ms ease-in-out;
 }
 
@@ -522,7 +522,7 @@ html:root
 
 .dLMdlGridCard_detTitleBox .dLMdlGridCard_detTitleText
 {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--genWhiteTypeMid2);
 }
 
@@ -537,18 +537,18 @@ html:root
 {
     display: flex;
     flex-direction: row;
-    gap: 5px;
+    gap: 0.3125rem;
 }
 
 .dLMdlGridCard_prptyBox .dLMdlGridCard_prptyText
 {
-    font-size: 12px;
+    font-size: 0.75rem;
     color: var(--genWhiteTypeMid);
 }
 
 .dLMdlGridCard_sizeBox .dLMdlGridCard_sizeText
 {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--genGreenTypeMid);
 }
 
@@ -584,46 +584,46 @@ html:root
 
 
 
-@media only screen and (max-width: 768px) 
+@media only screen and (max-width: 48rem) 
 {
     html:root
     {
-        --dlCtgGridCard_ImgBdrW: 200px;
-        --dlCtgGridCard_ImgBdrH: 100px;
-        --dlMdlBdrH: 0px;
+        --dlCtgGridCard_ImgBdrW: 12.5rem;
+        --dlCtgGridCard_ImgBdrH: 6.25rem;
+        --dlMdlBdrH: 0rem;
     }
 
     .dlCtgGridCard_sectInfo .dlCtgGridCard_detBdr
     {
-        padding: 0px 14px;
+        padding: 0rem 0.875rem;
     }
 
     .dlMdlBase .dlMdlBdr
     {
         max-width: none;
-        border-radius: 0px;
+        border-radius: 0rem;
     }
 }
 
 
 
-@media only screen and (max-width: 565px) 
+@media only screen and (max-width: 35.125rem) 
 {
     html:root
     {
-        --dlCtgGridCard_ImgBdrW: 75px;
-        --dlCtgGridCard_ImgBdrH: 120px;
+        --dlCtgGridCard_ImgBdrW: 4.6875rem;
+        --dlCtgGridCard_ImgBdrH: 7.5rem;
     }
 
     .myListDLCatalogGrid[data-cards-are-selectable="true"] .dlCtgGridCard_sect1
     {
-        --dlCtgGridCard_sect1W: 35px;
+        --dlCtgGridCard_sect1W: 2.1875rem;
     }
 
     .dlCtgGridCard_chkBox .dlCtgGridCard_chkFldLbl
     {
-        width: 20px;
-        height: 20px;
+        width: 1.25rem;
+        height: 1.25rem;
     }
 
     .dlCtgGridCard_ImgSrc.dlCtgGridCard_ImgSrcLrg
@@ -638,25 +638,25 @@ html:root
     
     .dlCtgGridCard_detTitleBox .dlCtgGridCard_detTitleText
     {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 
     .dlCtgGridCard_detPrptyBox .dlCtgGridCard_detPrptyText
     {
-        font-size: 12px;
+        font-size: 0.75rem;
     }
 }
 
 
 
-@media only screen and (max-width: 485px) 
+@media only screen and (max-width: 30.3125rem) 
 {
 
     .dwldListBodyBox .myListNavAtnBdr .myListNavAtnBox
     {
         flex-direction: column-reverse;
         align-items: center;
-        gap: 16px;
+        gap: 1rem;
     }
 
     .dlBodyHdr_ssnSelAllBdr
@@ -672,17 +672,17 @@ html:root
 
     .dlCtgGridCard_sect2 .dlCtgGridCard_sectInfo
     {
-        padding: 10px 0;
+        padding: 0.625rem 0;
     }
 
     .dlCtgGridCard_sectInfo .dlCtgGridCard_detBdr
     {
-        padding: 0px 12px;
+        padding: 0rem 0.75rem;
     }
 
     .dlCtgGridCard_detBox .dlCtgGridCard_detTitleBox
     {
-        margin-bottom: 2.5px;
+        margin-bottom: 0.1563rem;
     }
     
     .dlCtgGridCard_detTitleBox .dlCtgGridCard_detTitleText
@@ -692,12 +692,12 @@ html:root
 
     .dlMdlHdr_TitleBox .dlMdlHdr_TitleText
     {
-        font-size: 15px;
+        font-size: 0.9375rem;
     }
 
     .dlMdlHdr_epDetBox .dlMdlHdr_epDetText
     {
-        font-size: 13px;
+        font-size: 0.8125rem;
     }
 
     .dlMdlHdrBox .dlMdlHdr_btm
@@ -709,18 +709,18 @@ html:root
 
 
 
-@media only screen and (max-width: 350px) 
+@media only screen and (max-width: 21.875rem) 
 {
     .topNavBdr.dlPgNav[data-cards-are-selectable="true"] .genBtnBox
     {
         min-width: -moz-fit-content;
         min-width: fit-content;
-        padding: 10px 16px;
+        padding: 0.625rem 1rem;
     }
 
     .topNavBdr.dlPgNav[data-cards-are-selectable="true"] .genBtnBox .genBtnText
     {
-        font-size: 11px;
+        font-size: 0.6875rem;
     }
 }
 

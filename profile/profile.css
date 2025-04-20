@@ -9,8 +9,8 @@
 
 html:root
 {
-    --profHeaderBdrH: 325px;
-    --profHeaderFrgImgSize: 125px;
+    --profHeaderBdrH: 20.3125rem;
+    --profHeaderFrgImgSize: 7.8125rem;
 }
 
 .profBdr
@@ -81,14 +81,14 @@ html:root
 {
     position: absolute;
     left: 0;
-    bottom: 50px;
+    bottom: 3.125rem;
     width: 100%;
     max-height: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 0 var(--genBorderSpacing);
-    gap: 10px;
+    gap: 0.625rem;
 }
 
 .profHeaderFrgBox .profHeaderFrgImgBdr
@@ -118,14 +118,14 @@ html:root
     width: calc((100% - var(--profHeaderFrgImgSize)));
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 0.625rem;
 }
 
 .profHeaderFrgTitleBdr .profHeaderFrgTitleBox
 {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 0.3125rem;
 }
 
 .profHeaderFrgTitleBox .profHeaderFrgTitle_major
@@ -142,7 +142,7 @@ html:root
     -webkit-hyphens: auto;
     hyphens: auto;
     color: var(--genWhiteTypeLight);
-    font-size: 22px;
+    font-size: 1.375rem;
     overflow-wrap: break-word;
     overflow: hidden;
 }
@@ -151,7 +151,7 @@ html:root
 {
     color: var(--genWhiteTypeMid);
     font-family: 'Poppins' , sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
 }
 
@@ -160,7 +160,7 @@ html:root
 {
     display: flex;
     flex-direction: row;
-    gap: 5px;
+    gap: 0.3125rem;
 }
 
 
@@ -196,27 +196,27 @@ html:root
 
 /* ============== RESPONSIVENESS ============== */
 
-@media only screen and (max-width: 768px)
+@media only screen and (max-width: 48rem)
 {
 
     .profHeaderFrgTitleBox .profHeaderFrgTitle_major
     {
-        font-size: 18px;
+        font-size: 1.125rem;
     }
 
     .profHeaderFrgTitleBox .profHeaderFrgTitle_minor
     {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 }
 
 
-@media only screen and (max-width: 485px)
+@media only screen and (max-width: 30.3125rem)
 {
     html:root
     {
-        --profHeaderBdrH: 350px;
-        --profHeaderFrgImgSize: 100px;
+        --profHeaderBdrH: 21.875rem;
+        --profHeaderFrgImgSize: 6.25rem;
     }
 
     .profHeaderFrgBdr .profHeaderFrgBox
@@ -236,12 +236,12 @@ html:root
 
     .profHeaderFrgTitleBox .profHeaderFrgTitle_major
     {
-        font-size: 16px;
+        font-size: 1rem;
     }
 
     .profHeaderFrgTitleBox .profHeaderFrgTitle_minor
     {
-        font-size: 12px;
+        font-size: 0.75rem;
     }
 
     .profHeaderFrgTitleBdr .profHeaderFrgTitleAtnBox
@@ -251,7 +251,7 @@ html:root
 }
 
 
-@media only screen and (max-width: 320px)
+@media only screen and (max-width: 20rem)
 {
 
     .profHeaderFrgTitleBdr .profHeaderFrgTitleAtnBox

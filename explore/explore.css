@@ -7,19 +7,19 @@
 
 html:root
 {
-    --categoriesCardWidth: 200px;
+    --categoriesCardWidth: 12.5rem;
     --catalogHeadBoxItemTitleClr: var(--genWhiteTypeBright);
     --catalogHeadBoxItemDisplayBcg: var(--navBarBcgSolid);
     --catalogHeadBoxItemDisplayClr: var(--genWhiteTypeMid);
-    --catalogHeadBoxItemDisplayHeight: 50px;
-    --catalogHeadBoxItemDisplayRadius: 10px;
-    --catalogHeadBoxItemDisplayFontSize: 14px;
-    --catalogHeadBoxItemDisplaySvgSize: 20px;
-    --catalogSearchInputItemPadding: 45px;
-    --catalogSearchIconWidth: 50px;
-    --catalogSearchSvgWidth: 25px;
-    --catalogFilterBoxWidth: 150px;
-    --catalogFilterTitleBoxW: 45px;
+    --catalogHeadBoxItemDisplayHeight: 3.125rem;
+    --catalogHeadBoxItemDisplayRadius: 0.625rem;
+    --catalogHeadBoxItemDisplayFontSize: 0.875rem;
+    --catalogHeadBoxItemDisplaySvgSize: 1.25rem;
+    --catalogSearchInputItemPadding: 2.8125rem;
+    --catalogSearchIconWidth: 3.125rem;
+    --catalogSearchSvgWidth: 1.5625rem;
+    --catalogFilterBoxWidth: 9.375rem;
+    --catalogFilterTitleBoxW: 2.8125rem;
 }
 
 
@@ -48,7 +48,7 @@ html:root
     max-width: var(--genMaxContainerWidth);
     display: flex;
     flex-direction: column;
-    padding: calc((var(--navBarHeight) + 20px)) 0;
+    padding: calc((var(--navBarHeight) + 1.25rem)) 0;
 }
 
 .categoriesBdr .categoriesBox
@@ -56,18 +56,18 @@ html:root
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 25px;
+    margin-bottom: 1.5625rem;
 }
 
 .categoriesBox .categoriesTitleBox
 {
     width: 100%;
-    margin: 15px 0;
+    margin: 0.9375rem 0;
 }
 
 .categoriesTitleBox .categoriesTitleText
 {
-    font-size: 18px;
+    font-size: 1.125rem;
     color: var(--genWhiteTypeLight);
 }
 
@@ -83,7 +83,7 @@ html:root
     grid-template-columns: repeat(auto-fill, minmax(var(--categoriesCardWidth), 1fr));
     grid-template-rows: auto;
     justify-items: center;
-    gap: 20px;
+    gap: 1.25rem;
 }
 
 .categoriesGridBox .categoriesGridCardBdr
@@ -91,7 +91,7 @@ html:root
     position: relative;
     width: 100%;
     aspect-ratio: 16/9;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     overflow: hidden;
     cursor: pointer;
 }
@@ -101,7 +101,7 @@ html:root
     width: 100%;
     height: 100%;
     background-image: radial-gradient(100% 100% at 20% 80%, var(--catBcgClr) 10%, #000000 70%);
-    filter: blur(10px) brightness(0.250);
+    filter: blur(0.625rem) brightness(0.250);
 }
 
 .categoriesGridCardBdr .categoriesGridCardBox
@@ -129,7 +129,7 @@ html:root
 .categoriesGridCardLabelBox .categoriesGridCardLabelText
 {
     color: var(--genWhiteTypeLight);
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .categoriesGridCardBdr .categoriesGridCardLink
@@ -180,14 +180,14 @@ html:root
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 0.625rem;
     cursor: pointer;
 }
 
 .backToTopOfCatalogBox .backToTopOfCatalogSvg
 {
-    width: 25px;
-    height: 25px;
+    width: 1.5625rem;
+    height: 1.5625rem;
     fill: var(--genWhiteTypeLight);
 }
 
@@ -260,7 +260,7 @@ html:root
 .catalogSearchInputItem:focus-within
 {
     --catalogHeadBoxItemDisplayClr: var(--genWhiteTypeLight);
-    box-shadow: 0px 0px 0px 2.5px var(--genGreenTypeMid);
+    box-shadow: 0rem 0rem 0rem 0.1563rem var(--genGreenTypeMid);
 }
 
 .catalogSearchInputItem .catalogSearchInputCover
@@ -376,7 +376,7 @@ html:root
 .catalogSearchItem .catalogSearchText
 {
     display: none;
-    margin-left: 5px;
+    margin-left: 0.3125rem;
     font-size: var(--catalogHeadBoxItemDisplayFontSize);
     color: var(--catalogHeadBoxItemDisplayClr);
 }
@@ -404,7 +404,7 @@ html:root
 
 .catalogHeadBdr .catalogHeadBcg
 {
-    border-radius: 15px;
+    border-radius: 0.9375rem;
     overflow: hidden;
 }
 
@@ -415,9 +415,9 @@ html:root
     max-width: calc((var(--genMaxContainerWidth)));
     display: flex;
     flex-direction: column;
-    margin: 0 auto 35px;
+    margin: 0 auto 2.1875rem;
     padding: var(--genBorderSpacing);
-    border-radius: 15px;
+    border-radius: 0.9375rem;
     background-color: var(--navMenuBcgClr);
 }
 
@@ -429,7 +429,7 @@ html:root
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 32px;
+    margin-bottom: 2rem;
 }
 
 
@@ -438,13 +438,13 @@ html:root
 .catalogHeadTitleBox
 {
     width: 100%;
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
 }
 
 .catalogHeadTitleBox .catalogHeadTitleText
 {
     color: var(--genWhiteTypeLight);
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
 
@@ -456,7 +456,7 @@ html:root
     --catalogHeadBoxItemDisplayBcg: var(--navMenuBcgClr);
     width: 100%;
     max-height: none;
-    margin-bottom: 30px;
+    margin-bottom: 1.875rem;
     overflow: unset;
 }
 
@@ -468,25 +468,25 @@ html:root
     grid-template-columns: repeat(auto-fill, minmax(var(--catalogFilterBoxWidth), 1fr));
     grid-template-rows: auto;
     justify-items: center;
-    gap: 10px;
+    gap: 0.625rem;
 }
 
 .catalogFilterBox .catalogFilterCardBdr
 {
     width: 100%;
-    border-radius: 5px;
-    border: 1px solid var(--genGreyTypeBright);
+    border-radius: 0.3125rem;
+    border: 0.0625rem solid var(--genGreyTypeBright);
 }
 
 .catalogFilterCardBdr .catalogFilterCardBox
 {
     position: relative;
     width: 100%;
-    height: calc((var(--catalogHeadBoxItemDisplayHeight) - 10px));
+    height: calc((var(--catalogHeadBoxItemDisplayHeight) - 0.625rem));
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 10px 12px;
+    padding: 0.625rem 0.75rem;
     border-radius: var(--catalogHeadBoxItemDisplayRadius);
     background-color: var(--catalogHeadBoxItemDisplayBcg);
     transition: all 300ms ease-in-out;
@@ -496,14 +496,14 @@ html:root
 .catalogFilterCardBox .catalogFilterTitleBox
 {
     width: var(--catalogFilterTitleBoxW);
-    margin-right: 5px;
+    margin-right: 0.3125rem;
 }
 
 .catalogFilterTitleBox .catalogFilterTitleText
 {
     width: 100%;
     font-family: 'Poppins' , sans-serif;
-    font-size: 12px;
+    font-size: 0.75rem;
     color: var(--genWhiteTypeMid2);
 }
 
@@ -538,8 +538,8 @@ html:root
     display: inline-block;
     vertical-align: middle;
     height: 100%;
-    padding: 0 5px;
-    font-size: 12px;
+    padding: 0 0.3125rem;
+    font-size: 0.75rem;
     font-weight: 500;
     color: var(--genGreenTypeLight);
     -moz-appearance: none;
@@ -562,7 +562,7 @@ html:root
 .catalogGenreBdr
 {
     width: 100%;
-    margin-bottom: 40px;
+    margin-bottom: 2.5rem;
 }
 
 .catalogGenreBdr .catalogGenreBox
@@ -570,18 +570,18 @@ html:root
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 0.3125rem;
 }
 
 .catalogGenreBox .catalogGenreCard
 {
     font-family: 'Poppins' , sans-serif;
     font-weight: 500;
-    padding: 5px 10px;
+    padding: 0.3125rem 0.625rem;
     color: var(--genWhiteTypeMid);
-    font-size: 12px;
-    border-radius: 5px;
-    border: 1px solid var(--genGreyTypeLight);
+    font-size: 0.75rem;
+    border-radius: 0.3125rem;
+    border: 0.0625rem solid var(--genGreyTypeLight);
     cursor: pointer;
     transition: all 300ms ease-in-out;
 }
@@ -606,7 +606,7 @@ html:root
 {
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 0.625rem;
 }
 
 
@@ -620,7 +620,7 @@ html:root
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px 0;
+    padding: 0.625rem 0;
 }
 
 .catalogResultBdr .catalogResultBox
@@ -636,18 +636,18 @@ html:root
     width: 100%;
     max-width: var(--genMaxContainerWidth);
     display: flex;
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
 }
 
 .catalogResultTitleBox .catalogResultTitleText
 {
     color: var(--genGreenTypeMid);
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .catalogResultTitleBox .catalogResultTitleDynamic
 {
-    margin-left: 5px;
+    margin-left: 0.3125rem;
     color: var(--genWhiteTypeMid2);
     font-style: italic;
 }
@@ -664,7 +664,7 @@ html:root
 .emptyResultBdr.active 
 {
     display: flex;
-    margin: 32px 0;
+    margin: 2rem 0;
 }
 
 .emptyResultBdr .emptyResultBox
@@ -676,7 +676,7 @@ html:root
 
 .emptyResultBox .emptyResultText
 {
-    font-size: 18px;
+    font-size: 1.125rem;
     color: var(--genWhiteTypeLight);
 }
 
@@ -711,26 +711,26 @@ html:root
 /* ================== RESPONSIVENESS ================ */
 
 
-@media only screen and (max-width: 768px)
+@media only screen and (max-width: 48rem)
 {
     html:root
     {
-        --categoriesCardWidth: 170px;
+        --categoriesCardWidth: 10.625rem;
     }
 
     .categoriesTitleBox .categoriesTitleText
     {
-        font-size: 16px;
+        font-size: 1rem;
     }
 
     .categoriesGridBdr .categoriesGridBox
     {
-        gap: 15px;
+        gap: 0.9375rem;
     }
 
     .categoriesGridCardLabelBox .categoriesGridCardLabelText
     {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 
     .catalogSearchBox .catalogSearchInputItem
@@ -739,26 +739,26 @@ html:root
     }
 }
 
-@media only screen and (max-width: 600px)
+@media only screen and (max-width: 37.5rem)
 {
     html:root
     {
-        --categoriesCardWidth: 150px;
+        --categoriesCardWidth: 9.375rem;
     }
 
     .categoriesTitleBox .categoriesTitleText
     {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 
     .categoriesGridBdr .categoriesGridBox
     {
-        gap: 10px;
+        gap: 0.625rem;
     }
 
     .categoriesGridCardLabelBox .categoriesGridCardLabelText
     {
-        font-size: 12px;
+        font-size: 0.75rem;
     }
 
     .catalogBox .catalogHeadBdr
@@ -768,19 +768,19 @@ html:root
 
     .catalogHeadBdr .catalogHeadBox
     {
-        /* border-radius: 0px; */
+        /* border-radius: 0rem; */
     }
 }
 
 
-@media only screen and (max-width: 485px)
+@media only screen and (max-width: 30.3125rem)
 {
     html:root
     {
-        --catalogHeadBoxItemDisplayFontSize: 12px;
-        --catalogHeadBoxItemDisplaySvgSize: 16px;
-        --catalogSearchIconWidth: 35px;
-        --catalogSearchSvgWidth: 22px;
+        --catalogHeadBoxItemDisplayFontSize: 0.75rem;
+        --catalogHeadBoxItemDisplaySvgSize: 1rem;
+        --catalogSearchIconWidth: 2.1875rem;
+        --catalogSearchSvgWidth: 1.375rem;
     }
 
     .catalogFilterBdr .catalogFilterBox
@@ -790,11 +790,11 @@ html:root
 }
 
 
-@media only screen and (max-width: 350px)
+@media only screen and (max-width: 21.875rem)
 {
     html:root
     {
-        --categoriesCardWidth: 120px;
+        --categoriesCardWidth: 7.5rem;
     }
 }
 

@@ -8,11 +8,11 @@
 
 html:root
 {
-    --myListHeaderBdrHeight: 175px;
+    --myListHeaderBdrHeight: 10.9375rem;
     --myListHeaderNavLinkClr: var(--genWhiteTypeMid);
-    --myListHeaderNavLinkIconSizing: 18px;
+    --myListHeaderNavLinkIconSizing: 1.125rem;
     --myListBodyTitleClr: var(--genWhiteTypeLight);
-    --emptyMyListPageIconSize: 50px;
+    --emptyMyListPageIconSize: 3.125rem;
     --myListOrderBtnClr: var(--genWhiteTypeMid);
     --myListOrderBtnBcg: var(--navMenuBcgClr);
     --myListOrderMenuBcg: var(--genModalBcg);
@@ -66,8 +66,8 @@ html:root
 {
     width: 100%;
     height: 100%;
-    -webkit-filter: blur(10px) brightness(0.50);
-    filter: blur(10px) brightness(0.50);
+    -webkit-filter: blur(0.625rem) brightness(0.50);
+    filter: blur(0.625rem) brightness(0.50);
 }
 
 .myListHeaderBcgBox .myListHeaderBcgImg
@@ -106,7 +106,7 @@ html:root
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 30px 0;
+    padding: 1.875rem 0;
 }
 
 .myListHeaderTitleBox .myListHeaderTitleText
@@ -116,17 +116,17 @@ html:root
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
-    font-size: 24px;
+    gap: 0.3125rem;
+    font-size: 1.5rem;
     color: var(--genWhiteTypeLight);
     letter-spacing: 0.05em;
 }
 
 .myListHeaderTitleBox .myListHeaderTitleIconBox
 {
-    width: 35px;
-    height: 35px;
-    margin-right: 10px;
+    width: 2.1875rem;
+    height: 2.1875rem;
+    margin-right: 0.625rem;
 }
 
 .myListHeaderTitleIconBox .myListHeaderTitleIconSvg
@@ -149,7 +149,7 @@ html:root
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 35px;
+    gap: 2.1875rem;
 }
 
 .myListHeaderNavBox .myListHeaderNavLink
@@ -160,7 +160,7 @@ html:root
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding: 15px 10px;
+    padding: 0.9375rem 0.625rem;
 }
 
 .myListHeaderNavLink:active
@@ -171,7 +171,7 @@ html:root
 .myListHeaderNavLink.active
 {
     --myListHeaderNavLinkClr: var(--genGreenTypeLight);
-    border-bottom: 2px solid var(--myListHeaderNavLinkClr);
+    border-bottom: 0.125rem solid var(--myListHeaderNavLinkClr);
 }
 
 .myListHeaderNavLink .myListHeaderNavLinkIcon
@@ -185,8 +185,8 @@ html:root
 .myListHeaderNavLink .myListHeaderNavLinkText
 {
     font-family: 'Poppins' , sans-serif;
-    font-size: 14px;
-    margin-left: 7px;
+    font-size: 0.875rem;
+    margin-left: 0.4375rem;
     color: var(--myListHeaderNavLinkClr);
     transition: all 300ms ease-in-out;
 }
@@ -208,13 +208,13 @@ html:root
     min-height: 75vh;
     display: flex;
     flex-direction: column;
-    padding: 35px var(--genBorderSpacing);
+    padding: 2.1875rem var(--genBorderSpacing);
 }
 
 .myListBodyBox .myListBodyTitleBdr
 {
     width: 100%;
-    margin-bottom: 25px;
+    margin-bottom: 1.5625rem;
 }
 
 .myListBodyTitleBdr .myListBodyTitleBox
@@ -228,8 +228,8 @@ html:root
 
 .myListBodyTitleBox .myListBodyTitleIconBox
 {
-    width: 26px;
-    height: 26px;
+    width: 1.625rem;
+    height: 1.625rem;
 }
 
 .myListBodyTitleIconBox .myListBodyTitleIconSvg
@@ -241,9 +241,9 @@ html:root
 
 .myListBodyTitleBox .myListBodyTitleText
 {
-    margin-left: 10px;
+    margin-left: 0.625rem;
     color: var(--myListBodyTitleClr);
-    font-size: 24px;
+    font-size: 1.5rem;
 }
 
 .myListBodyBox .myListBodyCtntBdr
@@ -259,7 +259,7 @@ html:root
 .myListNavAtnBdr
 {
     width: 100%;
-    margin: 0 0 25px;
+    margin: 0 0 1.5625rem;
 }
 
 .myListNavAtnBdr .myListNavAtnBox
@@ -267,15 +267,15 @@ html:root
     width: 100%;
     display: flex;
     justify-content: end;
-    gap: 5px;
+    gap: 0.3125rem;
 }
 
 .myListNavAtnBox .myListNavAtnBtn
 {
-    padding: 7px 15px;
+    padding: 0.4375rem 0.9375rem;
     color: var(--genWhiteTypeMid2);
-    font-size: 12px;
-    border-radius: 10px;
+    font-size: 0.75rem;
+    border-radius: 0.625rem;
 }
 
 
@@ -331,17 +331,17 @@ html:root
 
 .emptyMyListPageNoteBox .emptyMyListPageNoteText
 {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--genWhiteTypeDark);
     text-align: center;
-    margin-top: 10px;
+    margin-top: 0.625rem;
 }
 
 .emptyMyListCreateBtn
 {
-    margin-top: 15px;
-    padding: 20px 25px;
-    border-radius: 10px;
+    margin-top: 0.9375rem;
+    padding: 1.25rem 1.5625rem;
+    border-radius: 0.625rem;
 }
 
 
@@ -390,22 +390,22 @@ html:root
 
 /* ================== RESPONSIVENESS ================ */
 
-@media only screen and (max-width: 768px)
+@media only screen and (max-width: 48rem)
 {
     .myListHeaderNavBdr .myListHeaderNavBox
     {
-        gap: 15px;
+        gap: 0.9375rem;
     }
 }
 
 
-@media only screen and (max-width: 485px)
+@media only screen and (max-width: 30.3125rem)
 {
 
     html:root
     {
-        --myListHeaderBdrHeight: 100px;
-        --myListHeaderNavLinkIconSizing: 24px;
+        --myListHeaderBdrHeight: 6.25rem;
+        --myListHeaderNavLinkIconSizing: 1.5rem;
     }
 
     .myListHeaderDetBox .myListHeaderTitleBdr
@@ -415,7 +415,7 @@ html:root
 
     .myListHeaderNavBdr .myListHeaderNavBox
     {
-        gap: 32px;
+        gap: 2rem;
     }
 
     .myListHeaderNavLink .myListHeaderNavLinkText
@@ -430,7 +430,7 @@ html:root
 
     .myListNavAtnBdr
     {
-        margin: 25px 0;
+        margin: 1.5625rem 0;
     }
 
     .myListNavAtnBdr .myListNavAtnBox
@@ -440,11 +440,11 @@ html:root
 }
 
 
-@media only screen and (max-width: 300px)
+@media only screen and (max-width: 18.75rem)
 {
     .myListHeaderNavBdr .myListHeaderNavBox
     {
-        gap: 16px;
+        gap: 1rem;
     }
 }
 

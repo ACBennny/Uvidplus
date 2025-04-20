@@ -16,7 +16,7 @@
 
 ::-webkit-scrollbar
 {
-    width: 10px;
+    width: 0.625rem;
 }
 
 ::-webkit-scrollbar-corner
@@ -106,19 +106,19 @@ p
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 0.9375rem;
 }
 
 .error_box .error_note
 {
     width: 100%;
-    max-width: 500px;
+    max-width: 31.25rem;
     height: 100%;
-    max-height: 400px;
-    padding: 10px;
+    max-height: 25rem;
+    padding: 0.625rem;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 2.5rem;
 }
 
 .error_note .header
@@ -127,14 +127,14 @@ p
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 0px;
-    font-size: 45px;
+    gap: 0rem;
+    font-size: 2.8125rem;
     user-select: none;
 }
 
 .header .header_note.hN1
 {
-    transform: rotate(20deg) translateX(20px);
+    transform: rotate(20deg) translateX(1.25rem);
     color: var(--errClr1);
 }
 
@@ -146,7 +146,7 @@ p
 
 .header .header_note.hN3
 {
-    transform: rotate(-20deg) translateX(-20px);
+    transform: rotate(-20deg) translateX(-1.25rem);
     color: var(--errClr1);
 }
 
@@ -155,7 +155,7 @@ p
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 0.9375rem;
     align-items: center;
     text-align: center;
 }
@@ -163,20 +163,20 @@ p
 .middle .mid_Title
 {
     color: var(--errClr2);
-    font-size: 18px;
+    font-size: 1.125rem;
 }
 
 .middle .mid_Note
 {
     color: var(--errClr3);
-    font-size: 15px;
+    font-size: 0.9375rem;
 }
 
 .middle .goToHome
 {
     position: relative;
     color: var(--errClr1);
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .middle .goToHome::after
@@ -185,9 +185,9 @@ p
     position: absolute;
     left: 50%;
     width: 0%;
-    height: 3px;
-    bottom: calc(0% - 5px);
-    border-radius: 5px;
+    height: 0.1875rem;
+    bottom: calc(0% - 0.3125rem);
+    border-radius: 0.3125rem;
     background-color: var(--errClr1);
     opacity: 0;
     visibility: hidden;
@@ -228,11 +228,11 @@ p
 .logoBox .logo .logo1
 {
     color: var(--errClr1);
-    font-size: 25px;
+    font-size: 1.5625rem;
 }
 
 .logoBox .logo .logo2
 {
     color: var(--errClr2);
-    font-size: 16px;
+    font-size: 1rem;
 }

@@ -7,28 +7,28 @@
 
 html:root
 {
-    --myListWLCatalogItemWidth: 225px;
-    --myListWLCatalogItemStackLvlBdrRad: 10px;
-    --myListWLCatalogItemDetPadding: 10px;
-    --wlModalBorderSpacing: 0px;
-    --wlModalBaseCloseHeight: 20px;
-    --wlModalBaseCloseMargin: 15px;
+    --myListWLCatalogItemWidth: 14.0625rem;
+    --myListWLCatalogItemStackLvlBdrRad: 0.625rem;
+    --myListWLCatalogItemDetPadding: 0.625rem;
+    --wlModalBorderSpacing: 0rem;
+    --wlModalBaseCloseHeight: 1.25rem;
+    --wlModalBaseCloseMargin: 0.9375rem;
     --wlModalSectMaxWidth: 70vw;
-    --wlModalHeadBdrHeight: 300px;
-    --wlModalHeadBoxHeight: 250px;
-    --wlModalHeadThumbWidth: 340px;
-    --wlModalHeadThumbHeight: 190px;
-    --wlModalActionIconBaseWidth: 50px;
-    --wlModalActionIconBtnSize: 40px;
-    --wlModalActionIconSvgSize: 16px;
+    --wlModalHeadBdrHeight: 18.75rem;
+    --wlModalHeadBoxHeight: 15.625rem;
+    --wlModalHeadThumbWidth: 21.25rem;
+    --wlModalHeadThumbHeight: 11.875rem;
+    --wlModalActionIconBaseWidth: 3.125rem;
+    --wlModalActionIconBtnSize: 2.5rem;
+    --wlModalActionIconSvgSize: 1rem;
     --wlModalActionIconSvgFill: var(--genWhiteTypeLight);
-    --wlModalActionMenuSvgSize: 18px;
+    --wlModalActionMenuSvgSize: 1.125rem;
     --wlModalActionMenuSvgFill: var(--genWhiteTypeMid);
-    --wlModalHeader_DetInfo_TagsCountIconSize: 16px;
-    --wlModalGrid_CardHandleBdrWidth: 40px;
-    --wlModalGrid_CardCtntThumbWidth: 225px;
-    --wlModalGrid_CardCtntThumbHeight: 125px;
-    --wlModalGrid_CardCtnt_DetTagSectIconSize: 14px;
+    --wlModalHeader_DetInfo_TagsCountIconSize: 1rem;
+    --wlModalGrid_CardHandleBdrWidth: 2.5rem;
+    --wlModalGrid_CardCtntThumbWidth: 14.0625rem;
+    --wlModalGrid_CardCtntThumbHeight: 7.8125rem;
+    --wlModalGrid_CardCtnt_DetTagSectIconSize: 0.875rem;
     --wlModalGrid_CardCtnt_DetTagSectIconFill: var(--genGreenTypeMid);
 }
 
@@ -50,13 +50,13 @@ html:root
     grid-template-columns: repeat(auto-fill, minmax(var(--myListWLCatalogItemWidth), 1fr));
     grid-template-rows: auto;
     justify-items: center;
-    gap: 15px;
+    gap: 0.9375rem;
     transition: 100ms;
 }
 
 .myListWLCatalogGrid .myListWLCatalog_ItemBase
 {
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
 }
 
 .myListWLCatalog_ItemBase .myListWLCatalog_ItemBdr
@@ -68,8 +68,8 @@ html:root
 {
     position: relative;
     width: 100%;
-    max-width: 350px;
-    max-height: 200px;
+    max-width: 21.875rem;
+    max-height: 12.5rem;
 }
 
 
@@ -91,16 +91,16 @@ html:root
 .myListWLCatalog_ItemStackBox .myListWLCatalog_ItemStackLvlAll
 {
     border-radius: var(--myListWLCatalogItemStackLvlBdrRad);
-    border: 1px solid #000000;
+    border: 0.0625rem solid #000000;
 }
 
 .myListWLCatalog_ItemStackBox .myListWLCatalog_ItemStackLvl3
 {
     position: absolute;
-    top: -10px;
-    left: 10px;
-    right: 10px;
-    width: calc((100% - 20px));
+    top: -0.625rem;
+    left: 0.625rem;
+    right: 0.625rem;
+    width: calc((100% - 1.25rem));
     height: 100%;
     background-color: #404040;
 }
@@ -108,10 +108,10 @@ html:root
 .myListWLCatalog_ItemStackBox .myListWLCatalog_ItemStackLvl2
 {
     position: absolute;
-    top: -5px;
-    left: 5px;
-    right: 5px;
-    width: calc((100% - 10px));
+    top: -0.3125rem;
+    left: 0.3125rem;
+    right: 0.3125rem;
+    width: calc((100% - 0.625rem));
     height: 100%;
     background-color: #666666;
 }
@@ -202,7 +202,7 @@ html:root
     -webkit-hyphens: auto;
     hyphens: auto;
     color: var(--genWhiteTypeLight);
-    font-size: 14px;
+    font-size: 0.875rem;
     font-family: 'Poppins' , sans-serif;
     font-weight: 600;
     overflow-wrap: break-word;
@@ -218,9 +218,9 @@ html:root
 
 .myListWLCatalog_ItemDetMinorBox .myListWLCatalog_ItemDetMinorIcon
 {
-    width: 16px;
-    height: 16px;
-    margin-right: 5px;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.3125rem;
 }
 
 .myListWLCatalog_ItemDetMinorIcon .myListWLCatalog_ItemDetMinorSvg
@@ -232,7 +232,7 @@ html:root
 
 .myListWLCatalog_ItemDetMinorBox .myListWLCatalog_ItemDetMinorText
 {
-    font-size: 12px;
+    font-size: 0.75rem;
     color: var(--genWhiteTypeMid);
 }
 
@@ -291,7 +291,7 @@ html:root
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 0.625rem;
     border-radius: 50%;
     background-color: #00000099;
     opacity: 0;
@@ -307,8 +307,8 @@ html:root
 
 .myListWLCatalog_ItemBadgeIcon .myListWLCatalog_ItemBadgeSvg
 {
-    width: 18px;
-    height: 18px;
+    width: 1.125rem;
+    height: 1.125rem;
     fill: var(--genWhiteTypeMid);
     transition: all 300ms ease-in-out;
 }
@@ -503,7 +503,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 .wlModalBaseBarBox .wlModalBaseTitleBdr
 {
     width: calc((100% - var(--wlModalBaseCloseMargin)));
-    padding-left: 15px;
+    padding-left: 0.9375rem;
 }
 
 .wlModalBaseTitleBdr .wlModalBaseTitleBox
@@ -538,7 +538,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     -webkit-hyphens: auto;
     hyphens: auto;
     color: var(--genWhiteTypeMid2);
-    font-size: 16px;
+    font-size: 1rem;
     overflow-wrap: break-word;
     overflow: hidden;
 }
@@ -561,7 +561,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     justify-content: center;
     align-items: center;
     padding: var(--navBarHeight) var(--genBorderSpacing) 0;
-    margin-bottom: 25px;
+    margin-bottom: 1.5625rem;
     z-index: 3;
 }
 
@@ -599,7 +599,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     width: 100%;
     height: 150%;
     opacity: 0.75;
-    filter: blur(25px);
+    filter: blur(1.5625rem);
 }
 
 .wlModalHeader_BcgBox .wlModalHeader_BcgImg
@@ -631,7 +631,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-top: 25px;
+    padding-top: 1.5625rem;
     z-index: 5;
 }
 
@@ -651,7 +651,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     position: relative;
     width: 100%;
     height: 100%;
-    border-radius: 15px;
+    border-radius: 0.9375rem;
     overflow: hidden;
 }
 
@@ -676,7 +676,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 {
     width: calc((100% - var(--wlModalHeadThumbWidth)));
     height: 100%;
-    padding-left: 15px;
+    padding-left: 0.9375rem;
 }
 
 .wlModalHeader_DetBdr .wlModalHeader_DetBox
@@ -721,7 +721,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     -webkit-hyphens: auto;
     hyphens: auto;
     color: var(--genWhiteTypeLight);
-    font-size: 22px;
+    font-size: 1.375rem;
     overflow-wrap: break-word;
     overflow: hidden;
 }
@@ -729,7 +729,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 .wlModalHeader_DetInfoBox .wlModalHeader_DetInfo_TagsBdr
 {
     width: 100%;
-    margin: 12px 0;
+    margin: 0.75rem 0;
 }
 
 .wlModalHeader_DetInfo_TagsBdr .wlModalHeader_DetInfo_TagsBox
@@ -742,9 +742,9 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 
 .wlModalHeader_DetInfo_TagsBox .wlModalHeader_DetInfo_TagsItem
 {
-    margin-right: 10px;
+    margin-right: 0.625rem;
     color: var(--genWhiteTypeMid);
-    font-size: 12px;
+    font-size: 0.75rem;
 }
 
 .wlModalHeader_DetInfo_TagsBox .wlModalHeader_DetInfo_TagsCount
@@ -759,7 +759,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 {
     width: var(--wlModalHeader_DetInfo_TagsCountIconSize);
     height: var(--wlModalHeader_DetInfo_TagsCountIconSize);
-    margin-right: 5px;
+    margin-right: 0.3125rem;
 }
 
 .wlModalHeader_DetInfo_TagsCountIcon .wlModalHeader_DetInfo_TagsCountSvg
@@ -795,7 +795,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     -webkit-hyphens: auto;
     hyphens: auto;
     color: var(--genWhiteTypeMid);
-    font-size: 13px;
+    font-size: 0.8125rem;
     overflow-wrap: break-word;
     overflow: hidden;
 }
@@ -804,7 +804,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 .wlModalHeader_DetInfoBox .wlModalHeader_DetInfo_MoreBdr
 {
     width: 100%;
-    margin-top: 0px;
+    margin-top: 0rem;
 }
 
 .wlModalHeader_DetInfo_MoreBdr .wlModalHeader_DetInfo_MoreBtn
@@ -824,7 +824,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 
 .wlModalHeader_DetInfo_MoreBtn .wlModalHeader_DetInfo_MoreText
 {
-    font-size: 13px;
+    font-size: 0.8125rem;
     font-weight: 600;
     color: var(--genWhiteTypeMid);
 }
@@ -832,7 +832,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 .wlModalHeader_ActionBdr
 {
     width: 100%;
-    margin-top: 12px;
+    margin-top: 0.75rem;
 }
 
 .wlModalHeader_ActionBdr .wlModalHeader_ActionBox
@@ -841,7 +841,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 5px;
+    gap: 0.3125rem;
 }
 
 
@@ -913,7 +913,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     display: flex;
     flex-direction: row;
     font-family: 'Poppins' , sans-serif;
-    font-size: 15px;
+    font-size: 0.9375rem;
 }
 
 .wlModalCtnt_sortStatusText .status_type
@@ -923,7 +923,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 
 .wlModalCtnt_sortStatusText .status_divider
 {
-    margin: 0 7px;
+    margin: 0 0.4375rem;
     color: var(--genWhiteTypeMid);
 }
 
@@ -961,7 +961,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 .wlModalGridBdr .wlModalGridBox
 {
     width: 100%;
-    padding-bottom: 25px;
+    padding-bottom: 1.5625rem;
 }
 
 .wlModalGrid_CardBdr
@@ -972,8 +972,8 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 15px 0;
-    border-radius: 15px;
+    padding: 0.9375rem 0;
+    border-radius: 0.9375rem;
     background-color: #00000000;
     list-style: none;
     overflow: hidden;
@@ -1024,8 +1024,8 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 
 .wlModalGrid_CardHandleBox .wlModalGrid_CardHandleIcon
 {
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
 }
 
 .wlModalGrid_CardHandleIcon .wlModalGrid_CardHandleSvg
@@ -1059,7 +1059,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 
 .wlModalGrid_CardRankBox .wlModalGrid_CardRankNo
 {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--genWhiteTypeMid2);
 }
 
@@ -1090,7 +1090,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 {
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     background-color: #2c2c2c;
     filter: brightness(0.75);
     overflow: hidden;
@@ -1117,7 +1117,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 .wlModalGrid_CardCtntBox .wlModalGrid_CardCtntDetBdr
 {
     width: calc((100% - var(--wlModalGrid_CardCtntThumbWidth)));
-    padding-left: 10px;
+    padding-left: 0.625rem;
 }
 
 .wlModalGrid_CardCtntDetBdr .wlModalGrid_CardCtntDetBox
@@ -1148,7 +1148,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     -webkit-hyphens: auto;
     hyphens: auto;
     color: var(--genWhiteTypeLight);
-    font-size: 16px;
+    font-size: 1rem;
     overflow-wrap: break-word;
     overflow: hidden;
 }
@@ -1156,7 +1156,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 .wlModalGrid_CardCtntDetBox .wlModalGrid_CardCtnt_DetTagBdr
 {
     width: 100%;
-    margin: 10px 0;
+    margin: 0.625rem 0;
 }
 
 .wlModalGrid_CardCtnt_DetTagBdr .wlModalGrid_CardCtnt_DetTagBox
@@ -1173,16 +1173,16 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 5px;
-    padding: 5px 7px;
-    border-radius: 5px;
+    margin-right: 0.3125rem;
+    padding: 0.3125rem 0.4375rem;
+    border-radius: 0.3125rem;
     background-color: var(--genGreenGradMid2);
 }
 
 .wlModalGrid_CardCtnt_DetTagSectBox .wlModalGrid_CardCtnt_DetTagSectText
 {
     font-family: 'Poppins' , sans-serif;
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 500;
     color: var(--genWhiteTypeMid);
 }
@@ -1199,7 +1199,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 3px;
+    margin-right: 0.1875rem;
 }
 
 .wlModalGrid_CardCtnt_DetTagScoreIcon .wlModalGrid_CardCtnt_DetTagScoreSvg
@@ -1228,7 +1228,7 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     -webkit-hyphens: auto;
     hyphens: auto;
     color: var(--genWhiteTypeMid);
-    font-size: 13px;
+    font-size: 0.8125rem;
     overflow-wrap: break-word;
     overflow: hidden;
 }
@@ -1285,35 +1285,35 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 
 
 /* ============= RESPONSIVESNESS ============= */
-@media only screen and (max-width: 1200px)
+@media only screen and (max-width: 75rem)
 {
     html:root
     {
-        --wlModalSectMaxWidth: 840px;
+        --wlModalSectMaxWidth: 52.5rem;
     }
 }
 
-@media only screen and (max-width: 768px)
+@media only screen and (max-width: 48rem)
 {
     
     html:root
     {
-        --wlModalHeadBdrHeight: 415px;
-        --wlModalHeadBoxHeight: 250px;
-        --wlModalHeadThumbWidth: 340px;
-        --wlModalHeadThumbHeight: 190px;
-        --wlModalActionIconBaseWidth: 40px;
-        --wlModalActionIconBtnSize: 35px;
-        --wlModalActionIconSvgSize: 16px;
-        --wlModalHeader_DetInfo_TagsCountIconSize: 14px;
-        --wlModalGrid_CardCtntThumbWidth: 85px;
+        --wlModalHeadBdrHeight: 25.9375rem;
+        --wlModalHeadBoxHeight: 15.625rem;
+        --wlModalHeadThumbWidth: 21.25rem;
+        --wlModalHeadThumbHeight: 11.875rem;
+        --wlModalActionIconBaseWidth: 2.5rem;
+        --wlModalActionIconBtnSize: 2.1875rem;
+        --wlModalActionIconSvgSize: 1rem;
+        --wlModalHeader_DetInfo_TagsCountIconSize: 0.875rem;
+        --wlModalGrid_CardCtntThumbWidth: 5.3125rem;
     }
 
     .wlModalHeadBdr .wlModalHeadBox
     {
         height: 100%;
         flex-direction: column;
-        padding-top: 15px;
+        padding-top: 0.9375rem;
     }
 
     .wlModalHeadBox .wlModalHeader_thumbBase,
@@ -1327,13 +1327,13 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
     .wlModalHeadBox .wlModalHeader_DetBdr
     {
         width: 100%;
-        margin-top: 25px;
+        margin-top: 1.5625rem;
         padding: 0;
     }
 
     .wlModalCtnt_sortStatusBox .wlModalCtnt_sortStatusText
     {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 
     .wlModalGrid_CardCtntThumbImg.img_large
@@ -1348,40 +1348,40 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 
     .wlModalGrid_CardHandleBox .wlModalGrid_CardHandleIcon
     {
-        width: 16px;
-        height: 16px;
+        width: 1rem;
+        height: 1rem;
     }
 
     .wlModalGrid_CardCtnt_DetTitleBox .wlModalGrid_CardCtnt_DetTitleText
     {
-        font-size: 15px;
+        font-size: 0.9375rem;
     }
 }
 
 
 
-@media only screen and (max-width: 565px)
+@media only screen and (max-width: 35.125rem)
 {
     
     html:root
     {
-        --wlModalHeadBdrHeight: 375px;
-        --wlModalHeadBoxHeight: 250px;
-        --wlModalHeadThumbWidth: 265px;
-        --wlModalHeadThumbHeight: 140px;
-        --wlModalActionIconBaseWidth: 40px;
-        --wlModalActionIconBtnSize: 30px;
-        --wlModalActionIconSvgSize: 14px;
-        --wlModalHeader_DetInfo_TagsCountIconSize: 14px;
-        --wlModalGrid_CardCtntThumbWidth: 75px;
-        --wlModalGrid_CardHandleBdrWidth: 30px;
+        --wlModalHeadBdrHeight: 23.4375rem;
+        --wlModalHeadBoxHeight: 15.625rem;
+        --wlModalHeadThumbWidth: 16.5625rem;
+        --wlModalHeadThumbHeight: 8.75rem;
+        --wlModalActionIconBaseWidth: 2.5rem;
+        --wlModalActionIconBtnSize: 1.875rem;
+        --wlModalActionIconSvgSize: 0.875rem;
+        --wlModalHeader_DetInfo_TagsCountIconSize: 0.875rem;
+        --wlModalGrid_CardCtntThumbWidth: 4.6875rem;
+        --wlModalGrid_CardHandleBdrWidth: 1.875rem;
     }
 
     .wlModalHeadBdr .wlModalHeadBox
     {
         height: 100%;
         flex-direction: column;
-        padding-top: 10px;
+        padding-top: 0.625rem;
     }
 
     .wlModalHeader_DetBox .wlModalHeader_DetInfoBdr
@@ -1391,18 +1391,18 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 
     .wlModalHeader_DetInfo_TitleBox .wlModalHeader_DetInfo_TitleText
     {
-        font-size: 16px;
+        font-size: 1rem;
     }
 
     .wlModalHeader_DetInfo_TagsBox .wlModalHeader_DetInfo_TagsItem
     {
-        font-size: 11px;
+        font-size: 0.6875rem;
     }
 
     .wlModalHeader_DetInfo_DescBox .wlModalHeader_DetInfo_DescText,
     .wlModalHeader_DetInfo_MoreBtn .wlModalHeader_DetInfo_MoreText
     {
-        font-size: 12px;
+        font-size: 0.75rem;
     }
 
     .wlModalActionFence.wlModalAction_HeaderFence
@@ -1412,20 +1412,20 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 
     .wlModalCtnt_sortStatusBox .wlModalCtnt_sortStatusText
     {
-        font-size: 13px;
+        font-size: 0.8125rem;
     }
 
     .wlModalCtnt_sortFilterBox .myListOrderBtnBox
     {
-        padding: 10px;
+        padding: 0.625rem;
         border-radius: 50%;
         background-color: #00000000;
     }
 
     .wlModalCtnt_sortFilterBox .myListOrderBtnIcon
     {
-        width: 20px;
-        height: 20px;
+        width: 1.25rem;
+        height: 1.25rem;
         margin: 0;
     }
 
@@ -1436,34 +1436,34 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 
     .wlModalGrid_CardRankBox .wlModalGrid_CardRankNo
     {
-        font-size: 12px;
+        font-size: 0.75rem;
     }
 
     .wlModalGrid_CardCtnt_DetTitleBox .wlModalGrid_CardCtnt_DetTitleText
     {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 }
 
 
 
-@media only screen and (max-width: 485px)
+@media only screen and (max-width: 30.3125rem)
 {
 
     .wlModalGridBox .wlModalGrid_CardBdr
     {
-        padding: 10px 0;
+        padding: 0.625rem 0;
     }
 
     .wlModalGrid_CardCtnt_DetTitleBox .wlModalGrid_CardCtnt_DetTitleText
     {
-        font-size: 14px;
+        font-size: 0.875rem;
         --wlModalGrid_CardCtnt_DetTitleTextNo: 2;
     }
 
     .wlModalGrid_CardCtnt_DetTagSectBox .wlModalGrid_CardCtnt_DetTagSectText
     {
-        font-size: 11px;
+        font-size: 0.6875rem;
     }
 
     .wlModalGrid_CardCtntDetBox .wlModalGrid_CardCtnt_DetDescBox

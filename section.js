@@ -177,7 +177,7 @@
             }
         }, {
             root: null,
-            rootMargin: '0px',
+            rootMargin: '0rem',
             threshold: 0.1
         });
     

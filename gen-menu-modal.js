@@ -607,7 +607,7 @@
 
     function sett_sect_nav()
     {
-        callGlobalFunctions("");
+        callGlobalFunctions("attachSettSectNavListeners");
     }
 
 
