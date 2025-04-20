@@ -216,6 +216,12 @@ html:root
     .settingBox .settCtntBdr
     {
         width: 100%;
+        margin-top: var(--btmNavBarHeight);
+    }
+
+    .settCtntBox .settCtntTab
+    {
+        padding-top: 20px;
     }
 
     .settCtntTitleBox .settCtntTitleText
