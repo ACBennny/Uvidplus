@@ -55,7 +55,7 @@
                         </div>
                     </div>
                     <div class="feedback_atnBox">
-                        <button type="submit" id="js_send" class="genBtnBox midSolidBtn disabled">
+                        <button type="submit" id="fdbk_send" class="genBtnBox midSolidBtn disabled">
                             <div class="genBtnText">Submit</div>
                         </button>
                         <button type="button" class="genBtnBox hollowBtn feedback_closeBtn disabled">
@@ -70,7 +70,7 @@
     let data_js = 
     {
         // testing
-        "access_token": "erjnk4phsd28yqwskkszajvk"
+        "access_token": "u2s6gbzxrx7o1s4jost9fq3q"
     };
     let feedbackForm_timer;
     let feedback_bdr;
@@ -82,6 +82,19 @@
     let form_id_js;
 
 
+    function toggle_sendBtn(state = false)
+    {
+        if((typeof sendButton === "undefined")) return;
+
+        if(state == true)
+        {
+            sendButton.disabled = true;
+            return;
+        }
+        sendButton.disabled = false;
+    }
+
+
     function init_FeedbackForm()
     {
         documentCtnt.insertAdjacentHTML(`afterbegin` , feedback_struct);
@@ -91,11 +104,14 @@
         feedback_sectField = document.querySelectorAll(".feedback_sectField");
         openButton = document.querySelectorAll(".feedback_openBtn");
         closeButton = document.querySelectorAll(".feedback_closeBtn");
-        sendButton = document.getElementById("js_send");
+        sendButton = document.getElementById("fdbk_send");
         form_id_js = js_form.getAttribute('id');
 
         // Update background to the current profile's
-        document.querySelector(`.feedback_bcg`).setAttribute(`style` , `background-image: url(${selectedProfile.prof_bcgImg})`);
+        if(typeof selectedProfile !== "undefined")
+        {
+            document.querySelector(`.feedback_bcg`).setAttribute(`style` , `background-image: url(${selectedProfile.prof_bcgImg})`);
+        }
 
         // Remove previous event listeners (if any)
         openButton.forEach((btn) => 
@@ -142,7 +158,7 @@
     function open_FeedbackForm()
     {
         documentBody.setAttribute(`data-modal-state` , `open`);
-        sendButton.disabled = false;
+        toggle_sendBtn(false);
         feedback_sectField.forEach((btn) => 
         {
             btn.disabled = false;
@@ -161,7 +177,7 @@
     function close_FeedbackForm()
     {
         documentBody.removeAttribute(`data-modal-state`);
-        sendButton.disabled = true;
+        toggle_sendBtn(true);
         feedback_sectField.forEach((btn) => 
         {
             btn.disabled = true;
@@ -214,45 +230,52 @@
         e.preventDefault();
     }
 
-    function js_onSuccess() 
+    function fdbk_onSuccess() 
     {
         notification(`notifyGood` , `Feedback sent successfully`);
-        sendButton.disabled = false;
+        toggle_sendBtn(false);
     }
 
-    function js_onError(error) 
+    function fdbk_onError(error) 
     {
         notification(`notifyBad` , `An error occurred during sending`);
-        sendButton.disabled = false;
+        toggle_sendBtn(false);
     }
 
 
-    function js_send() 
+    function fdbk_get()
     {
-        sendButton.disabled = true;
+        toggle_sendBtn(true);
+
+        let subject = document.querySelector("#" + form_id_js + " [name='subject']").value;
+        let message = document.querySelector("#" + form_id_js + " [name='text']").value;
+        let type = document.querySelector("#" + form_id_js + " [name='feedback_type']").value;
+        let severity = document.querySelector("#" + form_id_js + " [name='severity_level']").value;
+
+        fdbk_send(subject, message, type, severity);
+    }
+
+
+    function fdbk_send(subject, message, type, severity)
+    {
 
         let request = new XMLHttpRequest();
         request.onreadystatechange = function() 
         {
             if (request.readyState == 4 && request.status == 200) 
             {
-                js_onSuccess();
+                fdbk_onSuccess();
             } 
             else if(request.readyState == 4) 
             {
-                js_onError(request.response);
+                fdbk_onError(request.response);
             }
         };
-
-        let subject = document.querySelector("#" + form_id_js + " [name='subject']").value;
-        let message = document.querySelector("#" + form_id_js + " [name='text']").value;
-        let type = document.querySelector("#" + form_id_js + " [name='feedback_type']").value;
-        let severity = document.querySelector("#" + form_id_js + " [name='severity_level']").value;
         data_js['subject'] = subject;
         data_js['text'] = message;
         data_js['extra_feedback_type'] = type;
         data_js['extra_severity_level'] = severity;
-        let params = toParams(data_js);
+        let params = fdbk_toParams(data_js);
 
         request.open("POST", "https://postmail.invotes.com/send", true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -262,7 +285,7 @@
         return false;
     }
 
-    function toParams(data_js) 
+    function fdbk_toParams(data_js) 
     {
         let form_data = [];
         for ( var key in data_js ) 
@@ -281,7 +304,7 @@
         )
         {
             notification(`notifyGood` , `Sending feedback..`);
-            js_send();
+            fdbk_get();
         }
         else
         {
