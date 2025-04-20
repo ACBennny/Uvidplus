@@ -77,6 +77,7 @@
         });
     }
 
+    // Routes to section based off the url
     function sett_sect_router()
     {
         let settNav = hash_parts[2];
@@ -104,6 +105,7 @@
         }
     }
 
+
     // Updates the url to include the current sect
     function sett_url_upd(url)
     {
@@ -118,6 +120,7 @@
             window.history.replaceState(null, '', newSetturl);
         }
     }
+
 
     // Scrolls to the selected section
     function sett_sect_dstn(sect = "membership")
