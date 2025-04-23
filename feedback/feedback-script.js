@@ -68,6 +68,35 @@
             </div>
         </div>
     `;
+    let emptyFdbStruct = 
+    `
+        <div class="error_bdr">
+            <div class="error_box">
+                <div class="error_note">
+                    <div class="header">
+                        <h1 class="header_note hN1">5</h1>
+                        <h1 class="header_note hN2">0</h1>
+                        <h1 class="header_note hN3">3</h1>
+                    </div>
+                    <div class="middle">
+                        <h3 class="mid_Title">Feedback Form Closed</h3>
+                        <p class="mid_Note">
+                            You may close this window.
+                            <br>
+                        </p>
+                    </div>
+                    <div class="footer">
+                        <div class="logoBox">
+                            <a href="/" class="logo">
+                                <h2 class="logo1">U</h2>
+                                <h2 class="logo2">VID</h2>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `
     let data_js = 
     {
         // testing
@@ -243,7 +272,10 @@
             // Redirect to homepage, if on feedback page
             if((window.location.pathname === "/feedback.html"))
             {
-                // Closes tab/window
+                // Let the user know they can close the window
+                document.body.insertAdjacentHTML(`beforeend` , emptyFdbStruct);
+                
+                // Attempt to automaticlly closes window
                 window.close();
 
                 // Redirects to homepage if closing is not possible
