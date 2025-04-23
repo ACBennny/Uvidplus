@@ -226,11 +226,9 @@
             if((hash_parts[3]) && (hash_parts[3] !== ""))
             {
                 initProfEditModal();
-                console.log("Edit Specific profile..");
                 return;
             }
             initManageProfileModal('edit');
-            console.log("EDit profile..");
         }
         else
         {
