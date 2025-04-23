@@ -1940,17 +1940,22 @@
             {
                 const action = () =>
                 {
-                    initConfirmModal(
-                        `Are you sure you want to sign out?`,
-                        null,
-                        `Yes`,
-                        `No`,
-                        accountSignOut
-                    );
+                    cfrmB4SignOut();
                 }
                 btn.addEventListener("click" , action);
                 btn.atn = action;
             });
+        }
+
+        function cfrmB4SignOut()
+        {
+            initConfirmModal(
+                `Are you sure you want to sign out?`,
+                null,
+                `Yes`,
+                `No`,
+                accountSignOut
+            );
         }
 
         function accountSignOut()
