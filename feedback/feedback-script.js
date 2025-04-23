@@ -5,6 +5,7 @@
  * @version (v0.01)
  *************************************************************/
 
+
     let feedback_struct = 
     `
         <div class="feedback_bdr">
@@ -81,6 +82,14 @@
     let sendButton;
     let form_id_js;
 
+    window.onload = () => 
+    {
+        if((window.location.pathname === "/feedback.html"))
+        {
+            init_FeedbackForm();
+        }
+    }
+
 
     function toggle_sendBtn(state = false)
     {
@@ -95,9 +104,29 @@
     }
 
 
+    function attachOpenFdbkFormListeners()
+    {
+        openButton = document.querySelectorAll(".feedback_openBtn");
+
+        openButton.forEach((btn) => 
+        {
+            if(btn.action)
+            {
+                btn.removeEventListener("click", btn.action);
+            }
+        });
+        
+        openButton.forEach((btn) => 
+        {
+            btn.addEventListener("click", open_FeedbackForm);
+            btn.action = open_FeedbackForm;
+        });
+    }
+
+
     function init_FeedbackForm()
     {
-        documentCtnt.insertAdjacentHTML(`afterbegin` , feedback_struct);
+        document.body.insertAdjacentHTML(`afterbegin` , feedback_struct);
 
         feedback_bdr = document.querySelector(".feedback_bdr");
         js_form = document.getElementById("feedback_form");
@@ -114,13 +143,6 @@
         }
 
         // Remove previous event listeners (if any)
-        openButton.forEach((btn) => 
-        {
-            if(btn.action)
-            {
-                btn.removeEventListener("click", btn.action);
-            }
-        });
         closeButton.forEach((btn) => 
         {
             if(btn.action)
@@ -130,11 +152,6 @@
         });
 
         // Reattach event listeners
-        openButton.forEach((btn) => 
-        {
-            btn.addEventListener("click", open_FeedbackForm);
-            btn.action = open_FeedbackForm;
-        });
         closeButton.forEach((btn) => 
         {
             btn.addEventListener("click", close_FeedbackForm);
@@ -157,7 +174,7 @@
 
     function open_FeedbackForm()
     {
-        documentBody.setAttribute(`data-modal-state` , `open`);
+        document.body.setAttribute(`data-modal-state` , `open`);
         toggle_sendBtn(false);
         feedback_sectField.forEach((btn) => 
         {
@@ -176,7 +193,7 @@
 
     function close_FeedbackForm()
     {
-        documentBody.removeAttribute(`data-modal-state`);
+        document.body.removeAttribute(`data-modal-state`);
         toggle_sendBtn(true);
         feedback_sectField.forEach((btn) => 
         {
@@ -221,7 +238,17 @@
         feedbackForm_timer = setTimeout(() => 
         {
             clearTimeout(feedbackForm_timer);
-            prev_page_route();
+            feedback_bdr.remove();
+            
+            // Redirect to homepage, if on feedback page
+            if((window.location.pathname === "/feedback.html"))
+            {
+                // Closes tab/window
+                window.close();
+
+                // Redirects to homepage if closing is not possible
+                window.open(`${window.location.origin}`, `_self`);
+            }
         }, 100);
     }
 
