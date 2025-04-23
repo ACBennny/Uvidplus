@@ -57,13 +57,6 @@ function page_router()
     // Update content based on the hash
     switch(hash_parts[1])
     {
-        case 'landing': // landing page
-            page_route_success(``);
-            break;
-
-        case 'join': // log in/sign up page
-            page_route_success(``);
-            break;
             
         case 'home': // home page
             page_route_success(`preHomeSection`);
@@ -109,26 +102,6 @@ function page_router()
         case 'news': // more navigation will be added later
             page_route_error(`construction`);
             sideNavLinks[4].classList.add("active");
-            break;
-            
-        case 'feedback': // may be used as menu only
-            page_route_success(`init_FeedbackForm`);
-            break;
-            
-        case 'help': // Help Center
-            page_route_error(`construction`);
-            break;
-            
-        case 'tou': // terms of use
-            page_route_error(`construction`);
-            break;
-            
-        case 'copyright': // Copyright act
-            page_route_error(`construction`);
-            break;
-            
-        case 'ad-choices': // Understand ads provided (if-any)
-            page_route_error(`construction`);
             break;
         
         default: // redirects to home page
