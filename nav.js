@@ -92,6 +92,7 @@ function page_router()
             
         case 'profile': // View your profile
             page_route_success(`initProfilePage`);
+            sideNavLinks[6].classList.add("active");
             break;
             
         case 'settings': // settings

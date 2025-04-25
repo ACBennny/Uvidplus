@@ -321,7 +321,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="sideNavItemsCardBase">
+                            <!--<div class="sideNavItemsCardBase">
                                 <a href="#/profile" class="sideNavItemsCardBdr">
                                     <div class="navBarProfileBdr">
                                         <div class="navBarProfileBox open_nav_profileOptions">
@@ -332,13 +332,12 @@
                                     </div>
                                 </a>
                             </div>
-                            <!-- <div class="sideNavItemsCardBase">
+                            <div class="sideNavItemsCardBase">
                                 <button type="button" class="sideNavItemsCardBdr openGenMenuModalBtn" data-gen-menu-modal-type="gen_more_menu">
                                     <div class="sideNavItemsCardBox">
                                         <div class="sideNavItemsCardIcon">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
-                                                <path d="M9 12a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2a1 1 0 0 0 0 2" />
-                                                <path fill-rule="evenodd" d="M12 1.25C6.063 1.25 1.25 6.063 1.25 12S6.063 22.75 12 22.75S22.75 17.937 22.75 12S17.937 1.25 12 1.25M2.75 12a9.25 9.25 0 1 1 18.5 0a9.25 9.25 0 0 1-18.5 0" clip-rule="evenodd" />
+                                                <path fill-rule="evenodd" d="M12 1.25a4.75 4.75 0 1 0 0 9.5a4.75 4.75 0 0 0 0-9.5M8.75 6a3.25 3.25 0 1 1 6.5 0a3.25 3.25 0 0 1-6.5 0M12 12.25c-2.04 0-3.922.47-5.322 1.27C5.3 14.308 4.25 15.51 4.25 17s1.05 2.692 2.428 3.48c1.4.8 3.283 1.27 5.322 1.27s3.922-.47 5.322-1.27c1.378-.788 2.428-1.99 2.428-3.48s-1.05-2.692-2.428-3.48c-1.4-.8-3.283-1.27-5.322-1.27M5.75 17c0-.72.517-1.517 1.672-2.177c1.134-.648 2.751-1.073 4.578-1.073s3.444.425 4.578 1.073c1.155.66 1.672 1.458 1.672 2.177s-.517 1.517-1.672 2.177c-1.134.648-2.751 1.073-4.578 1.073s-3.444-.425-4.578-1.073C6.267 18.517 5.75 17.72 5.75 17" clip-rule="evenodd" />
                                             </svg>
                                         </div>
                                         <div class="sideNavItemsCardTitleBdr">
@@ -349,6 +348,26 @@
                                     </div>
                                 </button>
                             </div>-->
+                            <div class="sideNavItemsCardBase">
+                                <a href="#/profile" class="sideNavItemsCardBdr sideNavLinks">
+                                    <div class="sideNavItemsCardBox">
+                                        <div class="sideNavItemsCardIcon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
+                                                <path fill-rule="evenodd" d="M12 1.25a4.75 4.75 0 1 0 0 9.5a4.75 4.75 0 0 0 0-9.5M8.75 6a3.25 3.25 0 1 1 6.5 0a3.25 3.25 0 0 1-6.5 0M12 12.25c-2.04 0-3.922.47-5.322 1.27C5.3 14.308 4.25 15.51 4.25 17s1.05 2.692 2.428 3.48c1.4.8 3.283 1.27 5.322 1.27s3.922-.47 5.322-1.27c1.378-.788 2.428-1.99 2.428-3.48s-1.05-2.692-2.428-3.48c-1.4-.8-3.283-1.27-5.322-1.27M5.75 17c0-.72.517-1.517 1.672-2.177c1.134-.648 2.751-1.073 4.578-1.073s3.444.425 4.578 1.073c1.155.66 1.672 1.458 1.672 2.177s-.517 1.517-1.672 2.177c-1.134.648-2.751 1.073-4.578 1.073s-3.444-.425-4.578-1.073C6.267 18.517 5.75 17.72 5.75 17" clip-rule="evenodd" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavBoldIcon">
+                                                <circle cx="12" cy="6" r="4" />
+                                                <ellipse cx="12" cy="17" rx="7" ry="4" />
+                                            </svg>
+                                        </div>
+                                        <div class="sideNavItemsCardTitleBdr">
+                                            <div class="sideNavItemsCardTitleBox">
+                                                <div class="sideNavItemsCardTitleText">Profile</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </section>
