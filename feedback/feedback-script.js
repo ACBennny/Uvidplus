@@ -8,63 +8,65 @@
 
     let feedback_struct = 
     `
-        <div class="feedback_bdr">
-            <div class="feedback_bcg feedback_closeBtn"></div>
-            <div class="feedback_box">
-                <form id="feedback_form" class="feedback_form">
-                    <div class="feedback_closeBdr feedback_closeBtn">
-                        <div class="feedback_closeBox ">
-                            <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="feedback_closeIcon">
-                                <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
-                            </svg>
+        <div class="feedback_base">
+            <div class="feedback_bdr">
+                <div class="feedback_bcg feedback_closeBtn"></div>
+                <div class="feedback_box">
+                    <form id="feedback_form" class="feedback_form">
+                        <div class="feedback_closeBdr feedback_closeBtn">
+                            <div class="feedback_closeBox ">
+                                <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="feedback_closeIcon">
+                                    <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                                </svg>
+                            </div>
                         </div>
-                    </div>
-                    <div class="feedback_header">
-                        <div class="feedback_name">Feedback Form</div>
-                    </div>
-                    <div class="feedback_ctnt">
-                        <label for="feedback_subject" class="feedback_sectBox feedback_sectInputBox">
-                            <div class="feedback_sectLabel">Title</div>
-                            <input type="text" name="subject" id="feedback_subject" class="feedback_sectField feedback_sectInput"  placeholder="Enter title" disabled />
-                        </label>
-                        <label for="feedback_desc" class="feedback_sectBox feedback_sectInputBox">
-                            <div class="feedback_sectLabel">Description</div>
-                            <textarea name="text" id="feedback_desc" class="feedback_sectField feedback_sectTextArea" placeholder="Enter description" disabled></textarea>
-                        </label>
-                        <div class="feedback_selectBdr">
-                            <label for="feedback_type" class="feedback_sectBox feedback_sectSelectBox">
-                                <div class="feedback_sectLabel">Feedback Type</div>
-                                <select type="number" name="feedback_type" id="feedback_type" class="feedback_sectField feedback_sectSelect" disabled>
-                                    <option value="N/A">Select an option</option>
-                                    <option value="Bug Report">Bug Report</option>
-                                    <option value="Login Issue">Login Issue</option>
-                                    <option value="Suggestion">Suggestion</option>
-                                    <option value="Feature Request">Feature Request</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </label>
-                            <label for="severity_level" class="feedback_sectBox feedback_sectSelectBox">
-                                <div class="feedback_sectLabel">Severity level</div>
-                                <select type="number" name="severity_level" id="severity_level" class="feedback_sectField feedback_sectSelect" disabled>
-                                    <option value="N/A">Select severity</option>
-                                    <option value="Low">Low</option>
-                                    <option value="Medium">Medium</option>
-                                    <option value="High">High</option>
-                                    <option value="Critical">Critical</option>
-                                </select>
-                            </label>
+                        <div class="feedback_header">
+                            <div class="feedback_name">Feedback Form</div>
                         </div>
-                    </div>
-                    <div class="feedback_atnBox">
-                        <button type="submit" id="fdbk_send" class="genBtnBox midSolidBtn disabled">
-                            <div class="genBtnText">Submit</div>
-                        </button>
-                        <button type="button" class="genBtnBox hollowBtn feedback_closeBtn disabled">
-                            <div class="genBtnText">Cancel</div>
-                        </button>
-                    </div>
-                    <p class="poweredBy_text">Powered by <span  class="poweredBy_link" onclick="window.open('https://postmail.invotes.com' , '_blank')">PostMail</a></p>
-                </form>
+                        <div class="feedback_ctnt">
+                            <label for="feedback_subject" class="feedback_sectBox feedback_sectInputBox">
+                                <div class="feedback_sectLabel">Title</div>
+                                <input type="text" name="subject" id="feedback_subject" class="feedback_sectField feedback_sectInput"  placeholder="Enter title" disabled />
+                            </label>
+                            <label for="feedback_desc" class="feedback_sectBox feedback_sectInputBox">
+                                <div class="feedback_sectLabel">Description</div>
+                                <textarea name="text" id="feedback_desc" class="feedback_sectField feedback_sectTextArea" placeholder="Enter description" disabled></textarea>
+                            </label>
+                            <div class="feedback_selectBdr">
+                                <label for="feedback_type" class="feedback_sectBox feedback_sectSelectBox">
+                                    <div class="feedback_sectLabel">Feedback Type</div>
+                                    <select type="number" name="feedback_type" id="feedback_type" class="feedback_sectField feedback_sectSelect" disabled>
+                                        <option value="N/A">Select an option</option>
+                                        <option value="Bug Report">Bug Report</option>
+                                        <option value="Login Issue">Login Issue</option>
+                                        <option value="Suggestion">Suggestion</option>
+                                        <option value="Feature Request">Feature Request</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </label>
+                                <label for="severity_level" class="feedback_sectBox feedback_sectSelectBox">
+                                    <div class="feedback_sectLabel">Severity level</div>
+                                    <select type="number" name="severity_level" id="severity_level" class="feedback_sectField feedback_sectSelect" disabled>
+                                        <option value="N/A">Select severity</option>
+                                        <option value="Low">Low</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="High">High</option>
+                                        <option value="Critical">Critical</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="feedback_atnBox">
+                            <button type="submit" id="fdbk_send" class="genBtnBox midSolidBtn disabled">
+                                <div class="genBtnText">Submit</div>
+                            </button>
+                            <button type="button" class="genBtnBox hollowBtn feedback_closeBtn disabled">
+                                <div class="genBtnText">Cancel</div>
+                            </button>
+                        </div>
+                        <p class="poweredBy_text">Powered by <span  class="poweredBy_link" onclick="window.open('https://postmail.invotes.com' , '_blank')">PostMail</a></p>
+                    </form>
+                </div>
             </div>
         </div>
     `;
@@ -103,7 +105,7 @@
         "access_token": "u2s6gbzxrx7o1s4jost9fq3q"
     };
     let feedbackForm_timer;
-    let feedback_bdr;
+    let feedback_base;
     let js_form;
     let feedback_sectField;
     let openButton;
@@ -155,9 +157,9 @@
 
     function init_FeedbackForm()
     {
-        document.body.insertAdjacentHTML(`afterbegin` , feedback_struct);
+        document.body.insertAdjacentHTML(`beforeend` , feedback_struct);
 
-        feedback_bdr = document.querySelector(".feedback_bdr");
+        feedback_base = document.querySelector(".feedback_base");
         js_form = document.getElementById("feedback_form");
         feedback_sectField = document.querySelectorAll(".feedback_sectField");
         openButton = document.querySelectorAll(".feedback_openBtn");
@@ -217,7 +219,7 @@
         {
             btn.disabled = true;
         });
-        feedback_bdr.classList.add("active");
+        feedback_base.classList.add("active");
     }
 
     function close_FeedbackForm()
@@ -236,10 +238,10 @@
         {
             btn.disabled = false;
         });
-        feedback_bdr.classList.remove("active");
-        feedback_bdr.addEventListener("transitionend" , function handleTransitionEnd()
+        feedback_base.classList.remove("active");
+        feedback_base.addEventListener("transitionend" , function handleTransitionEnd()
         {
-            feedback_bdr.removeEventListener("transitionend" , handleTransitionEnd);
+            feedback_base.removeEventListener("transitionend" , handleTransitionEnd);
             clearTimeout(feedbackForm_timer);
             remove_FeedbackForm();
         });
@@ -267,7 +269,7 @@
         feedbackForm_timer = setTimeout(() => 
         {
             clearTimeout(feedbackForm_timer);
-            feedback_bdr.remove();
+            feedback_base.remove();
             
             // Redirect to homepage, if on feedback page
             if((window.location.pathname === "/feedback.html"))
