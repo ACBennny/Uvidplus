@@ -12,6 +12,7 @@ html:root
     --settingNavBdrWidth: 20.3125rem;
     --settingNavBoxWidth: 17.5rem;
     --settingTopPadding: 7rem;
+    --settCtntSectAtnIconSize: 2rem;
 }
 
 
@@ -169,15 +170,130 @@ html:root
 
 .settCtntTitleText .major
 {
-
-    color: var(--genGreenTypeLight);
+    color: var(--genGreenTypeBright);
 }
 
 .settCtntTitleText .minor
 {
-
-    color: var(--genWhiteTypeLight);
+    color: var(--genWhiteTypeBright);
 }
+
+
+
+/* =========== SECTION ========== */
+
+.settCtntTab .settCtntSectBdr
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2rem 0;
+    border-radius: 0.5rem;
+    background-color: #ffffff15;
+}
+
+.settCtntSectBdr .settCtntSectBox
+{
+    width: 100%;
+    padding: 0 2rem;
+}
+
+
+/* -------- Horizontal section -------- */
+.sett_ctnt_hrtl
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+/* -------- Vertical section -------- */
+.sett_ctnt_vrtl
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
+
+/* ------- Section Info ------- */
+.sett_ctnt_info
+{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.sett_ctnt_hrtl .sett_ctnt_info
+{
+    max-width: 75%;
+}
+
+.sett_ctnt_vrtl .sett_ctnt_info
+{
+    width: 100%;
+}
+
+
+.settCtntSectTitleBox .settCtntSectTitleText
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 1.125rem;
+}
+
+.sett_ctnt_info .settCtntSectDescBox
+{
+    margin-top: 0.5rem;
+}
+
+.settCtntSectDescBox .settCtntSectDescText
+{
+    width: 100%;
+    color: var(--genWhiteTypeMid);
+    font-size: 1rem;
+}
+
+
+/* -------- Section Action Btn ------- */
+.settCtntSectAtnBdr
+{}
+
+.settCtntSectAtnBdr .settCtntSectAtnBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.settCtntSectAtnBtn
+{
+    outline: none;
+    border: none;
+    background-color: #00000000;
+    cursor: pointer;
+}
+
+.settCtntSectAtnIcon
+{
+    width: var(--settCtntSectAtnIconSize);
+    height: var(--settCtntSectAtnIconSize);
+}
+
+.settCtntSectAtnIcon .settCtntSectAtnSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--genWhiteTypeLight);
+}
+
+
 
 
 
@@ -211,6 +327,7 @@ html:root
 {
     html:root
     {
+        --settCtntSectAtnIconSize: 1.875rem;
     }
 
     .settingBox .settCtntBdr
@@ -234,17 +351,51 @@ html:root
         font-size: 1.375rem;
     }
 
+    .settCtntSectTitleBox .settCtntSectTitleText
+    {
+        font-size: 1rem;
+    }
+    
+    .settCtntSectDescBox .settCtntSectDescText
+    {
+        font-size: 0.875rem;
+    }
+
 }
 
 
 
 @media only screen and (max-width: 30.3125rem)
 {
+    html:root
+    {
+        --settCtntSectAtnIconSize: 1.625rem;
+    }
 
     .settCtntTitleBox .settCtntTitleText
     {
         color: var(--genWhiteTypeLight);
         font-size: 1.125rem;
+    }
+
+    .settCtntTab .settCtntSectBdr
+    {
+        padding: 1.5625rem 0;
+    }
+
+    .settCtntSectBdr .settCtntSectBox
+    {
+        padding: 0 1.5625rem;
+    }
+
+    .settCtntSectTitleBox .settCtntSectTitleText
+    {
+        font-size: 1rem;
+    }
+    
+    .settCtntSectDescBox .settCtntSectDescText
+    {
+        font-size: 0.875rem;
     }
 
 }
