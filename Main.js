@@ -321,7 +321,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <!-- <div class="sideNavItemsCardBase">
+                            <div class="sideNavItemsCardBase">
                                 <a href="#/profile" class="sideNavItemsCardBdr">
                                     <div class="navBarProfileBdr">
                                         <div class="navBarProfileBox open_nav_profileOptions">
@@ -331,8 +331,8 @@
                                         </div>
                                     </div>
                                 </a>
-                            </div> -->
-                            <div class="sideNavItemsCardBase">
+                            </div>
+                            <!-- <div class="sideNavItemsCardBase">
                                 <button type="button" class="sideNavItemsCardBdr openGenMenuModalBtn" data-gen-menu-modal-type="gen_more_menu">
                                     <div class="sideNavItemsCardBox">
                                         <div class="sideNavItemsCardIcon">
@@ -348,7 +348,7 @@
                                         </div>
                                     </div>
                                 </button>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </section>
