@@ -201,7 +201,7 @@
                 </div>
             `;
 
-            // Determine and set the appropriate content for the action btn (if any)
+            // Determine and set the appropriate content for the action btn
             if(settCtntOrientFlag == false)
             {
                 if(item.sett_atn_type === "toggle")
