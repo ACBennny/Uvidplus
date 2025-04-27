@@ -918,7 +918,7 @@
                             opn_dtn();
                         }, 1500);
                     }
-                    // If it is not correct, the user is required to try again
+                    // If incorrect, notify user
                     else
                     {
                         logInWarn.textContent = "Email or Password is incorrect";
@@ -947,7 +947,7 @@
                             opn_dtn();
                         }, 1500);
                     }
-                    // If it is not correct, the user is required to try again
+                    // If incorrect, notify user
                     else
                     {
                         logInWarn.textContent = "Email or Password is incorrect";
