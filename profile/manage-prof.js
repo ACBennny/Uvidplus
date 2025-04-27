@@ -54,7 +54,7 @@
             </div>
         </div>
     `;
-    let createNewProfStruct = 
+    let addProfStruct = 
     `
         <div class="switchProfOptBox createProfileBtn">
             <div class="addNewProfIconBox">
@@ -165,7 +165,7 @@
         }
 
         // Insert the "Add New Profile" option
-        switchProfOptBdr.insertAdjacentHTML(`beforeend` , createNewProfStruct);
+        switchProfOptBdr.insertAdjacentHTML(`beforeend` , addProfStruct);
 
     
         // Attach selectors based on type
