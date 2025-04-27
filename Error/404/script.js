@@ -27,11 +27,11 @@ const error404Struct =
                         - or page is not available at the current time. 
                         <br>
                     </p>
-                    <a href="/Home.html" class="goToHome">Back to home</a>
+                    <a href="/" class="goToHome">Back to home</a>
                 </div>
                 <div class="footer">
                     <div class="logoBox">
-                        <a href="/Home.html" class="logo">
+                        <a href="/" class="logo">
                             <h2 class="logo1">U</h2>
                             <h2 class="logo2">VID</h2>
                         </a>
