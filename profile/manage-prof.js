@@ -424,7 +424,7 @@
             getWordCount(newProfInput.value);
         });
 
-        // Create list
+        // Create profile
         function generateProfile(profName)
         {
             // Add new entry into the library
@@ -474,7 +474,7 @@
             generateProfile(newProfInput.value.toString().trim().replace(/\s+/g, ' '));
         });
 
-        // Create list by pressing the "Enter" key
+        // Create profile by pressing the "Enter" key
         newProfInput.addEventListener("keyup" , (e) => 
         {
             if((e.key === "Enter"))
@@ -484,7 +484,7 @@
         });
 
 
-        // Closes the createList modal
+        // Closes the createProf modal
         function closeCreateProf(isProfNew = false)
         {
             createProfBtn.classList.replace("midSolidBtn" , "inactiveBtn");
