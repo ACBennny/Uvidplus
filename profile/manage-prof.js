@@ -354,7 +354,7 @@
         createProfBdr.innerHTML = createProfStruct;
         documentBody.appendChild(createProfBdr);
 
-        const createListCloseBtn = document.querySelectorAll(".closeCreateProfBtn");
+        const createProfCloseBtn = document.querySelectorAll(".closeCreateProfBtn");
         const newProfInput = document.querySelector("#newProfInputId");
         const newProfWarn = document.querySelector("#newProfWarnId");
         const createProfBtn = document.querySelector("#createNewProf");
@@ -385,7 +385,7 @@
             newProfInput.focus();
         });
 
-        // checking input length
+        // Checking input length
         function getWordCount(input)
         {
             plArr.push(input);
@@ -394,7 +394,7 @@
             lastProfArr = lastProfArr.trim().replace(/\s+/g, ' ');
             lastProfArrLength = lastProfArr.length;
 
-            // update warn label
+            // Update warn label
             currLength = wordCount - lastProfArrLength;
             newProfWarn.textContent = currLength;
 
@@ -463,7 +463,7 @@
             );
             console.log(profileInfoInv.at(-1));
 
-            // Notify myList of the necly created playlist
+            // Notify user of the newly created profile
             notification(`notifyGood` , `Profile created successfully`);
 
             closeCreateProf(true);
@@ -509,7 +509,7 @@
         }
 
         // Closes the modal
-        createListCloseBtn.forEach(one => 
+        createProfCloseBtn.forEach(one => 
         {
             one.addEventListener("mousedown" , closeCreateProf);
         });
