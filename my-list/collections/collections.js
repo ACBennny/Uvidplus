@@ -826,7 +826,7 @@ let editCLStruct =
                     // Increase the collection size
                     newCLCurrSize++;
 
-                    // Notify myList of the necly created playlist
+                    // Notify user of the newly created collection
                     notification(`notifyGood` , `"${clName}" was created successfully`);
 
                     // Update the sorting if 2nd/3rd option was is currently selected
