@@ -22,11 +22,10 @@ const error503Struct =
                             We apologize for any inconveniences incurred.
                             <br>
                         </p>
-                        <!-- <a onclick="window.history.back()" class="goToHome">Back to previous page</a>-->
                     </div>
                     <div class="footer">
                         <div class="logoBox">
-                            <a href="/landing.html" class="logo">
+                            <a href="/" class="logo">
                                 <h2 class="logo1">U</h2>
                                 <h2 class="logo2">VID</h2>
                             </a>
