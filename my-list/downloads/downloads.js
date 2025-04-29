@@ -846,6 +846,9 @@
         dlMdlHdr_epNo.textContent = epNo;
         dlMdlHdr_epSize.textContent = size;
 
+        // Clear the grid
+        dlMdlCtntGrid.innerHTML = "";
+
         // Fetch the episodes and their info
         let dlItem = dlLibraryIndexedInv.filter(item => item.dl_id === id);
 
@@ -1280,13 +1283,14 @@
                         let dlCardEpLnk = parentDiv.getAttribute("data-ep-link");
 
                         // Get the specific episode
-                        let thisEp = Number(dlCardEpLnk.split('/')[4]);
+                        let thisEp = Number(dlCardEpLnk.split('/')[5]);
         
                         // Remove the episode from DL array
                         dwld_lib.forEach((item) => 
                         {
                             if(item.dl_id === dlCardId)
                             {
+                                console.log(thisEp) 
                                 // Delete the episode
                                 item.dl_eps = item.dl_eps.filter(subItem => Number(subItem.dl_ep_num) !== thisEp);
                             }
@@ -1305,6 +1309,9 @@
 
                 // Close the delete operation
                 document.querySelectorAll(".dlMdlHdr_ssnAtnBtn")[0].click();
+            
+                // Refresh the modal
+                postLoadDLModalCall();
             }
 
             newBtn.addEventListener("click" , dlt_atn);
@@ -1375,7 +1382,7 @@
             else
             {
                 // Get the specific episode
-                let thisEp = Number(dlCardEpLnk.split('/')[4]);
+                let thisEp = Number(dlCardEpLnk.split('/')[5]);
 
                 // Remove the episode from DL array
                 dwld_lib.forEach((item) => 
@@ -1399,6 +1406,9 @@
 
             // Regenerate the DL Body Cards
             insert_dl_body_cards();
+            
+            // Refresh the modal
+            postLoadDLModalCall();
         };
     }
 
