@@ -69,38 +69,18 @@
         for(f = 0; f < ftrCatInv.length; f++)
         {
             let item = ftrCatInv[f];
-            let struct;
-
-            if(f == 0)
-            {
-                struct =  
-                `
-                    <div class="categoriesGridCardBdr">
-                        <div class="categoriesGridCardBcg"></div>
-                        <div class="categoriesGridCardBox">
-                            <div class="categoriesGridCardLabelBox">
-                                <div class="categoriesGridCardLabelText">${item.name}</div>
-                            </div>
+            let struct =  
+            `
+                <div class="categoriesGridCardBdr">
+                    <div class="categoriesGridCardBcg"></div>
+                    <div class="categoriesGridCardBox">
+                        <div class="categoriesGridCardLabelBox">
+                            <div class="categoriesGridCardLabelText">${item.name}</div>
                         </div>
-                        <div onclick="window.open('${item.link}' , '_blank')" class="categoriesGridCardLink"></div>
                     </div>
-                `;
-            }
-            else
-            {
-                struct =  
-                `
-                    <div class="categoriesGridCardBdr">
-                        <div class="categoriesGridCardBcg"></div>
-                        <div class="categoriesGridCardBox">
-                            <div class="categoriesGridCardLabelBox">
-                                <div class="categoriesGridCardLabelText">${item.name}</div>
-                            </div>
-                        </div>
-                        <div onclick="window.open('${item.link}' , '_self')" class="categoriesGridCardLink"></div>
-                    </div>
-                `;
-            }
+                    <div onclick="window.open('${item.link}' , '_self')" class="categoriesGridCardLink"></div>
+                </div>
+            `;
             ftrCategoriesGridBox.insertAdjacentHTML(`beforeend` , struct);
         }
 

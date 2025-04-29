@@ -70,6 +70,10 @@ function page_router()
             btmNavLinks[1].classList.add("active");
             break;
             
+        case 'trending': // For watching the shows add "/show-name"
+            page_route_success(`launchTrendingPage`);
+            break;
+            
         case 'my-list': // Automatically redirects to watchlist by default
             page_route_success(`preLoadMyListPageStruct`);
             sideNavLinks[2].classList.add("active");
