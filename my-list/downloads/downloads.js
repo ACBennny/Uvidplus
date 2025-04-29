@@ -26,6 +26,8 @@
     let dlMdlCtntGrid;
     let dlMdl_selAllTimer;
     let dLMdlGridCard_detBdr;
+    let dlMdlDel_Rfrsh;
+    let dlMdlDel_Trstn = 3000;
     let mylist_downloads_struct =
     `
         <div class="myListBodyBox dwldListBodyBox genTick_chkSelState">
@@ -355,9 +357,6 @@
 
         // Generate the DL Cards
         insert_dl_body_cards();
-
-        // Open modal after initialization
-        postLoadDLModalCall();
     }
 
 
@@ -490,6 +489,9 @@
         attachSelAllDLBodyCardListeners();
         attachSelSnglDLBodyCardListeners();
         attachDelDLBodyCardListeners();
+
+        // Open modal after initialization
+        postLoadDLModalCall();
     }
 
 
@@ -1309,9 +1311,6 @@
 
                 // Close the delete operation
                 document.querySelectorAll(".dlMdlHdr_ssnAtnBtn")[0].click();
-            
-                // Refresh the modal
-                postLoadDLModalCall();
             }
 
             newBtn.addEventListener("click" , dlt_atn);
@@ -1406,9 +1405,6 @@
 
             // Regenerate the DL Body Cards
             insert_dl_body_cards();
-            
-            // Refresh the modal
-            postLoadDLModalCall();
         };
     }
 
