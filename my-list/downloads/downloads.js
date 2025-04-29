@@ -1292,7 +1292,6 @@
                         {
                             if(item.dl_id === dlCardId)
                             {
-                                console.log(thisEp) 
                                 // Delete the episode
                                 item.dl_eps = item.dl_eps.filter(subItem => Number(subItem.dl_ep_num) !== thisEp);
                             }
