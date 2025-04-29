@@ -72,9 +72,10 @@ html:root
     width: 100%;
     height: calc(var(--trendingImgBdrHeight) + (var(--trendingCardBdrPseudoInset) * -1));
     margin-bottom: calc(var(--trendingCardBdrPseudoInset) * -2);
+    z-index: 1;
 }
 
-.trendingCardBdr::after
+.trendingCardBdr::before
 {
     content: '';
     position: absolute;
@@ -89,7 +90,7 @@ html:root
     z-index: -1;
 }
 
-.trendingCardBdr:hover::after
+.trendingCardBdr:hover::before
 {
     opacity: 1;
     visibility: visible;
