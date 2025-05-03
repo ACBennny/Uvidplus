@@ -2389,7 +2389,7 @@
             show_background: `/library/bullbuster/img/2.jpg`,
             show_quality: `HD`,
             show_rating: `PG13`,
-            show_scores: `6.18`,
+            show_scores: `6.2`,
             show_trailers: [{show_trl: `https://www.youtube.com/embed/NnlVfbNf9EM?enablejsapi=1&wmode=opaque&autoplay=1`}],
             show_episodes: [{show_ep: 12,}],
             show_description: 
