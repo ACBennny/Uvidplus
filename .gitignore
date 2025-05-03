@@ -67,3 +67,20 @@ node_modules/
 
 # dataconnect generated files
 .dataconnect
+
+
+
+# ac changes
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Builds
+dist/
+build/
