@@ -311,7 +311,7 @@ let sett_cmpnt_lib =
         sett_atn_type: `modal`,
         sett_atn_id: `sett_del_acc`,
         sett_atn_title: `Delete`,
-        sett_atn_func: ``,
+        sett_atn_func: `validateDelReq()`,
     },
     {
         sett_sect: `privacy`,

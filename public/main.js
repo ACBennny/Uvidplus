@@ -1993,6 +1993,190 @@
         }
 
 
+
+    // DELETING YOUR ACCOUNT
+
+        function attachDelAccEventListeners()
+        {
+            let delAccBtn = document.querySelectorAll(".del_acc_btn");
+
+            delAccBtn.forEach((oldDelBtn) => 
+            {
+                if(oldDelBtn.perm_del_)
+                {
+                    oldDelBtn.removeEventListener("click" , oldDelBtn.perm_del_);
+                }
+            });
+
+            delAccBtn.forEach((newDelBtn) => 
+            {
+                const del_atn = () => 
+                {
+                    validateDelReq(newDelBtn);
+                }
+
+                newDelBtn.addEventListener("click", del_atn);
+                newDelBtn.perm_del_ = del_atn;
+            });
+        }
+
+        // Confirm before deletion
+        function cfrmB4DelAcc()
+        {
+            initConfirmModal(
+                `Are you sure you want to delete your account?`,
+                `Once deleted, it cannot be reovered`,
+                `Delete`,
+                `Cancel`,
+                proDelReq
+            );
+        }
+
+        // Delete Account
+        function proDelReq()
+        {
+            // Normal Sign out for now
+            accountSignOut();
+        }
+
+        // Request password before proceeding
+        function validateDelReq(btnEv)
+        {
+            const delAccBdr = document.createElement("div");
+            delAccBdr.classList.add("genAtnModalBdr");
+            delAccBdr.innerHTML = 
+            `
+                <div class="genAtnModalBcg closeDelAccBtn"></div>
+                <div class="genAtnModalBox">
+                    <div class="genAtnModalCtnt">
+                        <div class="genAtnModalHeader">
+                            <div class="genAtnModalHeaderIconBox closeDelAccBtn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="genAtnModalHeaderIcon">
+                                    <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                                </svg>
+                            </div>
+                            <div class="genAtnModalHeaderText">
+                                <span class="large">C</span>
+                                <span class="small">onfirm password</span>
+                            </div>
+                        </div>
+                        <div class="genAtnModalOptBcg createProfItemBcg">
+                            <div class="genAtnModalOptBdr createProfItemBox">
+                                <div class="newCLBdr active">
+                                    <div class="newCLBox">
+                                        <div class="newCLInputBdr">
+                                            <div class="newCLInputBox">
+                                                <input type="text" name="delPassField" id="delAccInputId" class="newCLInputClass" placeholder="Enter your password" />
+                                            </div>
+                                        </div>
+                                        <div class="newCLWarnBdr">
+                                            <div class="newCLWarnBox">
+                                                <p id="newProfWarnId" class="newCLWarnText" tabindex="-1"></p>
+                                            </div>
+                                        </div>
+                                        <div class="newCLAtnBdr">
+                                            <div class="newCLAtnBox">
+                                                <button type="button" id="cfrmDelPass" class="genBtnBox midSolidBtn">
+                                                    <div class="genBtnText">Confirm</div>
+                                                </button>
+                                                <button type="button" id="cnclDelPass" class="genBtnBox hollowBtn closeDelAccBtn">
+                                                    <div class="genBtnText">Cancel</div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            documentBody.appendChild(delAccBdr);
+    
+            const delAccCloseBtn = document.querySelectorAll(".closeDelAccBtn");
+            const delAccInput = document.querySelector("#delAccInputId");
+            const delAccBtn = document.querySelector("#cfrmDelPass");
+    
+            // Disabling btn to prevent multiple calls
+            if(typeof btnEv !== "undefined") btnEv.disabled = true;
+    
+            // Transitioning elements
+            delAccTimer = setTimeout(() => 
+            {
+                documentBody.setAttribute(`data-modal-state` , `open`);
+                delAccBdr.classList.add("active");
+                clearTimeout(delAccTimer);
+            }, 100);
+            
+            // Automatically focus on input feild after transition
+            delAccBdr.addEventListener("transitionend" , function handleTransitionEnd()
+            {
+                delAccBdr.removeEventListener("transitionend" , handleTransitionEnd);
+                delAccInput.focus();
+            });
+
+            // Validate password
+            function valDelPass(password) 
+            {
+                const users = JSON.parse(localStorage.getItem('uvidSignedInUser'));
+                console.log(users)
+                
+                // Validate credentials
+                const user = users.find(user => user.password === password);
+                if (user) 
+                {
+                    closeDelAcc(true);
+                }
+                // If incorrect, notify user
+                else
+                {
+                    notification(`Password is incorrect`);
+                }
+            }
+    
+            // Get pass input for verification
+            delAccBtn.addEventListener("click" , () => 
+            {
+                valDelPass(delAccInput.value.toString().trim().replace(/\s+/g, ' '));
+            });
+    
+            // Validate pass by pressing the "Enter" key
+            delAccInput.addEventListener("keyup" , (e) => 
+            {
+                if((e.key === "Enter"))
+                {
+                    delAccBtn.click();
+                }
+            });
+    
+            // Closes the delAcc modal
+            function closeDelAcc(isPass = false)
+            {
+                delAccBtn.classList.replace("midSolidBtn" , "inactiveBtn");
+                delAccInput.value = "";
+                delAccInput.disabled = true;
+                delAccBtn.disabled = true;
+                delAccBdr.classList.remove("active");
+                
+                delAccBdr.addEventListener("transitionend" , function handleTransitionEnd()
+                {
+                    delAccBdr.removeEventListener("transitionend" , handleTransitionEnd);
+                    documentBody.removeChild(delAccBdr);
+                    if(typeof btnEv !== "undefined") btnEv.disabled = false;
+                    documentBody.removeAttribute(`data-modal-state`);
+
+                    if(isPass == true) cfrmB4DelAcc();
+                });
+            }
+    
+            // Closes the modal
+            delAccCloseBtn.forEach(one => 
+            {
+                one.addEventListener("mousedown" , closeDelAcc);
+            });
+        }
+
+
     // TOGGLE FULLSCREEN
 
         function attachToggleFullScreenEventListeners()
