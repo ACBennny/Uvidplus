@@ -12,7 +12,7 @@
 
     const documentHTML = document.querySelector("html");
     const documentBody = document.body;
-    const documentTitle = document.title;
+    const documentTitle = document.querySelector("title");
     const documentMain = document.querySelector("main");
     const documentCtnt = document.querySelector("content .content");
     const preload = document.querySelector("#preloader");
@@ -3289,11 +3289,11 @@
             }
             if((customTitle == undefined) || (customTitle == null))
             {
-                socialShareTitle = encodeURIComponent(documentTitle);
+                socialShareTitle = encodeURIComponent(documentTitle.textContent);
             }
             else
             {
-                socialShareTitle = encodeURIComponent(documentTitle);
+                socialShareTitle = encodeURIComponent(documentTitle.textContent);
             }
             socialShareMsg = `Check out ${socialShareTitle}`;
 
@@ -3311,7 +3311,7 @@
                 const customSclShareModal = () =>
                 {
                     let socialShareLink = encodeURI(window.location.href);
-                    let socialShareTitle = encodeURIComponent(documentTitle);
+                    let socialShareTitle = encodeURIComponent(documentTitle.textContent);
                     let socialShareMsg = `Check out ${socialShareTitle}`;
                     const sclShareBdr = document.createElement("div");
                     sclShareBdr.classList.add("genAtnModalBdr");
