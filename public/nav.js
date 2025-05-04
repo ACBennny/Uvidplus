@@ -19,7 +19,7 @@ window.addEventListener('hashchange', page_router);
 
 function page_router()
 {
-    // Get the current hash value (e.g., #/home)
+    // Get the current hash value
     hash_win = window.location.hash;
 
     // Set last hash page
@@ -59,28 +59,33 @@ function page_router()
     {
             
         case 'home': // home page
+            document.title = "Uvid • Stream Movies, Tv Shows, and lots more";
             page_route_success(`preHomeSection`);
             sideNavLinks[1].classList.add("active");
             btmNavLinks[0].classList.add("active");
             break;
             
         case 'explore': // search page
+            document.title = "Uvid • Explore";
             page_route_success(`initCategories`);
             sideNavLinks[0].classList.add("active");
             btmNavLinks[1].classList.add("active");
             break;
             
         case 'trending': // For watching the shows add "/show-name"
+            document.title = "Uvid • Trending";
             page_route_success(`launchTrendingPage`);
             break;
             
         case 'my-list': // Automatically redirects to watchlist by default
+            document.title = "Uvid • My Lists";
             page_route_success(`preLoadMyListPageStruct`);
             sideNavLinks[2].classList.add("active");
             btmNavLinks[2].classList.add("active");
             break;
             
         case 'schedule': // Find release dates and more
+            document.title = "Uvid • Schedule";
             page_route_success(`initSchedule`);
             sideNavLinks[3].classList.add("active");
             btmNavLinks[3].classList.add("active");
@@ -95,21 +100,25 @@ function page_router()
             break;
             
         case 'profile': // View your profile
+            document.title = "Uvid • Profie";
             page_route_success(`initProfilePage`);
             sideNavLinks[6].classList.add("active");
             break;
             
         case 'settings': // settings
+            document.title = "Uvid • Settings";
             sideNavLinks[5].classList.add("active");
             page_route_success(`initSettPage`);
             break;
             
         case 'news': // more navigation will be added later
+            document.title = "Uvid • News";
             page_route_error(`construction`);
             sideNavLinks[4].classList.add("active");
             break;
         
         default: // redirects to home page
+            document.title = "Uvid • Stream Movies, Tv Shows, and lots more";
             window.location.hash = "#/home";
             break;
     }
