@@ -38,6 +38,9 @@ function page_router()
     if((topNavBar.classList.contains("active"))) topNavBar.classList.remove("active");
     if((topNavBar.classList.contains("initialize"))) topNavBar.classList.remove("initialize");
     if((topNavBar.classList.contains("float"))) topNavBar.classList.remove("float");
+    if((topNavBar.classList.contains("hidden"))) topNavBar.classList.remove("hidden");
+    if((sideNavBar.classList.contains("hidden"))) sideNavBar.classList.remove("hidden");
+    if((btmNavBar.classList.contains("hidden"))) btmNavBar.classList.remove("hidden");
     sideNavLinks.forEach((navLink) => 
     {
         if(navLink.classList.contains("active"))
@@ -57,6 +60,16 @@ function page_router()
     // Update content based on the hash
     switch(hash_parts[1])
     {
+            
+        case 'landing': // Landing page
+            document.title = "Uvid • Stream Movies, Tv Shows, and lots more";
+            page_route_success(``);
+            break;
+            
+        case 'join': // Join page
+            document.title = "Uvid • Log In or Create an Account";
+            page_route_success(``);
+            break;
             
         case 'home': // home page
             document.title = "Uvid • Stream Movies, Tv Shows, and lots more";
@@ -115,6 +128,11 @@ function page_router()
             document.title = "Uvid • News";
             page_route_error(`construction`);
             sideNavLinks[4].classList.add("active");
+            break;
+            
+        case 'tou': // For viewing info of shows add "/show-name"
+            document.title = "Uvid • Terms of Use";
+            page_route_success(`display_tou_`);
             break;
         
         default: // redirects to home page

@@ -222,8 +222,7 @@ a
     cursor: pointer;
 }
 
-a:active, a:link, a:visited, a:any-link, a:focus, a:focus-visible, a:focus-within,
-ul
+a:active, a:link, a:visited, a:any-link, a:focus, a:focus-visible, a:focus-within
 {
     outline: none;
     border: none;
@@ -1036,6 +1035,18 @@ img
     z-index: 100;
 }
 
+html:root:has( .sideNavBar.hidden)
+{
+    --sideNavBarWidth: 0rem !important;
+}
+
+.sideNavBar.hidden
+{
+    opacity: 0 ;
+    visibility: hidden;
+    pointer-events: none;
+}
+
 .sideNavBar .sideNavBdr
 {
     width: 100%;
@@ -1234,6 +1245,18 @@ img
     transition: all 300ms ease-in-out;
     pointer-events: none;
     z-index: 100;
+}
+
+html:root:has(.btmNavBar.hidden)
+{
+    --btmNavBarHeight: 0rem !important;
+}
+
+.btmNavBar.hidden
+{
+    opacity: 0 ;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 .btmNavBar .btmNavBdr
