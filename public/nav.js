@@ -61,16 +61,6 @@ function page_router()
     switch(hash_parts[1])
     {
             
-        case 'landing': // Landing page
-            document.title = "Uvid • Stream Movies, Tv Shows, and lots more";
-            page_route_success(``);
-            break;
-            
-        case 'join': // Join page
-            document.title = "Uvid • Log In or Create an Account";
-            page_route_success(``);
-            break;
-            
         case 'home': // home page
             document.title = "Uvid • Stream Movies, Tv Shows, and lots more";
             page_route_success(`preHomeSection`);
@@ -128,11 +118,6 @@ function page_router()
             document.title = "Uvid • News";
             page_route_error(`construction`);
             sideNavLinks[4].classList.add("active");
-            break;
-            
-        case 'tou': // For viewing info of shows add "/show-name"
-            document.title = "Uvid • Terms of Use";
-            page_route_success(`display_tou_`);
             break;
         
         default: // redirects to home page

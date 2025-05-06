@@ -14,7 +14,7 @@ const uvidplus_tou_ =
                                 <p class="tou-sect-ctnt-text">Uvidplus, LTD ("Uvidplus", "we" or "us")
                                     provides our website accessible at <a href="http://uvidplus.web.app/" target=""
                                         rel="">Uvidplus.web.app</a> (the "Site") through which users can participate in an online
-                                    community dedicated to enjoying anime, premium animation, sci-fi, fantasy and media in all
+                                    community dedicated to enjoying movies, tv series, anime, premium animation, sci-fi, fantasy and media in all
                                     forms (the "Services"). Please read the following important terms and conditions ("Terms of
                                     Use") carefully. These Terms of Use and all policies referenced in this document or
                                     elsewhere on the Site that are incorporated herein by reference govern your access to and
@@ -893,14 +893,32 @@ const uvidplus_tou_ =
 function display_tou_()
 {
     // Remove side & bottom navbars
-    sideNavBar.classList.add("hidden");
-    btmNavBar.classList.add("hidden");
+    document.querySelector(".sideNavBar").classList.add("hidden");
+    document.querySelector(".sideNavBar").classList.add("hidden");
 
     // Insert topNavBar struct
-    topNavBar.insertAdjacentHTML(`beforeend` , topNavBarStruct);
-    topNavBar.classList.add("initialize");
-    attachReturnToHomePageListeners();
+    document.querySelector(".topNavBar").insertAdjacentHTML(
+        `beforeend` , 
+        `
+            <div class="topNavBdr">
+                <div class="topNavBox">
+                    <section class="topNav_section">
+                        <div class="company_logoBdr">
+                            <div class="company_logoBox Companylogo">
+                                <img src="/images/uvid-logo.png" alt="" class="company_logoImg">
+                            </div>
+                        </div>
+                    </section>
+                    <section class="topNav_section">
+                    </section>
+                </div>
+            </div>
+        `
+    );
+    document.querySelector(".topNavBar").classList.add("initialize");
 
     // Insert the tou struct
-    documentCtnt.insertAdjacentHTML(`beforeend` , uvidplus_tou_);
+    document.querySelector(".content").insertAdjacentHTML(`beforeend` , uvidplus_tou_);
 }
+
+window.onload = () => display_tou_();
