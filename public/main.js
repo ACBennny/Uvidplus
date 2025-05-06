@@ -537,14 +537,14 @@
                             </div>
                             <div class="footer_UsefulLinksBdr">
                                 <div class="footer_UsefulLinksBox">
-                                    <a target="_blank" href="/help.html?sect=faq" title="Frequently Asked Questions" class="footerlinks footer_UsefulLinks">FAQ</a>
+                                    <a target="_blank" href="/help.html#faq" title="Frequently Asked Questions" class="footerlinks footer_UsefulLinks">FAQ</a>
                                     <a target="_blank" href="/help.html" title="Help Center" class="footerlinks footer_UsefulLinks">Help</a>
                                     <a target="_blank" href="/feedback.html" title="Feedback" class="footerlinks footer_UsefulLinks">Feedback</a>
                                     <a target="_blank" href="#/settings/membership" title="Membership" class="footerlinks footer_UsefulLinks">Membership</a>
                                 </div>
                                 <div class="footer_UsefulLinksBox">
-                                    <a target="_blank" href="/help.html?sect=contact" title="Contact Us" class="footerlinks footer_UsefulLinks">Contact Us</a>
-                                    <a target="_blank" href="/policies/cookies.html" title="Cookies" class="footerlinks footer_UsefulLinks">Cookies</a>
+                                    <a target="_blank" href="/help.html#contact" title="Contact Us" class="footerlinks footer_UsefulLinks">Contact Us</a>
+                                    <a target="_blank" href="/policies/privacy.html#cookies" title="Cookies" class="footerlinks footer_UsefulLinks">Cookies</a>
                                     <a target="_blank" href="/policies/ad-choices.html" title="Ad Choices" class="footerlinks footer_UsefulLinks">Ad Choices</a>
                                     <a target="_blank" href="/policies/copyright.html" title="Copyright" class="footerlinks footer_UsefulLinks">Copyright</a>
                                 </div>
