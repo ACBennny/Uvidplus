@@ -909,8 +909,7 @@ function display_tou_()
                             </div>
                         </a>
                     </section>
-                    <section class="topNav_section">
-                    </section>
+                    <section class="topNav_section"></section>
                 </div>
             </div>
         `
