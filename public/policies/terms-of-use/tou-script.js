@@ -903,11 +903,11 @@ function display_tou_()
             <div class="topNavBdr">
                 <div class="topNavBox">
                     <section class="topNav_section">
-                        <div class="company_logoBdr">
+                        <a href="/" class="company_logoBdr">
                             <div class="company_logoBox Companylogo">
                                 <img src="/images/uvid-logo.png" alt="" class="company_logoImg">
                             </div>
-                        </div>
+                        </a>
                     </section>
                     <section class="topNav_section">
                     </section>
