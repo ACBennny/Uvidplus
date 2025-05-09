@@ -95,21 +95,21 @@ p
 .error_bdr
 {
     width: 100%;
-    height: 100vh;
 }
 
 .error_bdr .error_box
 {
     width: 100%;
-    height: 100%;
     display: grid;
     place-items: center;
     gap: 0.9375rem;
+    padding-top: 2rem;
 }
 
 .error_box .error_note
 {
     width: 100%;
+    height: fit-content;
     padding: 0.625rem 32px;
     display: flex;
     flex-direction: column;
