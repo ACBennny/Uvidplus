@@ -6,7 +6,7 @@
  *************************************************************/
 
 
-const uvidplus_tou_ = 
+const uvidplus_tou_2 = 
 `
     <div class="tou-sect-bdr">
                             <div class="tou-sect-box">
@@ -888,6 +888,49 @@ const uvidplus_tou_ =
                             </div>
                         </div>
 `;
+const uvidplus_tou_ = 
+`
+        <div class="error_bdr">
+            <div class="error_box">
+                <div class="error_note">
+                    <div class="header">
+                        <h1 class="header_note hN1">T</h1>
+                        <h1 class="header_note hN2">O</h1>
+                        <h1 class="header_note hN3">U</h1>
+                    </div>
+                    <div class="middle">
+                        <h3 class="mid_Title">Terms Of Use</h3>
+                        <p class="mid_Note">
+                            Uvid ("ACUvid", "Uvidplus", "we", "us") is a project developed by the GitHub account
+                            <a class="goToHome" href="https://github.com/ACBennny" target="_blank">acbennny</a> 
+                            and accessible as a "demo" through 
+                            <a class="goToHome" href="https://uvidplus.web.app" target="_blank">uvidplus.web.app</a>
+                            which simulates the user interface and user experience of a streaming platform.
+                            It is provided as is, without warranty and guarantee of any kind. 
+                            <br><br>
+                            Uvid integrates <a href="https://firebase.google.com/" target="_blank" class="goToHome">Firebase</a>,
+                            a service provided by Google for account creation, authentication, and customization. 
+                            View their terms <a href="https://firebase.google.com/terms/" target="_blank" class="goToHome">here</a>.
+                            <br><br>
+                            By using using this demo, you take whole and complete responsibility for any and every damage(s)
+                            that may occur, and give up the right to pursue any legal action against the account and the owner of the account
+                            in regards to this project.
+                            <br><br>
+                            Note that this policy can be updated at any time without prior notification.
+                        </p>
+                    </div>
+                    <div class="footer">
+                        <div class="logoBox">
+                            <a href="/" class="logo">
+                                <h2 class="logo1">U</h2>
+                                <h2 class="logo2">VID</h2>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+`;
 
 
 function display_tou_()
@@ -919,5 +962,3 @@ function display_tou_()
     // Insert the tou struct
     document.querySelector(".content").insertAdjacentHTML(`beforeend` , uvidplus_tou_);
 }
-
-window.onload = () => display_tou_();
