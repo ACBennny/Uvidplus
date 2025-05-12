@@ -42,29 +42,14 @@
     function display_ad_chc_()
     {
         // Remove side & bottom navbars
-        document.querySelector(".sideNavBar").classList.add("hidden");
-        document.querySelector(".sideNavBar").classList.add("hidden");
-
+        sideNavBar.classList.add("hidden");
+        btmNavBar.classList.add("hidden");
+    
         // Insert topNavBar struct
-        document.querySelector(".topNavBar").insertAdjacentHTML(
-            `beforeend` , 
-            `
-                <div class="topNavBdr">
-                    <div class="topNavBox">
-                        <section class="topNav_section">
-                            <a href="/" class="company_logoBdr">
-                                <div class="company_logoBox Companylogo">
-                                    <img src="/images/uvid-logo.png" alt="" class="company_logoImg">
-                                </div>
-                            </a>
-                        </section>
-                        <section class="topNav_section"></section>
-                    </div>
-                </div>
-            `
-        );
-        document.querySelector(".topNavBar").classList.add("initialize");
-
+        topNavBar.insertAdjacentHTML(`beforeend` , topNavBarStruct);
+        topNavBar.classList.add("initialize");
+        attachReturnToHomePageListeners();
+    
         // Insert the tou struct
-        document.querySelector(".content").insertAdjacentHTML(`beforeend` , uvidplus_ad_chc);
+        documentCtnt.insertAdjacentHTML(`beforeend` , uvidplus_ad_chc);
     }
