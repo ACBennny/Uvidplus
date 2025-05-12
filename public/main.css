@@ -81,7 +81,7 @@ html:root
     --pageGradientDirection: ;
     --topGradientDirection: to bottom;
     --btmGradientDirection: to top;
-    --sideNavBarWidth: 4rem;
+    --sideNavBarWidth: 0rem;
     --sideNavBarPadding: 0.3125rem;
     --sideNavBarIconSize: 1.5625rem;
     --sideNavBarIconClr: var(--genWhiteTypeLight);
@@ -152,14 +152,6 @@ body
     {
         -webkit-tap-highlight-color: #00000000;
     }
-}
-
-body.bcg_0
-{
-    background-image: url(/images/uvid-bcg0.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
 }
 
 body.bodystart
@@ -1032,8 +1024,24 @@ img
     height: 100vh;
     background-color: #000000;
     transition: all 300ms ease-in-out;
+    opacity: 0 ;
+    visibility: hidden;
+    pointer-events: none;
     z-index: 100;
 }
+
+html:root:has( .sideNavBar.initialize)
+{
+    --sideNavBarWidth: 4rem;
+}
+
+.sideNavBar.initialize
+{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
 
 html:root:has( .sideNavBar.hidden)
 {
@@ -6498,8 +6506,6 @@ only screen and (max-height: 30.375rem)
     html:root
     {
         --navbarGradientSize: 0rem;
-        --sideNavBarWidth: 0rem;
-        --btmNavBarHeight: 4rem;
     }
 
     .pageGradient
@@ -6507,8 +6513,13 @@ only screen and (max-height: 30.375rem)
         opacity: 0;
         visibility: hidden;
     }
+
+    html:root:has( .sideNavBar.initialize)
+    {
+        --sideNavBarWidth: 0rem;
+    }
     
-    .sideNavBar
+    .sideNavBar.initialize
     {
         opacity: 0;
         visibility: hidden;
@@ -6516,7 +6527,13 @@ only screen and (max-height: 30.375rem)
         pointer-events: none;
     }
 
-    .btmNavBar
+
+    html:root:has( .btmNavBar.initialize)
+    {
+        --btmNavBarHeight: 4rem;
+    }
+    
+    .btmNavBar.initialize
     {
         opacity: 1;
         visibility: visible;
