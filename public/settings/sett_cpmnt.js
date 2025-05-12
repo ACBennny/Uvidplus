@@ -354,7 +354,7 @@ let sett_cmpnt_lib =
         sett_atn_type: `link`,
         sett_atn_id: `sett_tou`,
         sett_atn_title: `View`,
-        sett_atn_func: `/policies/tou.html`,
+        sett_atn_func: `#/tou`,
     },
     {
         sett_sect: `information`,
@@ -367,7 +367,7 @@ let sett_cmpnt_lib =
         sett_atn_type: `link`,
         sett_atn_id: `sett_priv_policy`,
         sett_atn_title: `View`,
-        sett_atn_func: `/policies/privacy.html`,
+        sett_atn_func: `#/privacy`,
     },
     {
         sett_sect: `information`,
@@ -380,7 +380,7 @@ let sett_cmpnt_lib =
         sett_atn_type: `link`,
         sett_atn_id: `sett_help`,
         sett_atn_title: `View`,
-        sett_atn_func: `/help.html`,
+        sett_atn_func: `#/help`,
     },
     {
         sett_sect: `information`,
@@ -390,10 +390,10 @@ let sett_cmpnt_lib =
         `
             Send your thoughts, suggestions, or report any bugs/issues you may have encountered.
         `,
-        sett_atn_type: `modal`,
-        sett_atn_id: `sett_sign_out`,
+        sett_atn_type: `link`,
+        sett_atn_id: `sett_feedback`,
         sett_atn_title: `Open`,
-        sett_atn_func: `init_FeedbackForm()`,
+        sett_atn_func: `#/feedback`,
     },
 ];
 
