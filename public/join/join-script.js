@@ -363,24 +363,6 @@
     `;
 
 
-
-    // window.addEventListener("load", getSignedInUser);
-
-    function getSignedInUser() 
-    {
-        const user = JSON.parse(localStorage.getItem('uvidSignedInUser'));
-        if(user) 
-        {
-            console.log('yes, user is signed in.');
-            window.open(`/` , `_self`);
-        }
-        else
-        {
-            console.log('No user is signed in.');
-            callprepare();
-        }
-    }
-
     function callprepare()
     {
         bodyDoc.classList.add("bcg_0");
