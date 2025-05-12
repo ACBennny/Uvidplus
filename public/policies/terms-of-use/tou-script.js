@@ -11,9 +11,9 @@ const uvidplus_tou_2 =
     <div class="tou-sect-bdr">
                             <div class="tou-sect-box">
                                 <h1 class="tou-sect-ctnt-hdl"><b>Uvidplus Terms of Use</b></h1>
-                                <p class="tou-sect-ctnt-text">Uvidplus, LTD ("Uvidplus", "we" or "us")
-                                    provides our website accessible at <a href="http://uvidplus.web.app/" target=""
-                                        rel="">Uvidplus.web.app</a> (the "Site") through which users can participate in an online
+                                <p class="tou-sect-ctnt-text">Uvidplus, LLC ("ACUvid", "Uvidplus", "we" or "us")
+                                    provides our website accessible at <a href="http://acuvid.netlify.app/" target=""
+                                        rel="">acuvid.netlify.app</a> (the "Site") through which users can participate in an online
                                     community dedicated to enjoying movies, tv series, anime, premium animation, sci-fi, fantasy and media in all
                                     forms (the "Services"). Please read the following important terms and conditions ("Terms of
                                     Use") carefully. These Terms of Use and all policies referenced in this document or
@@ -350,7 +350,7 @@ const uvidplus_tou_2 =
                                 <p class="tou-sect-ctnt-text">(b) Feedback. We welcome and encourage you to
                                     provide feedback, comments and suggestions for improvements to the Site and Services
                                     ("Feedback"). You may submit Feedback by filling up a <a
-                                    href="uvidplus.web.app/feedback" target="" rel="">"Feedback form"</a>, emailing us at <a
+                                    href="acuvid.netlify.app/#/feedback" target="" rel="">"Feedback form"</a>, emailing us at <a
                                         href="mailto:acuvidtemp@gmail.com" target="" rel="">acuvidtemp@gmail.com</a>,  or
                                     through the "Help" section of the Site. You acknowledge and agree that all Comments and all
                                     Feedback will be the sole and exclusive property of Uvidplus and you hereby assign and
@@ -731,7 +731,7 @@ const uvidplus_tou_2 =
                                     transmitted.</p>
                                 <h2 class="tou-sect-ctnt-hdr"><b>18. Links to other Websites.</b></h2>
                                 <p class="tou-sect-ctnt-text">The Site or Services may provide links to websites
-                                    other than <a href="http://uvidplus.web.app/" target="" rel="">Uvidplus.web.app</a>. Such
+                                    other than <a href="http://acuvid.netlify.app/" target="" rel="">acuvid.netlify.app</a>. Such
                                     links are provided for reference only, and Uvidplus neither controls such websites nor
                                     endorses any of the material on any such websites or any association with their operators.
                                     Uvidplus is not responsible for the activities or such sites, and has no liability to you
@@ -773,8 +773,8 @@ const uvidplus_tou_2 =
                                 <p class="tou-sect-ctnt-text"></p>
                                 <h2 class="tou-sect-ctnt-hdr"><b>22. Copyright Infringement Notification.</b>
                                 </h2>
-                                <p class="tou-sect-ctnt-text"><a href="http://uvidplus.web.app/" target=""
-                                        rel="">Uvidplus.web.app</a> respects all copyright and license owners and adheres to the
+                                <p class="tou-sect-ctnt-text"><a href="http://acuvid.netlify.app/" target=""
+                                        rel="">acuvid.netlify.app</a> respects all copyright and license owners and adheres to the
                                     Digital Millennium Copyright Act.</p>
                                 <ul>
                                     <li>
@@ -832,8 +832,8 @@ const uvidplus_tou_2 =
                                     agent as follows:</p>
                                 <p class="tou-sect-ctnt-text"></p>
                                 <p class="tou-sect-ctnt-text">DMCA Complaints</p>
-                                <p class="tou-sect-ctnt-text"><a href="http://uvidplus.web.app/" target=""
-                                        rel="">Uvidplus.web.app</a></p>
+                                <p class="tou-sect-ctnt-text"><a href="http://acuvid.netlify.app/" target=""
+                                        rel="">acuvid.netlify.app</a></p>
                                 <p class="tou-sect-ctnt-text">Email: <a href="mailto:acuvidtemp@gmail.com"
                                         target="" rel="">acuvidtemp@gmail.com</a></p>
                                 <p class="tou-sect-ctnt-text"></p>
@@ -875,8 +875,8 @@ const uvidplus_tou_2 =
                                     agent as follows:</p>
                                 <p class="tou-sect-ctnt-text"></p>
                                 <p class="tou-sect-ctnt-text">DMCA Complaints</p>
-                                <p class="tou-sect-ctnt-text"><a href="http://uvidplus.web.app/" target=""
-                                        rel="">Uvidplus.web.app</a></p>
+                                <p class="tou-sect-ctnt-text"><a href="http://acuvid.netlify.app/" target=""
+                                        rel="">acuvid.netlify.app</a></p>
                                 <p class="tou-sect-ctnt-text">Email: <a href="mailto:acuvidtemp@gmail.com"
                                         target="" rel="">acuvidtemp@gmail.com</a></p>
                                 <p class="tou-sect-ctnt-text"></p>
@@ -904,7 +904,7 @@ const uvidplus_tou_ =
                             Uvid ("ACUvid", "Uvidplus", "we", "us") is a project developed by the GitHub account
                             <a class="goToHome" href="https://github.com/ACBennny" target="_blank">acbennny</a> 
                             and accessible as a "demo" through 
-                            <a class="goToHome" href="https://uvidplus.web.app" target="_blank">uvidplus.web.app</a>
+                            <a class="goToHome" href="https://acuvid.netlify.app" target="_blank">acuvid.netlify.app</a>
                             which simulates the user interface and user experience of a streaming platform.
                             It is provided as is, without warranty and guarantee of any kind. 
                             <br><br>
