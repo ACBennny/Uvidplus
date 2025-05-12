@@ -647,8 +647,11 @@
         {
             const joinMMHouse = document.querySelector(".join_house");
             let housetimer;
+
             housetimer = setTimeout(() => 
             {
+                documentBody.classList.add("bodystop");
+
                 // style class to simulate it
                 joinMMHouse.classList.add("active");
 
@@ -1386,7 +1389,7 @@
                             <span class="typeincode">
                                 <!-- <h4>An OTP has been sent to your email</h4> -->
                                 <span class="input_verCode_num">
-                                    <input id="input_verCode" type="text" placeholder="Enter Code here"/>
+                                    <input id="input_verCode" type="password" inputmode="numeric" pattern="\d*" placeholder="Enter Code here"/>
                                 </span>
                                 <p>Code expires in <span id="time_countdown">300</span>seconds</p>
                             </span>
@@ -1683,11 +1686,12 @@
                                                     clearInterval(verSuccesstimer);
                                                     window.removeEventListener("beforeunload" , beforeUnloadHandler);
                                                     storeNewCred(newUserName.value, newPassword.value);
-                                                    preloaderBdr.style.display = "flex";
+                                                    preload.classList.remove("preloadClose");
                                                     setTimeout(() => 
                                                     {
+                                                        verCodeBdr.remove();
                                                         opn_dtn();
-                                                    }, 3000);
+                                                    }, 1000);
                                                 }
                                             }, 1000);
                                         },2500);
