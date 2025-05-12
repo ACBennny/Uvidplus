@@ -21,6 +21,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Zen Dots' , sans-serif;
     color: var(--color2);
     font-size: var(--fzTxt);
     text-align: center;
@@ -204,14 +205,22 @@ ul
 
 .join_fence
 {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100vh;
     -webkit-backdrop-filter: blur(var(--bcgFilt));
     backdrop-filter: blur(var(--bcgFilt));
+    background-image: url(/images/uvid-bcg0.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     overflow-x: hidden;
     overflow-y: auto;
     scrollbar-color: #00000000 #00000000;
     scrollbar-width: none;
+    z-index: 99;
 }
 
 .join_fence::-webkit-scrollbar
