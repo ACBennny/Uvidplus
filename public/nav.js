@@ -202,18 +202,18 @@
     }
 
     // Displays error message for failed routing
-    function page_route_error(type = "error")
+    function page_route_error(type)
     {
         window.scrollTo(0, 0);
         preload.classList.add("preloadClose");
-        if(type === "construction")
+        if(type === "error")
         {
-            // shows that page is under construction
-            documentCtnt.insertAdjacentHTML(`afterbegin` , error503Struct);
+            documentCtnt.insertAdjacentHTML(`afterbegin` , error404Struct);
         }
         else
         {
-            documentCtnt.insertAdjacentHTML(`afterbegin` , error404Struct);
+            // shows that page is under construction
+            documentCtnt.insertAdjacentHTML(`afterbegin` , error503Struct);
         }
     }
 
@@ -238,7 +238,7 @@
     function page_router()
     {
         // Get the current hash value
-        hash_win = window.location.hash || prev_page_route();
+        hash_win = window.location.hash || page_route_fallback();
 
         // Set last hash page
         hash_pages.push(hash_win);
@@ -285,7 +285,7 @@
                 window.location.hash = "#/home";
                 return;
             }
-            return page_route_error();
+            return page_route_error("error");
         }
 
         // Update page title according to route
