@@ -11,8 +11,6 @@
 
 // DEFINITION
 
-    const bodyDoc = document.body;
-    const preloaderBdr = document.querySelector('#preloader');
     const f_dtn = `#/home`;
     let testLog_user = "uvidtestuser";
     let testLog_email = "craft.testuser.Acc.email@gmail.com";
@@ -21,23 +19,6 @@
     let new_usr_ps;
     const joinFormHTML = 
     `
-        <!-- --------------- Navbar ------------ -->
-        <div class="navBox">
-            <div class="navBar">
-                <div class="navBarLeft">
-                    <div class="spacing"></div>
-                    <a href="/index.html" class="Companylogo navBarCompanylogo">
-                        <div class="company_logoBdr">
-                            <div class="company_logoBox Companylogo">
-                                <img src="/images/uvid-logo.png" alt="" class="company_logoImg">
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="navBarRight">
-                </div>
-            </div>
-        </div>
 
         <!-- ------------------- Form -------------- -->
         <div class="join_fence">
@@ -120,7 +101,7 @@
                                                     <div class="form_text">
                                                         <span>Experiencing any issues?</span>
                                                         <span class="form_links">
-                                                            <a href="/help.html" class="form_links" target="_blank">Let us know</a>
+                                                            <a href="#/help" class="form_links" target="_blank">Let us know</a>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -181,7 +162,7 @@
                                                     <div class="form_text">
                                                         <span>Experiencing any issues?</span>
                                                         <span class="form_links">
-                                                            <a href="/help.html" class="form_links" target="_blank">Let us know</a>
+                                                            <a href="#/help" class="form_links" target="_blank">Let us know</a>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -315,9 +296,9 @@
                                                     <div class="form_text">
                                                         <div>By creating an account you are agreeing to our</div>
                                                         <div>
-                                                            <a href="/policies/tou.html" class="form_links" target="_blank">Terms of Use</a> 
+                                                            <a href="#/tou" class="form_links" target="_blank">Terms of Use</a> 
                                                             and
-                                                            <a href="/policies/privacy.html" class="form_links" target="_blank">Privacy policy</a>
+                                                            <a href="#/privacy" class="form_links" target="_blank">Privacy policy</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -346,7 +327,7 @@
                                                     <div class="form_text">
                                                         <span>Experiencing any issues?</span>
                                                         <span class="form_links">
-                                                            <a href="/help.html" class="form_links" target="_blank">Let us know</a>
+                                                            <a href="#/help" class="form_links" target="_blank">Let us know</a>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -365,7 +346,7 @@
 
     function callprepare()
     {
-        bodyDoc.classList.add("bcg_0");
+        documentBody.classList.add("bcg_0");
         prepare(testLog_user, testLog_pass);
         instantiateJoinForm();
     }
@@ -412,8 +393,9 @@
     function instantiateJoinForm()
     {
         // Initialization
-        bodyDoc.classList.add("bcg_0");
-        document.body.insertAdjacentHTML(`beforeend` , joinFormHTML);
+        documentCtnt.insertAdjacentHTML(`beforeend` , joinFormHTML);
+        topNavBar.innerHTML = topNavBarStruct;
+        topNavBar.classList.add("initialize");
 
         // Inactivity Modal
         const inactivityModalHTML = 
@@ -562,18 +544,8 @@
 
 
 
-
-    // BODY
-
-
-
-
-
-    // PRELOADER
-
-        // This function removes the preloader after the DOM of the website has been loaded
-        preloaderBdr.style.display = "none";
-        bodyDoc.classList.add("bodystart");
+    //  Start
+        
         AccountJoin();
 
 
@@ -586,7 +558,7 @@
             inactivityBcg.innerHTML = inactivityModalHTML;
             inactivityBcg.classList.add("inactivity_bcg");
 
-            bodyDoc.appendChild(inactivityBcg);
+            documentBody.appendChild(inactivityBcg);
 
             inactivityBcg.classList.add("active");
             removeInactivityModalBtn = document.querySelector(".inactivity_actionBtn");
@@ -598,7 +570,7 @@
             inactivityBcg.classList.remove("active");
             inactivityModalTimer = setTimeout(() => 
             {
-                bodyDoc.removeChild(inactivityBcg);
+                documentBody.removeChild(inactivityBcg);
                 clearTimeout(inactivityModalTimer);
             }, 1000);
         }
@@ -662,8 +634,8 @@
         // Warns if user tries to refresh
         const beforeUnloadHandler = (event) => 
         {
-            event.preventDefault();
-            event.returnValue = '';
+            // event.preventDefault();
+            // event.returnValue = '';
         };
 
 
@@ -1435,7 +1407,7 @@
                         </form>
                     </div>
                     `;
-                    bodyDoc.appendChild(verCodeBdr);
+                    documentBody.appendChild(verCodeBdr);
                     const verCodeBox_loader = verCodeBdr.querySelector(".ver_loader");
                     const ver_loader_note_ctnt = verCodeBox_loader.querySelector("#loader_ctnt");
                     const close_verCodeBdr = verCodeBdr.querySelector(".close_verification_box");
@@ -1457,8 +1429,7 @@
                     // if box is closed , it opens
                     if(!(verCodeBdr.classList.contains("active")))
                     {
-                        document.body.classList.add('off_Flow');
-                        document.body.classList.remove('on_Flow');
+                        documentBody.classList.add('off_Flow');
                         verCodeBdr.classList.add("active");
                         verCodeBox_loader.classList.add("active");
                         verCodeLoader();
