@@ -1024,7 +1024,7 @@ img
     height: 100vh;
     background-color: #000000;
     transition: all 300ms ease-in-out;
-    opacity: 0 ;
+    opacity: 0;
     visibility: hidden;
     pointer-events: none;
     z-index: 100;
