@@ -28,7 +28,7 @@
         {
             route_pbl_only: true,
             route_auth: false,
-            route_atn: "instantiateJoinForm",
+            route_atn: "callprepare",
             route_title: "Uvid • Join",
         },
         'signin': 
