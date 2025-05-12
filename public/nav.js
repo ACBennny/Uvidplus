@@ -217,12 +217,18 @@
         }
     }
 
+    // Goes to the default fallback page
+    function page_route_fallback()
+    {
+        return getSignedInUser() ? "#/home" : "#/landing";
+    }
+
     // Goes back to previous page route
     function prev_page_route()
     {
         if((last_hash_page == undefined))
         {
-            window.location.hash = "#/home";
+            window.location.hash = page_route_fallback();
             return;
         }
         window.location.hash = last_hash_page;
@@ -232,7 +238,7 @@
     function page_router()
     {
         // Get the current hash value
-        hash_win = window.location.hash || '#/landing';
+        hash_win = window.location.hash || prev_page_route();
 
         // Set last hash page
         hash_pages.push(hash_win);
@@ -244,15 +250,12 @@
         // Display preloader
         preload.classList.remove("preloadClose");
 
-        // Clear the doc content and scroll to the top
+        // Clear the navbar and doc content and scroll to the top
         documentCtnt.innerHTML = "";
         topNavBar.innerHTML = "";
-        if((topNavBar.classList.contains("active"))) topNavBar.classList.remove("active");
-        if((topNavBar.classList.contains("initialize"))) topNavBar.classList.remove("initialize");
-        if((topNavBar.classList.contains("float"))) topNavBar.classList.remove("float");
-        if((topNavBar.classList.contains("hidden"))) topNavBar.classList.remove("hidden");
-        if((sideNavBar.classList.contains("hidden"))) sideNavBar.classList.remove("hidden");
-        if((btmNavBar.classList.contains("hidden"))) btmNavBar.classList.remove("hidden");
+        topNavBar.className = "topNavBar";
+        sideNavBar.className = "sideNavBar";
+        btmNavBar.className = "btmNavBar";
         sideNavLinks.forEach((navLink) => 
         {
             if(navLink.classList.contains("active"))
@@ -276,6 +279,11 @@
         // If no route is found
         if(!curr_route)
         {
+            if(isUsrIn)
+            {
+                window.location.hash = "#/home";
+                return;
+            }
             return page_route_error();
         }
 
@@ -294,6 +302,13 @@
         {
             window.location.hash = "#/home";
             console.log("public access only");
+        }
+
+        // Initialize navbars if user is signed-in
+        if((isUsrIn))
+        {
+            sideNavBar.classList.add("initialize");
+            btmNavBar.classList.add("initialize");
         }
 
         // Run the routes action
