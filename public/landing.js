@@ -6,8 +6,7 @@
  *************************************************************/
 
 
-    const bodyDoc = document.body;
-    const preloaderBdr = document.querySelector('#preloader');
+
     const landingHTML =
     `
         <!-- --------------- Navbar ------------ -->
@@ -15,7 +14,7 @@
             <div class="navBar">
                 <div class="navBarLeft">
                     <div class="spacing"></div>
-                    <a href="/index.html" class="Companylogo navBarCompanylogo">
+                    <a href="#/" class="Companylogo navBarCompanylogo">
                         <div class="company_logoBdr">
                             <div class="company_logoBox Companylogo">
                                 <img src="/images/uvid-logo.png" alt="" class="company_logoImg">
@@ -25,7 +24,7 @@
                 </div>
                 <div class="navBarRight">
                     <div class="signUpBdr">
-                        <a href="/join.html" class="action_Join signUpBox lightSolidBtn">Sign In</a>
+                        <a href="#/join" class="action_Join signUpBox lightSolidBtn">Sign In</a>
                         <div class="spacing"></div>
                     </div>
                 </div>
@@ -298,7 +297,7 @@
                     <div class="prompt_regText">What are you waiting for? Get started Today</div>
                     <div class="propmpt_AccActionBdr">
                         <div class="propmpt_AccActionBox">
-                            <a href="/join.html" target="_self" type="button" class="propmpt_AccActionBtnBox action_Join">Sign Up for Uvid</a>
+                            <a href="#/join" target="_self" type="button" class="propmpt_AccActionBtnBox action_Join">Sign Up for Uvid</a>
                         </div>
                     </div>
                 </div>
@@ -306,26 +305,8 @@
         </div>
         
         <div class="give_space"></div>
-        <div class="give_space"></div>
     `;
 
-
-    // window.addEventListener("load", getSignedInUser);
-
-    function getSignedInUser() 
-    {
-        const user = JSON.parse(localStorage.getItem('uvidSignedInUser'));
-        if(user) 
-        {
-            console.log('yes, user is signed in.');
-            window.open(`/` , `_self`);
-        }
-        else
-        {
-            console.log('No user is signed in.');
-            initialiseLanding();
-        }
-    }
 
     function initialiseLanding()
     {
@@ -340,21 +321,6 @@
             let backtotopBtn = document.querySelectorAll(".backtotop_btn");
             const faqBtns = document.querySelectorAll(".questions_CardBtn");
             const faqAnswers = document.querySelectorAll(".questions_Card");
-
-        // PRELOADER
-
-            preloaderBdr.style.display = "none";
-            bodyDoc.classList.remove("bodystop");
-
-        // BACK TO TOP
-
-            backtotopBtn.forEach(btn => 
-            {
-                btn.addEventListener("click" , () => 
-                {
-                    window.scrollTo(null , 0);
-                });
-            });
 
 
 
