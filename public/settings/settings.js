@@ -150,6 +150,9 @@
     // Initialize
     function initSettPage()
     {
+        // Update Navbar active states
+        sideNavLinks[5].classList.add("active");
+
         documentCtnt.insertAdjacentHTML(`beforeend`, sett_base_struct);
         settNavBdr = document.querySelector(".settingNavBdr");
         topNavBar.innerHTML = settPageNav;

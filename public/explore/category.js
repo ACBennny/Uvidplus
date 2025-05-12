@@ -42,21 +42,13 @@
 
 
 
-    // Applying a random bcg clr to the category cards
-    function genRandomColor() 
-    {
-        const code = '0123456789abcdef';
-        let color = '#';
-        for (let i = 0; i < 6; i++) 
-        {
-            color += code[Math.floor(Math.random() * 16)];
-        }
-        return color;
-    }
-
     
     function initCategories()
     {
+        // Update Navbar active states
+        sideNavLinks[0].classList.add("active");
+        btmNavLinks[1].classList.add("active");
+        
         // Insert struct into DOM
         documentCtnt.insertAdjacentHTML(`afterbegin` , categoriesStruct);
 

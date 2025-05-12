@@ -12,9 +12,12 @@
 
     function preHomeSection()
     {
+        // Update Navbar active states
+        sideNavLinks[1].classList.add("active");
+        btmNavLinks[0].classList.add("active");
+        
         // Insert structure
         documentCtnt.insertAdjacentHTML(`afterbegin` , homeStruct);
-        // basicSlider();
 
         // Initialize Home Section
         startHomeSection();

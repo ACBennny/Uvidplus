@@ -90,6 +90,10 @@
 
     function preLoadMyListPageStruct()
     {
+        // Update Navbar active states
+        sideNavLinks[2].classList.add("active");
+        btmNavLinks[2].classList.add("active");
+
         let myListHash = hash_parts[2];
         let myListPage = myListHash != undefined ? `${hash_parts[2]}`: `watchlist`;
         

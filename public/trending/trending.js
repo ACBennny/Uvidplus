@@ -26,6 +26,9 @@
         `;
         documentCtnt.insertAdjacentHTML(`afterbegin` , catalogHTML);
 
+        
+        // Update Navbar active states
+
 
 
         function shuffleArray(array) 

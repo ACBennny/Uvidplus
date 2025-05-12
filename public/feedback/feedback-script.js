@@ -76,9 +76,8 @@
             <div class="error_box">
                 <div class="error_note">
                     <div class="header">
-                        <h1 class="header_note hN1">5</h1>
-                        <h1 class="header_note hN2">0</h1>
-                        <h1 class="header_note hN3">3</h1>
+                        <h1 class="header_note hN1">F</h1>
+                        <h1 class="header_note hN2">eedback</h1>
                     </div>
                     <div class="middle">
                         <h3 class="mid_Title">Feedback Form Closed</h3>
@@ -270,19 +269,12 @@
         {
             clearTimeout(feedbackForm_timer);
             feedback_base.remove();
-            
-            // Redirect to homepage, if on feedback page
-            if((window.location.pathname === "/feedback.html"))
-            {
-                // Let the user know they can close the window
-                document.body.insertAdjacentHTML(`beforeend` , emptyFdbStruct);
-                
-                // Attempt to automaticlly closes window
-                window.close();
 
-                // Redirects to homepage if closing is not possible
-                window.open(`${window.location.origin}`, `_self`);
-            }
+            // Attempt to close page
+            window.close();
+
+            // Redirects to homepage if closing is not possible
+            prev_page_route();
         }, 100);
     }
 

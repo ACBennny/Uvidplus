@@ -364,7 +364,7 @@
 
 
 
-    window.addEventListener("load", getSignedInUser);
+    // window.addEventListener("load", getSignedInUser);
 
     function getSignedInUser() 
     {

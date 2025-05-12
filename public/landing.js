@@ -52,8 +52,8 @@
                     </div>
                     <div class="propmpt_AccActionBdr">
                         <div class="propmpt_AccActionBox">
-                            <a href="/join.html" target="_self" type="button" class="propmpt_AccActionBtnBox action_Join">Sign Up for Uvid</a>
-                            <a href="/join.html" target="_self" type="button" class="propmpt_AccActionBtnBox action_GetPremium">Sign In with Uvid</a>
+                            <a href="#/join" target="_self" type="button" class="propmpt_AccActionBtnBox action_Join">Sign Up for Uvid</a>
+                            <a href="#/join" target="_self" type="button" class="propmpt_AccActionBtnBox action_GetPremium">Sign In with Uvid</a>
                         </div>
                     </div>
                 </div>
@@ -310,7 +310,7 @@
     `;
 
 
-    window.addEventListener("load", getSignedInUser);
+    // window.addEventListener("load", getSignedInUser);
 
     function getSignedInUser() 
     {
@@ -332,7 +332,7 @@
 
         // INITIALISATION
 
-            bodyDoc.insertAdjacentHTML(`beforeend` , landingHTML);
+            documentCtnt.insertAdjacentHTML(`beforeend` , landingHTML);
         
 
         // DEFINITION

@@ -7,164 +7,299 @@
 ****************************************************************/
 
 
-const content = document.getElementById('content');
-let hash_win;
-let hash_parts;
-let hash_pages = [];
-let last_hash_page;
-let hash_timer;
+// DEFINITIONS
 
-// Listen for hash changes
-window.addEventListener('hashchange', page_router);
+    let hash_win;
+    let hash_parts;
+    let hash_pages = [];
+    let last_hash_page;
+    let hash_timer;
 
-function page_router()
-{
-    // Get the current hash value
-    hash_win = window.location.hash;
-
-    // Set last hash page
-    hash_pages.push(hash_win);
-    last_hash_page = hash_pages.at(-2);
-
-    // split into sections
-    hash_parts = hash_win.split('/');
-
-    // Display preloader
-    preload.classList.remove("preloadClose");
-
-    // Clear the doc content and scroll to the top
-    documentCtnt.innerHTML = "";
-    topNavBar.innerHTML = "";
-    if((topNavBar.classList.contains("active"))) topNavBar.classList.remove("active");
-    if((topNavBar.classList.contains("initialize"))) topNavBar.classList.remove("initialize");
-    if((topNavBar.classList.contains("float"))) topNavBar.classList.remove("float");
-    if((topNavBar.classList.contains("hidden"))) topNavBar.classList.remove("hidden");
-    if((sideNavBar.classList.contains("hidden"))) sideNavBar.classList.remove("hidden");
-    if((btmNavBar.classList.contains("hidden"))) btmNavBar.classList.remove("hidden");
-    sideNavLinks.forEach((navLink) => 
+    const uvid_pg_routes = 
     {
-        if(navLink.classList.contains("active"))
+        'landing': 
         {
-            navLink.classList.remove("active");
-        }
-    });
-    btmNavLinks.forEach((navLink) => 
-    {
-        if(navLink.classList.contains("active"))
+            route_pbl_only: true,
+            route_auth: false,
+            route_atn: "initialiseLanding",
+            route_title: null,
+        },
+        'join': 
         {
-            navLink.classList.remove("active");
-        }
-    });
-    
-
-    // Update content based on the hash
-    switch(hash_parts[1])
-    {
-            
-        case 'home': // home page
-            document.title = "Uvid • Stream Movies, Tv Shows, and lots more";
-            page_route_success(`preHomeSection`);
-            sideNavLinks[1].classList.add("active");
-            btmNavLinks[0].classList.add("active");
-            break;
-            
-        case 'explore': // search page
-            document.title = "Uvid • Explore";
-            page_route_success(`initCategories`);
-            sideNavLinks[0].classList.add("active");
-            btmNavLinks[1].classList.add("active");
-            break;
-            
-        case 'trending': // For watching the shows add "/show-name"
-            document.title = "Uvid • Trending";
-            page_route_success(`launchTrendingPage`);
-            break;
-            
-        case 'my-list': // Automatically redirects to watchlist by default
-            document.title = "Uvid • My Lists";
-            page_route_success(`preLoadMyListPageStruct`);
-            sideNavLinks[2].classList.add("active");
-            btmNavLinks[2].classList.add("active");
-            break;
-            
-        case 'schedule': // Find release dates and more
-            document.title = "Uvid • Schedule";
-            page_route_success(`initSchedule`);
-            sideNavLinks[3].classList.add("active");
-            btmNavLinks[3].classList.add("active");
-            break;
-            
-        case 'info': // For viewing info of shows add "/show-name"
-            page_route_success(`preShowSection`);
-            break;
-            
-        case 'watch': // For watching the shows add "/show-name"
-            page_route_error(`construction`);
-            break;
-            
-        case 'profile': // View your profile
-            document.title = "Uvid • Profie";
-            page_route_success(`initProfilePage`);
-            sideNavLinks[6].classList.add("active");
-            break;
-            
-        case 'settings': // settings
-            document.title = "Uvid • Settings";
-            sideNavLinks[5].classList.add("active");
-            page_route_success(`initSettPage`);
-            break;
-            
-        case 'news': // more navigation will be added later
-            document.title = "Uvid • News";
-            page_route_error(`construction`);
-            sideNavLinks[4].classList.add("active");
-            break;
+            route_pbl_only: true,
+            route_auth: false,
+            route_atn: "instantiateJoinForm",
+            route_title: "Uvid • Join",
+        },
+        'signin': 
+        {
+            route_pbl_only: true,
+            route_auth: false,
+            route_atn: "page_route_error",
+            route_title: "Uvid • Sign In to Uvid",
+        },
+        'signup': 
+        {
+            route_pbl_only: true,
+            route_auth: false,
+            route_atn: "page_route_error",
+            route_title: "Uvid • Sign Up for Uvid",
+        },
+        'tou': 
+        {
+            route_pbl_only: false,
+            route_auth: false,
+            route_atn: "display_tou_",
+            route_title: "Uvid • Terms of Use",
+        },
+        'privacy': 
+        {
+            route_pbl_only: false,
+            route_auth: false,
+            route_atn: "display_privacy_",
+            route_title: "Uvid • Privacy",
+        },
+        'ad-choices': 
+        {
+            route_pbl_only: false,
+            route_auth: false,
+            route_atn: "display_ad_chc_",
+            route_title: "Uvid • Ad Choices & Disclaimers",
+        },
+        'copyright': 
+        {
+            route_pbl_only: false,
+            route_auth: false,
+            route_atn: "display_cpy_right_",
+            route_title: "Uvid • Copyright Act & Disclaimers",
+        },
+        'help': 
+        {
+            route_pbl_only: false,
+            route_auth: false,
+            route_atn: "page_route_error",
+            route_title: "Uvid • Help Center",
+        },
+        'contact': 
+        {
+            route_pbl_only: false,
+            route_auth: false,
+            route_atn: "page_route_error",
+            route_title: "Uvid • Contact Us",
+        },
+        'feedback': 
+        {
+            route_pbl_only: false,
+            route_auth: false,
+            route_atn: "init_FeedbackForm",
+            route_title: "Uvid • Feedback",
+        },
+        'news': 
+        {
+            route_pbl_only: false,
+            route_auth: false,
+            route_atn: "page_route_error",
+            route_title: "Uvid • News",
+        },
         
-        default: // redirects to home page
-            document.title = "Uvid • Stream Movies, Tv Shows, and lots more";
+
+        // Requries auth
+        'home': 
+        {
+            route_pbl_only: false,
+            route_auth: true,
+            route_atn: "preHomeSection",
+            route_title: null,
+        },
+        'explore': 
+        {
+            route_pbl_only: false,
+            route_auth: true,
+            route_atn: "initCategories",
+            route_title: "Uvid • Explore",
+        },
+        'trending': 
+        {
+            route_pbl_only: false,
+            route_auth: true,
+            route_atn: "launchTrendingPage",
+            route_title: "Uvid • Trending",
+        },
+        'my-list': 
+        {
+            route_pbl_only: false,
+            route_auth: true,
+            route_atn: "preLoadMyListPageStruct",
+            route_title: "Uvid • My Lists",
+        },
+        'info': 
+        {
+            route_pbl_only: false,
+            route_auth: true,
+            route_atn: "preShowSection",
+            route_title: null,
+        },
+        'watch': 
+        {
+            route_pbl_only: false,
+            route_auth: true,
+            route_atn: "page_route_error",
+            route_title: null,
+        },
+        'schedule': 
+        {
+            route_pbl_only: false,
+            route_auth: true,
+            route_atn: "initSchedule",
+            route_title: "Uvid • Schedule",
+        },
+        'settings': 
+        {
+            route_pbl_only: false,
+            route_auth: true,
+            route_atn: "initSettPage",
+            route_title: "Uvid • Settings",
+        },
+        'profile': 
+        {
+            route_pbl_only: false,
+            route_auth: true,
+            route_atn: "initProfilePage",
+            route_title: "Uvid • Profile",
+        },
+    };
+
+
+
+// ROUTING
+
+    // Check if user signed in. If not, redirect to landing page (Locally done)
+    function getSignedInUser() 
+    {
+        const user = JSON.parse(localStorage.getItem('uvidSignedInUser'));
+
+        if(user) 
+        {
+            console.log('yes, user is signed in.');
+            return true;
+        }
+        else
+        {
+            console.log('No user is signed in.');
+            return false;
+        }
+    }
+
+    // Actions for successful routes
+    function page_route_success(funcName)
+    {
+        window.scrollTo(0, 0);
+        if((documentBody.classList.contains("bodystop"))) documentBody.classList.remove("bodystop");
+        if((documentBody.hasAttribute("data-modal-state"))) documentBody.removeAttribute("data-modal-state");
+        if((documentBody.hasAttribute("gen-menu-modal-is-dragging"))) documentBody.removeAttribute("gen-men-modal-is-dragging");
+        callGlobalFunctions(funcName, null);
+        preload.classList.add("preloadClose");
+    }
+
+    // Displays error message for failed routing
+    function page_route_error(type = "error")
+    {
+        window.scrollTo(0, 0);
+        preload.classList.add("preloadClose");
+        if(type === "construction")
+        {
+            // shows that page is under construction
+            documentCtnt.insertAdjacentHTML(`afterbegin` , error503Struct);
+        }
+        else
+        {
+            documentCtnt.insertAdjacentHTML(`afterbegin` , error404Struct);
+        }
+    }
+
+    // Goes back to previous page route
+    function prev_page_route()
+    {
+        if((last_hash_page == undefined))
+        {
             window.location.hash = "#/home";
-            break;
+            return;
+        }
+        window.location.hash = last_hash_page;
     }
-}
 
-
-
-
-
-function page_route_success(funcName)
-{
-    window.scrollTo(0, 0);
-    if((documentBody.classList.contains("bodystop"))) documentBody.classList.remove("bodystop");
-    if((documentBody.hasAttribute("data-modal-state"))) documentBody.removeAttribute("data-modal-state");
-    if((documentBody.hasAttribute("gen-menu-modal-is-dragging"))) documentBody.removeAttribute("gen-men-modal-is-dragging");
-    callGlobalFunctions(funcName, null);
-    preload.classList.add("preloadClose");
-}
-
-
-function page_route_error(type = "error")
-{
-    window.scrollTo(0, 0);
-    preload.classList.add("preloadClose");
-    if(type === "construction")
+    // Handles routing process
+    function page_router()
     {
-        // shows that page is under construction
-        documentCtnt.insertAdjacentHTML(`afterbegin` , error503Struct);
-    }
-    else
-    {
-        documentCtnt.insertAdjacentHTML(`afterbegin` , error404Struct);
-    }
-}
+        // Get the current hash value
+        hash_win = window.location.hash || '#/landing';
+
+        // Set last hash page
+        hash_pages.push(hash_win);
+        last_hash_page = hash_pages.at(-2);
+
+        // Split into sections
+        hash_parts = hash_win.split('/');
+
+        // Display preloader
+        preload.classList.remove("preloadClose");
+
+        // Clear the doc content and scroll to the top
+        documentCtnt.innerHTML = "";
+        topNavBar.innerHTML = "";
+        if((topNavBar.classList.contains("active"))) topNavBar.classList.remove("active");
+        if((topNavBar.classList.contains("initialize"))) topNavBar.classList.remove("initialize");
+        if((topNavBar.classList.contains("float"))) topNavBar.classList.remove("float");
+        if((topNavBar.classList.contains("hidden"))) topNavBar.classList.remove("hidden");
+        if((sideNavBar.classList.contains("hidden"))) sideNavBar.classList.remove("hidden");
+        if((btmNavBar.classList.contains("hidden"))) btmNavBar.classList.remove("hidden");
+        sideNavLinks.forEach((navLink) => 
+        {
+            if(navLink.classList.contains("active"))
+            {
+                navLink.classList.remove("active");
+            }
+        });
+        btmNavLinks.forEach((navLink) => 
+        {
+            if(navLink.classList.contains("active"))
+            {
+                navLink.classList.remove("active");
+            }
+        });
 
 
+        // Find matching route
+        const curr_route = uvid_pg_routes[hash_parts[1]];
+        const isUsrIn = getSignedInUser();
 
-function prev_page_route()
-{
-    if((last_hash_page == undefined))
-    {
-        window.location.hash = "#/home";
-        return;
+        // If no route is found
+        if(!curr_route)
+        {
+            return page_route_error();
+        }
+
+        // Update page title according to route
+        documentTitle.textContent = curr_route.route_title != null ? curr_route.route_title : "Uvid • Stream Movies, Tv Shows, and so much more";
+        
+        // Default to landing page if user tries to access auth required pages
+        if((curr_route.route_auth) && !(isUsrIn))
+        {
+            window.location.hash = "#/landing";
+            return;
+        }
+
+        // Defer signed-in user to homepage if on public-only page (e.g landing, signup/sign in)
+        if((curr_route.route_pbl_only) && (isUsrIn))
+        {
+            window.location.hash = "#/home";
+            console.log("public access only");
+        }
+
+        // Run the routes action
+        page_route_success(curr_route.route_atn);
     }
-    window.location.hash = last_hash_page;
-}
+
+
+    // Listen for hash changes
+    window.addEventListener('hashchange', page_router);

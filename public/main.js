@@ -526,8 +526,8 @@
                             </div>
                             <div class="footer_Important_linksBox">
                                 <a target="_blank" href="#/settings/parenting" title="Preferences" class="footerlinks footer_Important_links">Preferences</a>
-                                <a target="_blank" href="/policies/privacy.html" title="Privacy" class="footerlinks footer_Important_links">Privacy</a>
-                                <a target="_blank" href="/policies/tou.html" title="Terms of Use" class="footerlinks footer_Important_links">Terms of Use</a>
+                                <a target="_blank" href="#/privacy" title="Privacy" class="footerlinks footer_Important_links">Privacy</a>
+                                <a target="_blank" href="#/tou" title="Terms of Use" class="footerlinks footer_Important_links">Terms of Use</a>
                             </div>
                         </div>
                         <div class="footer_boxCtnt footer_OtherLinks">
@@ -537,16 +537,16 @@
                             </div>
                             <div class="footer_UsefulLinksBdr">
                                 <div class="footer_UsefulLinksBox">
-                                    <a target="_blank" href="/help.html#faq" title="Frequently Asked Questions" class="footerlinks footer_UsefulLinks">FAQ</a>
-                                    <a target="_blank" href="/help.html" title="Help Center" class="footerlinks footer_UsefulLinks">Help</a>
-                                    <a target="_blank" href="/feedback.html" title="Feedback" class="footerlinks footer_UsefulLinks">Feedback</a>
+                                    <a target="_blank" href="#/help/faq" title="Frequently Asked Questions" class="footerlinks footer_UsefulLinks">FAQ</a>
+                                    <a target="_blank" href="#/help" title="Help Center" class="footerlinks footer_UsefulLinks">Help</a>
+                                    <a target="_blank" href="#/feedback" title="Feedback" class="footerlinks footer_UsefulLinks">Feedback</a>
                                     <a target="_blank" href="#/settings/membership" title="Membership" class="footerlinks footer_UsefulLinks">Membership</a>
                                 </div>
                                 <div class="footer_UsefulLinksBox">
-                                    <a target="_blank" href="/help.html#contact" title="Contact Us" class="footerlinks footer_UsefulLinks">Contact Us</a>
-                                    <a target="_blank" href="/policies/privacy.html#cookies" title="Cookies" class="footerlinks footer_UsefulLinks">Cookies</a>
-                                    <a target="_blank" href="/policies/ad-choices.html" title="Ad Choices" class="footerlinks footer_UsefulLinks">Ad Choices</a>
-                                    <a target="_blank" href="/policies/copyright.html" title="Copyright" class="footerlinks footer_UsefulLinks">Copyright</a>
+                                    <a target="_blank" href="#/contact" title="Contact Us" class="footerlinks footer_UsefulLinks">Contact Us</a>
+                                    <a target="_blank" href="#/privacy/cookies" title="Cookies" class="footerlinks footer_UsefulLinks">Cookies</a>
+                                    <a target="_blank" href="#/ad-choices" title="Ad Choices" class="footerlinks footer_UsefulLinks">Ad Choices</a>
+                                    <a target="_blank" href="#/copyright" title="Copyright" class="footerlinks footer_UsefulLinks">Copyright</a>
                                 </div>
                             </div>
                         </div>
@@ -900,51 +900,31 @@
             } 
             else
             {
+                if(functionName == null) return;
                 console.error(`Function name: '${functionName}' is invalid!`);
             }
         }
 
 
 
-    // PRELOADER
+    // INITIALIZATION
         
-        window.addEventListener("load", getSignedInUser);
+        
+        window.addEventListener("load", startApplication);
 
 
-    // VERIFICATION
-
-        // Check if user signed in. If not, redirect to landing page (Locally done)
-        function getSignedInUser() 
-        {
-            const user = JSON.parse(localStorage.getItem('uvidSignedInUser'));
-            if(user) 
-            {
-                startApplication();
-                console.log('yes, user is signed in.');
-            }
-            else
-            {
-                console.log('No user is signed in.');
-                window.open(`/landing.html` , `_self`);
-            }
-        }
-    
-
-    // START APP
-
+        // Start App
         function startApplication()
         {
             // Confirm before refresh (Annoying)
             // window.addEventListener("beforeunload" , b4UnloadHandler);
             
-            // Insert the NavBars
-            // topNavBar.insertAdjacentHTML(`afterbegin` , topNavBarStruct);
+            // Insert the NavBars' content
             sideNavBar.insertAdjacentHTML(`afterbegin` , sideNavBarStruct);
             btmNavBar.insertAdjacentHTML(`afterbegin` , btmNavBarStruct);
             
             // Insert Footer
             documentCtnt.insertAdjacentHTML(`afterend` , footerHTML);
-
 
             // Definition
             sideNavLinks = document.querySelectorAll(".sideNavLinks");
@@ -954,20 +934,20 @@
             openNavBarNotificationBtn = document.querySelectorAll(".openNavNotify");
 
 
-            // Scrolling
+            // Scrolling Event listeners
             window.addEventListener("scroll" , genScrollingAtn);
             window.addEventListener('wheel', menuIsOpenScrl, { passive: false });
             window.addEventListener('touchmove', menuIsOpenScrl, { passive: false });
 
 
-            // Components
+            // Components & Functionalities
+            page_router();
             attachReturnToHomePageListeners();
             attachReturnToTopOfPageListeners();
             attachVisitDevPageEventListeners();
             attachAddToCLEventListeners();
             attachSharePageEventListeners();
             initGenMenuModal();
-            page_router();
             genScrollingAtn();
         }
 
@@ -1242,6 +1222,20 @@
             return result;
         }
 
+
+
+    // GENERATING A RANDOM HEX COLOR
+
+        function genRandomColor() 
+        {
+            const code = '0123456789abcdef';
+            let color = '#';
+            for (let i = 0; i < 6; i++) 
+            {
+                color += code[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
 
     
     // GETTING CURRENT DATE IN FORMAT MMM : DD : YYYY
@@ -1968,7 +1962,11 @@
             localStorage.removeItem('uvidSignedInUser');
 
             // Go to anding page
-            accountSignOutTimer = setTimeout(() => window.open(`/landing.html` , `_self`), 3000);
+            accountSignOutTimer = setTimeout(() => 
+            {
+                clearTimeout(accountSignOutTimer);
+                window.open(`#/landing` , `_self`);
+            }, 3000);
         }
 
 
