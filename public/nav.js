@@ -270,6 +270,7 @@
                 navLink.classList.remove("active");
             }
         });
+        if((navbarUnderlayer.classList.contains("active"))) navbarUnderlayer.classList.remove("active");
 
 
         // Find matching route
