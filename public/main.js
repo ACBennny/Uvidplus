@@ -912,7 +912,6 @@
         
         window.addEventListener("load", startApplication);
 
-
         // Start App
         function startApplication()
         {
@@ -1048,7 +1047,7 @@
             {
                 const h_atn = () =>
                 {
-                    window.location.hash = "#";
+                    window.location.hash = page_route_fallback();
                 }
             
                 newbtn.addEventListener("click" , h_atn);
