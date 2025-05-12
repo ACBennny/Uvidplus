@@ -212,6 +212,9 @@
     function initProfilePage()
     {
         let prof_nav_sect = hash_parts[2];
+        
+        // Update Navbar active states
+        sideNavLinks[6].classList.add("active");
 
         if(prof_nav_sect === "create")
         {
