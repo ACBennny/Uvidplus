@@ -96,7 +96,7 @@
                             - or page is not available at the current time. 
                             <br>
                         </p>
-                        <a href="#/home" class="goToHome">Back to home</a>
+                        <a onclick="prev_page_route()" class="goToHome">Close or previous</a>
                     </div>
                     <div class="footer">
                         <div class="logoBox">
@@ -126,7 +126,7 @@
                             We apologize for any inconveniences incurred.
                             <br>
                         </p>
-                        <a href="#/home" class="goToHome">Back to home</a>
+                        <a onclick="prev_page_route()" class="goToHome">Close or previous</a>
                     </div>
                     <div class="footer">
                         <div class="logoBox">
