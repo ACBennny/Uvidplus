@@ -116,7 +116,7 @@ html:root
 
 .help_ctr_hdr_ctnt_ttlBox_mnr .help_ctr_hdr_ctnt_ttlTxt_mnr
 {
-    color: var(--genGreenTypeMid);
+    color: var(--genGreenTypeLight);
     font-size: 1.125rem;
 }
 .help_ctr_hdr_ctnt_ttlBox_mjr .help_ctr_hdr_ctnt_ttlTxt_mjr
