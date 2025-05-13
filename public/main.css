@@ -1012,7 +1012,7 @@ img
 .topNav_titleBox .topNav_titleText
 {
     color: var(--genWhiteTypeLight);
-    font-size: 18px;
+    font-size: 1.125rem;
 }
 
 
@@ -5672,7 +5672,7 @@ html:root:has(.btmNavBar.hidden)
 {
     width: 100%;
     height: 100%;
-    padding: 50px 0 calc((1.5625rem + var(--btmNavBarHeight)));
+    padding: 3.125rem 0 calc((1.5625rem + var(--btmNavBarHeight)));
 }
 
 .footer_bdr .footer_box
