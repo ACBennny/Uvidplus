@@ -77,22 +77,8 @@
         {
             route_pbl_only: false,
             route_auth: false,
-            route_atn: "page_route_error",
+            route_atn: "init_help_ctr",
             route_title: "Uvid • Help Center",
-        },
-        'contact': 
-        {
-            route_pbl_only: false,
-            route_auth: false,
-            route_atn: "page_route_error",
-            route_title: "Uvid • Contact Us",
-        },
-        'feedback': 
-        {
-            route_pbl_only: false,
-            route_auth: false,
-            route_atn: "init_FeedbackForm",
-            route_title: "Uvid • Feedback",
         },
         'news': 
         {
@@ -153,6 +139,13 @@
             route_atn: "initSchedule",
             route_title: "Uvid • Schedule",
         },
+        'profile': 
+        {
+            route_pbl_only: false,
+            route_auth: true,
+            route_atn: "initProfilePage",
+            route_title: "Uvid • Profile",
+        },
         'settings': 
         {
             route_pbl_only: false,
@@ -160,12 +153,19 @@
             route_atn: "initSettPage",
             route_title: "Uvid • Settings",
         },
-        'profile': 
+        'contact': 
         {
             route_pbl_only: false,
             route_auth: true,
-            route_atn: "initProfilePage",
-            route_title: "Uvid • Profile",
+            route_atn: "page_route_error",
+            route_title: "Uvid • Contact Us",
+        },
+        'feedback': 
+        {
+            route_pbl_only: false,
+            route_auth: true,
+            route_atn: "init_FeedbackForm",
+            route_title: "Uvid • Feedback",
         },
     };
 
@@ -291,10 +291,10 @@
         // Update page title according to route
         documentTitle.textContent = curr_route.route_title != null ? curr_route.route_title : "Uvid • Stream Movies, Tv Shows, and so much more";
         
-        // Default to landing page if user tries to access auth required pages
+        // Default to login page if user tries to access auth required pages
         if((curr_route.route_auth) && !(isUsrIn))
         {
-            window.location.hash = "#/landing";
+            window.location.hash = "#/join";
             return;
         }
 
