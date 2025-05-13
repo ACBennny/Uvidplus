@@ -180,12 +180,12 @@
 
         if(user) 
         {
-            console.log('yes, user is signed in.');
+            // console.log('yes, user is signed in.');
             return true;
         }
         else
         {
-            console.log('No user is signed in.');
+            // console.log('No user is signed in.');
             return false;
         }
     }
