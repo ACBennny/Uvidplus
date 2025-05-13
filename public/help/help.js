@@ -52,68 +52,33 @@
                         <div class="help_ctr_tpc_sect_bdr">
                             <div class="help_ctr_tpc_sect_box">
                                 <div class="help_ctr_tpc_sect_hdrBox">
-                                    <div class="help_ctr_tpc_sect_hdrTxt">Popular Topics</div>
+                                    <div class="help_ctr_tpc_sect_hdrTxt">Explore Categories</div>
                                 </div>
-                                <div class="help_ctr_tpc_sect_gridBdr help_ctr_tpc_pplr_gridBdr">
-                                    <div class="help_ctr_tpc_sect_gridBox help_ctr_tpc_pplr_gridBox">
-
-                                        <a class="help_ctr_tpc_pplr_cardBdr">
-                                            <div class="help_ctr_tpc_pplr_cardBox">
-                                                <div class="help_ctr_tpc_pplr_card_ttlBox">
-                                                    <p class="help_ctr_tpc_pplr_card_ttlTxt">How do I change my email address?</p>
-                                                </div>
-                                                <div class="help_ctr_tpc_pplr_card_iconBdr">
-                                                    <div class="help_ctr_tpc_pplr_card_iconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="help_ctr_tpc_pplr_card_iconSvg">
-                                                            <path fill-rule="evenodd" d="M8.512 4.43a.75.75 0 0 1 1.057.082l6 7a.75.75 0 0 1 0 .976l-6 7a.75.75 0 0 1-1.138-.976L14.012 12L8.431 5.488a.75.75 0 0 1 .08-1.057" clip-rule="evenodd" />
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-
-                                    </div>
+                                <div class="help_ctr_tpc_sect_gridBdr help_ctr_tpc_all_gridBdr">
+                                    <div class="help_ctr_tpc_sect_gridBox help_ctr_tpc_all_gridBox"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="help_ctr_tpc_sect_bdr">
                             <div class="help_ctr_tpc_sect_box">
                                 <div class="help_ctr_tpc_sect_hdrBox">
-                                    <div class="help_ctr_tpc_sect_hdrTxt">Explore All Topics</div>
+                                    <div class="help_ctr_tpc_sect_hdrTxt">Popular Topics</div>
                                 </div>
-                                <div class="help_ctr_tpc_sect_gridBdr help_ctr_tpc_all_gridBdr">
-                                    <div class="help_ctr_tpc_sect_gridBox help_ctr_tpc_all_gridBox">
-
-                                        <a class="help_ctr_tpc_all_cardBdr">
-                                            <div class="help_ctr_tpc_all_cardBox">
-                                                <div class="help_ctr_tpc_all_card_iconBdr">
-                                                    <div class="help_ctr_tpc_all_card_iconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="help_ctr_tpc_all_card_iconSvg">
-                                                            <path d="M20.941 8.189c.58.573.83 1.295.947 2.152c.112.826.112 1.876.112 3.178v.105c0 1.302 0 2.352-.112 3.178c-.117.857-.367 1.579-.947 2.152s-1.31.82-2.178.935c-.835.111-1.898.111-3.216.111h-4.925c-1.318 0-2.38 0-3.216-.111c-.868-.115-1.598-.362-2.178-.935a3 3 0 0 1-.735-1.204c.871.107 1.95.107 3.195.107h5.01c1.281 0 2.385 0 3.27-.117c.947-.126 1.856-.41 2.593-1.138s1.024-1.626 1.151-2.562c.12-.874.12-1.965.119-3.232v-.188c0-1.23 0-2.296-.11-3.158c.46.151.868.379 1.22.727m-10.748.859c-.932 0-1.687.746-1.687 1.666s.755 1.667 1.687 1.667c.931 0 1.686-.746 1.686-1.667c0-.92-.755-1.666-1.686-1.666" />
-                                                            <path fill-rule="evenodd" d="M2.847 5.837C2 6.674 2 8.02 2 10.714s0 4.041.847 4.878s2.21.837 4.936.837h4.82c2.725 0 4.088 0 4.935-.837s.847-2.184.847-4.878s0-4.04-.847-4.877S15.328 5 12.602 5H7.783c-2.726 0-4.09 0-4.936.837m4.213 4.877c0-1.71 1.403-3.095 3.133-3.095s3.132 1.386 3.132 3.095s-1.402 3.096-3.132 3.096s-3.133-1.386-3.133-3.096m8.434 2.62c-.4 0-.723-.32-.723-.715V8.81c0-.394.323-.714.723-.714s.723.32.723.715v3.81a.72.72 0 0 1-.723.713m-11.325-.715c0 .395.323.714.723.714s.722-.32.722-.714V8.81a.72.72 0 0 0-.722-.714c-.4 0-.723.32-.723.715z" clip-rule="evenodd" />
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                                <div class="help_ctr_tpc_all_card_ttlBox">
-                                                    <p class="help_ctr_tpc_all_card_ttlTxt">Account and Billing</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    
-                                    </div>
+                                <div class="help_ctr_tpc_sect_gridBdr help_ctr_tpc_pplr_gridBdr">
+                                    <div class="help_ctr_tpc_sect_gridBox help_ctr_tpc_pplr_gridBox"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!---<div class="help_ctr_more_bdr">
+                <div class="help_ctr_more_bdr">
                     <div class="help_ctr_more_box">
                         <div class="help_ctr_more_hdr_base">
                             <div class="help_ctr_more_hdr_bdr">
-                                <div class="help_ctr_more_hdr_box">
+                                <div class="help_ctr_more_hdr_box help_ctr_more_hdr_box_mjr">
                                     <div class="help_ctr_more_hdr_txt_mjr">Need more help?</div>
                                 </div>
-                                <div class="help_ctr_more_hdr_box">
+                                <div class="help_ctr_more_hdr_box help_ctr_more_hdr_box_mnr">
                                     <p class="help_ctr_more_hdr_txt_mnr">We are always here & ready to help</p>
                                 </div>
                             </div>
@@ -134,7 +99,7 @@
                                         <div class="help_ctr_more_ctnt_card_detBdr">
                                             <div class="help_ctr_more_ctnt_card_detBox">
                                                 <div class="help_ctr_more_ctnt_card_det_ttlBox">
-                                                    <a href="#/contact" class="help_ctr_more_ctnt_card_desc_ttlTxt">Get in Touch</a>
+                                                    <a href="#/contact" class="help_ctr_more_ctnt_card_det_ttlTxt">Get in Touch</a>
                                                 </div>
                                                 <div class="help_ctr_more_ctnt_card_det_descBox">
                                                     <p class="help_ctr_more_ctnt_card_det_descTxt">
@@ -151,18 +116,18 @@
                                         <div class="help_ctr_more_ctnt_card_iconBdr">
                                             <div class="help_ctr_more_ctnt_card_iconBox">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="help_ctr_more_ctnt_card_iconSvg">
-                                                    <path fill-rule="evenodd" d="M3 10c0-3.771 0-5.657 1.172-6.828S7.229 2 11 2h2c3.771 0 5.657 0 6.828 1.172S21 6.229 21 10v4c0 3.771 0 5.657-1.172 6.828S16.771 22 13 22h-2c-3.771 0-5.657 0-6.828-1.172S3 17.771 3 14zm3 2c0-1.414 0-2.121.44-2.56C6.878 9 7.585 9 9 9h6c1.414 0 2.121 0 2.56.44c.44.439.44 1.146.44 2.56v4c0 1.414 0 2.121-.44 2.56c-.439.44-1.146.44-2.56.44H9c-1.414 0-2.121 0-2.56-.44C6 18.122 6 17.415 6 16zm1-6.75a.75.75 0 0 0 0 1.5h5a.75.75 0 0 0 0-1.5z" clip-rule="evenodd" />
+                                                    <path d="m17.498 18.485l3.13-9.391c.791-2.373 1.331-3.994 1.37-5.115c.013-.377-.414-.503-.68-.236l-14.46 14.46c-.233.233-.177.626.14.716q.047.013.095.024c.5.123 1.153.034 2.46-.143l.07-.01c.369-.05.553-.075.73-.064c.32.02.63.124.898.303c.147.098.279.23.541.492l.252.252c1.51 1.51 2.265 2.265 3.066 2.226c.22-.011.438-.062.64-.151c.734-.324 1.072-1.337 1.747-3.363M14.906 3.372l-9.331 3.11c-2.082.694-3.123 1.041-3.439 1.804q-.112.271-.133.564c-.059.824.717 1.6 2.269 3.151l.283.283c.254.255.382.382.478.524c.19.28.297.606.31.944c.008.171-.019.35-.072.705c-.196 1.304-.294 1.956-.179 2.458l.013.052c.081.325.48.387.717.15L20.257 2.683c.267-.267.141-.694-.236-.68c-1.121.038-2.742.578-5.115 1.369"/>
                                                 </svg>
                                             </div>
                                         </div>
                                         <div class="help_ctr_more_ctnt_card_detBdr">
                                             <div class="help_ctr_more_ctnt_card_detBox">
                                                 <div class="help_ctr_more_ctnt_card_det_ttlBox">
-                                                    <a href="#/feedback" class="help_ctr_more_ctnt_card_desc_ttlTxt">Send a Feedback</a>
+                                                    <a href="#/feedback" class="help_ctr_more_ctnt_card_det_ttlTxt">Send a Feedback</a>
                                                 </div>
                                                 <div class="help_ctr_more_ctnt_card_det_descBox">
                                                     <p class="help_ctr_more_ctnt_card_det_descTxt">
-                                                        How might we improve Uvid?
+                                                        How might we improve Uvid? Have any suggestions?
                                                         Use our feedback form to let us know!
                                                     </p>
                                                 </div>
@@ -174,7 +139,7 @@
                             </div>
                         </div>
                     </div>
-                </div>-->
+                </div>
             </div>
         </div>
     `;
@@ -221,4 +186,69 @@
                 </a>
             `
         );
+
+        // Initialize other components
+        init_pplr_tpc();
+        init_all_tpc();
+    }
+
+
+    // Inserts the popular topics (Pages unavailable)
+    function init_pplr_tpc()
+    {
+        let pplr_grid_box = document.querySelector(".help_ctr_tpc_pplr_gridBox");
+        let pplr_grid_struct = ``;
+
+        for(let p = 0; p < pplr_tpc_arr.length; p++)
+        {
+            let pplr_item = pplr_tpc_arr[p];
+            pplr_grid_struct += 
+            `
+                <a href="javascript:;" onclick="notification('notifyBad', 'Article unavailable')" class="help_ctr_tpc_pplr_cardBdr">
+                    <div class="help_ctr_tpc_pplr_cardBox">
+                        <div class="help_ctr_tpc_pplr_card_ttlBox">
+                            <p class="help_ctr_tpc_pplr_card_ttlTxt">${pplr_item.pplr_tpc_name}</p>
+                        </div>
+                        <div class="help_ctr_tpc_pplr_card_iconBdr">
+                            <div class="help_ctr_tpc_pplr_card_iconBox">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="help_ctr_tpc_pplr_card_iconSvg">
+                                    <path fill-rule="evenodd" d="M8.512 4.43a.75.75 0 0 1 1.057.082l6 7a.75.75 0 0 1 0 .976l-6 7a.75.75 0 0 1-1.138-.976L14.012 12L8.431 5.488a.75.75 0 0 1 .08-1.057" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            `;
+        }
+
+        pplr_grid_box.innerHTML = pplr_grid_struct;
+    }
+
+
+
+    // Inserts All topics categories (Pages unavailable)
+    function init_all_tpc()
+    {
+        let all_grid_box = document.querySelector(".help_ctr_tpc_all_gridBox");
+        let all_grid_struct = ``;
+
+        for(let p = 0; p < all_tpc_arr.length; p++)
+        {
+            let all_item = all_tpc_arr[p];
+            all_grid_struct += 
+            `
+                <a href="javascript:;" onclick="notification('notifyBad', 'Article unavailable')" class="help_ctr_tpc_all_cardBdr">
+                    <div class="help_ctr_tpc_all_cardBox">
+                        <div class="help_ctr_tpc_all_card_iconBdr">
+                            <div class="help_ctr_tpc_all_card_iconBox">${all_item.all_tpc_icon}</div>
+                        </div>
+                        <div class="help_ctr_tpc_all_card_ttlBox">
+                            <p class="help_ctr_tpc_all_card_ttlTxt">${all_item.all_tpc_name}</p>
+                        </div>
+                    </div>
+                </a>
+            `;
+        }
+
+        all_grid_box.innerHTML = all_grid_struct;
     }
