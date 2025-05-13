@@ -145,7 +145,7 @@
         <div class="topNavBdr">
             <div class="topNavBox">
                 <section class="topNav_section">
-                    <div class="company_logoBdr">
+                    <div class="company_logoBdr" onclick="page_route_fallback()">
                         <div class="company_logoBox Companylogo">
                             <img src="/images/uvid-logo.png" alt="" class="company_logoImg">
                         </div>
@@ -525,8 +525,8 @@
                                 </p>
                             </div>
                             <div class="footer_Important_linksBox">
-                                <a href="#/settings/parenting" title="Preferences" class="footerlinks footer_Important_links">Preferences</a>
                                 <a href="#/privacy" title="Privacy" class="footerlinks footer_Important_links">Privacy</a>
+                                <a href="#/privacy/cookies" title="Cookies" class="footerlinks footer_Important_links">Cookies</a>
                                 <a href="#/tou" title="Terms of Use" class="footerlinks footer_Important_links">Terms of Use</a>
                             </div>
                         </div>
@@ -540,11 +540,9 @@
                                     <a href="#/help/faq" title="Frequently Asked Questions" class="footerlinks footer_UsefulLinks">FAQ</a>
                                     <a href="#/help" title="Help Center" class="footerlinks footer_UsefulLinks">Help</a>
                                     <a href="#/feedback" title="Feedback" class="footerlinks footer_UsefulLinks">Feedback</a>
-                                    <a href="#/settings/membership" title="Membership" class="footerlinks footer_UsefulLinks">Membership</a>
                                 </div>
                                 <div class="footer_UsefulLinksBox">
                                     <a href="#/contact" title="Contact Us" class="footerlinks footer_UsefulLinks">Contact Us</a>
-                                    <a href="#/privacy/cookies" title="Cookies" class="footerlinks footer_UsefulLinks">Cookies</a>
                                     <a href="#/ad-choices" title="Ad Choices" class="footerlinks footer_UsefulLinks">Ad Choices</a>
                                     <a href="#/copyright" title="Copyright" class="footerlinks footer_UsefulLinks">Copyright</a>
                                 </div>
