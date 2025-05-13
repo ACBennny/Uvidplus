@@ -260,7 +260,7 @@ html:root
 .catalogSearchInputItem:focus-within
 {
     --catalogHeadBoxItemDisplayClr: var(--genWhiteTypeLight);
-    box-shadow: 0rem 0rem 0rem 0.1563rem var(--genGreenTypeMid);
+    box-shadow: 0rem 0rem 0rem 0.15625rem var(--genGreenTypeMid);
 }
 
 .catalogSearchInputItem .catalogSearchInputCover
