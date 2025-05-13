@@ -27,7 +27,7 @@
                     </div>
                     <div class="footer">
                         <div class="logoBox">
-                            <a href="/" class="logo">
+                            <a href="#/" class="logo">
                                 <h2 class="logo1">U</h2>
                                 <h2 class="logo2">VID</h2>
                             </a>
