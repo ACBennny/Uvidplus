@@ -246,7 +246,7 @@
                     `
                         <div class="settCtntSectAtnBdr">
                             <div class="settCtntSectAtnBox">
-                                <button onclick="window.open('${item.sett_atn_func}', '_blank')" class="settCtntSectAtnBtn settCtntSectAtnIcon ${item.sett_atn_id}">
+                                <button onclick="window.open('${item.sett_atn_func}', '_self')" class="settCtntSectAtnBtn settCtntSectAtnIcon ${item.sett_atn_id}">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="settCtntSectAtnSvg">
                                         <path fill-rule="evenodd" d="M8.512 4.43a.75.75 0 0 1 1.057.082l6 7a.75.75 0 0 1 0 .976l-6 7a.75.75 0 0 1-1.138-.976L14.012 12L8.431 5.488a.75.75 0 0 1 .08-1.057" clip-rule="evenodd" />
                                     </svg>
