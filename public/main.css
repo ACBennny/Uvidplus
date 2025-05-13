@@ -277,6 +277,13 @@ button
     cursor: pointer;
 }
 
+.genBtnBox.thin
+{
+    min-width: 0rem;
+    padding-left: .625rem;
+    padding-right: .625rem;
+}
+
 .genBtnBox.hide
 {
     display: none;
