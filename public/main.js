@@ -525,9 +525,9 @@
                                 </p>
                             </div>
                             <div class="footer_Important_linksBox">
-                                <a target="_blank" href="#/settings/parenting" title="Preferences" class="footerlinks footer_Important_links">Preferences</a>
-                                <a target="_blank" href="#/privacy" title="Privacy" class="footerlinks footer_Important_links">Privacy</a>
-                                <a target="_blank" href="#/tou" title="Terms of Use" class="footerlinks footer_Important_links">Terms of Use</a>
+                                <a href="#/settings/parenting" title="Preferences" class="footerlinks footer_Important_links">Preferences</a>
+                                <a href="#/privacy" title="Privacy" class="footerlinks footer_Important_links">Privacy</a>
+                                <a href="#/tou" title="Terms of Use" class="footerlinks footer_Important_links">Terms of Use</a>
                             </div>
                         </div>
                         <div class="footer_boxCtnt footer_OtherLinks">
@@ -537,16 +537,16 @@
                             </div>
                             <div class="footer_UsefulLinksBdr">
                                 <div class="footer_UsefulLinksBox">
-                                    <a target="_blank" href="#/help/faq" title="Frequently Asked Questions" class="footerlinks footer_UsefulLinks">FAQ</a>
-                                    <a target="_blank" href="#/help" title="Help Center" class="footerlinks footer_UsefulLinks">Help</a>
-                                    <a target="_blank" href="#/feedback" title="Feedback" class="footerlinks footer_UsefulLinks">Feedback</a>
-                                    <a target="_blank" href="#/settings/membership" title="Membership" class="footerlinks footer_UsefulLinks">Membership</a>
+                                    <a href="#/help/faq" title="Frequently Asked Questions" class="footerlinks footer_UsefulLinks">FAQ</a>
+                                    <a href="#/help" title="Help Center" class="footerlinks footer_UsefulLinks">Help</a>
+                                    <a href="#/feedback" title="Feedback" class="footerlinks footer_UsefulLinks">Feedback</a>
+                                    <a href="#/settings/membership" title="Membership" class="footerlinks footer_UsefulLinks">Membership</a>
                                 </div>
                                 <div class="footer_UsefulLinksBox">
-                                    <a target="_blank" href="#/contact" title="Contact Us" class="footerlinks footer_UsefulLinks">Contact Us</a>
-                                    <a target="_blank" href="#/privacy/cookies" title="Cookies" class="footerlinks footer_UsefulLinks">Cookies</a>
-                                    <a target="_blank" href="#/ad-choices" title="Ad Choices" class="footerlinks footer_UsefulLinks">Ad Choices</a>
-                                    <a target="_blank" href="#/copyright" title="Copyright" class="footerlinks footer_UsefulLinks">Copyright</a>
+                                    <a href="#/contact" title="Contact Us" class="footerlinks footer_UsefulLinks">Contact Us</a>
+                                    <a href="#/privacy/cookies" title="Cookies" class="footerlinks footer_UsefulLinks">Cookies</a>
+                                    <a href="#/ad-choices" title="Ad Choices" class="footerlinks footer_UsefulLinks">Ad Choices</a>
+                                    <a href="#/copyright" title="Copyright" class="footerlinks footer_UsefulLinks">Copyright</a>
                                 </div>
                             </div>
                         </div>
