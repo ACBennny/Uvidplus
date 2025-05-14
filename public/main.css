@@ -428,8 +428,7 @@ button
 
 /* ----- For transparent backgrounds ------ */
 .transBtn,
-.transBtn:active,
-.transBtn:hover
+.transBtn:active
 {
     color: var(--genWhiteTypeLight);
     fill: var(--genWhiteTypeLight);
@@ -5928,7 +5927,7 @@ html:root:has(.btmNavBar.hidden)
     {
         background-color: var(--genGreenTypeDark1);
         color: var(--genWhiteTypeLight);
-        color: var(--genWhiteTypeLight);
+        fill: var(--genWhiteTypeLight);
     }
 
     .greySolidBtn:hover
@@ -5947,6 +5946,7 @@ html:root:has(.btmNavBar.hidden)
 
     .transBtn:hover
     {
+        color: var(--genGreenTypeLight);
         background-color: #00000000;
     }
 
