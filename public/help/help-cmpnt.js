@@ -49,7 +49,7 @@ let pplr_tpc_arr =
     },
     {
         pplr_tpc_id: `67664905`,
-        pplr_tpc_name: `Errors in subtitles`,
+        pplr_tpc_name: `How to sign out?`,
     },
 ];
 
