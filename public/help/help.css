@@ -12,12 +12,20 @@ html:root
 {
     --help_ctr_max_elem_width: 62.5rem;
     --help_ctr_hdr_height: 21.875rem;
+    --help_ctr_hdr_ctnt_srchRslt_boxTip: .625rem;
     --help_ctr_hdr_ctnt_srchFld: 3.125rem;
     --help_ctr_hdr_ctnt_srchIconSize: 1.25rem;
     --help_ctr_tpc_pplr_card_iconSize: 1.5rem;
     --help_ctr_tpc_all_card_iconSize: 3rem;
     --help_ctr_tpc_all_gridCardWidth: 15.625rem;
     --help_ctr_more_ctnt_card_iconSize: 3rem;
+}
+
+
+
+.genBtnBox.help_ctr_nav_srch_btn_mbl
+{
+    display: none;
 }
 
 
@@ -44,7 +52,6 @@ html:root
 {
     width: 100%;
     height: var(--help_ctr_hdr_height);
-    overflow: hidden;
 }
 
 .help_ctr_hdr_bdr .help_ctr_hdr_box
@@ -71,6 +78,7 @@ html:root
 {
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
 .help_ctr_hdr_bcg_box .help_ctr_hdr_bcg_img
@@ -130,6 +138,7 @@ html:root
 
 .help_ctr_hdr_ctnt_box .help_ctr_hdr_ctnt_srchBdr
 {
+    position: relative;
     width: 100%;
     height: var(--help_ctr_hdr_ctnt_srchFld);
 }
@@ -206,6 +215,97 @@ html:root
     height: 100%;
     fill: var(--help_ctr_hdr_ctnt_srchClr);
 }
+
+
+.help_ctr_hdr_ctnt_srchBdr:has( .help_ctr_hdr_ctnt_srchBox:focus-within)
+.help_ctr_hdr_ctnt_srchRslt_bdr
+{
+    opacity: 1;
+    visibility: visible;
+    overflow: visible;
+    pointer-events: all;
+}
+
+.help_ctr_hdr_ctnt_srchRslt_bdr
+{
+    width: 100%;
+    margin-top: 1rem;
+    border-radius: .3125rem;
+    background-color: var(--genGreyTypeMid);
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: all 300ms ease-in-out;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.help_ctr_hdr_ctnt_srchRslt_bdr .help_ctr_hdr_ctnt_srchRslt_box
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+}
+
+.help_ctr_hdr_ctnt_srchRslt_box::after
+{
+    content: '';
+    position: absolute;
+    left: var(--help_ctr_hdr_ctnt_srchRslt_boxTip);
+    bottom: 100%;
+    border-bottom: var(--help_ctr_hdr_ctnt_srchRslt_boxTip) solid var(--genGreyTypeMid);
+    border-right: var(--help_ctr_hdr_ctnt_srchRslt_boxTip) solid #00000000;
+    border-left: var(--help_ctr_hdr_ctnt_srchRslt_boxTip) solid #00000000;
+}
+
+.help_ctr_hdr_ctnt_srchRslt_box .help_ctr_hdr_ctnt_srchRslt_hdrBox
+{
+    width: 100%;
+    margin-bottom: .625rem;
+}
+
+.help_ctr_hdr_ctnt_srchRslt_hdrBox .help_ctr_hdr_ctnt_srchRslt_hdrText
+{
+    color: var(--genGreenTypeMid);
+    font-size: .9375rem;
+}
+
+.help_ctr_hdr_ctnt_srchRslt_box .help_ctr_hdr_ctnt_srchRslt_gridBdr
+{
+    width: 100%;
+}
+
+.help_ctr_hdr_ctnt_srchRslt_gridBdr .help_ctr_hdr_ctnt_srchRslt_gridBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.help_ctr_hdr_ctnt_srchRslt_gridBox .help_ctr_hdr_ctnt_srchRslt_cardBdr
+{
+    width: 100%;
+}
+
+.help_ctr_hdr_ctnt_srchRslt_cardBdr .help_ctr_hdr_ctnt_srchRslt_cardBox
+{
+    width: 100%;
+}
+
+.help_ctr_hdr_ctnt_srchRslt_cardBox .help_ctr_hdr_ctnt_srchRslt_cardLnk
+{
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.help_ctr_hdr_ctnt_srchRslt_cardLnk .help_ctr_hdr_ctnt_srchRslt_cardTxt
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 1rem;
+}
+
+
 
 
 
@@ -627,6 +727,16 @@ html:root
         --help_ctr_hdr_ctnt_srchIconSize: 1rem;
         --help_ctr_tpc_all_gridCardWidth: 10rem;
         --help_ctr_more_ctnt_card_iconSize: 2rem;
+    }
+    
+    .genBtnBox.help_ctr_nav_srch_btn_mbl
+    {
+        display: flex;
+    }
+
+    .genBtnBox.help_ctr_nav_srch_btn_pc
+    {
+        display: none;
     }
 
     .help_ctr_hdr_ctnt_ttlBox_mnr .help_ctr_hdr_ctnt_ttlTxt_mnr
