@@ -85,7 +85,6 @@
                         </div>
                         <div class="help_ctr_more_ctnt_bdr">
                             <div class="help_ctr_more_ctnt_box">
-
                                 <div class="help_ctr_more_ctnt_cardBdr">
                                     <div class="help_ctr_more_ctnt_cardBox">
                                         <div class="help_ctr_more_ctnt_card_iconBdr">
@@ -135,7 +134,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
