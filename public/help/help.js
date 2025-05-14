@@ -103,7 +103,7 @@
                                                 <div class="help_ctr_more_ctnt_card_det_descBox">
                                                     <p class="help_ctr_more_ctnt_card_det_descTxt">
                                                         We're happy to assist you, whenever you need us. 
-                                                        Log in to visit our Contact page for further assistance.
+                                                        Visit our Contact page for further assistance.
                                                     </p>
                                                 </div>
                                             </div>
