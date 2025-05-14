@@ -257,6 +257,7 @@ html:root
     border-bottom: var(--help_ctr_hdr_ctnt_srchRslt_boxTip) solid var(--genGreyTypeMid);
     border-right: var(--help_ctr_hdr_ctnt_srchRslt_boxTip) solid #00000000;
     border-left: var(--help_ctr_hdr_ctnt_srchRslt_boxTip) solid #00000000;
+    transition: all 300ms ease-in-out;
 }
 
 .help_ctr_hdr_ctnt_srchRslt_box .help_ctr_hdr_ctnt_srchRslt_hdrBox
