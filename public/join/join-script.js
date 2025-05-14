@@ -359,20 +359,20 @@
         const existingUser = users.find(user => user.username === username);
         if (existingUser) 
         {
-            console.log('Username already exists!');
+            // console.log('Username already exists!');
             return;
         }
     
         // Add the new user to localStorage
         users.push({ username, password });
         localStorage.setItem('uvidUsers', JSON.stringify(users));
-        console.log('Prep successfull');
+        // console.log('Prep successfull');
     }
 
     // Store the new user credentials
     function storeNewCred(username, password)
     {
-        console.log(`User: ${username}\nPass: ${password}`);
+        // console.log(`User: ${username}\nPass: ${password}`);
         const users = JSON.parse(localStorage.getItem('uvidSignedInUser')) || [];        
 
         const existingUser = users.find(user => user.username === username);
@@ -886,13 +886,13 @@
                 function signIn(username, password) 
                 {
                     const users = JSON.parse(localStorage.getItem('uvidUsers')) || [];
-                    console.log(users)
+                    // console.log(users)
                     
                     // Validate credentials
                     const user = users.find(user => user.username === username && user.password === password);
                     if (user) 
                     {
-                        console.log('Sign-in successful!');
+                        // console.log('Sign-in successful!');
                         
                         // Store details of signed in user
                         localStorage.setItem('uvidSignedInUser', JSON.stringify(user));
@@ -901,7 +901,9 @@
                         testTimer = setTimeout(() => 
                         {
                             clearTimeout(testTimer);
-                            opn_dtn();
+                            
+                            // Checks and defers to the page user might have been trying to access
+                            defer_page_route('get');
                         }, 1500);
                     }
                     // If incorrect, notify user
@@ -983,7 +985,7 @@
                 logInBtn.addEventListener("click" , () => 
                 {
                     signIn(userName.value , userPassword.value);
-                    console.log(userName.value , userPassword.value);
+                    // console.log(userName.value , userPassword.value);
                 });
 
 
@@ -1476,7 +1478,6 @@
 
                     // Generate a random secret key
                     var secret = generateRandomString(32);
-                    // console.log('Secret key:', secret);
 
                     // Generate OTP num
                     function generateOTP()
@@ -1497,9 +1498,7 @@
                         verCodeSubTitleCtnt.textContent = "Request a code";
 
                         // Gets code
-                        // let thisVercart = generateRandomString();
                         let thisVercart = generateOTP();
-                        // console.log(" val => " + thisVercart);
                         
                         // Stores user input for code
                         let enterCodeArray = [];
@@ -1523,7 +1522,6 @@
 
                                 if((askForCdeRun == 1) && (sec > 0))
                                 {
-                                    console.log("Haven't seen your code? \nWill you like to have it displayed? (for dev testing)");
                                     let askIfNoCode = confirm("Haven't seen your code? \nWill you like to have it displayed? (for dev testing)");
                                     if(!(askIfNoCode == false))
                                     {
@@ -1548,7 +1546,6 @@
 
                         // Email content
                         let currVerC = thisVercart;
-                        // console.log("email val => " + currVerC);
                         let new_email_verBtn = destination;
                         let new_email_verSubject = "Account Creation";
                         let new_email_verBody = "This is a OTP request for " + personnel + ". Your OTP is " + currVerC +" \n\n . Please do not share this code with anyone.";

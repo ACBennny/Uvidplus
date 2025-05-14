@@ -234,6 +234,27 @@
         window.location.hash = last_hash_page;
     }
 
+    // Goes to the page user originally attempted accessing after signing in
+    function defer_page_route(atn = "set")
+    {
+        if(atn === "get")
+        {
+            // After logging in, the attempted page is opened. If none, it defaults to the home page
+            let attempt_pg_str = JSON.parse(localStorage.getItem('uvid_attemt_pages')) || "#/home";
+            localStorage.removeItem('uvid_attemt_pages');
+            window.location.hash = attempt_pg_str;
+        }
+        else
+        {
+            // Stores the page user is attempting to access
+            let curr_pg = window.location.hash || "#/home";
+            localStorage.removeItem('uvid_attemt_pages');
+            localStorage.setItem('uvid_attemt_pages', JSON.stringify(curr_pg));
+
+            if(!(getSignedInUser())) window.location.hash = "#/join";
+        }
+    }
+
     // Handles routing process
     function page_router()
     {
@@ -294,7 +315,7 @@
         // Default to login page if user tries to access auth required pages
         if((curr_route.route_auth) && !(isUsrIn))
         {
-            window.location.hash = "#/join";
+            defer_page_route('set');
             return;
         }
 
@@ -302,7 +323,6 @@
         if((curr_route.route_pbl_only) && (isUsrIn))
         {
             window.location.hash = "#/home";
-            console.log("public access only");
         }
 
         // Initialize navbars if user is signed-in
