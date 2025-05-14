@@ -239,7 +239,6 @@
             {
                 // Checking for movies
                 document.querySelector(".ep_dwld_btn").innerHTML = showInDLMenuOptStruct;
-                console.log("movie alr dwlded")
             }
             else
             {
@@ -256,7 +255,6 @@
                         {
                             document.querySelector(".ep_dwld_btn").innerHTML = showInDLMenuOptStruct;
                             document.querySelector(".ep_dwld_btn").disabled = true;
-                            console.log("ep alr dwlded")
                         }
                     }
                 });
@@ -302,7 +300,6 @@
 
             // Sort the episodes in ascending order
             isInDL[0].dl_eps = isInDL[0].dl_eps.sort((a, b) => a.dl_ep_num - b.dl_ep_num);
-            console.log(dwld_lib);
 
             // Notify user
             notification('notifyGood' , `Added to downloads`);
@@ -333,7 +330,6 @@
                     dl_eps: epArr,
                 }
             );
-            console.log(dwld_lib);
 
             // Notify user
             notification('notifyGood' , `Added to downloads`);
@@ -366,8 +362,6 @@
             // Sort the episodes in ascending order
             isInDL[0].dl_eps = isInDL[0].dl_eps.sort((a, b) => a.dl_ep_num - b.dl_ep_num);
 
-            console.log(dwld_lib);
-
             // Notify user
             notification('notifyGood' , `Added to downloads`);
         }
@@ -387,7 +381,6 @@
                         dl_mov_lang: `${showLang}`,
                     }
                 );
-                console.log(dwld_lib);
 
                 // Notify user
                 notification('notifyGood' , `Added to downloads`);
@@ -412,7 +405,6 @@
                         ],
                     }
                 );
-                console.log(dwld_lib);
 
                 // Notify user
                 notification('notifyGood' , `Added to downloads`);
