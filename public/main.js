@@ -100,7 +100,7 @@
                     </div>
                     <div class="footer">
                         <div class="logoBox">
-                            <a onclick="prev_page_route()" class="logo">
+                            <a onclick="window.location.hash = page_route_fallback()" class="logo">
                                 <h2 class="logo1">U</h2>
                                 <h2 class="logo2">VID</h2>
                             </a>
@@ -130,7 +130,7 @@
                     </div>
                     <div class="footer">
                         <div class="logoBox">
-                            <a onclick="prev_page_route()" class="logo">
+                            <a onclick="window.location.hash = page_route_fallback()" class="logo">
                                 <h2 class="logo1">U</h2>
                                 <h2 class="logo2">VID</h2>
                             </a>
@@ -145,7 +145,7 @@
         <div class="topNavBdr">
             <div class="topNavBox">
                 <section class="topNav_section">
-                    <div class="company_logoBdr" onclick="page_route_fallback()">
+                    <div class="company_logoBdr" onclick="window.location.hash = page_route_fallback()">
                         <div class="company_logoBox Companylogo">
                             <img src="/images/uvid-logo.png" alt="" class="company_logoImg">
                         </div>
