@@ -77,7 +77,7 @@
         {
             route_pbl_only: false,
             route_auth: false,
-            route_atn: "init_help_ctr",
+            route_atn: "nav_help_pgs",
             route_title: "Uvid • Help Center",
         },
         'news': 
