@@ -21,7 +21,7 @@
         topNavBar.innerHTML = help_ctr_nav;
 
         // Insert Sign In button if user not signed in
-        if((getSignedInUser())) document.querySelector(".topNav_section:last-child").insertAdjacentHTML(
+        if(!(getSignedInUser())) document.querySelector(".topNav_section:last-child").insertAdjacentHTML(
             "beforeend" , 
             `
                 <a href="#/join" type="button" class="genBtnBox  midSolidBtn">
