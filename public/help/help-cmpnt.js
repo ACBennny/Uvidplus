@@ -50,15 +50,7 @@ const uvid_help_ctr_struct =
                                             <span class="help_ctr_hdr_ctnt_srchRslt_hdrText">Top Suggestions</span>
                                         </div>
                                         <div class="help_ctr_hdr_ctnt_srchRslt_gridBdr">
-                                            <div class="help_ctr_hdr_ctnt_srchRslt_gridBox">
-                                                <div class="help_ctr_hdr_ctnt_srchRslt_cardBdr">
-                                                    <div class="help_ctr_hdr_ctnt_srchRslt_cardBox">
-                                                        <a href="javascript:;" class="help_ctr_hdr_ctnt_srchRslt_cardLnk">
-                                                            <p class="help_ctr_hdr_ctnt_srchRslt_cardTxt">No results found. Try something else.</p>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <div class="help_ctr_hdr_ctnt_srchRslt_gridBox"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -168,7 +160,7 @@ const help_ctr_nav =
     <div class="topNavBdr">
         <div class="topNavBox">
             <section class="topNav_section">
-                <div class="company_logoBdr">
+                <div onclick="window.location.hash = page_route_fallback()" class="company_logoBdr">
                     <div class="company_logoBox Companylogo">
                         <img src="/images/uvid-logo.png" alt="" class="company_logoImg">
                     </div>
@@ -225,15 +217,7 @@ const help_ctr_srch_struct =
                                     <span class="help_ctr_hdr_ctnt_srchRslt_hdrText">Top Suggestions</span>
                                 </div>
                                 <div class="help_ctr_hdr_ctnt_srchRslt_gridBdr">
-                                    <div class="help_ctr_hdr_ctnt_srchRslt_gridBox">
-                                        <div class="help_ctr_hdr_ctnt_srchRslt_cardBdr">
-                                            <div class="help_ctr_hdr_ctnt_srchRslt_cardBox">
-                                                <a href="javascript:;" class="help_ctr_hdr_ctnt_srchRslt_cardLnk">
-                                                    <p class="help_ctr_hdr_ctnt_srchRslt_cardTxt">No results found. Try something else.</p>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <div class="help_ctr_hdr_ctnt_srchRslt_gridBox"></div>
                                 </div>
                             </div>
                         </div>
@@ -243,27 +227,12 @@ const help_ctr_srch_struct =
             <div class="help_ctr_srch_pg_rsltBdr">
                 <div class="help_ctr_srch_pg_rsltBox">
                     <div class="help_ctr_srch_pg_rsltTxt">
-                        Results for "<span id="help_ctr_srch_pg_rslTerm"></span>"
+                        Results for "<span class="help_ctr_srch_pg_rslTerm"></span>"
                     </div>
                 </div>
             </div>
             <div class="help_ctr_srch_pg_gridBdr">
-                <div class="help_ctr_srch_pg_gridBox">
-                    <div class="help_ctr_srch_pg_cardBdr">
-                        <div class="help_ctr_srch_pg_cardBox">
-                            <a href="javascript:;" class="help_ctr_srch_pg_cardLnk">
-                                <p class="help_ctr_srch_pg_cardTxt">No results found.</p>
-                            </a>
-                            <div class="help_ctr_srch_pg_card_iconBdr">
-                                <div class="help_ctr_srch_pg_card_iconBox">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="help_ctr_srch_pg_card_iconSvg">
-                                        <path fill-rule="evenodd" d="M8.512 4.43a.75.75 0 0 1 1.057.082l6 7a.75.75 0 0 1 0 .976l-6 7a.75.75 0 0 1-1.138-.976L14.012 12L8.431 5.488a.75.75 0 0 1 .08-1.057" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="help_ctr_srch_pg_gridBox"></div>
             </div>
         </div>
     </div>
@@ -287,7 +256,7 @@ let pplr_tpc_arr =
     },
     {
         pplr_tpc_id: `82541406`,
-        pplr_tpc_name: `How can I change my eamil address?`,
+        pplr_tpc_name: `How can I change my email address?`,
     },
     {
         pplr_tpc_id: `38427142`,

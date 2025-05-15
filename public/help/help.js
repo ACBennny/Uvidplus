@@ -153,6 +153,7 @@
         documentTitle.textContent = "Uvid • Help Center - Search";
         documentCtnt.insertAdjacentHTML(`afterbegin`, help_ctr_srch_struct);
         attachHelpCtrSrchFldListeners();
+        help_ctr_srch_pg_rslt_ctg();
     }
 
     // Searching with the search box
@@ -164,6 +165,13 @@
         // Handles input in the searc field
         help_ctr_srch_fld_Inp.forEach((old_btn) => 
         {
+            if(old_btn.fld_inp_atn)
+            {
+                old_btn.removeEventListener("keyup", old_btn.fld_inp_atn);
+            }
+        });
+        help_ctr_srch_fld_Inp.forEach((old_btn) => 
+        {
             if(old_btn.fld_key_atn)
             {
                 old_btn.removeEventListener("keyup", old_btn.fld_key_atn);
@@ -172,7 +180,7 @@
 
         help_ctr_srch_fld_Inp.forEach((new_btn, btn_index) => 
         {
-            const key_atn = () => 
+            const inp_atn = (e) => 
             {
                 // Update result text and Hide/Unhide x-mark button while typing
                 if(new_btn.value.length > 0)
@@ -183,8 +191,22 @@
                 {
                     help_ctr_srch_fld_xmk[btn_index].classList.remove("is_typing");
                 }
+
+                // Display top suggestions
+                help_ctr_qck_srch_rslt_ctg(new_btn.value);
+            }
+
+            const key_atn = (e) => 
+            {
+                // If user presses enter key, open the searhc page to show more results
+                if(typeof e.key !== "undefined") 
+                {
+                    if(e.key.toLowerCase() === "enter") help_ctr_srch_all_in_pg(new_btn.value);
+                }
             }
             
+            new_btn.addEventListener("keyup", inp_atn);
+            new_btn.fld_inp_atn = inp_atn;
             new_btn.addEventListener("keyup", key_atn);
             new_btn.fld_key_atn = key_atn;
         });
@@ -202,10 +224,155 @@
         {
             const xmk_clr = () => 
             {
-                help_ctr_srch_fld_Inp[xmk_index].value = "";
+                help_ctr_srch_fld_Inp[xmk_index].value = null;
             }
 
             curr_xmk.addEventListener("click", xmk_clr);
             curr_xmk.clr_atn = xmk_clr;
         });
+    }
+
+
+    // Go to search page when enter key is pressed to show all results
+    function help_ctr_srch_all_in_pg(qry)
+    {
+        let qry_to_param = encodeURIComponent(qry);
+        let new_url = `#/help/search/?s=${qry_to_param}`;
+        window.open(new_url, '_self');
+    }
+
+
+    // Insert results for the quick search (Top Suggestions)
+    function help_ctr_qck_srch_rslt_ctg(qry)
+    {
+        let ctnt_srchBdr = document.querySelector(".help_ctr_hdr_ctnt_srchBdr");
+        let srchRslt_bdr = document.querySelector(".help_ctr_hdr_ctnt_srchRslt_bdr");
+        let srchRslt_gridBox = document.querySelector(".help_ctr_hdr_ctnt_srchRslt_gridBox");
+        let srch_qry = qry.toString();
+        let rslt_ctg_struct = ``;
+
+        // Filter for items matching the search term
+        let mtch_srch = pplr_tpc_arr.filter(pplr_item => pplr_item.pplr_tpc_name.toLowerCase().includes(srch_qry.toLowerCase()));
+        mtch_srch = mtch_srch.slice(0,3);
+
+        // Return if character length is less than one
+        if((srch_qry === ""))
+        {
+            srchRslt_bdr.classList.remove("active");
+            return;
+        }
+
+        // Display Empty result if no match found
+        if((mtch_srch <= 0))
+        {
+            srchRslt_gridBox.innerHTML = 
+            `
+                <div class="help_ctr_hdr_ctnt_srchRslt_cardLnk">
+                    <div class="help_ctr_hdr_ctnt_srchRslt_cardBdr">
+                        <div class="help_ctr_hdr_ctnt_srchRslt_cardBox">
+                            <p class="help_ctr_hdr_ctnt_srchRslt_cardTxt">No results found. Try another term.</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            return;
+        }
+
+        // Display results in the catalog
+        for(let i = 0; i < mtch_srch.length; i++)
+        {
+            let mtch_item = mtch_srch[i];
+            rslt_ctg_struct += 
+            `
+                <a href="javascript:;" class="help_ctr_hdr_ctnt_srchRslt_cardLnk" onclick="notification('notifyBad', 'Article unavailable at this time')">
+                    <div class="help_ctr_hdr_ctnt_srchRslt_cardBdr">
+                        <div class="help_ctr_hdr_ctnt_srchRslt_cardBox">
+                            <p class="help_ctr_hdr_ctnt_srchRslt_cardTxt">${mtch_item.pplr_tpc_name}</p>
+                        </div>
+                    </div>
+                </a>
+            `;
+        }
+        srchRslt_gridBox.innerHTML = rslt_ctg_struct;
+
+        // Display result dialog if hidden
+        if(!(srchRslt_bdr.classList.contains("active")))
+        {
+            srchRslt_bdr.classList.add("active");
+            document.addEventListener("click" , function cls_srchRslt_bdr()
+            {
+                if(ctnt_srchBdr.matches(":hover")) return;
+                document.removeEventListener("click", cls_srchRslt_bdr);
+                srchRslt_bdr.classList.remove("active");
+            });
+        }
+    }
+
+
+    // Insert Results for the page search
+    function help_ctr_srch_pg_rslt_ctg()
+    {
+        let help_ctr_srch_pg_rslTerm = document.querySelector(".help_ctr_srch_pg_rslTerm");
+        let help_ctr_srch_pg_gridBox = document.querySelector(".help_ctr_srch_pg_gridBox");
+        let srch_param = new URLSearchParams(hash_parts[3]);
+        let srch_qry = srch_param.get("s") || "";
+        let rslt_ctg_struct = ``;
+
+        // Filter for items matching the search term
+        let mtch_srch = pplr_tpc_arr.filter(pplr_item => pplr_item.pplr_tpc_name.toLowerCase().includes(srch_qry.toLowerCase()));
+
+        // Display Empty result if no match found
+        if((mtch_srch <= 0) || (srch_qry === ""))
+        {
+            help_ctr_srch_pg_gridBox.innerHTML = 
+            `
+                <label for="help_ctr_srch_pg_srchFldId" onclick="window.scrollTo(null,0)" class="help_ctr_srch_pg_cardLnk">
+                    <div class="help_ctr_srch_pg_cardBdr">
+                        <div class="help_ctr_srch_pg_cardBox">
+                            <p class="help_ctr_srch_pg_cardTxt">No results found.</p>
+                        </div>
+                        <div class="help_ctr_srch_pg_card_iconBdr">
+                            <div class="help_ctr_srch_pg_card_iconBox">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="help_ctr_srch_pg_card_iconSvg">
+                                    <path fill-rule="evenodd" d="M8.512 4.43a.75.75 0 0 1 1.057.082l6 7a.75.75 0 0 1 0 .976l-6 7a.75.75 0 0 1-1.138-.976L14.012 12L8.431 5.488a.75.75 0 0 1 .08-1.057" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </label>
+            `;
+
+            return;
+        }
+
+        // Display results in the catalog
+        for(let i = 0; i < mtch_srch.length; i++)
+        {
+            let mtch_item = mtch_srch[i];
+            rslt_ctg_struct += 
+            `
+                <a href="javascript:;" onclick="notification('notifyBad', 'Article unavailable at this time')" class="help_ctr_srch_pg_cardLnk">
+                    <div class="help_ctr_srch_pg_cardBdr">
+                        <div class="help_ctr_srch_pg_cardBox">
+                            <p class="help_ctr_srch_pg_cardTxt">${mtch_item.pplr_tpc_name}</p>
+                        </div>
+                        <div class="help_ctr_srch_pg_card_iconBdr">
+                            <div class="help_ctr_srch_pg_card_iconBox">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="help_ctr_srch_pg_card_iconSvg">
+                                    <path fill-rule="evenodd" d="M8.512 4.43a.75.75 0 0 1 1.057.082l6 7a.75.75 0 0 1 0 .976l-6 7a.75.75 0 0 1-1.138-.976L14.012 12L8.431 5.488a.75.75 0 0 1 .08-1.057" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            `;
+        }
+        help_ctr_srch_pg_gridBox.innerHTML = rslt_ctg_struct;
+
+        // Update the label text
+        help_ctr_srch_pg_rslTerm.textContent = `${srch_qry.toUpperCase()}`;
+
+        // Update the input fields
+        document.querySelectorAll(".help_ctr_hdr_ctnt_srchFldCls").forEach((fld) => fld.value = srch_qry);
     }
