@@ -10,7 +10,7 @@
     `
         <div class="feedback_base">
             <div class="feedback_bdr">
-                <div class="feedback_bcg feedback_closeBtn"></div>
+                <div class="feedback_bcg"></div>
                 <div class="feedback_box">
                     <form id="feedback_form" class="feedback_form">
                         <div class="feedback_closeBdr feedback_closeBtn">
