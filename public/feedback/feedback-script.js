@@ -38,7 +38,7 @@
                                     <select type="number" name="feedback_type" id="feedback_type" class="feedback_sectField feedback_sectSelect" disabled>
                                         <option value="N/A">Select an option</option>
                                         <option value="Bug Report">Bug Report</option>
-                                        <option value="Login Issue">Login Issue</option>
+                                        <option value="Help Center Article">Help Center Article</option>
                                         <option value="Suggestion">Suggestion</option>
                                         <option value="Feature Request">Feature Request</option>
                                         <option value="Other">Other</option>
