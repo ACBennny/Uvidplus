@@ -166,12 +166,6 @@
         sendButton = document.getElementById("fdbk_send");
         form_id_js = js_form.getAttribute('id');
 
-        // Update background to the current profile's
-        if(typeof selectedProfile !== "undefined")
-        {
-            document.querySelector(`.feedback_bcg`).setAttribute(`style` , `background-image: url(${selectedProfile.prof_bcgImg})`);
-        }
-
         // Remove previous event listeners (if any)
         closeButton.forEach((btn) => 
         {
