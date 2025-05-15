@@ -200,6 +200,7 @@ html:root
 {
     width: 100%;
     display: block;
+    background-image: radial-gradient(100% 100% at 50% 50%, var(--genGreenTypeDark2) 0%, #00000000 40%);
 }
 
 .catalogBase.hide
