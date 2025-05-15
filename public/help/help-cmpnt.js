@@ -8,8 +8,8 @@
 
 
 
-
-const uvid_hlep_struct = 
+// Help Center Struct
+const uvid_help_ctr_struct = 
 `
     <div class="help_ctr_bdr">
         <div class="help_ctr_box">
@@ -33,16 +33,16 @@ const uvid_hlep_struct =
                             <div class="help_ctr_hdr_ctnt_srchBdr">
                                 <div class="help_ctr_hdr_ctnt_srchBox">
                                     <input type="text" name="help_ctr_hdr_ctnt_srchFld" id="help_ctr_hdr_ctnt_srchFldId" class="help_ctr_hdr_ctnt_srchFldCls" placeholder="Type a question, topic, or issue">
-                                    <div class="help_ctr_hdr_ctnt_srchIcon find_icon">
+                                    <label for="help_ctr_hdr_ctnt_srchFldId" class="help_ctr_hdr_ctnt_srchIcon find_icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="help_ctr_hdr_ctnt_srchSvg">
                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 2.75a8.75 8.75 0 1 0 0 17.5a8.75 8.75 0 0 0 0-17.5M1.25 11.5c0-5.66 4.59-10.25 10.25-10.25S21.75 5.84 21.75 11.5c0 2.56-.939 4.902-2.491 6.698l3.271 3.272a.75.75 0 1 1-1.06 1.06l-3.272-3.271A10.2 10.2 0 0 1 11.5 21.75c-5.66 0-10.25-4.59-10.25-10.25"/>
                                         </svg>
-                                    </div>
-                                    <div class="help_ctr_hdr_ctnt_srchIcon clear_icon hide">
+                                    </label>
+                                    <label for="help_ctr_hdr_ctnt_srchFldId" class="help_ctr_hdr_ctnt_srchIcon clear_icon hide">
                                         <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="help_ctr_hdr_ctnt_srchSvg">
                                             <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
                                         </svg>
-                                    </div>
+                                    </label>
                                 </div>
                                 <div class="help_ctr_hdr_ctnt_srchRslt_bdr">
                                     <div class="help_ctr_hdr_ctnt_srchRslt_box">
@@ -79,7 +79,7 @@ const uvid_hlep_struct =
                             </div>
                         </div>
                     </div>
-                    <div class="help_ctr_tpc_sect_bdr">
+                    <div class="help_ctr_tpc_sect_bdr" id="help_ctr_faq">
                         <div class="help_ctr_tpc_sect_box">
                             <div class="help_ctr_tpc_sect_hdrBox">
                                 <div class="help_ctr_tpc_sect_hdrTxt">Popular Topics</div>
@@ -178,14 +178,14 @@ const help_ctr_nav =
                 </a>
             </section>
             <section class="topNav_section">
-                <button type="button" class="genBtnBox genIconBtn transBtn help_ctr_nav_srch_btn_mbl">
+                <button type="button" onclick="window.open('#/help/search', '_self')" class="genBtnBox genIconBtn transBtn help_ctr_nav_srch_btn_mbl">
                     <div class="genBtnIcon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 2.75a8.75 8.75 0 1 0 0 17.5a8.75 8.75 0 0 0 0-17.5M1.25 11.5c0-5.66 4.59-10.25 10.25-10.25S21.75 5.84 21.75 11.5c0 2.56-.939 4.902-2.491 6.698l3.271 3.272a.75.75 0 1 1-1.06 1.06l-3.272-3.271A10.2 10.2 0 0 1 11.5 21.75c-5.66 0-10.25-4.59-10.25-10.25"/>
                         </svg>
                     </div>
                 </button>
-                <button type="button" class="genBtnBox greySolidBtn help_ctr_nav_srch_btn_pc">
+                <button type="button" onclick="window.open('#/help/search', '_self')" class="genBtnBox greySolidBtn help_ctr_nav_srch_btn_pc">
                     <div class="genBtnIcon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 2.75a8.75 8.75 0 1 0 0 17.5a8.75 8.75 0 0 0 0-17.5M1.25 11.5c0-5.66 4.59-10.25 10.25-10.25S21.75 5.84 21.75 11.5c0 2.56-.939 4.902-2.491 6.698l3.271 3.272a.75.75 0 1 1-1.06 1.06l-3.272-3.271A10.2 10.2 0 0 1 11.5 21.75c-5.66 0-10.25-4.59-10.25-10.25"/>
@@ -194,6 +194,77 @@ const help_ctr_nav =
                     <div class="genBtnText">Search</div>
                 </button>
             </section>
+        </div>
+    </div>
+`;
+
+
+const help_ctr_srch_struct = 
+`
+    <div class="help_ctr_srch_pg_bdr">
+        <div class="help_ctr_srch_pg_box">
+            <div class="help_ctr_srch_pg_hdrBdr">
+                <div class="help_ctr_srch_pg_hdrBox">
+                    <div class="help_ctr_hdr_ctnt_srchBdr">
+                        <div class="help_ctr_hdr_ctnt_srchBox">
+                            <input type="text" name="help_ctr_srch_pg_srchFld" id="help_ctr_srch_pg_srchFldId" class="help_ctr_hdr_ctnt_srchFldCls" placeholder="Type a question, topic, or issue">
+                            <label for="help_ctr_srch_pg_srchFldId" class="help_ctr_hdr_ctnt_srchIcon find_icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="help_ctr_hdr_ctnt_srchSvg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 2.75a8.75 8.75 0 1 0 0 17.5a8.75 8.75 0 0 0 0-17.5M1.25 11.5c0-5.66 4.59-10.25 10.25-10.25S21.75 5.84 21.75 11.5c0 2.56-.939 4.902-2.491 6.698l3.271 3.272a.75.75 0 1 1-1.06 1.06l-3.272-3.271A10.2 10.2 0 0 1 11.5 21.75c-5.66 0-10.25-4.59-10.25-10.25"/>
+                                </svg>
+                            </label>
+                            <label for="help_ctr_srch_pg_srchFldId" class="help_ctr_hdr_ctnt_srchIcon clear_icon hide">
+                                <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="help_ctr_hdr_ctnt_srchSvg">
+                                    <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                                </svg>
+                            </label>
+                        </div>
+                        <div class="help_ctr_hdr_ctnt_srchRslt_bdr">
+                            <div class="help_ctr_hdr_ctnt_srchRslt_box">
+                                <div class="help_ctr_hdr_ctnt_srchRslt_hdrBox">
+                                    <span class="help_ctr_hdr_ctnt_srchRslt_hdrText">Top Suggestions</span>
+                                </div>
+                                <div class="help_ctr_hdr_ctnt_srchRslt_gridBdr">
+                                    <div class="help_ctr_hdr_ctnt_srchRslt_gridBox">
+                                        <div class="help_ctr_hdr_ctnt_srchRslt_cardBdr">
+                                            <div class="help_ctr_hdr_ctnt_srchRslt_cardBox">
+                                                <a href="javascript:;" class="help_ctr_hdr_ctnt_srchRslt_cardLnk">
+                                                    <p class="help_ctr_hdr_ctnt_srchRslt_cardTxt">No results found. Try something else.</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="help_ctr_srch_pg_rsltBdr">
+                <div class="help_ctr_srch_pg_rsltBox">
+                    <div class="help_ctr_srch_pg_rsltTxt">
+                        Results for "<span id="help_ctr_srch_pg_rslTerm"></span>"
+                    </div>
+                </div>
+            </div>
+            <div class="help_ctr_srch_pg_gridBdr">
+                <div class="help_ctr_srch_pg_gridBox">
+                    <div class="help_ctr_srch_pg_cardBdr">
+                        <div class="help_ctr_srch_pg_cardBox">
+                            <a href="javascript:;" class="help_ctr_srch_pg_cardLnk">
+                                <p class="help_ctr_srch_pg_cardTxt">No results found.</p>
+                            </a>
+                            <div class="help_ctr_srch_pg_card_iconBdr">
+                                <div class="help_ctr_srch_pg_card_iconBox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="help_ctr_srch_pg_card_iconSvg">
+                                        <path fill-rule="evenodd" d="M8.512 4.43a.75.75 0 0 1 1.057.082l6 7a.75.75 0 0 1 0 .976l-6 7a.75.75 0 0 1-1.138-.976L14.012 12L8.431 5.488a.75.75 0 0 1 .08-1.057" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 `;

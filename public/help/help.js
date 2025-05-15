@@ -7,10 +7,9 @@
 ****************************************************************/
 
 
-    // Initialize
-    function init_help_ctr()
+    // Help Center Routing
+    function nav_help_pgs()
     {
-        documentCtnt.insertAdjacentHTML('afterbegin' , uvid_hlep_struct);
 
         // Hide side and bottom navigation
         sideNavBar.classList.add("hidden");
@@ -30,11 +29,44 @@
             `
         );
 
+        // Get page if it exists
+        let hlp_pg = hash_parts[2] || null;
+
+        if(hlp_pg === "faq")
+        {
+            init_help_ctr("faq");
+        }
+        else if(hlp_pg === "search")
+        {
+            init_help_ctr_srch_pg();
+        }
+        else if(hlp_pg === "article")
+        {
+            console.log("help ctr -> article");
+        }
+        else
+        {
+            init_help_ctr();
+        }
+    }
+
+
+
+// HOME PAGE
+
+    // Initialize
+    function init_help_ctr(sect = "")
+    {
+        documentCtnt.insertAdjacentHTML('afterbegin' , uvid_help_ctr_struct);
+
         // Initialize other components
         init_pplr_tpc();
         init_all_tpc();
-    }
+        attachHelpCtrSrchFldListeners();
 
+        // Scroll to faq
+        if(sect === "faq") go_to_help_ctr_faq();
+    }
 
     // Inserts the popular topics (Pages unavailable)
     function init_pplr_tpc()
@@ -67,8 +99,6 @@
         pplr_grid_box.innerHTML = pplr_grid_struct;
     }
 
-
-
     // Inserts All topics categories (Pages unavailable)
     function init_all_tpc()
     {
@@ -94,4 +124,88 @@
         }
 
         all_grid_box.innerHTML = all_grid_struct;
+    }
+
+
+
+// FAQ
+
+    // Scroll to Popular Articles
+    function go_to_help_ctr_faq()
+    {
+        let faqSect = document.getElementById("help_ctr_faq").getBoundingClientRect();
+        let faqSectH = Math.ceil(((faqSect.top + window.pageYOffset) - 75));
+
+        window.scrollTo(
+        {
+            top: faqSectH,
+            behavior: "smooth"
+        });
+    }
+
+
+
+// SEARCH
+
+    // Initialize
+    function init_help_ctr_srch_pg()
+    {
+        documentTitle.textContent = "Uvid • Help Center - Search";
+        documentCtnt.insertAdjacentHTML(`afterbegin`, help_ctr_srch_struct);
+        attachHelpCtrSrchFldListeners();
+    }
+
+    // Searching with the search box
+    function attachHelpCtrSrchFldListeners()
+    {
+        const help_ctr_srch_fld_Inp = document.querySelectorAll(".help_ctr_hdr_ctnt_srchFldCls");
+        const help_ctr_srch_fld_xmk = document.querySelectorAll(".help_ctr_hdr_ctnt_srchIcon.clear_icon");
+
+        // Handles input in the searc field
+        help_ctr_srch_fld_Inp.forEach((old_btn) => 
+        {
+            if(old_btn.fld_key_atn)
+            {
+                old_btn.removeEventListener("keyup", old_btn.fld_key_atn);
+            }
+        });
+
+        help_ctr_srch_fld_Inp.forEach((new_btn, btn_index) => 
+        {
+            const key_atn = () => 
+            {
+                // Update result text and Hide/Unhide x-mark button while typing
+                if(new_btn.value.length > 0)
+                {
+                    help_ctr_srch_fld_xmk[btn_index].classList.add("is_typing");
+                }
+                else
+                {
+                    help_ctr_srch_fld_xmk[btn_index].classList.remove("is_typing");
+                }
+            }
+            
+            new_btn.addEventListener("keyup", key_atn);
+            new_btn.fld_key_atn = key_atn;
+        });
+
+        // CLears the search field
+        help_ctr_srch_fld_xmk.forEach((old_xmk) => 
+        {
+            if(old_xmk.clr_atn)
+            {
+                old_xmk.removeEventListener("keyup", old_xmk.clr_atn);
+            }
+        });
+
+        help_ctr_srch_fld_xmk.forEach((curr_xmk, xmk_index) => 
+        {
+            const xmk_clr = () => 
+            {
+                help_ctr_srch_fld_Inp[xmk_index].value = "";
+            }
+
+            curr_xmk.addEventListener("click", xmk_clr);
+            curr_xmk.clr_atn = xmk_clr;
+        });
     }
