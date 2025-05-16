@@ -224,7 +224,8 @@
         {
             const xmk_clr = () => 
             {
-                help_ctr_srch_fld_Inp[xmk_index].value = null;
+                help_ctr_srch_fld_Inp[xmk_index].value = "";
+                curr_xmk.classList.remove("is_typing");
             }
 
             curr_xmk.addEventListener("click", xmk_clr);
@@ -376,3 +377,9 @@
         // Update the input fields
         document.querySelectorAll(".help_ctr_hdr_ctnt_srchFldCls").forEach((fld) => fld.value = srch_qry);
     }
+
+
+
+// ARTICLE
+
+    //
