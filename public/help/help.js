@@ -209,6 +209,9 @@
             new_btn.fld_inp_atn = inp_atn;
             new_btn.addEventListener("keyup", key_atn);
             new_btn.fld_key_atn = key_atn;
+
+            // Focus on the search bar
+            new_btn.focus();
         });
 
         // CLears the search field
