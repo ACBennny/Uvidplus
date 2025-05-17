@@ -156,7 +156,7 @@
 
     function init_FeedbackForm()
     {
-        document.body.insertAdjacentHTML(`beforeend` , feedback_struct);
+        documentCtnt.insertAdjacentHTML(`beforeend` , feedback_struct);
 
         feedback_base = document.querySelector(".feedback_base");
         js_form = document.getElementById("feedback_form");
