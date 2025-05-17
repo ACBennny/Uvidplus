@@ -210,11 +210,11 @@
             new_btn.addEventListener("keyup", key_atn);
             new_btn.fld_key_atn = key_atn;
 
-            // Focus on the search bar
-            new_btn.focus();
+            // Focus on the search bar if on the search page
+            if((hash_parts[2] === "search")) new_btn.focus();
         });
 
-        // CLears the search field
+        // Clears the search field
         help_ctr_srch_fld_xmk.forEach((old_xmk) => 
         {
             if(old_xmk.clr_atn)
