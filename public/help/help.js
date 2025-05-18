@@ -167,7 +167,7 @@
         {
             if(old_btn.fld_inp_atn)
             {
-                old_btn.removeEventListener("keyup", old_btn.fld_inp_atn);
+                old_btn.removeEventListener("input", old_btn.fld_inp_atn);
             }
         });
         help_ctr_srch_fld_Inp.forEach((old_btn) => 
@@ -205,7 +205,7 @@
                 }
             }
             
-            new_btn.addEventListener("keyup", inp_atn);
+            new_btn.addEventListener("input", inp_atn);
             new_btn.fld_inp_atn = inp_atn;
             new_btn.addEventListener("keyup", key_atn);
             new_btn.fld_key_atn = key_atn;
@@ -229,6 +229,7 @@
             {
                 help_ctr_srch_fld_Inp[xmk_index].value = "";
                 curr_xmk.classList.remove("is_typing");
+                help_ctr_qck_srch_rslt_ctg("");
             }
 
             curr_xmk.addEventListener("click", xmk_clr);
