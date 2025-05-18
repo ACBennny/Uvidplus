@@ -6600,6 +6600,30 @@ only screen and (max-height: 30.375rem)
         width: 100%;
     }
 
+    .feedback_bdr .feedback_box
+    {
+        max-width: none;
+        height: 100%;
+        padding: 0rem;
+    }
+
+    .feedback_box .feedback_form
+    {
+        padding-top: 2rem;
+        border-radius: 0rem;
+    }
+
+    .feedback_form .feedback_closeBdr
+    {
+        margin: 1rem;
+    }
+
+    .feedback_closeBdr .feedback_closeBox
+    {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
     .feedback_ctnt .feedback_selectBdr
     {
         flex-direction: column;
@@ -6630,7 +6654,7 @@ only screen and (max-height: 30.375rem)
 }
 
 
-@media only screen and (max-width: 35.125rem)
+@media only screen and (max-width: 35.3125rem)
 {
     html:root
     {
