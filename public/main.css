@@ -465,7 +465,21 @@ button
 {
     opacity: 1;
     visibility: visible;
-    transform: translateX(0);
+    transform: translateX(0%);
+}
+
+
+/* -------- Placing on the LEFT side of the screen ------- */
+html:has( .backtotop_float_left) .backtotop_float
+{
+    right: unset;
+    left: var(--genBorderSpacing);
+    transform: translateX(-100%);
+}
+
+html:has( .backtotop_float_left) .backtotop_float.float
+{
+    transform: translateX(0%);
 }
 
 
