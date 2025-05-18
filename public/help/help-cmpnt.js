@@ -11,7 +11,7 @@
 // Help Center Struct
 const uvid_help_ctr_struct = 
 `
-    <div class="help_ctr_bdr">
+    <div class="help_ctr_bdr backtotop_float_left">
         <div class="help_ctr_box">
             <div class="help_ctr_hdr_bdr">
                 <div class="help_ctr_hdr_box">
@@ -110,12 +110,12 @@ const uvid_help_ctr_struct =
                                     <div class="help_ctr_more_ctnt_card_detBdr">
                                         <div class="help_ctr_more_ctnt_card_detBox">
                                             <div class="help_ctr_more_ctnt_card_det_ttlBox">
-                                                <a href="#/contact" class="help_ctr_more_ctnt_card_det_ttlTxt">Get in Touch</a>
+                                                <a href="javascript:;" onclick="notification('notifyBad', 'Service unavailable at this time')" class="help_ctr_more_ctnt_card_det_ttlTxt">Get in Touch</a>
                                             </div>
                                             <div class="help_ctr_more_ctnt_card_det_descBox">
                                                 <p class="help_ctr_more_ctnt_card_det_descTxt">
                                                     We're happy to assist you, whenever you need us. 
-                                                    Visit our Contact page for further assistance.
+                                                    Chat with our virtual assistant or speak to an agent.
                                                 </p>
                                             </div>
                                         </div>
