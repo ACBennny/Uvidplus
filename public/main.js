@@ -542,7 +542,7 @@
                                     <a href="#/feedback" title="Feedback" class="footerlinks footer_UsefulLinks">Feedback</a>
                                 </div>
                                 <div class="footer_UsefulLinksBox">
-                                    <a href="#/contact" title="Contact Us" class="footerlinks footer_UsefulLinks">Contact Us</a>
+                                    <a href="#/help/contact" title="Contact Us" class="footerlinks footer_UsefulLinks">Contact Us</a>
                                     <a href="#/ad-choices" title="Ad Choices" class="footerlinks footer_UsefulLinks">Ad Choices</a>
                                     <a href="#/copyright" title="Copyright" class="footerlinks footer_UsefulLinks">Copyright</a>
                                 </div>
