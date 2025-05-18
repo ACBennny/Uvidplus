@@ -177,6 +177,199 @@ html:has(body[data-modal-state="open"])
     overflow: hidden !important;
 }
 
+
+
+::-moz-selection
+{
+    background: #202720;
+    color: var(--genGreenTypeLight);
+}
+
+::selection
+{
+    background: #202720;
+    color: var(--genGreenTypeLight);
+}
+
+::-ms-input-placeholder
+{
+    fill:  var(--genWhiteTypeDark);
+    color: var(--genWhiteTypeDark);
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+::-moz-placeholder
+{
+    fill:  var(--genWhiteTypeDark);
+    color: var(--genWhiteTypeDark);
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    opacity: 1;
+}
+
+::-webkit-input-placeholder
+{
+    fill:  var(--genWhiteTypeDark);
+    color: var(--genWhiteTypeDark);
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+::placeholder
+{
+    fill:  var(--genWhiteTypeDark);
+    color: var(--genWhiteTypeDark);
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+/* -----------------preloader----------------- */
+#preloader
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000cd;
+    -webkit-backdrop-filter: blur(1.5625rem);
+    backdrop-filter: blur(1.5625rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition:all .2s ease-out;
+    z-index: 10000000000000;
+}
+
+#preloader.preloadClose
+{
+    display: none !important;
+}
+
+#spinner
+{
+    width: 3.75rem;
+    height: 3.125rem;
+    border-right: 0.9375rem solid #21c92cb8;
+    border-bottom: 0.625rem solid #b1b1b1;
+    border-left: 0.9375rem solid #21c92cb8;
+    border-top: 0.6875rem solid transparent;
+    border-radius: 0.625rem;
+    animation: spi 2000ms linear infinite;
+}
+
+
+@keyframes spi
+{
+    0%
+    {
+        transform: translateY(-50%);
+    }
+    50%
+    {
+        transform: translateY(0%);
+    }
+    100%
+    {
+        transform: translateY(-50%);
+    }
+}
+
+
+
+
+
+
+/* ================ PRELOADER 2 ============== */
+
+.preload_2_bdr
+{
+    width: 100%;
+    height: 100%;
+    min-height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preload_2_box
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preload_2_spinner
+{
+    width: 3.125rem;
+    height: 3.125rem;
+    fill: var(--genGreenTypeLight);
+}
+
+
+
+
+
+
+
+/* ============== APP LOGO ============== */
+
+.company_logoBdr
+{
+    width: var(--companyLogoSize);
+    height: var(--companyLogoSize);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.company_logoBdr .company_logoBox
+{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.company_logoBox .company_logoImg
+{
+    width: clamp(100% , 100% , 100%);
+    height: clamp(100% , 100% , 100%);
+}
+
+
+
+
+
+
+
+
+/* ================== APP ================ */
+
 main
 {
     width: 100%;
@@ -203,6 +396,19 @@ content .content
     overflow: hidden;
 }
 
+
+.give_space
+{
+    width: 100%;
+    height: var(--navBarHeight);
+    background: none;
+    background-color: transparent;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
 
 
 a
@@ -670,194 +876,7 @@ img
     }
 }
 
-.give_space
-{
-    width: 100%;
-    height: var(--navBarHeight);
-    background-color: transparent;
-}
 
-::-moz-selection
-{
-    background: #202720;
-    color: var(--genGreenTypeLight);
-}
-
-::selection
-{
-    background: #202720;
-    color: var(--genGreenTypeLight);
-}
-
-::-ms-input-placeholder
-{
-    fill:  var(--genWhiteTypeDark);
-    color: var(--genWhiteTypeDark);
-    -moz-user-select: -moz-none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    pointer-events: none;
-}
-
-::-moz-placeholder
-{
-    fill:  var(--genWhiteTypeDark);
-    color: var(--genWhiteTypeDark);
-    -moz-user-select: -moz-none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    pointer-events: none;
-    opacity: 1;
-}
-
-::-webkit-input-placeholder
-{
-    fill:  var(--genWhiteTypeDark);
-    color: var(--genWhiteTypeDark);
-    -moz-user-select: -moz-none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    pointer-events: none;
-}
-
-::placeholder
-{
-    fill:  var(--genWhiteTypeDark);
-    color: var(--genWhiteTypeDark);
-    -moz-user-select: -moz-none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    pointer-events: none;
-    opacity: 1;
-}
-
-
-
-
-
-
-
-
-
-/* -----------------preloader----------------- */
-#preloader
-{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #000000cd;
-    -webkit-backdrop-filter: blur(1.5625rem);
-    backdrop-filter: blur(1.5625rem);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition:all .2s ease-out;
-    z-index: 10000000000000;
-}
-
-#preloader.preloadClose
-{
-    display: none !important;
-}
-
-#spinner
-{
-    width: 3.75rem;
-    height: 3.125rem;
-    border-right: 0.9375rem solid #21c92cb8;
-    border-bottom: 0.625rem solid #b1b1b1;
-    border-left: 0.9375rem solid #21c92cb8;
-    border-top: 0.6875rem solid transparent;
-    border-radius: 0.625rem;
-    animation: spi 2000ms linear infinite;
-}
-
-
-@keyframes spi
-{
-    0%
-    {
-        transform: translateY(-50%);
-    }
-    50%
-    {
-        transform: translateY(0%);
-    }
-    100%
-    {
-        transform: translateY(-50%);
-    }
-}
-
-
-
-
-
-
-/* ================ PRELOADER 2 ============== */
-
-.preload_2_bdr
-{
-    width: 100%;
-    height: 100%;
-    min-height: 10vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.preload_2_box
-{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.preload_2_spinner
-{
-    width: 3.125rem;
-    height: 3.125rem;
-    fill: var(--genGreenTypeLight);
-}
-
-
-
-
-
-
-
-/* ============== APP LOGO ============== */
-
-.company_logoBdr
-{
-    width: var(--companyLogoSize);
-    height: var(--companyLogoSize);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.company_logoBdr .company_logoBox
-{
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-}
-
-.company_logoBox .company_logoImg
-{
-    width: clamp(100% , 100% , 100%);
-    height: clamp(100% , 100% , 100%);
-}
 
 
 
