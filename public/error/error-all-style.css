@@ -6,62 +6,6 @@
  * @version (v0.01)
  *
 ****************************************************************************************************************************************/
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-::-webkit-scrollbar
-{
-    width: 0.625rem;
-}
-
-::-webkit-scrollbar-corner
-{
-    background-color: #000;
-}
-
-::-webkit-scrollbar-track
-{
-    background-color: #111111;
-    background-color: transparent;
-}
-
-::-webkit-scrollbar-thumb
-{
-    background-color: #444444;
-}
-
-::-webkit-scrollbar-thumb:hover
-{
-    background-color: #545454;
-}
-
-::-webkit-scrollbar-thumb:active
-{
-    background-color: #777777;
-}
-
-::selection
-{
-    background: #000000;
-    color: #14d60d;
-}
-
-::placeholder
-{
-    user-select: none;
-    pointer-events: none;
-}
-
-
-html
-{
-    scroll-behavior: smooth;
-}
 
 html:root
 {
@@ -71,24 +15,8 @@ html:root
     --errClr3: #888888;
 }
 
-body
-{
-    width: 100%;
-    min-height: 100vh;
-    font-family: 'Zen dots', sans-serif;
-    background-color: var(--errClr0);
-}
 
-a
-{
-    text-decoration: none;
-    user-select: none;
-}
 
-p
-{
-    font-family: 'Poppins' , sans-serif;
-}
 
 
 /* ===== Page Not Found Error ==== */
