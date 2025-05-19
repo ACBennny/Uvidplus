@@ -906,7 +906,7 @@ const uvidplus_tou_ =
                             and accessible as a "demo" through 
                             <a class="goToHome" href="https://acuvid.netlify.app" target="_blank">acuvid.netlify.app</a>
                             which simulates the user interface and user experience of a streaming platform.
-                            It is provided as is, without warranty and guarantee of any kind. 
+                            It is provided as is, without warranty, and guarantee of any kind. 
                             <br><br>
                             Uvid integrates <a href="https://firebase.google.com/" target="_blank" class="goToHome">Firebase</a>,
                             a service provided by Google for account creation, authentication, and customization. 
