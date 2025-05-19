@@ -26,6 +26,7 @@ html
     -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
+    scroll-behavior: smooth;
 }
 
 html:root
