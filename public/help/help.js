@@ -7,6 +7,14 @@
 ****************************************************************/
 
 
+// DEFINITION
+
+    let isHlpCtrChatBotInit = false;
+
+
+
+// ROUTING
+
     // Help Center Routing
     function nav_help_pgs()
     {
@@ -63,6 +71,10 @@
         init_pplr_tpc();
         init_all_tpc();
         attachHelpCtrSrchFldListeners();
+        attachInitHelpCtrChatBotListeners();
+
+        // Allow Chatbot intialization
+        isHlpCtrChatBotInit = false;
 
         // Scroll to faq
         if(sect === "faq") go_to_help_ctr_faq();
@@ -374,6 +386,8 @@
         // Update the input fields
         document.querySelectorAll(".help_ctr_hdr_ctnt_srchFldCls").forEach((fld) => fld.value = srch_qry);
     }
+
+
 
 
 
