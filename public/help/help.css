@@ -154,7 +154,7 @@ html:root
     height: 100%;
     display: flex;
     align-items: center;
-    border-radius: .3125rem;
+    border-radius: .625rem;
     background-color: var(--genGreyTypeMid);
     box-shadow: 0rem 0rem 0rem .0625rem var(--genGreenTypeDark1);
     transition: all 300ms ease-in-out;
@@ -232,7 +232,7 @@ html:root
     position: absolute;
     width: 100%;
     margin-top: 1rem;
-    border-radius: .3125rem;
+    border-radius: .625rem;
     background-color: var(--genGreyTypeMid);
     opacity: 0;
     visibility: hidden;
@@ -388,7 +388,7 @@ html:root
 {
     width: 100%;
     min-height: 3.125rem;
-    border-radius: .3125rem;
+    border-radius: .625rem;
     background-color: var(--genGreyTypeDark);
     transition: all 300ms ease-in-out;
 }
@@ -448,7 +448,7 @@ html:root
 .help_ctr_tpc_all_gridBox .help_ctr_tpc_all_cardBdr
 {
     width: 100%;
-    border-radius: .3125rem;
+    border-radius: .625rem;
     background-color: var(--genGreyTypeDark);
     transition: all 300ms ease-in-out;
 }
@@ -604,7 +604,7 @@ html:root
     flex-direction: row;
     align-items: center;
     padding: 2rem;
-    border-radius: .3125rem;
+    border-radius: .625rem;
     background-color: var(--genGreyTypeDark);
     box-shadow: 0rem 0.3125rem 0.625rem -0.125rem #000000ab;
 }
@@ -662,7 +662,7 @@ html:root
     left: 0;
     width: 0%;
     height: .0625rem;
-    border-radius: .3125rem;
+    border-radius: .625rem;
     background-color: var(--genWhiteTypeLight);
     transition: all 300ms ease-in-out;
 }
