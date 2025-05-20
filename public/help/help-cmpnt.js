@@ -8,6 +8,42 @@
 
 
 
+const help_ctr_nav = 
+`
+    <div class="topNavBdr">
+        <div class="topNavBox">
+            <section class="topNav_section">
+                <div onclick="window.location.hash = page_route_fallback()" class="company_logoBdr">
+                    <div class="company_logoBox Companylogo">
+                        <img src="/images/uvid-logo.png" alt="" class="company_logoImg">
+                    </div>
+                </div>
+                <a href="#/help" type="button" class="genBtnBox thin transBtn">
+                    <div class="genBtnText">Help Center</div>
+                </a>
+            </section>
+            <section class="topNav_section">
+                <button type="button" onclick="window.open('#/help/search', '_self')" class="genBtnBox genIconBtn transBtn help_ctr_nav_srch_btn_mbl">
+                    <div class="genBtnIcon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 2.75a8.75 8.75 0 1 0 0 17.5a8.75 8.75 0 0 0 0-17.5M1.25 11.5c0-5.66 4.59-10.25 10.25-10.25S21.75 5.84 21.75 11.5c0 2.56-.939 4.902-2.491 6.698l3.271 3.272a.75.75 0 1 1-1.06 1.06l-3.272-3.271A10.2 10.2 0 0 1 11.5 21.75c-5.66 0-10.25-4.59-10.25-10.25"/>
+                        </svg>
+                    </div>
+                </button>
+                <button type="button" onclick="window.open('#/help/search', '_self')" class="genBtnBox greySolidBtn help_ctr_nav_srch_btn_pc">
+                    <div class="genBtnIcon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 2.75a8.75 8.75 0 1 0 0 17.5a8.75 8.75 0 0 0 0-17.5M1.25 11.5c0-5.66 4.59-10.25 10.25-10.25S21.75 5.84 21.75 11.5c0 2.56-.939 4.902-2.491 6.698l3.271 3.272a.75.75 0 1 1-1.06 1.06l-3.272-3.271A10.2 10.2 0 0 1 11.5 21.75c-5.66 0-10.25-4.59-10.25-10.25"/>
+                        </svg>
+                    </div>
+                    <div class="genBtnText">Search</div>
+                </button>
+            </section>
+        </div>
+    </div>
+`;
+
+
 // Help Center Struct
 const uvid_help_ctr_struct = 
 `
@@ -110,7 +146,7 @@ const uvid_help_ctr_struct =
                                     <div class="help_ctr_more_ctnt_card_detBdr">
                                         <div class="help_ctr_more_ctnt_card_detBox">
                                             <div class="help_ctr_more_ctnt_card_det_ttlBox">
-                                                <a href="javascript:;" onclick="notification('notifyBad', 'Service unavailable at this time')" class="help_ctr_more_ctnt_card_det_ttlTxt">Get in Touch</a>
+                                                <a href="javascript:;" class="help_ctr_more_ctnt_card_det_ttlTxt help_ctr_chatbot_open_btn">Get in Touch</a>
                                             </div>
                                             <div class="help_ctr_more_ctnt_card_det_descBox">
                                                 <p class="help_ctr_more_ctnt_card_det_descTxt">
@@ -152,40 +188,14 @@ const uvid_help_ctr_struct =
             </div>
         </div>
     </div>
-`;
 
-
-const help_ctr_nav = 
-`
-    <div class="topNavBdr">
-        <div class="topNavBox">
-            <section class="topNav_section">
-                <div onclick="window.location.hash = page_route_fallback()" class="company_logoBdr">
-                    <div class="company_logoBox Companylogo">
-                        <img src="/images/uvid-logo.png" alt="" class="company_logoImg">
-                    </div>
-                </div>
-                <a href="#/help" type="button" class="genBtnBox thin transBtn">
-                    <div class="genBtnText">Help Center</div>
-                </a>
-            </section>
-            <section class="topNav_section">
-                <button type="button" onclick="window.open('#/help/search', '_self')" class="genBtnBox genIconBtn transBtn help_ctr_nav_srch_btn_mbl">
-                    <div class="genBtnIcon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 2.75a8.75 8.75 0 1 0 0 17.5a8.75 8.75 0 0 0 0-17.5M1.25 11.5c0-5.66 4.59-10.25 10.25-10.25S21.75 5.84 21.75 11.5c0 2.56-.939 4.902-2.491 6.698l3.271 3.272a.75.75 0 1 1-1.06 1.06l-3.272-3.271A10.2 10.2 0 0 1 11.5 21.75c-5.66 0-10.25-4.59-10.25-10.25"/>
-                        </svg>
-                    </div>
-                </button>
-                <button type="button" onclick="window.open('#/help/search', '_self')" class="genBtnBox greySolidBtn help_ctr_nav_srch_btn_pc">
-                    <div class="genBtnIcon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 2.75a8.75 8.75 0 1 0 0 17.5a8.75 8.75 0 0 0 0-17.5M1.25 11.5c0-5.66 4.59-10.25 10.25-10.25S21.75 5.84 21.75 11.5c0 2.56-.939 4.902-2.491 6.698l3.271 3.272a.75.75 0 1 1-1.06 1.06l-3.272-3.271A10.2 10.2 0 0 1 11.5 21.75c-5.66 0-10.25-4.59-10.25-10.25"/>
-                        </svg>
-                    </div>
-                    <div class="genBtnText">Search</div>
-                </button>
-            </section>
+    <!-- Virtual Assistant -->
+    <div class="genBtnBox genIconBtn midSolidBtn help_ctr_chatbot_req_bdr help_ctr_chatbot_open_btn">
+        <div class="genBtnIcon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
+                <path d="M22 8.5a6.5 6.5 0 0 0-11.626-3.993A9.5 9.5 0 0 1 19.5 14q0 .165-.006.33l.333.088a1.3 1.3 0 0 0 1.592-1.591l-.128-.476c-.103-.385-.04-.791.125-1.153A6.5 6.5 0 0 0 22 8.5" />
+                <path fill-rule="evenodd" d="M18 14a8 8 0 0 1-11.45 7.22a1.67 1.67 0 0 0-1.15-.13l-1.227.329a1.3 1.3 0 0 1-1.591-1.592L2.91 18.6a1.67 1.67 0 0 0-.13-1.15A8 8 0 1 1 18 14M6.5 15a1 1 0 1 0 0-2a1 1 0 0 0 0 2m3.5 0a1 1 0 1 0 0-2a1 1 0 0 0 0 2m3.5 0a1 1 0 1 0 0-2a1 1 0 0 0 0 2" clip-rule="evenodd" />
+            </svg>
         </div>
     </div>
 `;
@@ -237,6 +247,160 @@ const help_ctr_srch_struct =
         </div>
     </div>
 `;
+
+
+// Virtual chat bot
+const help_ctr_ctct_struct = 
+`
+    <div class="ctct_base">
+        <div class="ctct_bdr">
+            <div class="ctct_box">
+                <div class="ctct_chat_bcg ctct_close_btn"></div>
+                <div class="ctct_chat_bdr">
+                    <div class="ctct_chat_box">
+                        <div class="ctct_hdr_bdr">
+                            <div class="ctct_hdr_box">
+                                <div class="ctct_hdr_ttl_bdr">
+                                    <div class="ctct_hdr_logo_bdr">
+                                        <div class="ctct_hdr_logo_box">
+                                            <img src="/images/uvid-logo.png" class="ctct_hdr_logo_img">
+                                        </div>
+                                    </div>
+                                    <div class="ctct_hdr_ttl_box">
+                                        <span class="ctct_hdr_ttl_txt">Virtual Assistant</span>
+                                    </div>
+                                </div>
+                                <button class="genBtnBox genIconBtn transBtn ctct_close_btn">
+                                    <div class="genBtnIcon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
+                                            <path fill-rule="evenodd" d="M4.43 8.512a.75.75 0 0 1 1.058-.081L12 14.012l6.512-5.581a.75.75 0 0 1 .976 1.138l-7 6a.75.75 0 0 1-.976 0l-7-6a.75.75 0 0 1-.081-1.057" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="ctct_body_bdr">
+                            <div class="ctct_body_box"></div>
+                            <button class="genBtnBox genIconBtn greySolidBtn ctct_body_scroll_btn">
+                                <div class="genBtnIcon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
+                                        <path fill-rule="evenodd" d="M12 3.25a.75.75 0 0 1 .75.75v14.19l4.72-4.72a.75.75 0 1 1 1.06 1.06l-6 6a.75.75 0 0 1-1.06 0l-6-6a.75.75 0 1 1 1.06-1.06l4.72 4.72V4a.75.75 0 0 1 .75-.75" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="ctct_ftr_bdr">
+                            <div class="ctct_ftr_box">
+                                <button class="genBtnBox genIconBtn transBtn ctct_ftr_menu_bdr openGenMenuModalBtn" data-gen-menu-modal-type="help_ctr_chatbot" title="More">
+                                    <div class="genBtnIcon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512" class="genBtnSvg" style="transform: scale(0.80);">
+                                            <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
+                                        </svg>
+                                    </div>
+                                </button>
+                                <div class="ctct_ftr_input_bdr">
+                                    <div class="ctct_ftr_input_box">
+                                        <textarea type="text" name="ctct_ftr_input_fld" id="ctct_ftr_input_fldId" class="ctct_ftr_input_fldCls" placeholder="Enter your request" disabled></textarea>
+                                    </div>
+                                    <button class="genBtnBox genIconBtn transBtn ctct_ftr_send_btn" title="Send">
+                                        <div class="genBtnIcon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
+                                                <path d="m17.498 18.485l3.13-9.391c.791-2.373 1.331-3.994 1.37-5.115c.013-.377-.414-.503-.68-.236l-14.46 14.46c-.233.233-.177.626.14.716q.047.013.095.024c.5.123 1.153.034 2.46-.143l.07-.01c.369-.05.553-.075.73-.064c.32.02.63.124.898.303c.147.098.279.23.541.492l.252.252c1.51 1.51 2.265 2.265 3.066 2.226c.22-.011.438-.062.64-.151c.734-.324 1.072-1.337 1.747-3.363M14.906 3.372l-9.331 3.11c-2.082.694-3.123 1.041-3.439 1.804q-.112.271-.133.564c-.059.824.717 1.6 2.269 3.151l.283.283c.254.255.382.382.478.524c.19.28.297.606.31.944c.008.171-.019.35-.072.705c-.196 1.304-.294 1.956-.179 2.458l.013.052c.081.325.48.387.717.15L20.257 2.683c.267-.267.141-.694-.236-.68c-1.121.038-2.742.578-5.115 1.369"/>
+                                            </svg>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+`;
+
+
+// Default Chatbox message
+let help_ctr_dflt_chatbot_msg_arr = 
+[
+    `
+        <div class="ctct_msg_wrapper">
+            <div class="ctct_msg_base">
+                <div class="ctct_msg_pfp_bdr">
+                    <div class="ctct_msg_pfp_box">
+                        <img src="/images/uvid-profile-base.png" class="ctct_msg_pfp_img" alt="The profile picture of Uvid's virtual support">
+                    </div>
+                </div>
+                <div class="ctct_msg_ctnt_bdr">
+                    <div class="ctct_msg_ctnt_box">
+                        <p class="ctct_msg_ctnt_txt">
+                            By using this chat, you fully consent to the recognition, observation, capturing, 
+                            and storage of your entire conversation by absolutely no one, if possible.
+                            </br>
+                            By continuing, you agree to our privacy policy and terms of use.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `,
+    `
+        <div class="ctct_msg_wrapper">
+            <div class="ctct_msg_base">
+                <div class="ctct_msg_pfp_bdr">
+                    <div class="ctct_msg_pfp_box">
+                        <img src="/images/uvid-profile-base.png" class="ctct_msg_pfp_img" alt="The profile picture of Uvid's virtual support">
+                    </div>
+                </div>
+                <div class="ctct_msg_ctnt_bdr">
+                    <div class="ctct_msg_ctnt_box">
+                        <p class="ctct_msg_ctnt_txt">
+                            Hi! I'm Uvid's Virtual Assistant.
+                            I'll do my best to assist you as we explore all things Uvid!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `,
+    `
+        <div class="ctct_msg_wrapper">
+            <div class="ctct_msg_base">
+                <div class="ctct_msg_pfp_bdr"></div>
+                <div class="ctct_msg_ctnt_bdr">
+                    <div class="ctct_msg_ctnt_box">
+                        <p class="ctct_msg_ctnt_txt">
+                            Select one of the issues below or type in your question
+                            and I'll do my best to answer it. You can type in "agent" 
+                            to get in queue to chat with an agent.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `,
+    `
+        <div class="ctct_dflt_issues_bdr">
+            <div class="ctct_dflt_issues_box">
+                <button class="genBtnBox hollowBtn ctct_msg_dflt_issues_btn">
+                    <p class="genBtnText ctct_msg_dflt_issues_txt">Log in issues</p>
+                </button>
+                <button class="genBtnBox hollowBtn ctct_msg_dflt_issues_btn">
+                    <p class="genBtnText ctct_msg_dflt_issues_txt">Manage Membership</p>
+                </button>
+                <button class="genBtnBox hollowBtn ctct_msg_dflt_issues_btn">
+                    <p class="genBtnText ctct_msg_dflt_issues_txt">Multiple Profiles</p>
+                </button>
+                <button class="genBtnBox hollowBtn ctct_msg_dflt_issues_btn">
+                    <p class="genBtnText ctct_msg_dflt_issues_txt">Change username/email</p>
+                </button>
+                <button class="genBtnBox hollowBtn ctct_msg_dflt_issues_btn">
+                    <p class="genBtnText ctct_msg_dflt_issues_txt">Troubleshooting</p>
+                </button>
+            </div>
+        </div>
+    `,
+];
 
 
 // Popular Topics
