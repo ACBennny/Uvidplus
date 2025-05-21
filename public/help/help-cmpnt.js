@@ -335,7 +335,7 @@ let help_ctr_dflt_chatbot_msg_arr =
                     <div class="ctct_msg_ctnt_box">
                         <p class="ctct_msg_ctnt_txt">
                             By using this chat, you fully consent to the recognition, observation, capturing, 
-                            and storage of your entire conversation by absolutely no one, if possible.
+                            and storage of your entire conversation by absolutely no one, if and/or whenever possible.
                             </br>
                             By continuing, you agree to our privacy policy and terms of use.
                         </p>
