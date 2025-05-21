@@ -86,6 +86,7 @@
         if(sect === "contact") 
         {
             attachInitHelpCtrChatBotListeners("call");
+            history.replaceState(null, '', '#/help');
             return;
         }
         attachInitHelpCtrChatBotListeners();
