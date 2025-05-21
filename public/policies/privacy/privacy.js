@@ -21,8 +21,6 @@
                         <p class="mid_Note">
                             Uvid does NOT collect or store your personal information, or use
                             any tools or services like <span id="cookies">cookies</span> to do so.
-                            <br>
-                            View Firebase's privacy policy <a href="https://policies.google.com/privacy" target="_blank" class="goToHome">here</a>
                             <br><br>
                             Note that this policy can be updated at any time without prior notification.
                         </p>
