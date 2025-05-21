@@ -1,0 +1,325 @@
+/***************************************************************
+ * This will hold the default styling for the Help Article pages
+ * 
+ * @author (Anyanwu Benedict Chukwuemeka)
+ * @version (v0.01)
+ *
+****************************************************************/
+
+
+html:root
+{
+    --artcl_more_card_icon_size: 1.5rem;
+}
+
+
+
+.atcl_bdr
+{
+    width: 100%;
+    padding: var(--navBarHeight) var(--genBorderSpacing);
+}
+
+.atcl_bdr .atcl_box
+{
+    width: 100%;
+    max-width: var(--genMaxContainerWidth);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* ========== ARTICLE NAVIGATION ========= */
+
+.atcl_box .atcl_nav_bdr
+{
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.atcl_nav_bdr .atcl_nav_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+
+
+/* ========== MAIN ARTICLE ========= */
+
+.atcl_box .atcl_main_bdr
+{
+    width: 100%;
+}
+
+.atcl_main_bdr .atcl_main_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+
+/* ========== Article Card ========= */
+.atcl_main_box .atcl_card_bdr
+{
+    width: 70%;
+    height: -moz-fit-content;
+    height: fit-content;
+    border-radius: .625rem;
+    background-color: var(--genModalBcg);
+    overflow: hidden;
+}
+
+.atcl_card_bdr .atcl_card_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* -------- Header ------- */
+.atcl_card_box .atcl_hdr_bdr
+{
+    width: 100%;
+    padding: 2rem 2rem 0;
+}
+
+.atcl_hdr_bdr .atcl_hdr_box
+{
+    width: 100%;
+}
+
+.atcl_hdr_box .atcl_hdr_txt
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    color: var(--genWhiteTypeBright);
+    font-size: 2rem;
+}
+
+
+/* -------- Body -------- */
+.atcl_card_box .atcl_body_bdr
+{
+    width: 100%;
+    min-height: 25rem;
+    padding: 2.5rem 2rem;
+}
+
+.atcl_body_bdr .atcl_body_box
+{
+    width: 100%;
+}
+
+.atcl_body_box .atcl_body_txt
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 1rem;
+}
+
+
+/* -------- Footer ------- */
+.atcl_card_box .atcl_ftr_bdr
+{
+    width: 100%;
+    padding: 2rem 2rem;
+    border-top: .0625rem solid var(--genGreyTypeLight);
+}
+
+.atcl_ftr_bdr .atcl_ftr_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.atcl_ftr_box .atcl_qtn_box
+{
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.atcl_qtn_box .atcl_qtn_txt
+{
+    color: var(--genWhiteTypeLight);
+}
+
+.atcl_ftr_box .atcl_rspns_box
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    gap: 0.625rem;
+}
+
+
+/* ========== More Articles ========= */
+.atcl_main_box .artcl_more_bdr
+{
+    width: 30%;
+    height: -moz-fit-content;
+    height: fit-content;
+    border-radius: .625rem;
+    border-top: .3125rem solid var(--genGreenTypeMid);
+    background-color: var(--genModalBcg);
+    overflow: hidden;
+}
+
+.artcl_more_bdr .artcl_more_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.artcl_more_box .artcl_more_hdr_box
+{
+    width: 100%;
+    padding: 1.5rem;
+    border-bottom: .0625rem solid var(--genGreyTypeLight);
+}
+
+.artcl_more_hdr_box .artcl_more_hdr_txt
+{
+    color: var(--genWhiteTypeMid2);
+}
+
+.artcl_more_box .artcl_more_grid_bdr
+{
+    width: 100%;
+}
+
+.artcl_more_grid_bdr .artcl_more_grid_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.artcl_more_grid_box .artcl_more_card_bdr
+{
+    width: 100%;
+    transition: all 300ms ease-in-out;
+}
+
+.artcl_more_card_bdr:hover
+{
+    background-color: #ffffff10;
+}
+
+.artcl_more_card_bdr .artcl_more_card_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 1.25rem;
+}
+
+.artcl_more_card_box .artcl_more_card_ttl_box
+{
+    width: calc((100% - var(--artcl_more_card_icon_size)));
+}
+
+.artcl_more_card_ttl_box .artcl_more_card_ttl_txt
+{
+    color: var(--genWhiteTypeMid2);
+    font-size: .875rem;
+}
+
+.artcl_more_card_box .artcl_more_card_icon_bdr
+{
+    width: var(--artcl_more_card_icon_size);
+    height: var(--artcl_more_card_icon_size);
+}
+
+.artcl_more_card_icon_bdr .artcl_more_card_icon_box
+{
+    width: 100%;
+    height: 100%;
+}
+
+.artcl_more_card_icon_box .artcl_more_card_icon_svg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--genWhiteTypeMid2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media(hover: hover)
+{}
+
+
+
+@media only screen and (max-width: 64rem)
+{
+    .atcl_main_bdr .atcl_main_box
+    {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .atcl_main_box .atcl_card_bdr,
+    .atcl_main_box .artcl_more_bdr
+    {
+        width: 100%;
+    }
+}
+
+
+
+@media only screen and (max-width: 48rem)
+{
+    .atcl_ftr_bdr .atcl_ftr_box
+    {
+        flex-direction: column;
+        align-items: unset;
+    }
+
+    .atcl_ftr_box .atcl_qtn_box
+    {
+        margin-bottom: 1rem;
+    }
+
+    .atcl_qtn_box .atcl_qtn_txt
+    {
+    }
+}
+
+
+
+@media only screen and (max-width: 35.3125rem)
+{
+    .atcl_hdr_box .atcl_hdr_txt
+    {
+        font-size: 1.75rem;
+    }
+}
+
+
+
