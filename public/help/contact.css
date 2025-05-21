@@ -304,7 +304,7 @@ html:root
 .ctct_msg_ctnt_box .ctct_msg_ctnt_txt
 {
     color: var(--genWhiteTypeLight);
-    font-size: 14px;
+    font-size: .875rem;
 }
 
 .ctct_body_box .ctct_dflt_issues_bdr
@@ -357,7 +357,7 @@ html:root
 .ctct_rspns_ctnt_box .ctct_rspns_ctnt_txt
 {
     color: var(--genWhiteTypeLight);
-    font-size: 14px;
+    font-size: .875rem;
 }
 
 
@@ -428,7 +428,7 @@ html:root
     padding: .75rem 2.625rem .75rem .75rem;
     field-sizing: content;
     color: var(--genWhiteTypeLight);
-    font-size: 14px;
+    font-size: .875rem;
     outline: none;
     border: none;
     resize: none;
