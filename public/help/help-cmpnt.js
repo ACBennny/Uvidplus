@@ -411,14 +411,14 @@ const hlp_ctr_atcl_pg_struct =
         <div class="atcl_box">
             <div class="atcl_nav_bdr">
                 <div class="atcl_nav_box">
-                    <button type="button" class="genBtnBox transBtn" onclick="window.open('#/help', '_self)'">
+                    <a href="#/help" type="button" class="genBtnBox transBtn">
                         <div class="genBtnIcon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
                                 <path fill-rule="evenodd" d="M10.53 5.47a.75.75 0 0 1 0 1.06l-4.72 4.72H20a.75.75 0 0 1 0 1.5H5.81l4.72 4.72a.75.75 0 1 1-1.06 1.06l-6-6a.75.75 0 0 1 0-1.06l6-6a.75.75 0 0 1 1.06 0" clip-rule="evenodd" />
                             </svg>
                         </div>
                         <span class="genBtnText">Back to Help Home</span>
-                    </button>
+                    </a>
                 </div>
             </div>
             <div class="atcl_main_bdr">
