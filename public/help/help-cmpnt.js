@@ -281,7 +281,7 @@ const help_ctr_ctct_struct =
                         </div>
                         <div class="ctct_body_bdr">
                             <div class="ctct_body_box"></div>
-                            <button class="genBtnBox genIconBtn greySolidBtn ctct_body_scroll_btn">
+                            <button class="genBtnBox genIconBtn greySolidBtn ctct_body_scroll_btn is_scrolling">
                                 <div class="genBtnIcon">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
                                         <path fill-rule="evenodd" d="M12 3.25a.75.75 0 0 1 .75.75v14.19l4.72-4.72a.75.75 0 1 1 1.06 1.06l-6 6a.75.75 0 0 1-1.06 0l-6-6a.75.75 0 1 1 1.06-1.06l4.72 4.72V4a.75.75 0 0 1 .75-.75" clip-rule="evenodd" />

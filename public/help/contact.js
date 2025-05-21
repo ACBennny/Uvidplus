@@ -117,8 +117,6 @@
                     // Add listeners
                     attachDfltIssueOptBtnListeners();
                     attachGenMenuModalEventListeners();
-
-                    scroll_to_chatend();
                 }
                 else
                 {
