@@ -31,7 +31,7 @@ html:root
     display: grid;
     place-items: center;
     gap: 0.9375rem;
-    padding-top: 2rem;
+    padding-top: calc((var(--navBarHeight) + 1rem));
 }
 
 .error_box .error_note
