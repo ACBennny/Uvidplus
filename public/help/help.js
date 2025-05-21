@@ -52,6 +52,10 @@
         {
             console.log("help ctr -> article");
         }
+        else if(hlp_pg === "contact")
+        {
+            init_help_ctr("contact");
+        }
         else
         {
             init_help_ctr();
@@ -71,13 +75,20 @@
         init_pplr_tpc();
         init_all_tpc();
         attachHelpCtrSrchFldListeners();
-        attachInitHelpCtrChatBotListeners();
 
         // Allow Chatbot intialization
         isHlpCtrChatBotInit = false;
 
         // Scroll to faq
         if(sect === "faq") go_to_help_ctr_faq();
+
+        // Init chatbot
+        if(sect === "contact") 
+        {
+            attachInitHelpCtrChatBotListeners("call");
+            return;
+        }
+        attachInitHelpCtrChatBotListeners();
     }
 
     // Inserts the popular topics (Pages unavailable)

@@ -153,13 +153,6 @@
             route_atn: "initSettPage",
             route_title: "Uvid • Settings",
         },
-        'contact': 
-        {
-            route_pbl_only: false,
-            route_auth: true,
-            route_atn: "page_route_error",
-            route_title: "Uvid • Contact Us",
-        },
         'feedback': 
         {
             route_pbl_only: false,

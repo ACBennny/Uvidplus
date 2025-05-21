@@ -9,7 +9,7 @@
 
 
     // Attach listener to Init the chat
-    function attachInitHelpCtrChatBotListeners()
+    function attachInitHelpCtrChatBotListeners(act = "")
     {
         let opnChatBtn = document.querySelectorAll(".help_ctr_chatbot_open_btn");
 
@@ -31,6 +31,9 @@
             new_btn.addEventListener("click", open_atn_);
             new_btn.open_atn = open_atn_;
         });
+
+        // Immediate initialize the chatbot
+        if(act === "call") document.querySelector(".help_ctr_chatbot_req_bdr").click();
     }
 
 
