@@ -50,7 +50,7 @@
         }
         else if(hlp_pg === "article")
         {
-            console.log("help ctr -> article");
+            fetch_help_atcl();
         }
         else if(hlp_pg === "contact")
         {
@@ -103,7 +103,7 @@
             let pplr_item = pplr_tpc_arr[p];
             pplr_grid_struct += 
             `
-                <a href="javascript:;" onclick="notification('notifyBad', 'Article unavailable at this time')" class="help_ctr_tpc_pplr_cardBdr">
+                <a href="#/help/article/${pplr_item.pplr_tpc_id}" class="help_ctr_tpc_pplr_cardBdr">
                     <div class="help_ctr_tpc_pplr_cardBox">
                         <div class="help_ctr_tpc_pplr_card_ttlBox">
                             <p class="help_ctr_tpc_pplr_card_ttlTxt">${pplr_item.pplr_tpc_name}</p>
@@ -401,8 +401,3 @@
 
 
 
-
-
-// ARTICLE
-
-    //
