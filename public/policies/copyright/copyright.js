@@ -21,7 +21,7 @@
                         <p class="mid_Note">
                             Uvid does NOT own any media shown. 
                             We can only link to the media provided by non-affiliated third-party services.
-                            Any legafl issues must be conversed with those services.
+                            Any legal issues must be conversed with those services.
                             <br><br>
                             Note that this policy can be updated at any time without prior notification.
                         </p>
