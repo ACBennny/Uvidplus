@@ -21,7 +21,7 @@
                         <h3 class="mid_Title">Ad Choices</h3>
                         <p class="mid_Note">
                             Uvid does NOT provide any ADs on it's platform.
-                            <br>
+                            <br><br>
                             Note that this policy can be updated at any time without prior notification.
                         </p>
                     </div>
