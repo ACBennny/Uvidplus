@@ -33,6 +33,7 @@ html:root
 .help_ctr_bdr
 {
     width: 100%;
+    /* display: none; */
 }
 
 .help_ctr_bdr .help_ctr_box
@@ -747,7 +748,7 @@ html:root
 .help_ctr_srch_pg_gridBox .help_ctr_srch_pg_cardLnk
 {
     width: 100%;
-    min-height: 50px;
+    min-height: 3.125rem;
     border-left: .125rem solid var(--genGreenTypeMid);
     background-color: var(--genGreyTypeDark);
 }
