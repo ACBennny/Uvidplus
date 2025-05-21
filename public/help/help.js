@@ -314,7 +314,7 @@
             let mtch_item = mtch_srch[i];
             rslt_ctg_struct += 
             `
-                <a href="javascript:;" class="help_ctr_hdr_ctnt_srchRslt_cardLnk" onclick="notification('notifyBad', 'Article unavailable at this time')">
+                <a href="#/help/article/${mtch_item.pplr_tpc_id}" class="help_ctr_hdr_ctnt_srchRslt_cardLnk">
                     <div class="help_ctr_hdr_ctnt_srchRslt_cardBdr">
                         <div class="help_ctr_hdr_ctnt_srchRslt_cardBox">
                             <p class="help_ctr_hdr_ctnt_srchRslt_cardTxt">${mtch_item.pplr_tpc_name}</p>
@@ -374,7 +374,7 @@
             let mtch_item = mtch_srch[i];
             rslt_ctg_struct += 
             `
-                <a href="javascript:;" onclick="notification('notifyBad', 'Article unavailable at this time')" class="help_ctr_srch_pg_cardLnk">
+                <a href="#/help/article/${mtch_item.pplr_tpc_id}" class="help_ctr_srch_pg_cardLnk">
                     <div class="help_ctr_srch_pg_cardBdr">
                         <div class="help_ctr_srch_pg_cardBox">
                             <p class="help_ctr_srch_pg_cardTxt">${mtch_item.pplr_tpc_name}</p>
