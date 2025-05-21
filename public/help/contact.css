@@ -219,10 +219,9 @@ html:root
 .ctct_body_bdr .ctct_body_scroll_btn
 {
     position: absolute;
-    left: 50%;
+    left: 0;
     bottom: 0;
-    /* scale: 0.8; */
-    translate: -50% -25%;
+    scale: 0.825;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
