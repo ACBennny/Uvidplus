@@ -913,7 +913,7 @@ const uvidplus_tou_ =
                             Uvid also uses the <strong>TMDB APIs</strong>, a tool provided by TMDB to provide details about tv shows, movies, and other related content.
                             Note that Uvid is not affiliated, endorsed, certified, or otherwise approved by TMDB.
                             <br><br>
-                            By using using this demo, you take full, whole, and complete responsibility for any and every damage(s)
+                            By using this demo, you take full, whole, and complete responsibility for any and every damage(s)
                             that may occur, and give up the right to pursue any legal action against the account and the owner of the account
                             in regards to this project. 
                             <br><br>
