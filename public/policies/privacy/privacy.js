@@ -19,8 +19,7 @@
                     <div class="middle">
                         <h3 class="mid_Title">Privacy</h3>
                         <p class="mid_Note">
-                            Uvid does NOT collect or store your personal information, or use
-                            any tools or services like <span id="cookies">cookies</span> to do so.
+                            Uvid does NOT collect, store, or sell your personal information.
                             <br><br>
                             To simulate some processes in real streaming services, Uvid may ask you to provide some information, 
                             which includes but is not limited to your name, phone number, address, postal code, 
