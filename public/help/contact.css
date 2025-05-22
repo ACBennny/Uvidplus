@@ -349,15 +349,30 @@ html:root
 
 .ctct_rspns_ctnt_bdr .ctct_rspns_ctnt_box
 {
-    width: -moz-fit-content;
-    width: fit-content;
+    width: 100%;
     padding: .5rem .75rem;
 }
 
 .ctct_rspns_ctnt_box .ctct_rspns_ctnt_txt
 {
+    --ctct_rspns_ctnt_txtNo: 2;
+    --ctct_rspns_ctnt_txtH: 1.4;
+    position: relative;
+    width: -moz-fit-content;
+    width: fit-content;
+    max-width: 100%;
+    max-height: none;
+    display: -webkit-box;
+    line-height: var(--ctct_rspns_ctnt_txtH);
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    -webkit-hyphens: auto;
+    hyphens: auto;
     color: var(--genWhiteTypeLight);
     font-size: .875rem;
+    overflow-wrap: break-word;
+    overflow: hidden;
 }
 
 
@@ -383,7 +398,7 @@ html:root
 
 .ctct_ftr_box .ctct_ftr_input_bdr
 {
-    width: 100%;
+    width: calc((100% - 2.8125rem));
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -421,6 +436,7 @@ html:root
 {
     font-family: 'Poppins' , sans-serif;  
     width: 100%;
+    max-width: 100%;
     height: -moz-fit-content;
     height: fit-content;
     min-height: 2.8125rem;
