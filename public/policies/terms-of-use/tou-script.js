@@ -917,7 +917,7 @@ const uvidplus_tou_ =
                             that may occur, and give up the right to pursue any legal action against the account and the owner of the account
                             in regards to this project. 
                             <br><br>
-                            You also fully, wholefully, and completely understand, that Uvid does NOT bill you or request any form of monetary goods from you.
+                            You also fully, wholefully, and completely understand, that Uvid does NOT bill, or request any form of monetary goods from you.
                             <br><br>
                             As Uvid is simulating a streaming service, you may also see elements or components that appear to conflict with our policy. 
                             In any conflicts of interest, our terms of use and privacy policy remain absolute.
