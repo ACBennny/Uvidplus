@@ -35,8 +35,7 @@
                             excluding a valid working email for the sole purpose of account related activities which includes but is not limited to 
                             account creation, account authorisation, account management, and account customization.
                             <br><br>
-                            Note that this policy is non-applicable to Firebase from Google and the services they provide. 
-                            Click <a class="goToHome" href="https://www.google.com/policies/privacy/">here</a> to view their privacy policy.
+                            Note that this policy is non-applicable to third-party services that Uvid may integrate into its platform.
                             <br><br>
                             Note that this policy can be updated at any time without prior notification.
                         </p>
