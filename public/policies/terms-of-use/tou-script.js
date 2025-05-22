@@ -908,9 +908,10 @@ const uvidplus_tou_ =
                             which simulates the user interface and user experience of a streaming platform.
                             It is provided as is, without warranty, and guarantee of any kind. 
                             <br><br>
-                            Uvid integrates <a href="https://firebase.google.com/" target="_blank" class="goToHome">Firebase</a>,
-                            a service provided by Google for account creation, authentication, and customization. 
-                            View their terms <a href="https://firebase.google.com/terms/" target="_blank" class="goToHome">here</a>.
+                            Uvid integrates <strong>Firebase</strong>, a service provided by Google for account creation, authentication, and customization.
+                            <br><br>
+                            Uvid also uses the <strong>TMDB APIs</strong>, a tool provided by TMDB to provide details about tv shows, movies, and other related content.
+                            Note that Uvid is not endorsed, certified, or otherwise approved by TMDB.
                             <br><br>
                             By using using this demo, you take whole and complete responsibility for any and every damage(s)
                             that may occur, and give up the right to pursue any legal action against the account and the owner of the account
