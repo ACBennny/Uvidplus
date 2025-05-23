@@ -212,11 +212,6 @@ html:root
     transition: all 300ms ease-in-out;
 }
 
-.artcl_more_card_bdr:hover
-{
-    background-color: #ffffff10;
-}
-
 .artcl_more_card_bdr .artcl_more_card_box
 {
     width: 100%;
@@ -272,7 +267,13 @@ html:root
 
 
 @media(hover: hover)
-{}
+{
+    
+    .artcl_more_card_bdr:hover
+    {
+        background-color: #ffffff10;
+    }
+}
 
 
 
@@ -304,10 +305,6 @@ html:root
     .atcl_ftr_box .atcl_qtn_box
     {
         margin-bottom: 1rem;
-    }
-
-    .atcl_qtn_box .atcl_qtn_txt
-    {
     }
 }
 
