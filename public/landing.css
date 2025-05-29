@@ -574,6 +574,7 @@ body
 {
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 0.625rem;
@@ -1065,11 +1066,6 @@ body
     .questions_Card .questions_CardTextBox
     {
         padding: 0rem 1.25rem;
-    }
-
-    .questions_box .questions_footerBox
-    {
-        padding: 1.25rem;
     }
 }
 
