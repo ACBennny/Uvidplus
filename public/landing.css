@@ -107,7 +107,6 @@ body
     width: -moz-fit-content;
     width: fit-content;
     height: 100%;
-    display: none;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -610,6 +609,7 @@ body
     max-width: 62.5rem;
     display: flex;
     flex-direction: column;
+    padding: 0 var(--genBorderSpacing);
 }
 
 .questions_box .questions_Header
@@ -617,7 +617,7 @@ body
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1.5625rem;
+    padding: 1.5625rem 0;
     color: var(--color6);
     font-size: 1.5625rem;
     text-align: center;
@@ -630,7 +630,7 @@ body
     flex-direction: column;
     justify-content: center;
     gap: 0.625rem;
-    padding: 0.625rem 3.125rem;
+    padding: 0.625rem 0;
 }
 
 .questions_Body .questions_Card
@@ -759,7 +759,7 @@ body
     display: flex;
     flex-direction: column;
     gap: 0.3125rem;
-    padding: 1.25rem 3.125rem;
+    padding: 1.25rem 0;
     color: var(--color10);
     font-size: 0.75rem;
     line-height: 1.125rem;
@@ -1016,16 +1016,6 @@ body
         --featureCardBdrRadius: 0.3125rem 0.3125rem 0.3125rem 0.3125rem;
     }
 
-    .welcome_landBdr .welcome_landBox
-    {
-        padding: 0 0.75rem;
-    }
-
-    .welcome_landTextMajorBox .welcome_landTextMajor
-    {
-        font-size: 1.5rem;
-    }
-
     .propmpt_AccActionBdr .propmpt_AccActionBox
     {
         max-width: 18.75rem;
@@ -1088,22 +1078,27 @@ body
 }
 
 
-@media only screen and (max-width: 21.875rem)
+@media only screen and (max-width: 30.3125rem)
 {
 
-    .signUpBdr .signUpBox
+    .welcome_landBdr .welcome_landBox
     {
-        padding: 0.625rem 0.9375rem;
+        padding: 0 0.75rem;
     }
 
     .welcome_landTextMajorBox .welcome_landTextMajor
     {
-        font-size: 1.25rem;
+        font-size: 1.625rem;
     }
+}
 
-    .welcome_landTextMinorBox .welcome_landTextMinor
+
+@media only screen and (max-width: 21.875rem)
+{
+
+    .welcome_landTextMajorBox .welcome_landTextMajor
     {
-        font-size: 0.75rem;
+        font-size: 1.5rem;
     }
 }
 
