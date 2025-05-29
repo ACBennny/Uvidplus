@@ -9,29 +9,6 @@
 
     const landingHTML =
     `
-        <!-- --------------- Navbar ------------ -->
-        <div class="navBox">
-            <div class="navBar">
-                <div class="navBarLeft">
-                    <div class="spacing"></div>
-                    <a href="#/" class="Companylogo navBarCompanylogo">
-                        <div class="company_logoBdr">
-                            <div class="company_logoBox Companylogo">
-                                <img src="/images/uvid-logo.png" alt="" class="company_logoImg">
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="navBarRight">
-                    <div class="signUpBdr">
-                        <a href="#/join" class="action_Join signUpBox lightSolidBtn">Sign In</a>
-                        <div class="spacing"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-
         <!-- Welcome -->
         <div class="welcome_landBcg">
             <div class="welcome_landBdr">
@@ -51,8 +28,8 @@
                     </div>
                     <div class="propmpt_AccActionBdr">
                         <div class="propmpt_AccActionBox">
-                            <a href="#/join" target="_self" type="button" class="propmpt_AccActionBtnBox action_Join">Sign Up for Uvid</a>
-                            <a href="#/join" target="_self" type="button" class="propmpt_AccActionBtnBox action_GetPremium">Sign In with Uvid</a>
+                            <a href="#/signup" target="_self" type="button" class="propmpt_AccActionBtnBox action_Join">Sign Up for Uvid</a>
+                            <a href="#/signin" target="_self" type="button" class="propmpt_AccActionBtnBox action_GetPremium">Sign In with Uvid</a>
                         </div>
                     </div>
                 </div>
@@ -297,7 +274,8 @@
                     <div class="prompt_regText">What are you waiting for? Get started Today</div>
                     <div class="propmpt_AccActionBdr">
                         <div class="propmpt_AccActionBox">
-                            <a href="#/join" target="_self" type="button" class="propmpt_AccActionBtnBox action_Join">Sign Up for Uvid</a>
+                            <a href="#/signup" target="_self" type="button" class="propmpt_AccActionBtnBox action_Join">Sign Up for Uvid</a>
+                            <a href="#/signin" target="_self" type="button" class="propmpt_AccActionBtnBox action_GetPremium">Sign In with Uvid</a>
                         </div>
                     </div>
                 </div>
@@ -305,6 +283,28 @@
         </div>
         
         <div class="give_space"></div>
+    `;
+    const landing_nav = 
+    `
+        <div class="topNavBdr">
+            <div class="topNavBox">
+                <section class="topNav_section">
+                    <div class="company_logoBdr" onclick="window.location.hash = page_route_fallback()">
+                        <div class="company_logoBox Companylogo">
+                            <img src="/images/uvid-logo.png" alt="" class="company_logoImg">
+                        </div>
+                    </div>
+                </section>
+                <section class="topNav_section">
+                    <a href="#/signin" type="button" class="genBtnBox transBtn">
+                        <span class="genBtnText">sign In</span>
+                    </a>
+                    <a href="#/signup" type="button" class="genBtnBox midSolidBtn">
+                        <span class="genBtnText">Sign Up</span>
+                    </a>
+                </section>
+            </div>
+        </div>
     `;
 
 
@@ -314,6 +314,8 @@
         // INITIALISATION
 
             documentCtnt.insertAdjacentHTML(`beforeend` , landingHTML);
+            topNavBar.innerHTML = landing_nav;
+            topNavBar.classList.add("initialize");
         
 
         // DEFINITION
