@@ -296,7 +296,7 @@
                     </div>
                 </section>
                 <section class="topNav_section">
-                    <a href="#/signin" type="button" class="genBtnBox transBtn">
+                    <a href="#/signin" type="button" class="genBtnBox transBtn thin">
                         <span class="genBtnText">sign In</span>
                     </a>
                     <a href="#/signup" type="button" class="genBtnBox midSolidBtn">
