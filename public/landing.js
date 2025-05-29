@@ -299,9 +299,6 @@
                     <a href="#/signin" type="button" class="genBtnBox transBtn thin">
                         <span class="genBtnText">sign In</span>
                     </a>
-                    <a href="#/signup" type="button" class="genBtnBox midSolidBtn">
-                        <span class="genBtnText">Sign Up</span>
-                    </a>
                 </section>
             </div>
         </div>
