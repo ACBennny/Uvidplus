@@ -271,7 +271,10 @@
         <div class="prompt_regBase">
             <div class="prompt_regBdr">
                 <div class="prompt_regBox">
-                    <div class="prompt_regText">What are you waiting for? Get started Today</div>
+                    <div class="prompt_regText">
+                        <span>What are you waiting for?</span> 
+                        <span>Get started Today</span>
+                    </div>
                     <div class="propmpt_AccActionBdr">
                         <div class="propmpt_AccActionBox">
                             <a href="#/signup" target="_self" type="button" class="propmpt_AccActionBtnBox action_Join">Sign Up for Uvid</a>
