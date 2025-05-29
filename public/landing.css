@@ -244,6 +244,7 @@ body
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+    padding: 0 var(--genBorderSpacing);
 }
 
 .welcome_landBox .welcome_landTextMajorBox
@@ -275,7 +276,7 @@ body
     text-align: center;
 }
 
-.welcome_landBox .propmpt_AccActionBdr
+.propmpt_AccActionBdr
 {
     width: 100%;
     display: flex;
@@ -373,7 +374,7 @@ body
     justify-content: center;
     flex-wrap: wrap;
     gap: 1.875rem;
-    padding: 1.5625rem;
+    padding: 1.5625rem var(--genBorderSpacing);
 }
 
 .feature_cardBaseBdr
@@ -460,7 +461,6 @@ body
     padding: 0.9375rem 0.625rem;
     color: var(--color9);
     font-size: 0.9375rem;
-    /* line-height: 1.5625rem; */
 }
 
 
@@ -534,7 +534,7 @@ body
 {
     width: 100%;
     max-height: 45.9375rem;
-    padding: 0.625rem 1.25rem;
+    padding: 0.625rem var(--genBorderSpacing);
 }
 
 .streamSampleBox .streamSampleImg
@@ -567,6 +567,7 @@ body
     display: flex;
     flex-direction: column;
     gap: 0.3125rem;
+    padding: 0 var(--genBorderSpacing);
 }
 
 .prompt_regBox .prompt_regText
@@ -1051,11 +1052,6 @@ body
         padding: 0.3125rem 0.625rem 0.625rem;
     }
 
-    .questions_box .questions_Body
-    {
-        padding: 0.625rem;
-    }
-
     .questions_CardAsk .qca_Major
     {
         font-size: 0.9375rem;
@@ -1081,14 +1077,14 @@ body
 @media only screen and (max-width: 30.3125rem)
 {
 
-    .welcome_landBdr .welcome_landBox
-    {
-        padding: 0 0.75rem;
-    }
-
     .welcome_landTextMajorBox .welcome_landTextMajor
     {
         font-size: 1.625rem;
+    }
+
+    .propmpt_AccActionBdr .propmpt_AccActionBox
+    {
+        max-width: none;
     }
 }
 
