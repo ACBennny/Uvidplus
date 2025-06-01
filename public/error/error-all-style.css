@@ -83,7 +83,7 @@ html:root
     flex-direction: column;
     gap: 0.9375rem;
     align-items: center;
-    text-align: center;
+    text-align: justify;
 }
 
 .middle .mid_Title
