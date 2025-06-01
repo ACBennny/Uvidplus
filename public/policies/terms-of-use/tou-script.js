@@ -934,7 +934,7 @@ const uvidplus_tou_ =
                     </div>
                     <div class="footer">
                         <div class="logoBox">
-                            <a href="#/" class="logo">
+                            <a onclick="window.location.hash = page_route_fallback()" class="logo">
                                 <h2 class="logo1">U</h2>
                                 <h2 class="logo2">VID</h2>
                             </a>
