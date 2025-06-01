@@ -913,11 +913,18 @@ const uvidplus_tou_ =
                             Uvid also uses the <strong>TMDB APIs</strong>, a tool provided by TMDB to provide details about tv shows, movies, and other related content.
                             Note that Uvid is not affiliated, endorsed, certified, or otherwise approved by TMDB.
                             <br><br>
-                            By using this demo, you take full, whole, and complete responsibility for any and every damage(s)
-                            that may occur, and give up the right to pursue any legal action against the account and the owner of the account
-                            in regards to this project. 
-                            <br><br>
-                            You also fully, wholefully, and completely understand, that Uvid does NOT bill, or request any form of monetary goods from you.
+                            By using this demo, 
+                            <br>
+                            [1] you confirm that you are at least 18 years of age, 
+                            <br>
+                            [2] you take full, whole, and complete responsibility for any, and every damage(s)
+                            that may occur, 
+                            <br>
+                            [3] you give up the right to pursue any form of legal action (including the right to sue) against the project,
+                            the GitHub account that developed the project, the owner(s) of the account, and mentioned affiliates
+                            in regards to your use of this demo, and
+                            <br>
+                            [4] you fully, wholefully, and completely understand, that Uvid does NOT, and will NOT bill, or request any form of monetary goods from you.
                             <br><br>
                             As Uvid is simulating a streaming service, you may also see elements or components that appear to conflict with our policy. 
                             In any conflicts of interest, our terms of use and privacy policy remain absolute.
