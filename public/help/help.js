@@ -31,7 +31,7 @@
         if(!(getSignedInUser())) document.querySelector(".topNav_section:last-child").insertAdjacentHTML(
             "beforeend" , 
             `
-                <a href="#/join" type="button" class="genBtnBox  midSolidBtn">
+                <a href="#/signin" type="button" class="genBtnBox  midSolidBtn">
                     <div class="genBtnText">Sign In</div>
                 </a>
             `
