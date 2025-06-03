@@ -331,12 +331,12 @@
             {
                 if(elem.prof_id === "default")
                 {
-                    elem.prof_selected = "yes";
+                    elem.prof_selected = true;
                     getSelectedProfile();
                 }
                 else
                 {
-                    elem.prof_selected = "no";
+                    elem.prof_selected = false;
                 }
             });
 
