@@ -265,11 +265,11 @@
         // Deselect previous profiles
         profileInfoInv.forEach((prof) => 
         {
-            prof.prof_selected = "no";
+            prof.prof_selected = false;
         });
 
         // Select the chosen profile
-        chsnProf[0].prof_selected = "yes";
+        chsnProf[0].prof_selected = true;
 
         // Close the modal
         closeManageProfModal();
@@ -431,18 +431,18 @@
             profileInfoInv.push(
                 {
                     prof_id: `${newProfId}`,
-                    prof_selected: `no`,
+                    prof_selected: false,
                     prof_name: `${profName}`,
-                    prof_type: `normal`,
+                    prof_type: `other`,
                     prof_frgImg: `/images/uvid-profile-base.png`,
                     prof_bcgImg: `/images/uvid-green-bcg1-dark.jpg`,
                     prof_audio_lang: `English`,
                     prof_subtitle_lang: `English`,
-                    prof_show_subtitles: `on`,
-                    prof_auto_play: `off`,
-                    prof_auto_next: `off`,
-                    prof_auto_skip: `off`,
-                    prof_lock_state: `unlocked`,
+                    prof_show_subtitles: false,
+                    prof_auto_play: false,
+                    prof_auto_next: false,
+                    prof_auto_skip: false,
+                    prof_lock_state: false,
                     prof_lock_pin: `0000`,
                     prof_ctnt_restriction: `18+`,
                     prof_history:
