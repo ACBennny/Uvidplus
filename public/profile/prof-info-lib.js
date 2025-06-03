@@ -18,19 +18,18 @@
     [
         {
             prof_id: `wer392w2fj293gfo`,
-            prof_selected: `yes`,
+            prof_selected: true,
             prof_name: `acbennny`,
             prof_type: `default`,
             prof_frgImg: `/images/uvid-profile-base.png`,
             prof_bcgImg: `/images/uvid-green-bcg1-dark.jpg`,
             prof_audio_lang: `English`,
             prof_subtitle_lang: `English`,
-            prof_show_subtitles: `on`,
-            prof_dwld_qlty: `always ask`,
-            prof_auto_play: `off`,
-            prof_auto_next: `off`,
-            prof_auto_skip: `off`,
-            prof_lock_state: `unlocked`,
+            prof_show_subtitles: false,
+            prof_auto_play: false,
+            prof_auto_next: false,
+            prof_auto_skip: false,
+            prof_lock_state: false,
             prof_lock_pin: `0000`,
             prof_ctnt_restriction: `18+`,
             prof_history:
@@ -276,18 +275,18 @@
         },
         {
             prof_id: `ghf340i8jdeo5r32`,
-            prof_selected: `no`,
+            prof_selected: false,
             prof_name: `Alvare`,
-            prof_type: `normal`,
+            prof_type: `other`,
             prof_frgImg: `/images/pfp/pfp-2.jpg`,
             prof_bcgImg: `/images/uvid-tv-shows.jpg`,
             prof_audio_lang: `English`,
             prof_subtitle_lang: `English`,
-            prof_show_subtitles: `on`,
-            prof_auto_play: `off`,
-            prof_auto_next: `off`,
-            prof_auto_skip: `off`,
-            prof_lock_state: `unlocked`,
+            prof_show_subtitles: false,
+            prof_auto_play: false,
+            prof_auto_next: false,
+            prof_auto_skip: false,
+            prof_lock_state: false,
             prof_lock_pin: `0000`,
             prof_ctnt_restriction: `18+`,
             prof_history:
@@ -500,25 +499,23 @@
                     ],
                 },
             ],
-            prof_downloads:
-            [],
             prof_notifications:
             [],
         },
         {
             prof_id: `p734ednt98g73w2q`,
-            prof_selected: `no`,
+            prof_selected: false,
             prof_name: `Aston`,
-            prof_type: `normal`,
+            prof_type: `other`,
             prof_frgImg: `/Images/pfp/pfp-4.jpg`,
             prof_bcgImg: `/images/uvid-anime.jpg`,
             prof_audio_lang: `English`,
             prof_subtitle_lang: `English`,
-            prof_show_subtitles: `on`,
-            prof_auto_play: `off`,
-            prof_auto_next: `off`,
-            prof_auto_skip: `off`,
-            prof_lock_state: `unlocked`,
+            prof_show_subtitles: false,
+            prof_auto_play: false,
+            prof_auto_next: false,
+            prof_auto_skip: false,
+            prof_lock_state: false,
             prof_lock_pin: `0000`,
             prof_ctnt_restriction: `18+`,
             prof_history:
@@ -530,8 +527,6 @@
             prof_watchlist:
             [],
             prof_collections:
-            [],
-            prof_downloads:
             [],
             prof_notifications:
             [],
@@ -551,7 +546,7 @@
                 return [theSelProf, item];
             })
         );
-        selectedProfile = profInfoMap.get("yes");
+        selectedProfile = profInfoMap.get(true);
     }
     getSelectedProfile();
 
