@@ -53,7 +53,7 @@ html:root
     --scrollbarHoverClr: #333333;
     --scrollbarActiveClr: #444444;
     --color0:#000;
-    --color1: var(--genGreenTypeLight);
+    --color1: var(--genGreenTypeLight2);
     --color2: var(--genWhiteTypeBright);
     --color3:#212121a2;
     --color4:#18181f;
@@ -261,7 +261,6 @@ html:has(body[data-modal-state="open"])
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition:all .2s ease-out;
     z-index: 10000000000000;
 }
 
@@ -2131,7 +2130,7 @@ html:root:has(.btmNavBar.hidden)
     visibility: hidden;
     transform: translateY(-100%);
     transition: all var(--notifyTransitionStyle) ease-in;
-    z-index: 1000;
+    z-index: 10000000000001;
 }
 
 .notifyBdr.notifyAtv
