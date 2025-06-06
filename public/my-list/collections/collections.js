@@ -504,7 +504,7 @@ let editCLStruct =
 
         if(url === "")
         {
-            window.history.replaceState(null, '', '#/my-list/collections');
+            window.history.replaceState(null, '', '#/my-list/collections/');
         }
         else
         {
