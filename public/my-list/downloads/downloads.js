@@ -256,7 +256,7 @@
 
         if(url === "")
         {
-            window.history.replaceState(null, '', '#/my-list/downloads');
+            window.history.replaceState(null, '', '#/my-list/downloads/');
         }
         else
         {
