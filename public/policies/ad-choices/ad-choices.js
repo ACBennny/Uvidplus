@@ -1,5 +1,5 @@
 /*************************************************************
- * This is the script for the ad-choices page of Uvid
+ * This is the script for the ad-choices page of Uvid+
  * 
  * @name (Anyanwu_Benedict_Chukwuemeka)
  * @version (v0.01)
@@ -20,7 +20,7 @@
                     <div class="middle">
                         <h3 class="mid_Title">Ad Choices</h3>
                         <p class="mid_Note">
-                            Uvid does NOT provide any ADs on it's platform.
+                            Uvid+ does NOT provide any ADs on it's platform.
                             <br><br>
                             Note that this policy can be updated at any time without prior notification.
                         </p>
@@ -29,7 +29,7 @@
                         <div class="logoBox">
                             <a onclick="window.location.hash = page_route_fallback()" class="logo">
                                 <h2 class="logo1">U</h2>
-                                <h2 class="logo2">VID</h2>
+                                <h2 class="logo2">VID+</h2>
                             </a>
                         </div>
                     </div>
