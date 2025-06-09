@@ -325,8 +325,10 @@
 // WATCHLIST CARDS
 
     // Fetch
-    function fetchMyWatchlist()
+    async function fetchMyWatchlist()
     {
+        let selectedProfile = await getSelectedProfile();
+
         // Return if failed to access library
         if(((selectedProfile.prof_watchlist === undefined)))
         {
@@ -342,10 +344,22 @@
         }
 
         // Map the watchistlist invenory with its item index
-        initWLIndexedMap();
+        await initWLIndexedMap();
 
         // Fetch and display the content
         insert_wl_cards();
+    }
+
+
+    // Initializes the DL Map
+    async function initWLIndexedMap()
+    {
+        let selectedProfile = await getSelectedProfile();
+
+        wlLibraryIndexedInv = selectedProfile.prof_watchlist.map((watchlist, index) => 
+        {
+            return { ...watchlist, index };
+        });
     }
 
 
@@ -371,7 +385,7 @@
                     show_title,
                     show_type,
                     show_year,
-                    show_thumbnail,
+                    show_foreground,
                 } = itemMatch;
 
                 
@@ -383,7 +397,7 @@
                                 <div class="slide_card">
                                     <a href="${show_link}" class="cardLinkCover"></a>
                                     <div class="cardImgBox">
-                                        <img src="${show_thumbnail}" alt="" class="cardImg">
+                                        <img loading="lazy" onload="this.classList.add('loaded')" src="${show_foreground}" alt="" class="cardImg">
                                     </div>
                                     <div class="cardInfoBdr">
                                         <div class="cardInfoBox">
@@ -430,16 +444,6 @@
 
         // Attach listeners
         attachGenMenuModalEventListeners();
-    }
-
-
-    // Initializes the DL Map
-    function initWLIndexedMap()
-    {
-        wlLibraryIndexedInv = selectedProfile.prof_watchlist.map((watchlist, index) => 
-        {
-            return { ...watchlist, index };
-        });
     }
 
 
@@ -495,8 +499,10 @@
                 currItem.classList.add("selected");
             }
 
-            const upd_watch_status = () => 
+            const upd_watch_status = async () => 
             {
+                let selectedProfile = await getSelectedProfile();
+
                 // Get the status option
                 currItemStatusOpt = currItem.getAttribute("data-show-status-opt");
 
@@ -505,12 +511,18 @@
                 {
                     if(item.wl_item === wlCardLink)
                     {
-                        item.wl_status = currItemStatusOpt;
+                        item.wl_status = Number(currItemStatusOpt);
                     }
                 });
 
+                // Update user data
+                await updUsrProfFlds(
+                {
+                    prof_watchlist: selectedProfile.prof_watchlist
+                });
+
                 // Re-initialize the map
-                initWLIndexedMap();
+                await initWLIndexedMap();
 
                 // Update status on card
                 wlCardBdr.setAttribute(`data-show-status-opt` , `${currItemStatusOpt}`);
@@ -526,13 +538,22 @@
 
         // Remove from watchlist
         delWLBodyCards.classList.remove("hidden");
-        delWLBodyCards.onclick = () => 
+        delWLBodyCards.onclick = async () => 
         {
+            let selectedProfile = await getSelectedProfile();
+
             // Remove item from watchlist indexed inv
             selectedProfile.prof_watchlist = selectedProfile.prof_watchlist.filter(item => item.wl_item !== wlCardLink);
 
+            // Update user data
+            await updUsrProfFlds(
+                {
+                    prof_watchlist: selectedProfile.prof_watchlist
+                }
+            );
+
             // Re-initialize the map
-            initWLIndexedMap();
+            await initWLIndexedMap();
             console.log(`Removed ${wlCardLink}`);
             console.log(selectedProfile.prof_watchlist);
 
