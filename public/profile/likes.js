@@ -24,8 +24,10 @@
     }
 
 
-    function fetchProfileLikes() 
+    async function fetchProfileLikes() 
     {
+        let selectedProfile = await getSelectedProfile();
+
         // Check if content of library is available
         if(((selectedProfile.prof_likes === undefined)))
         {
@@ -52,7 +54,7 @@
                     show_title,
                     show_type,
                     show_year,
-                    show_thumbnail,
+                    show_foreground,
                 } = itemMatch;
                 
                 struct += 
@@ -63,7 +65,7 @@
                                 <div class="slide_card">
                                     <a href="${show_link}" class="cardLinkCover"></a>
                                     <div class="cardImgBox">
-                                        <img src="${show_thumbnail}" alt="" class="cardImg">
+                                        <img loading="lazy" onload="this.classList.add('loaded')" src="${show_foreground}" alt="" class="cardImg">
                                     </div>
                                     <div class="cardInfoBdr">
                                         <div class="cardInfoBox">
