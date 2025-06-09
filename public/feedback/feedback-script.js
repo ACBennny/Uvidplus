@@ -1,5 +1,5 @@
 /*************************************************************
- * This is the script for the landing page of Uvid
+ * This is the script for the landing page of Uvid+
  * 
  * @author (Anyanwu Benedict Chukwuemeka)
  * @version (v0.01)
