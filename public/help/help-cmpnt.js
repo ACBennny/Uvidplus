@@ -15,7 +15,7 @@ const help_ctr_nav =
             <section class="topNav_section">
                 <div onclick="window.location.hash = page_route_fallback()" class="company_logoBdr">
                     <div class="company_logoBox Companylogo">
-                        <img src="/images/uvid-logo.png" alt="" class="company_logoImg">
+                        <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-logo.png" alt="" class="company_logoImg">
                     </div>
                 </div>
                 <a href="#/help" type="button" class="genBtnBox thin transBtn">
@@ -53,14 +53,14 @@ const uvid_help_ctr_struct =
                 <div class="help_ctr_hdr_box">
                     <div class="help_ctr_hdr_bcg_bdr">
                         <div class="help_ctr_hdr_bcg_box">
-                            <img src="/images/uvid-green-bcg1-dark.jpg" class="help_ctr_hdr_bcg_img">
+                            <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-green-bcg1-dark.jpg" class="help_ctr_hdr_bcg_img">
                         </div>
                     </div>
                     <div class="help_ctr_hdr_ctnt_bdr">
                         <div class="help_ctr_hdr_ctnt_box">
                             <div class="help_ctr_hdr_ctnt_greet">
                                 <div class="help_ctr_hdr_ctnt_ttlBox_mnr">
-                                    <p class="help_ctr_hdr_ctnt_ttlTxt_mnr">Hi! Welcome to the Uvid Help Center</p>
+                                    <p class="help_ctr_hdr_ctnt_ttlTxt_mnr">Hi! Welcome to the Uvid+ Help Center</p>
                                 </div>
                                 <div class="help_ctr_hdr_ctnt_ttlBox_mjr">
                                     <span class="help_ctr_hdr_ctnt_ttlTxt_mjr">How can we help?</span>
@@ -174,7 +174,7 @@ const uvid_help_ctr_struct =
                                             </div>
                                             <div class="help_ctr_more_ctnt_card_det_descBox">
                                                 <p class="help_ctr_more_ctnt_card_det_descTxt">
-                                                    How might we improve Uvid? Have any suggestions?
+                                                    How might we improve Uvid+? Have any suggestions?
                                                     Use our feedback form to let us know!
                                                 </p>
                                             </div>
@@ -263,7 +263,7 @@ const help_ctr_ctct_struct =
                                 <div class="ctct_hdr_ttl_bdr">
                                     <div class="ctct_hdr_logo_bdr">
                                         <div class="ctct_hdr_logo_box">
-                                            <img src="/images/uvid-logo.png" class="ctct_hdr_logo_img">
+                                            <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-logo.png" class="ctct_hdr_logo_img">
                                         </div>
                                     </div>
                                     <div class="ctct_hdr_ttl_box">
@@ -328,7 +328,7 @@ let help_ctr_dflt_chatbot_msg_arr =
             <div class="ctct_msg_base">
                 <div class="ctct_msg_pfp_bdr">
                     <div class="ctct_msg_pfp_box">
-                        <img src="/images/uvid-profile-base.png" class="ctct_msg_pfp_img" alt="The profile picture of Uvid's virtual support">
+                        <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-profile-base.png" class="ctct_msg_pfp_img" alt="The profile picture of Uvid+'s virtual support">
                     </div>
                 </div>
                 <div class="ctct_msg_ctnt_bdr">
@@ -349,14 +349,14 @@ let help_ctr_dflt_chatbot_msg_arr =
             <div class="ctct_msg_base">
                 <div class="ctct_msg_pfp_bdr">
                     <div class="ctct_msg_pfp_box">
-                        <img src="/images/uvid-profile-base.png" class="ctct_msg_pfp_img" alt="The profile picture of Uvid's virtual support">
+                        <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-profile-base.png" class="ctct_msg_pfp_img" alt="The profile picture of Uvid+'s virtual support">
                     </div>
                 </div>
                 <div class="ctct_msg_ctnt_bdr">
                     <div class="ctct_msg_ctnt_box">
                         <p class="ctct_msg_ctnt_txt">
-                            Hi! I'm Uvid's Virtual Assistant.
-                            I'll do my best to assist you as we explore all things Uvid!
+                            Hi! I'm Uvid+'s Virtual Assistant.
+                            I'll do my best to assist you as we explore all things Uvid+!
                         </p>
                     </div>
                 </div>
