@@ -1,5 +1,5 @@
 /**********************************************************************************************************
- * This is the general script file of Uvid
+ * This is the general script file of Uvid+
  * From here, all general actions performed all over the website are written here
  * 
  * @author (Anyanwu Benedict Chukwuemeka)
@@ -21,7 +21,7 @@
     const topNavBar = document.querySelector(".topNavBar");
     const sideNavBar = document.querySelector(".sideNavBar");
     const btmNavBar = document.querySelector(".btmNavBar");
-    let locationOrigin = window.location.origin == "https://acbennny.github.io" ? window.location.origin + "/Uvid/" : window.location.origin + "/";
+    const footerWrp = document.querySelector(".footer_wrapper");
     let sideNavLinks;
     let btmNavLinks;
     let genContainerMaxWidth = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--genMaxContainerWidth').trim());
@@ -74,6 +74,33 @@
     let socialShareTimer;
     let socialDestinationH;
     let socialDestinationW;
+    let inactivityModalTimer;
+    let inactivityBcg;
+    let removeInactivityModalBtn;
+    let inactivityStartTimer;
+    let inactivityStartFixedTimerRange = 305;
+    let inactivityStartTimerRange = inactivityStartFixedTimerRange;
+    const inactivityModalHTML = 
+    `
+        <!-- --------- Timeout Modal -------- -->
+        <div class="inactivity_bcg">
+            <div class="inactivity_bdr">
+                <div class="inactivity_box">
+                    <div class="inactivity_headerBox">
+                        <h3 class="inactivity_header">Are you still there?</h3>
+                    </div>
+                    <div class="inactivity_textBox">
+                        <p class="inactivity_text">
+                            You'll be logged out in 60 seconds for inactivity. Click "I'm here" to show you are there.
+                        </p>
+                    </div>
+                    <div class="inactivity_actionBox">
+                        <button type="button" class="inactivity_actionBtn">I'm here</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
     const error404Struct = 
     `
         <div class="error_bdr">
@@ -147,7 +174,7 @@
                 <section class="topNav_section">
                     <div class="company_logoBdr" onclick="window.location.hash = page_route_fallback()">
                         <div class="company_logoBox Companylogo">
-                            <img src="/images/uvid-logo.png" alt="" class="company_logoImg">
+                            <img loading="eager" src="/images/uvid-logo.png" alt="" class="company_logoImg">
                         </div>
                     </div>
                 </section>
@@ -162,7 +189,7 @@
                 <section class="sideNav_section">
                     <div class="company_logoBdr">
                         <div class="company_logoBox Companylogo">
-                            <img src="/images/uvid-logo.png" alt="" class="company_logoImg">
+                            <img loading="eager" src="/images/uvid-logo.png" alt="" class="company_logoImg">
                         </div>
                     </div>
                     <div class="sideNavItemsBdr">
@@ -300,33 +327,6 @@
                                     </div>
                                 </a>
                             </div>
-                            <!--<div class="sideNavItemsCardBase">
-                                <a href="#/profile" class="sideNavItemsCardBdr">
-                                    <div class="navBarProfileBdr">
-                                        <div class="navBarProfileBox open_nav_profileOptions">
-                                            <div class="navBarProfileImageBox">
-                                                <img src="/images/uvid-profile-base.png" alt="Profile Image" class="navBarProfileImage" loading="eager">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="sideNavItemsCardBase">
-                                <button type="button" class="sideNavItemsCardBdr openGenMenuModalBtn" data-gen-menu-modal-type="gen_more_menu">
-                                    <div class="sideNavItemsCardBox">
-                                        <div class="sideNavItemsCardIcon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
-                                                <path fill-rule="evenodd" d="M12 1.25a4.75 4.75 0 1 0 0 9.5a4.75 4.75 0 0 0 0-9.5M8.75 6a3.25 3.25 0 1 1 6.5 0a3.25 3.25 0 0 1-6.5 0M12 12.25c-2.04 0-3.922.47-5.322 1.27C5.3 14.308 4.25 15.51 4.25 17s1.05 2.692 2.428 3.48c1.4.8 3.283 1.27 5.322 1.27s3.922-.47 5.322-1.27c1.378-.788 2.428-1.99 2.428-3.48s-1.05-2.692-2.428-3.48c-1.4-.8-3.283-1.27-5.322-1.27M5.75 17c0-.72.517-1.517 1.672-2.177c1.134-.648 2.751-1.073 4.578-1.073s3.444.425 4.578 1.073c1.155.66 1.672 1.458 1.672 2.177s-.517 1.517-1.672 2.177c-1.134.648-2.751 1.073-4.578 1.073s-3.444-.425-4.578-1.073C6.267 18.517 5.75 17.72 5.75 17" clip-rule="evenodd" />
-                                            </svg>
-                                        </div>
-                                        <div class="sideNavItemsCardTitleBdr">
-                                            <div class="sideNavItemsCardTitleBox">
-                                                <div class="sideNavItemsCardTitleText">More</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </button>
-                            </div>-->
                             <div class="sideNavItemsCardBase">
                                 <a href="#/profile" class="sideNavItemsCardBdr sideNavLinks">
                                     <div class="sideNavItemsCardBox">
@@ -445,23 +445,24 @@
                     </a>
                 </div>
                 <div class="btmNavItemsCardBase">
-                    <button type="button" class="btmNavItemsCardBdr btmNavLinks openGenMenuModalBtn" data-gen-menu-modal-type="gen_more_menu">
+                    <a href="#/profile" class="btmNavItemsCardBdr btmNavLinks ">
                         <div class="btmNavItemsCardBox">
                             <div class="btmNavItemsCardIcon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="btmNavItemsCardSvg btmNavOutlineIcon">
-                                    <path d="M9 12a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2a1 1 0 0 0 0 2" />
-                                    <path fill-rule="evenodd" d="M12 1.25C6.063 1.25 1.25 6.063 1.25 12S6.063 22.75 12 22.75S22.75 17.937 22.75 12S17.937 1.25 12 1.25M2.75 12a9.25 9.25 0 1 1 18.5 0a9.25 9.25 0 0 1-18.5 0" clip-rule="evenodd" />
+                                    <path fill-rule="evenodd" d="M12 1.25a4.75 4.75 0 1 0 0 9.5a4.75 4.75 0 0 0 0-9.5M8.75 6a3.25 3.25 0 1 1 6.5 0a3.25 3.25 0 0 1-6.5 0M12 12.25c-2.04 0-3.922.47-5.322 1.27C5.3 14.308 4.25 15.51 4.25 17s1.05 2.692 2.428 3.48c1.4.8 3.283 1.27 5.322 1.27s3.922-.47 5.322-1.27c1.378-.788 2.428-1.99 2.428-3.48s-1.05-2.692-2.428-3.48c-1.4-.8-3.283-1.27-5.322-1.27M5.75 17c0-.72.517-1.517 1.672-2.177c1.134-.648 2.751-1.073 4.578-1.073s3.444.425 4.578 1.073c1.155.66 1.672 1.458 1.672 2.177s-.517 1.517-1.672 2.177c-1.134.648-2.751 1.073-4.578 1.073s-3.444-.425-4.578-1.073C6.267 18.517 5.75 17.72 5.75 17" clip-rule="evenodd" />
                                 </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="btmNavItemsCardSvg btmNavBoldIcon"><path fill-rule="evenodd" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10M8 13a1 1 0 1 0 0-2a1 1 0 0 0 0 2m4 0a1 1 0 1 0 0-2a1 1 0 0 0 0 2m4 0a1 1 0 1 0 0-2a1 1 0 0 0 0 2" clip-rule="evenodd" />
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="btmNavItemsCardSvg btmNavBoldIcon">
+                                    <circle cx="12" cy="6" r="4" />
+                                    <ellipse cx="12" cy="17" rx="7" ry="4" />
                                 </svg>
                             </div>
                             <div class="btmNavItemsCardTitleBdr">
                                 <div class="btmNavItemsCardTitleBox">
-                                    <div class="btmNavItemsCardTitleText">More</div>
+                                    <div class="btmNavItemsCardTitleText">Profile</div>
                                 </div>
                             </div>
                         </div>
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -500,65 +501,62 @@
             <p class="emptyNavBarNotification_text">No new notifications</p>
         </div>
     `;
-    const footerHTML = 
+    const footerStruct = 
     `
-        <div class="give_space"></div>
-        <footer class="footer_wrapper">
-            <div class="footer_base">
-                <div class="footer_bdr">
-                    <div class="footer_box">
-                        <div class="footer_boxCtnt footer_logoBox">
-                            <div class="Companylogo footer_logo">
-                                <h1 class="lhead">U</h1>
-                                <h1 class="lname">vid</h1>
-                            </div>
-                        </div>
-                        <div class="footer_boxCtnt footer_abt">
-                            <div class="footer_abt_titleBox">
-                                <h4 class="footer_abt_title front">A</h4>
-                                <h4 class="footer_abt_title back">bout Us</h4>
-                            </div>
-                            <div class="footer_abt_textBox">
-                                <p class="footer_abt_text">
-                                    <span>Uvid is an online streaming platform tailored with providing the best streaming experience.</span>
-                                    <span>Here you can watch from a vast library of movies, tv shows, anime and even cartoon shows for the kids.</span>
-                                </p>
-                            </div>
-                            <div class="footer_Important_linksBox">
-                                <a href="#/privacy" title="Privacy" class="footerlinks footer_Important_links">Privacy</a>
-                                <a href="#/privacy/cookies" title="Cookies" class="footerlinks footer_Important_links">Cookies</a>
-                                <a href="#/tou" title="Terms of Use" class="footerlinks footer_Important_links">Terms of Use</a>
-                            </div>
-                        </div>
-                        <div class="footer_boxCtnt footer_OtherLinks">
-                            <div class="footer_abt_titleBox">
-                                <h4 class="footer_abt_title front">U</h4>
-                                <h4 class="footer_abt_title back">seful Links</h4>
-                            </div>
-                            <div class="footer_UsefulLinksBdr">
-                                <div class="footer_UsefulLinksBox">
-                                    <a href="#/help/faq" title="Frequently Asked Questions" class="footerlinks footer_UsefulLinks">FAQ</a>
-                                    <a href="#/help" title="Help Center" class="footerlinks footer_UsefulLinks">Help</a>
-                                    <a href="#/feedback" title="Feedback" class="footerlinks footer_UsefulLinks">Feedback</a>
-                                </div>
-                                <div class="footer_UsefulLinksBox">
-                                    <a href="#/help/contact" title="Contact Us" class="footerlinks footer_UsefulLinks">Contact Us</a>
-                                    <a href="#/ad-choices" title="Ad Choices" class="footerlinks footer_UsefulLinks">Ad Choices</a>
-                                    <a href="#/copyright" title="Copyright" class="footerlinks footer_UsefulLinks">Copyright</a>
-                                </div>
-                            </div>
+        <div class="footer_base">
+            <div class="footer_bdr">
+                <div class="footer_box">
+                    <div class="footer_boxCtnt footer_logoBox">
+                        <div class="Companylogo footer_logo">
+                            <h1 class="lhead">U</h1>
+                            <h1 class="lname">vid+</h1>
                         </div>
                     </div>
-                    <div class="developer_creditsBdr">
-                        <div class="developer_creditsBox">
-                            <div class="developer_creditsText">
-                                Designed with 💚 by <span class="developer_creditsName developer_profile">acbennny</span>
+                    <div class="footer_boxCtnt footer_abt">
+                        <div class="footer_abt_titleBox">
+                            <h4 class="footer_abt_title front">A</h4>
+                            <h4 class="footer_abt_title back">bout Us</h4>
+                        </div>
+                        <div class="footer_abt_textBox">
+                            <p class="footer_abt_text">
+                                <span>Uvid+ is an online streaming platform tailored with providing the best streaming experience.</span>
+                                <span>Here you can watch from a vast library of movies, tv shows, anime and even cartoon shows for the kids.</span>
+                            </p>
+                        </div>
+                        <div class="footer_Important_linksBox">
+                            <a href="#/privacy" title="Privacy" class="footerlinks footer_Important_links">Privacy</a>
+                            <a href="#/privacy/cookies" title="Cookies" class="footerlinks footer_Important_links">Cookies</a>
+                            <a href="#/tou" title="Terms of Use" class="footerlinks footer_Important_links">Terms of Use</a>
+                        </div>
+                    </div>
+                    <div class="footer_boxCtnt footer_OtherLinks">
+                        <div class="footer_abt_titleBox">
+                            <h4 class="footer_abt_title front">U</h4>
+                            <h4 class="footer_abt_title back">seful Links</h4>
+                        </div>
+                        <div class="footer_UsefulLinksBdr">
+                            <div class="footer_UsefulLinksBox">
+                                <a href="#/help/faq" title="Frequently Asked Questions" class="footerlinks footer_UsefulLinks">FAQ</a>
+                                <a href="#/help" title="Help Center" class="footerlinks footer_UsefulLinks">Help</a>
+                                <a href="#/feedback" title="Feedback" class="footerlinks footer_UsefulLinks">Feedback</a>
+                            </div>
+                            <div class="footer_UsefulLinksBox">
+                                <a href="#/help/contact" title="Contact Us" class="footerlinks footer_UsefulLinks">Contact Us</a>
+                                <a href="#/ad-choices" title="Ad Choices" class="footerlinks footer_UsefulLinks">Ad Choices</a>
+                                <a href="#/copyright" title="Copyright" class="footerlinks footer_UsefulLinks">Copyright</a>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="developer_creditsBdr">
+                    <div class="developer_creditsBox">
+                        <div class="developer_creditsText">
+                            Designed with 💚 by <span class="developer_creditsName developer_profile">acbennny</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </footer>
+        </div>
     `;
     const viewMoreHistoryStruct = 
     `
@@ -906,9 +904,6 @@
 
 
     // INITIALIZATION
-        
-        
-        window.addEventListener("load", startApplication);
 
         // Start App
         function startApplication()
@@ -917,11 +912,11 @@
             // window.addEventListener("beforeunload" , b4UnloadHandler);
             
             // Insert the NavBars' content
-            sideNavBar.insertAdjacentHTML(`afterbegin` , sideNavBarStruct);
-            btmNavBar.insertAdjacentHTML(`afterbegin` , btmNavBarStruct);
+            sideNavBar.innerHTML = sideNavBarStruct;
+            btmNavBar.innerHTML = btmNavBarStruct;
             
             // Insert Footer
-            documentCtnt.insertAdjacentHTML(`afterend` , footerHTML);
+            footerWrp.innerHTML = footerStruct;
 
             // Definition
             sideNavLinks = document.querySelectorAll(".sideNavLinks");
@@ -1023,6 +1018,82 @@
                 newURL: window.location.href
             }));
         }
+
+
+    // INACTIVITY TIMEOUT
+
+        (function trackUserInactivity() 
+        {
+            // Insert modal
+            documentBody.insertAdjacentHTML(`beforeend` , inactivityModalHTML);
+
+            const inatvPrd = 25 * 60 * 1000; // 25 minutes
+            const signoutPrd = 5 * 60 * 1000; // 5 minutes
+            let signoutTimeout;
+            let inactivityTimeout;
+            let inAtvMdl = document.querySelector(".inactivity_bcg");
+            let imAtvbtn = document.querySelector(".inactivity_actionBtn");
+
+            function showInactivityModal() 
+            {
+                inAtvMdl.classList.add("active");
+
+                // Sign Out User after 1 minute of modal display
+                signoutTimeout = setTimeout(() => 
+                {
+                    hideInactivityModal();
+                    accountSignOut();
+                }, signoutPrd);
+            }
+
+            function hideInactivityModal() 
+            {
+                inAtvMdl.classList.remove("active");
+                resetInactivityTimer();
+            }
+
+
+            // Triggered when user goes inactive
+            function handleInactivity() 
+            {
+                showInactivityModal();
+            }
+
+            // Called on any user activity
+            function resetInactivityTimer() 
+            {
+                if(!(isUserSignedIn())) return;
+                clearTimeout(inactivityTimeout);
+                clearTimeout(signoutTimeout);
+                inactivityTimeout = setTimeout(handleInactivity, inatvPrd);
+            }
+
+
+            if(imAtvbtn)
+            {
+                imAtvbtn.addEventListener("click", hideInactivityModal);
+            }
+
+            // Listen for common user activity events
+            ["mousemove", "keydown", "scroll", "touchstart"].forEach(event => 
+            {
+                document.addEventListener(event, resetInactivityTimer, { passive: true });
+            });
+
+            // Optionally treat tab switching as inactivity
+            document.addEventListener("visibilitychange", () => 
+            {
+                if (document.hidden) 
+                {
+                    resetInactivityTimer();
+                } else {
+                    resetInactivityTimer();
+                }
+            });
+
+            // Start the timer on load
+            resetInactivityTimer();
+        })();
 
 
 
@@ -1509,7 +1580,7 @@
                                         <div class="quickSearchResultCardBox">
                                             <div class="quickSearchResultCardThumbBdr">
                                                 <div class="quickSearchResultCardThumbBox">
-                                                    <img src="${show_thumbnail}" alt="Thumbnail image of ${show_title}" class="quickSearchResultCardThumbImg">
+                                                    <img loading="lazy" onload="this.classList.add('loaded')" src="${show_thumbnail}" alt="Thumbnail image of ${show_title}" class="quickSearchResultCardThumbImg">
                                                 </div>
                                             </div>
                                             <div class="quickSearchResultDetBdr">
@@ -1672,195 +1743,12 @@
 
 
 
-    // NAVBAR  NOTIFICATIONS
-
-        function instantiateNavBarNotificationMenu()
-        {
-            // The border holding the elements of the notification box
-            const navBarNotificationMain = document.createElement("div");
-            navBarNotificationMain.classList.add("navBarNotificationMain");
-            navBarNotificationMain.classList.add("navBarMenuFixed");
-
-            // The Notification Bar Structure
-            navBarNotificationMain.innerHTML = navBarNotificationMainHTML;
-
-            // Append the fragment to navBarRightCtnt of the navbar
-            documentBody.appendChild(navBarNotificationMain);
-            let navBarNotificationCtntBox = document.querySelector(".navBarNotificationCtntBox");
-
-            // Fetch the Notifications
-            fetchNavBarNotifications();
-
-            // For error events
-            function errorLoadingNavBarNotifications()
-            {
-                notification(`notifyBad` , `An error occurred while loading notifications`);
-                openNavBarNotificationBtn.forEach((btn) => 
-                {
-                    btn.addEventListener("click" , failedRequest);
-                });
-            }
-
-            function fetchNavBarNotifications()
-            {
-                // Check if content of library is available
-                if(((notificationInventory == undefined) || (notificationInventory.length <= 0)))
-                {
-                    errorLoadingNavBarNotifications();
-                    return;
-                }
-
-                // If available, insert the new notifications
-                for(let i = 0; i < notificationInventory.length; i++)
-                {
-                    const item = notificationInventory[i];
-                    const notificationCardStruct = 
-                    `
-                        <a href="${item.notify_actionLink}" title="${item.notify_actionText}" class="navBarNotificationCardBdr">
-                            <div class="navBarNotificationCardBox">
-                                <div class="navBarNotificationCard_ImgBdr">
-                                    <div class="navBarNotificationCard_ImgBox">
-                                        <img src="${item.notify_thumbnail}" alt="The thumbnail image of the '${item.notify_mainTopic}' notification"  class="navBarNotificationCard_ImgSrc">
-                                    </div>
-                                </div>
-                                <div class="navBarNotificationCard_DetBdr">
-                                    <div class="navBarNotificationCard_DetBox">
-                                        <div class="navBarNotificationCard_MainTopicBdr">
-                                            <div class="navBarNotificationCard_MainTopicBox">
-                                                <div class="navBarNotificationCard_MainTopicText">${item.notify_mainTopic}</div>
-                                            </div>
-                                        </div>
-                                        <div class="navBarNotificationCard_SubTopicBdr">
-                                            <div class="navBarNotificationCard_SubTopicBox">
-                                                <p class="navBarNotificationCard_SubTopicText">${item.notify_subTopic}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    `;
-                    navBarNotificationCtntBox.insertAdjacentHTML('beforeend', notificationCardStruct);
-                }
-                let navBarNotificationCardBdr = document.querySelectorAll(".navBarNotificationCardBdr");
-
-                // Make The Status number visible
-                navBarNotificationStatusNoBox.forEach((box) => 
-                {
-                    box.classList.add("active");
-                    let navBarNotificationStatusNoText = box.querySelector(".navBarNotificationStatusNo_text");
-
-                    // Update the notification status
-                    navBarNotificationStatusNoText.textContent = navBarNotificationCardBdr.length;
-                });
-
-                // Add listener for "Mark all as read" button
-                let markAllNavBarNotificationsAsRead = document.querySelector(".markAllNavBarNotificationsAsRead");
-                markAllNavBarNotificationsAsRead.addEventListener("click" , () => 
-                {
-                    // Disable the button
-                    markAllNavBarNotificationsAsRead.disabled = true;
-
-                    // Remove the notification status no.
-                    navBarNotificationStatusNoBox.forEach((box) => 
-                    {
-                        box.classList.remove("active");
-                        let navBarNotificationStatusNoText = box.querySelector(".navBarNotificationStatusNo_text");
-
-                        // Update the notification status
-                        navBarNotificationStatusNoText.textContent = "";
-                    });
-
-                    // Remove all Notifications
-                    navBarNotificationCardBdr.forEach((bdr) => 
-                    {
-                        bdr.remove();
-                    });
-
-                    // Insert the default notification
-                    navBarNotificationCtntBox.insertAdjacentHTML('beforeend' , emptyNavBarNotificationBoxStruct);
-
-                    // Recalibrate the Menu
-                    caliberateNavBarNotificationsMenu();
-
-                    notification(`notifyGood` , `All notifications marked as read`);
-                });
-
-                // Calibrate the Menu
-                caliberateNavBarNotificationsMenu();
-
-                // Add Listener to view the Notifications
-                openNavBarNotificationBtn.forEach((btn) => 
-                {
-                    btn.addEventListener("click" , openNavBarNotificationMenu);
-                });
-            }
-
-            // Menu Sizing Calibration
-            function caliberateNavBarNotificationsMenu()
-            {
-                let menuHeader = document.querySelector(".navBarNotificationHeaderBdr");
-                let menuHeaderRect = menuHeader.getBoundingClientRect();
-                let menuHeaderHeight = menuHeaderRect.height;
-                let menuFooter = document.querySelector(".navBarNotificationFooterBdr");
-                let menuFooterRect = menuFooter.getBoundingClientRect();
-                let menuFooterHeight = menuFooterRect.height;
-                let menuCtntBoxRect = navBarNotificationCtntBox.getBoundingClientRect();
-                let menuCtntBoxHeight = menuCtntBoxRect.height;
-                let menuFinalHeight = Math.ceil((menuHeaderHeight + menuFooterHeight + menuCtntBoxHeight));
-
-                navBarNotificationMain.setAttribute(`style` , `--navBarNotificaionsMenuHeight:${menuFinalHeight}px`)
-            }
-
-            // Opens the Notification Box
-            function openNavBarNotificationMenu()
-            {
-                // change active state of the notification icon
-                openNavBarNotificationBtn.forEach((btn) => 
-                {
-                    btn.classList.add("notify_atv");
-                    btn.removeEventListener("click" , openNavBarNotificationMenu);
-                });
-
-                // Slides in the Notification box
-                navBarNotificationMain.classList.add("notify_atv");
-                toggleNavBarUnderLayer();
-
-                // Preset to close the NavBar Notifications
-                navBarNotificationTimer = setTimeout(() => 
-                {
-                    document.addEventListener("click" , closeNavBarNotificationMenu);
-                    clearTimeout(navBarNotificationTimer);
-                },100);
-                
-            }
-
-            // Closes the Notification box
-            function closeNavBarNotificationMenu()
-            {
-                if((!(navBarNotificationMain.matches(":hover"))))
-                {
-                    document.removeEventListener("click" , closeNavBarNotificationMenu);
-
-                    // Add the function to open the Notifications and change active state 
-                    openNavBarNotificationBtn.forEach((btn) => 
-                    {
-                        btn.classList.remove("notify_atv");
-                        btn.addEventListener("click" , openNavBarNotificationMenu);
-                    });
-                    toggleNavBarUnderLayer();
-
-                    // Removes style classes
-                    navBarNotificationMain.classList.remove("notify_atv");
-                }
-            }
-        }
-
-
     // NAVBAR MORE OPTIONS
 
-        function attachNavbarMoreListeners()
+        async function attachNavbarMoreListeners()
         {
+            let selectedProfile = await getSelectedProfile();
+
             // Updates the profile name based on current profile
             document.querySelector(".navBarProfileNameWatching").textContent = selectedProfile.prof_name;
 
@@ -1875,7 +1763,6 @@
 
 
       
-
     // SWITCH PROFILES
 
         function attachSwitchProfEventListeners(switch_prof_state = false)
@@ -1909,246 +1796,6 @@
             });
         }
 
-
-
-    // SIGNING OUT
-
-        function attachSignOutEventlisteners()
-        {
-            let navBarSignOutBtn = document.querySelectorAll(".navBarSignOutBtn");
-
-            navBarSignOutBtn.forEach((btn) => 
-            {
-                if(btn.atn)
-                {
-                    btn.removeEventListener("click" , btn.atn);
-                }
-            });
-
-            navBarSignOutBtn.forEach((btn) => 
-            {
-                const action = () =>
-                {
-                    cfrmB4SignOut();
-                }
-                btn.addEventListener("click" , action);
-                btn.atn = action;
-            });
-        }
-
-        function cfrmB4SignOut()
-        {
-            initConfirmModal(
-                `Are you sure you want to sign out?`,
-                null,
-                `Yes`,
-                `No`,
-                accountSignOut
-            );
-        }
-
-        function accountSignOut()
-        {
-            notification(`notifyBad` , `Signing Out`);
-            toggleNavBarUnderLayer();
-
-            // Remove the beforeunload listener
-            window.removeEventListener("beforeunload" , b4UnloadHandler);
-
-            // Remove the signed in user from local storage
-            localStorage.removeItem('uvidSignedInUser');
-
-            // Go to anding page
-            accountSignOutTimer = setTimeout(() => 
-            {
-                clearTimeout(accountSignOutTimer);
-                window.open(`#/landing` , `_self`);
-            }, 3000);
-        }
-
-
-
-    // DELETING YOUR ACCOUNT
-
-        function attachDelAccEventListeners()
-        {
-            let delAccBtn = document.querySelectorAll(".del_acc_btn");
-
-            delAccBtn.forEach((oldDelBtn) => 
-            {
-                if(oldDelBtn.perm_del_)
-                {
-                    oldDelBtn.removeEventListener("click" , oldDelBtn.perm_del_);
-                }
-            });
-
-            delAccBtn.forEach((newDelBtn) => 
-            {
-                const del_atn = () => 
-                {
-                    validateDelReq(newDelBtn);
-                }
-
-                newDelBtn.addEventListener("click", del_atn);
-                newDelBtn.perm_del_ = del_atn;
-            });
-        }
-
-        // Confirm before deletion
-        function cfrmB4DelAcc()
-        {
-            initConfirmModal(
-                `Are you sure you want to delete your account?`,
-                `Once deleted, it cannot be reovered`,
-                `Delete`,
-                `Cancel`,
-                proDelReq
-            );
-        }
-
-        // Delete Account
-        function proDelReq()
-        {
-            // Normal Sign out for now
-            accountSignOut();
-        }
-
-        // Request password before proceeding
-        function validateDelReq(btnEv)
-        {
-            const delAccBdr = document.createElement("div");
-            delAccBdr.classList.add("genAtnModalBdr");
-            delAccBdr.innerHTML = 
-            `
-                <div class="genAtnModalBcg closeDelAccBtn"></div>
-                <div class="genAtnModalBox">
-                    <div class="genAtnModalCtnt">
-                        <div class="genAtnModalHeader">
-                            <div class="genAtnModalHeaderIconBox closeDelAccBtn">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="genAtnModalHeaderIcon">
-                                    <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
-                                </svg>
-                            </div>
-                            <div class="genAtnModalHeaderText">
-                                <span class="large">C</span>
-                                <span class="small">onfirm password</span>
-                            </div>
-                        </div>
-                        <div class="genAtnModalOptBcg createProfItemBcg">
-                            <div class="genAtnModalOptBdr createProfItemBox">
-                                <div class="newCLBdr active">
-                                    <div class="newCLBox">
-                                        <div class="newCLInputBdr">
-                                            <div class="newCLInputBox">
-                                                <input type="text" name="delPassField" id="delAccInputId" class="newCLInputClass" placeholder="Enter your password" />
-                                            </div>
-                                        </div>
-                                        <div class="newCLWarnBdr">
-                                            <div class="newCLWarnBox">
-                                                <p id="newProfWarnId" class="newCLWarnText" tabindex="-1"></p>
-                                            </div>
-                                        </div>
-                                        <div class="newCLAtnBdr">
-                                            <div class="newCLAtnBox">
-                                                <button type="button" id="cfrmDelPass" class="genBtnBox midSolidBtn">
-                                                    <div class="genBtnText">Confirm</div>
-                                                </button>
-                                                <button type="button" id="cnclDelPass" class="genBtnBox hollowBtn closeDelAccBtn">
-                                                    <div class="genBtnText">Cancel</div>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            documentBody.appendChild(delAccBdr);
-    
-            const delAccCloseBtn = document.querySelectorAll(".closeDelAccBtn");
-            const delAccInput = document.querySelector("#delAccInputId");
-            const delAccBtn = document.querySelector("#cfrmDelPass");
-    
-            // Disabling btn to prevent multiple calls
-            if(typeof btnEv !== "undefined") btnEv.disabled = true;
-    
-            // Transitioning elements
-            delAccTimer = setTimeout(() => 
-            {
-                documentBody.setAttribute(`data-modal-state` , `open`);
-                delAccBdr.classList.add("active");
-                clearTimeout(delAccTimer);
-            }, 100);
-            
-            // Automatically focus on input feild after transition
-            delAccBdr.addEventListener("transitionend" , function handleTransitionEnd()
-            {
-                delAccBdr.removeEventListener("transitionend" , handleTransitionEnd);
-                delAccInput.focus();
-            });
-
-            // Validate password
-            function valDelPass(password) 
-            {
-                const users = JSON.parse(localStorage.getItem('uvidSignedInUser'));
-                console.log(users)
-                
-                // Validate credentials
-                const user = users.find(user => user.password === password);
-                if (user) 
-                {
-                    closeDelAcc(true);
-                }
-                // If incorrect, notify user
-                else
-                {
-                    notification(`Password is incorrect`);
-                }
-            }
-    
-            // Get pass input for verification
-            delAccBtn.addEventListener("click" , () => 
-            {
-                valDelPass(delAccInput.value.toString().trim().replace(/\s+/g, ' '));
-            });
-    
-            // Validate pass by pressing the "Enter" key
-            delAccInput.addEventListener("keyup" , (e) => 
-            {
-                if((e.key === "Enter"))
-                {
-                    delAccBtn.click();
-                }
-            });
-    
-            // Closes the delAcc modal
-            function closeDelAcc(isPass = false)
-            {
-                delAccBtn.classList.replace("midSolidBtn" , "inactiveBtn");
-                delAccInput.value = "";
-                delAccInput.disabled = true;
-                delAccBtn.disabled = true;
-                delAccBdr.classList.remove("active");
-                
-                delAccBdr.addEventListener("transitionend" , function handleTransitionEnd()
-                {
-                    delAccBdr.removeEventListener("transitionend" , handleTransitionEnd);
-                    documentBody.removeChild(delAccBdr);
-                    if(typeof btnEv !== "undefined") btnEv.disabled = false;
-                    documentBody.removeAttribute(`data-modal-state`);
-
-                    if(isPass == true) cfrmB4DelAcc();
-                });
-            }
-    
-            // Closes the modal
-            delAccCloseBtn.forEach(one => 
-            {
-                one.addEventListener("mousedown" , closeDelAcc);
-            });
-        }
 
 
     // TOGGLE FULLSCREEN
@@ -2910,18 +2557,92 @@
     
     // PROFILE
 
-        // Updates the selected Profile's array with it's index array map
-        function update_profArr_with_indexedArr(profArrayKey, indexedArrMap)
+        // Fetches the user profiles
+        async function getUsrProfInv() 
         {
-            if((selectedProfile.hasOwnProperty(profArrayKey)))
+            let usrData = await getUserData();
+            return usrData.profiles;
+        }
+
+        // Updates the user profiles
+        async function updUsrProfFlds(fldsToUpd, profId = null) 
+        {
+            const userData = await getUserData(); 
+            const profEntries = Object.entries(userData.profiles);
+            let selectedEntry = profEntries.find(([key, prof]) => prof.prof_selected);
+
+            if(!selectedEntry) 
             {
-                selectedProfile[profArrayKey] = indexedArrMap;
+                if((profId != null) && (profId !== ""))
+                {
+                    selectedEntry = profEntries.find(([key, prof]) => key === profId);
+                }
+                else
+                {
+                    console.warn("No selected profile found.");
+                    notification(`notifyBad`, "No selected profile found.");
+                    return;
+                }
             }
-            else
+
+            const selectedProfileKey = selectedEntry[0];
+
+            // Build update object with full Firestore paths
+            const updateObj = {};
+
+            for(const [fld, value] of Object.entries(fldsToUpd)) 
             {
-                notification(`An error occurred while saving changes`);
-                console.error(`The property: ${profArr} does not exist`);
+                updateObj[`profiles.${selectedProfileKey}.${fld}`] = value;
             }
+
+            // Update objects in Firestore
+            try
+            {
+                await updateUserData(updateObj);
+            }
+            catch(err)
+            {
+                console.error("Multi-field update failed:", err);
+                notification(`notifyBad`, "Failed to save changes.");
+            }
+        }
+
+        async function wewserefs() 
+        {
+            // return console.log("nopeeeeee wewserefs");
+            await updateUserData(
+                {
+                    profiles: uvid_sgl_usr_obj.profiles,
+                    downloads: uvid_sgl_usr_obj.downloads
+                }
+            );
+
+            console.log("xddd");
+        }
+
+        // Gets the currently selected profile
+        async function getSelectedProfile()
+        {
+            const usrData = await getUserData();
+            return Object.values(usrData.profiles).find(item => item.prof_selected);
+        }
+
+        // Gets the details of provided profile id
+        async function getUsrProfFld(prof_id)
+        {
+            const usrData = await getUserData();
+            return Object.entries(usrData.profiles).find(([key, profile]) => key === prof_id);
+        }
+
+
+
+    // DOWNLOADS
+
+        // Fetches the user downloads
+        async function getUsrDwldInv()
+        {
+            let usrData = await getUserData();
+            return usrData.downloads;
         }
     
 
@@ -2942,13 +2663,14 @@
 
             openAddToCLBtn.forEach(btn => 
             {
-                const addToCLFunc = () =>
+                const addToCLFunc = async () =>
                 {
                     const clBdr = document.createElement("div");
                     clBdr.classList.add("genAtnModalBdr");
                     clBdr.innerHTML = addToCLHTML;
                     documentBody.appendChild(clBdr);
         
+                    let selectedProfile = await getSelectedProfile();
                     let clCloseBtn = document.querySelectorAll(".closeAddToCL");
                     let clItemBcg = document.querySelector(".addToCLItemBcg");
                     let clItemBox = document.querySelector(".addToCLItemBox");
@@ -3012,9 +2734,10 @@
                     });
 
                     // Adds show to cl modal
-                    const addShowsToCL = (clId, clName) =>
+                    const addShowsToCL = async (clId, clName) =>
                     {
                         // Filter the selected collection
+                        let selectedProfile = await getSelectedProfile();
                         let clickedCL = selectedProfile.prof_collections.filter(item => item.cl_id === clId);
 
                         // Adds a single item to that collection
@@ -3035,6 +2758,12 @@
                                         cl_itemId: `${genShowLinkForCL}`,
                                     }
                                 );
+
+                                // Update user data
+                                await updUsrProfFlds(
+                                {
+                                    prof_collections: selectedProfile.prof_collections
+                                });
 
                                 // Send notification when show is added
                                 notification(`notifyGood` , `Successfully added to collection`);
@@ -3057,6 +2786,12 @@
                                     );
                                 }
                             }
+
+                            // Update user data
+                            await updUsrProfFlds(
+                            {
+                                prof_collections: selectedProfile.prof_collections
+                            });
 
                             // Send notification when show is added
                             notification(`notifyGood` , `Successfully added to collection`);
@@ -3135,9 +2870,10 @@
                         getWordCount(newCLInput.value);
                     });
         
-                    // Creates and inserts new list
-                    function generateList(clName)
+                    // Creates and inserts new collection
+                    async function generateList(clName)
                     {
+                        let selectedProfile = await getSelectedProfile();
                         let new_cl_id = generateRandomString().toLowerCase();
 
                         // Create new collection based on typeof genShowLinkForCL
@@ -3177,6 +2913,12 @@
                             console.log("item added to CL is an array");
                         }
 
+                        // Update user data
+                        await updUsrProfFlds(
+                        {
+                            prof_collections: selectedProfile.prof_collections
+                        });
+
                         // Append the new option set to disabled
                         let newListHTML = 
                         `
@@ -3208,7 +2950,7 @@
                         generateList(newCLInput.value);
                     });
 
-                    // Create list by pressing the "Enter" key
+                    // Create collection by pressing the "Enter" key
                     newCLInput.addEventListener("keyup" , (e) => 
                     {
                         if((e.key === "Enter"))
