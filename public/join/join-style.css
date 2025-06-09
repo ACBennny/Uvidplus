@@ -1,13 +1,10 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
-/*************************************************************
- * This is the stylesheet for the Join page of Uvid
+/***********************************************************************************
+ * This is the stylesheet for the Sign Up/Sign In components of Uvid+
  * 
  * @name (Anyanwu_Benedict_Chukwuemeka)
  * @version (v0.01)
- *************************************************************/
-
-
-
+ **********************************************************************************/
 
 
  
@@ -25,7 +22,7 @@
     color: var(--color2);
     font-size: var(--fzTxt);
     text-align: center;
-    padding: 0.625rem;
+    padding: .625rem;
     border-radius: 1.25rem;
     outline: none;
     border: none;
@@ -41,7 +38,7 @@
 .genBtn:active
 {
     box-shadow: 0 0 1.25rem var(--color1);
-    transform: scale(0.9);
+    transform: scale(0.95);
 }
 
 .genIconBox
@@ -64,20 +61,38 @@
 
 .genIconBox .genIcon
 {
-    font-size: calc(var(--fzIcon) + 0.0625rem);
+    font-size: calc(var(--fzIcon) + .0625rem);
 }
 
 
-i
+/* ------ Submit button ------ */
+
+.join_submit_box
 {
-    font-size: var(--fzIcon);
-    transition: 150ms;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-ul
+.join_submit_box.space_h
 {
-    list-style: none;
+    margin: 1rem 0;
 }
+
+.join_submit_box .join_submit_btn
+{
+    width: 80%;
+    padding: .9375rem;
+    border-radius: .625rem;
+    text-transform: uppercase;
+}
+
+
+
+
+
 
 /* ========== INACTIVITY ========= */
 
@@ -92,10 +107,24 @@ ul
     justify-content: center;
     align-items: flex-end;
     background-color: #000000d1;
-    -webkit-backdrop-filter: blur(calc(var(--bcgFilt) + 0.625rem));
-    backdrop-filter: blur(calc(var(--bcgFilt) + 0.625rem));
+    -webkit-backdrop-filter: blur(calc(var(--bcgFilt) + .625rem));
+    backdrop-filter: blur(calc(var(--bcgFilt) + .625rem));
+    opacity: 0;
+    visibility: hidden;
     overflow: hidden;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
     z-index: 140;
+}
+
+.inactivity_bcg.active
+{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
 }
 
 .inactivity_bcg .inactivity_bdr
@@ -103,10 +132,10 @@ ul
     width: 100%;
     max-width: 31.25rem;
     height: fit-content;
-    padding: 0.625rem;
+    padding: .625rem;
     background-color: var(--color4);
-    border-top-left-radius: 0.625rem;
-    border-top-right-radius: 0.625rem;
+    border-top-left-radius: .625rem;
+    border-top-right-radius: .625rem;
     animation: inactivityAni 1.5s linear infinite;
     opacity: 0;
     visibility: hidden;
@@ -123,7 +152,7 @@ ul
     }
     50%
     {
-        box-shadow: 0rem 0rem 0.625rem 0.625rem var(--color1);
+        box-shadow: 0rem 0rem .625rem .625rem var(--color1);
     }
     100%
     {
@@ -155,12 +184,12 @@ ul
 
 .inactivity_box .inactivity_headerBox
 {
-    margin-bottom: 0.3125rem;
+    margin-bottom: .3125rem;
 }
 
 .inactivity_headerBox .inactivity_header
 {
-    font-size: calc(var(--fzTxt) + 0.5rem);
+    font-size: calc(var(--fzTxt) + .5rem);
     color: var(--color1);
 }
 
@@ -171,7 +200,7 @@ ul
 
 .inactivity_textBox .inactivity_text
 {
-    font-size: calc(var(--fzTxt) + 0.0625rem);
+    font-size: calc(var(--fzTxt) + .0625rem);
     color: var(--color2);
 }
 
@@ -183,11 +212,11 @@ ul
 
 .inactivity_actionBox .inactivity_actionBtn
 {
-    padding: 0.625rem 1.25rem;
+    padding: .625rem 1.25rem;
     background-color: var(--color1);
     outline: none;
     border: none;
-    border-radius: 0.625rem;
+    border-radius: .625rem;
     transition: 300ms;
     cursor: pointer;
 }
@@ -230,13 +259,6 @@ ul
     height: 0;
 }
 
-.join_fence p
-{
-    font-family: 'Poppins', sans-serif;
-    color: var(--color2);
-    font-size: var(--fzTxt);
-}
-
 .join_area
 {
     width: 100%;
@@ -249,6 +271,8 @@ ul
 
 .join_house
 {
+    --jn_hs_anm_flt_start: 0;
+    --jn_hs_anm_flt_end: 1;
     position: relative;
     width: 100%;
     min-height: fit-content;
@@ -256,21 +280,32 @@ ul
     background-color: var(--color4);
     -webkit-backdrop-filter: blur(var(--bcgFilt));
     backdrop-filter: blur(var(--bcgFilt));
-    border-radius: 0.625rem;
+    border-radius: .625rem;
     padding: 1.5625rem 2.5rem;
-    margin: 5rem 0.625rem;
-    transform: translateY(-15.625rem);
-    opacity: 0;
-    visibility: hidden;
-    transition: 500ms;
+    margin: 5rem .625rem;
+    animation: jn_hs_anm 500ms linear;
 }
 
-.join_house.active
+@keyframes jn_hs_anm 
 {
-    transform: translateY(0rem);
-    opacity: 1;
-    visibility: visible;
+    from
+    {
+        filter: brightness(var(--jn_hs_anm_flt_start));
+        transform: translateY(-25%);
+    }
+    to
+    {
+        filter: brightness(var(--jn_hs_anm_flt_end));
+        transform: translateY(0%);
+    }
 }
+
+
+
+
+
+
+/* ============ FORMS ============ */
 
 .join_house .join_bdr
 {
@@ -289,13 +324,11 @@ ul
     width: 100%;
     height: 100%;
     display: none;
-    z-index: 1;
 }
 
 .join_formBox.active
 {
     display: flex;
-    z-index: 2;
 }
 
 .join_formBox .join_form
@@ -324,7 +357,7 @@ ul
 
 .form_title_box .form_title
 {
-    font-size: calc(var(--fzTxt) + 0.875rem);
+    font-size: calc(var(--fzTxt) + .875rem);
     color: var(--color2);
 }
 
@@ -335,7 +368,7 @@ ul
     flex-direction: column;
 }
 
-.form_inputArea .form_input_bdr
+.form_input_bdr
 {
     font-family: 'Poppins', sans-serif;
     width: 100%;
@@ -344,17 +377,23 @@ ul
     margin-bottom: 1.25rem;
 }
 
+.form_input_bdr.tandc .form_input_box
+{
+    height: -moz-fit-content;
+    height: fit-content;
+}
+
 .form_input_bdr .form_input_nameBox
 {
     width: 100%;
     text-align: left;
-    margin-bottom: 0.3125rem;
+    margin-bottom: .3125rem;
 }
 
 .form_input_nameBox .form_input_name
 {
     color: var(--color2);
-    font-size: calc(var(--fzTxt) + 0.25rem);
+    font-size: calc(var(--fzTxt) + .25rem);
 }
 
 .form_input_bdr .form_input_box
@@ -362,7 +401,7 @@ ul
     position: relative;
     width: 100%;
     height: 2.1875rem;
-    margin-bottom: 0.625rem;
+    margin-bottom: .625rem;
 }
 
 .form_input_box .form_input_field
@@ -370,14 +409,13 @@ ul
     font-family: 'Poppins', sans-serif;
     width: 100%;
     height: 100%;
-    font-size: calc(var(--fzTxt) + 0.0625rem);
+    font-size: calc(var(--fzTxt) + .0625rem);
     color: var(--color6);
     outline: none;
     border: none;
-    border-bottom: 0.1563rem solid var(--color5);
+    border-bottom: .1563rem solid var(--color5);
     background-color: transparent;
     transition: 300ms;
-    z-index: 2;
 }
 
 .form_input_field:focus
@@ -388,26 +426,46 @@ ul
 
 
 /* ---- See & hide password ---- */
-.seeUnseePass
+.togglePass_iconBdr
 {
     position: absolute;
     right: 0;
-    top: 0;
+    top: 50%;
     align-self: center;
-    margin: 0rem 0.3125rem;
+    margin: 0rem .3125rem;
     color: var(--color5);
-    font-size: calc(var(--fzIcon) - 0.1875rem);
+    font-size: calc(var(--fzIcon) - .1875rem);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(50%);
+    transform: translateY(-50%);
     cursor: pointer;
     z-index: 4;
 }
 
-.seeUnseePass.active
+.togglePass_iconBdr.active
 {
     opacity: 1;
     visibility: visible;
+}
+
+.togglePass_iconBdr .togglePass_iconBox
+{
+    width: 1.5rem;
+    height: 1.5rem;
+    display: none;
+}
+
+.togglePass_iconBdr:not([visibility = "open"]) .togglePass_iconBox.pass_open,
+.togglePass_iconBdr[visibility = "open"] .togglePass_iconBox.pass_close
+{
+    display: block;
+}
+
+.togglePass_iconBox .togglePass_iconSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--genWhiteTypeDark);
 }
 
 
@@ -420,7 +478,7 @@ ul
     height: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.375rem;
+    gap: .375rem;
     color: var(--color2);
     opacity: 0;
     visibility: hidden;
@@ -437,7 +495,7 @@ ul
 
 .form_condBox .cond_title
 {
-    font-size: calc(var(--fzTxt) - 0.0625rem);
+    font-size: calc(var(--fzTxt) - .0625rem);
 }
 
 .form_condBox .cond_list
@@ -457,7 +515,7 @@ ul
     width: 100%;
     display: flex;
     flex-direction: row;
-    gap: 0.3125rem;
+    gap: .3125rem;
     color: #bdbcbc;
     transition: 300ms;
 }
@@ -465,11 +523,25 @@ ul
 .listItem_ctnt.badCond
 {
     color: #ea1313;
+    fill: #ea1313;
 }
 
 .listItem_ctnt.goodCond
 {
     color: #41fd3e;
+    fill: #41fd3e;
+}
+
+.listItem_ctnt.badCond .badCondSvg,
+.listItem_ctnt.goodCond .goodCondSvg
+{
+    display: block;
+}
+
+.listItem_ctnt.badCond .goodCondSvg,
+.listItem_ctnt.goodCond .badCondSvg
+{
+    display: none;
 }
 
 .listItem_ctnt .listItem_ctntIcon,
@@ -477,7 +549,6 @@ ul
 {
     display: flex;
     align-items: center;
-    transition: 300ms;
     -moz-user-select: none;
     -moz-user-select: -moz-none;
     -webkit-user-select: none;
@@ -485,10 +556,22 @@ ul
     pointer-events: none;
 }
 
-.listItem_ctnt .listItem_ctntIcon i,
 .listItem_ctnt .lisItem_ctntText
 {
-    font-size: calc(var(--fzTxt) - 0.0625rem);
+    font-size: calc(var(--fzTxt) - .0625rem);
+}
+
+.listItem_ctnt .listItem_ctntIcon
+{
+    width: 1rem;
+    height: 1rem;
+}
+
+.listItem_ctntIcon .listItem_ctntSvg
+{
+    width: 100%;
+    height: 100%;
+    transition: 300ms;
 }
 
 
@@ -520,22 +603,10 @@ ul
 }
 
 
-/* ------ Submit button ------ */
-
-.form_input_bdr .form_submit_box
+/* -------- Submit Button --------- */
+.form_input_bdr .join_submit_box
 {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.form_submit_box .form_submit_btn
-{
-    width: 80%;
-    padding: 0.9375rem;
-    border-radius: 0.625rem;
-    text-transform: uppercase;
+    margin-bottom: .625rem;
 }
 
 
@@ -563,7 +634,13 @@ ul
 
 
 
-/* ==== Verification of email ==== */
+
+
+
+
+
+
+/* ========= Verification of email ========== */
 
 .vercode_bdr
 {
@@ -576,7 +653,7 @@ ul
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 0.625rem;
+    gap: .625rem;
     opacity: 0;
     visibility: hidden;
     transition: 500ms;
@@ -600,7 +677,7 @@ ul
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 0.625rem;
+    gap: .625rem;
     -webkit-backdrop-filter: blur(var(--bcgFilt));
     backdrop-filter: blur(var(--bcgFilt));
     background-color: var(--color4);
@@ -625,15 +702,16 @@ ul
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    border-left: 0.25rem solid var(--color1);
-    border-top: 0.25rem solid var(--color1);
+    border-left: .25rem solid var(--color1);
+    border-top: .25rem solid var(--color1);
     border-bottom: 0rem solid var(--color1);
     border-right: 0rem solid transparent;
     animation: vl_spin1 1500ms linear infinite;
 }
 
 
-@keyframes vl_spin1{
+@keyframes vl_spin1
+{
     0%
     {
         transform: rotate(0deg);
@@ -649,8 +727,8 @@ ul
     width: 1.875rem;
     height: 1.875rem;
     border-radius: 50%;
-    border-left: 0.1875rem solid var(--color1);
-    border-top: 0.1875rem solid var(--color1);
+    border-left: .1875rem solid var(--color1);
+    border-top: .1875rem solid var(--color1);
     border-bottom: 0rem solid var(--color1);
     border-right: 0rem solid transparent;
     animation: vl_spin2 700ms linear infinite;
@@ -678,8 +756,8 @@ ul
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 0.3125rem;
-    gap: 0.3125rem;
+    padding: .3125rem;
+    gap: .3125rem;
     text-transform: uppercase;
     -moz-user-select: none;
     -moz-user-select: -moz-none;
@@ -700,7 +778,7 @@ ul
 
 .ver_loader .vl_note #vl_note_loader .fa-circle
 {
-    font-size: 0.5625rem;
+    font-size: .5625rem;
     color: var(--color1);
     animation: note_spin 1000ms linear infinite;
     animation-delay: calc(0.3s * var(--i));
@@ -773,7 +851,7 @@ ul
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    gap: 0.625rem;
+    gap: .625rem;
 }
 
 .email_verForm input
@@ -802,7 +880,7 @@ ul
     font-size: var(--fzTxt);
     text-align: center;
     text-transform: uppercase;
-    padding: 0.625rem;
+    padding: .625rem;
     border-radius: 1.25rem;
     outline: none;
     border: none;
@@ -830,13 +908,18 @@ ul
     display: none;
 }
 
+.ver_req_box input.genBtn
+{
+    padding: .9375rem 1.25rem;
+}
+
 .email_verForm .ask_for_ver
 {
     width: 100%;
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 0.9375rem;
+    gap: .9375rem;
 }
 
 .email_verForm .ask_for_ver h4
@@ -853,14 +936,14 @@ ul
     bottom: -0.3125rem;
     position: absolute;
     width: 60%;
-    height: 0.25rem;
+    height: .25rem;
     border-radius: 50%;
     background-color: var(--color1);
 }
 
 .email_verForm .ask_for_ver p
 {
-    font-size: 0.75rem;
+    font-size: .75rem;
     color: #edebeb;
 }
 
@@ -871,7 +954,7 @@ ul
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 0.9375rem;
+    gap: .9375rem;
     opacity: 0;
     visibility: hidden;
     overflow: hidden;
@@ -887,7 +970,7 @@ ul
 .email_verForm .typeincode p #time_countdown
 {
     color: var(--color1);
-    font-size: calc(var(--fzTxt) + 0.125rem);
+    font-size: calc(var(--fzTxt) + .125rem);
     text-align: center;
     font-weight: 500;
 }
@@ -898,7 +981,7 @@ ul
     flex-direction: row;
     justify-content: center;
     align-items: first baseline;
-    gap: 0.3125rem;
+    gap: .3125rem;
     font-size: var(--fzTxt);
     color: var(--color2);
 }
@@ -915,11 +998,11 @@ ul
     font-family: 'Poppins', sans-serif;
     width: 100%;
     height: 100%;
-    font-size: calc(var(--fzTxt) + 0.0625rem);
+    font-size: calc(var(--fzTxt) + .0625rem);
     color: var(--color6);
     outline: none;
     border: none;
-    border-bottom: 0.1563rem solid var(--color5);
+    border-bottom: .1563rem solid var(--color5);
     background-color: transparent;
     transition: 300ms;
 }
@@ -943,16 +1026,16 @@ ul
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 0.125rem;
-    margin: 0.625rem 0;
+    gap: .125rem;
+    margin: .625rem 0;
 }
 
 .form_provider a
 {
     position: relative;
-    font-size: 0.625rem;
+    font-size: .625rem;
     color: var(--color6);
-    font-size: calc(var(--fzTxt) - 0.125rem);
+    font-size: calc(var(--fzTxt) - .125rem);
 }
 
 .form_provider a::after
@@ -962,8 +1045,8 @@ ul
     bottom: 0;
     left: 50%;
     width: 0%;
-    height: 0.0625rem;
-    border-radius: 0.625rem;
+    height: .0625rem;
+    border-radius: .625rem;
     background-color: var(--color1);
     transform: translate(0%, 100%);
     transition: all 300ms ease-in-out;
@@ -994,9 +1077,9 @@ ul
 @media (hover: hover)
 {
     .genBtn:hover
-{
-    box-shadow: 0 0 1.25rem var(--color1);
-}
+    {
+        box-shadow: 0 0 1.25rem var(--color1);
+    }
 }
 
 
@@ -1010,35 +1093,36 @@ ul
 
 /* ====== ======== ======= Responsive= ===========  == == */
 
-
-
-/* ------------- Height ------------ */
-
-
-/*  ----------- ---- Width ---- --------- */
-
-
 @media only screen and (max-width: 48rem)
 {
-    .join_house
+    .join_fence
     {
-        /* margin: 5rem 0; */
-        padding: 1.25rem;
+        background-color: var(--color4);
+        background-image: none;
     }
 
-    .form_title_box .form_title
+    .join_house
     {
-        font-size: calc(var(--fzTxt) + 0.625rem);
-        color: var(--color2);
+        --jn_hs_anm_flt_start: 1;
+        margin: 0;
+        padding: var(--navBarHeight) var(--genBorderSpacing) 2rem;
+        border-radius: 0rem;
+        background-color: #00000000;
+        -webkit-backdrop-filter: blur(0rem);
+        backdrop-filter: blur(0rem);
     }
 
     .form_input_nameBox .form_input_name
     {
-        font-size: calc(var(--fzTxt) + 0.0625rem);
+        font-size: calc(var(--fzTxt) + .0625rem);
     }
 }
 
 
-@media only screen and (max-width: 21.875rem)
+@media only screen and (max-width: 30.3125rem)
 {
+    .join_submit_box .join_submit_btn
+    {
+        width: 100%;
+    }
 }

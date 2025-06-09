@@ -1,0 +1,543 @@
+/*************************************************************
+ * This is the stylesheet for the signup components of Uvid+
+ * 
+ * @name (Anyanwu_Benedict_Chukwuemeka)
+ * @version (v0.01)
+ *************************************************************/
+
+
+
+html:root
+{
+    --join_plan_sls_cardH: 6.25rem;
+}
+
+
+
+
+/* =========== INTRO =========== */
+
+.join_intro_bdr
+{
+    width: 100%;
+}
+
+.join_intro_bdr .join_intro_box
+{
+    width: 100%;
+    max-width: 22.5rem;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.join_intro_hdr_box
+{
+    width: 100%;
+    margin: 1rem 0;
+}
+
+.join_intro_hdr_box .join_intro_hdr_txt
+{
+    color: var(--genWhiteTypeBright);
+    font-size: 1.625rem;
+    text-align: center;
+}
+
+.join_intro_box .join_intro_ftr_bdr
+{
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.join_intro_ftr_bdr .join_intro_ftr_box
+{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.join_intro_ftr_box .join_intro_ftr_iconBdr
+{
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.join_intro_ftr_iconBdr .join_intro_ftr_iconBox
+{
+    width: 100%;
+    height: 100%;
+}
+
+.join_intro_ftr_iconBox .join_intro_ftr_iconSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--genGreenTypeLight);
+}
+
+.join_intro_ftr_box .join_intro_ftr_descBox
+{
+    width: 100%;
+    padding: 0.5rem 0;
+}
+
+.join_intro_ftr_descBox .join_intro_ftr_descTxt
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+.join_intro_ptr_iconBdr
+{
+    position: absolute;
+    bottom: -10%;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+.join_intro_ptr_iconBdr.ptr_1
+{
+    left: 20%;
+}
+
+.join_intro_ptr_iconBdr.ptr_2
+{
+    right: 20%;
+}
+
+.join_intro_ptr_iconBdr .join_intro_ptr_iconBox
+{
+    width: 2rem;
+    height: 2rem;
+}
+
+.join_intro_ptr_iconBox .join_intro_ptr_iconSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--genWhiteTypeDark);
+}
+
+.join_intro_ptr_iconBdr.ptr_1 .join_intro_ptr_iconSvg
+{
+    transform: rotate(125deg);
+}
+
+.join_intro_ptr_iconBdr.ptr_2 .join_intro_ptr_iconSvg
+{
+    transform: rotate(-125deg) rotateY(180deg);
+}
+
+
+
+
+
+
+/* ========== PLANS & PRICING ========== */
+
+.join_plan_bdr
+{
+    width: 100%;
+}
+
+.join_plan_bdr .join_plan_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.join_plan_box .join_plan_hdr_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.join_plan_hdr_box .join_plan_hdr_txt_mjr
+{
+    color: var(--genWhiteTypeBright);
+    font-size: 1.625rem;
+    text-align: center;
+}
+
+.join_plan_hdr_box .join_plan_hdr_txt_mnr
+{
+    color: var(--genWhiteTypeMid);
+    font-size: .9375rem;
+    text-align: center;
+}
+
+.join_plan_box .join_plan_sls_bdr
+{
+    width: 100%;
+}
+
+.join_plan_sls_bdr .join_plan_sls_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0.625rem;
+}
+
+.join_plan_sls_box .join_plan_sls_cardBase
+{
+    width: 100%;
+    height: var(--join_plan_sls_cardH);
+}
+
+.join_plan_sls_cardBase .join_plan_sls_cardBdr
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: .625rem;
+    border: .125rem solid var(--genGreyTypeLight);
+    transition: all 150ms ease-in-out;
+}
+
+.join_plan_sls_cardBdr[selected]:has( .join_plan_sls_radCls[value="ultm"])
+{
+    background: linear-gradient(300deg, var(--genGreenTypeLight2) 10%,  var(--genGreyTypeDark) 70%);
+}
+
+.join_plan_sls_cardBdr[selected]:has( .join_plan_sls_radCls[value="stnd"])
+{
+    background: linear-gradient(300deg, var(--genGreenTypeMid) 10%,  var(--genGreyTypeDark) 70%);
+}
+
+.join_plan_sls_cardBdr[selected]:has( .join_plan_sls_radCls[value="estl"])
+{
+    background: linear-gradient(300deg, var(--genGreenTypeDark1) 10%,  var(--genGreyTypeDark) 70%);
+}
+
+.join_plan_sls_cardBdr .join_plan_sls_radCls
+{
+    position: absolute;
+    top: -1000%;
+    left: -1000%;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    appearance: none;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.join_plan_sls_cardBdr .join_plan_sls_lbl
+{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.join_plan_sls_cardBdr .join_plan_sls_cardBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0.625rem;
+}
+
+.join_plan_sls_cardBox .join_plan_sls_ttl_box
+{
+    width: 100%;
+    margin-bottom: 0.3125rem;
+}
+
+.join_plan_sls_ttl_box .join_plan_sls_ttl_txt
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 0.75rem;
+}
+
+.join_plan_sls_cardBox .join_plan_sls_sub_box
+{
+    width: 100%;
+}
+
+.join_plan_sls_sub_box .join_plan_sls_sub_txt
+{
+    color: var(--genWhiteTypeMid);
+    font-size: .75rem;
+    font-weight: 500;
+}
+
+.join_plan_sls_cardBdr[selected] .join_plan_sls_ttl_txt,
+.join_plan_sls_cardBdr[selected] .join_plan_sls_sub_txt
+{
+    color: var(--genWhiteTypeBright);
+}
+
+.join_plan_sls_cardBox .join_plan_sls_icon_bdr
+{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: none;
+    margin-right: 0.625rem;
+    margin-bottom: 0.625rem;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    animation: sls_icon_pop 150ms linear;
+}
+
+@keyframes sls_icon_pop 
+{
+    from
+    {
+        right: -0.625rem;
+        bottom: -0.625rem;
+        scale: 0;
+    }
+    to
+    {
+        right: 0;
+        bottom: 0;
+        scale: 1;
+    }
+}
+
+.join_plan_sls_cardBdr[selected]
+.join_plan_sls_cardBox .join_plan_sls_icon_bdr
+{
+    display: block;
+}
+
+.join_plan_sls_cardBox .join_plan_sls_icon_box
+{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.join_plan_sls_icon_box .join_plan_sls_icon_svg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--genWhiteTypeLight);
+}
+
+.join_plan_box .join_plan_ftr_bdr
+{
+    width: 100%;
+    margin: 1.25rem 0;
+}
+
+.join_plan_ftr_bdr .join_plan_ftr_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.join_plan_ftr_box .join_plan_ftr_cardBdr
+{
+    width: 100%;
+    padding: 0.625rem 0;
+    border-radius: .3125rem;
+    border-bottom: .0625rem solid var(--genGreyTypeLight);
+}
+
+.join_plan_ftr_cardBdr:last-child
+{
+    border: none;
+}
+
+.join_plan_ftr_cardBdr .join_plan_ftr_cardBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.join_plan_ftr_cardBox .join_plan_ftr_mnr_box
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    width: 40%;
+}
+
+.join_plan_ftr_mnr_box .join_plan_ftr_mnr_txt
+{
+    width: 100%;
+    color: var(--genGreenTypeLight2);
+    font-size: .8125rem;
+    font-weight: 500;
+    text-align: left;
+}
+
+.join_plan_ftr_cardBox .join_plan_ftr_mjr_box
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    width: 60%;
+}
+
+.join_plan_ftr_mjr_box .join_plan_ftr_mjr_txt
+{
+    width: 100%;
+    color: var(--genWhiteTypeLight);
+    font-size: 1rem;
+    text-align: right;
+}
+
+.join_plan_box .join_plan_ntc_bdr
+{
+    width: 100%;
+}
+
+.join_plan_ntc_bdr .join_plan_ntc_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.join_plan_ntc_box .join_plan_ntc_cardBox
+{
+    width: 100%;
+    margin-bottom: 0.625rem;
+}
+
+.join_plan_ntc_cardBox .join_plan_ntc_card_txt
+{
+    color: var(--genWhiteTypeDark);
+    font-size: 0.75rem;
+}
+
+/* ----- Selected plan in paymeny form --- */
+.form_plan_bdr
+{
+    width: 100%;
+    padding: 0.875rem;
+    border-radius: .625rem;
+    background-color: var(--genGreyTypeMid);
+}
+
+.form_plan_bdr .form_plan_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form_plan_det_bdr .form_plan_det_box
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.form_plan_det_box .form_plan_price_box
+{
+    margin-bottom: 0.5rem;
+}
+
+.form_plan_price_box .form_plan_price_txt
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.form_plan_name_box .form_plan_name_txt
+{
+    color: var(--genWhiteTypeMid);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.form_plan_atn_box .form_plan_atn_txt
+{
+    --form_plan_atn_txt_clr: var(--genGreenTypeMid);
+    position: relative;
+    color: var(--form_plan_atn_txt_clr);
+    font-size: 0.875rem;
+}
+
+.form_plan_atn_txt::after
+{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0%;
+    height: 0.125rem;
+    border-radius: .625rem;
+    background-color: var(--form_plan_atn_txt_clr);
+    transition: all 150ms ease-in-out;
+}
+
+.form_plan_atn_box:hover .form_plan_atn_txt::after
+{
+    left: 0%;
+    width: 100%;
+}
+
+
+
+
+
+/* ======== OUTRO ======== */
+
+.join_outro_bdr
+{
+    width: 100%;
+}
+
+.join_outro_bdr .join_outro_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.join_outro_box .join_outro_det_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 1.5rem 0;
+}
+
+.join_outro_det_box .join_outro_det_txt
+{
+    margin-bottom: 0.75rem;
+    color: var(--genWhiteTypeMid);
+    font-size: 0.875rem;
+}
+
+.join_outro_det_txt:last-child
+{
+    margin: 0;
+}
+
+.join_outro_det_txt .join_outro_det_txt_mjr
+{
+    color: var(--genWhiteTypeMid2);
+    font-weight: 600;
+    text-transform: uppercase;
+}
