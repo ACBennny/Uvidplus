@@ -318,7 +318,7 @@
             scheduleInv.push(
                 {
                     show_link: `${item.show_link}`,
-                    show_thumbnail: `${item.show_thumbnail}`,
+                    show_foreground: `${item.show_foreground}`,
                     show_title: `${item.show_title}`,
                     show_aired: `${item.show_aired}`,
                     show_description: `${item.show_description}`,
@@ -359,7 +359,7 @@
                         <a href="${item.show_link}" class="schedule_ctntCardBox">
                             <div class="schedule_ctntThumbnailBdr">
                                 <div class="schedule_ctntThumbnailBox">
-                                    <img src="${item.show_thumbnail}" alt="Thumnail image of ${item.show_title}" class="schedule_ctntThumbnailImg">
+                                    <img loading="lazy" onload="this.classList.add('loaded')" src="${item.show_foreground}" alt="Thumnail image of ${item.show_title}" class="schedule_ctntThumbnailImg">
                                 </div>
                             </div>
                             <div class="schedule_ctntDetBdr">
