@@ -1,4 +1,4 @@
-#### App Name: Uvid
+#### App Name: Uvid+
 
 #### Demo: https://acuvid.netlify.app
 
