@@ -1,5 +1,5 @@
 /**********************************************************************************************
- * This will hold the styling For the Category home pages of Uvid 
+ * This will hold the styling For the Category home pages of Uvid+ 
  * 
  * @author (Anyanwu Benedict Chukwuemeka)
  * @version (v0.01)
@@ -126,7 +126,6 @@ html:root
     height: 100%;
     object-fit: cover;
     object-position: center;
-    filter: blur(1.25rem);
     scale: 1.1;
     z-index: -1;
 }
@@ -144,6 +143,8 @@ html:root
     flex-direction: row;
     align-items: center;
     padding: 0 var(--genBorderSpacing) var(--hmHeroOffSet);
+    -webkit-backdrop-filter: blur(1.25rem);
+    backdrop-filter: blur(1.25rem);
     z-index: 3;
 }
 
@@ -699,6 +700,7 @@ html:root
     position: relative;
     width: 4.6875rem;
     height: 6.25rem;
+    overflow: hidden;
 }
 
 .latestEp_cardImgBox .latestEp_cardImg
