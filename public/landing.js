@@ -1,5 +1,5 @@
 /*************************************************************
- * This is the script for the landing page of Uvid
+ * This is the script for the landing page of Uvid+
  * 
  * @author (Anyanwu Benedict Chukwuemeka)
  * @version (v0.01)
@@ -21,21 +21,21 @@
                             Watch a boundless haven of movies, TV shows and tons more 
                             with our unmatched streaming services.
                             <br>
-                            Starts $4.99. Cancel Anytime. Terms Apply.
+                            Starts <strong>$4.99</strong>. Cancel Anytime. Terms Apply.
                             <br>
                             <!-- New Member? Start your 10 day free trial. -->
                         </p>
                     </div>
                     <div class="propmpt_AccActionBdr">
                         <div class="propmpt_AccActionBox">
-                            <a href="#/signup" target="_self" type="button" class="propmpt_AccActionBtnBox action_Join">Sign Up for Uvid</a>
-                            <a href="#/signin" target="_self" type="button" class="propmpt_AccActionBtnBox action_GetPremium">Sign In with Uvid</a>
+                            <a href="#/signup" target="_self" type="button" class="propmpt_AccActionBtnBox action_Join">Sign Up for Uvid+</a>
+                            <a href="#/signin" target="_self" type="button" class="propmpt_AccActionBtnBox action_GetPremium">Sign In with Uvid+</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="welcome_landBcgImgBox">
-                <img src="/images/uvid-bcg0.jpg" alt="background image of Uvid" class="welcome_landBcgImg">
+                <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-bcg0.jpg" alt="background image of Uvid+" class="welcome_landBcgImg">
             </div>
         </div>
 
@@ -126,7 +126,7 @@
                     </div>
                     <div class="streamSampleBdr">
                         <div class="streamSampleBox">
-                            <img src="/images/uvid-device-support.png" alt="" class="streamSampleImg">
+                            <img loading="eager" src="/images/uvid-device-support.png" alt="" class="streamSampleImg">
                         </div>
                     </div>
                 </div>
@@ -146,7 +146,7 @@
                             <button type="button" class="questions_CardBtn" aria-expanded="false">
                                 <h4 class="questions_CardAsk">
                                     <span class="qca_Major">W</span>
-                                    <span class="qca_Minor">hat is Uvid?</span>
+                                    <span class="qca_Minor">hat is Uvid+?</span>
                                 </h4>
                                 <div class="questions_CardIconBox">
                                     <span class="questions_CardIcon"></span>
@@ -154,7 +154,7 @@
                             </button>
                             <div class="questions_CardTextBox">
                                 <p class="questions_CardText">
-                                    Uvid is just one of many streaming services that presents people the opportunity
+                                    Uvid+ is just one of many streaming services that presents people the opportunity
                                     to watch a haven full of diverse movies, TV Shows, anime and cartoon shows for the kids.
                                 </p>
                             </div>
@@ -171,7 +171,7 @@
                             </button>
                             <div class="questions_CardTextBox">
                                 <p class="questions_CardText">
-                                    There is a huge range of shows to watch on Uvid. 
+                                    There is a huge range of shows to watch on Uvid+. 
                                     You can watch movies, TV Shows, anime, and cartoon shows.
                                 </p>
                             </div>
@@ -188,12 +188,12 @@
                             </button>
                             <div class="questions_CardTextBox">
                                 <p class="questions_CardText">
-                                    Uvid is going big on it's device support plan. 
+                                    Uvid+ is going big on it's device support plan. 
                                     <br>
-                                    You can watch Uvid shows on a wide range of devices
+                                    You can watch Uvid+ shows on a wide range of devices
                                     including phones, tablets, laptops, desktops, and TV.
                                     <br><br>
-                                    We are working hard to bring Uvid to you on your favourite game consoles.
+                                    We are working hard to bring Uvid+ to you on your favourite game consoles.
                                     Stay tuned!
                                 </p>
                             </div>
@@ -202,7 +202,7 @@
                             <button type="button" class="questions_CardBtn" aria-expanded="false">
                                 <h4 class="questions_CardAsk">
                                     <span class="qca_Major">I</span>
-                                    <span class="qca_Minor">s Uvid free?</span>
+                                    <span class="qca_Minor">s Uvid+ free?</span>
                                 </h4>
                                 <div class="questions_CardIconBox">
                                     <span class="questions_CardIcon"></span>
@@ -210,7 +210,7 @@
                             </button>
                             <div class="questions_CardTextBox">
                                 <p class="questions_CardText">
-                                    Uvid is not free but a paid subscription service. However new members can get it free* for a limited trial period of 10 days after which you're billing period starts.
+                                    Uvid+ is not free but a paid subscription service. However, when offered, new members may get it free* for a limited trial period of 10 days after which you're billing period starts.
                                     <br>
                                     We will remind you up to 3 days before your trial ends. You can cancel anytime. Terms Apply.
                                 </p>
@@ -220,7 +220,7 @@
                             <button type="button" class="questions_CardBtn" aria-expanded="false">
                                 <h4 class="questions_CardAsk">
                                     <span class="qca_Major">H</span>
-                                    <span class="qca_Minor">ow much is Uvid?</span>
+                                    <span class="qca_Minor">ow much is Uvid+?</span>
                                 </h4>
                                 <div class="questions_CardIconBox">
                                     <span class="questions_CardIcon"></span>
@@ -230,7 +230,7 @@
                                 <p class="questions_CardText">
                                     Stream unlimited movies, TV Shows, Animes and Cartoon shows for a fixed monthly price.
                                     <br>
-                                    Uvid presents three different bundles all at different prices ranging from $4.99 to $14.99.
+                                    Uvid+ presents three different bundles all at different prices ranging from $4.99 to $14.99.
                                 </p>
                             </div>
                         </div>
@@ -238,7 +238,7 @@
                             <button type="button" class="questions_CardBtn" aria-expanded="false">
                                 <h4 class="questions_CardAsk">
                                     <span class="qca_Major">I</span>
-                                    <span class="qca_Minor">s Uvid kid friendly?</span>
+                                    <span class="qca_Minor">s Uvid+ kid friendly?</span>
                                 </h4>
                                 <div class="questions_CardIconBox">
                                     <span class="questions_CardIcon"></span>
@@ -246,7 +246,7 @@
                             </button>
                             <div class="questions_CardTextBox">
                                 <p class="questions_CardText">
-                                    Yes of course, Uvid allows families to enjoy shows together with simple and easy to use parental controls.
+                                    Yes of course, Uvid+ allows families to enjoy shows together with simple and easy to use parental controls.
                                     <br>
                                     Parents can create and manage profiles for their kids at no extra cost**.
                                 </p>
@@ -277,8 +277,8 @@
                     </div>
                     <div class="propmpt_AccActionBdr">
                         <div class="propmpt_AccActionBox">
-                            <a href="#/signup" target="_self" type="button" class="propmpt_AccActionBtnBox action_Join">Sign Up for Uvid</a>
-                            <a href="#/signin" target="_self" type="button" class="propmpt_AccActionBtnBox action_GetPremium">Sign In with Uvid</a>
+                            <a href="#/signup" target="_self" type="button" class="propmpt_AccActionBtnBox action_Join">Sign Up for Uvid+</a>
+                            <a href="#/signin" target="_self" type="button" class="propmpt_AccActionBtnBox action_GetPremium">Sign In with Uvid+</a>
                         </div>
                     </div>
                 </div>
@@ -294,7 +294,7 @@
                 <section class="topNav_section">
                     <div class="company_logoBdr" onclick="window.location.hash = page_route_fallback()">
                         <div class="company_logoBox Companylogo">
-                            <img src="/images/uvid-logo.png" alt="" class="company_logoImg">
+                            <img loading="eager" src="/images/uvid-logo.png" alt="" class="company_logoImg">
                         </div>
                     </div>
                 </section>
