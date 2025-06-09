@@ -48,7 +48,7 @@
                     <a href="${item.show_link}" title="Watch ${item.show_title}" class="trendingCardBox">
                         <div class="trendingImgBdr">
                             <div class="trendingImgBox">
-                                <img src="${item.show_thumbnail}" alt="Image of the ${item.show_section}: ${item.show_title}" class="trendingImg">
+                                <img loading="lazy" onload="this.classList.add('loaded')" src="${item.show_thumbnail}" alt="Image of the ${item.show_section}: ${item.show_title}" class="trendingImg">
                             </div>
                         </div>
                         <div class="trendingDetBdr">
