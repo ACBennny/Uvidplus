@@ -1,5 +1,5 @@
 /*************************************************************
- * This is the script for the tou page of Uvid
+ * This is the script for the tou page of Uvid+
  * 
  * @name (Anyanwu_Benedict_Chukwuemeka)
  * @version (v0.01)
@@ -901,17 +901,17 @@ const uvidplus_tou_ =
                     <div class="middle">
                         <h3 class="mid_Title">Terms Of Use</h3>
                         <p class="mid_Note">
-                            Uvid ("ACUvid", "Uvidplus", "we", "us") is a project developed by the GitHub account
+                            Uvid+ ("Uvid", "ACUvid", "Uvidplus", "we", "us") is a project developed by the GitHub account
                             <a class="goToHome" href="https://github.com/ACBennny" target="_blank">acbennny</a> 
                             and accessible as a "demo" through 
-                            <a class="goToHome" href="https://acuvid.netlify.app" target="_blank">acuvid.netlify.app</a>
+                            <a class="goToHome" href="https://uvidplus.netlify.app" target="_blank">uvidplus.netlify.app</a>
                             which simulates the user interface and user experience of a streaming platform.
                             It is provided as is, without warranty, and guarantee of any kind. 
                             <br><br>
-                            Uvid integrates <strong>Firebase</strong>, a service provided by Google for account creation, authentication, and customization.
+                            Uvid+ integrates <strong>Firebase</strong>, a service provided by Google for account creation, authentication, and customization.
                             <br><br>
-                            Uvid also uses the <strong>TMDB APIs</strong>, a tool provided by TMDB to provide details about tv shows, movies, and other related content.
-                            Note that Uvid is not affiliated, endorsed, certified, or otherwise approved by TMDB.
+                            Uvid+ also uses the <strong>TMDB APIs</strong>, a tool provided by TMDB to provide details about tv shows, movies, and other related content.
+                            Note that Uvid+ is not affiliated, endorsed, certified, or otherwise approved by TMDB.
                             <br><br>
                             By using this demo, 
                             <br>
@@ -924,9 +924,9 @@ const uvidplus_tou_ =
                             the GitHub account that developed the project, the owner(s) of the account, and mentioned affiliates
                             in regards to your use of this demo, and
                             <br>
-                            [4] you fully, wholefully, and completely understand, that Uvid does NOT, and will NOT bill, or request any form of monetary goods from you.
+                            [4] you fully, wholefully, and completely understand, that Uvid+ does NOT, and will NOT bill, or request any form of monetary goods from you.
                             <br><br>
-                            As Uvid is simulating a streaming service, you may also see elements or components that appear to conflict with our policy. 
+                            As Uvid+ is simulating a streaming service, you may also see elements or components that appear to conflict with our policy. 
                             In any conflicts of interest, our terms of use and privacy policy remain absolute.
                             <br><br>
                             Note that this policy can be updated at any time without prior notification.
@@ -936,7 +936,7 @@ const uvidplus_tou_ =
                         <div class="logoBox">
                             <a onclick="window.location.hash = page_route_fallback()" class="logo">
                                 <h2 class="logo1">U</h2>
-                                <h2 class="logo2">VID</h2>
+                                <h2 class="logo2">VID+</h2>
                             </a>
                         </div>
                     </div>
