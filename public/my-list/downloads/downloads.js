@@ -326,8 +326,10 @@
 // DWLD BODY
 
     // Fetch Downloads
-    function fetchMyDownloads()
+    async function fetchMyDownloads()
     {
+        let dwld_lib = await getUsrDwldInv();
+
         // Return if failed to access library
         if(((dwld_lib === undefined)))
         {
@@ -343,7 +345,7 @@
         }
 
         // Map the download invenory with its item index
-        initDLIndexedMap();
+        await initDLIndexedMap();
         
         // Insert top nav items
         topNavBar.innerHTML = dlPageNav;
@@ -361,8 +363,10 @@
 
 
     // Initializes the DL Map
-    function initDLIndexedMap()
+    async function initDLIndexedMap()
     {
+        let dwld_lib = await getUsrDwldInv();
+        
         dlLibraryIndexedInv = dwld_lib.map((dwld, index) => 
         {
             return { ...dwld, index };
@@ -441,8 +445,8 @@
                                 <div class="dlCtgGridCard_sectInfo">
                                     <div class="dlCtgGridCard_ImgBdr">
                                         <div class="dlCtgGridCard_ImgBox">
-                                            <img src="${show_background}" class="dlCtgGridCard_ImgSrc dlCtgGridCard_ImgSrcLrg">
-                                            <img src="${show_foreground}" class="dlCtgGridCard_ImgSrc dlCtgGridCard_ImgSrcSml">
+                                            <img loading="lazy" onload="this.classList.add('loaded')" src="${show_background}" class="dlCtgGridCard_ImgSrc dlCtgGridCard_ImgSrcLrg">
+                                            <img loading="lazy" onload="this.classList.add('loaded')" src="${show_foreground}" class="dlCtgGridCard_ImgSrc dlCtgGridCard_ImgSrcSml">
                                         </div>
                                     </div>
                                     <div class="dlCtgGridCard_detBdr">
@@ -476,12 +480,6 @@
 
         // Attach query selectors
         dlCtgGridCardBdr = document.querySelector(".dlCtgGridCardBdr");
-        dlMdlBase = document.querySelector(".dlMdlBase");
-        dlMdlBox = document.querySelector(".dlMdlBox");
-        dlMdlHdr_TitleText = document.querySelector(".dlMdlHdr_TitleText");
-        dlMdlHdr_epNo = document.querySelector(".dlMdlHdr_epNo");
-        dlMdlHdr_epSize = document.querySelector(".dlMdlHdr_epSize");
-        dlMdlCtntGrid = document.querySelector(".dlMdlCtntGrid");
 
         // Attach listeners
         call_openDLModal();
@@ -535,7 +533,7 @@
     function postLoadDLModalCall()
     {
         // Get the path from the url
-        let dl_specific_path = hash_parts[3];
+        let dl_specific_path = window.location.hash.split('/')[3];
 
         // Return if path doesn't exist
         if((dl_specific_path == undefined) || (dl_specific_path == null) || (dl_specific_path === '')) return;
@@ -777,8 +775,10 @@
 
         delDLBodyEpBtn.forEach((newBtn) => 
         {
-            const dlt_atn = () => 
+            const dlt_atn = async () => 
             {
+                let dwld_lib = await getUsrDwldInv();
+
                 // Identify the card(s) to be removed
                 let allChkBoxes = document.querySelectorAll(".dlCtgGridCardBdr .genTick_chkFldCls");
                 let chkdEps = document.querySelectorAll(".dlCtgGridCardBdr .genTick_chkFldCls:checked");
@@ -820,12 +820,18 @@
                     // Close the delete operation
                     document.querySelectorAll(".dlBdyHdr_editBtn")[0].click();
 
+                    // Update user data
+                    await updateUserData(
+                    {
+                        downloads: dwld_lib
+                    });
+
                     // Update the DL Map
-                    initDLIndexedMap();
+                    await initDLIndexedMap();
         
                     // Regenerate the DL Body Cards
                     insert_dl_body_cards();
-    
+                    window.scrollTo(0,0);
                 }
             }
 
@@ -843,6 +849,16 @@
     // Open the modal
     function openDLModal(id, type, link, title, epNo, size)
     {
+        //
+
+        // Attach query selectors
+        dlMdlBase = document.querySelector(".dlMdlBase");
+        dlMdlBox = document.querySelector(".dlMdlBox");
+        dlMdlHdr_TitleText = document.querySelector(".dlMdlHdr_TitleText");
+        dlMdlHdr_epNo = document.querySelector(".dlMdlHdr_epNo");
+        dlMdlHdr_epSize = document.querySelector(".dlMdlHdr_epSize");
+        dlMdlCtntGrid = document.querySelector(".dlMdlCtntGrid");
+
         // Set the title, length, and size
         dlMdlHdr_TitleText.textContent = title;
         dlMdlHdr_epNo.textContent = epNo;
@@ -894,7 +910,11 @@
         {
             // Let users no no items are available
             notification(`notifyBad` , `No episodes available`);
+            return;
         }
+
+        // Scroll to start
+        dlMdlBox.scrollTo(0,0);
 
         // Display the modal
         dlMdlBase.classList.add("active");
@@ -1263,8 +1283,10 @@
 
         delDLModalEpBtn.forEach((newBtn) => 
         {
-            const dlt_atn = () => 
+            const dlt_atn = async () => 
             {
+                let dwld_lib = await getUsrDwldInv();
+                
                 // Identify the card(s) to be removed
                 let allChkBoxes = document.querySelectorAll(".dLMdlGridCardBdr .genTick_chkFldCls");
                 let chkdEps = document.querySelectorAll(".dLMdlGridCardBdr .genTick_chkFldCls:checked");
@@ -1279,7 +1301,7 @@
                 }
                 else
                 {
-                    chkdEps.forEach((chkBox) => 
+                    chkdEps.forEach((chkBox, index) => 
                     {
                         let parentDiv = chkBox.closest(".dLMdlGridCardBdr");
                         let dlCardEpLnk = parentDiv.getAttribute("data-ep-link");
@@ -1302,8 +1324,14 @@
                     });
                 }
 
+                // Update user data
+                await updateUserData(
+                {
+                    downloads: dwld_lib
+                });
+
                 // Update the DL Map
-                initDLIndexedMap();
+                await initDLIndexedMap();
     
                 // Regenerate the DL Body Cards
                 insert_dl_body_cards();
@@ -1367,8 +1395,10 @@
         dlCardViewDetBtn.onclick = () => window.open(`${dlCardShwLnk}` , `_self`);
 
         // Delete Episode
-        dlCardDelEpBtn.onclick = () => 
+        dlCardDelEpBtn.onclick = async () => 
         {
+            let dwld_lib = await getUsrDwldInv();
+
             if(allGridCards.length == 1)
             {
                 // Delete item if deleted episode was the last item
@@ -1399,8 +1429,14 @@
                 notification(`notifyGood` , `Episode ${dlCardEpLnk.split('/')[5]} deleted`);
             }
 
+            // Update user data
+            await updateUserData(
+            {
+                downloads: dwld_lib
+            });
+
             // Update the DL Map
-            initDLIndexedMap();
+            await initDLIndexedMap();
 
             // Regenerate the DL Body Cards
             insert_dl_body_cards();
