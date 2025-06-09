@@ -127,7 +127,7 @@
                                 <div class="slide_card">
                                     <a href="${item.show_link}" title="Watch ${item.show_title}" class="cardLinkCover" draggable="false"></a>
                                     <div class="cardImgBox">
-                                        <img src="${item.show_thumbnail}" alt="Thumbnail image of ${item.show_title}" class="cardImg">
+                                        <img loading="lazy" onload="this.classList.add('loaded')" src="${item.show_thumbnail}" alt="Thumbnail image of ${item.show_title}" class="cardImg">
                                     </div>
                                     <div class="cardQualityBox">
                                         <h1 class="cardQualityText">${item.show_quality}</h1>
