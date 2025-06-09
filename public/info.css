@@ -48,9 +48,11 @@ html:root
 
 .bcg_img_bdr .bcg_img_box
 {
+    --ImgHeight: 31.25rem;
     width: 100%;
     height: var(--ImgHeight);
     min-height: 31.25rem;
+    overflow: hidden;
 }
 
 .bcg_img_box .bcgImg
@@ -64,6 +66,7 @@ html:root
 
 .bcg_img_bdr .bcg_img_gradient
 {
+    --ImgHeight: 32.8125rem;
     position: absolute;
     top: 0;
     left: 0;
