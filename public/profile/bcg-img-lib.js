@@ -17,7 +17,7 @@
     const bcgImgInv = 
     [
         {
-            bcg_sectname: `Uvid`,
+            bcg_sectname: `Uvid+`,
             bcg_ImgSrcSet: [
                 {img_src: `/images/uvid-bcg0.jpg`,},
                 {img_src: `/images/uvid-green-bcg2.jpg`,},
@@ -32,7 +32,7 @@
             bcg_sectname: `Movies`,
             bcg_ImgSrcSet: [
                 {img_src: `/images/uvid-movies0.jpg`,},
-                {img_src: `/images/uvid-red-velvet0.png`,},
+                {img_src: `/images/uvid-red-velvet0.jpg`,},
                 {img_src: `/images/uvid-bcg1.jpg`,},
                 {img_src: `/images/uvid-red-velvet1.jpg`,},
                 {img_src: `/images/uvid-bcg3.jpg`,},
@@ -44,10 +44,10 @@
             bcg_ImgSrcSet: [
                 {img_src: `/images/uvid-tv-shows.jpg`,},
                 {img_src: `/images/uvid-anime.jpg`,},
-                {img_src: `/images/uvid-documentary.png`,},
+                {img_src: `/images/uvid-documentary.jpg`,},
                 {img_src: `/images/uvid-cartoon2.jpg`,},
                 {img_src: `/images/uvid-cartoon3.jpg`,},
-                {img_src: `/images/uvid-cartoon1.png`,},
+                {img_src: `/images/uvid-cartoon1.jpg`,},
             ],
         },
         {
