@@ -173,7 +173,7 @@
                 <div class="main_bcg">
                     <div class="bcg_img_bdr">
                         <div class="bcg_img_box">
-                            <img src="${show_background}" alt="Background image of ${show_title}" class="bcgImg">
+                            <img loading="lazy" onload="this.classList.add('loaded')" src="${show_background}" alt="Background image of ${show_title}" class="bcgImg">
                         </div>
                         <div class="bcg_img_gradient"></div>
                     </div>
@@ -182,7 +182,7 @@
                             <div class="title-plate">
                                 <div class="title_ImgBdr">
                                     <div class="title_ImgBox">
-                                        <img src="${show_foreground}" alt="Foreground image of ${show_title}" class="title_Img">
+                                        <img loading="lazy" onload="this.classList.add('loaded')" src="${show_foreground}" alt="Foreground image of ${show_title}" class="title_Img">
                                     </div>
                                 </div>
                                 
@@ -543,7 +543,7 @@
         `;
 
         documentCtnt.insertAdjacentHTML(`afterbegin` , showHTMLCtnt);
-        document.title = `Uvid • Watch ${showsStructData.show_title}`;
+        document.title = `Uvid+ • Watch ${showsStructData.show_title}`;
         genShowLinkForCL = showsStructData.show_link;
 
         epSetArr.length = 0;
@@ -655,7 +655,7 @@
                             <div class="ep_cardBox">
                                 <div class="ep_cardThumbBdr">
                                     <div class="ep_cardThumbBox">
-                                        <img class="ep_cardThumbImg" src="${showsStructData.show_background}">
+                                        <img loading="lazy" onload="this.classList.add('loaded')" class="ep_cardThumbImg" src="${showsStructData.show_background}">
                                     </div>
                                 </div>
                                 <a href="#/watch/movie/${hash_parts[2]}/1" class="ep_cardCtntBdr">
@@ -728,7 +728,7 @@
                             <div class="slide_card">
                                 <a href="${item.show_link}" class="cardLinkCover"></a>
                                 <div class="cardImgBox">
-                                    <img src="${item.show_thumbnail}" alt="" class="cardImg">
+                                    <img loading="lazy" onload="this.classList.add('loaded')" src="${item.show_foreground}" alt="" class="cardImg">
                                 </div>
                                 <div class="cardInfoBdr">
                                     <div class="cardInfoBox">
@@ -768,11 +768,12 @@
         firstSsnSelector.classList.add("active");
     }
 
-    function startShowSection()
+    async function startShowSection()
     {
 
         // DEFINITION
 
+            let selectedProfile = await getSelectedProfile();
             let bcgImgBdr = document.querySelector(".bcg_img_bdr");
             let bcgImgBox = document.querySelector(".bcg_img_box");
             let bcgImgGradient = document.querySelector(".bcg_img_gradient");
@@ -817,7 +818,7 @@
             function checkBcgImgBdrBounds()
             {
                 bcgImgBdrBound = bcgImgBdr.getBoundingClientRect();
-                bcgImgBdrHeight = bcgImgBdrBound.height;
+                bcgImgBdrHeight = Math.round(bcgImgBdrBound.height);
                 bcgImgBdrHalf = Math.round(bcgImgBdrHeight/2);
                 bcgImgBdr3Qarts = bcgImgBdrHeight + bcgImgBdrHalf;
                 bcgImgBdr3QartsH = bcgImgBdrHeight + bcgImgBdrHalf + 10;
@@ -891,12 +892,20 @@
             }
 
             // Like the show
-            likeTheEp.addEventListener("click" , () => 
+            likeTheEp.addEventListener("click" , async () => 
             {
+                let selectedProfile = await getSelectedProfile();
+
                 if(likeTheEp.classList.contains("selected"))
                 {
                     // Remove from the likes array
                     selectedProfile.prof_likes = selectedProfile.prof_likes.filter(item => item.ls_item !== showsStructData.show_link);
+                    
+                    // Update user data
+                    await updUsrProfFlds(
+                    {
+                        prof_likes: selectedProfile.prof_likes
+                    });
 
                     // Remove "selected" class from the like button
                     likeTheEp.classList.remove("selected");
@@ -924,6 +933,13 @@
                         }
                     );
 
+                    // Update user data
+                    await updUsrProfFlds(
+                    {
+                        prof_likes: selectedProfile.prof_likes,
+                        prof_dislikes: selectedProfile.prof_dislikes
+                    });
+
                     // Add "selected" class to the like button
                     likeTheEp.classList.add("selected");
 
@@ -934,12 +950,20 @@
             });
             
             // Dislike the show
-            dontLikeTheEp.addEventListener("click" , () => 
+            dontLikeTheEp.addEventListener("click" , async () => 
             {
+                let selectedProfile = await getSelectedProfile();
+
                 if(dontLikeTheEp.classList.contains("selected"))
                 {
                     // Remove from the dislikes array
                     selectedProfile.prof_dislikes = selectedProfile.prof_dislikes.filter(item => item.ds_item !== showsStructData.show_link);
+
+                    // Update user data
+                    await updUsrProfFlds(
+                    {
+                        prof_dislikes: selectedProfile.prof_dislikes
+                    });
 
                     // Remove "selected" class from the like button
                     dontLikeTheEp.classList.remove("selected");
@@ -966,6 +990,13 @@
                             ds_item: `${showsStructData.show_link}`,
                         }
                     );
+
+                    // Update user data
+                    await updUsrProfFlds(
+                    {
+                        prof_likes: selectedProfile.prof_likes,
+                        prof_dislikes: selectedProfile.prof_dislikes
+                    });
 
                     // Add "selected" class to the like button
                     dontLikeTheEp.classList.add("selected");
@@ -1098,8 +1129,10 @@
 
         // WATCH NOW
 
-            watchNowBtn.addEventListener("click" , () => 
+            watchNowBtn.addEventListener("click" , async () => 
             {
+                let selectedProfile = await getSelectedProfile();
+
                 // Get the most recent addition to watch history for that show
                 let watchNowItem = selectedProfile.prof_history.filter(item => 
                     item.hist_link.split('/')[3] === showsStructData.show_link.split('/')[2]
@@ -1132,8 +1165,9 @@
             // Mark entire season as watched
             markSsnAsWatched.forEach((btn) => 
             {
-                const mark_atn = () => 
+                const mark_atn = async () => 
                 {
+                    let selectedProfile = await getSelectedProfile();
                     let currSsnNo = 1 + Number(document.querySelector(".seasons_selector.active").getAttribute("data-index"));
                     let currSsnLength = Number(document.querySelector(".seasons_selector.active").getAttribute("ep-length"));
                     let show_type = `${showsStructData.show_type.toLowerCase()}`;
@@ -1168,6 +1202,12 @@
                                 }
                             );
                         }
+
+                        // Update user data
+                        await updUsrProfFlds(
+                        {
+                            prof_history: selectedProfile.prof_history
+                        });
                     }
 
                     // Notify the user
@@ -1206,7 +1246,7 @@
                     seasonEpNo.textContent = `${epLengthNo} epsisode`;
                 }
                 
-                selector.addEventListener("click" , () => 
+                selector.addEventListener("click" , async () => 
                 {
                     seasonHeaderBox.setAttribute(`data-current-index` , `${ssn_no}`);
                     seasonHeaderText.textContent = seasonSelectorMain.textContent;
@@ -1220,6 +1260,7 @@
                     epSearchField.forEach((valFld) => valFld.value = "");
 
                     // Update button if show is in downloads
+                    let dwld_lib = await getUsrDwldInv();
                     let isShwInDL = dwld_lib.filter(item => 
                         item.dl_link.trim().toLowerCase() === showsStructData.show_link.trim().toLowerCase()
                         && item.dl_ssn == ssn_no_plus_one
@@ -1459,7 +1500,7 @@
                     <div class="ep_cardBox">
                         <div class="ep_cardThumbBdr">
                             <div class="ep_cardThumbBox">
-                                <img class="ep_cardThumbImg" src="${showsStructData.show_background}">
+                                <img loading="lazy" onload="this.classList.add('loaded')" class="ep_cardThumbImg" src="${showsStructData.show_background}">
                             </div>
                         </div>
                         <a href="#/watch/tv/${hash_parts[2]}/${ssn}/${i}" class="ep_cardCtntBdr">
@@ -1543,8 +1584,9 @@
         epCardPlyBtn.onclick = () => window.open(`${epCardEpLink}` , `_self`);
 
         // Mark as watched
-        epCardMarkAsWatchedBtn.onclick = () => 
+        epCardMarkAsWatchedBtn.onclick = async () => 
         {
+            let selectedProfile = await getSelectedProfile();
             let show_type = `${epShowType}`;
             let show_name = `${showsStructData.show_link.split('/')[2]}`;
             let showLink = `#/watch/${show_type}/${show_name}/${epCardSsnNum}/${epCardEpNum}`;
@@ -1563,6 +1605,12 @@
                         hist_totalTime: `23:59`, // Random value as no shows are streamed
                     }
                 );
+
+                // Update user data
+                await updUsrProfFlds(
+                {
+                    prof_history: selectedProfile.prof_history
+                });
             }
 
             // Notify the user
