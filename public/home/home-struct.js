@@ -130,7 +130,7 @@
                             <span class="big">P</span>
                             <span class="small">opular</span>
                         </h2>
-                        <p>Uvid Most Popular Shows</p>
+                        <p>Uvid+ Most Popular Shows</p>
                     </div>
                 </div>
                 <div class="basic_slider_ctnt">
@@ -251,7 +251,7 @@
                             </h1>
                         </div>
                         <div class="type1_Ctnt_box_HeadRight">
-                            <a href="#/news.html" class="seeAll">See All ›</a>
+                            <a href="#/news" class="seeAll">See All ›</a>
                         </div>
                     </div>
                     <div class="news_grid">
