@@ -33,8 +33,10 @@
     }
 
 
-    function fetchProfileHistory(type) 
+    async function fetchProfileHistory(type) 
     {
+        let selectedProfile = await getSelectedProfile();
+
         // Check if content of library is available
         if(((selectedProfile.prof_history === undefined)))
         {
@@ -70,7 +72,7 @@
                     show_title,
                     show_type,
                     show_year,
-                    show_thumbnail,
+                    show_foreground,
                 } = itemMatch;
 
                 struct += 
@@ -81,7 +83,7 @@
                                 <div class="slide_card ">
                                     <a href="${itemLink}" class="cardLinkCover"></a>
                                     <div class="cardImgBox">
-                                        <img src="${show_thumbnail}" alt="Image of ${show_title}" class="cardImg">
+                                        <img loading="lazy" onload="this.classList.add('loaded')" src="${show_foreground}" alt="Image of ${show_title}" class="cardImg">
                                     </div>
                                     <div class="cardinfo cardInfoBdr">
                                         <div class="cardInfoBox">
@@ -150,13 +152,19 @@
         // Removing "ONE" Show from History
         removeThisShowFromHistory.forEach((btn) => 
         {
-            btn.addEventListener("click" , function()
+            btn.addEventListener("click" , async function()
             {
                 const parentOfBtn = this.closest('.history_card');
                 if (parentOfBtn) 
                 {
                     // Remove item from history array
                     selectedProfile.prof_history = selectedProfile.prof_history.filter((item) => item.hist_link !== parentOfBtn.querySelector(".cardLinkCover").getAttribute("href"));
+
+                    // Update user data
+                    await updUsrProfFlds(
+                    {
+                        prof_history: selectedProfile.prof_history
+                    });
 
                     // Remove item from DOM
                     parentOfBtn.remove();
