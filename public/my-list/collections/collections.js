@@ -140,7 +140,7 @@ let mylist_collections_struct =
                             <div class="clModalHead_underlayerBox">
                                 <div class="clModalHeader_BcgBdr">
                                     <div class="clModalHeader_BcgBox">
-                                        <img class="clModalHeader_BcgImg" src="/images/uvid-green-bcg1-light.jpg" alt="The collections header background image">
+                                        <img loading="lazy" onload="this.classList.add('loaded')" class="clModalHeader_BcgImg" src="/images/uvid-green-bcg1-light.jpg" alt="The collections header background image">
                                     </div>
                                 </div>
                                 <div class="clModalHeader_Shadow"></div>
@@ -150,7 +150,7 @@ let mylist_collections_struct =
                             <div class="clModalHeader_thumbBase">
                                 <div class="clModalHeader_thumbBdr">
                                     <div class="clModalHeader_thumbBox">
-                                        <img class="clModalHeader_thumbImg" src="/images/uvid-green-bcg1-light.jpg" alt="The collections header thumbnail image">
+                                        <img loading="lazy" onload="this.classList.add('loaded')" class="clModalHeader_thumbImg" src="/images/uvid-green-bcg1-light.jpg" alt="The collections header thumbnail image">
                                     </div>
                                 </div>
                             </div>
@@ -464,7 +464,7 @@ let editCLStruct =
 
 
 
-    //  GENERAL FUNCTIONS
+//  GENERAL FUNCTIONS
 
     function start_mylist_collections_page()
     {
@@ -510,6 +510,18 @@ let editCLStruct =
         {
             window.history.replaceState(null, '', newCLurl);
         }
+    }
+
+
+    // Initializes the DL Map
+    async function initCLIndexedMap()
+    {
+        let selectedProfile = await getSelectedProfile();
+
+        clLibraryIndexedInv = selectedProfile.prof_collections.map((collection, index) => 
+        {
+            return { ...collection, index };
+        });
     }
 
 
@@ -578,6 +590,8 @@ let editCLStruct =
     {
         arr.reverse();
     }
+
+
 
 
 
@@ -732,7 +746,7 @@ let editCLStruct =
                 });
 
                 // Create list
-                function generateList(clName)
+                async function generateList(clName)
                 {
                     // Compare the current and max CL library size and return if equal/greater
                     if((newCLCurrSize >= newCLMaxSize))
@@ -759,7 +773,14 @@ let editCLStruct =
                             cl_items: [],
                         }
                     );
-                    update_profArr_with_indexedArr("prof_collections" , clLibraryIndexedInv);
+                    
+
+                    // Update user data
+                    await updUsrProfFlds(
+                        {
+                            prof_collections: clLibraryIndexedInv
+                        }
+                    );
 
                     // Insert new list into DOM
                     let newListHTML = 
@@ -774,7 +795,7 @@ let editCLStruct =
                                             <div class="myListCLCatalog_ItemStackLvlAll myListCLCatalog_ItemStackLvl1">
                                                 <div class="myListCLCatalog_ItemThumbBdr">
                                                     <div class="myListCLCatalog_ItemThumbBox">
-                                                        <img class="myListCLCatalog_ItemThumbImg" src="/images/uvid-green-bcg1-light.jpg" alt="Thumbnail image for the collection: ${clName}">
+                                                        <img loading="lazy" onload="this.classList.add('loaded')" class="myListCLCatalog_ItemThumbImg" src="/images/uvid-green-bcg1-light.jpg" alt="Thumbnail image for the collection: ${clName}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -962,8 +983,10 @@ let editCLStruct =
 
 
     // Fetches collection info
-    function fetchMyCollections()
+    async function fetchMyCollections()
     {
+        let selectedProfile = await getSelectedProfile();
+
         // Return if failed to access library
         if((selectedProfile.prof_collections == undefined))
         {
@@ -1055,7 +1078,7 @@ let editCLStruct =
                                     <div class="myListCLCatalog_ItemStackLvlAll myListCLCatalog_ItemStackLvl1">
                                         <div class="myListCLCatalog_ItemThumbBdr">
                                             <div class="myListCLCatalog_ItemThumbBox">
-                                                <img class="myListCLCatalog_ItemThumbImg" src="${cl.cl_bcg}" alt="Thumbnail image for the collection: ${cl.cl_name}">
+                                                <img loading="lazy" onload="this.classList.add('loaded')" class="myListCLCatalog_ItemThumbImg" src="${cl.cl_bcg}" alt="Thumbnail image for the collection: ${cl.cl_name}">
                                             </div>
                                         </div>
                                     </div>
@@ -1084,16 +1107,6 @@ let editCLStruct =
                             <div class="myListCLCatalog_ItemOpenCLBdr">
                                 <button type="button" class="myListCLCatalog_ItemOpenCLBtn"></button>
                             </div>
-                            <!-- <div class="myListCLCatalog_ItemBadgeBdr clDeleteBtn" title="Delete">
-                                <div class="myListCLCatalog_ItemBadgeBox">
-                                    <div class="myListCLCatalog_ItemBadgeIcon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="myListCLCatalog_ItemBadgeSvg">
-                                            <path d="M3 6.524c0-.395.327-.714.73-.714h4.788c.006-.842.098-1.995.932-2.793A3.68 3.68 0 0 1 12 2a3.68 3.68 0 0 1 2.55 1.017c.834.798.926 1.951.932 2.793h4.788c.403 0 .73.32.73.714a.72.72 0 0 1-.73.714H3.73A.72.72 0 0 1 3 6.524" />
-                                            <path fill-rule="evenodd" d="M11.596 22h.808c2.783 0 4.174 0 5.08-.886c.904-.886.996-2.34 1.181-5.246l.267-4.187c.1-1.577.15-2.366-.303-2.866c-.454-.5-1.22-.5-2.753-.5H8.124c-1.533 0-2.3 0-2.753.5s-.404 1.289-.303 2.866l.267 4.188c.185 2.906.277 4.36 1.182 5.245c.905.886 2.296.886 5.079.886m-1.35-9.811c-.04-.434-.408-.75-.82-.707c-.413.043-.713.43-.672.864l.5 5.263c.04.434.408.75.82.707c.413-.044.713-.43.672-.864zm4.329-.707c.412.043.713.43.671.864l-.5 5.263c-.04.434-.409.75-.82.707c-.413-.044-.713-.43-.672-.864l.5-5.264c.04-.433.409-.75.82-.707" clip-rule="evenodd" />
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -1148,8 +1161,9 @@ let editCLStruct =
 
 
     // Opens the modal containing the info for a single collection
-    function openCLModal()
+    async function openCLModal()
     {
+        // Update query selectors
         clModalBaseBarBdr = document.querySelector(".clModalBaseBarBdr");
         clModalBaseTitleText = document.querySelector(".clModalBaseTitleText");
         clModalBaseCloseBtn = document.querySelector(".clModalBaseCloseBtn");
@@ -1166,9 +1180,6 @@ let editCLStruct =
         clModalSortOrderText = document.querySelector(".clModalCtnt_sortStatusText .status_order");
         closeCLModalTimer;
 
-        // Updating url
-        updURLforCLModal(`${clLibraryIndexedInv[clBodyCardIndex].cl_id}`);
-
         // Setting the titlebar's width
         let clModalBoxScrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
 
@@ -1184,19 +1195,25 @@ let editCLStruct =
         clModalBaseBarBdr.setAttribute(`style` , `--clModalBoxScrollbarWidth: ${clModalBoxScrollbarWidth}px`);
 
         // Setting the Background
-        updCLModalImg();
+        clModalHeaderBcgImg.setAttribute(`src` , `${clLibraryIndexedInv[clBodyCardIndex].cl_bcg}`);
 
-        // Setting the title
-        updCLModalTitle();
+        // Setting the Thumbnail
+        clModalHeaderThumbImg.setAttribute(`src` , `${clLibraryIndexedInv[clBodyCardIndex].cl_bcg}`);
 
-        // Setting the Item count
-        updCLModalShowCount();
+        // Setting the Header title
+        clModalHeader_DetInfo_TitleText.textContent = `${clLibraryIndexedInv[clBodyCardIndex].cl_name}`;
 
-        // Setting the update date
-        updCLModalTimePrpty(clLibraryIndexedInv[clBodyCardIndex].cl_updated);
+        // Setting the title on navbar
+        clModalBaseTitleText.textContent = `${clLibraryIndexedInv[clBodyCardIndex].cl_name}`;
 
         // Setting the description
-        updCLModalDesc();
+        clModalHeader_DetInfo_DescText.innerHTML = `${clLibraryIndexedInv[clBodyCardIndex].cl_desc}`;
+
+        // Setting the time Updated
+        clModalHeader_DetInfo_TagsUpdateText.textContent = `${clLibraryIndexedInv[clBodyCardIndex].cl_updated}`;
+
+        // Setting the Item count
+        await updCLModalShowCount();
 
         // Setting the default sort option
         clModalSortTypeText.textContent = `Manual`;
@@ -1251,8 +1268,8 @@ let editCLStruct =
                             <div class="clModalGrid_CardCtntBox">
                                 <div class="clModalGrid_CardCtntThumbBdr">
                                     <div class="clModalGrid_CardCtntThumbBox">
-                                        <img class="clModalGrid_CardCtntThumbImg img_large" src="${show_background}" alt="Thumbnail image for ${show_title}">
-                                        <img class="clModalGrid_CardCtntThumbImg img_small" src="${show_foreground}" alt="Thumbnail image for ${show_title}">
+                                        <img loading="lazy" onload="this.classList.add('loaded')" class="clModalGrid_CardCtntThumbImg img_large" src="${show_background}" alt="Thumbnail image for ${show_title}">
+                                        <img loading="lazy" onload="this.classList.add('loaded')" class="clModalGrid_CardCtntThumbImg img_small" src="${show_foreground}" alt="Thumbnail image for ${show_title}">
                                     </div>
                                 </div>
                                 <div class="clModalGrid_CardCtntDetBdr">
@@ -1317,15 +1334,15 @@ let editCLStruct =
         }
 
         // Create map with index
-        clModalIndexedInv = clModalDfltInv.map((show, index) => 
-        {
-            return { ...show, index };
-        });
+        initCLModalIndexedInv();
 
         // Opening the modal
         clModalBase.classList.add("active");
         document.body.classList.add("bodystop");
         clModalGrid_CardBdr = document.querySelectorAll(".clModalGrid_CardBdr");
+
+        // Updating url
+        updURLforCLModal(`${clLibraryIndexedInv[clBodyCardIndex].cl_id}`);
 
         // Closing the modal
         clModalBaseCloseBtn.addEventListener("click" , () => 
@@ -1388,6 +1405,16 @@ let editCLStruct =
     }
 
 
+    // Create a map of the items in the collection
+    function initCLModalIndexedInv()
+    {
+        clModalIndexedInv = clModalDfltInv.map((show, index) => 
+        {
+            return { ...show, index };
+        });
+    }
+
+
     // Generates the CL cards
     function generateCLModalCards(arr, order = 'asc')
     {
@@ -1421,8 +1448,8 @@ let editCLStruct =
                             <div class="clModalGrid_CardCtntBox">
                                 <div class="clModalGrid_CardCtntThumbBdr">
                                     <div class="clModalGrid_CardCtntThumbBox">
-                                        <img class="clModalGrid_CardCtntThumbImg img_large" src="${item.show_background}" alt="Thumbnail image for ${item.show_title}">
-                                        <img class="clModalGrid_CardCtntThumbImg img_small" src="${item.show_foreground}" alt="Thumbnail image for ${item.show_title}">
+                                        <img loading="lazy" onload="this.classList.add('loaded')" class="clModalGrid_CardCtntThumbImg img_large" src="${item.show_background}" alt="Thumbnail image for ${item.show_title}">
+                                        <img loading="lazy" onload="this.classList.add('loaded')" class="clModalGrid_CardCtntThumbImg img_small" src="${item.show_foreground}" alt="Thumbnail image for ${item.show_title}">
                                     </div>
                                 </div>
                                 <div class="clModalGrid_CardCtntDetBdr">
@@ -1484,61 +1511,68 @@ let editCLStruct =
     }
 
 
-    // Update the cl Modal bcg/thumbnail
-    function updCLModalImg(ctnt = clLibraryIndexedInv[clBodyCardIndex].cl_bcg)
+    // Updates multiple collection properties
+    async function updClModalPpty(fldsToUpd = {})
     {
-        // Updating the array
-        clLibraryIndexedInv[clBodyCardIndex].cl_bcg = ctnt;
-        update_profArr_with_indexedArr("prof_collections" , clLibraryIndexedInv);
+        if((typeof fldsToUpd === "undefined") || (typeof fldsToUpd !== "object")) return;
 
-        // Setting the Background
-        clModalHeaderBcgImg.setAttribute(`src` , `${ctnt}`);
+        // Update each property
+        for(const [fld, value] of Object.entries(fldsToUpd)) 
+        {
+            clLibraryIndexedInv[clBodyCardIndex][fld] = value;
 
-        // Setting the Thumbnail
-        clModalHeaderThumbImg.setAttribute(`src` , `${ctnt}`);
+            switch(fld)
+            {
+                case 'cl_name':
+                    clModalBaseTitleText.textContent = `${value}`;
+                    clModalHeader_DetInfo_TitleText.textContent = `${value}`;
+                    break;
+                    
+                case 'cl_desc':
+                    clModalHeader_DetInfo_DescText.innerHTML = `${value}`;
+                    break;
+                    
+                case 'cl_updated':
+                    clModalHeader_DetInfo_TagsUpdateText.textContent = `${value}`;
+                    break;
+                    
+                case 'cl_bcg':
+                    clModalHeaderBcgImg.setAttribute(`src` , `${value}`);
+                    clModalHeaderThumbImg.setAttribute(`src` , `${value}`);
+                    break;
+
+                default:
+                    console.info(`No matching field for "${value}"`);
+                    break;
+            }
+        }
+
+        // Update the "Last updated" property
+        clLibraryIndexedInv[clBodyCardIndex].cl_updated = `${getCurrDate()}`;
+        clModalHeader_DetInfo_TagsUpdateText.textContent = `${clLibraryIndexedInv[clBodyCardIndex].cl_updated}`;
+
+        // Update user data
+        try
+        {
+            await updUsrProfFlds(
+                {
+                    prof_collections: clLibraryIndexedInv
+                }
+            );
+        }
+        catch(error)
+        {
+            console.error(error);
+            notification(`notifyBad`, `Failed to save changes`)
+        }
     }
-
-    // Update the collection title
-    function updCLModalTitle(ctnt = clLibraryIndexedInv[clBodyCardIndex].cl_name)
-    {
-        // Updating the array
-        clLibraryIndexedInv[clBodyCardIndex].cl_name = ctnt;
-        update_profArr_with_indexedArr("prof_collections" , clLibraryIndexedInv);
-
-        // Setting the title Bar Title
-        clModalBaseTitleText.textContent = `${ctnt}`;
-
-        // Setting the Header title
-        clModalHeader_DetInfo_TitleText.textContent = `${ctnt}`;
-    }
-
-    // Update the collection description
-    function updCLModalDesc(ctnt = clLibraryIndexedInv[clBodyCardIndex].cl_desc)
-    {
-        // Updating the array 
-        clLibraryIndexedInv[clBodyCardIndex].cl_desc = ctnt;
-        update_profArr_with_indexedArr("prof_collections" , clLibraryIndexedInv);
-
-        // Updating the description text
-        clModalHeader_DetInfo_DescText.textContent = `${ctnt}`;
-    }
+    
 
     // Update the collection total show count
-    function updCLModalShowCount()
+    async function updCLModalShowCount()
     {
         // Updating the count text
         clModalHeader_DetInfo_TagsCountText.textContent = `${clLibraryIndexedInv[clBodyCardIndex].cl_items.length} items`;
-    }
-
-    // Update "last updated" property
-    function updCLModalTimePrpty(ctnt = getCurrDate())
-    {
-        // Update array
-        clLibraryIndexedInv[clBodyCardIndex].cl_updated = `${ctnt}`;
-        update_profArr_with_indexedArr("prof_collections" , clLibraryIndexedInv);
-
-        // Update text
-        clModalHeader_DetInfo_TagsUpdateText.textContent = `${clLibraryIndexedInv[clBodyCardIndex].cl_updated}`;
     }
 
 
@@ -1587,7 +1621,7 @@ let editCLStruct =
                 btn.disabled = true;
 
                 // Filling in the content
-                readFullDescCtntBox.textContent = `${document.querySelector(".clModalHeader_DetInfo_DescText").textContent}`;
+                readFullDescCtntBox.innerHTML = `${document.querySelector(".clModalHeader_DetInfo_DescText").innerHTML}`;
 
                 // Transitioning elements
                 createCLTimer = setTimeout(() => 
@@ -1742,7 +1776,7 @@ let editCLStruct =
 
             addShowToCLResultBox.innerHTML = resultRange.map((item) => 
             {
-                const { show_link, show_thumbnail, show_title, show_scores, show_type, show_year, show_airing_status } = item;
+                const { show_link, show_foreground, show_title, show_scores, show_type, show_year, show_airing_status } = item;
                 if((addShowToCLQuery.length > 0) && (addShowToCLQuery != undefined) && (addShowToCLQuery != null) && (addShowToCLQuery != " "))
                 {
                     // Add found items into the array
@@ -1752,7 +1786,7 @@ let editCLStruct =
                             <div class="quickSearchResultCardBox">
                                 <div class="quickSearchResultCardThumbBdr">
                                     <div class="quickSearchResultCardThumbBox">
-                                        <img src="${show_thumbnail}" alt="Thumbnail image of ${show_title}" class="quickSearchResultCardThumbImg">
+                                        <img loading="lazy" onload="this.classList.add('loaded')" src="${show_foreground}" loading="lazy" alt="Thumbnail image of ${show_title}" class="quickSearchResultCardThumbImg">
                                     </div>
                                 </div>
                                 <div class="quickSearchResultDetBdr">
@@ -1871,7 +1905,7 @@ let editCLStruct =
 
         btn.forEach((btn, index) => 
         {
-            const action = () =>
+            const action = async () =>
             {
                 // Check if show exists in collection
                 let thisItem = clModalIndexedInv.filter(item => item.show_link === addShowToCLArray[index].show_link)
@@ -1887,21 +1921,24 @@ let editCLStruct =
                             }
                         );
                     }
-                    update_profArr_with_indexedArr("prof_collections" , clLibraryIndexedInv);
+            
+                    // Set "Last updated"
+                    await updClModalPpty(
+                    {
+                        cl_updated: getCurrDate()
+                    });
 
                     // Adds item to the default & sort array of that specific collection
-                    clModalIndexedInv.push(addShowToCLArray[index]);
+                    clModalDfltInv.push(addShowToCLArray[index]);
+                    initCLModalIndexedInv();
 
                     // Append item to the DOM
                     sortCLModalCards(clModalSortTypeTabIndex);
 
                     // Update Show Count
-                    updCLModalShowCount();
-            
-                    // Set "Last updated"
-                    updCLModalTimePrpty();
+                    await updCLModalShowCount();
 
-                    // Notify myList
+                    // Notify users
                     notification(`notifyGood` , `Show added successfully`);
 
                     // Close the modal
@@ -2058,10 +2095,10 @@ let editCLStruct =
                     }
                     else if(field.getAttribute("data-initial-value-type") == "description")
                     {
-                        field.value = clLibraryIndexedInv[clBodyCardIndex].cl_desc;
+                        field.value = clLibraryIndexedInv[clBodyCardIndex].cl_desc.replace(/<br\s*\/?>/gi, "\n");
                     }
 
-                    // Capturing necly inputed values
+                    // Capturing newly inputed values
                     field.addEventListener("input" , () => 
                     {
                         getWordCount(index, field.value);
@@ -2069,20 +2106,24 @@ let editCLStruct =
                 });
 
                 // Saves call changes made
-                function saveEdit(type, ctnt)
+                async function saveEdit(type, ctnt)
                 {
-                    // Update the specified property
+                    // Update the specified property and time updated property
                     if(type == "title")
                     {
-                        updCLModalTitle(ctnt);
+                        await updClModalPpty(
+                        {
+                            cl_name: ctnt
+                        });
                     }
                     else if(type == "description")
                     {
-                        updCLModalDesc(ctnt);
+                        let ctntFrmttd = ctnt.replace(/\n/g, "<br>");
+                        await updClModalPpty(
+                        {
+                            cl_desc: ctntFrmttd
+                        });
                     }
-
-                    // Update the "last updated"
-                    updCLModalTimePrpty(getCurrDate());
 
                     // Notify myList of saved edits
                     notification(`notifyGood` , `Changes saved`);
@@ -2090,12 +2131,13 @@ let editCLStruct =
                 
                 saveCLEditBtn.forEach((btn, index) => 
                 {
-                    btn.addEventListener("click" , () => 
+                    btn.addEventListener("click" , async () => 
                     {
-                        saveEdit(btn.getAttribute("data-save-type"), editCLInput[index].value);
+                        await saveEdit(btn.getAttribute("data-save-type"), editCLInput[index].value);
                         btn.classList.replace("midSolidBtn" , "inactiveBtn");
                         btn.disabled = true;
                         closeEditSectBtn[index].click();
+                        closeCreateCL();
                     });
                 });
 
@@ -2168,7 +2210,7 @@ let editCLStruct =
                 tempOpenCLBtn.classList.add("genBtnBox");
                 tempOpenCLBtn.classList.add("hide");
 
-                documentBody.insertAdjacentElement(`beforeend`, tempOpenCLBtn);
+                documentCtnt.insertAdjacentElement(`beforeend`, tempOpenCLBtn);
 
                 // Reinitialise event listeners
                 attachAddToCLEventListeners();
@@ -2225,14 +2267,20 @@ let editCLStruct =
     }
 
     // Deleting your collections
-    function deleteCollection()
+    async function deleteCollection()
     {
         // Close the modal
         clModalBaseCloseBtn.click();
 
         // Delete from the collection 
         clLibraryIndexedInv = clLibraryIndexedInv.filter((item) => item.cl_id != clLibraryIndexedInv[clBodyCardIndex].cl_id);
-        update_profArr_with_indexedArr("prof_collections" , clLibraryIndexedInv);
+
+        // Update user data
+        await updUsrProfFlds(
+            {
+                prof_collections: clLibraryIndexedInv
+            }
+        );
 
         // Remove item from catalog
         let delItem = document.getElementsByClassName("myListCLCatalog_ItemBase")[clBodyCardIndex];
@@ -2257,7 +2305,7 @@ let editCLStruct =
 
 
     // Updates the sort of the clModalIndexInv based on the ordering of items (Darag-and-drop sorting)
-    function updCLMdlArrFromDragAndSortList()
+    async function updCLMdlArrFromDragAndSortList()
     {
         const listItems = document.querySelectorAll(".clModalGrid_CardBdr");
         const newOrder = Array.from(listItems).map((item, newIndex) => 
@@ -2287,8 +2335,12 @@ let editCLStruct =
                 .map(modalItem => itemMap.get(modalItem.show_link)) // Match show_link to id
                 .filter(item => item); // Remove undefined values if no match found
     
-            // Update the array in profile library
-            update_profArr_with_indexedArr("prof_collections" , clLibraryIndexedInv);
+            // Update user data
+            await updUsrProfFlds(
+                {
+                    prof_collections: clLibraryIndexedInv
+                }
+            );
         }
     }
 
@@ -2641,17 +2693,13 @@ let editCLStruct =
         attachAddToCLEventListeners();
 
         // Set as collection thumbnail
-        setCLThumbBtn.onclick = () => 
+        setCLThumbBtn.onclick = async () => 
         {
-            // Update the collection indexed inventory
-            clLibraryIndexedInv[clBodyCardIndex].cl_bcg = clModalGridCardImage;
-            update_profArr_with_indexedArr("prof_collections" , clLibraryIndexedInv);
-
-            // Update the CL Header Bcg img
-            updCLModalImg(clModalGridCardImage);
-            
-            // Set "Last updated"
-            updCLModalTimePrpty();
+            // Update the bcg image
+            await updClModalPpty(
+            {
+                cl_bcg: clModalGridCardImage
+            });
 
             //Notify myLists
             notification(`notifyGood` , `Thumbnail set successfully`);
@@ -2673,29 +2721,34 @@ let editCLStruct =
         }
 
         // Removes the selected cl modal card from the collection
-        const removeClModalGridCard = () => 
+        const removeClModalGridCard = async () => 
         {
             // Remove element from collection inventory
             if(clLibraryIndexedInv[clBodyCardIndex].cl_items)
             {
                 clLibraryIndexedInv[clBodyCardIndex].cl_items = clLibraryIndexedInv[clBodyCardIndex].cl_items.filter(subItem => subItem.cl_itemId !== clModalGridCardLink);
             }
-            update_profArr_with_indexedArr("prof_collections" , clLibraryIndexedInv);
 
             // Remove from the cl modal arrays
             clModalIndexedInv = clModalIndexedInv.filter((item) => item.show_link !== clModalGridCardLink);
+
+            // Set "Last updated"
+            await updClModalPpty(
+            {
+                cl_updated: getCurrDate()
+            });
 
             // Remove the cl card
             clModalGridCardBdr.remove();
 
             // Update Show count
-            updCLModalShowCount();
-            
-            // Set "Last updated"
-            updCLModalTimePrpty();
+            await updCLModalShowCount();
 
             // Reattach listeners
             attachGenMenuModalEventListeners();
+
+            // Notify the user
+            notification(`notifyGood` , `Show removed from collection`);
         }
 
     }
