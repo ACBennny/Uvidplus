@@ -141,9 +141,9 @@ let news_article_lib =
         na_date: `4th February 2025`,
     },
     {
-        na_img: `/images/uvid-anime2.jpg`,
-        na_title: `Watch Demon Slayer Roar of Victory in theatres`,
-        na_date: `2nd February 2025`,
+        na_img: `/images/uvid-cartoon3.jpg`,
+        na_title: `Top New Family Shows to Watch`,
+        na_date: `27th February 2025`,
     },
     {
         na_img: `/images/uvid-anime.jpg`,
@@ -151,8 +151,8 @@ let news_article_lib =
         na_date: `21st January 2025`,
     },
     {
-        na_img: `/images/uvid-anime2.jpg`,
-        na_title: `Anime lineups for the year`,
+        na_img: `/images/uvid-movies0.jpg`,
+        na_title: `Movie Lineups for the Year`,
         na_date: `2nd January 2025`,
     },
 ];
