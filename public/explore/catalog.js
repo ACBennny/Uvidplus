@@ -783,7 +783,7 @@
         {
             catalogResultBox.innerHTML = items.map((item) => 
             {
-                const { show_link, show_thumbnail, show_title, show_type, show_year, show_quality } = item;
+                const { show_link, show_foreground, show_title, show_type, show_year, show_quality } = item;
 
                 if(((item == undefined || (item == null))))
                 {
@@ -797,7 +797,7 @@
                                     <div class="slide_card">
                                         <a href="${show_link}" title="Watch ${show_title}" class="cardLinkCover"></a>
                                         <div class="cardImgBox">
-                                            <img src="${show_thumbnail}" alt="Thumbnail image of ${show_title}" class="cardImg">
+                                            <img loading="lazy" onload="this.classList.add('loaded')" src="${show_foreground}" alt="Thumbnail image of ${show_title}" class="cardImg">
                                         </div>
                                         <div class="cardinfo cardInfoBdr">
                                             <div class="cardInfoBox">
