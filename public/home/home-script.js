@@ -153,7 +153,7 @@
             {
                 let {
                     show_background,
-                    show_thumbnail,
+                    show_foreground,
                     show_link,
                     show_title,
                     show_type,
@@ -169,15 +169,15 @@
                         <div class="hm_hero_cardBox">
                             <div class="hm_hero_bcgBdr">
                                 <div class="hm_hero_bcgBox">
-                                    <img src="${show_background}" class="hm_hero_bcgImg">
+                                    <img loading="lazy" onload="this.classList.add('loaded')" src="${show_background}" class="hm_hero_bcgImg">
                                 </div>
                             </div>
                             <div class="hm_hero_cardCtntBdr">
                                 <div class="hm_hero_cardCtntBox">
                                     <div class="hm_hero_frgBdr">
                                         <div class="hm_hero_frgBox">
-                                            <img src="${show_background}" class="hm_hero_frgImg hm_hero_frgImg_lrg">
-                                            <img src="${show_thumbnail}" class="hm_hero_frgImg hm_hero_frgImg_sml">
+                                            <img loading="lazy" onload="this.classList.add('loaded')" src="${show_background}" class="hm_hero_frgImg hm_hero_frgImg_lrg">
+                                            <img loading="lazy" onload="this.classList.add('loaded')" src="${show_foreground}" class="hm_hero_frgImg hm_hero_frgImg_sml">
                                         </div>
                                         <a draggable="false" href="${show_link}" class="hm_hero_iconBase">
                                             <div class="hm_hero_iconBdr">
@@ -422,7 +422,6 @@
             if(itemLook)
             {
                 let {
-                    show_thumbnail,
                     show_foreground,
                     show_title
                 } = itemLook;
@@ -431,7 +430,7 @@
                 `
                     <a href="${itemLink}" class="latestEp_card type1_ctntCard">
                         <div class="latestEp_cardImgBox">
-                            <img src="${show_foreground}" alt="Image of ${show_title}" class="latestEp_cardImg">
+                            <img loading="lazy" onload="this.classList.add('loaded')" src="${show_foreground}" alt="Image of ${show_title}" class="latestEp_cardImg">
                             <div class="type1_ctntImg_hover">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="type1_ctntImg_hoverIcon">
                                     <path d="M21.409 9.353a2.998 2.998 0 0 1 0 5.294L8.597 21.614C6.534 22.737 4 21.277 4 18.968V5.033c0-2.31 2.534-3.769 4.597-2.648z" />
@@ -513,7 +512,7 @@
                 <div class="ftr_box">
                     <div class="ftr_bcg_bdr">
                         <div class="ftr_bcg_box">
-                            <img src="${item.show_background}" class="ftr_bcg_img">
+                            <img loading="lazy" onload="this.classList.add('loaded')" src="${item.show_background}" class="ftr_bcg_img">
                         </div>
                     </div>
                     <div class="ftr_bcg_cover"></div>
@@ -521,7 +520,7 @@
                         <div class="ftr_ctnt_box">
                             <div class="ftr_frg_bdr">
                                 <div class="ftr_frg_box">
-                                    <img src="${item.show_foreground}" class="ftr_frg_img">
+                                    <img loading="lazy" onload="this.classList.add('loaded')" src="${item.show_foreground}" class="ftr_frg_img">
                                 </div>
                             </div>
                             <div class="ftr_desc_bdr">
@@ -567,7 +566,7 @@
             `
                 <a href="#/news" class="news_card type1_ctntCard">
                     <div class="news_cardImgBox">
-                        <img src="${item.na_img}" alt="Image of a news" class="news_cardImg">
+                        <img loading="lazy" onload="this.classList.add('loaded')" src="${item.na_img}" alt="Image of a news" class="news_cardImg">
                         <div class="type1_ctntImg_hover">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="type1_ctntImg_hoverIcon">
                                 <path d="M2 16.144V4.998c0-1.098.886-1.99 1.982-1.923c.977.06 2.131.179 3.018.412c1.05.277 2.296.867 3.282 1.388c.307.163.634.275.968.339v15.179a3.4 3.4 0 0 1-.878-.324c-1-.532-2.29-1.15-3.372-1.436c-.877-.231-2.016-.35-2.985-.41C2.906 18.153 2 17.255 2 16.143m10.75 4.25a3.4 3.4 0 0 0 .878-.324c1-.532 2.29-1.15 3.372-1.436c.877-.231 2.016-.35 2.985-.41c1.109-.07 2.015-.968 2.015-2.08V4.934c0-1.072-.846-1.953-1.918-1.915c-1.129.04-2.535.156-3.582.47c-.908.271-1.965.816-2.826 1.315a3.5 3.5 0 0 1-.924.37z" />
@@ -632,7 +631,7 @@
                                 <div class="slide_card ">
                                     <a href="${item.show_link}" class="cardLinkCover"></a>
                                     <div class="cardImgBox">
-                                        <img src="${item.show_thumbnail}" alt="Image of ${item.show_title}" class="cardImg">
+                                        <img loading="lazy" onload="this.classList.add('loaded')" src="${item.show_foreground}" alt="Image of ${item.show_title}" class="cardImg">
                                     </div>
                                     <div class="cardinfo cardInfoBdr">
                                         <div class="cardInfoBox">
