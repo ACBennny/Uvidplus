@@ -20,7 +20,6 @@
         // Anime content
         {
             show_link: `#/info/jujutsu-kaisen`,
-            show_thumbnail: `/library/jujutsu-kaisen/img/0.jpg`,
             show_title: `Jujutsu Kaisen`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -65,7 +64,6 @@
         },
         {
             show_link: `#/info/demon-slayer`,
-            show_thumbnail: `/library/demon-slayer/img/0.jpg`,
             show_title: `Demon Slayer`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -114,7 +112,6 @@
         },
         {
             show_link: `#/info/attack-on-titan`,
-            show_thumbnail: `/library/attack-on-titan/img/0.jpg`,
             show_title: `Attack On Titan`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -156,7 +153,6 @@
         },
         {
             show_link: `#/info/naruto`,
-            show_thumbnail: `/library/naruto/img/0.jpg`,
             show_title: `Naruto`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -218,7 +214,6 @@
         },
         {
             show_link: `#/info/fullmetal-panic`,
-            show_thumbnail: `/library/fullmetal-panic/img/0.jpg`,
             show_title: `Fullmetal Panic`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -263,7 +258,6 @@
         },
         {
             show_link: `#/info/fullmetal-alchemist`,
-            show_thumbnail: `/library/fullmetal-alchemist/img/0.jpg`,
             show_title: `Fullmetal Alchemist`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -300,7 +294,6 @@
         },
         {
             show_link: `#/info/fullmetal-alchemist-brotherhood`,
-            show_thumbnail: `/library/fullmetal-alchemist-brotherhood/img/0.jpg`,
             show_title: `Fullmetal Alchemist Brotherhood`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -345,7 +338,6 @@
         },
         {
             show_link: `#/info/classroom-of-the-elite`,
-            show_thumbnail: `/library/classroom-of-the-elite/img/0.jpg`,
             show_title: `Classroom of the Elite`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -391,7 +383,6 @@
         },
         {
             show_link: `#/info/blue-exorcist`,
-            show_thumbnail: `/library/blue-exorcist/img/0.jpg`,
             show_title: `Blue Exorcist`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -442,7 +433,6 @@
         },
         {
             show_link: `#/info/spy-x-family`,
-            show_thumbnail: `/library/spy-x-family/img/0.jpg`,
             show_title: `SpyxFamily`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -483,7 +473,6 @@
         },
         {
             show_link: `#/info/spy-x-family-code-white`,
-            show_thumbnail: `/library/spy-x-family-code-white/img/0.jpg`,
             show_title: `SpyxFamily: Code White`,
             show_type: `Movie`,
             show_airing_status: `Finished Airing`,
@@ -513,7 +502,6 @@
         },
         {
             show_link: `#/info/rent-a-girlfriend`,
-            show_thumbnail: `/library/rent-a-girlfriend/img/0.jpg`,
             show_title: `Rent a Girlfriend`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -561,7 +549,6 @@
         },
         {
             show_link: `#/info/tokyo-ghoul`,
-            show_thumbnail: `/library/tokyo-ghoul/img/0.jpg`,
             show_title: `Tokyo Ghoul`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -606,7 +593,6 @@
         },
         {
             show_link: `#/info/inazuma-eleven`,
-            show_thumbnail: `/library/inazuma-eleven/img/0.jpg`,
             show_title: `Inazuma Eleven`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -649,7 +635,6 @@
         },
         {
             show_link: `#/info/aoashi`,
-            show_thumbnail: `/library/aoashi/img/0.jpg`,
             show_title: `Aoashi`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -692,7 +677,6 @@
         },
         {
             show_link: `#/info/cyberpunk-edgerunners`,
-            show_thumbnail: `/library/cyberpunk-edgerunners/img/0.jpg`,
             show_title: `Cyberpunk Edgerunners`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -737,7 +721,6 @@
         },
         {
             show_link: `#/info/tomodachi-game`,
-            show_thumbnail: `/library/tomodachi-game/img/0.jpg`,
             show_title: `Tomodachi Game`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -779,7 +762,6 @@
         },
         {
             show_link: `#/info/kaguya-sama`,
-            show_thumbnail: `/library/kaguya-sama/img/0.jpg`,
             show_title: `Kaguya-Sama`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -830,7 +812,6 @@
         },
         {
             show_link: `#/info/kakegurui`,
-            show_thumbnail: `/library/kakegurui/img/0.jpg`,
             show_title: `Kakegurui`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -873,7 +854,6 @@
         },
         {
             show_link: `#/info/that-time-i-got-reincarnated-as-a-slime`,
-            show_thumbnail: `/library/that-time-i-got-reincarnated-as-a-slime/img/0.jpg`,
             show_title: `That Time I got Reincarnated as a Slime`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -928,7 +908,6 @@
         },
         {
             show_link: `#/info/rising-of-the-shield-hero`,
-            show_thumbnail: `/library/rising-of-the-shield-hero/img/0.jpg`,
             show_title: `Rising of the Shield hero`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -976,7 +955,6 @@
         },
         {
             show_link: `#/info/violet-evergarden`,
-            show_thumbnail: `/library/violet-evergarden/img/0.jpg`,
             show_title: `Violet Evergarden`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -1023,7 +1001,6 @@
         },
         {
             show_link: `#/info/your-lie-in-april`,
-            show_thumbnail: `/library/your-lie-in-april/img/0.jpg`,
             show_title: `Your lie in April`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -1066,7 +1043,6 @@
         },
         {
             show_link: `#/info/kuroko-no-basket`,
-            show_thumbnail: `/library/kuroko-no-basket/img/0.jpg`,
             show_title: `Kuroko no Basket`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -1128,7 +1104,6 @@
         },
         {
             show_link: `#/info/enen-no-shouboutai`,
-            show_thumbnail: `/library/enen-no-shouboutai/img/0.jpg`,
             show_title: `Enen no Shouboutai`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -1173,7 +1148,6 @@
         },
         {
             show_link: `#/info/vinland-saga`,
-            show_thumbnail: `/library/vinland-saga/img/0.jpg`,
             show_title: `Vinland Saga`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -1216,7 +1190,6 @@
         },
         {
             show_link: `#/info/tokyo-revengers`,
-            show_thumbnail: `/library/tokyo-revengers/img/0.jpg`,
             show_title: `Tokyo Revengers`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -1262,7 +1235,6 @@
         },
         {
             show_link: `#/info/my-hero-academia`,
-            show_thumbnail: `/library/my-hero-academia/img/0.jpg`,
             show_title: `My Hero Academia`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -1322,7 +1294,6 @@
         },
         {
             show_link: `#/info/cowboy-bebop`,
-            show_thumbnail: `/library/cowboy-bebop/img/0.jpg`,
             show_title: `Cowboy Bebop`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -1368,7 +1339,6 @@
         },
         {
             show_link: `#/info/death-note`,
-            show_thumbnail: `/library/death-note/img/0.jpg`,
             show_title: `Death Note`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -1413,7 +1383,6 @@
         },
         {
             show_link: `#/info/one-piece`,
-            show_thumbnail: `/library/one-piece/img/0.jpg`,
             show_title: `One Piece`,
             show_type: `TV`,
             show_airing_status: `Releasing`,
@@ -1501,7 +1470,6 @@
         },
         {
             show_link: `#/info/one-punch-man`,
-            show_thumbnail: `/library/one-punch-man/img/0.jpg`,
             show_title: `One Punch Man`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -1546,7 +1514,6 @@
         },
         {
             show_link: `#/info/hunter-x-hunter`,
-            show_thumbnail: `/library/hunter-x-hunter/img/0.jpg`,
             show_title: `Hunter X Hunter`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -1580,7 +1547,6 @@
         },
         {
             show_link: `#/info/steins-gate`,
-            show_thumbnail: `/library/steins-gate/img/0.jpg`,
             show_title: `Steins Gate`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -1605,7 +1571,6 @@
         },
         {
             show_link: `#/info/dragon-ball-z`,
-            show_thumbnail: `/library/dragon-ball-z/img/0.jpg`,
             show_title: `Dragon ball Z`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -1630,7 +1595,6 @@
         },
         {
             show_link: `#/info/bleach`,
-            show_thumbnail: `/library/bleach/img/0.jpg`,
             show_title: `Bleach`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -1655,7 +1619,6 @@
         },
         {
             show_link: `#/info/akame-ga-Kill`,
-            show_thumbnail: `/library/akame-ga-kill/img/0.jpg`,
             show_title: `Akame ga Kill!`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -1680,7 +1643,6 @@
         },
         {
             show_link: `#/info/sword-art-online`,
-            show_thumbnail: `/library/sword-art-online/img/0.jpg`,
             show_title: `Sword Art Online`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -1705,7 +1667,6 @@
         },
         {
             show_link: `#/info/bongou-stray-dogs`,
-            show_thumbnail: `/library/bongou-stray-dogs/img/0.jpg`,
             show_title: `Bongou Stray Dogs`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -1730,7 +1691,6 @@
         },
         {
             show_link: `#/info/mob-psycho`,
-            show_thumbnail: `/library/mob-psycho/img/0.jpg`,
             show_title: `Mob Psycho`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -1755,7 +1715,6 @@
         },
         {
             show_link: `#/info/samurai-champloo`,
-            show_thumbnail: `/library/samurai-champloo/img/0.jpg`,
             show_title: `Samurai Champloo`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -1780,7 +1739,6 @@
         },
         {
             show_link: `#/info/hell-sing`,
-            show_thumbnail: `/library/hell-sing/img/0.jpg`,
             show_title: `HellSing`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -1805,7 +1763,6 @@
         },
         {
             show_link: `#/info/black-lagoon`,
-            show_thumbnail: `/library/black-lagoon/img/0.jpg`,
             show_title: `Black Lagoon`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -1830,7 +1787,6 @@
         },
         {
             show_link: `#/info/future-diary`,
-            show_thumbnail: `/library/future-diary/img/0.jpg`,
             show_title: `Future Diary`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -1855,7 +1811,6 @@
         },
         {
             show_link: `#/info/another`,
-            show_thumbnail: `/library/another/img/0.jpg`,
             show_title: `Another`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -1883,7 +1838,6 @@
         },
         {
             show_link: `#/info/fairy-tale`,
-            show_thumbnail: `/library/fairy-tale/img/0.jpg`,
             show_title: `Fairy Tale`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -1908,7 +1862,6 @@
         },
         {
             show_link: `#/info/afro-samurai`,
-            show_thumbnail: `/library/afro-samurai/img/0.jpg`,
             show_title: `Afro Samurai`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -1933,7 +1886,6 @@
         },
         {
             show_link: `#/info/demon-king-damaio`,
-            show_thumbnail: `/library/demon-king-damaio/img/0.jpg`,
             show_title: `Demon King Damaio`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -1958,7 +1910,6 @@
         },
         {
             show_link: `#/info/paradise-kiss`,
-            show_thumbnail: `/library/paradise-kiss/img/0.jpg`,
             show_title: `Paradise Kiss`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -1983,7 +1934,6 @@
         },
         {
             show_link: `#/info/noragami`,
-            show_thumbnail: `/library/noragami/img/0.jpg`,
             show_title: `Noragami`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2008,7 +1958,6 @@
         },
         {
             show_link: `#/info/goblin-slayer`,
-            show_thumbnail: `/library/goblin-slayer/img/0.jpg`,
             show_title: `Goblin Slayer`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2033,7 +1982,6 @@
         },
         {
             show_link: `#/info/dr-stone`,
-            show_thumbnail: `/library/dr-stone/img/0.jpg`,
             show_title: `Dr. Stone`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -2078,7 +2026,6 @@
         },
         {
             show_link: `#/info/blue-lock`,
-            show_thumbnail: `/library/blue-lock/img/0.jpg`,
             show_title: `BlueLock`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2103,7 +2050,6 @@
         },
         {
             show_link: `#/info/seishun-buta`,
-            show_thumbnail: `/library/seishun-buta/img/0.jpg`,
             show_title: `Seishun Buta`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2128,7 +2074,6 @@
         },
         {
             show_link: `#/info/dark-gathering`,
-            show_thumbnail: `/library/dark-gathering/img/0.jpg`,
             show_title: `Dark Gathering`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2153,7 +2098,6 @@
         },
         {
             show_link: `#/info/teru-momijiyama`,
-            show_thumbnail: `/library/teru-momijiyama/img/0.jpg`,
             show_title: `Teru Momijiyama`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2178,7 +2122,6 @@
         },
         {
             show_link: `#/info/mf-ghost`,
-            show_thumbnail: `/library/mf-ghost/img/0.jpg`,
             show_title: `MF Ghost`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -2212,7 +2155,6 @@
         },
         {
             show_link: `#/info/yakusoku-no-neverland`,
-            show_thumbnail: `/library/yakusoku-no-neverland/img/0.jpg`,
             show_title: `Yakusoku no neverland`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2237,7 +2179,6 @@
         },
         {
             show_link: `#/info/saiki-k`,
-            show_thumbnail: `/library/saiki-k/img/0.jpg`,
             show_title: `Saiki K`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2262,7 +2203,6 @@
         },
         {
             show_link: `#/info/how-a-realistic-hero-rebuilt-the-kingdom`,
-            show_thumbnail: `/library/how-a-realistic-hero-rebuilt-the-kingdom/img/0.jpg`,
             show_title: `How A Realistic Hero RebuiltThe Kingdom`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2287,7 +2227,6 @@
         },
         {
             show_link: `#/info/asterisk-war`,
-            show_thumbnail: `/library/asterisk-war/img/0.jpg`,
             show_title: `Asterisk War`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2312,7 +2251,6 @@
         },
         {
             show_link: `#/info/black-clover`,
-            show_thumbnail: `/library/black-clover/img/0.jpg`,
             show_title: `Black Clover`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -2347,7 +2285,6 @@
         },
         {
             show_link: `#/info/black-clover-sword-of-the-wizard-king`,
-            show_thumbnail: `/library/black-clover-sword-of-the-wizard-king/img/0.jpg`,
             show_title: `Black Clover: Sword of the Wizard King`,
             show_type: `Movie`,
             show_airing_status: `Finished`,
@@ -2373,7 +2310,6 @@
         },
         {
             show_link: `#/info/bullbuster`,
-            show_thumbnail: `/library/bullbuster/img/0.jpg`,
             show_title: `Bullbuster`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -2400,7 +2336,6 @@
         },
         {
             show_link: `#/info/chainsaw-man`,
-            show_thumbnail: `/library/chainsaw-man/img/0.jpg`,
             show_title: `Chainsaw man`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -2431,7 +2366,6 @@
         },
         {
             show_link: `#/info/dororo`,
-            show_thumbnail: `/library/dororo/img/0.jpg`,
             show_title: `Dororo`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2456,7 +2390,6 @@
         },
         {
             show_link: `#/info/erased`,
-            show_thumbnail: `/library/erased/img/0.jpg`,
             show_title: `Erased`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2481,7 +2414,6 @@
         },
         {
             show_link: `#/info/vivy-fluorite-eyes-song`,
-            show_thumbnail: `/library/vivy-fluorite-eyes-song/img/0.jpg`,
             show_title: `Vivy: Fluorite Eye's Song`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2506,7 +2438,6 @@
         },
         {
             show_link: `#/info/and-you-thought-there-is-never-a-girl-online`,
-            show_thumbnail: `/library/and-you-thought-there-is-never-a-girl-online/img/0.jpg`,
             show_title: `And You Thought There Is Never a Girl Online`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2531,7 +2462,6 @@
         },
         {
             show_link: `#/info/haikyuu`,
-            show_thumbnail: `/library/haikyuu/img/0.jpg`,
             show_title: `Haikyuu`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2556,7 +2486,6 @@
         },
         {
             show_link: `#/info/go-tobun-no-hanayome`,
-            show_thumbnail: `/library/go-tobun-no-hanayome/img/0.jpg`,
             show_title: `Go-Tobun no Hanayome`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2581,7 +2510,6 @@
         },
         {
             show_link: `#/info/how-not-to-summon-a-demon-lord`,
-            show_thumbnail: `/library/how-not-to-summon-a-demon-lord/img/0.jpg`,
             show_title: `How Not TO Summon a Demon Lord`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2606,7 +2534,6 @@
         },
         {
             show_link: `#/info/horimiya`,
-            show_thumbnail: `/library/horimiya/img/0.jpg`,
             show_title: `Horimiya`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2631,7 +2558,6 @@
         },
         {
             show_link: `#/info/kimi-to-boku`,
-            show_thumbnail: `/library/kimi-to-boku/img/0.jpg`,
             show_title: `Kimi to boku`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2656,7 +2582,6 @@
         },
         {
             show_link: `#/info/tomochan-is-a-girl`,
-            show_thumbnail: `/library/tomochan-is-a-girl/img/0.jpg`,
             show_title: `Tomo-chan Is a Girl!`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2681,7 +2606,6 @@
         },
         {
             show_link: `#/info/bocchi-the-rock`,
-            show_thumbnail: `/library/bocchi-the-rock/img/0.jpg`,
             show_title: `Bocabyhi the Rock`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2706,7 +2630,6 @@
         },
         {
             show_link: `#/info/link-click`,
-            show_thumbnail: `/library/link-click/img/0.jpg`,
             show_title: `Link Click`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2731,7 +2654,6 @@
         },
         {
             show_link: `#/info/my-life-as-inu-sans-dog`,
-            show_thumbnail: `/library/my-life-as-inu-sans-dog/img/0.jpg`,
             show_title: `My Life as Inu-san's dog`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2756,7 +2678,6 @@
         },
         {
             show_link: `#/info/my-stepmoms-daughter-is-my-ex`,
-            show_thumbnail: `/library/my-stepmoms-daughter-is-my-ex/img/0.jpg`,
             show_title: `My Stepmom's daughter is my Ex`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2781,7 +2702,6 @@
         },
         {
             show_link: `#/info/overlord`,
-            show_thumbnail: `/library/overlord/img/0.jpg`,
             show_title: `Overlord`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2806,7 +2726,6 @@
         },
         {
             show_link: `#/info/talentless-nana`,
-            show_thumbnail: `/library/talentless-nana/img/0.jpg`,
             show_title: `Talentless Nana`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2831,7 +2750,6 @@
         },
         {
             show_link: `#/info/vanitas-no-carte`,
-            show_thumbnail: `/library/vanitas-no-carte/img/0.jpg`,
             show_title: `Vanitas no Carte`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2856,7 +2774,6 @@
         },
         {
             show_link: `#/info/initial-d`,
-            show_thumbnail: `/library/initial-d/img/0.jpg`,
             show_title: `Initial D`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -2896,7 +2813,6 @@
         },
         {
             show_link: `#/info/assassination-classroom`,
-            show_thumbnail: `/library/assassination-classroom/img/0.jpg`,
             show_title: `Assassination Classroom`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2921,7 +2837,6 @@
         },
         {
             show_link: `#/info/mashle-magic-and-muscle`,
-            show_thumbnail: `/library/mashle-magic-and-muscle/img/0.jpg`,
             show_title: `Mashle Magic and Muscle`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -2946,7 +2861,6 @@
         },
         {
             show_link: `#/info/train-to-the-end-of-the-world`,
-            show_thumbnail: `/library/train-to-the-end-of-the-world/img/0.jpg`,
             show_title: `Train to the End of the world`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -2991,7 +2905,6 @@
         },
         {
             show_link: `#/info/yatagarasu`,
-            show_thumbnail: `/library/yatagarasu/img/0.jpg`,
             show_title: `Yatagarasu`,
             show_type: `TV`,
             show_airing_status: `Releasing`,
@@ -3033,7 +2946,6 @@
         },
         {
             show_link: `#/info/wind-breaker`,
-            show_thumbnail: `/library/wind-breaker/img/0.jpg`,
             show_title: `Wind Breaker`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -3078,7 +2990,6 @@
         },
         {
             show_link: `#/info/apothecary-diaries`,
-            show_thumbnail: `/library/apothecary-diaries/img/0.jpg`,
             show_title: `Apothecary Diaries`,
             show_type: `TV`,
             show_airing_status: `Airing`,
@@ -3117,7 +3028,6 @@
         },
         {
             show_link: `#/info/a-sign-of-affection`,
-            show_thumbnail: `/library/a-sign-of-affection/img/0.jpg`,
             show_title: `A Sign Of Affection`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -3142,7 +3052,6 @@
         },
         {
             show_link: `#/info/sound-euphonium`,
-            show_thumbnail: `/library/sound-euphonium/img/0.jpg`,
             show_title: `Sound! Euphonium`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -3179,7 +3088,6 @@
         },
         {
             show_link: `#/info/the-witch-and-the-beast`,
-            show_thumbnail: `/library/the-witch-and-the-beast/img/0.jpg`,
             show_title: `The Witch And The Beast`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -3214,7 +3122,6 @@
         },
         {
             show_link: `#/info/black-butler`,
-            show_thumbnail: `/library/black-butler/img/0.jpg`,
             show_title: `Black Butler`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -3239,7 +3146,6 @@
         },
         {
             show_link: `#/info/high-speed-etoile`,
-            show_thumbnail: `/library/high-speed-etoile/img/0.jpg`,
             show_title: `HighSpeed Etoile`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -3274,7 +3180,6 @@
         },
         {
             show_link: `#/info/metallic-rouge`,
-            show_thumbnail: `/library/metallic-rouge/img/0.jpg`,
             show_title: `Metallic Rouge`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -3299,7 +3204,6 @@
         },
         {
             show_link: `#/info/akuma-drive`,
-            show_thumbnail: `/library/akuma-drive/img/0.jpg`,
             show_title: `Akuma Drive`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -3324,7 +3228,6 @@
         },
         {
             show_link: `#/info/astro-note`,
-            show_thumbnail: `/library/astro-note/img/0.jpg`,
             show_title: `Astro Note`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -3349,7 +3252,6 @@
         },
         {
             show_link: `#/info/heaven-officials-blessing`,
-            show_thumbnail: `/library/heaven-officials-blessing/img/0.jpg`,
             show_title: `Heaven Official's Blessing`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -3388,7 +3290,6 @@
         },
         {
             show_link: `#/info/the-wrong-way-to-use-healing-magic`,
-            show_thumbnail: `/library/the-wrong-way-to-use-healing-magic/img/0.jpg`,
             show_title: `The Wrong Way To Use Healing Magic`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -3413,7 +3314,6 @@
         },
         {
             show_link: `#/info/konosuba`,
-            show_thumbnail: `/library/konosuba/img/0.jpg`,
             show_title: `Konosuba`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -3438,7 +3338,6 @@
         },
         {
             show_link: `#/info/kaiju-no-8`,
-            show_thumbnail: `/library/kaiju-no-8/img/0.jpg`,
             show_title: `Kaiju No. 8`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -3463,7 +3362,6 @@
         },
         {
             show_link: `#/info/the-new-gate`,
-            show_thumbnail: `/library/the-new-gate/img/0.jpg`,
             show_title: `The New Gate`,
             show_type: `TV`,
             show_airing_status: `N/A`,
@@ -3488,7 +3386,6 @@
         },
         {
             show_link: `#/info/solo-leveling`,
-            show_thumbnail: `/library/solo-leveling/img/0.jpg`,
             show_title: `Solo Leveling`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -3525,7 +3422,6 @@
         },
         {
             show_link: `#/info/daily-life-of-an-immortal-king`,
-            show_thumbnail: `/library/daily-life-of-an-immortal-king/img/0.jpg`,
             show_title: `Daily Life Of An Immortal King`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -3565,7 +3461,6 @@
         },
         {
             show_link: `#/info/boruto-naruto-next-generations`,
-            show_thumbnail: `/library/boruto-naruto-next-generations/img/0.jpg`,
             show_title: `Boruto: Naruto Next Generations`,
             show_type: `TV`,
             show_airing_status: `Finished`,
@@ -3611,7 +3506,6 @@
         },
         {
             show_link: `#/info/arcane`,
-            show_thumbnail: `/library/arcane/img/1.jpg`,
             show_title: `Arcane`,
             show_type: `TV`,
             show_airing_status: `Finished`,
