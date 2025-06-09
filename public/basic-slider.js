@@ -1,5 +1,5 @@
 /***************************************************************
- * This will hold the code for the general basic slider in Uvid
+ * This will hold the code for the general basic slider in Uvid+
  * 
  * @author (Anyanwu Benedict Chukwuemeka)
  * @version (v0.01)
