@@ -15,7 +15,7 @@
                     <div class="myListHeaderBox">
                         <div class="myListHeaderBcgBdr">
                             <div class="myListHeaderBcgBox">
-                                <img src="/images/uvid-green-bcg1-light.jpg" alt="" class="myListHeaderBcgImg">
+                                <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-green-bcg1-light.jpg" alt="" class="myListHeaderBcgImg">
                             </div>
                         </div>
                         <div class="myListHeaderDetBdr">
@@ -88,8 +88,10 @@
     let titleBdrBtm;
     
 
-    function preLoadMyListPageStruct()
+    async function preLoadMyListPageStruct()
     {
+        let selectedProfile = await getSelectedProfile();
+
         // Update Navbar active states
         sideNavLinks[2].classList.add("active");
         btmNavLinks[2].classList.add("active");
@@ -116,9 +118,11 @@
 
 
     // Changes the content of the editShowInWLBtn if show is in watchlist
-    function updEditShowInWLBtn(link)
+    async function updEditShowInWLBtn(link)
     {
+        let selectedProfile = await getSelectedProfile();
         let isInWL = selectedProfile.prof_watchlist.filter(item => item.wl_item === link);
+
         if((isInWL.length > 0))
         {
             document.querySelector(".editShowInWLBtn").innerHTML = showInWLMenuOptStruct;
@@ -126,8 +130,9 @@
     }
  
     // Updating the watchlist features outside the watchlist page
-    function updShowsInWL()
+    async function updShowsInWL()
     {
+        let selectedProfile = await getSelectedProfile();
         let wlWatchStatusOpt = document.querySelectorAll(".wlWatchStatusOpt");
         let delWLBodyCards = document.querySelector(".delWLBodyCards");
         let theShowInWL = selectedProfile.prof_watchlist.filter(item => item.wl_item === genShowLinkForCL);
@@ -151,7 +156,7 @@
                 currItem.classList.add("selected");
             }
 
-            const upd_watch_status = () => 
+            const upd_watch_status = async () => 
             {
                 // Get the status option
                 let currItemStatusOpt = Number(currItem.getAttribute("data-show-status-opt"));
@@ -176,6 +181,12 @@
                             wl_status: currItemStatusOpt,
                         }
                     );
+
+                    // Update user data
+                    await updateUserData(
+                    {
+                        downloads: dwld_lib
+                    });
                 }
 
                 // Update the icon on the WL Btn
@@ -204,10 +215,16 @@
         }
 
         // Remove from watchlist
-        delWLBodyCards.onclick = () => 
+        delWLBodyCards.onclick = async () => 
         {
             // Remove item from watchlist indexed inv
             selectedProfile.prof_watchlist = selectedProfile.prof_watchlist.filter(item => item.wl_item !== genShowLinkForCL);
+
+            // Update user data
+            await updateUserData(
+            {
+                downloads: dwld_lib
+            });
 
             // Update the icon on the WL Btn
             let wlInfoPage = document.querySelectorAll(".wl_show_page")
@@ -227,8 +244,9 @@
 
 
     // Changes the content of the Info page's ep card menu dwld btn if show is in downloads
-    function updEditShowInDLBtn(showLink, ssn_num, ep_num)
+    async function updEditShowInDLBtn(showLink, ssn_num, ep_num)
     {
+        let dwld_lib = await getUsrDwldInv();
         let isInDL = dwld_lib.filter(item => item.dl_link === showLink);
         let ssn = Number(ssn_num);
         let ep = Number(ep_num);
@@ -268,8 +286,9 @@
 
 
     // Adds a season to Download library
-    function addSsnToDwlDLib(showLink, epSize, showQlty, showLang, ssn_num, ep_length)
+    async function addSsnToDwlDLib(showLink, epSize, showQlty, showLang, ssn_num, ep_length)
     {
+        let dwld_lib = await getUsrDwldInv();
         let ssn = Number(ssn_num);
         let epLength = Number(ep_length);
         let isInDL = dwld_lib.filter(item => 
@@ -301,6 +320,12 @@
             // Sort the episodes in ascending order
             isInDL[0].dl_eps = isInDL[0].dl_eps.sort((a, b) => a.dl_ep_num - b.dl_ep_num);
 
+            // Update user data
+            await updateUserData(
+            {
+                downloads: dwld_lib
+            });
+
             // Notify user
             notification('notifyGood' , `Added to downloads`);
         }
@@ -331,14 +356,21 @@
                 }
             );
 
+            // Update user data
+            await updateUserData(
+            {
+                downloads: dwld_lib
+            });
+
             // Notify user
             notification('notifyGood' , `Added to downloads`);
         }
     }
 
     // Adds an episode to Download library
-    function addEpToDwlDLib(showLink, showType, epSize, showQlty, showLang, ssn_num, ep_num)
+    async function addEpToDwlDLib(showLink, showType, epSize, showQlty, showLang, ssn_num, ep_num)
     {
+        let dwld_lib = await getUsrDwldInv();
         let ssn = Number(ssn_num);
         let ep = Number(ep_num);
         let isInDL = dwld_lib.filter(item => 
@@ -362,6 +394,12 @@
             // Sort the episodes in ascending order
             isInDL[0].dl_eps = isInDL[0].dl_eps.sort((a, b) => a.dl_ep_num - b.dl_ep_num);
 
+            // Update user data
+            await updateUserData(
+            {
+                downloads: dwld_lib
+            });
+
             // Notify user
             notification('notifyGood' , `Added to downloads`);
         }
@@ -381,6 +419,12 @@
                         dl_mov_lang: `${showLang}`,
                     }
                 );
+
+                // Update user data
+                await updateUserData(
+                {
+                    downloads: dwld_lib
+                });
 
                 // Notify user
                 notification('notifyGood' , `Added to downloads`);
@@ -405,6 +449,12 @@
                         ],
                     }
                 );
+
+                // Update user data
+                await updateUserData(
+                {
+                    downloads: dwld_lib
+                });
 
                 // Notify user
                 notification('notifyGood' , `Added to downloads`);
