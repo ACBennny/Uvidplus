@@ -34,7 +34,7 @@
             ],
         },
         {
-            frg_sectname: `Uvid`,
+            frg_sectname: `Uvid+`,
             frg_ImgSrcSet: [
                 {img_src: `/images/pfp/pfp-0.jpg`,},
                 {img_src: `/images/pfp/pfp-1.jpg`,},
