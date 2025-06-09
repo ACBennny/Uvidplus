@@ -1,5 +1,5 @@
 /*************************************************************
- * This is the script for the Video Player of Uvid
+ * This is the script for the Video Player of Uvid+
  * 
  * @author (Anyanwu Benedict Chukwuemeka)
  * @version (v0.01)
@@ -1303,7 +1303,7 @@
                         {
                             let dwldHref = box.getAttribute("data-link");
                             let dwldOptText = box.querySelector(".dwldOptText");
-                            let fileName = "Uvid - " + minorTitle.textContent + " - " + majorTitle1.textContent + " - " + majorTitle2.textContent + " - " + dwldOptText.textContent;
+                            let fileName = "Uvid+ - " + minorTitle.textContent + " - " + majorTitle1.textContent + " - " + majorTitle2.textContent + " - " + dwldOptText.textContent;
                             
                             let dwldNode = document.createElement("a");
                             dwldNode.setAttribute("href" , dwldHref);
