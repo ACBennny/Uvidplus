@@ -260,7 +260,7 @@ let sett_cmpnt_lib =
         sett_title: `Connected Apps`,
         sett_desc: 
         `   
-            Get more amazing features by connecting Uvid to your favourite apps.
+            Get more amazing features by connecting Uvid+ to your favourite apps.
             You can manage these settings anytime.
         `,
         sett_atn_type: `modal`,
