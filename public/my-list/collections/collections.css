@@ -56,20 +56,24 @@ html:root
 
 .myListCLCatalogGrid .myListCLCatalog_ItemBase
 {
+    width: 100%;
+    max-width: 21.875rem;
+    max-height: 12.5rem;
     margin-bottom: 1.25rem;
+    aspect-ratio: 16/9;
 }
 
 .myListCLCatalog_ItemBase .myListCLCatalog_ItemBdr
 {
     width: 100%;
+    height: 100%;
 }
 
 .myListCLCatalog_ItemBdr .myListCLCatalog_ItemBox
 {
     position: relative;
     width: 100%;
-    max-width: 21.875rem;
-    max-height: 12.5rem;
+    height: 100%;
 }
 
 
@@ -77,6 +81,7 @@ html:root
 .myListCLCatalog_ItemBox .myListCLCatalog_ItemStackBdr
 {
     width: 100%;
+    height: 100%;
     z-index: 1;
 }
 
@@ -85,7 +90,6 @@ html:root
     position: relative;
     width: 100%;
     height: 100%;
-    aspect-ratio: 16/9;
 }
 
 .myListCLCatalog_ItemStackBox .myListCLCatalog_ItemStackLvlAll
