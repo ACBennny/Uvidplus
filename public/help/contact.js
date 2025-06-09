@@ -235,7 +235,7 @@
                             <div class="ctct_msg_base">
                                 <div class="ctct_msg_pfp_bdr">
                                     <div class="ctct_msg_pfp_box">
-                                        <img src="/images/uvid-profile-base.png" class="ctct_msg_pfp_img" alt="The profile picture of Uvid's virtual support">
+                                        <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-profile-base.png" class="ctct_msg_pfp_img" alt="The profile picture of Uvid+'s virtual support">
                                     </div>
                                 </div>
                                 <div class="ctct_msg_ctnt_bdr">
