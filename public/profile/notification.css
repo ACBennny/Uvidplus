@@ -162,7 +162,7 @@ html:root
     background-color: #171717;
 }
 
-.notification_card_bdr[data-read-status="read"]
+.notification_card_bdr[data-read-status="true"]
 {
     filter: brightness(0.5);
 }
