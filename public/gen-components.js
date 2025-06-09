@@ -1,5 +1,5 @@
 /*************************************************************
- * This holds the general page components used across uvid
+ * This holds the general page components used across Uvid+
  * 
  * @author (Anyanwu Benedict Chukwuemeka)
  * @version (v0.01)
