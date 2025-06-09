@@ -411,6 +411,20 @@ content .content
 }
 
 
+input[disabled="true"],
+input[disabled]
+{
+    filter: brightness(0.5);
+    text-decoration: none;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor:not-allowed;
+    pointer-events: none;
+}
+
+
 a
 {
     text-decoration: none;
@@ -851,8 +865,6 @@ html:has( .backtotop_float_left) .backtotop_float.float
 
 img
 {
-    /* filter: blur(0.9375rem);
-    animation: imgLoadShell 2s linear infinite; */
     backface-visibility: hidden !important;
     -moz-user-select: -moz-none !important;
     -moz-user-select: none !important;
@@ -861,20 +873,35 @@ img
     pointer-events: none !important;
 }
 
+img[loading="lazy"]
+{
+    filter: blur(0.9375rem);
+    animation: imgLoadShell 2s linear infinite;
+}
+
 @keyframes imgLoadShell
 {
     0%
     {
         filter: blur(0.9375rem) brightness(0.9);
+        background-color: var(--genGreenTypeDark2);
     }
     50%
     {
         filter: blur(0.9375rem) brightness(1.1);
+        background-color: var(--genGreenTypeMid);
     }
     100%
     {
         filter: blur(0.9375rem) brightness(0.9);
+        background-color: var(--genGreenTypeDark2);
     }
+}
+
+img[loading="lazy"].loaded
+{
+    filter: blur(0rem);
+    animation: none;
 }
 
 
@@ -3976,6 +4003,7 @@ html:root:has(.btmNavBar.hidden)
     height: 100%;
     border-radius: 50%;
     background-color: #111111;
+    box-shadow: 0rem 0rem 0.125rem .5rem #181818;
     overflow: hidden;
 }
 
@@ -4125,6 +4153,7 @@ html:root:has(.btmNavBar.hidden)
 
 .editProfileNameBox .editProfileNameField
 {
+    font-family: 'Poppins', sans-serif;
     width: 100%;
     height: 100%;
     outline: none;
@@ -5682,6 +5711,7 @@ html:root:has(.btmNavBar.hidden)
     width: 100%;
     display: flex;
     justify-content: end;
+    margin-top: var(--navBarHeight);
     z-index: 1;
 }
 
