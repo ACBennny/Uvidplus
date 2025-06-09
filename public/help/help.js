@@ -174,7 +174,7 @@
     // Initialize
     function init_help_ctr_srch_pg()
     {
-        documentTitle.textContent = "Uvid • Help Center - Search";
+        documentTitle.textContent = "Uvid+ • Help Center - Search";
         documentCtnt.insertAdjacentHTML(`afterbegin`, help_ctr_srch_struct);
         attachHelpCtrSrchFldListeners();
         help_ctr_srch_pg_rslt_ctg();
