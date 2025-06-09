@@ -11,11 +11,11 @@ let pplr_tpc_arr =
 [
     {
         pplr_tpc_id: `58679021`,
-        pplr_tpc_name: `How to sign up for Uvid?`,
+        pplr_tpc_name: `How to sign up for Uvid+?`,
     },
     {
         pplr_tpc_id: `11358423`,
-        pplr_tpc_name: `I can't sign into Uvid`,
+        pplr_tpc_name: `I can't sign into Uvid+`,
     },
     {
         pplr_tpc_id: `58523412`,
@@ -35,7 +35,7 @@ let pplr_tpc_arr =
     },
     {
         pplr_tpc_id: `16081474`,
-        pplr_tpc_name: `Is Uvid kid friendly?`,
+        pplr_tpc_name: `Is Uvid+ kid friendly?`,
     },
     {
         pplr_tpc_id: `16456529`,
@@ -100,7 +100,7 @@ let all_tpc_arr =
     },
     {
         all_tpc_id: `66540227`,
-        all_tpc_name: `Watching Uvid`,
+        all_tpc_name: `Watching Uvid+`,
         all_tpc_icon: 
         `
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="help_ctr_tpc_all_card_iconSvg">
