@@ -14,7 +14,7 @@
                     <a href="/Home.html" class="Companylogo navBarCompanylogo">
                         <div class="company_logoBdr">
                             <div class="company_logoBox Companylogo">
-                                <img src="/images/uvid-logo.png" alt="" class="company_logoImg">
+                                <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-logo.png" alt="" class="company_logoImg">
                             </div>
                         </div>
                     </a>
@@ -28,7 +28,7 @@
         </div>
         <div class="editProfileBcgImgBdr editProfilePcBcgImgBdr">
             <div class="editProfileBcgImgBox">
-                <img src="" alt="" class="editProfileBcgImg">
+                <img loading="lazy" onload="this.classList.add('loaded')" src="" alt="" class="editProfileBcgImg">
             </div>
         </div>
         <div class="editProfileBase">
@@ -41,7 +41,7 @@
                 <div class="editProfileFrgImgBase " title="Change Profile Image">
                     <div class="editProfileFrgImgBdr">
                         <div class="editProfileFrgImgBox">
-                            <img src="" alt="" class="editProfileFrgImg">
+                            <img loading="lazy" onload="this.classList.add('loaded')" src="" alt="" class="editProfileFrgImg">
                         </div>
                         <div class="editProfileFrgImgOverlayBdr openSelectFrgPicModal">
                             <div class="editProfileFrgImgOverlayBox">
@@ -111,7 +111,7 @@
             </div>
         </div>
     `;
-    let isProfId;
+    let profId;
     let profItem;
     let editProfFence;
     let editProfAtnBtn;
@@ -136,13 +136,13 @@
 
 
     // Fetches the related info of the given profile to initialize the edit modal
-    function initProfEditModal()
+    async function initProfEditModal()
     {
-        let profId = hash_parts[3];
-        isProfId = profileInfoInv.filter(item => item.prof_id === profId);
+        profId = hash_parts[3] || window.location.hash.split('/')[3];
+        let isProfId = await getUsrProfFld(profId);
 
         // Return to profile page if id doesn't exist
-        if(isProfId.length < 1)
+        if(((isProfId == undefined) || (isProfId == null)))
         {
             window.open("#/profile" , "_self");
 
@@ -151,7 +151,7 @@
         }
         documentBody.classList.add("bodystop");
 
-        profItem = isProfId[0];
+        profItem = isProfId[1];
 
         editProfFence = document.createElement("div");
         editProfFence.classList.add("editProfileFence");
@@ -321,24 +321,18 @@
         });
 
         // Deleting a profile
-        const enfDelProf = () => 
+        const enfDelProf = async () => 
         {
-            // Remove item from profile Inventory Libary (profileInfoInv)
-            profileInfoInv = profileInfoInv.filter(item => item.prof_id !== profId);
-
-            // Select the default profile
-            profileInfoInv.forEach((elem) => 
+            // Remove profile from user data
+            updateUserData(
             {
-                if(elem.prof_id === "default")
-                {
-                    elem.prof_selected = true;
-                    getSelectedProfile();
-                }
-                else
-                {
-                    elem.prof_selected = false;
-                }
+                [`profiles.${profId}`]: firebase.firestore.FieldValue.delete()
             });
+            
+            // Select the default profile
+            const profileInfoInv = await getUsrProfInv();
+            let delProf = Object.entries(profileInfoInv).find(([key, prof]) => prof.prof_type === "default");
+            await switchProfAtn(delProf[0]);
 
             // Return back to manage profiles
             window.open("#/profile/switch" , "_self");
@@ -362,15 +356,23 @@
 
 
     // Save Edits made to a profile and return back to the "Edits profile" modal
-    function saveCurrProfEdits()
+    async function saveCurrProfEdits()
     {
-        // Notify users
-        notification(`notifyGood` , `Changes saved`);
-
         // Update attributes
         profItem.prof_name = editProfileNameField.value;
-        profItem.prof_bcgImg = editProfileBcgImg.getAttribute("src");
         profItem.prof_frgImg = editProfileFrgImg.getAttribute("src");
+        profItem.prof_bcgImg = editProfileBcgImg.getAttribute("src");
+
+        // Update user data
+        await updUsrProfFlds(
+        {
+            prof_name: editProfileNameField.value,
+            prof_frgImg: editProfileFrgImg.getAttribute("src"),
+            prof_bcgImg: editProfileBcgImg.getAttribute("src"),
+        }, profId);
+
+        // Notify users
+        notification(`notifyGood` , `Changes saved`);
 
         // Switch back to "Manage Profiles" section
         window.open("#/profile/switch", "_self");
@@ -468,7 +470,7 @@
                     <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox basic_carousel_card">
                         <div class="selectFrgPicCarouselCard">
                             <div class="selectFrgPicCarouselImgBox">
-                                <img src="${item.img_src}" alt="Profile foreground image ${j}" class="selectFrgPicCarouselImg">
+                                <img loading="lazy" onload="this.classList.add('loaded')" src="${item.img_src}" alt="Profile foreground image ${j}" class="selectFrgPicCarouselImg">
                             </div>
                         </div>
                     </div>
@@ -576,7 +578,7 @@
                     <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox basic_carousel_card">
                         <div class="selectBcgPicCarouselCard">
                             <div class="selectBcgPicCarouselImgBox">
-                                <img src="${item.img_src}" alt="Profile background image ${j}" class="selectBcgPicCarouselImg">
+                                <img loading="lazy" onload="this.classList.add('loaded')" src="${item.img_src}" alt="Profile background image ${j}" class="selectBcgPicCarouselImg">
                             </div>
                         </div>
                     </div>
@@ -594,7 +596,7 @@
             let img = card.querySelector(".selectBcgPicCarouselImg");
             let imgSrc = img.getAttribute("src");
 
-            card.addEventListener("click" , (e) => 
+            card.addEventListener("click" , async (e) => 
             {
                 if(isBasicSliderDragging)
                 {

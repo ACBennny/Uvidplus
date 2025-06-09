@@ -14,14 +14,14 @@
                     <div class="profHeaderBox">
                         <div class="profHeaderBcgBdr">
                             <div class="profHeaderBcgBox">
-                                <img src="/images/uvid-green-bcg1-light.jpg" alt="" class="profHeaderBcgImg">
+                                <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-green-bcg1-light.jpg" alt="" class="profHeaderBcgImg">
                             </div>
                         </div>
                         <div class="profHeaderFrgBdr">
                             <div class="profHeaderFrgBox">
                                 <div class="profHeaderFrgImgBdr">
                                     <div class="profHeaderFrgImgBox">
-                                        <img src="/images/uvid-profile-base.png" alt="" class="profHeaderFrgImgSrc">
+                                        <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-profile-base.png" alt="" class="profHeaderFrgImgSrc">
                                     </div>
                                 </div>
                                 <div class="profHeaderFrgTitleBdr">
@@ -239,8 +239,14 @@
         }
     }
 
-    function startProfileYou()
+    async function startProfileYou()
     {
+        let profileInfoInv = await getUsrProfInv();
+        let selectedProfile = await getSelectedProfile();
+        let selectedProfileId = Object.entries(profileInfoInv).find(([key, profile]) => 
+            profile.prof_selected === selectedProfile.prof_selected
+        );
+
         // Insert document element
         documentCtnt.insertAdjacentHTML(`afterbegin` , profPageStruct);
 
@@ -261,11 +267,14 @@
         document.querySelector(".profHeaderFrgTitle_minor").textContent = getGreeting();
 
         // Edit Profile
-        document.querySelector(".openEditProfBtn").onclick = () => window.open(`#/profile/edit/${selectedProfile.prof_id}` , `_self`);
+        document.querySelector(".openEditProfBtn").onclick = () => window.open(`#/profile/edit/${selectedProfileId[0]}` , `_self`);
 
-        // Set the Notifications number
+        // Set the Notifications number (for unread notifications)
         let ntfyLength = Number(selectedProfile.prof_notifications.length);
-        if(ntfyLength > 0)
+        let ntfyUnread = selectedProfile.prof_notifications.filter(item => item.notify_readStatus == false);
+        let ntfyUnreadLength = Number(ntfyUnread.length);
+        
+        if((ntfyLength > 0) && (ntfyUnreadLength > 0))
         {
             document.querySelector(".open_ntfy_btn .navBarNotificationStatusNo_text").textContent = `${ntfyLength}`;
             document.querySelector(".open_ntfy_btn .navBarNotificationStatusNo_box").classList.add("active");

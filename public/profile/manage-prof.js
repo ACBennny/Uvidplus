@@ -67,6 +67,8 @@
             </div>
         </div>
     `;
+    let switchProfTimer;
+    let switchProfTimer2;
     let profileLimit = 5;
     let mngProfTrstnTime = 10;
     
@@ -79,8 +81,12 @@
 
 // Switch Profile
 
-    function initManageProfileModal(type = "switch")
+    async function initManageProfileModal(type = "switch")
     {
+        const selectedProfile = await getSelectedProfile();
+        const profileInfoInv = await getUsrProfInv();
+        let switchProfCardStruct = ``;
+
         let switchProfBdr = document.createElement("div");
         switchProfBdr.classList.add("switchProfBdr");
         switchProfBdr.classList.add("inactive");
@@ -91,10 +97,10 @@
             <div class="switchProfNavBdr">
                 <div class="switchProfNavBox">
                     <div class="switchProfNavLeft">
-                        <a href="/Home.html" class="Companylogo navBarCompanylogo">
+                        <a class="Companylogo navBarCompanylogo">
                             <div class="company_logoBdr">
                                 <div class="company_logoBox Companylogo">
-                                    <img src="/images/uvid-logo.png" alt="" class="company_logoImg">
+                                    <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-logo.png" alt="" class="company_logoImg">
                                 </div>
                             </div>
                         </a>
@@ -104,7 +110,7 @@
             </div>
             <div class="switchProfBcg closeSwitchProf">
                 <div class="switchProfBcgImgBox">
-                    <img src="${selectedProfile.prof_bcgImg}" alt="Background image of the 'Switch Profiles' modal" class="switchProfBcgImg">
+                    <img loading="lazy" onload="this.classList.add('loaded')" src="${selectedProfile.prof_bcgImg}" alt="Background image of the 'Switch Profiles' modal" class="switchProfBcgImg">
                 </div>
             </div>
             <div class="switchProfBox">
@@ -131,22 +137,21 @@
         let switchProfOptBdr = switchProfBdr.querySelector(".switchProfOptBdr");
 
         // Fetch the data for the respective profiles
-        if(((profileInfoInv == undefined) || (profileInfoInv.length <=0)))
+        if(((profileInfoInv == undefined) || (Object.keys(profileInfoInv).length <= 0)))
         {
             errorLoadingProfInfo();
             return;
         }
 
         // Fill in the data
-        for(let i = 0; i < profileInfoInv.length; i++)
+        Object.entries(profileInfoInv).forEach(([key, bnft_obj]) =>
         {
-            const item = profileInfoInv[i];
-            const switchProfCardStruct = 
+            switchProfCardStruct += 
             `
-                <div class="switchProfOptBox profileOpt" data-prof-id="${item.prof_id}">
+                <div class="switchProfOptBox profileOpt" data-prof-id="${key}">
                     <div class="switchProfOptImgBdr">
                         <div class="switchProfOptImgBox">
-                            <img src="${item.prof_frgImg}" alt="profile image" class="switchProfOptImg">
+                            <img loading="lazy" onload="this.classList.add('loaded')" src="${bnft_obj.prof_frgImg}" alt="profile image" class="switchProfOptImg">
                         </div>
                         <div class="editProfileBadgeBdr">
                             <div class="editProfileBadgeBox">
@@ -157,12 +162,12 @@
                         </div>
                     </div>
                     <div class="switchProfOptTextBox">
-                        <p class="switchProfOptText">${item.prof_name}</p>
+                        <p class="switchProfOptText">${bnft_obj.prof_name}</p>
                     </div>
                 </div>
             `;
-            switchProfOptBdr.insertAdjacentHTML(`beforeend` , switchProfCardStruct);
-        }
+        });
+        switchProfOptBdr.insertAdjacentHTML(`beforeend` , switchProfCardStruct);
 
         // Insert the "Add New Profile" option
         switchProfOptBdr.insertAdjacentHTML(`beforeend` , addProfStruct);
@@ -210,7 +215,6 @@
 
         // Removes style classes
         switchProfBdr.classList.remove("active");
-        getSelectedProfile();
 
         switchProfTimer = setTimeout(() => 
         {
@@ -242,9 +246,13 @@
         {
             let boxId = box.getAttribute("data-prof-id");
 
-            const box_atn = () =>
+            const box_atn = async () =>
             {
-                switchProfAtn(boxId);
+                // Update the profile
+                await switchProfAtn(boxId);
+
+                // Close the modal
+                closeManageProfModal();
             }
 
             box.addEventListener("click", box_atn);
@@ -258,21 +266,26 @@
         }
     }
 
-    function switchProfAtn(switch_id)
+    async function switchProfAtn(switch_id)
     {
-        let chsnProf = profileInfoInv.filter(item => item.prof_id === switch_id);
+        const profileInfoInv = await getUsrProfInv();
+        const switch_obj = {};
 
-        // Deselect previous profiles
-        profileInfoInv.forEach((prof) => 
+        // Build the object of profiles to be update
+        Object.entries(profileInfoInv).forEach(([key, prof]) =>
         {
-            prof.prof_selected = false;
+            if((key === switch_id))
+            {
+                switch_obj[`profiles.${key}.prof_selected`] = true;
+            }
+            else
+            {
+                switch_obj[`profiles.${key}.prof_selected`] = false;
+            }
         });
 
-        // Select the chosen profile
-        chsnProf[0].prof_selected = true;
-
-        // Close the modal
-        closeManageProfModal();
+        // Update user data
+        await updateUserData(switch_obj);
     }
 
 
@@ -332,9 +345,10 @@
 
         openCreateProfBtn.forEach(btn => 
         {
-            let btn_create = () =>
+            let btn_create = async () =>
             {
-                if(profileInfoInv.length < profileLimit)
+                const profileInfoInv = await getUsrProfInv();
+                if(Object.keys(profileInfoInv).length < profileLimit)
                 {
                     createProfFunc(btn);
                     return;
@@ -347,8 +361,11 @@
         });
     }
 
-    const createProfFunc = (e) =>
+    
+    // Form for creating profiles
+    const createProfFunc = async (e) =>
     {
+
         const createProfBdr = document.createElement("div");
         createProfBdr.classList.add("genAtnModalBdr");
         createProfBdr.innerHTML = createProfStruct;
@@ -425,12 +442,13 @@
         });
 
         // Create profile
-        function generateProfile(profName)
+        async function generateProfile(profName)
         {
             // Add new entry into the library
-            profileInfoInv.push(
+            await updateUserData(
+            {
+                [`profiles.${newProfId}`]:
                 {
-                    prof_id: `${newProfId}`,
                     prof_selected: false,
                     prof_name: `${profName}`,
                     prof_type: `other`,
@@ -460,12 +478,15 @@
                     prof_notifications:
                     [],
                 }
-            );
-            console.log(profileInfoInv.at(-1));
+            });
+
+            // Set as current profile
+            await switchProfAtn(newProfId);
 
             // Notify user of the newly created profile
             notification(`notifyGood` , `Profile created successfully`);
 
+            // Close "Create Profile" and go the edit page
             closeCreateProf(true);
         }
 
