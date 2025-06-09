@@ -127,8 +127,10 @@
     }
 
 
-    function fetchNotification()
+    async function fetchNotification()
     {
+        let selectedProfile = await getSelectedProfile();
+
         // Check if the library is available
         if((selectedProfile.prof_notifications == undefined))
         {
@@ -158,7 +160,7 @@
                     <div class="notification_card_box">
                         <div class="notification_thumbnail_bdr">
                             <div class="notification_thumbnail_box">
-                                <img src="${item.notify_thumbnail}" alt="The thumbnail image of the '${item.notify_mainTopic}' notification" class="notification_thumbnail_img">
+                                <img loading="lazy" onload="this.classList.add('loaded')" src="${item.notify_thumbnail}" alt="The thumbnail image of the '${item.notify_mainTopic}' notification" class="notification_thumbnail_img">
                             </div>
                         </div>
                         <div class="notification_detail_bdr">
@@ -200,22 +202,30 @@
     }
 
     // Mark all Notificatiions as read
-    function markAllNotificationsAsRead()
+    async function markAllNotificationsAsRead()
     {
+        let selectedProfile = await getSelectedProfile();
+
         // Update all notification entries in Library
         selectedProfile.prof_notifications.forEach((item) => 
         {
-            item.notify_readStatus = "read";
+            item.notify_readStatus = true;
+        });
+
+        // Update user data
+        await updUsrProfFlds(
+        {
+            prof_notifications: selectedProfile.prof_notifications
         });
 
         // Update all notification entries in DOM
         document.querySelectorAll(".notification_card_bdr").forEach((card) => 
         {
-            card.setAttribute("data-read-status", "read");
+            card.setAttribute("data-read-status", "true");
         });
     
         // Close the modal
-        // closeNotificationModal();
+        closeNotificationModal();
 
         // Notify user
         notification(`notifyGood` , `All notifications marked as read`);
@@ -236,16 +246,26 @@
 
         markNtfyAsReadBtn.forEach((clrBtn) => 
         {
-            clrBtn.addEventListener("click" , markAllNotificationsAsRead);
-            clrBtn.read_atn = markAllNotificationsAsRead;
+            const ntf_read_atn = async () =>
+            {
+                await markAllNotificationsAsRead();
+            }
+
+            clrBtn.addEventListener("click" , ntf_read_atn);
+            clrBtn.read_atn = ntf_read_atn;
         });
     }
 
     // Clear all Notificatiions
-    function clearAllNotifications()
+    async function clearAllNotifications()
     {
+        let selectedProfile = await getSelectedProfile();
+
         // Remove all notification entries
         selectedProfile.prof_notifications.length = 0;
+
+        // Update user data
+        await updUsrProfInv(null, selectedProfile);
     
         // Close the modal
         closeNotificationModal();
@@ -271,7 +291,6 @@
         {
             const clr_atn = () => 
             {
-
                 // Confirm before deleting
                 initConfirmModal(
                     `Are you sure you want to clear all notifications?`,
