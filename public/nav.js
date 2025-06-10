@@ -24,68 +24,68 @@
             route_atn: "initialiseLanding",
             route_title: null,
         },
-        'join': 
+        'signup': 
         {
             route_pbl_only: true,
             route_auth: false,
-            route_atn: "callprepare",
-            route_title: "Uvid • Join",
+            route_atn: "initSignUpForm",
+            route_title: "Sign Up for Uvid+",
         },
         'signin': 
         {
             route_pbl_only: true,
             route_auth: false,
-            route_atn: "page_route_error",
-            route_title: "Uvid • Sign In to Uvid",
+            route_atn: "initSignInForm",
+            route_title: "Sign In to Uvid+",
         },
-        'signup': 
+        'signout': 
         {
-            route_pbl_only: true,
-            route_auth: false,
-            route_atn: "page_route_error",
-            route_title: "Uvid • Sign Up for Uvid",
+            route_pbl_only: false,
+            route_auth: true,
+            route_atn: "cfrmB4SignOut",
+            route_title: null,
         },
         'tou': 
         {
             route_pbl_only: false,
             route_auth: false,
             route_atn: "display_tou_",
-            route_title: "Uvid • Terms of Use",
+            route_title: "Terms of Use • Uvid+",
         },
         'privacy': 
         {
             route_pbl_only: false,
             route_auth: false,
             route_atn: "display_privacy_",
-            route_title: "Uvid • Privacy",
+            route_title: "Privacy • Uvid+",
         },
         'ad-choices': 
         {
             route_pbl_only: false,
             route_auth: false,
             route_atn: "display_ad_chc_",
-            route_title: "Uvid • Ad Choices & Disclaimers",
+            route_title: "Ad Choices & Disclaimers • Uvid+",
         },
         'copyright': 
         {
             route_pbl_only: false,
             route_auth: false,
             route_atn: "display_cpy_right_",
-            route_title: "Uvid • Copyright Act & Disclaimers",
+            route_title: "Copyright Act & Disclaimers • Uvid+",
         },
         'help': 
         {
             route_pbl_only: false,
             route_auth: false,
             route_atn: "nav_help_pgs",
-            route_title: "Uvid • Help Center",
+            route_title: "Help Center • Uvid+",
         },
         'news': 
         {
             route_pbl_only: false,
             route_auth: false,
             route_atn: "page_route_error",
-            route_title: "Uvid • News",
+            route_title: "News • Uvid+",
         },
         
 
@@ -102,21 +102,21 @@
             route_pbl_only: false,
             route_auth: true,
             route_atn: "initCategories",
-            route_title: "Uvid • Explore",
+            route_title: "Explore • Uvid+",
         },
         'trending': 
         {
             route_pbl_only: false,
             route_auth: true,
             route_atn: "launchTrendingPage",
-            route_title: "Uvid • Trending",
+            route_title: "Trending • Uvid+",
         },
         'my-list': 
         {
             route_pbl_only: false,
             route_auth: true,
             route_atn: "preLoadMyListPageStruct",
-            route_title: "Uvid • My Lists",
+            route_title: "My Lists • Uvid+",
         },
         'info': 
         {
@@ -137,28 +137,28 @@
             route_pbl_only: false,
             route_auth: true,
             route_atn: "initSchedule",
-            route_title: "Uvid • Schedule",
+            route_title: "Schedule • Uvid+",
         },
         'profile': 
         {
             route_pbl_only: false,
             route_auth: true,
             route_atn: "initProfilePage",
-            route_title: "Uvid • Profile",
+            route_title: "Profile • Uvid+",
         },
         'settings': 
         {
             route_pbl_only: false,
             route_auth: true,
             route_atn: "initSettPage",
-            route_title: "Uvid • Settings",
+            route_title: "Settings • Uvid+",
         },
         'feedback': 
         {
             route_pbl_only: false,
             route_auth: true,
             route_atn: "init_FeedbackForm",
-            route_title: "Uvid • Feedback",
+            route_title: "Feedback • Uvid+",
         },
     };
 
@@ -166,22 +166,6 @@
 
 // ROUTING
 
-    // Check if user signed in. If not, redirect to landing page (Locally done)
-    function getSignedInUser() 
-    {
-        const user = JSON.parse(localStorage.getItem('uvidSignedInUser'));
-
-        if(user) 
-        {
-            // console.log('yes, user is signed in.');
-            return true;
-        }
-        else
-        {
-            // console.log('No user is signed in.');
-            return false;
-        }
-    }
 
     // Actions for successful routes
     function page_route_success(funcName)
@@ -213,7 +197,7 @@
     // Goes to the default fallback page
     function page_route_fallback()
     {
-        return getSignedInUser() ? "#/home" : "#/landing";
+        return isUserSignedIn() ? "#/home" : "#/landing";
     }
 
     // Goes back to previous page route
@@ -227,29 +211,40 @@
         window.location.hash = last_hash_page;
     }
 
-    // Goes to the page user originally attempted accessing after signing in
-    function defer_page_route(atn = "set")
+    // (ATTENTION NEEDED) Goes to the page user originally attempted accessing after signing in
+    async function defer_page_route(atn = "set")
     {
+        return notification(`notifyBad`, `Defer ${atn} functionality is unavailable at this time`);
         if(atn === "get")
         {
+            let userInfo = await getSignedInUser();
+
+            // Open verification if user isn't verified
+            if(!userInfo.emailVerified)
+            {
+                init_setup();
+                init_signup_vrfy(false);
+                return;
+            }
+
             // After logging in, the attempted page is opened. If none, it defaults to the home page
-            let attempt_pg_str = JSON.parse(localStorage.getItem('uvid_attemt_pages')) || "#/home";
-            localStorage.removeItem('uvid_attemt_pages');
+            let attempt_pg_str = JSON.parse(localStorage.getItem('uvid_atmpt_pg')) || "#/home";
+            localStorage.removeItem('uvid_atmpt_pg');
             window.location.hash = attempt_pg_str;
         }
         else
         {
             // Stores the page user is attempting to access
             let curr_pg = window.location.hash || "#/home";
-            localStorage.removeItem('uvid_attemt_pages');
-            localStorage.setItem('uvid_attemt_pages', JSON.stringify(curr_pg));
+            localStorage.removeItem('uvid_atmpt_pg');
+            localStorage.setItem('uvid_atmpt_pg', JSON.stringify(curr_pg));
 
-            if(!(getSignedInUser())) window.location.hash = "#/join";
+            if(!(isUserSignedIn())) window.location.hash = "#/signin";
         }
     }
 
     // Handles routing process
-    function page_router()
+    async function page_router()
     {
         // Get the current hash value
         hash_win = window.location.hash || page_route_fallback();
@@ -265,6 +260,8 @@
         preload.classList.remove("preloadClose");
 
         // Clear the navbar and doc content and scroll to the top
+        documentBody.scrollTo(0, 0);
+        documentBody.classList.add("bodystop");
         documentCtnt.innerHTML = "";
         topNavBar.innerHTML = "";
         topNavBar.className = "topNavBar";
@@ -289,7 +286,10 @@
 
         // Find matching route
         const curr_route = uvid_pg_routes[hash_parts[1]];
-        const isUsrIn = getSignedInUser();
+        const isUsrIn = isUserSignedIn();
+        const isUsrVrfd = isUserVerified();
+        const usrData = await getUserData();
+        const isUsrStp = usrData?.is_setup;
 
         // If no route is found
         if(!curr_route)
@@ -303,12 +303,32 @@
         }
 
         // Update page title according to route
-        documentTitle.textContent = curr_route.route_title != null ? curr_route.route_title : "Uvid • Stream Movies, Tv Shows, and so much more";
+        documentTitle.textContent = curr_route.route_title != null ? curr_route.route_title : "Stream Movies, Tv Shows, and so much more • Uvid+";
+
+        // Open verification if user isn't verified
+        if((isUsrIn) && !(isUsrVrfd))
+        {
+            init_setup();
+            init_signup_vrfy(false);
+            return;
+        }
+
+        // Go to last step if user is still in setup
+        if((isUsrIn) && (isUsrVrfd) && (isUsrStp))
+        {
+            const usrStpStep = usrData?.stp_steps;
+            if(usrStpStep)
+            {
+                init_setup();
+                switch_step(usrStpStep);
+                return;
+            }
+        }
         
         // Default to login page if user tries to access auth required pages
         if((curr_route.route_auth) && !(isUsrIn))
         {
-            defer_page_route('set');
+            window.location.hash = "#/signin";
             return;
         }
 
