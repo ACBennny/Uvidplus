@@ -256,7 +256,7 @@
 
                 try 
                 {
-                    const userCredential = await auth.signInWithEmailAndPassword(email, password);
+                    await auth.signInWithEmailAndPassword(email, password);
 
                     // Notify user
                     notification("notifyGood", "Signed in");
