@@ -883,17 +883,17 @@ img[loading="lazy"]
 {
     0%
     {
-        filter: blur(0.9375rem) brightness(0.9);
+        filter: blur(0.9375rem) brightness(0.75);
         background-color: var(--genGreenTypeDark2);
     }
     50%
     {
-        filter: blur(0.9375rem) brightness(1.1);
+        filter: blur(0.9375rem) brightness(1.25);
         background-color: var(--genGreenTypeMid);
     }
     100%
     {
-        filter: blur(0.9375rem) brightness(0.9);
+        filter: blur(0.9375rem) brightness(0.75);
         background-color: var(--genGreenTypeDark2);
     }
 }
