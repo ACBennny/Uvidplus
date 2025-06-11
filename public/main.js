@@ -2607,19 +2607,6 @@
             }
         }
 
-        async function wewserefs() 
-        {
-            // return console.log("nopeeeeee wewserefs");
-            await updateUserData(
-                {
-                    profiles: uvid_sgl_usr_obj.profiles,
-                    downloads: uvid_sgl_usr_obj.downloads
-                }
-            );
-
-            console.log("xddd");
-        }
-
         // Gets the currently selected profile
         async function getSelectedProfile()
         {
