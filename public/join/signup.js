@@ -24,6 +24,7 @@
         documentCtnt.insertAdjacentHTML(`beforeend` , signup_base);
         topNavBar.innerHTML = setup_nav;
         topNavBar.classList.add("initialize");
+        attachSignOutEventlisteners();
     }
 
     // Switch sign up steps
@@ -491,6 +492,11 @@
 
                         // Notify user of successful account creation
                         notification(`notifyGood` , "Account created");
+
+                        // Update the navbar
+                        topNavBar.innerHTML = setup_nav;
+                        topNavBar.classList.add("initialize");
+                        attachSignOutEventlisteners();
 
                         // Inform them to verify their email before continuing
                         init_signup_vrfy();
