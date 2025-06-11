@@ -623,6 +623,7 @@
                 else 
                 {
                     notification(`notifyBad` , "Email not verified yet. Please check your inbox and try again.");
+                    joinVrfyBtn.disabled = false;
                 }
             } 
             catch (err) 
