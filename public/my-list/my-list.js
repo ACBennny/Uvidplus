@@ -168,6 +168,15 @@
 
                     // Update status in search inventory
                     theShowInWL[0].wl_status = currItemStatusOpt;
+
+                    // Update the prof_watchlist field
+                    selectedProfile.prof_watchlist.forEach((item) => 
+                    {
+                        if(item.wl_item === genShowLinkForCL)
+                        {
+                            item.wl_status = currItemStatusOpt;
+                        }
+                    });
                 }
                 else
                 {
@@ -181,13 +190,13 @@
                             wl_status: currItemStatusOpt,
                         }
                     );
-
-                    // Update user data
-                    await updateUserData(
-                    {
-                        downloads: dwld_lib
-                    });
                 }
+
+                // Update user data
+                await updUsrProfFlds(
+                {
+                    prof_watchlist: selectedProfile.prof_watchlist
+                });
 
                 // Update the icon on the WL Btn
                 let wlInfoPage = document.querySelectorAll(".wl_show_page");
@@ -221,9 +230,9 @@
             selectedProfile.prof_watchlist = selectedProfile.prof_watchlist.filter(item => item.wl_item !== genShowLinkForCL);
 
             // Update user data
-            await updateUserData(
+            await updUsrProfFlds(
             {
-                downloads: dwld_lib
+                prof_watchlist: selectedProfile.prof_watchlist
             });
 
             // Update the icon on the WL Btn
@@ -280,7 +289,7 @@
         }
         else
         {
-            console.info(`${showLink} not in downloads`);
+            // console.info(`${showLink} not in downloads`);
         }
     }
 
