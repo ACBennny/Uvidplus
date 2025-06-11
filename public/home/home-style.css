@@ -1278,14 +1278,11 @@ html:root
         background-image: radial-gradient(100% 80% at 50% 0%, #00000000 0%, #000000 100%);
     }
 
-    .hm_hero_bcgBox .hm_hero_bcgImg
-    {
-        filter: blur(0rem);
-    }
-
     .hm_hero_cardBox .hm_hero_cardCtntBdr
     {
         align-items: flex-end;
+        -webkit-backdrop-filter: blur(0rem);
+        backdrop-filter: blur(0rem);
     }
     
     .hm_hero_cardCtntBdr .hm_hero_cardCtntBox
