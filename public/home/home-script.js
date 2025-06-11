@@ -8,8 +8,6 @@
 ****************************************************************/
 
 
-
-
     function preHomeSection()
     {
         // Update Navbar active states
@@ -33,7 +31,7 @@
     function startHomeSection()
     {
         // Setting the Top Navbar
-        topNavBar.insertAdjacentHTML(`afterbegin` , topNavBarStruct);
+        topNavBar.insertAdjacentHTML(`afterbegin` , hm_pg_nav);
         topNavBar.classList.add("active");
 
         // Intro slides
