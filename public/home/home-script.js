@@ -26,7 +26,7 @@
         genRandShowsForHomePage();
 
         // Fetching watch history
-        preFetchingShowsFromHistory();
+        crsl_load_more_listener(true);
     }
 
 
@@ -50,7 +50,7 @@
     }
 
 
-    // Generates the latest shows
+    // Generates the Home pages Hero Section
     function genHeroSectionForHomePage()
     {
         let hmHeroGrid = document.querySelector(".hm_hero_grid");
