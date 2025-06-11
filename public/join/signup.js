@@ -438,7 +438,7 @@
                         {
                             [`${generateRandomString().toLowerCase()}`]: 
                             {
-                                prof_selected: false,
+                                prof_selected: true,
                                 prof_name: `${newFullName.value}`,
                                 prof_type: `default`,
                                 prof_frgImg: `/images/uvid-profile-base.png`,
