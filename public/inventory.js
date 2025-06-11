@@ -2510,7 +2510,7 @@
         },
         {
             show_link: `#/info/how-not-to-summon-a-demon-lord`,
-            show_title: `How Not TO Summon a Demon Lord`,
+            show_title: `How Not To Summon a Demon Lord`,
             show_type: `TV`,
             show_airing_status: `N/A`,
             show_languages: `N/A`,
