@@ -3174,12 +3174,14 @@ html:root:has(.btmNavBar.hidden)
     justify-content: center;
     align-items: center;
     gap: 0.625rem;
+    padding: var(--slideCardSpacing);
 }
 
 .view_more_box .view_more_name
 {
     font-size: 1rem;
-    color: #fff;
+    color: var(--genWhiteTypeLight);
+    text-align: center;
 }
 
 .view_more_box .view_more_dot_box
@@ -3194,7 +3196,7 @@ html:root:has(.btmNavBar.hidden)
 
 .view_more_dot_box .view_more_dots
 {
-    border: 0.3125rem solid #e1e1e1;
+    border: 0.3125rem solid var(--genWhiteTypeLight);
     border-radius: 50%;
     transition: 300ms;
 }
@@ -4003,7 +4005,7 @@ html:root:has(.btmNavBar.hidden)
     height: 100%;
     border-radius: 50%;
     background-color: #111111;
-    box-shadow: 0rem 0rem 0.125rem .5rem #181818;
+    box-shadow: 0rem 0rem 0rem .5rem #181818;
     overflow: hidden;
 }
 
