@@ -275,6 +275,7 @@
         
         // Update Navbar active states
         sideNavLinks[6].classList.add("active");
+        btmNavLinks[4].classList.add("active");
 
         if(prof_nav_sect === "create")
         {
