@@ -819,20 +819,23 @@
 
                     // Close the delete operation
                     document.querySelectorAll(".dlBdyHdr_editBtn")[0].click();
-
-                    // Update user data
-                    await updateUserData(
-                    {
-                        downloads: dwld_lib
-                    });
-
-                    // Update the DL Map
-                    await initDLIndexedMap();
-        
-                    // Regenerate the DL Body Cards
-                    insert_dl_body_cards();
-                    window.scrollTo(0,0);
                 }
+
+                // Update user data
+                await updateUserData(
+                {
+                    downloads: dwld_lib
+                });
+
+                // Send notification when episode is deleted
+                notification(`notifyGood` , `The selected shows were deleted successfully`);
+
+                // Update the DL Map
+                await initDLIndexedMap();
+    
+                // Regenerate the DL Body Cards
+                insert_dl_body_cards();
+                window.scrollTo(0,0);
             }
 
             newBtn.addEventListener("click" , dlt_atn);
@@ -1330,6 +1333,9 @@
                     downloads: dwld_lib
                 });
 
+                // Send notification when episode is deleted
+                notification(`notifyGood` , `The selected episodes were deleted successfully`);
+
                 // Update the DL Map
                 await initDLIndexedMap();
     
@@ -1424,10 +1430,10 @@
 
                 // Remove the card from the Grid
                 dlCardBdr.remove();
-
-                // Send notification when episode is deleted
-                notification(`notifyGood` , `Episode ${dlCardEpLnk.split('/')[5]} deleted`);
             }
+
+            // Send notification when episode is deleted
+            notification(`notifyGood` , `Episode ${dlCardEpLnk.split('/')[5]} deleted`);
 
             // Update user data
             await updateUserData(
