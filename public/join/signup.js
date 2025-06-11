@@ -242,7 +242,7 @@
             // Switch to the next field
             newEmail.onkeyup = (e) => 
             {
-                if((typeof e === "undefined") || (typeof e.key === "undefined")) return;
+                if((typeof e === "undefined") || (typeof e.key === "undefined") || !(isEmailValid)) return;
                 
                 let key = e.key.toLowerCase();
 
@@ -385,7 +385,7 @@
             // Switch to the next field
             newPassword.onkeyup = (e) => 
             {
-                if((typeof e === "undefined") || (typeof e.key === "undefined")) return;
+                if((typeof e === "undefined") || (typeof e.key === "undefined") || !(isPassValid)) return;
                 
                 let key = e.key.toLowerCase();
 
@@ -926,7 +926,7 @@
                 // Switch to the next field
                 cardNum.onkeyup = (e) => 
                 {
-                    if((typeof e === "undefined") || (typeof e.key === "undefined")) return;
+                    if((typeof e === "undefined") || (typeof e.key === "undefined") || !(isCardNumValid)) return;
                     
                     let key = e.key.toLowerCase();
 
@@ -1035,7 +1035,7 @@
                 // Switch to the next field
                 cardExp.onkeyup = (e) => 
                 {
-                    if((typeof e === "undefined") || (typeof e.key === "undefined")) return;
+                    if((typeof e === "undefined") || (typeof e.key === "undefined") || !(isCardExpValid)) return;
                     
                     let key = e.key.toLowerCase();
 
@@ -1093,7 +1093,7 @@
                 // Switch to the next field
                 cardCode.onkeyup = (e) => 
                 {
-                    if((typeof e === "undefined") || (typeof e.key === "undefined")) return;
+                    if((typeof e === "undefined") || (typeof e.key === "undefined") || !(isCardCodeValid)) return;
                     
                     let key = e.key.toLowerCase();
 

@@ -161,7 +161,7 @@
             // Switch to the next field
             userEmail.onkeyup = (e) => 
             {
-                if((typeof e === "undefined") || (typeof e.key === "undefined")) return;
+                if((typeof e === "undefined") || (typeof e.key === "undefined") || !(isUserEmailValid)) return;
                 
                 let key = e.key.toLowerCase();
 
@@ -229,7 +229,7 @@
             // Switch to the next field
             userPassword.onkeyup = (e) => 
             {
-                if((typeof e === "undefined") || (typeof e.key === "undefined")) return;
+                if((typeof e === "undefined") || (typeof e.key === "undefined") || !(isUserPassValid)) return;
                 
                 let key = e.key.toLowerCase();
 
@@ -324,6 +324,7 @@
             }
             resetPass_email.addEventListener("input", resetPasswordRequest);
 
+            // Sends password request if email is exists and is valid
             function sendPasswordReset(email) 
             {
                 if(resetPass_SubmitBtn.disabled == true) return;
