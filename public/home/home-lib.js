@@ -131,12 +131,12 @@ let latest_shows_lib =
 let news_article_lib = 
 [
     {
-        na_img: `/images/uvid-anime2.jpg`,
-        na_title: `Chainsaw man..New talks, New Season`,
+        na_img: `/images/uvid-news.jpg`,
+        na_title: `New plans for the News category`,
         na_date: `19th March 2025`,
     },
     {
-        na_img: `/images/uvid-anime.jpg`,
+        na_img: `/images/uvid-anime2.jpg`,
         na_title: `"Anime hits on a differrent level.."`,
         na_date: `4th February 2025`,
     },
@@ -146,12 +146,12 @@ let news_article_lib =
         na_date: `27th February 2025`,
     },
     {
-        na_img: `/images/uvid-anime.jpg`,
-        na_title: `Goku Never dies? Why?`,
+        na_img: `/images/uvid-movies0.jpg`,
+        na_title: `Have you watched these shows from Marvel?`,
         na_date: `21st January 2025`,
     },
     {
-        na_img: `/images/uvid-movies0.jpg`,
+        na_img: `/images/uvid-bcg2.jpg`,
         na_title: `Movie Lineups for the Year`,
         na_date: `2nd January 2025`,
     },
