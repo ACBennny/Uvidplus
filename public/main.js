@@ -2895,7 +2895,6 @@
                                     ],
                                 }
                             );
-                            console.log("item added to CL is a string");
                         }
                         else if(Array.isArray(genShowLinkForCL))
                         {
@@ -2910,7 +2909,6 @@
                                     cl_items: genShowLinkForCL,
                                 }
                             );
-                            console.log("item added to CL is an array");
                         }
 
                         // Update user data
