@@ -554,8 +554,6 @@
 
             // Re-initialize the map
             await initWLIndexedMap();
-            console.log(`Removed ${wlCardLink}`);
-            console.log(selectedProfile.prof_watchlist);
 
             // Remove card from grid
             wlCardBdr.remove();
