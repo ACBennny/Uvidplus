@@ -1148,6 +1148,19 @@
 
                 cardName.addEventListener("input" , validateCardName);
 
+                // Switch to the next field
+                cardName.onkeyup = (e) => 
+                {
+                    if((typeof e === "undefined") || (typeof e.key === "undefined")) return;
+                    
+                    let key = e.key.toLowerCase();
+
+                    if(key === "enter")
+                    {
+                        planFormSbtBtn.click();
+                    }
+                }
+
 
             // Submission
             planFormSbtBtn.addEventListener("click" , async () => 
