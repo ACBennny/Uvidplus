@@ -7,7 +7,7 @@
 ****************************************************************/
 
 
-// USER PROCESSING
+    // USER PROCESSING
 
         // Refreshes and resyncs user info
         async function refreshUserState()
@@ -52,7 +52,7 @@
             }
 
             const db = window.firebaseDB;
-            const docRef = db.collection("users").doc(user.uid);
+            const docRef = db.collection("uvp_fb_users").doc(user.uid);
             const docSnap = await docRef.get();
 
             // Return the user's data if it exists
