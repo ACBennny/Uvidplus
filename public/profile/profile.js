@@ -75,7 +75,27 @@
                                                 <path fill-rule="evenodd" d="M15.488 4.43a.75.75 0 0 1 .081 1.058L9.988 12l5.581 6.512a.75.75 0 1 1-1.138.976l-6-7a.75.75 0 0 1 0-.976l6-7a.75.75 0 0 1 1.057-.081" clip-rule="evenodd" />
                                             </svg>
                                         </div>
-                                        <div class="basic_slider_card_box basic_carousel_slider basic_history_slider_card_box"></div>
+                                        <div class="basic_slider_card_box basic_carousel_slider basic_history_slider_card_box">
+                                            <div class="slide_card_base basic_carousel_card crsl_more_btn more_history_card" data-crsl-more-type="history">
+                                                <div class="slide_card_bdr">
+                                                    <div class="slide_card_box">
+                                                        <div class="slide_card ">
+                                                            <div class="view_more_bdr">
+                                                                <div class="view_more_box">
+                                                                    <p class="view_more_name">Load more</p>
+                                                                    <div class="view_more_dot_box">
+                                                                        <span class="view_more_dots"></span>
+                                                                        <span class="view_more_dots"></span>
+                                                                        <span class="view_more_dots"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide_card_bcg"></div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="basic_slide_arrow right_slide_arrow arr_right hide">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="basic_slide_arrowIcon basic_icon_Right">
                                                 <path fill-rule="evenodd" d="M8.512 4.43a.75.75 0 0 1 1.057.082l6 7a.75.75 0 0 1 0 .976l-6 7a.75.75 0 0 1-1.138-.976L14.012 12L8.431 5.488a.75.75 0 0 1 .08-1.057" clip-rule="evenodd" />
@@ -103,7 +123,27 @@
                                                 <path fill-rule="evenodd" d="M15.488 4.43a.75.75 0 0 1 .081 1.058L9.988 12l5.581 6.512a.75.75 0 1 1-1.138.976l-6-7a.75.75 0 0 1 0-.976l6-7a.75.75 0 0 1 1.057-.081" clip-rule="evenodd" />
                                             </svg>
                                         </div>
-                                        <div class="basic_slider_card_box basic_carousel_slider basic_likes_slider_card_box"></div>
+                                        <div class="basic_slider_card_box basic_carousel_slider basic_likes_slider_card_box">
+                                            <div class="slide_card_base basic_carousel_card crsl_more_btn more_likes_card" data-crsl-more-type="likes">
+                                                <div class="slide_card_bdr">
+                                                    <div class="slide_card_box">
+                                                        <div class="slide_card ">
+                                                            <div class="view_more_bdr">
+                                                                <div class="view_more_box">
+                                                                    <p class="view_more_name">Load more</p>
+                                                                    <div class="view_more_dot_box">
+                                                                        <span class="view_more_dots"></span>
+                                                                        <span class="view_more_dots"></span>
+                                                                        <span class="view_more_dots"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide_card_bcg"></div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="basic_slide_arrow right_slide_arrow arr_right hide">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="basic_slide_arrowIcon basic_icon_Right">
                                                 <path fill-rule="evenodd" d="M8.512 4.43a.75.75 0 0 1 1.057.082l6 7a.75.75 0 0 1 0 .976l-6 7a.75.75 0 0 1-1.138-.976L14.012 12L8.431 5.488a.75.75 0 0 1 .08-1.057" clip-rule="evenodd" />
@@ -131,7 +171,27 @@
                                                 <path fill-rule="evenodd" d="M15.488 4.43a.75.75 0 0 1 .081 1.058L9.988 12l5.581 6.512a.75.75 0 1 1-1.138.976l-6-7a.75.75 0 0 1 0-.976l6-7a.75.75 0 0 1 1.057-.081" clip-rule="evenodd" />
                                             </svg>
                                         </div>
-                                        <div class="basic_slider_card_box basic_carousel_slider basic_dislikes_slider_card_box"></div>
+                                        <div class="basic_slider_card_box basic_carousel_slider basic_dislikes_slider_card_box">
+                                            <div class="slide_card_base basic_carousel_card crsl_more_btn more_dislikes_card" data-crsl-more-type="dislikes">
+                                                <div class="slide_card_bdr">
+                                                    <div class="slide_card_box">
+                                                        <div class="slide_card ">
+                                                            <div class="view_more_bdr">
+                                                                <div class="view_more_box">
+                                                                    <p class="view_more_name">Load more</p>
+                                                                    <div class="view_more_dot_box">
+                                                                        <span class="view_more_dots"></span>
+                                                                        <span class="view_more_dots"></span>
+                                                                        <span class="view_more_dots"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide_card_bcg"></div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="basic_slide_arrow right_slide_arrow arr_right hide">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="basic_slide_arrowIcon basic_icon_Right">
                                                 <path fill-rule="evenodd" d="M8.512 4.43a.75.75 0 0 1 1.057.082l6 7a.75.75 0 0 1 0 .976l-6 7a.75.75 0 0 1-1.138-.976L14.012 12L8.431 5.488a.75.75 0 0 1 .08-1.057" clip-rule="evenodd" />
@@ -280,14 +340,8 @@
             document.querySelector(".open_ntfy_btn .navBarNotificationStatusNo_box").classList.add("active");
         }
 
-        // Fetch watch history
-        preFetchingShowsFromHistory("history");
-
-        // Fetch liked shows
-        preFetchingShowsFromLikes();
-
-        // Fetch disliked shows
-        preFetchingShowsFromDislikes();
+        // Fetch watch history, likes, and dislikes
+        crsl_load_more_listener(true);
     }
 
     // Gets a value for the greeting based on the current time
