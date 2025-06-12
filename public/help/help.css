@@ -689,7 +689,7 @@ html:root
 {
     width: 100%;
     min-height: 100vh;
-    background-image: radial-gradient(100% 100% at 50% 50%, var(--genGreenTypeDark2) 0%, #00000000 50%);
+    background-image: radial-gradient(circle at 50% 50%, var(--genGreenTypeDark2) 0%, #00000000 60%);
 }
 
 .help_ctr_srch_pg_bdr .help_ctr_srch_pg_box
