@@ -261,7 +261,6 @@
 
         // Clear the navbar and doc content and scroll to the top
         documentBody.scrollTo(0, 0);
-        documentBody.classList.add("bodystop");
         documentCtnt.innerHTML = "";
         topNavBar.innerHTML = "";
         topNavBar.className = "topNavBar";
