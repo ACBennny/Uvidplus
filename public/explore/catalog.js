@@ -78,36 +78,29 @@
                 </div>
             </div>
         </div>
-        <div class="backToTopOfCatalogBdr">
-            <div class="backToTopOfCatalogBox">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="backToTopOfCatalogSvg">
-                    <path fill-rule="evenodd" d="M11.47 3.47a.75.75 0 0 1 1.06 0l6 6a.75.75 0 1 1-1.06 1.06l-4.72-4.72V20a.75.75 0 0 1-1.5 0V5.81l-4.72 4.72a.75.75 0 1 1-1.06-1.06z" clip-rule="evenodd" />
-                </svg>
-            </div>
-        </div>
     `;
     let searchstruct = 
     `
-        <div class="catalogSearchBdr">
-            <div class="catalogSearchBox">
-                <div class="catalogSearchInputItem">
-                    <div class="catalogSearchInputCover"></div>
-                    <div class="catalogSearchInputIcon catalogSearchInputLeftIcon openCatalogSearchInputCoverIcon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="catalogSearchInputSvg">
-                            <path fill-rule="evenodd" d="M10.53 5.47a.75.75 0 0 1 0 1.06l-4.72 4.72H20a.75.75 0 0 1 0 1.5H5.81l4.72 4.72a.75.75 0 1 1-1.06 1.06l-6-6a.75.75 0 0 1 0-1.06l6-6a.75.75 0 0 1 1.06 0" clip-rule="evenodd" />
-                        </svg>
-                    </div>
-                    <div class="catalogSearchInputIcon catalogSearchInputLeftIcon catalogSearchFieldIcon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="catalogSearchInputSvg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 2.75a8.75 8.75 0 1 0 0 17.5a8.75 8.75 0 0 0 0-17.5M1.25 11.5c0-5.66 4.59-10.25 10.25-10.25S21.75 5.84 21.75 11.5c0 2.56-.939 4.902-2.491 6.698l3.271 3.272a.75.75 0 1 1-1.06 1.06l-3.272-3.271A10.2 10.2 0 0 1 11.5 21.75c-5.66 0-10.25-4.59-10.25-10.25"/>
-                        </svg>
-                    </div>
-                    <input type="text" name="catalogSearchFieldName" id="catalogSearchFieldId" class="catalogSearchFieldClass" placeholder="Enter title" disabled>
-                    <label for="catalogSearchFieldId" class="catalogSearchInputIcon catalogSearchInputRightIcon catalogSearchInputClearIcon">
-                        <svg transform="scale(0.75)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="catalogSearchInputSvg">
-                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
-                        </svg>
-                    </label>
+        <div class="catalogSearchBase">
+            <div class="catalogSearchBdr">
+                        <div class="catalogSearchInputCover"></div>
+                        <div class="catalogSearchInputIcon catalogSearchInputLeftIcon openCatalogSearchInputCoverIcon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="catalogSearchInputSvg">
+                                <path fill-rule="evenodd" d="M10.53 5.47a.75.75 0 0 1 0 1.06l-4.72 4.72H20a.75.75 0 0 1 0 1.5H5.81l4.72 4.72a.75.75 0 1 1-1.06 1.06l-6-6a.75.75 0 0 1 0-1.06l6-6a.75.75 0 0 1 1.06 0" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="catalogSearchInputIcon catalogSearchInputLeftIcon catalogSearchFieldIcon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="catalogSearchInputSvg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 2.75a8.75 8.75 0 1 0 0 17.5a8.75 8.75 0 0 0 0-17.5M1.25 11.5c0-5.66 4.59-10.25 10.25-10.25S21.75 5.84 21.75 11.5c0 2.56-.939 4.902-2.491 6.698l3.271 3.272a.75.75 0 1 1-1.06 1.06l-3.272-3.271A10.2 10.2 0 0 1 11.5 21.75c-5.66 0-10.25-4.59-10.25-10.25"/>
+                            </svg>
+                        </div>
+                <div class="catalogSearchBox">
+                        <input type="text" name="catalogSearchFieldName" id="catalogSearchFieldId" class="catalogSearchFieldClass" placeholder="Enter title" disabled>
+                        <label for="catalogSearchFieldId" class="catalogSearchInputIcon catalogSearchInputRightIcon catalogSearchInputClearIcon">
+                            <svg transform="scale(0.75)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="catalogSearchInputSvg">
+                                <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                            </svg>
+                        </label>
                 </div>
             </div>
         </div>
@@ -129,7 +122,7 @@
     let catalogURLGenreParam;
     let catalogURLRatingParam;
     let catalogSearchQuery;
-    let catalogSearchBox;
+    let catalogSearchBdr;
     let catalogSearchInputCover;
     let openCatalogSearchInputCoverIcon;
     let catalogSearchInput;
@@ -148,7 +141,6 @@
     let catalogResultTitleBox;
     let noResultsFound;
     let applycatFiltBtn;
-    let backToTopOfCatalogBtn;
     let currFilterMenuIndex = null;
     let sortParam = { key: '', order: 'dsc' };
     let selectedGenres = [];
@@ -224,15 +216,6 @@
             // Update the URL without reloading the page
             window.history.replaceState(null, '', newUrl);
         }
-
-
-    // SCROLLING BACK TO TOP
-
-        // window.addEventListener("scroll" , () => 
-        // {
-        //     // Display the back-to-top button after user has scrolled 25% of the page
-        //     backToTopOfCatalogBtn.classList.toggle("active" , window.scrollY > Math.round((document.documentElement.scrollWidth * 0.25)));
-        // });
         
 
     // INITIALIZING THE CATALOG BASE
@@ -251,7 +234,7 @@
             catalogSearchQuery = '';
             categoriesBase = document.querySelector(".categoriesBase");
             catalogBase = document.querySelector(".catalogBase");
-            catalogSearchBox = document.querySelector(".catalogSearchBox");
+            catalogSearchBdr = document.querySelector(".catalogSearchBdr");
             catalogSearchInputCover = document.querySelector(".catalogSearchInputCover");
             catalogSearchInput = document.querySelector('#catalogSearchFieldId');
             openCatalogSearchInputCoverIcon = document.querySelector(".openCatalogSearchInputCoverIcon");
@@ -266,14 +249,6 @@
             catalogResultTitleBox = document.querySelector(".catalogResultTitleBox");
             noResultsFound = document.querySelector(".emptyResultBdr");
             applycatFiltBtn = document.querySelector(".applycatFiltBtn");
-            backToTopOfCatalogBtn = document.querySelector(".backToTopOfCatalogBdr");
-
-
-            // Scroll to top of page
-            backToTopOfCatalogBtn.addEventListener("click" , () => 
-            {
-                window.scrollTo(0, 0);
-            });
 
 
             // Open the search input
@@ -576,7 +551,7 @@
                 window.scrollTo(0, 0);
                 categoriesBase.classList.add("hide");
                 catalogBase.classList.remove("hide");
-                catalogSearchBox.classList.add("search_atv");
+                catalogSearchBdr.classList.add("search_atv");
                 catalogSearchInput.disabled = false;
                 catalogSearchInput.focus();
                 noResultsFound.classList.remove("active");
@@ -585,7 +560,7 @@
             {
                 categoriesBase.classList.remove("hide");
                 catalogBase.classList.add("hide");
-                catalogSearchBox.classList.remove("search_atv");
+                catalogSearchBdr.classList.remove("search_atv");
                 catalogSearchInput.value = "";
                 getFilterAndSortInput();
                 catalogSearchInput.disabled = true;
