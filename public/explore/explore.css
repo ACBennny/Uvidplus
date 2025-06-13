@@ -201,6 +201,7 @@ html:root
     align-items: center;
     border-radius: var(--catalogHeadBoxItemDisplayRadius);
     background-color: var(--catalogHeadBoxItemDisplayBcg);
+    overflow: hidden;
     transition: all 300ms ease-in-out;
 }
 
@@ -217,7 +218,6 @@ html:root
     height: 100%;
     display: flex;
     flex-direction: row;
-    overflow: hidden;
     z-index: 1;
 }
 
