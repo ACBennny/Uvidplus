@@ -187,6 +187,7 @@ html:root
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0 var(--genBorderSpacing);
 }
 
 .catalogSearchBase .catalogSearchBdr
@@ -692,6 +693,11 @@ html:root
     .categoriesGridCardLabelBox .categoriesGridCardLabelText
     {
         font-size: 0.875rem;
+    }
+
+    .catalogSearchBase .catalogSearchBdr
+    {
+        max-width: none;
     }
 }
 
