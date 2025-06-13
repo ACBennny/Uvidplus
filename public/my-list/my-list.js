@@ -93,7 +93,7 @@
         let selectedProfile = await getSelectedProfile();
 
         // Update Navbar active states
-        sideNavLinks[2].classList.add("active");
+        sideNavLinks[3].classList.add("active");
         btmNavLinks[2].classList.add("active");
 
         let myListHash = hash_parts[2];

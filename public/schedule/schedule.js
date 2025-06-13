@@ -108,7 +108,7 @@
         documentCtnt.insertAdjacentHTML(`afterbegin` , scheduleBaseStruct);
         
         // Update Navbar active states
-        sideNavLinks[3].classList.add("active");
+        sideNavLinks[4].classList.add("active");
         btmNavLinks[3].classList.add("active");
         
         startSchedule();

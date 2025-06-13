@@ -33,6 +33,7 @@
         // Setting the Top Navbar
         topNavBar.insertAdjacentHTML(`afterbegin` , hm_pg_nav);
         topNavBar.classList.add("active");
+        attachInitQuickSearchListeners();
 
         // Intro slides
         genHeroSectionForHomePage();

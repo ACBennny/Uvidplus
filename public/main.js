@@ -195,7 +195,7 @@
                     <div class="sideNavItemsBdr">
                         <div class="sideNavItemsBox">
                             <div class="sideNavItemsCardBase">
-                                <a href="#/explore" class="sideNavItemsCardBdr sideNavLinks">
+                                <a class="sideNavItemsCardBdr sideNavLinks openQuickSearchBtn">
                                     <div class="sideNavItemsCardBox">
                                         <div class="sideNavItemsCardIcon">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
@@ -208,7 +208,7 @@
                                         </div>
                                         <div class="sideNavItemsCardTitleBdr">
                                             <div class="sideNavItemsCardTitleBox">
-                                                <div class="sideNavItemsCardTitleText">Explore</div>
+                                                <div class="sideNavItemsCardTitleText">Search</div>
                                             </div>
                                         </div>
                                     </div>
@@ -229,6 +229,25 @@
                                         <div class="sideNavItemsCardTitleBdr">
                                             <div class="sideNavItemsCardTitleBox">
                                                 <div class="sideNavItemsCardTitleText">Home</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sideNavItemsCardBase">
+                                <a href="#/explore" class="sideNavItemsCardBdr sideNavLinks">
+                                    <div class="sideNavItemsCardBox">
+                                        <div class="sideNavItemsCardIcon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2.75a9.25 9.25 0 1 0 0 18.5a9.25 9.25 0 0 0 0-18.5M1.25 12C1.25 6.063 6.063 1.25 12 1.25S22.75 6.063 22.75 12S17.937 22.75 12 22.75S1.25 17.937 1.25 12m12.599-2.819c-.605.16-1.42.485-2.595.955c-.541.217-.642.268-.716.333a1 1 0 0 0-.07.069c-.064.074-.115.175-.332.716c-.47 1.175-.794 1.99-.955 2.595c-.167.63-.085.79-.059.83a.8.8 0 0 0 .2.198c.038.027.199.108.829-.059c.605-.16 1.42-.484 2.594-.954c.542-.217.643-.268.717-.333l.494.564l-.494-.564a1 1 0 0 0 .07-.07l.563.495l-.564-.494c.065-.074.116-.175.333-.717c.47-1.174.794-1.99.954-2.594c.168-.63.086-.791.06-.83a.8.8 0 0 0-.2-.199c-.038-.026-.2-.108-.83.06m-.384-1.45c.69-.183 1.436-.271 2.057.15c.234.16.437.362.596.597c.422.621.333 1.367.15 2.057c-.186.704-.546 1.605-.991 2.717l-.02.05l-.034.084c-.163.41-.308.772-.564 1.065a2 2 0 0 1-.208.208c-.293.256-.655.4-1.065.564l-.083.033l-.279-.696l.279.697l-.05.02c-1.113.445-2.014.805-2.718.991c-.69.183-1.436.272-2.057-.15l.422-.62l-.422.62a2.3 2.3 0 0 1-.596-.596c-.422-.621-.334-1.368-.15-2.057c.186-.705.546-1.605.991-2.717l.02-.05l.034-.085c.163-.41.307-.771.564-1.064q.097-.11.208-.208c.293-.257.655-.401 1.064-.564l.084-.034l.05-.02c1.113-.445 2.013-.805 2.718-.992"/>
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavBoldIcon">
+                                                <path fill-rule="evenodd" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10m1.956-7.905c-.193.17-.44.268-.932.465c-2.31.924-3.465 1.386-4.124.938a1.5 1.5 0 0 1-.398-.398c-.448-.66.014-1.814.938-4.124c.197-.493.295-.74.465-.933q.065-.073.139-.138c.193-.17.44-.268.932-.465c2.31-.924 3.464-1.386 4.124-.938a1.5 1.5 0 0 1 .398.398c.448.66-.014 1.814-.938 4.124c-.197.493-.295.739-.465.932q-.065.075-.139.139" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <div class="sideNavItemsCardTitleBdr">
+                                            <div class="sideNavItemsCardTitleBox">
+                                                <div class="sideNavItemsCardTitleText">Explore</div>
                                             </div>
                                         </div>
                                     </div>
@@ -281,7 +300,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="sideNavItemsCardBase">
+                            <!-- <div class="sideNavItemsCardBase">
                                 <a href="#/news" class="sideNavItemsCardBdr sideNavLinks">
                                     <div class="sideNavItemsCardBox">
                                         <div class="sideNavItemsCardIcon">
@@ -300,7 +319,7 @@
                                         </div>
                                     </div>
                                 </a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </section>
@@ -382,11 +401,10 @@
                         <div class="btmNavItemsCardBox">
                             <div class="btmNavItemsCardIcon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="btmNavItemsCardSvg btmNavOutlineIcon">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 2.75a8.75 8.75 0 1 0 0 17.5a8.75 8.75 0 0 0 0-17.5M1.25 11.5c0-5.66 4.59-10.25 10.25-10.25S21.75 5.84 21.75 11.5c0 2.56-.939 4.902-2.491 6.698l3.271 3.272a.75.75 0 1 1-1.06 1.06l-3.272-3.271A10.2 10.2 0 0 1 11.5 21.75c-5.66 0-10.25-4.59-10.25-10.25"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2.75a9.25 9.25 0 1 0 0 18.5a9.25 9.25 0 0 0 0-18.5M1.25 12C1.25 6.063 6.063 1.25 12 1.25S22.75 6.063 22.75 12S17.937 22.75 12 22.75S1.25 17.937 1.25 12m12.599-2.819c-.605.16-1.42.485-2.595.955c-.541.217-.642.268-.716.333a1 1 0 0 0-.07.069c-.064.074-.115.175-.332.716c-.47 1.175-.794 1.99-.955 2.595c-.167.63-.085.79-.059.83a.8.8 0 0 0 .2.198c.038.027.199.108.829-.059c.605-.16 1.42-.484 2.594-.954c.542-.217.643-.268.717-.333l.494.564l-.494-.564a1 1 0 0 0 .07-.07l.563.495l-.564-.494c.065-.074.116-.175.333-.717c.47-1.174.794-1.99.954-2.594c.168-.63.086-.791.06-.83a.8.8 0 0 0-.2-.199c-.038-.026-.2-.108-.83.06m-.384-1.45c.69-.183 1.436-.271 2.057.15c.234.16.437.362.596.597c.422.621.333 1.367.15 2.057c-.186.704-.546 1.605-.991 2.717l-.02.05l-.034.084c-.163.41-.308.772-.564 1.065a2 2 0 0 1-.208.208c-.293.256-.655.4-1.065.564l-.083.033l-.279-.696l.279.697l-.05.02c-1.113.445-2.014.805-2.718.991c-.69.183-1.436.272-2.057-.15l.422-.62l-.422.62a2.3 2.3 0 0 1-.596-.596c-.422-.621-.334-1.368-.15-2.057c.186-.705.546-1.605.991-2.717l.02-.05l.034-.085c.163-.41.307-.771.564-1.064q.097-.11.208-.208c.293-.257.655-.401 1.064-.564l.084-.034l.05-.02c1.113-.445 2.013-.805 2.718-.992"/>
                                 </svg>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="btmNavItemsCardSvg btmNavBoldIcon">
-                                    <path d="M20.313 11.157a9.157 9.157 0 1 1-18.313 0a9.157 9.157 0 0 1 18.313 0" />
-                                    <path fill-rule="evenodd" d="M18.838 18.838a.723.723 0 0 1 1.023 0l1.927 1.928a.723.723 0 0 1-1.022 1.022l-1.928-1.927a.723.723 0 0 1 0-1.023" clip-rule="evenodd" />
+                                    <path fill-rule="evenodd" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10m1.956-7.905c-.193.17-.44.268-.932.465c-2.31.924-3.465 1.386-4.124.938a1.5 1.5 0 0 1-.398-.398c-.448-.66.014-1.814.938-4.124c.197-.493.295-.74.465-.933q.065-.073.139-.138c.193-.17.44-.268.932-.465c2.31-.924 3.464-1.386 4.124-.938a1.5 1.5 0 0 1 .398.398c.448.66-.014 1.814-.938 4.124c-.197.493-.295.739-.465.932q-.065.075-.139.139" clip-rule="evenodd" />
                                 </svg>
                             </div>
                             <div class="btmNavItemsCardTitleBdr">
@@ -614,14 +632,14 @@
                             <p class="quickSearchNoteText">Quick Search:</p>
                             <div class="quickSearchNoteKey">CTRL</div>
                             <span class="quickSearchNoteText">+</span>
-                            <div class="quickSearchNoteKey">Q</div>
+                            <div class="quickSearchNoteKey">/</div>
                         </div>
                     </div>
                     <div class="quickSearchInputBdr">
                         <div class="quickSearchInputBox">
-                            <div class="quickSearchInputIcon quickSearchInputLeftIcon">
+                            <div class="quickSearchInputIcon quickSearchInputLeftIcon quickSearchCloseIcon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="quickSearchInputSvg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 2.75a8.75 8.75 0 1 0 0 17.5a8.75 8.75 0 0 0 0-17.5M1.25 11.5c0-5.66 4.59-10.25 10.25-10.25S21.75 5.84 21.75 11.5c0 2.56-.939 4.902-2.491 6.698l3.271 3.272a.75.75 0 1 1-1.06 1.06l-3.272-3.271A10.2 10.2 0 0 1 11.5 21.75c-5.66 0-10.25-4.59-10.25-10.25"/>
+                                    <path fill-rule="evenodd" d="M10.53 5.47a.75.75 0 0 1 0 1.06l-4.72 4.72H20a.75.75 0 0 1 0 1.5H5.81l4.72 4.72a.75.75 0 1 1-1.06 1.06l-6-6a.75.75 0 0 1 0-1.06l6-6a.75.75 0 0 1 1.06 0" clip-rule="evenodd" />
                                 </svg>
                             </div>
                             <input type="text" name="quickSearchInputFieldName" id="quickSearchInputFieldId" class="quickSearchInputFieldClass" placeholder="Enter title">
@@ -925,11 +943,13 @@
             navBarNotificationStatusNoBox = document.querySelectorAll(".navBarNotificationStatusNo_box");
             openNavBarNotificationBtn = document.querySelectorAll(".openNavNotify");
 
-
             // Scrolling Event listeners
             window.addEventListener("scroll" , genScrollingAtn);
             window.addEventListener('wheel', menuIsOpenScrl, { passive: false });
             window.addEventListener('touchmove', menuIsOpenScrl, { passive: false });
+
+            // Quick Search Shortcut
+            document.addEventListener("keydown" , quickSearchShortcut);
 
 
             // Components & Functionalities
@@ -937,6 +957,7 @@
             attachReturnToHomePageListeners();
             attachReturnToTopOfPageListeners();
             attachVisitDevPageEventListeners();
+            attachInitQuickSearchListeners();
             attachAddToCLEventListeners();
             attachSharePageEventListeners();
             initGenMenuModal();
@@ -1485,20 +1506,200 @@
 
     // QUICK SEARCH
 
-        function initQuickSearch(load = false)
+        // Initializes the Quick Search
+        function initQuickSearch()
         {
-            if(load == false)
+            // Insert struct into the DOM
+            documentCtnt.insertAdjacentHTML(`beforeend` , quickSearchStruct);
+            
+            let quickSearchBase = document.querySelector(".quickSearchModal");
+            let quickSearchBcg = quickSearchBase.querySelector(".quickSearchBcg");
+            let quickSearchClsBtn = quickSearchBase.querySelector(".quickSearchCloseIcon");
+            let quickSearchInputField = quickSearchBase.querySelector("#quickSearchInputFieldId");
+            let quickSearchClearInput = quickSearchBase.querySelector(".quickSearchClearInput");
+            let quickSearchToCatalog = quickSearchBase.querySelector(".quickSearchToCatalog");
+            let quickSearchResultBox = quickSearchBase.querySelector(".quickSearchResultBox");
+            let quickSearchResultAllBtn;
+            let quickSearchQuery;
+            let encodedSearchQuery;
+            let quickSearchTimer;
+
+
+            // Open quick Search 
+            quickSearchTimer = setTimeout(() =>
             {
-                let openQuickSearchBtn = document.querySelectorAll(".openQuickSearchBtn");
-                openQuickSearchBtn.forEach((btn) => 
+                clearTimeout(quickSearchTimer);
+                openQuickSearchModal();
+            }, 10);
+
+            function openQuickSearchModal()
+            {
+                if((documentBody.classList.contains("bodystop")) || (quickSearchBase.classList.contains("active"))) return;
+                
+                document.querySelectorAll(".openQuickSearchBtn").forEach(atv_btn => atv_btn.disabled = false);
+                quickSearchBase.classList.add("active");
+                quickSearchBase.addEventListener("transitionend" , function handleTransitionEnd()
                 {
-                    btn.addEventListener("click" , failedRequest);
+                    documentBody.setAttribute(`data-modal-state` , `open`);
+                    quickSearchInputField.focus();
+                    quickSearchBase.removeEventListener("transitionend" , handleTransitionEnd);
                 });
-                return;
             }
 
 
-            // Definitions
+            // Close Quick Search
+            function closeQuickSearchModal()
+            {
+                quickSearchBase.classList.remove("active");
+                quickSearchBase.addEventListener("transitionend" , function handleTransitionEnd()
+                {
+                    quickSearchBase.removeEventListener("transitionend" , handleTransitionEnd);
+                    quickSearchBase.remove();
+                    document.querySelectorAll(".openQuickSearchBtn").forEach(atv_btn => atv_btn.disabled = false);
+                    documentBody.removeAttribute(`data-modal-state`);
+                });
+            }
+            quickSearchBcg.addEventListener("click" , closeQuickSearchModal);
+            quickSearchClsBtn.addEventListener("click", closeQuickSearchModal);
+
+            // Function to display search results
+            const displayQuickSearchResult = (items) => 
+            {
+                // Only seven results are displayed
+                const resultRange = items.slice(0, 25);
+
+                quickSearchResultBox.innerHTML = resultRange.map((item) => 
+                {
+                    const { show_link, show_foreground, show_title, show_scores, show_type, show_year, show_airing_status } = item;
+                    if((quickSearchQuery.length > 0) && (quickSearchQuery !== ""))
+                    {
+                        return `
+                            <a href="${show_link}" class="quickSearchResultCardBdr">
+                                <div class="quickSearchResultCardBox">
+                                    <div class="quickSearchResultCardThumbBdr">
+                                        <div class="quickSearchResultCardThumbBox">
+                                            <img loading="lazy" onload="this.classList.add('loaded')" src="${show_foreground}" alt="Thumbnail image of ${show_title}" class="quickSearchResultCardThumbImg">
+                                        </div>
+                                    </div>
+                                    <div class="quickSearchResultDetBdr">
+                                        <div class="quickSearchResultDetBox">
+                                            <div class="cardInfoBox">
+                                                <div class="quickSearchResultDetTitleBox">
+                                                    <h3 class="quickSearchResultDetTitleText">${show_title}</h3>
+                                                </div>
+                                                <div class="quickSearchResultDetTagBdr">
+                                                    <div class="quickSearchResultDetTagBox">
+                                                        <div class="quickSearchResultDetTagSectBox quickSearchResultDetTagScoreBox">
+                                                            <div class="quickSearchResultDetTagScoreIcon">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="quickSearchResultDetTagScoreSvg">
+                                                                    <path d="M9.153 5.408C10.42 3.136 11.053 2 12 2s1.58 1.136 2.847 3.408l.328.588c.36.646.54.969.82 1.182s.63.292 1.33.45l.636.144c2.46.557 3.689.835 3.982 1.776c.292.94-.546 1.921-2.223 3.882l-.434.507c-.476.557-.715.836-.822 1.18c-.107.345-.071.717.001 1.46l.066.677c.253 2.617.38 3.925-.386 4.506s-1.918.051-4.22-1.009l-.597-.274c-.654-.302-.981-.452-1.328-.452s-.674.15-1.328.452l-.596.274c-2.303 1.06-3.455 1.59-4.22 1.01c-.767-.582-.64-1.89-.387-4.507l.066-.676c.072-.744.108-1.116 0-1.46c-.106-.345-.345-.624-.821-1.18l-.434-.508c-1.677-1.96-2.515-2.941-2.223-3.882S3.58 8.328 6.04 7.772l.636-.144c.699-.158 1.048-.237 1.329-.45s.46-.536.82-1.182z" />
+                                                                </svg>
+                                                            </div>
+                                                            <p class="quickSearchResultDetTagSectText">${show_scores}</p>
+                                                        </div>
+                                                        <div class="quickSearchResultDetTagSectBox">
+                                                            <p class="quickSearchResultDetTagSectText">•</p>
+                                                        </div>
+                                                        <div class="quickSearchResultDetTagSectBox">
+                                                            <p class="quickSearchResultDetTagSectText">${show_type}</p>
+                                                        </div>
+                                                        <div class="quickSearchResultDetTagSectBox">
+                                                            <p class="quickSearchResultDetTagSectText">•</p>
+                                                        </div>
+                                                        <div class="quickSearchResultDetTagSectBox">
+                                                            <p class="quickSearchResultDetTagSectText">${show_year}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="quickSearchResultDetDescBox">
+                                                    <h3 class="quickSearchResultDetDescText">${show_airing_status}</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </a>
+                        `;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }).join('');
+                
+                // Configure View More btn
+                viewMoreSearchResults();
+
+                // Reattaching listeners
+                attachAddToCLEventListeners();
+            };
+
+            // Viewing More Results
+            function viewMoreSearchResults()
+            {
+                // Ensure there is content in the result box
+                if(!(quickSearchResultBox.innerHTML == ``))
+                {
+                    quickSearchResultBox.insertAdjacentHTML(`beforeend` , 
+                        `<a href="#/explore/?search=${encodedSearchQuery}" class="darkSolidBtn quickSearchResultAllBtn">View All Results</a>`
+                    );
+                    quickSearchResultAllBtn = document.querySelector(".quickSearchResultAllBtn");
+                    return;
+                }
+
+                // If there is none, and the button is not undefined, remove the button
+                if((quickSearchResultAllBtn == undefined)) return;
+                quickSearchResultAllBtn.remove();
+            }
+
+            // Filter and display result based on user's entry
+            function filterQuickSearchInput(e)
+            {
+                quickSearchQuery = quickSearchInputField.value.toString().trim().replace(/\s+/g, ' ').toLowerCase();
+                encodedSearchQuery = encodeURIComponent(quickSearchQuery);
+
+                // Open the catalog page with the search input if "ENTER" key is pressed
+                if(((quickSearchQuery != "") && (e.key.toLowerCase() === "enter")))
+                {
+                    e.preventDefault();
+                    window.open(`#/explore/search=${encodedSearchQuery}` , `_self`);
+                    return;
+                }
+
+                // Filter Items
+                const filteredData = searchInventory.filter((item) => item.show_searchKey.toLowerCase().includes(quickSearchQuery));
+                displayQuickSearchResult(filteredData);
+                
+                // Toggle the clear input & catalog Icons
+                if(quickSearchInputField.value.length > 0)
+                {
+                    quickSearchClearInput.classList.add("isTyping");
+                    quickSearchToCatalog.classList.add("isTyping");
+                    return;
+                }
+                quickSearchClearInput.classList.remove("isTyping");
+                quickSearchToCatalog.classList.remove("isTyping");
+            }
+            
+            quickSearchInputField.addEventListener("keyup", e => 
+            {
+                filterQuickSearchInput(e);
+            });
+
+            // Clears the search field
+            quickSearchClearInput.addEventListener("click" , () => 
+            {
+                quickSearchInputField.value = "";
+                quickSearchQuery = "";
+                quickSearchClearInput.classList.remove("active");
+                filterQuickSearchInput();
+            });
+        }
+
+        // Attaches the listener for intializing the quick search
+        function attachInitQuickSearchListeners(load = null)
+        {
             let openQuickSearchBtn = document.querySelectorAll(".openQuickSearchBtn");
 
             openQuickSearchBtn.forEach((btn) => 
@@ -1511,212 +1712,30 @@
 
             openQuickSearchBtn.forEach((btn) => 
             {
-                const quick_srch = () => 
-                {
-                    // Insert struct into the DOM
-                    documentBody.insertAdjacentHTML(`beforeend` , quickSearchStruct);
-                    
-                    let quickSearchBase = document.querySelector(".quickSearchModal");
-                    let quickSearchBcg = quickSearchBase.querySelector(".quickSearchBcg");
-                    let quickSearchInputField = quickSearchBase.querySelector("#quickSearchInputFieldId");
-                    let quickSearchClearInput = quickSearchBase.querySelector(".quickSearchClearInput");
-                    let quickSearchToCatalog = quickSearchBase.querySelector(".quickSearchToCatalog");
-                    let quickSearchResultBox = quickSearchBase.querySelector(".quickSearchResultBox");
-                    let quickSearchResultAllBtn;
-                    let quickSearchQuery;
-                    let encodedSearchQuery;
-                    let quickSearchTimer;
-
-
-
-                    // Open quick Search 
-                    quickSearchTimer = setTimeout(() =>
-                    {
-                        clearTimeout(quickSearchTimer);
-                        openQuickSearchModal();
-                    }, 10);
-
-                    function openQuickSearchModal()
-                    {
-                        if((documentBody.classList.contains("bodystop")) || (quickSearchBase.classList.contains("active"))) return;
-                        btn.disabled = true;
-                        quickSearchBase.classList.add("active");
-                        quickSearchBase.addEventListener("transitionend" , function handleTransitionEnd()
-                        {
-                            documentBody.setAttribute(`data-modal-state` , `open`);
-                            quickSearchInputField.focus();
-                            quickSearchBase.removeEventListener("transitionend" , handleTransitionEnd);
-                        });
-                    }
-
-
-                    // Close Quick Search
-                    function closeQuickSearchModal()
-                    {
-                        quickSearchBase.classList.remove("active");
-                        quickSearchBase.addEventListener("transitionend" , function handleTransitionEnd()
-                        {
-                            quickSearchBase.removeEventListener("transitionend" , handleTransitionEnd);
-                            quickSearchBase.remove()
-                            btn.disabled = false;
-                            documentBody.removeAttribute(`data-modal-state`);
-                        });
-                    }
-                    quickSearchBcg.addEventListener("click" , closeQuickSearchModal);
-
-                    // Function to display search results
-                    const displayQuickSearchResult = (items) => 
-                    {
-                        // Only seven results are displayed
-                        const resultRange = items.slice(0, 7);
-
-                        quickSearchResultBox.innerHTML = resultRange.map((item) => 
-                        {
-                            const { show_link, show_thumbnail, show_title, show_scores, show_type, show_year, show_airing_status } = item;
-                            if((quickSearchQuery.length > 0) && (quickSearchQuery !== ""))
-                            {
-                                return `
-                                    <a href="${show_link}" class="quickSearchResultCardBdr">
-                                        <div class="quickSearchResultCardBox">
-                                            <div class="quickSearchResultCardThumbBdr">
-                                                <div class="quickSearchResultCardThumbBox">
-                                                    <img loading="lazy" onload="this.classList.add('loaded')" src="${show_thumbnail}" alt="Thumbnail image of ${show_title}" class="quickSearchResultCardThumbImg">
-                                                </div>
-                                            </div>
-                                            <div class="quickSearchResultDetBdr">
-                                                <div class="quickSearchResultDetBox">
-                                                    <div class="cardInfoBox">
-                                                        <div class="quickSearchResultDetTitleBox">
-                                                            <h3 class="quickSearchResultDetTitleText">${show_title}</h3>
-                                                        </div>
-                                                        <div class="quickSearchResultDetTagBdr">
-                                                            <div class="quickSearchResultDetTagBox">
-                                                                <div class="quickSearchResultDetTagSectBox quickSearchResultDetTagScoreBox">
-                                                                    <div class="quickSearchResultDetTagScoreIcon">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="quickSearchResultDetTagScoreSvg">
-                                                                            <path d="M9.153 5.408C10.42 3.136 11.053 2 12 2s1.58 1.136 2.847 3.408l.328.588c.36.646.54.969.82 1.182s.63.292 1.33.45l.636.144c2.46.557 3.689.835 3.982 1.776c.292.94-.546 1.921-2.223 3.882l-.434.507c-.476.557-.715.836-.822 1.18c-.107.345-.071.717.001 1.46l.066.677c.253 2.617.38 3.925-.386 4.506s-1.918.051-4.22-1.009l-.597-.274c-.654-.302-.981-.452-1.328-.452s-.674.15-1.328.452l-.596.274c-2.303 1.06-3.455 1.59-4.22 1.01c-.767-.582-.64-1.89-.387-4.507l.066-.676c.072-.744.108-1.116 0-1.46c-.106-.345-.345-.624-.821-1.18l-.434-.508c-1.677-1.96-2.515-2.941-2.223-3.882S3.58 8.328 6.04 7.772l.636-.144c.699-.158 1.048-.237 1.329-.45s.46-.536.82-1.182z" />
-                                                                        </svg>
-                                                                    </div>
-                                                                    <p class="quickSearchResultDetTagSectText">${show_scores}</p>
-                                                                </div>
-                                                                <div class="quickSearchResultDetTagSectBox">
-                                                                    <p class="quickSearchResultDetTagSectText">•</p>
-                                                                </div>
-                                                                <div class="quickSearchResultDetTagSectBox">
-                                                                    <p class="quickSearchResultDetTagSectText">${show_type}</p>
-                                                                </div>
-                                                                <div class="quickSearchResultDetTagSectBox">
-                                                                    <p class="quickSearchResultDetTagSectText">•</p>
-                                                                </div>
-                                                                <div class="quickSearchResultDetTagSectBox">
-                                                                    <p class="quickSearchResultDetTagSectText">${show_year}</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="quickSearchResultDetDescBox">
-                                                            <h3 class="quickSearchResultDetDescText">${show_airing_status}</h3>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                `;
-                            }
-                            else
-                            {
-                                return null;
-                            }
-                        }).join('');
-                        
-                        // Configure View More btn
-                        viewMoreSearchResults();
-
-                        // Reattaching listeners
-                        attachAddToCLEventListeners();
-                    };
-
-                    // Viewing More Results
-                    function viewMoreSearchResults()
-                    {
-                        // Ensure there is content in the result box
-                        if(!(quickSearchResultBox.innerHTML == ``))
-                        {
-                            quickSearchResultBox.insertAdjacentHTML(`beforeend` , 
-                                `<a href="/Catalog.html?search=${encodedSearchQuery}" class="darkSolidBtn quickSearchResultAllBtn">View More</a>`
-                            );
-                            quickSearchResultAllBtn = document.querySelector(".quickSearchResultAllBtn");
-                            return;
-                        }
-
-                        // If there is none, and the button is not undefined, remove the button
-                        if((quickSearchResultAllBtn == undefined)) return;
-                        quickSearchResultAllBtn.remove();
-                    }
-
-                    // Filter and display result based on user's entry
-                    function filterQuickSearchInput(e)
-                    {
-                        quickSearchQuery = quickSearchInputField.value.toString().trim().replace(/\s+/g, ' ').toLowerCase();
-                        encodedSearchQuery = encodeURIComponent(quickSearchQuery);
-
-                        // Open the catalog page with the search input if "ENTER" key is pressed
-                        if(((quickSearchQuery != "") && (e.key.toLowerCase() === "enter")))
-                        {
-                            e.preventDefault();
-                            window.open(`#/explore/search=${encodedSearchQuery}` , `_self`);
-                            return;
-                        }
-
-                        // Filter Items
-                        const filteredData = searchInventory.filter((item) => item.show_searchKey.toLowerCase().includes(quickSearchQuery));
-                        displayQuickSearchResult(filteredData);
-                        
-                        // Toggle the clear input & catalog Icons
-                        if(quickSearchInputField.value.length > 0)
-                        {
-                            quickSearchClearInput.classList.add("isTyping");
-                            quickSearchToCatalog.classList.add("isTyping");
-                            return;
-                        }
-                        quickSearchClearInput.classList.remove("isTyping");
-                        quickSearchToCatalog.classList.remove("isTyping");
-                    }
-                    
-                    quickSearchInputField.addEventListener("keyup", e => 
-                    {
-                        filterQuickSearchInput(e);
-                    });
-
-                    // Clears the search field
-                    quickSearchClearInput.addEventListener("click" , () => 
-                    {
-                        quickSearchInputField.value = "";
-                        quickSearchQuery = "";
-                        quickSearchClearInput.classList.remove("active");
-                        filterQuickSearchInput();
-                    });
-                }
+                const quick_srch = () => initQuickSearch();
 
                 btn.addEventListener("click" , quick_srch);
                 btn.srch = quick_srch;
             });
+        }
                     
-            // Open by Shortcut: Ctrl + Q 
-            function quickSearchShortcut(e)
+        // Open quick search by shortcut: Ctrl + / 
+        function quickSearchShortcut(e)
+        {
+            // Return if the keydown event is invalid
+            if((typeof e === "undefined")) return;
+
+            // Return if user is typing in a field
+            if((e.target.closest("input") || (e.target.closest("textarea")))) return;
+
+            let keyVal = e.key.toLowerCase();
+
+            // If key combination is matched initialize the quick search
+            if((e.ctrlKey && keyVal === "/"))
             {
-                if(!e.target.closest("input")) return;
-                let keyVal = e.key.toLowerCase();
-                if((e.ctrlKey && keyVal === "q"))
-                {
-                    e.preventDefault();
-                    openQuickSearchBtn[0].click();
-                    console.log("hm");
-                }
+                e.preventDefault();
+                initQuickSearch();
             }
-            document.removeEventListener("keydown" , quickSearchShortcut);
-            document.addEventListener("keydown" , quickSearchShortcut);
         }
 
 

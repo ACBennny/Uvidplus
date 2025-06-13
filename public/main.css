@@ -2240,7 +2240,8 @@ html:root:has(.btmNavBar.hidden)
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #000000c3;
+    padding-top: 0.5rem;
+    background-color: #000000c9;
     -webkit-backdrop-filter: blur(0.625rem);
     backdrop-filter: blur(0.625rem);
     -moz-user-select: -moz-none;
@@ -2321,9 +2322,9 @@ html:root:has(.btmNavBar.hidden)
 {
     padding: 0.4375rem;
     font-size: 0.75rem;
-    color: var(--genWhiteTypeLight);
+    color: var(--genGreenTypeLight);
     border-radius: 0.4375rem;
-    background-color: var(--navBarBcgSolid);
+    background-color: var(--quickSearchInputBoxBcg);
 }
 
 /* -------- Input Area ------ */
@@ -2364,6 +2365,7 @@ html:root:has(.btmNavBar.hidden)
     justify-content: center;
     align-items: center;
     pointer-events: none;
+    z-index: 4;
 }
 
 .quickSearchInputIcon.quickSearchInputLeftIcon
@@ -2374,6 +2376,13 @@ html:root:has(.btmNavBar.hidden)
 .quickSearchInputIcon.quickSearchInputRightIcon
 {
     right: 0;
+}
+
+.quickSearchInputIcon.quickSearchCloseIcon
+{
+    --quickSearchInputClr: var(--genWhiteTypeLight);
+    cursor: pointer;
+    pointer-events: all;
 }
 
 .quickSearchInputIcon.quickSearchClearInput
@@ -2456,7 +2465,7 @@ html:root:has(.btmNavBar.hidden)
     border-radius: var(--quickSearchBdrRad);
     background-color: var(--navMenuBcgClr);
     overflow: hidden auto;
-    transition: all var(--quickSearchTransition) ease-in-out;
+    transition: all var(--quickSearchTransition) 300ms ease-in-out;
 }
 
 .quickSearchResultBdr .quickSearchResultAllBtn
@@ -6381,6 +6390,16 @@ html:root:has(.btmNavBar.hidden)
         --navBarNotificationPosR: var(--genBorderSpacing);
         opacity: 1;
         visibility: visible;
+    }
+
+    .quickSearchBase
+    {
+        align-items: flex-start;
+    }
+
+    .quickSearchBox .quickSearchResultBdr
+    {
+        max-height: calc(100vh - 150px);
     }
 
     .addNewProfIconBox .addNewProfIcon
