@@ -46,7 +46,7 @@
     function initCategories()
     {
         // Update Navbar active states
-        sideNavLinks[0].classList.add("active");
+        sideNavLinks[2].classList.add("active");
         btmNavLinks[1].classList.add("active");
         
         // Insert struct into DOM
