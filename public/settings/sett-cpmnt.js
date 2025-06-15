@@ -12,19 +12,6 @@ let sett_cmpnt_lib =
     // Membership & Billing
     {
         sett_sect: `membership`,
-        sett_orientation: `vertical`,
-        sett_title: `Username`,
-        sett_desc: 
-        `
-            N/A
-        `,
-        sett_atn_type: null,
-        sett_atn_id: null,
-        sett_atn_title: null,
-        sett_atn_func: null,
-    },
-    {
-        sett_sect: `membership`,
         sett_orientation: `horizontal`,
         sett_title: `Email`,
         sett_desc: 
