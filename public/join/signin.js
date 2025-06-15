@@ -325,7 +325,7 @@
             resetPass_email.addEventListener("input", resetPasswordRequest);
 
             // Sends password request if email is exists and is valid
-            function sendPasswordReset(email) 
+            function sendPasswordReset(email)
             {
                 if(resetPass_SubmitBtn.disabled == true) return;
 
