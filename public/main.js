@@ -1856,17 +1856,8 @@
 
             goToFullScreenBtn.forEach((btn) => 
             {
-                const f_atn = () =>
-                {
-                    if(!(document.fullscreenElement))
-                    {
-                        btn.classList.add("isFullScreen");
-                        documentHTML.requestFullscreen();
-                        return;
-                    }
-                    btn.classList.remove("isFullScreen");
-                    document.exitFullscreen();
-                }
+                const f_atn = () => toggleFullscreen(btn);
+                
                 btn.addEventListener("click" , f_atn);
                 btn.action = f_atn;
             });
@@ -1882,6 +1873,19 @@
                     });
                 }
             });
+        }
+
+
+        function toggleFullscreen(btn)
+        {
+            if(!(document.fullscreenElement))
+            {
+                if((typeof btn !== "undefined")) btn.classList.add("isFullScreen");
+                documentHTML.requestFullscreen();
+                return;
+            }
+            if((typeof btn !== "undefined")) btn.classList.remove("isFullScreen");
+            document.exitFullscreen();
         }
 
     
