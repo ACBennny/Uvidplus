@@ -5950,11 +5950,7 @@ html:root:has(.btmNavBar.hidden)
     width: 100%;
     width: calc((100% - var(--sideNavBarWidth)));
     padding: 0 var(--genBorderSpacing);
-    background-color: var(--navMenuBcgClr);
-    background-image: url(/images/bcg-footer.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 30%;
+    background-image: linear-gradient(to bottom, #000000, var(--genGreyTypeMid));
     -moz-user-select: -moz-none;
     -moz-user-select: none;
     -webkit-user-select: none;
