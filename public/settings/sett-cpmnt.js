@@ -13,6 +13,19 @@ let sett_cmpnt_lib =
     {
         sett_sect: `membership`,
         sett_orientation: `horizontal`,
+        sett_title: `Fullname`,
+        sett_desc: 
+        `
+            N/A
+        `,
+        sett_atn_type: `modal`,
+        sett_atn_id: `sett_change_email`,
+        sett_atn_title: `Open`,
+        sett_atn_func: ``,
+    },
+    {
+        sett_sect: `membership`,
+        sett_orientation: `horizontal`,
         sett_title: `Email`,
         sett_desc: 
         `
@@ -33,19 +46,6 @@ let sett_cmpnt_lib =
         `,
         sett_atn_type: `modal`,
         sett_atn_id: `sett_change_pass`,
-        sett_atn_title: `Open`,
-        sett_atn_func: ``,
-    },
-    {
-        sett_sect: `membership`,
-        sett_orientation: `horizontal`,
-        sett_title: `Phone Number`,
-        sett_desc: 
-        `
-            N/A
-        `,
-        sett_atn_type: `modal`,
-        sett_atn_id: `sett_change_phone`,
         sett_atn_title: `Open`,
         sett_atn_func: ``,
     },
@@ -143,10 +143,10 @@ let sett_cmpnt_lib =
         `
             English.
         `,
-        sett_atn_type: `modal`,
-        sett_atn_id: `sett_app_lang`,
-        sett_atn_title: `Open`,
-        sett_atn_func: ``,
+        sett_atn_type: null,
+        sett_atn_id: null,
+        sett_atn_title: null,
+        sett_atn_func: null,
     },
     {
         sett_sect: `experience`,
@@ -182,7 +182,8 @@ let sett_cmpnt_lib =
         sett_title: `Download Quality`,
         sett_desc: 
         `   
-            Always ask
+            Select your preferred quality for downloaded shows. 
+            Not all shows are available for the quality they are streamed in.
         `,
         sett_atn_type: `modal`,
         sett_atn_id: `sett_dwld_qlty`,
@@ -195,7 +196,8 @@ let sett_cmpnt_lib =
         sett_title: `Download Audio`,
         sett_desc: 
         `   
-            Always ask whenever possible
+            When possible, you can select the language that will be downloaded along with the
+            origin language of the show.
         `,
         sett_atn_type: `modal`,
         sett_atn_id: `sett_dwld_lang`,
@@ -349,7 +351,7 @@ let sett_cmpnt_lib =
         sett_title: `Privacy Policy`,
         sett_desc: 
         `
-            View our privacy policy to understand how your data is collected and used to improve our services to you.
+            View our privacy policy to understand how we protect you and your data.
         `,
         sett_atn_type: `link`,
         sett_atn_id: `sett_priv_policy`,
@@ -359,10 +361,36 @@ let sett_cmpnt_lib =
     {
         sett_sect: `information`,
         sett_orientation: `horizontal`,
+        sett_title: `Copyright`,
+        sett_desc: 
+        `
+            Learn more about how Uvid+ associates with content provided on its platform.
+        `,
+        sett_atn_type: `link`,
+        sett_atn_id: `sett_copyright`,
+        sett_atn_title: `View`,
+        sett_atn_func: `#/copyright`,
+    },
+    {
+        sett_sect: `information`,
+        sett_orientation: `horizontal`,
+        sett_title: `Ad Choices`,
+        sett_desc: 
+        `
+            Learn more about how ads work and affect Uvid+ and your experience.
+        `,
+        sett_atn_type: `link`,
+        sett_atn_id: `sett_ad_choices`,
+        sett_atn_title: `View`,
+        sett_atn_func: `#/ad-choices`,
+    },
+    {
+        sett_sect: `information`,
+        sett_orientation: `horizontal`,
         sett_title: `Help`,
         sett_desc: 
         `
-            Find possible soultions to questions you may have about our services.
+            Find possible solutions to questions you may have about our services.
         `,
         sett_atn_type: `link`,
         sett_atn_id: `sett_help`,
