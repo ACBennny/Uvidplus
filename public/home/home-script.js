@@ -222,13 +222,13 @@
                                                 <p class="hm_hero_detDescText">${show_description}</p>
                                             </div>
                                             <div class="hm_hero_detAtnBox">
-                                                <a draggable="false" href="${show_link}" class="genBtnBox lightSolidBtn" title="Watch ${show_title}">
+                                                <a draggable="false" href="${show_link}" class="genBtnBox lightSolidBtn" title="View more info on ${show_title}">
                                                     <div class="genBtnIcon">
                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
-                                                            <path d="M21.409 9.353a2.998 2.998 0 0 1 0 5.294L8.597 21.614C6.534 22.737 4 21.277 4 18.968V5.033c0-2.31 2.534-3.769 4.597-2.648z" />
+                                                            <path fill-rule="evenodd" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10m-10 5.75a.75.75 0 0 0 .75-.75v-6a.75.75 0 0 0-1.5 0v6c0 .414.336.75.75.75M12 7a1 1 0 1 1 0 2a1 1 0 0 1 0-2" clip-rule="evenodd" />
                                                         </svg>
                                                     </div>
-                                                    <span class="genBtnText">Play Now</span>
+                                                    <span class="genBtnText">Details</span>
                                                 </a>
                                             </div>
                                         </div>
@@ -531,13 +531,13 @@
                                         <p class="ftr_desc_bodyText">${item.show_description}</p>
                                     </div>
                                     <div class="ftr_desc_atnBox">
-                                        <a href="${item.show_link}" class="genBtnBox lightSolidBtn" title="Watch ${item.show_title}">
+                                        <a href="${item.show_link}" class="genBtnBox lightSolidBtn" title="View more info on ${item.show_title}">
                                             <div class="genBtnIcon">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
-                                                    <path d="M21.409 9.353a2.998 2.998 0 0 1 0 5.294L8.597 21.614C6.534 22.737 4 21.277 4 18.968V5.033c0-2.31 2.534-3.769 4.597-2.648z" />
+                                                    <path fill-rule="evenodd" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10m-10 5.75a.75.75 0 0 0 .75-.75v-6a.75.75 0 0 0-1.5 0v6c0 .414.336.75.75.75M12 7a1 1 0 1 1 0 2a1 1 0 0 1 0-2" clip-rule="evenodd" />
                                                 </svg>
                                             </div>
-                                            <span class="genBtnText">Play Now</span>
+                                            <span class="genBtnText">Details</span>
                                         </a>
                                     </div>
                                 </div>
