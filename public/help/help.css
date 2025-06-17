@@ -507,24 +507,6 @@ html:root
 {
     position: relative;
     width: 100%;
-    background: -o-linear-gradient(to bottom, #000000ff, var(--genGreyTypeDark));
-    background: -moz-linear-gradient(to bottom, #000000ff, var(--genGreyTypeDark));
-    background: -webkit-linear-gradient(to bottom, #000000ff, var(--genGreyTypeDark));
-    background: linear-gradient(to bottom, #000000ff, var(--genGreyTypeDark));
-}
-
-.help_ctr_more_bdr::after
-{
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: none;
-    width: 100%;
-    height: 1rem;
-    background: linear-gradient(to top, #000000ff, #00000000);
-    pointer-events: none;
 }
 
 .help_ctr_more_bdr .help_ctr_more_box
