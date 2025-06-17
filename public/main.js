@@ -678,7 +678,7 @@
                         </div>
                     </div>
                     <div class="quickSearchResultBdr">
-                        <div class="quickSearchResultBox catalogBox"></div>
+                        <div class="quickSearchResultBox exploreBox"></div>
                     </div>
                 </div>
             </div>
@@ -1542,7 +1542,7 @@
             let quickSearchToCatalog = quickSearchBase.querySelector(".quickSearchToCatalog");
             let quickSearchResultBox = quickSearchBase.querySelector(".quickSearchResultBox");
             let quickSearchResultAllBtn;
-            let quickSearchQuery;
+            let quickSearchQuery = "";
             let encodedSearchQuery;
             let quickSearchTimer;
 
@@ -1676,24 +1676,17 @@
             }
 
             // Filter and display result based on user's entry
-            function filterQuickSearchInput(e)
+            function filterQuickSearchInput()
             {
                 quickSearchQuery = quickSearchInputField.value.toString().trim().replace(/\s+/g, ' ').toLowerCase();
                 encodedSearchQuery = encodeURIComponent(quickSearchQuery);
 
-                // Open the catalog page with the search input if "ENTER" key is pressed
-                if(((quickSearchQuery != "") && (e.key.toLowerCase() === "enter")))
-                {
-                    e.preventDefault();
-                    window.open(`#/explore/search=${encodedSearchQuery}` , `_self`);
-                    return;
-                }
 
                 // Filter Items
                 const filteredData = searchInventory.filter((item) => item.show_searchKey.toLowerCase().includes(quickSearchQuery));
                 displayQuickSearchResult(filteredData);
                 
-                // Toggle the clear input & catalog Icons
+                // Toggle the clear input & explore Icons
                 if(quickSearchInputField.value.length > 0)
                 {
                     quickSearchClearInput.classList.add("isTyping");
@@ -1704,9 +1697,19 @@
                 quickSearchToCatalog.classList.remove("isTyping");
             }
             
-            quickSearchInputField.addEventListener("keyup", e => 
+            quickSearchInputField.addEventListener("input", filterQuickSearchInput);
+            quickSearchInputField.addEventListener("keyup", (e) => 
             {
-                filterQuickSearchInput(e);
+                // Open the explore page with the search input if "ENTER" key is pressed
+                if((typeof e !== "undefined") && (typeof e.key !== "undefined"))
+                {
+                    if(((quickSearchQuery != "") && (e.key.toLowerCase() === "enter")))
+                    {
+                        e.preventDefault();
+                        window.open(`#/explore/search=${encodedSearchQuery}` , `_self`);
+                        return;
+                    }
+                }
             });
 
             // Clears the search field
