@@ -142,7 +142,7 @@
         wifi_only_dwld: true,
         wifi_only_stream: false,
         cellular_stream_ntfy: true,
-        share_prsnl_info: true,
+        share_prsnl_info: false,
         conn_apps: [],
         device_mngmt: [],
         downloads: [],
