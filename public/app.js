@@ -251,6 +251,7 @@
             const del_pass_cond = new RegExp("^[A-Za-z0-9!@#$%^&*_+-~`)(></\"?|]");
             let delApArray = [];
             let isUserPassValid = false;
+            let delAccTimer;
     
             // Disabling btn to prevent multiple calls
             if(typeof btnEv !== "undefined") btnEv.disabled = true;
