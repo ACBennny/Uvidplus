@@ -308,7 +308,6 @@
                 // If all checks are completed then it is accepted
                 else
                 {
-                    // logInWarn.textContent = "";
                     isUserPassValid = true;
                 }
             }
