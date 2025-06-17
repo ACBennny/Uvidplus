@@ -19,7 +19,7 @@ let sett_cmpnt_lib =
             N/A
         `,
         sett_atn_type: `modal`,
-        sett_atn_id: `sett_change_email`,
+        sett_atn_id: `sett_change_fullname`,
         sett_atn_title: `Open`,
         sett_atn_func: ``,
     },
@@ -119,6 +119,8 @@ let sett_cmpnt_lib =
         sett_atn_func: ``,
     },
 
+
+
     // Profile & Parental Controls
     {
         sett_sect: `parenting`,
@@ -134,6 +136,8 @@ let sett_cmpnt_lib =
         sett_atn_func: null,
     },
 
+
+    
     // App Experience Settings
     {
         sett_sect: `experience`,
@@ -259,6 +263,7 @@ let sett_cmpnt_lib =
     },
 
 
+
     // Privacy Settings
     {
         sett_sect: `privacy`,
@@ -318,6 +323,7 @@ let sett_cmpnt_lib =
     },
 
 
+    
     // About & Legal
     {
         sett_sect: `information`,
