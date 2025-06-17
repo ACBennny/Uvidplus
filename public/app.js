@@ -152,7 +152,7 @@
 
 
 
-    // DELETING YOUR ACCOUNT
+    // DELETING ACCOUNT
 
         function attachDelAccEventListeners()
         {
@@ -369,7 +369,7 @@
         }
 
         // Reauthenticate user before proceeding to deletion
-        async function reauthenticateBeforeDelete(password) 
+        async function reauthB4DelAcc(password) 
         {
             const auth = window.firebaseAuth;
             const user = auth.currentUser;
@@ -403,7 +403,7 @@
         {
             const auth = window.firebaseAuth;
             const user = auth.currentUser;
-            const authB4Del = await reauthenticateBeforeDelete(password);
+            const authB4Del = await reauthB4DelAcc(password);
 
             if((authB4Del)) 
             {
