@@ -168,6 +168,7 @@
         sett_sect_router();
         attachGenMenuModalEventListeners();
         attachSettSectNavListeners();
+        upd_sett_info();
     }
 
     // Toggle Nav for smaller screens
@@ -197,9 +198,7 @@
                         <div class="settCtntSectTitleText">${item.sett_title}</div>
                     </div>
                     <div class="settCtntSectDescBox">
-                        <p class="settCtntSectDescText">
-                            ${item.sett_desc}
-                        </p>
+                        <p class="settCtntSectDescText">${item.sett_desc}</p>
                     </div>
                 </div>
             `;
@@ -215,7 +214,7 @@
                             <div class="settCtntSectAtnBox">
                                 <button class="settCtntSectAtnBtn settCtntSectAtnToggle">
                                     <div class="genCheckBoxBase">
-                                        <input type="checkbox" id="${item.sett_atn_id}" class="genCheckBoxInput" tabindex="-1" checked>
+                                        <input type="checkbox" id="${item.sett_atn_id}" class="genCheckBoxInput" tabindex="-1">
                                         <label for="${item.sett_atn_id}" class="genCheckBoxToggle">
                                             <span class="genCheckBoxToggleCircle"></span>
                                         </label>
@@ -231,7 +230,7 @@
                     `
                         <div class="settCtntSectAtnBdr">
                             <div class="settCtntSectAtnBox">
-                                <button onclick="${item.sett_atn_func}" class="settCtntSectAtnBtn settCtntSectAtnIcon ${item.sett_atn_id}">
+                                <button onclick="${item.sett_atn_func}" id="${item.sett_atn_id}" class="settCtntSectAtnBtn settCtntSectAtnIcon">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="settCtntSectAtnSvg">
                                         <path fill-rule="evenodd" d="M8.512 4.43a.75.75 0 0 1 1.057.082l6 7a.75.75 0 0 1 0 .976l-6 7a.75.75 0 0 1-1.138-.976L14.012 12L8.431 5.488a.75.75 0 0 1 .08-1.057" clip-rule="evenodd" />
                                     </svg>
@@ -246,7 +245,7 @@
                     `
                         <div class="settCtntSectAtnBdr">
                             <div class="settCtntSectAtnBox">
-                                <button onclick="window.open('${item.sett_atn_func}', '_self')" class="settCtntSectAtnBtn settCtntSectAtnIcon ${item.sett_atn_id}">
+                                <button onclick="window.open('${item.sett_atn_func}', '_self')" id="${item.sett_atn_id}" class="settCtntSectAtnBtn settCtntSectAtnIcon">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="settCtntSectAtnSvg">
                                         <path fill-rule="evenodd" d="M8.512 4.43a.75.75 0 0 1 1.057.082l6 7a.75.75 0 0 1 0 .976l-6 7a.75.75 0 0 1-1.138-.976L14.012 12L8.431 5.488a.75.75 0 0 1 .08-1.057" clip-rule="evenodd" />
                                     </svg>
@@ -414,8 +413,44 @@
 
 
 
+// UPDATE CURRENT INFO
+
+    //
+    async function upd_sett_info()
+    {
+        let userDB = await getUserData();
+        let fullname = userDB.full_name;
+        let email = userDB.email;
+        let wifi_only_dwld = userDB.wifi_only_dwld;
+        let wifi_only_strm = userDB.wifi_only_stream;
+        let cell_strm_ntfy = userDB.cellular_stream_ntfy;
+        let share_pi = userDB.share_prsnl_info;
+
+        // Name
+        let fname_prnt = document.getElementById("sett_change_fullname").closest(".sett_ctnt_hrtl");
+        fname_prnt.querySelector(".settCtntSectDescText").textContent = fullname;
+
+        // Email
+        let email_prnt = document.getElementById("sett_change_email").closest(".sett_ctnt_hrtl");
+        email_prnt.querySelector(".settCtntSectDescText").textContent = email;
+
+        // Wifi Only dowload
+        document.getElementById("sett_wifi_dwld").checked = typeof wifi_only_dwld === "boolean" ? wifi_only_dwld : null;
+
+        // Wifi Only stream
+        document.getElementById("sett_wifi_stream").checked = typeof wifi_only_strm === "boolean" ? wifi_only_strm : null;
+
+        // Cellular Stream notification
+        document.getElementById("sett_cellular_stream").checked = typeof cell_strm_ntfy === "boolean" ? cell_strm_ntfy : null;
+
+        // Info sharing
+        document.getElementById("sett_prsnl_info_shrng").checked = typeof share_pi === "boolean" ? share_pi : null;
+    }
+
+
 // SETTINGS COMPONENTS (SUB-SECTIONS)
 
+    // Updating Fullname
 
 
 
