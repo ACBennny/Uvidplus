@@ -294,7 +294,7 @@
                     isUserPassValid = false;
                 }
                 // Checks if the pattern is less "8" characters and above than "100" characters
-                else if(((lastPassArrayVal.length > 0) && (lastPassArrayVal.length < 8)) || (lastPassArrayVal.length > 100))
+                else if(((lastPassArrayVal.length > 0) && (lastPassArrayVal.length < 8)))
                 {
                     isUserPassValid = false;
                 }
