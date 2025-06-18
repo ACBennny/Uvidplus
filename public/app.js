@@ -281,6 +281,7 @@
             // Validate password
             function valDelPass(event) 
             {
+                delApArray.length = 0;
                 delApArray.push(delAccInput.value);
                 let lastPassArrayVal = delApArray.at(-1);
                 const userPass_Cond_SpecialChar = /\W/g;
