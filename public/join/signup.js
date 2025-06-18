@@ -20,7 +20,6 @@
     function init_setup()
     {
         preload.classList.add("preloadClose");
-        // history.replaceState(null, '', '#/setup');
         documentCtnt.insertAdjacentHTML(`beforeend` , signup_base);
         topNavBar.innerHTML = setup_nav;
         topNavBar.classList.add("initialize");
