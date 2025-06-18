@@ -285,7 +285,8 @@
                 let lastPassArrayVal = delApArray.at(-1);
                 const userPass_Cond_SpecialChar = /\W/g;
                 const userPass_Cond_num = /\d/g;
-                const userPass_Cond_Lett = /[A-Z a-z]/g;
+                const userPass_Cond_Lett_Upr = /[A-Z]/g;
+                const userPass_Cond_Lett_Lwr = /[a-z]/g;
 
                 // Checks if there is any value in the input feild
                 if(((event.data == null) && (lastPassArrayVal.length <= 0)))
@@ -299,7 +300,8 @@
                 }
                 // Checks if the input fits the specified pattern
                 else if(!(lastPassArrayVal.match(userPass_Cond_SpecialChar) 
-                    && lastPassArrayVal.match(userPass_Cond_Lett)
+                    && pass.match(userPass_Cond_Lett_Upr)
+                    && pass.match(userPass_Cond_Lett_Lwr)
                     && lastPassArrayVal.match(userPass_Cond_num)
                 ))
                 {
