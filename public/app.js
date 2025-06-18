@@ -122,7 +122,7 @@
 
         function accountSignOut()
         {
-            notification(`notifyBad` , `Signing Out`);
+            notification(`notifyBad` , `Signed Out`);
             toggleNavBarUnderLayer();
 
             // Remove the beforeunload listener
