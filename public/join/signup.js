@@ -148,6 +148,7 @@
             
             function validateFullName(event)
             {
+                fullNameArray.length = 0;
                 fullNameArray.push(newFullName.value);
                 let lastCurArrayVal = fullNameArray.at(-1);
                 let fullName_Condition = /^\s*\S+(?:\s+\S+)+\s*$/;
@@ -209,6 +210,7 @@
             // Validation function For "Email"
             function validateNewEmail(event)
             {
+                emailArray.length = 0;
                 emailArray.push(newEmail.value);
                 let lastEmailArrayval = emailArray.at(-1);
 
@@ -289,6 +291,7 @@
             // Validation for Password
             function validateNewPassword(event) 
             {
+                passwordArray.length = 0;
                 passwordArray.push(newPassword.value);
                 let lastPassArrayVal = passwordArray.at(-1);
                 const userPass_Cond_SpecialChar = /\W/g;
@@ -866,6 +869,7 @@
                 // Adds a space after every four (4) numbers
                 function validateCardNum(e)
                 {
+                    cardNumArray.length = 0;
                     cardNumArray.push(cardNum.value);
                     let cardNumArrayVal = cardNumArray.at(-1);
 
@@ -1070,6 +1074,7 @@
                 // Validation function For "Security Code"
                 function validateSecCode(event)
                 {
+                    cardCodeArray.length = 0;
                     cardCodeArray.push(cardCode.value);
                     let cardCodeArrayVal = cardCodeArray.at(-1);
 
@@ -1120,6 +1125,7 @@
                 
                 function validateCardName(event)
                 {
+                    cardNameArray.length = 0;
                     cardNameArray.push(cardName.value);
                     let lastCurArrayVal = cardNameArray.at(-1);
                     let fullName_Condition = /^\s*\S+(?:\s+\S+)+\s*$/;
