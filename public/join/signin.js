@@ -134,6 +134,7 @@
             // Validation function For "User"
             function validateLogInEmail(event)
             {
+                userEmailArray.length = 0;
                 userEmailArray.push(userEmail.value);
                 let lastEmailArrayval = userEmailArray.at(-1);
                 let check_for_AtSign_in_Email = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -192,6 +193,7 @@
             // Validation for Password
             function validateUserPassword(event) 
             {
+                userpasswordArray.length = 0;
                 userpasswordArray.push(userPassword.value);
                 let lastPassArrayVal = userpasswordArray.at(-1);
                 const userPass_Cond_SpecialChar = /\W/g;
@@ -295,7 +297,7 @@
 
             function resetPasswordRequest(e)
             {
-                // adds user input into array
+                resetPassArray.length = 0;
                 resetPassArray.push(resetPass_email.value);
                 let lastEmailArrayval = resetPassArray.at(-1);
 
