@@ -21,7 +21,7 @@ let sett_cmpnt_lib =
         sett_atn_type: `modal`,
         sett_atn_id: `sett_change_fullname`,
         sett_atn_title: `Open`,
-        sett_atn_func: ``,
+        sett_atn_func: `updUsrFullName`,
     },
     {
         sett_sect: `membership`,
@@ -34,7 +34,7 @@ let sett_cmpnt_lib =
         sett_atn_type: `modal`,
         sett_atn_id: `sett_change_email`,
         sett_atn_title: `Open`,
-        sett_atn_func: ``,
+        sett_atn_func: `valEmailUpd`,
     },
     {
         sett_sect: `membership`,
@@ -47,7 +47,7 @@ let sett_cmpnt_lib =
         sett_atn_type: `modal`,
         sett_atn_id: `sett_change_pass`,
         sett_atn_title: `Open`,
-        sett_atn_func: ``,
+        sett_atn_func: `valPassUpd`,
     },
     {
         sett_sect: `membership`,
@@ -305,7 +305,7 @@ let sett_cmpnt_lib =
         sett_atn_type: `modal`,
         sett_atn_id: `sett_del_acc`,
         sett_atn_title: `Delete`,
-        sett_atn_func: `cfrmB4DelAcc()`,
+        sett_atn_func: `cfrmB4DelAcc`,
     },
     {
         sett_sect: `privacy`,
@@ -319,11 +319,11 @@ let sett_cmpnt_lib =
         sett_atn_type: `modal`,
         sett_atn_id: `sett_sign_out`,
         sett_atn_title: `Sign Out`,
-        sett_atn_func: `cfrmB4SignOut()`,
+        sett_atn_func: `cfrmB4SignOut`,
     },
 
 
-    
+
     // About & Legal
     {
         sett_sect: `information`,
