@@ -308,7 +308,7 @@
         if((isUsrIn) && !(isUsrVrfd))
         {
             init_setup();
-            init_signup_vrfy(false);
+            init_signup_vrfy();
             return;
         }
 
