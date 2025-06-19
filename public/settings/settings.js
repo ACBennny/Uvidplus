@@ -500,7 +500,7 @@
                                             <button type="button" id="cfrmUpdFullname" class="genBtnBox midSolidBtn">
                                                 <div class="genBtnText">Save</div>
                                             </button>
-                                            <button type="button" id="cnclUpdFullname" class="genBtnBox hollowBtn" closeUpdFullnameBtn>
+                                            <button type="button" id="cnclUpdFullname" class="genBtnBox hollowBtn closeUpdFullnameBtn">
                                                 <div class="genBtnText">Cancel</div>
                                             </button>
                                         </div>
