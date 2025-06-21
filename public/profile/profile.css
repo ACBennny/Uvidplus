@@ -103,6 +103,7 @@ html:root
     height: 100%;
     border-radius: 50%;
     box-shadow: 0rem 0rem 0rem .125rem var(--genGreenTypeMid);
+    background-color: var(--genGreyTypeMid);
     overflow: hidden;
 }
 
