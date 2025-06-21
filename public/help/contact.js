@@ -185,7 +185,7 @@
         // Display scroll to bottom button
         ctct_body_box.addEventListener("scroll", () => 
         {
-            let s = ctct_body_box.scrollTop + ctct_body_box.clientHeight + 10;
+            const s = ctct_body_box.scrollTop + ctct_body_box.clientHeight + 10;
             ctct_body_scroll_btn.classList.toggle("is_scrolling" ,  s < ctct_body_box.scrollHeight);
         });
 
@@ -193,36 +193,50 @@
         // Sending a chat (by user)
         const validateUsrReq = (msg) => 
         {
-            let filteredInp = msg.toString().trim().replace(/\s+/g, ' ');
+            const filteredInp = msg.toString().trim().replace(/\s+/g, ' ');
 
             // Return if msg is empty
             if((filteredInp === "")) return;
 
-            // Format msg
-            let formattedMsg = msg.replace(/\n/g, "</br>");
-
-            // Append msg to chat
-            ctct_body_box.insertAdjacentHTML(
-                `beforeend`,
-                `
-                    <div class="ctct_rspns_wrapper">
-                        <div class="ctct_rspns_base">
-                            <div class="ctct_rspns_ctnt_bdr">
-                                <div class="ctct_rspns_ctnt_box">
-                                    <p class="ctct_rspns_ctnt_txt">
-                                        ${formattedMsg}
-                                    </p>
-                                </div>
+            // Create a wrapper div for the response
+            const resp_wrap = document.createElement("div");
+            resp_wrap.className = "ctct_rspns_wrapper";
+            resp_wrap.innerHTML = 
+            `
+                <div class="ctct_rspns_wrapper">
+                    <div class="ctct_rspns_base">
+                        <div class="ctct_rspns_ctnt_bdr">
+                            <div class="ctct_rspns_ctnt_box">
+                                <p class="ctct_rspns_ctnt_txt"></p>
                             </div>
                         </div>
                     </div>
-                `
-            );
+                </div>
+            `;
+
+            const resp_txt = resp_wrap.querySelector(".ctct_rspns_ctnt_txt");
+
+            // Format msg
+            const resp_lines = msg.split("\n");
+            resp_lines.forEach((line, index) =>
+            {
+                const txtNode = document.createTextNode(line);
+                resp_txt.appendChild(txtNode);
+
+                // Insert line break after each newline
+                if((index < (resp_lines.length - 1)))
+                {
+                    resp_txt.appendChild(document.createElement("br"));
+                }
+            });
+
+            // Append msg to chat
+            ctct_body_box.appendChild(resp_wrap);
 
             // Clear input field
             ctct_ftr_input_fld.value = "";
 
-            // Reset input feild height
+            // Reset input field height
             updFldHeight(true);
 
             // Responding to user (by chatbot NB: Simulated. Does. Not. Work.)
@@ -262,7 +276,7 @@
 
         ctct_ftr_input_fld.addEventListener("keyup" , (e) => 
         {
-            if(!(e.shiftKey) && (e.key.toLowerCase() === "enter")) validateUsrReq(ctct_ftr_input_fld.value);
+            if((e.shiftKey) && (e.key.toLowerCase() === "enter")) validateUsrReq(ctct_ftr_input_fld.value);
         });
 
 
