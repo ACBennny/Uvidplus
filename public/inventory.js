@@ -2,14 +2,6 @@
 /*****************************************************************************
  * This will hold the data for the Iventory of shows and associated details
  * 
- * Watch Status (wl_itemWatchStatus)
- * 0 - All (All shows have this by default)
- * 1 - Planned
- * 2 - Watching
- * 3 - On-hold
- * 4 - Dropped
- * 5 - Completed
- * 
  * @author (Anyanwu Benedict Chukwuemeka)
  * @version (v0.01)
  *
@@ -17,7 +9,6 @@
 
     const searchInventory =
     [
-        // Anime content
         {
             show_link: `#/info/jujutsu-kaisen`,
             show_title: `Jujutsu Kaisen`,
@@ -3537,16 +3528,6 @@
             `,
             show_searchKey: `Arcane anime`,
         },
-
-
-
-
-
-
-
-
-        // ======== MOVIES ==========
-
     ];
 
 
