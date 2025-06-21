@@ -359,7 +359,14 @@
                         <a href="${item.show_link}" class="schedule_ctntCardBox">
                             <div class="schedule_ctntThumbnailBdr">
                                 <div class="schedule_ctntThumbnailBox">
-                                    <img loading="lazy" onload="this.classList.add('loaded')" src="${item.show_foreground}" alt="Thumnail image of ${item.show_title}" class="schedule_ctntThumbnailImg">
+                                    <div class="img_preload_box">
+                                        <div class="img_preload_sibling"></div>
+                                        <img loading="lazy" 
+                                            onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                            onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
+                                            src="${item.show_foreground}" alt="Thumbnail image of ${item.show_title}" class="schedule_ctntThumbnailImg"
+                                        >
+                                    </div>
                                 </div>
                             </div>
                             <div class="schedule_ctntDetBdr">

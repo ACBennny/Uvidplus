@@ -129,7 +129,14 @@
                                             <div class="slide_card ">
                                                 <a href="${itemLink}" class="cardLinkCover"></a>
                                                 <div class="cardImgBox">
-                                                    <img loading="lazy" onload="this.classList.add('loaded')" src="${show_foreground}" alt="Image of ${show_title}" class="cardImg">
+                                                    <div class="img_preload_box">
+                                                        <div class="img_preload_sibling"></div>
+                                                        <img loading="lazy" 
+                                                            onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                                            onerror="this.parentElement.classList.add('loaderror')"
+                                                            src="${show_foreground}" alt="Thumbnail image of ${show_title}" class="cardImg"
+                                                        >
+                                                    </div>
                                                 </div>
                                                 <div class="cardinfo cardInfoBdr">
                                                     <div class="cardInfoBox">
@@ -250,7 +257,14 @@
                                             <div class="slide_card">
                                                 <a href="${show_link}" class="cardLinkCover"></a>
                                                 <div class="cardImgBox">
-                                                    <img loading="lazy" onload="this.classList.add('loaded')" src="${show_foreground}" alt="" class="cardImg">
+                                                    <div class="img_preload_box">
+                                                        <div class="img_preload_sibling"></div>
+                                                        <img loading="lazy" 
+                                                            onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                                            onerror="this.parentElement.classList.add('loaderror')"
+                                                            src="${show_foreground}" alt="Thumbnail image of ${show_title}" class="cardImg"
+                                                        >
+                                                    </div>
                                                 </div>
                                                 <div class="cardInfoBdr">
                                                     <div class="cardInfoBox">
@@ -342,7 +356,14 @@
                                             <div class="slide_card">
                                                 <a href="${show_link}" class="cardLinkCover"></a>
                                                 <div class="cardImgBox">
-                                                    <img loading="lazy" onload="this.classList.add('loaded')" src="${show_foreground}" alt="" class="cardImg">
+                                                    <div class="img_preload_box">
+                                                        <div class="img_preload_sibling"></div>
+                                                        <img loading="lazy" 
+                                                            onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                                            onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
+                                                            src="${show_foreground}" alt="Thumbnail image of ${show_title}" class="cardImg"
+                                                        >
+                                                    </div>
                                                 </div>
                                                 <div class="cardInfoBdr">
                                                     <div class="cardInfoBox">

@@ -29,7 +29,16 @@ html:root
 
 
 
+.hm_bdr
+{
+    width: 100%;
+}
 
+.hm_bdr .hm_box
+{
+    position: relative;
+    width: 100%;
+}
 
 
 
@@ -88,26 +97,13 @@ html:root
 
 .hm_hero_cardBox .hm_hero_bcgBdr
 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-}
-
-.hm_hero_bcgBdr .hm_hero_bcgBox
-{
     position: relative;
     width: 100%;
     height: 100%;
     background-color: #003c0dcc;
-    overflow: hidden;
 }
 
-.hm_hero_bcgBox::before
+.hm_hero_bcgBdr::before
 {
     content: '';
     position: absolute;
@@ -119,15 +115,26 @@ html:root
     z-index: 2;
 }
 
-.hm_hero_bcgBox .hm_hero_bcgImg
+.hm_hero_bcgBdr .hm_hero_bcgBox
 {
     position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.hm_hero_bcgBox .hm_hero_bcgImg
+{
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
     scale: 1.1;
-    z-index: -1;
 }
 
 .hm_hero_cardBox .hm_hero_cardCtntBdr
@@ -1269,7 +1276,7 @@ html:root
         --ftrFrgImgW: 6.25rem;
     }
 
-    .hm_hero_bcgBdr .hm_hero_bcgBox
+    .hm_hero_cardBox .hm_hero_bcgBdr
     {
         background-color: #00000000;
         background-image: -o-radial-gradient(100% 80% at 50% 0%, #00000000 0%, #000000 100%);

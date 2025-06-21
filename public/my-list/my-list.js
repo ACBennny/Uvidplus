@@ -15,7 +15,14 @@
                     <div class="myListHeaderBox">
                         <div class="myListHeaderBcgBdr">
                             <div class="myListHeaderBcgBox">
-                                <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-green-bcg1-light.jpg" alt="" class="myListHeaderBcgImg">
+                                <div class="img_preload_box">
+                                    <div class="img_preload_sibling"></div>
+                                    <img loading="lazy" 
+                                        onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                        onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')" 
+                                        src=" src="/images/uvid-green-bcg1-light.jpg" alt="Background image of My Lists page" class="myListHeaderBcgImg"
+                                    >
+                                </div>
                             </div>
                         </div>
                         <div class="myListHeaderDetBdr">

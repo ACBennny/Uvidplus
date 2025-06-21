@@ -983,7 +983,7 @@
             attachAddToCLEventListeners();
             attachSharePageEventListeners();
             initGenMenuModal();
-            genScrollingAtn();
+            genScrollingAtn();  
         }
 
 
@@ -1600,7 +1600,14 @@
                                 <div class="quickSearchResultCardBox">
                                     <div class="quickSearchResultCardThumbBdr">
                                         <div class="quickSearchResultCardThumbBox">
-                                            <img loading="lazy" onload="this.classList.add('loaded')" src="${show_foreground}" alt="Thumbnail image of ${show_title}" class="quickSearchResultCardThumbImg">
+                                            <div class="img_preload_box">
+                                                <div class="img_preload_sibling"></div>
+                                                <img loading="lazy" 
+                                                    onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                                    onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
+                                                    src="${show_foreground}" alt="Thumbnail image of ${show_title}" class="quickSearchResultCardThumbImg"
+                                                >
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="quickSearchResultDetBdr">

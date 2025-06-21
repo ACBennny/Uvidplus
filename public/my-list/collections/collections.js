@@ -140,7 +140,14 @@ let mylist_collections_struct =
                             <div class="clModalHead_underlayerBox">
                                 <div class="clModalHeader_BcgBdr">
                                     <div class="clModalHeader_BcgBox">
-                                        <img loading="lazy" onload="this.classList.add('loaded')" class="clModalHeader_BcgImg" src="/images/uvid-green-bcg1-light.jpg" alt="The collections header background image">
+                                        <div class="img_preload_box">
+                                            <div class="img_preload_sibling"></div>
+                                            <img loading="lazy" 
+                                                onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                                onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')" 
+                                                src="/images/uvid-green-bcg1-light.jpg" alt="The collections header background image" class="clModalHeader_BcgImg"
+                                            >
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="clModalHeader_Shadow"></div>
@@ -150,7 +157,14 @@ let mylist_collections_struct =
                             <div class="clModalHeader_thumbBase">
                                 <div class="clModalHeader_thumbBdr">
                                     <div class="clModalHeader_thumbBox">
-                                        <img loading="lazy" onload="this.classList.add('loaded')" class="clModalHeader_thumbImg" src="/images/uvid-green-bcg1-light.jpg" alt="The collections header thumbnail image">
+                                        <div class="img_preload_box">
+                                            <div class="img_preload_sibling"></div>
+                                            <img loading="lazy" 
+                                                onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                                onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')" 
+                                                src="/images/uvid-green-bcg1-light.jpg" alt="The collections header thumbnail image" class="clModalHeader_thumbImg"
+                                            >
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -795,7 +809,14 @@ let editCLStruct =
                                             <div class="myListCLCatalog_ItemStackLvlAll myListCLCatalog_ItemStackLvl1">
                                                 <div class="myListCLCatalog_ItemThumbBdr">
                                                     <div class="myListCLCatalog_ItemThumbBox">
-                                                        <img loading="lazy" onload="this.classList.add('loaded')" class="myListCLCatalog_ItemThumbImg" src="/images/uvid-green-bcg1-light.jpg" alt="Thumbnail image for the collection: ${clName}">
+                                                        <div class="img_preload_box">
+                                                            <div class="img_preload_sibling"></div>
+                                                            <img loading="lazy" 
+                                                                onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                                                onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')" 
+                                                                src="/images/uvid-green-bcg1-light.jpg" alt="Thumbnail image for the collection: ${clName}" class="myListCLCatalog_ItemThumbImg"
+                                                            >
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -871,6 +892,7 @@ let editCLStruct =
 
                 createCLBtn.addEventListener("click" , () => 
                 {
+                    createCLBtn.disabled = true;
                     generateList(newCLInput.value);
                 });
 
@@ -1078,7 +1100,14 @@ let editCLStruct =
                                     <div class="myListCLCatalog_ItemStackLvlAll myListCLCatalog_ItemStackLvl1">
                                         <div class="myListCLCatalog_ItemThumbBdr">
                                             <div class="myListCLCatalog_ItemThumbBox">
-                                                <img loading="lazy" onload="this.classList.add('loaded')" class="myListCLCatalog_ItemThumbImg" src="${cl.cl_bcg}" alt="Thumbnail image for the collection: ${cl.cl_name}">
+                                                <div class="img_preload_box">
+                                                    <div class="img_preload_sibling"></div>
+                                                    <img loading="lazy" 
+                                                        onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                                        onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')" 
+                                                        src="${cl.cl_bcg}" alt="Thumbnail image for the collection: ${cl.cl_name}" class="myListCLCatalog_ItemThumbImg"
+                                                    >
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1268,8 +1297,19 @@ let editCLStruct =
                             <div class="clModalGrid_CardCtntBox">
                                 <div class="clModalGrid_CardCtntThumbBdr">
                                     <div class="clModalGrid_CardCtntThumbBox">
-                                        <img loading="lazy" onload="this.classList.add('loaded')" class="clModalGrid_CardCtntThumbImg img_large" src="${show_background}" alt="Thumbnail image for ${show_title}">
-                                        <img loading="lazy" onload="this.classList.add('loaded')" class="clModalGrid_CardCtntThumbImg img_small" src="${show_foreground}" alt="Thumbnail image for ${show_title}">
+                                        <div class="img_preload_box">
+                                            <div class="img_preload_sibling"></div>
+                                            <img loading="lazy" 
+                                                onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                                onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')" 
+                                                src="${show_background}" alt="Landscape thumbnail image for ${show_title}" class="clModalGrid_CardCtntThumbImg img_large"
+                                            >
+                                            <img loading="lazy" 
+                                                onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                                onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')" 
+                                                src="${show_background}" alt="Potrait thumbnail image for ${show_title}" class="clModalGrid_CardCtntThumbImg img_small"
+                                            >
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="clModalGrid_CardCtntDetBdr">
@@ -1448,8 +1488,19 @@ let editCLStruct =
                             <div class="clModalGrid_CardCtntBox">
                                 <div class="clModalGrid_CardCtntThumbBdr">
                                     <div class="clModalGrid_CardCtntThumbBox">
-                                        <img loading="lazy" onload="this.classList.add('loaded')" class="clModalGrid_CardCtntThumbImg img_large" src="${item.show_background}" alt="Thumbnail image for ${item.show_title}">
-                                        <img loading="lazy" onload="this.classList.add('loaded')" class="clModalGrid_CardCtntThumbImg img_small" src="${item.show_foreground}" alt="Thumbnail image for ${item.show_title}">
+                                        <div class="img_preload_box">
+                                            <div class="img_preload_sibling"></div>
+                                            <img loading="lazy" 
+                                                onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                                onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')" 
+                                                src="${item.show_background}" alt="Landscape thumbnail image for ${item.show_title}" class="clModalGrid_CardCtntThumbImg img_large"
+                                            >
+                                            <img loading="lazy" 
+                                                onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                                onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')" 
+                                                src="${item.show_background}" alt="Potrait thumbnail image for ${item.show_title}" class="clModalGrid_CardCtntThumbImg img_small"
+                                            >
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="clModalGrid_CardCtntDetBdr">
@@ -1786,7 +1837,14 @@ let editCLStruct =
                             <div class="quickSearchResultCardBox">
                                 <div class="quickSearchResultCardThumbBdr">
                                     <div class="quickSearchResultCardThumbBox">
-                                        <img loading="lazy" onload="this.classList.add('loaded')" src="${show_foreground}" loading="lazy" alt="Thumbnail image of ${show_title}" class="quickSearchResultCardThumbImg">
+                                        <div class="img_preload_box">
+                                            <div class="img_preload_sibling"></div>
+                                            <img loading="lazy" 
+                                                onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                                onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')" 
+                                                src="${show_foreground}" alt="Thumbnail image of ${show_title}" class="quickSearchResultCardThumbImg"
+                                            >
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="quickSearchResultDetBdr">

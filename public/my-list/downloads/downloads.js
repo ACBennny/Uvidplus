@@ -445,8 +445,19 @@
                                 <div class="dlCtgGridCard_sectInfo">
                                     <div class="dlCtgGridCard_ImgBdr">
                                         <div class="dlCtgGridCard_ImgBox">
-                                            <img loading="lazy" onload="this.classList.add('loaded')" src="${show_background}" class="dlCtgGridCard_ImgSrc dlCtgGridCard_ImgSrcLrg">
-                                            <img loading="lazy" onload="this.classList.add('loaded')" src="${show_foreground}" class="dlCtgGridCard_ImgSrc dlCtgGridCard_ImgSrcSml">
+                                            <div class="img_preload_box">
+                                                <div class="img_preload_sibling"></div>
+                                                <img loading="lazy" 
+                                                    onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                                    onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
+                                                    src="${show_background}" alt="Landscape thumbnail image of ${show_title}" class="dlCtgGridCard_ImgSrc dlCtgGridCard_ImgSrcLrg"
+                                                >
+                                                <img loading="lazy" 
+                                                    onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                                    onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
+                                                    src="${show_foreground}" alt="Potrait thumbnail image of ${show_title}" class="dlCtgGridCard_ImgSrc dlCtgGridCard_ImgSrcSml"
+                                                >
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="dlCtgGridCard_detBdr">

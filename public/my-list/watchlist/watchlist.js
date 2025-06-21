@@ -1,6 +1,14 @@
 /***************************************************************
  * This will hold the code for General functions of the Watchlist page
  * 
+ * Watch Status (wl_itemWatchStatus)
+ * 0 - All (All shows have this by default)
+ * 1 - Planned
+ * 2 - Watching
+ * 3 - On-hold
+ * 4 - Dropped
+ * 5 - Completed
+ * 
  * @author (Anyanwu Benedict Chukwuemeka)
  * @version (v0.01)
  *
@@ -397,7 +405,14 @@
                                 <div class="slide_card">
                                     <a href="${show_link}" class="cardLinkCover"></a>
                                     <div class="cardImgBox">
-                                        <img loading="lazy" onload="this.classList.add('loaded')" src="${show_foreground}" alt="" class="cardImg">
+                                        <div class="img_preload_box">
+                                            <div class="img_preload_sibling"></div>
+                                            <img loading="lazy" 
+                                                onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                                onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
+                                                src="${show_foreground}" alt="Thumbnail image of ${show_title}" class="cardImg"
+                                            >
+                                        </div>
                                     </div>
                                     <div class="cardInfoBdr">
                                         <div class="cardInfoBox">

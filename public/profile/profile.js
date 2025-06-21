@@ -14,14 +14,28 @@
                     <div class="profHeaderBox">
                         <div class="profHeaderBcgBdr">
                             <div class="profHeaderBcgBox">
-                                <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-green-bcg1-light.jpg" alt="" class="profHeaderBcgImg">
+                                <div class="img_preload_box">
+                                    <div class="img_preload_sibling"></div>
+                                    <img loading="lazy" 
+                                        onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                        onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
+                                        src="/images/uvid-green-bcg1-light.jpg" alt="Profile background image" class="profHeaderBcgImg"
+                                    >
+                                </div>
                             </div>
                         </div>
                         <div class="profHeaderFrgBdr">
                             <div class="profHeaderFrgBox">
                                 <div class="profHeaderFrgImgBdr">
                                     <div class="profHeaderFrgImgBox">
-                                        <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-profile-base.png" alt="" class="profHeaderFrgImgSrc">
+                                        <div class="img_preload_box">
+                                            <div class="img_preload_sibling"></div>
+                                            <img loading="lazy" 
+                                                onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                                onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
+                                                src="/images/uvid-profile-base.png" alt="Profile thumbnail image" class="profHeaderFrgImgSrc"
+                                            >
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="profHeaderFrgTitleBdr">

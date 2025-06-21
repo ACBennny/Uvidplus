@@ -160,7 +160,14 @@
                     <div class="notification_card_box">
                         <div class="notification_thumbnail_bdr">
                             <div class="notification_thumbnail_box">
-                                <img loading="lazy" onload="this.classList.add('loaded')" src="${item.notify_thumbnail}" alt="The thumbnail image of the '${item.notify_mainTopic}' notification" class="notification_thumbnail_img">
+                                <div class="img_preload_box">
+                                    <div class="img_preload_sibling"></div>
+                                    <img loading="lazy" 
+                                        onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                        onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
+                                        src="${item.notify_thumbnail}" alt="The thumbnail image of the '${item.notify_mainTopic}' notification" class="notification_thumbnail_img"
+                                    >
+                                </div>
                             </div>
                         </div>
                         <div class="notification_detail_bdr">

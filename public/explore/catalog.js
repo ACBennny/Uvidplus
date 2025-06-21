@@ -121,7 +121,7 @@
     let catalogURLOriginParam;
     let catalogURLGenreParam;
     let catalogURLRatingParam;
-    let catalogSearchQuery;
+    let catalogSearchQuery = "";
     let catalogSearchBdr;
     let catalogSearchInputCover;
     let openCatalogSearchInputCoverIcon;
@@ -760,7 +760,7 @@
             {
                 const { show_link, show_foreground, show_title, show_type, show_year, show_quality } = item;
 
-                if(((item == undefined || (item == null))))
+                if((catalogSearchQuery === "") || ((item == undefined) || (item == null)))
                 {
                     return``;
                 }
@@ -772,7 +772,14 @@
                                     <div class="slide_card">
                                         <a href="${show_link}" title="Watch ${show_title}" class="cardLinkCover"></a>
                                         <div class="cardImgBox">
-                                            <img loading="lazy" onload="this.classList.add('loaded')" src="${show_foreground}" alt="Thumbnail image of ${show_title}" class="cardImg">
+                                            <div class="img_preload_box">
+                                                <div class="img_preload_sibling"></div>
+                                                <img loading="lazy" 
+                                                    onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                                    onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
+                                                    src="${show_foreground}" alt="Thumbnail image of ${show_title}" class="cardImg"
+                                                >
+                                            </div>
                                         </div>
                                         <div class="cardinfo cardInfoBdr">
                                             <div class="cardInfoBox">
@@ -807,7 +814,7 @@
                 noResultsFound.classList.remove("active");
             }
 
-            if(resultLength > 0)
+            if((resultLength > 0) && (catalogSearchQuery !== ""))
             {
                 catalogResultTitleBox.innerHTML = 
                 `
@@ -823,9 +830,6 @@
                     <div class="catalogResultTitleText catalogResultTitleDynamic">(0)</div>
                 `;
             }
-
-            // Reattaching listeners
-            attachAddToCLEventListeners();
         };
 
 

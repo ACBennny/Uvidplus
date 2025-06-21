@@ -14,7 +14,7 @@
                     <a href="/Home.html" class="Companylogo navBarCompanylogo">
                         <div class="company_logoBdr">
                             <div class="company_logoBox Companylogo">
-                                <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-logo.png" alt="" class="company_logoImg">
+                                <img loading="eager" src="/images/uvid-logo.png" alt="" class="company_logoImg">
                             </div>
                         </div>
                     </a>
@@ -28,7 +28,14 @@
         </div>
         <div class="editProfileBcgImgBdr editProfilePcBcgImgBdr">
             <div class="editProfileBcgImgBox">
-                <img loading="lazy" onload="this.classList.add('loaded')" src="" alt="" class="editProfileBcgImg">
+                <div class="img_preload_box">
+                    <div class="img_preload_sibling"></div>
+                    <img loading="lazy" 
+                        onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                        onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
+                        src="" alt="Background Image" class="editProfileBcgImg"
+                    >
+                </div>
             </div>
         </div>
         <div class="editProfileBase">
@@ -41,7 +48,14 @@
                 <div class="editProfileFrgImgBase " title="Change Profile Image">
                     <div class="editProfileFrgImgBdr">
                         <div class="editProfileFrgImgBox">
-                            <img loading="lazy" onload="this.classList.add('loaded')" src="" alt="" class="editProfileFrgImg">
+                            <div class="img_preload_box">
+                                <div class="img_preload_sibling"></div>
+                                <img loading="lazy" 
+                                    onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                    onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
+                                    src="" alt="Foreground Image" class="editProfileFrgImg"
+                                >
+                            </div>
                         </div>
                         <div class="editProfileFrgImgOverlayBdr openSelectFrgPicModal">
                             <div class="editProfileFrgImgOverlayBox">
@@ -470,7 +484,14 @@
                     <div class="selectPicCarouselCardBox selectFrgPicCarouselCardBox basic_carousel_card">
                         <div class="selectFrgPicCarouselCard">
                             <div class="selectFrgPicCarouselImgBox">
-                                <img loading="lazy" onload="this.classList.add('loaded')" src="${item.img_src}" alt="Profile foreground image ${j}" class="selectFrgPicCarouselImg">
+                                <div class="img_preload_box">
+                                    <div class="img_preload_sibling"></div>
+                                    <img loading="lazy" 
+                                        onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                        onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
+                                        src="${item.img_src}" alt="Profile foreground image ${j}" class="selectFrgPicCarouselImg"
+                                    >
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -578,7 +599,14 @@
                     <div class="selectPicCarouselCardBox selectBcgPicCarouselCardBox basic_carousel_card">
                         <div class="selectBcgPicCarouselCard">
                             <div class="selectBcgPicCarouselImgBox">
-                                <img loading="lazy" onload="this.classList.add('loaded')" src="${item.img_src}" alt="Profile background image ${j}" class="selectBcgPicCarouselImg">
+                                <div class="img_preload_box">
+                                    <div class="img_preload_sibling"></div>
+                                    <img loading="lazy" 
+                                        onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                        onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
+                                        src="${item.img_src}" alt="Profile background image ${j}" class="selectBcgPicCarouselImg"
+                                    >
+                                </div>
                             </div>
                         </div>
                     </div>

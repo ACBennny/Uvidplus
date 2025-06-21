@@ -127,7 +127,14 @@
                                 <div class="slide_card">
                                     <a href="${item.show_link}" title="Watch ${item.show_title}" class="cardLinkCover" draggable="false"></a>
                                     <div class="cardImgBox">
-                                        <img loading="lazy" onload="this.classList.add('loaded')" src="${item.show_thumbnail}" alt="Thumbnail image of ${item.show_title}" class="cardImg">
+                                        <div class="img_preload_box">
+                                            <div class="img_preload_sibling"></div>
+                                            <img loading="lazy" 
+                                                onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                                onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
+                                                src="${item.show_foreground}" alt="Thumbnail image of ${item.show_title}" class="cardImg"
+                                            >
+                                        </div>
                                     </div>
                                     <div class="cardQualityBox">
                                         <h1 class="cardQualityText">${item.show_quality}</h1>

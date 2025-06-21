@@ -100,7 +100,14 @@
                         <a class="Companylogo navBarCompanylogo">
                             <div class="company_logoBdr">
                                 <div class="company_logoBox Companylogo">
-                                    <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-logo.png" alt="" class="company_logoImg">
+                                    <div class="img_preload_box">
+                                        <div class="img_preload_sibling"></div>
+                                        <img loading="lazy" 
+                                            onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                            onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
+                                            src="/images/uvid-logo.png" alt="Profile thumbnail image" class="company_logoImg"
+                                        >
+                                    </div>
                                 </div>
                             </div>
                         </a>
@@ -110,7 +117,14 @@
             </div>
             <div class="switchProfBcg closeSwitchProf">
                 <div class="switchProfBcgImgBox">
-                    <img loading="lazy" onload="this.classList.add('loaded')" src="${selectedProfile.prof_bcgImg}" alt="Background image of the 'Switch Profiles' modal" class="switchProfBcgImg">
+                    <div class="img_preload_box">
+                        <div class="img_preload_sibling"></div>
+                        <img loading="lazy" 
+                            onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                            onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
+                            src="${selectedProfile.prof_bcgImg}" alt="Background image of the 'Switch Profiles' modal" class="switchProfBcgImg"
+                        >
+                    </div>
                 </div>
             </div>
             <div class="switchProfBox">
@@ -151,7 +165,14 @@
                 <div class="switchProfOptBox profileOpt" data-prof-id="${key}">
                     <div class="switchProfOptImgBdr">
                         <div class="switchProfOptImgBox">
-                            <img loading="lazy" onload="this.classList.add('loaded')" src="${bnft_obj.prof_frgImg}" alt="profile image" class="switchProfOptImg">
+                            <div class="img_preload_box">
+                                <div class="img_preload_sibling"></div>
+                                <img loading="lazy" 
+                                    onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                    onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
+                                    src="${bnft_obj.prof_frgImg}" alt="Profile thumbnail image" class="switchProfOptImg"
+                                >
+                            </div>
                         </div>
                         <div class="editProfileBadgeBdr">
                             <div class="editProfileBadgeBox">

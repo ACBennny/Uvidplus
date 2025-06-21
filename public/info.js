@@ -173,7 +173,13 @@
                 <div class="main_bcg">
                     <div class="bcg_img_bdr">
                         <div class="bcg_img_box">
-                            <img loading="lazy" onload="this.classList.add('loaded')" src="${show_background}" alt="Background image of ${show_title}" class="bcgImg">
+                            <div class="img_preload_box">
+                                <div class="img_preload_sibling"></div>
+                                <img loading="lazy" 
+                                    onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                    src="${show_background}" alt="Thumbnail image of ${show_title}" class="bcgImg"
+                                >
+                            </div>
                         </div>
                         <div class="bcg_img_gradient"></div>
                     </div>
@@ -182,7 +188,13 @@
                             <div class="title-plate">
                                 <div class="title_ImgBdr">
                                     <div class="title_ImgBox">
-                                        <img loading="lazy" onload="this.classList.add('loaded')" src="${show_foreground}" alt="Foreground image of ${show_title}" class="title_Img">
+                                        <div class="img_preload_box">
+                                            <div class="img_preload_sibling"></div>
+                                            <img loading="lazy" 
+                                                onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                                src="${show_foreground}" alt="Thumbnail image of ${show_title}" class="title_Img"
+                                            >
+                                        </div>
                                     </div>
                                 </div>
                                 
@@ -728,7 +740,13 @@
                             <div class="slide_card">
                                 <a href="${item.show_link}" class="cardLinkCover"></a>
                                 <div class="cardImgBox">
-                                    <img loading="lazy" onload="this.classList.add('loaded')" src="${item.show_foreground}" alt="" class="cardImg">
+                                    <div class="img_preload_box">
+                                        <div class="img_preload_sibling"></div>
+                                        <img loading="lazy" 
+                                            onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                            src="${item.show_foreground}" alt="Thumbnail image of ${item.show_title}" class="cardImg"
+                                        >
+                                    </div>
                                 </div>
                                 <div class="cardInfoBdr">
                                     <div class="cardInfoBox">
@@ -1500,7 +1518,14 @@
                     <div class="ep_cardBox">
                         <div class="ep_cardThumbBdr">
                             <div class="ep_cardThumbBox">
-                                <img loading="lazy" onload="this.classList.add('loaded')" class="ep_cardThumbImg" src="${showsStructData.show_background}">
+                                <div class="img_preload_box">
+                                    <div class="img_preload_sibling"></div>
+                                    <img loading="lazy" 
+                                        onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                        onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
+                                        src="${showsStructData.show_background}" alt="Thumbnail image of Episode ${i}" class="ep_cardThumbImg"
+                                    >
+                                </div>
                             </div>
                         </div>
                         <a href="#/watch/tv/${hash_parts[2]}/${ssn}/${i}" class="ep_cardCtntBdr">

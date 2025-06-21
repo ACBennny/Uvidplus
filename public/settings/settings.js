@@ -1268,6 +1268,27 @@
 
 
 
+// UPDATING 
+
+    // Attach listeners
+    function attachSl()
+    {
+        const sett_rad_btn = document.querySelectorAll(".settCtntSectAtnToggle");
+
+        sett_rad_btn.forEach(olditem => typeof olditem.sett_atn !== "undefined" ? olditem.removeEventListener("click" , olditem.sett_atn) : null);
+
+        sett_rad_btn.forEach((newBtn) => 
+        {
+            const rad_atn = () => 
+            {}
+
+            newBtn.addEventListener("click", rad_atn);
+            newBtn.sett_atn = rad_atn;
+        });
+    }
+
+
+
 
 
 
