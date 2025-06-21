@@ -1061,6 +1061,7 @@ let editCLStruct =
         {
             const action = () => 
             {
+                myListCLCatalogItemOpenCLBtn.forEach(item => item.disabled = true);
                 clBodyCardIndex = i;
                 openCLModal();
             }
@@ -1387,6 +1388,9 @@ let editCLStruct =
         // Closing the modal
         clModalBaseCloseBtn.addEventListener("click" , () => 
         {
+            // Diable button
+            clModalBaseCloseBtn.disabled = true;
+
             // Remove the value from the url
             updURLforCLModal('');
 
