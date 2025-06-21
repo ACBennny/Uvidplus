@@ -1082,6 +1082,94 @@ html:has( .backtotop_float_left) .backtotop_float.float
 
 
 
+/* ================ IMAGES ============= */
+
+
+* .img_preload_box,
+.img_preload_box
+{
+    position: relative;
+    width: clamp(100%, 100%, 100%);
+    height: clamp(100%, 100%, 100%);
+    filter: blur(0.9375rem);
+}
+
+.img_preload_box.loaded
+{
+    filter: blur(0rem);
+}
+
+.img_preload_box.loaderror
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: blur(0rem);
+    background-color: var(--genGreyTypeLight);
+}
+
+.img_preload_box.loaderror::after 
+{
+    --img_preload_error_size: 40%;
+    --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M18 8a2 2 0 1 1-4 0a2 2 0 0 1 4 0'/%3E%3Cpath fill='%23000' fill-rule='evenodd' d='M11.943 1.25h.114c2.309 0 4.118 0 5.53.19c1.444.194 2.584.6 3.479 1.494c.895.895 1.3 2.035 1.494 3.48c.19 1.411.19 3.22.19 5.529v.088c0 1.909 0 3.471-.104 4.743c-.104 1.28-.317 2.347-.795 3.235q-.314.586-.785 1.057c-.895.895-2.035 1.3-3.48 1.494c-1.411.19-3.22.19-5.529.19h-.114c-2.309 0-4.118 0-5.53-.19c-1.444-.194-2.584-.6-3.479-1.494c-.793-.793-1.203-1.78-1.42-3.006c-.215-1.203-.254-2.7-.262-4.558Q1.25 12.792 1.25 12v-.058c0-2.309 0-4.118.19-5.53c.194-1.444.6-2.584 1.494-3.479c.895-.895 2.035-1.3 3.48-1.494c1.411-.19 3.22-.19 5.529-.19m-5.33 1.676c-1.278.172-2.049.5-2.618 1.069c-.57.57-.897 1.34-1.069 2.619c-.174 1.3-.176 3.008-.176 5.386v.844l1.001-.876a2.3 2.3 0 0 1 3.141.104l4.29 4.29a2 2 0 0 0 2.564.222l.298-.21a3 3 0 0 1 3.732.225l2.83 2.547c.286-.598.455-1.384.545-2.493c.098-1.205.099-2.707.099-4.653c0-2.378-.002-4.086-.176-5.386c-.172-1.279-.5-2.05-1.069-2.62c-.57-.569-1.34-.896-2.619-1.068c-1.3-.174-3.008-.176-5.386-.176s-4.086.002-5.386.176' clip-rule='evenodd'/%3E%3C/svg%3E");
+    content: '';
+    position: absolute;
+    width: var(--img_preload_error_size);
+    height: var(--img_preload_error_size);
+    display: inline-block;
+    background-color: var(--genWhiteTypeMid);
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    aspect-ratio: 1/1;
+    z-index: 5;
+}
+
+.img_preload_box .img_preload_sibling
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    inset: 0;
+    filter: blur(0.9375rem);
+    animation: lazyImgPreload 2s linear infinite;
+    z-index: 10;
+}
+
+.img_preload_box.loaded .img_preload_sibling,
+.img_preload_box.loaderror .img_preload_sibling
+{
+    display: none;
+    filter: blur(0rem);
+    animation: none;
+}
+
+@keyframes lazyImgPreload
+{
+    0%
+    {
+        filter: brightness(0.75);
+        background-color: var(--genGreenTypeDark2);
+    }
+    50%
+    {
+        filter: brightness(1.25);
+        background-color: var(--genGreenTypeMid);
+    }
+    100%
+    {
+        filter: brightness(0.75);
+        background-color: var(--genGreenTypeDark2);
+    }
+}
+
+.img_preload_box,
+.img_preload_box .img_preload_sibling,
 img
 {
     backface-visibility: hidden !important;
@@ -1092,35 +1180,30 @@ img
     pointer-events: none !important;
 }
 
-img[loading="lazy"]
+.img_preload_box.loaderror img[loading="lazy"]
 {
-    filter: blur(0.9375rem);
-    animation: imgLoadShell 2s linear infinite;
+    display: none;
 }
 
-@keyframes imgLoadShell
+.img_preload_box.loaded img[loading="lazy"]
+{
+    animation: lazyImgPostLoad 300ms linear;
+}
+
+@keyframes lazyImgPostLoad
 {
     0%
     {
-        filter: blur(0.9375rem) brightness(0.75);
-        background-color: var(--genGreenTypeDark2);
+        filter: blur(10.9375rem) brightness(0);
     }
-    50%
+    75%
     {
-        filter: blur(0.9375rem) brightness(1.25);
-        background-color: var(--genGreenTypeMid);
+        filter: blur(10.9375rem) brightness(1);
     }
     100%
     {
-        filter: blur(0.9375rem) brightness(0.75);
-        background-color: var(--genGreenTypeDark2);
+        filter: blur(0rem);
     }
-}
-
-img[loading="lazy"].loaded
-{
-    filter: blur(0rem);
-    animation: none;
 }
 
 
