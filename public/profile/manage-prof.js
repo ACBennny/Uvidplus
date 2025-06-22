@@ -405,6 +405,9 @@
         let wordCount = inputUppBnd;
         let createProfTimer;
 
+        // Initialize sanitization
+        preSanitizaUserInput();
+
         // Disabling btn to prevent multiple calls
         e.disabled = true;
 
@@ -426,6 +429,7 @@
         // Checking input length
         function getWordCount(input)
         {
+            input = postSanitizeUserInput(input);
             plArr.push(input);
             lastProfArr = plArr.at(-1);
             lastProfArr = lastProfArr.toString();
@@ -471,7 +475,7 @@
                 [`profiles.${newProfId}`]:
                 {
                     prof_selected: false,
-                    prof_name: `${profName}`,
+                    prof_name: `${postSanitizeUserInput(profName)}`,
                     prof_type: `other`,
                     prof_frgImg: `/images/uvid-profile-base.png`,
                     prof_bcgImg: `/images/uvid-green-bcg1-dark.jpg`,

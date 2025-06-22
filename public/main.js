@@ -22,6 +22,7 @@
     const sideNavBar = document.querySelector(".sideNavBar");
     const btmNavBar = document.querySelector(".btmNavBar");
     const footerWrp = document.querySelector(".footer_wrapper");
+    const gblInvalidChar = /^[A-Za-z0-9_\-\n\s]+$/;
     let sideNavLinks;
     let btmNavLinks;
     let genContainerMaxWidth = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--genMaxContainerWidth').trim());
@@ -1526,6 +1527,82 @@
 
 
 
+    // USER INPUT SANITIZATION
+
+        // Prevents invalid characters from being entered into input fields
+        function preSanitizaUserInput()
+        {
+            let allInpFields = document.querySelectorAll("input");
+            let allTxtAreas = document.querySelectorAll("textarea");
+            
+            allInpFields.forEach((oldInp) => 
+            {
+                if(oldInp.sanitary_atn) oldInp.removeEventListener("beforeinput", oldInp.sanitary_atn);
+            });
+            allTxtAreas.forEach((oldInp) => 
+            {
+                if(oldInp.sanitary_atn) oldInp.removeEventListener("beforeinput", oldInp.sanitary_atn);
+            });
+
+            allInpFields.forEach((newInp) => 
+            {
+                const thisAtn = (e) =>
+                {
+                    if(((e.data != null) && !((gblInvalidChar).test(e.data)))) e.preventDefault();
+                }
+
+                newInp.addEventListener("beforeinput", thisAtn);
+                newInp.sanitary_atn = thisAtn;
+            });
+            allTxtAreas.forEach((newInp) => 
+            {
+                const thisAtn = (e) =>
+                {
+                    if(((e.data != null) && !((gblInvalidChar).test(e.data)))) e.preventDefault();
+                }
+
+                newInp.addEventListener("beforeinput", thisAtn);
+                newInp.sanitary_atn = thisAtn;
+            });
+        }
+
+        // Sanitizes invalid characters from user input that may allow script execution
+        const charSanitize = (str) => 
+        {
+            return str
+                .replace(/&/g, "")
+                .replace(/</g, "")
+                .replace(/>/g, "")
+                .replace(/"/g, "")
+                .replace(/'/g, "")
+                .replace(/=/g, "")
+                .replace(/!/g, "");
+        };
+            
+        // Sanitizes user input before performing an action with that input
+        function postSanitizeUserInput(userInp)
+        {
+            // console.log(`Pre-sanitize: ${userInp}`);
+            // Return if the input is empty
+            if((userInp == null) || (userInp === "")) return "";
+
+            // Return if the input contains invalid characters
+            if(!((gblInvalidChar).test(userInp)))
+            {
+                notification(`notifyBad`, `Only letters, numbers, hyphens, and underscores are allowed`);
+                return "";
+            }
+
+            // Extra layer of sanitization
+            const reSanitizedInp = charSanitize(userInp);
+            // console.log(`Re-sanitize: ${reSanitizedInp}`);
+
+            // Return the re-sanitized input
+            return reSanitizedInp;
+        }
+
+
+
     // QUICK SEARCH
 
         // Initializes the Quick Search
@@ -1543,7 +1620,7 @@
             let quickSearchResultBox = quickSearchBase.querySelector(".quickSearchResultBox");
             let quickSearchResultAllBtn;
             let quickSearchQuery = "";
-            let encodedSearchQuery;
+            let encodedSearchQuery = null;
             let quickSearchTimer;
 
 
@@ -1552,6 +1629,7 @@
             {
                 clearTimeout(quickSearchTimer);
                 openQuickSearchModal();
+                preSanitizaUserInput();
             }, 10);
 
             function openQuickSearchModal()
@@ -1685,9 +1763,9 @@
             // Filter and display result based on user's entry
             function filterQuickSearchInput()
             {
-                quickSearchQuery = quickSearchInputField.value.toString().trim().replace(/\s+/g, ' ').toLowerCase();
+                let fld_input = postSanitizeUserInput(quickSearchInputField.value);
+                quickSearchQuery = fld_input.toString().trim().replace(/\s+/g, ' ').toLowerCase();
                 encodedSearchQuery = encodeURIComponent(quickSearchQuery);
-
 
                 // Filter Items
                 const filteredData = searchInventory.filter((item) => item.show_searchKey.toLowerCase().includes(quickSearchQuery));
@@ -2724,12 +2802,13 @@
                     let cancelCLBtn = document.querySelector("#cancelNewCL");
                     let clItem;
                     let inputUppBnd = 50;
-                    let inputLowBnd = 2;
-                    let plArr = [];
                     let lastCLArr;
                     let lastCLArrLength = 0;
                     let currLength = 0;
                     let wordCount = inputUppBnd;
+
+                    // Sanitizing Input
+                    preSanitizaUserInput();
 
                     // Disabling btn to prevent multiple calls
                     btn.disabled = true;
@@ -2876,10 +2955,7 @@
                     // checking input length
                     function getWordCount(input)
                     {
-                        plArr.push(input);
-                        lastCLArr = plArr.at(-1);
-                        lastCLArr = lastCLArr.toString();
-                        lastCLArr = lastCLArr.trim().replace(/\s+/g, ' ');
+                        lastCLArr = input;
                         lastCLArrLength = lastCLArr.length;
         
                         // update warn label
@@ -2909,12 +2985,18 @@
         
                     newCLInput.addEventListener("input" , () => 
                     {
-                        getWordCount(newCLInput.value);
+                        getWordCount(postSanitizeUserInput(newCLInput.value.toString().trim().replace(/\s+/g, ' ')));
                     });
         
                     // Creates and inserts new collection
                     async function generateList(clName)
                     {
+                        if((clName === ""))
+                        {
+                            notification(`notifyBad` , `Collection name cannot be empty`);
+                            return;
+                        }
+
                         let selectedProfile = await getSelectedProfile();
                         let new_cl_id = generateRandomString().toLowerCase();
 
@@ -2987,13 +3069,13 @@
         
                     createCLBtn.addEventListener("click" , () => 
                     {
-                        generateList(newCLInput.value);
+                        generateList(postSanitizeUserInput(newCLInput.value.toString().trim().replace(/\s+/g, ' ')));
                     });
 
                     // Create collection by pressing the "Enter" key
                     newCLInput.addEventListener("keyup" , (e) => 
                     {
-                        if((e.key === "Enter"))
+                        if((typeof e !== "undefined") && (typeof e.key !== "undefined") && (e.key === "Enter"))
                         {
                             createCLBtn.click();
                         }

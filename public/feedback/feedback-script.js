@@ -36,7 +36,7 @@
                                 <label for="feedback_type" class="feedback_sectBox feedback_sectSelectBox">
                                     <div class="feedback_sectLabel">Feedback Type</div>
                                     <select type="number" name="feedback_type" id="feedback_type" class="feedback_sectField feedback_sectSelect" disabled>
-                                        <option value="N/A">Select an option</option>
+                                        <option value="NA">Select an option</option>
                                         <option value="Bug Report">Bug Report</option>
                                         <option value="Help Center Article">Help Center Article</option>
                                         <option value="Suggestion">Suggestion</option>
@@ -47,7 +47,7 @@
                                 <label for="severity_level" class="feedback_sectBox feedback_sectSelectBox">
                                     <div class="feedback_sectLabel">Severity level</div>
                                     <select type="number" name="severity_level" id="severity_level" class="feedback_sectField feedback_sectSelect" disabled>
-                                        <option value="N/A">Select severity</option>
+                                        <option value="NA">Select severity</option>
                                         <option value="Low">Low</option>
                                         <option value="Medium">Medium</option>
                                         <option value="High">High</option>
@@ -165,6 +165,8 @@
         closeButton = document.querySelectorAll(".feedback_closeBtn");
         sendButton = document.getElementById("fdbk_send");
         form_id_js = js_form.getAttribute('id');
+
+        preSanitizaUserInput();
 
         // Remove previous event listeners (if any)
         closeButton.forEach((btn) => 
@@ -294,10 +296,10 @@
     {
         toggle_sendBtn(true);
 
-        let subject = document.querySelector("#" + form_id_js + " [name='subject']").value;
-        let message = document.querySelector("#" + form_id_js + " [name='text']").value;
-        let type = document.querySelector("#" + form_id_js + " [name='feedback_type']").value;
-        let severity = document.querySelector("#" + form_id_js + " [name='severity_level']").value;
+        let subject = postSanitizeUserInput(document.querySelector("#" + form_id_js + " [name='subject']").value);
+        let message = postSanitizeUserInput(document.querySelector("#" + form_id_js + " [name='text']").value);
+        let type = postSanitizeUserInput(document.querySelector("#" + form_id_js + " [name='feedback_type']").value);
+        let severity = postSanitizeUserInput(document.querySelector("#" + form_id_js + " [name='severity_level']").value);
 
         fdbk_send(subject, message, type, severity);
     }
@@ -345,10 +347,10 @@
 
     function validate_input()
     {
-        if(
-            (document.querySelector("#" + form_id_js + " [name='subject']").value.trim().replace(/\s+/g, ' ') != "")
-        &&  (document.querySelector("#" + form_id_js + " [name='text']").value.trim().replace(/\s+/g, ' ') != "")
-        )
+        const sbj = postSanitizeUserInput(document.querySelector("#" + form_id_js + " [name='subject']").value.trim().replace(/\s+/g, ' '));
+        const txt = postSanitizeUserInput(document.querySelector("#" + form_id_js + " [name='text']").value.trim().replace(/\s+/g, ' '));
+
+        if((sbj !== "") && (txt !== ""))
         {
             notification(`notifyGood` , `Sending feedback..`);
             fdbk_get();

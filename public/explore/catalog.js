@@ -228,6 +228,7 @@
             topNavBar.classList.add("initialize");
 
             initURLParams();
+            preSanitizaUserInput();
 
 
             // Definitions
@@ -268,7 +269,7 @@
             // Update catalog search Input and add event listener   
             catalogSearchInput.setAttribute(`value` , `${catalogURLSearchParam}`);
 
-            catalogSearchInput.addEventListener("keyup", () => 
+            catalogSearchInput.addEventListener("input", () => 
             {
                 // Update result text and Hide/Unhide x-mark button while typing
                 if(catalogSearchInput.value.length > 0)
@@ -586,7 +587,7 @@
             selectedGenres.length = 0;
 
             // Get value from search field
-            catalogSearchQuery = catalogSearchInput.value.toString().trim().replace(/\s+/g, ' ').toLowerCase();
+            catalogSearchQuery = postSanitizeUserInput(catalogSearchInput.value.toString().trim().replace(/\s+/g, ' ').toLowerCase());
             selectedFilters.Search.push(catalogSearchQuery);
             updateURLParams(catalogParamsOrder[0], catalogSearchQuery);
 
@@ -758,7 +759,7 @@
         {
             catalogResultBox.innerHTML = items.map((item) => 
             {
-                const { show_link, show_foreground, show_title, show_type, show_year, show_quality } = item;
+                const { show_link, show_foreground, show_title, show_type, show_year } = item;
 
                 if((catalogSearchQuery === "") || ((item == undefined) || (item == null)))
                 {

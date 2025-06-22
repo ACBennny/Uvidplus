@@ -71,6 +71,7 @@
         {
             clearTimeout(chatbot_timer_1);
             ctct_base.classList.add("active");
+            preSanitizaUserInput();
 
             // Insert dflt msg if not present
             if(!(isHlpCtrChatBotInit))
@@ -193,6 +194,8 @@
         // Sending a chat (by user)
         const validateUsrReq = (msg) => 
         {
+            let fld_input = postSanitizeUserInput(msg);
+
             const filteredInp = msg.toString().trim().replace(/\s+/g, ' ');
 
             // Return if msg is empty
@@ -217,7 +220,7 @@
             const resp_txt = resp_wrap.querySelector(".ctct_rspns_ctnt_txt");
 
             // Format msg
-            const resp_lines = msg.split("\n");
+            const resp_lines = fld_input.split("\n");
             resp_lines.forEach((line, index) =>
             {
                 const txtNode = document.createTextNode(line);

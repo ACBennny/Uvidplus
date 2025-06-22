@@ -187,7 +187,8 @@
         editProfileFrgImg = document.querySelector(".editProfileFrgImg");
         editProfileBcgImg = document.querySelector(".editProfileBcgImg");
 
-        // Initialize the foreground and background modals
+        // Initialize sanitization
+        preSanitizaUserInput();
 
         // Set the default Values
         editProfileNameField.value = `${profItem.prof_name.toString().trim().replace(/\s+/g, ' ')}`;
@@ -201,7 +202,7 @@
         // Visualise warning if naming condition is breached
         editProfileNameField.addEventListener("input" , () => 
         {
-            let fieldVal = editProfileNameField.value.trim().replace(/\s+/g, ' ');
+            let fieldVal = postSanitizeUserInput(editProfileNameField.value.trim().replace(/\s+/g, ' '));
 
             if(((fieldVal != undefined) && (fieldVal != null) && (fieldVal != "  "))
                 && ((fieldVal.length >= 2) && (fieldVal.length <= 50)))
@@ -373,14 +374,14 @@
     async function saveCurrProfEdits()
     {
         // Update attributes
-        profItem.prof_name = editProfileNameField.value;
+        profItem.prof_name = postSanitizeUserInput(editProfileNameField.value);
         profItem.prof_frgImg = editProfileFrgImg.getAttribute("src");
         profItem.prof_bcgImg = editProfileBcgImg.getAttribute("src");
 
         // Update user data
         await updUsrProfFlds(
         {
-            prof_name: editProfileNameField.value,
+            prof_name: postSanitizeUserInput(editProfileNameField.value),
             prof_frgImg: editProfileFrgImg.getAttribute("src"),
             prof_bcgImg: editProfileBcgImg.getAttribute("src"),
         }, profId);

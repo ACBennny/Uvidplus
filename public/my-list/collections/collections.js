@@ -695,8 +695,6 @@ let editCLStruct =
                 const createCLBtn = document.querySelector("#createNewCL");
                 const newListId = generateRandomString();
                 let inputUppBnd = 50;
-                let inputLowBnd = 2;
-                let plArr = [];
                 let lastCLArr;
                 let lastCLArrLength = 0;
                 let currLength = 0;
@@ -704,6 +702,9 @@ let editCLStruct =
 
                 // Disabling btn to prevent multiple calls
                 btn.disabled = true;
+
+                // Initialize sanitization
+                preSanitizaUserInput();
 
                 // Transitioning elements
                 createCLTimer = setTimeout(() => 
@@ -723,10 +724,7 @@ let editCLStruct =
                 // checking input length
                 function getWordCount(input)
                 {
-                    plArr.push(input);
-                    lastCLArr = plArr.at(-1);
-                    lastCLArr = lastCLArr.toString();
-                    lastCLArr = lastCLArr.trim().replace(/\s+/g, ' ');
+                    lastCLArr = postSanitizeUserInput(input).toString().trim().replace(/\s+/g, ' ');
                     lastCLArrLength = lastCLArr.length;
 
                     // update warn label
@@ -762,6 +760,13 @@ let editCLStruct =
                 // Create list
                 async function generateList(clName)
                 {
+                    // Return if there's no input
+                    if((clName === ""))
+                    {
+                        notification(`notifyBad` , `Collection name cannot be empty`);
+                        return;
+                    }
+
                     // Compare the current and max CL library size and return if equal/greater
                     if((newCLCurrSize >= newCLMaxSize))
                     {
@@ -893,7 +898,7 @@ let editCLStruct =
                 createCLBtn.addEventListener("click" , () => 
                 {
                     createCLBtn.disabled = true;
-                    generateList(newCLInput.value);
+                    generateList(postSanitizeUserInput(newCLInput.value).toString().trim().replace(/\s+/g, ' '));
                 });
 
                 // Create list by pressing the "Enter" key
@@ -1237,7 +1242,7 @@ let editCLStruct =
         clModalBaseTitleText.textContent = `${clLibraryIndexedInv[clBodyCardIndex].cl_name}`;
 
         // Setting the description
-        clModalHeader_DetInfo_DescText.innerHTML = `${clLibraryIndexedInv[clBodyCardIndex].cl_desc}`;
+        updCLDesc(clLibraryIndexedInv[clBodyCardIndex].cl_desc);
 
         // Setting the time Updated
         clModalHeader_DetInfo_TagsUpdateText.textContent = `${clLibraryIndexedInv[clBodyCardIndex].cl_updated}`;
@@ -1386,6 +1391,7 @@ let editCLStruct =
         updURLforCLModal(`${clLibraryIndexedInv[clBodyCardIndex].cl_id}`);
 
         // Closing the modal
+        clModalBaseCloseBtn.disabled = false;
         clModalBaseCloseBtn.addEventListener("click" , () => 
         {
             // Diable button
@@ -1584,7 +1590,7 @@ let editCLStruct =
                     break;
                     
                 case 'cl_desc':
-                    clModalHeader_DetInfo_DescText.innerHTML = `${value}`;
+                    updCLDesc(value);
                     break;
                     
                 case 'cl_updated':
@@ -1620,6 +1626,27 @@ let editCLStruct =
             console.error(error);
             notification(`notifyBad`, `Failed to save changes`)
         }
+    }
+
+
+    // Update the collection description
+    function updCLDesc(ctnt)
+    {
+        let desc_txt = document.querySelector(".clModalHeader_DetInfo_DescText");
+        desc_txt.innerHTML = "";
+
+        const desc_lines = ctnt.split("<br>");
+        desc_lines.forEach((line, index) =>
+        {
+            const txtNode = document.createTextNode(line);
+            desc_txt.appendChild(txtNode);
+
+            // Insert line break after each newline
+            if((index < (desc_lines.length - 1)))
+            {
+                desc_txt.appendChild(document.createElement("br"));
+            }
+        });
     }
     
 
@@ -1794,6 +1821,7 @@ let editCLStruct =
         timer = setTimeout(() => 
         {
             clearTimeout(timer);
+            preSanitizaUserInput();
             initAddShowToCLModal();
         }, 10);
     }
@@ -1801,7 +1829,7 @@ let editCLStruct =
     // Initializes the modal for myLists to search up shows to add to their collection
     function initAddShowToCLModal()
     {
-
+        
         // Definitions
         addShowToCLBase = document.querySelector(".addShowToCLBase");
         let addShowToCLBcg = addShowToCLBase.querySelector(".quickSearchBcg");
@@ -1905,8 +1933,7 @@ let editCLStruct =
         // Filter and display result based on myList's entry
         function filterAddShowToCLInput()
         {
-            addShowToCLQuery = addShowToCLInputField.value.trim().toLowerCase();
-            encodedSearchQuery = encodeURIComponent(addShowToCLQuery);
+            addShowToCLQuery = postSanitizeUserInput(addShowToCLInputField.value.toString().trim().toLowerCase());
 
             // Filter Items
             const filteredData = searchInventory.filter((item) => item.show_searchKey.toLowerCase().includes(addShowToCLQuery));
@@ -1922,16 +1949,12 @@ let editCLStruct =
         }
         
         // Get myList entry
-        addShowToCLInputField.addEventListener("keyup", e => 
-        {
-            filterAddShowToCLInput(e);
-        });
+        addShowToCLInputField.addEventListener("input", filterAddShowToCLInput);
 
         // Clears the search field
         addShowToCLClearInput.addEventListener("click" , () => 
         {
             addShowToCLInputField.value = "";
-            addShowToCLQuery = "";
             addShowToCLClearInput.classList.remove("active");
             filterAddShowToCLInput();
         });
@@ -1969,6 +1992,8 @@ let editCLStruct =
         {
             const action = async () =>
             {
+                btn.disabled = true;
+
                 // Check if show exists in collection
                 let thisItem = clModalIndexedInv.filter(item => item.show_link === addShowToCLArray[index].show_link)
 
@@ -2009,6 +2034,7 @@ let editCLStruct =
                 else
                 {
                     notification(`notifyBad` , `Show already in collection`);
+                    btn.disabled = false;
                 }
             }
 
@@ -2047,6 +2073,9 @@ let editCLStruct =
                 const editCLInput = document.querySelectorAll(".editCLInputClass");
                 const editCLWarn = document.querySelectorAll("#editCLWarnId");
                 const saveCLEditBtn = document.querySelectorAll(".saveCLEditBtn");
+
+                // Initialize sanitization
+                preSanitizaUserInput();
 
                 // Disabling btn to prevent multiple calls
                 btn.disabled = true;
@@ -2121,9 +2150,10 @@ let editCLStruct =
                     });
                 });
 
-                // checking input length
+                // Checking input length
                 function getWordCount(index, fieldinput)
                 {
+                    fieldinput = postSanitizeUserInput(fieldinput);
                     let input = fieldinput.toString();
                     input = input.trim().replace(/\s+/g, ' ');
 
@@ -2170,6 +2200,8 @@ let editCLStruct =
                 // Saves call changes made
                 async function saveEdit(type, ctnt)
                 {
+                    ctnt = postSanitizeUserInput(ctnt);
+                    
                     // Update the specified property and time updated property
                     if(type == "title")
                     {
