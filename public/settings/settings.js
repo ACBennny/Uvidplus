@@ -169,6 +169,7 @@
         attachGenMenuModalEventListeners();
         attachSettSectNavListeners();
         upd_sett_info();
+        attachSectAtnTglListeners();
     }
 
     // Toggle Nav for smaller screens
@@ -212,9 +213,9 @@
                     `
                         <div class="settCtntSectAtnBdr">
                             <div class="settCtntSectAtnBox">
-                                <button class="settCtntSectAtnBtn settCtntSectAtnToggle">
+                                <button class="settCtntSectAtnBtn ">
                                     <div class="genCheckBoxBase">
-                                        <input type="checkbox" id="${item.sett_atn_id}" class="genCheckBoxInput" tabindex="-1">
+                                        <input type="checkbox" id="${item.sett_atn_id}" class="genCheckBoxInput settCtntSectAtnToggle" tabindex="-1">
                                         <label for="${item.sett_atn_id}" class="genCheckBoxToggle">
                                             <span class="genCheckBoxToggleCircle"></span>
                                         </label>
@@ -1266,6 +1267,86 @@
         }
     }
 
+
+
+// UPDATING 
+
+    // Attach listeners
+    function attachSectAtnTglListeners()
+    {
+        const sett_rad_btn = document.querySelectorAll(".settCtntSectAtnToggle");
+
+        sett_rad_btn.forEach((olditem) => 
+        {
+            if((olditem.sett_atn))
+            {
+                olditem.removeEventListener("click" , olditem.sett_atn)
+            }
+        });
+
+        sett_rad_btn.forEach((newBtn) => 
+        {
+            const rad_atn = async () => 
+            {
+                let checkBtn = newBtn.parentElement.querySelector(`input[type="checkbox"]#${newBtn.id}:checked`);
+                let ischk = false;
+
+                if(checkBtn)
+                {
+                    // Update flag to true
+                    ischk = true;
+                }
+                else
+                {
+                    // Update flag to false
+                    ischk = false;
+                }
+
+                //  Update the corresponding property
+                switch(newBtn.id)
+                {
+                    case 'sett_wifi_dwld':
+                        await updateUserData(
+                        {
+                            wifi_only_dwld: ischk
+                        });
+                        notification('notifyGood', 'Prefereces saved');
+                        break;
+                        
+                    case 'sett_wifi_stream':
+                        await updateUserData(
+                        {
+                            wifi_only_stream: ischk
+                        });
+                        notification('notifyGood', 'Prefereces saved');
+                        break;
+                        
+                    case 'sett_cellular_stream':
+                        await updateUserData(
+                        {
+                            cellular_stream_ntfy: ischk
+                        });
+                        notification('notifyGood', 'Prefereces saved');
+                        break;
+                        
+                    case 'sett_prsnl_info_shrng':
+                        await updateUserData(
+                        {
+                            share_prsnl_info: ischk
+                        });
+                        notification('notifyGood', 'Prefereces saved');
+                        break;
+
+                    default:
+                        notification('notifyBad', 'An error occured while saving preferences');
+                        break;
+                }
+            }
+
+            newBtn.addEventListener("click", rad_atn);
+            newBtn.sett_atn = rad_atn;
+        });
+    }
 
 
 
