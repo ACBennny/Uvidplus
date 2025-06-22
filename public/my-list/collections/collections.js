@@ -2363,8 +2363,6 @@ let editCLStruct =
     // Deleting your collections
     async function deleteCollection()
     {
-        // Close the modal
-        clModalBaseCloseBtn.click();
 
         // Delete from the collection 
         clLibraryIndexedInv = clLibraryIndexedInv.filter((item) => item.cl_id != clLibraryIndexedInv[clBodyCardIndex].cl_id);
@@ -2382,6 +2380,9 @@ let editCLStruct =
 
         // Decrease the current collection size
         newCLCurrSize--;
+        
+        // Close the modal
+        clModalBaseCloseBtn.click();
 
         // Notify myLists that the collection has been deleted
         notification(`notifyGood` , `Collection successfully deleted`);
