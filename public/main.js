@@ -22,7 +22,8 @@
     const sideNavBar = document.querySelector(".sideNavBar");
     const btmNavBar = document.querySelector(".btmNavBar");
     const footerWrp = document.querySelector(".footer_wrapper");
-    const gblInvalidChar = /^[A-Za-z0-9_\-\n\s]+$/;
+    const gblInvalidChar1 = /^[A-Za-z0-9.()[\]_\-\n\s]+$/;
+    const gblInvalidChar = /[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/;
     let sideNavLinks;
     let btmNavLinks;
     let genContainerMaxWidth = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--genMaxContainerWidth').trim());
@@ -1548,7 +1549,7 @@
             {
                 const thisAtn = (e) =>
                 {
-                    if(((e.data != null) && !((gblInvalidChar).test(e.data)))) e.preventDefault();
+                    if(((e.data != null) && ((gblInvalidChar).test(e.data)))) e.preventDefault();
                 }
 
                 newInp.addEventListener("beforeinput", thisAtn);
@@ -1558,7 +1559,7 @@
             {
                 const thisAtn = (e) =>
                 {
-                    if(((e.data != null) && !((gblInvalidChar).test(e.data)))) e.preventDefault();
+                    if(((e.data != null) && ((gblInvalidChar).test(e.data)))) e.preventDefault();
                 }
 
                 newInp.addEventListener("beforeinput", thisAtn);
@@ -1570,13 +1571,12 @@
         const charSanitize = (str) => 
         {
             return str
-                .replace(/&/g, "")
-                .replace(/</g, "")
-                .replace(/>/g, "")
-                .replace(/"/g, "")
-                .replace(/'/g, "")
-                .replace(/=/g, "")
-                .replace(/!/g, "");
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/=/g, "&quot;")
+                .replace(/!/g, "&#039;")
+                .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, "");
         };
             
         // Sanitizes user input before performing an action with that input
@@ -1587,11 +1587,11 @@
             if((userInp == null) || (userInp === "")) return "";
 
             // Return if the input contains invalid characters
-            if(!((gblInvalidChar).test(userInp)))
-            {
-                notification(`notifyBad`, `Only letters, numbers, hyphens, and underscores are allowed`);
-                return "";
-            }
+            // if(!((gblInvalidChar).test(userInp)))
+            // {
+            //     notification(`notifyBad`, `Only letters, numbers, hyphens, and underscores are allowed`);
+            //     return "";
+            // }
 
             // Extra layer of sanitization
             const reSanitizedInp = charSanitize(userInp);
