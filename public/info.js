@@ -1732,7 +1732,7 @@
                     break;
 
                 case 'better':
-                    thisSize = getRandShowSize(320, 429);
+                    thisSize = getRandShowSize(320, 450);
                     card.setAttribute(`data-ep-size` , `${thisSize}`);
                     selOptText.textContent = `Better (${thisSize} MB)`;
                     break;
