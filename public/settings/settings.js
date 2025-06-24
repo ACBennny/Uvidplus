@@ -225,6 +225,21 @@
                         </div>
                     `;
                 }
+                else if(item.sett_atn_type === "menu")
+                {
+                    settCtntAtnStruct = 
+                    `
+                        <div class="settCtntSectAtnBdr">
+                            <div class="settCtntSectAtnBox">
+                                <button id="${item.sett_atn_id}" class="settCtntSectAtnBtn settCtntSectAtnIcon openGenMenuModalBtn" data-gen-menu-modal-type="sett_sect_menu">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="settCtntSectAtnSvg">
+                                        <path fill-rule="evenodd" d="M8.512 4.43a.75.75 0 0 1 1.057.082l6 7a.75.75 0 0 1 0 .976l-6 7a.75.75 0 0 1-1.138-.976L14.012 12L8.431 5.488a.75.75 0 0 1 .08-1.057" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }
                 else if(item.sett_atn_type === "modal")
                 {
                     let atn_func = item.sett_atn_func !== "" ? `${item.sett_atn_func}()` : `notification('notifyBad', 'Feature currently unavailable')`;
@@ -1269,7 +1284,7 @@
 
 
 
-// UPDATING 
+// UPDATING TOGGLE OPTIONS
 
     // Attach listeners
     function attachSectAtnTglListeners()
@@ -1288,6 +1303,7 @@
         {
             const rad_atn = async () => 
             {
+                sett_rad_btn.forEach(item => item.disabled = true);
                 let checkBtn = newBtn.parentElement.querySelector(`input[type="checkbox"]#${newBtn.id}:checked`);
                 let ischk = false;
 
@@ -1303,43 +1319,55 @@
                 }
 
                 //  Update the corresponding property
-                switch(newBtn.id)
+                try 
                 {
-                    case 'sett_wifi_dwld':
-                        await updateUserData(
-                        {
-                            wifi_only_dwld: ischk
-                        });
-                        notification('notifyGood', 'Prefereces saved');
-                        break;
-                        
-                    case 'sett_wifi_stream':
-                        await updateUserData(
-                        {
-                            wifi_only_stream: ischk
-                        });
-                        notification('notifyGood', 'Prefereces saved');
-                        break;
-                        
-                    case 'sett_cellular_stream':
-                        await updateUserData(
-                        {
-                            cellular_stream_ntfy: ischk
-                        });
-                        notification('notifyGood', 'Prefereces saved');
-                        break;
-                        
-                    case 'sett_prsnl_info_shrng':
-                        await updateUserData(
-                        {
-                            share_prsnl_info: ischk
-                        });
-                        notification('notifyGood', 'Prefereces saved');
-                        break;
+                    switch(newBtn.id)
+                    {
+                        case 'sett_wifi_dwld':
+                            await updateUserData(
+                            {
+                                wifi_only_dwld: ischk
+                            });
+                            notification('notifyGood', 'Preferences saved');
+                            break;
+                            
+                        case 'sett_wifi_stream':
+                            await updateUserData(
+                            {
+                                wifi_only_stream: ischk
+                            });
+                            notification('notifyGood', 'Preferences saved');
+                            break;
+                            
+                        case 'sett_cellular_stream':
+                            await updateUserData(
+                            {
+                                cellular_stream_ntfy: ischk
+                            });
+                            notification('notifyGood', 'Preferences saved');
+                            break;
+                            
+                        case 'sett_prsnl_info_shrng':
+                            await updateUserData(
+                            {
+                                share_prsnl_info: ischk
+                            });
+                            notification('notifyGood', 'Preferences saved');
+                            break;
 
-                    default:
-                        notification('notifyBad', 'An error occured while saving preferences');
-                        break;
+                        default:
+                            notification('notifyBad', 'Failed to update preferences');
+                            break;
+                    }
+
+                    // Re-enable toggle buttons
+                    sett_rad_btn.forEach(item => item.disabled = false);
+                }
+                catch(err)
+                {
+                    // Log any errors and re-enable toggle buttons
+                    console.error(err);
+                    sett_rad_btn.forEach(item => item.disabled = false);
                 }
             }
 
@@ -1348,6 +1376,163 @@
         });
     }
 
+
+
+// UPDATING MENU OPTIONS
+
+    // Attaching listeners
+    async function attachSettSectMenuListeners(event)
+    {
+        // Get the clicked button
+        let settCardMenuBtn = event.target.closest("[data-gen-menu-modal-type='sett_sect_menu']");
+        
+        if (!settCardMenuBtn)
+        {
+            console.error("Button with attribute [data-gen-menu-modal-type='sett_sect_menu'] not found.");
+            return;
+        }
+
+        // Get the id
+        let settCardId = settCardMenuBtn.id;
+
+        if (!settCardId)
+        {
+            console.error("Button is invalid");
+            return;
+        }
+
+        // Generate the content of the menu
+        let menuCtntBox = document.querySelector(".settSectMenuCtntBox");
+        let menuLangId = settCardId !== "sett_dwld_qlty" ? settCardId !== "sett_dwld_lang" ? "cast_data_usage_ul" : "dwld_audio_pref" : "dwld_qlty_pref";
+        let menuUpdId = settCardId !== "sett_dwld_qlty" ? settCardId !== "sett_dwld_lang" ? "cast_data_usage_ul" : "dwld_audio_pref" : "dwld_qlty_pref";
+        let menuCtntStruct = ``;
+
+        // Build up the menu
+        if((settCardId === "sett_dwld_lang"))
+        {
+            // Default Option
+            menuCtntStruct = 
+            `
+                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="0">
+                    <div class="genMenuModalCtntBtnText">None</div>
+                </button>
+            `;
+
+            // Insert other options
+            for(let i = 0; i < LangOptLib.langOptInv.audioLangSelect.lang_options.length; i++)
+            {
+                let item = LangOptLib.langOptInv.audioLangSelect.lang_options[i];
+                
+                menuCtntStruct += 
+                `
+                    <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="${i+1}">
+                        <div class="genMenuModalCtntBtnText">${item.opt}</div>
+                    </button>
+                `;
+            }
+        }
+        else if((settCardId === "sett_dwld_qlty"))
+        {
+            menuCtntStruct = 
+            `
+                <div class="genMenuModalCtntSectBox">
+                    <p class="genMenuModalCtntSectText">Max Size for approx. 25mins</p>
+                </div>
+                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="0">
+                    <div class="genMenuModalCtntBtnText">Always ask</div>
+                </button>
+                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="1">
+                    <div class="genMenuModalCtntBtnText">Best (0.7GB)</div>
+                </button>
+                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="2">
+                    <div class="genMenuModalCtntBtnText">Better (0.45GB)</div>
+                </button>
+                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="3">
+                    <div class="genMenuModalCtntBtnText">Good (0.3GB)</div>
+                </button>
+                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="4">
+                    <div class="genMenuModalCtntBtnText">Data Saver (0.11GB)</div>
+                </button>
+            `;
+        }
+        else if((settCardId === "sett_cast_data_usage"))
+        {
+            menuCtntStruct = 
+            `
+                <div class="genMenuModalCtntSectBox">
+                    <p class="genMenuModalCtntSectText">Max Allocated Bandwidth</p>
+                </div>
+                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="0">
+                    <div class="genMenuModalCtntBtnText">Unlimited</div>
+                </button>
+                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="1">
+                    <div class="genMenuModalCtntBtnText">250GB</div>
+                </button>
+                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="2">
+                    <div class="genMenuModalCtntBtnText">100GB</div>
+                </button>
+                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="3">
+                    <div class="genMenuModalCtntBtnText">50GB</div>
+                </button>
+                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="4">
+                    <div class="genMenuModalCtntBtnText">10GB</div>
+                </button>
+            `;
+        }
+        else
+        {
+            console.error("NOt");
+            return;
+        }
+
+        // Insert menu options and add seletors
+        menuCtntBox.innerHTML = menuCtntStruct;
+        let menuOptBtns = document.querySelectorAll(".settSectMenuOptBtn");
+
+        // Get, select, and scroll to the chosen option
+        try 
+        {
+            let usrData = await getUserData();
+            let usrCtg = Number(usrData[menuUpdId]) || 0;
+            menuOptBtns[usrCtg].classList.add("selected");
+            genMenuModalBox.scrollTo(
+            {
+                top: (Math.round(menuOptBtns[usrCtg].getBoundingClientRect().top) - 25),
+                behavior: "smooth"
+            });
+        }
+        catch(error)
+        {
+            console.error(error);
+            menuOptBtns[0].classList.add("selected");
+        }
+
+        // Updates the user's prefered option for the chosen category
+        menuOptBtns.forEach((btn) => 
+        {
+            const menu_atn = async () => 
+            {
+                try 
+                {
+                    let btnOptNo = Number(btn.getAttribute("data-sett-sect-opt")) || 0;
+
+                    await updateUserData(
+                    {
+                        [`${menuUpdId}`]: btnOptNo
+                    });
+
+                    notification(`notifyGood`, `Preferences saved`);
+                } 
+                catch(error) 
+                {
+                    console.error(error);
+                    notification(`notifyBad`, `Failed to update preferences`);
+                }
+            }
+
+            btn.addEventListener("click", menu_atn);
+        });
+    }
 
 
 

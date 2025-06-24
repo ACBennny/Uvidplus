@@ -83,7 +83,7 @@ let sett_cmpnt_lib =
         sett_desc: 
         `
             View all past billing details.
-            Contact customer support for deatials older than what is shown.
+            Contact customer support for details older than what is shown.
         `,
         sett_atn_type: `modal`,
         sett_atn_id: `sett_billing_info`,
@@ -175,7 +175,7 @@ let sett_cmpnt_lib =
             Select the default data usage when casting as it is optimized for larger screens 
             (e.g., televisions) and uses more data than shows streamed via a mobile device.
         `,
-        sett_atn_type: `modal`,
+        sett_atn_type: `menu`,
         sett_atn_id: `sett_cast_data_usage`,
         sett_atn_title: `Open`,
         sett_atn_func: ``,
@@ -189,7 +189,7 @@ let sett_cmpnt_lib =
             Select your preferred quality for downloaded shows. 
             Not all shows are available for the quality they are streamed in.
         `,
-        sett_atn_type: `modal`,
+        sett_atn_type: `menu`,
         sett_atn_id: `sett_dwld_qlty`,
         sett_atn_title: `Open`,
         sett_atn_func: ``,
@@ -202,8 +202,11 @@ let sett_cmpnt_lib =
         `   
             When possible, you can select the language that will be downloaded along with the
             origin language of the show.
+            <br>
+            If the chosen language is not available, you'll be asked to select from 
+            currently available options.
         `,
-        sett_atn_type: `modal`,
+        sett_atn_type: `menu`,
         sett_atn_id: `sett_dwld_lang`,
         sett_atn_title: `Open`,
         sett_atn_func: ``,

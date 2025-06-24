@@ -516,6 +516,13 @@
             `,
         },
         {
+            menu_id: `sett_sect_menu`,
+            menu_ctnt: 
+            `
+                <div class="genMenuModalCtntBox settSectMenuCtntBox"></div>
+            `,
+        },
+        {
             menu_id: `help_ctr_chatbot`,
             menu_ctnt:
             `
@@ -623,6 +630,11 @@
     function sett_sect_nav()
     {
         callGlobalFunctions("attachSettSectNavListeners");
+    }
+
+    function sett_sect_menu(btnEvent)
+    {
+        callGlobalFunctions(`attachSettSectMenuListeners` , [btnEvent]);
     }
 
     function help_ctr_chatbot()
