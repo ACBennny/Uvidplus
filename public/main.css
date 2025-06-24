@@ -935,6 +935,11 @@ html:has( .backtotop_float_left) .backtotop_float.float
     gap: 0.25rem;
 }
 
+.genCheckBoxBase:has( .genCheckBoxInput:disabled)
+{
+    filter: brightness(0.25);
+}
+
 .genCheckBoxBase .genCheckBoxInput
 {
     width: 0;
