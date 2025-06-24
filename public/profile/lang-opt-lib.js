@@ -16,9 +16,9 @@
 (() => 
 {
     const langOptInv = 
-    [
+    {
+        "appLangSelect": 
         {
-            lang_sectId: `appLangSelect`,
             lang_sectname: `App Language`,
             lang_desc: `Set your preferred language for all contents of the app.`,
             lang_primary: `English`,
@@ -60,8 +60,8 @@
                 {opt: `Ukrainian`,},
             ],
         },
+        "audioLangSelect": 
         {
-            lang_sectId: `audioLangSelect`,
             lang_sectname: `Audio Language`,
             lang_desc: `Set your preferred language for the audio of your shows.`,
             lang_primary: `English`,
@@ -103,8 +103,8 @@
                 {opt: `Ukrainian`,},
             ],
         },
+        "subCCLangSelect":
         {
-            lang_sectId: `subCCLangSelect`,
             lang_sectname: `Subtitle/CC Language`,
             lang_desc: `Set your preferred language for your subtitles/CC.`,
             lang_primary: `English`,
@@ -146,7 +146,7 @@
                 {opt: `Ukrainian`,},
             ],
         },
-    ];
+    };
 
     // Exporting the variable to a global namespace
     window.LangOptLib = window.LangOptLib || {}; // Ensure namespace exists
