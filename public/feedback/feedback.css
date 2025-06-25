@@ -1,0 +1,329 @@
+/*************************************************************
+ * This is the style for the Feedback form
+ * 
+ * @author (Anyanwu Benedict Chukwuemeka)
+ * @version (v0.01)
+ *************************************************************/
+
+
+
+.feedback_base
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: all 500ms ease-in-out;
+    z-index: 105;
+}
+
+.feedback_base.static
+{
+    position: static;
+}
+
+.feedback_base.active
+{
+    opacity: 1;
+    visibility: visible;
+}
+
+.feedback_base .feedback_bcg
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(100% 100% at 50% 50%, var(--genGreenTypeMid2) 0%, #00000000 65%);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    -webkit-filter: blur(0.625rem);
+    filter: blur(0.625rem);
+    z-index: 2;
+}
+
+.feedback_base .feedback_bdr
+{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    overflow: hidden auto;
+    scrollbar-width: none;
+    scrollbar-color: #00000000 #00000000;
+}
+
+.feedback_bdr::-webkit-scrollbar
+{
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+.feedback_bdr .feedback_box
+{
+    width: 100%;
+    max-width: 28.125rem;
+    height: -moz-fit-content;
+    height: fit-content;
+    padding: 3rem 0;
+    z-index: 5;
+}
+
+.feedback_box .feedback_form
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0rem 0rem 0.3125rem 0rem #00000099;
+    background-color: var(--genModalBcg);
+    transform: translateY(50%);
+    transition: all 500ms ease-in-out;
+}
+
+.feedback_base.active .feedback_form
+{
+    transform: translateY(0%);
+}
+
+.feedback_form .feedback_closeBdr
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin: 0.5rem;
+    border-radius: 50%;
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+}
+
+.feedback_closeBdr .feedback_closeBox
+{
+    width: 1rem;
+    height: 1rem;
+    margin: 0.5rem;
+}
+
+.feedback_closeBox .feedback_closeIcon
+{
+    width: clamp(100% , 100%, 100%);
+    height: clamp(100% , 100%, 100%);
+    fill: var(--genWhiteTypeDark);
+}
+
+.feedback_form .feedback_header
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.feedback_header .feedback_name
+{
+    font-size: 1.125rem;
+    color: var(--genWhiteTypeBright);
+}
+
+.feedback_form .feedback_ctnt
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+}
+
+.feedback_ctnt .feedback_sectBox
+{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    padding: 2rem 0.875rem 0.625rem;
+    border-radius: 1rem;
+    background-color: #ffffff10;
+    transition: all 300ms ease-in-out;
+}
+
+.feedback_sectBox.feedback_sectInputBox
+{
+    cursor: text;
+}
+
+.feedback_sectBox .feedback_sectLabel
+{
+    position: absolute;
+    top: 0.625rem;
+    font-family: 'Poppins' , sans-serif;
+    font-size: 0.75rem;
+    color: var(--genGreenTypeLight2);
+    pointer-events: none;
+}
+
+.feedback_sectInputBox .feedback_sectLabel::after
+{
+    content: '*';
+    color: var(--warningClr);
+    margin-left: 0.125rem;
+}
+
+.feedback_sectSelectBox .feedback_sectLabel
+{
+    margin-left: 0.25rem;
+}
+
+.feedback_sectBox .feedback_sectField
+{
+    width: 100%;
+    font-family: 'Poppins' , sans-serif;
+    font-size: 0.875rem;
+    color: var(--genWhiteTypeLight);
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: #00000000;
+    background-color: #00000000;
+    transition: all 300ms ease-in-out;
+    cursor: text;
+}
+
+.feedback_sectField.feedback_sectTextArea
+{
+    height: 3.75rem;
+    resize: none;
+}
+
+.feedback_ctnt .feedback_selectBdr
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.feedback_sectField.feedback_sectSelect
+{
+    display: inline-block;
+    vertical-align: middle;
+    color: var(--genWhiteTypeMid2);
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.feedback_sectSelect option
+{
+    color: var(--genWhiteTypeLight);
+    background-color: var(--genModalBcg);
+}
+
+.feedback_form .feedback_atnBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.3125rem;
+}
+
+.feedback_form .poweredBy_text
+{
+    width: 100%;
+    margin: 1rem 0 0;
+    text-align: center;
+    font-size: 0.625rem;
+    color: var(--genWhiteTypeMid);
+}
+
+.feedback_form .poweredBy_text .poweredBy_link
+{
+    color: var(--genGreenTypeMid2);
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+@media(hover: hover)
+{
+
+    .feedback_closeBdr:hover
+    {
+        background-color: #ffffff10;
+    }
+    
+    .feedback_sectBox:hover
+    {
+        background-color: #ffffff20;
+    }
+}
+
+
+
+
+
+
+@media only screen and (max-width: 37.5rem)
+{
+
+    .feedback_bdr .feedback_box
+    {
+        max-width: none;
+        height: 100%;
+        padding: 0rem;
+    }
+
+    .feedback_box .feedback_form
+    {
+        padding-top: 2rem;
+        border-radius: 0rem;
+    }
+
+    .feedback_form .feedback_closeBdr
+    {
+        margin: 1rem;
+    }
+
+    .feedback_closeBdr .feedback_closeBox
+    {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .feedback_ctnt .feedback_selectBdr
+    {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+
+

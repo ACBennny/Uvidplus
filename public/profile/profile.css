@@ -1,5 +1,5 @@
 /*************************************************************
- * This is the style for the MyList Profile pages
+ * This is the style for the Profile pages
  * 
  * @author (Anyanwu Benedict Chukwuemeka)
  * @version (v0.01)
@@ -184,7 +184,1325 @@ html:root
 
 
 
+/* =================== PROFILE ================ */
 
+/* ------- Switch profile Navbar ------- */
+.switchProfNavBdr
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: var(--navBarHeight);
+    z-index: 115;
+}
+
+.switchProfNavBdr .switchProfNavBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--genBorderSpacing);
+    background: -o-linear-gradient(to bottom, #000000ff, #000000f4, #000000ef, #000000dc, #000000ab, #00000045, #00000000, #00000000);
+    background: -moz-linear-gradient(to bottom, #000000ff, #000000f4, #000000ef, #000000dc, #000000ab, #00000045, #00000000, #00000000);
+    background: -webkit-linear-gradient(to bottom, #000000ff, #000000f4, #000000ef, #000000dc, #000000ab, #00000045, #00000000, #00000000);
+    background: linear-gradient(to bottom, #000000ff, #000000f4, #000000ef, #000000dc, #000000ab, #00000045, #00000000, #00000000);
+}
+
+
+/* ------ Switch Profile Modal ------ */
+
+.switchProfBdr
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    backface-visibility: hidden;
+    opacity: 0;
+    visibility: hidden;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    z-index: 110;
+}
+
+.switchProfBdr.active
+{
+    filter: brightness(1.0);
+    opacity: 1;
+    visibility: visible;
+    animation: switchProfBdr_flick 500ms linear 0ms normal;
+}
+
+@keyframes switchProfBdr_flick 
+{
+    from
+    {
+        filter: brightness(0.0);
+    }
+    to
+    {
+        filter: brightness(1.0);
+    }
+}
+
+.switchProfBdr.inactive
+{
+    filter: brightness(0.0);
+}
+
+.switchProfBdr.flow
+{
+    transition: all var(--switchProfileFadeTranstion) ease-in-out;
+}
+
+.switchProfBdr .switchProfBcg
+{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000065;
+    z-index: -1;
+    cursor: pointer;
+}
+
+.switchProfBcg .switchProfBcgImgBox
+{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.switchProfBcgImgBox .switchProfBcgImg
+{
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-position: center;
+    object-fit: cover;
+}
+
+.switchProfBdr .switchProfBox
+{
+    width: 100%;
+    height: 100%;
+    background-color: #00000095;
+    z-index: 2;
+}
+
+.switchProfBox .switchProfBoxCtnt
+{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    gap: 1.5625rem;
+    padding: calc(var(--navBarHeight) * 1.5) 0;
+    overflow: hidden;
+    overflow-y: visible;
+}
+
+.switchProfBoxCtnt.has_scrollbar
+{
+    justify-content: unset;
+}
+
+.switchProfBoxCtnt .switchProfHeader
+{
+    position: relative;
+    width: 100%;
+    height: var(--switchProfHeaderHeight);
+    padding: 0.625rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.switchProfHeader .switchProfHeaderText
+{
+    font-size: 2.1875rem;
+    color: var(--genWhiteTypeBright);
+    text-align: center;
+}
+
+.switchProfBoxCtnt .switchProfOptBcg
+{
+    width: 100%;
+}
+
+.switchProfOptBcg .switchProfOptBdr
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0.625rem 0.3125rem;
+}
+
+.switchProfOptBdr .switchProfOptBox
+{
+    position: relative;
+    width: calc(var(--switchProfOptImgBoxWidth) + 1.875rem);
+    height: -moz-fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.9375rem;
+    transition: all 300ms ease-in-out;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.switchProfOptBox::before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0.9375rem;
+    background-color: #111111;
+    opacity: 0;
+    transform: scale(0.75);
+    transition: transform 300ms, opacity 250ms;
+    z-index: -1;
+}
+
+.switchProfOptBox:active::before
+{
+    opacity: 1;
+    transform: scale(1.0);
+}
+
+.switchProfOptBox .switchProfOptImgBdr
+{
+    position: relative;
+    width: var(--switchProfOptImgBoxWidth);
+    height: var(--switchProfOptImgBoxWidth);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.9375rem;
+}
+
+.switchProfOptImgBdr .switchProfOptImgBox
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 0.1875rem solid var(--genWhiteTypeLight);
+    background-color: var(--color4);
+    overflow: hidden;
+}
+
+.switchProfOptImgBox .switchProfOptImg
+{
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.switchProfOptBox.currProfile .switchProfOptImgBox
+{
+    border-color: var(--genGreenTypeLight);
+}
+
+.switchProfOptBox .switchProfOptTextBox
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.switchProfOptTextBox .switchProfOptText
+{
+    --editProfileLangSelectTextLineNo: 2;
+    --editProfileLangSelectTextLineH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--editProfileLangSelectTextLineNo);
+    -webkit-box-orient: vertical;
+    line-clamp: var(--editProfileLangSelectTextLineNo);
+    display: -webkit-box;
+    max-height: calc(var(--editProfileLangSelectTextLineNo) * 1em * var(--editProfileLangSelectTextLineH));
+    line-height: var(--editProfileLangSelectTextLineH);
+    color: var(--genWhiteTypeLight);
+    font-size: 0.9375rem;
+    text-align: center;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+.editProfileBadgeBdr
+{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: calc((var(--switchProfOptImgBoxWidth) / 4));
+    height: calc((var(--switchProfOptImgBoxWidth) / 4));
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 0.3125rem;
+    border-radius: 50%;
+    background-color: var(--genWhiteTypeLight);
+}
+
+.switchProfOptBox.editProfOPt .editProfileBadgeBdr
+{
+    display: flex;
+}
+
+.editProfileBadgeBdr .editProfileBadgeBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.editProfileBadgeBox .editProfileBadgeIcon
+{
+    width: 80%;
+}
+
+.switchProfOptBox.createProfile.hidden
+{
+    display: none;
+}
+
+.switchProfOptBox.createProfile.inactive
+{
+    display: none !important;
+}
+
+.switchProfOptBox .addNewProfIconBox
+{
+    position: relative;
+    width: var(--switchProfOptImgBoxWidth);
+    height: var(--switchProfOptImgBoxWidth);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 0.125rem solid var(--genWhiteTypeLight);
+    background-color: var(--color4);
+    margin-bottom: 0.9375rem;
+    overflow: hidden;
+}
+
+.addNewProfIconBox .addNewProfIcon
+{
+    width: 2.1875rem;
+    fill: var(--genWhiteTypeLight);
+}
+
+.editProfAtnBdr
+{
+    width: 100%;
+    height: var(--switchProfHeaderHeight);
+    padding: 0.625rem;
+}
+
+.editProfAtnBdr .editProfAtnBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.editProfAtnBox .editProfAtnBtn
+{
+    min-width: 7.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.9375rem 1.25rem;
+    font-size: 1rem;
+    color: var(--genWhiteTypeLight);
+    border: 0.125rem solid var(--genWhiteTypeLight);
+    background-color: #00000000;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    transition: all 150ms ease-in-out;
+    cursor: pointer;
+}
+
+.editProfAtnBtn:active
+{
+    transform: scale(0.96);
+}
+
+.editProfAtnBtn_Pc
+{
+    display: block;
+}
+
+.editProfAtnBtn_Mob
+{
+    display: none;
+}
+.editProfAtnBtn_Mob.active
+{
+    display: block;
+}
+
+
+
+/* -------- Edit Profile Modal ------- */
+
+.editProfileFence
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    overflow: hidden;
+    z-index: 110;
+}
+
+.editProfileFence .editProfileBase
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    padding: calc(var(--switchProfHeaderHeight) * 2) var(--switchProfHeaderHeight) var(--switchProfHeaderHeight);
+    background-color: #00000095;
+    scrollbar-width: none;
+    scrollbar-color: #00000000 #00000000;
+    overflow: hidden;
+    overflow-y: visible;
+}
+
+.editProfileBase.has_scrollbar
+{
+    align-items: unset;
+}
+
+.editProfileBcgImgBdr
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.editProfileBcgImgBdr.editProfileMobBcgImgBdr
+{
+    display: none;
+}
+
+.editProfileBcgImgBdr .editProfileBcgImgBox
+{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.editProfileBcgImgBox .editProfileBcgImg
+{
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-position: center;
+    object-fit: cover;
+}
+
+.editProfileBase .editProfileBdr
+{
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    max-width: 43.75rem;
+    max-height: -moz-fit-content;
+    max-height: fit-content;
+    padding: 0.625rem;
+    border-radius: 1.5625rem;
+    background-color: #181818;
+}
+
+.editProfileBdr .editProfileBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: var(--switchProfHeaderHeight) 0.625rem 0.625rem;
+    background-color: #181818;
+    overflow: hidden;
+}
+
+.editProfileBox .editProfileTitleBox
+{
+    position: relative;
+    width: 100%;
+    height: var(--switchProfHeaderHeight);
+    margin-bottom: 1.25rem;
+    padding: 0.625rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.editProfileTitleBox .editProfileTitle
+{
+    font-size: 1.5625rem;
+    color: var(--genWhiteTypeLight);
+    text-align: center;
+}
+
+
+.editProfileBcgImgOverlayBdr
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--editProfileBcgImgHeightPlus);
+    display: none;
+    transform: translateY(-100%);
+    cursor: pointer;
+}
+
+.editProfileBcgImgOverlayBdr .editProfileBcgImgOverlayBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000055;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 300ms ease-in-out;
+}
+
+.editProfileBcgImgOverlayBox .editProfileBcgImgOverlayText
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 0.875rem;
+    padding: 0.625rem 0.9375rem;
+    border-radius: 0.9375rem;
+    background-color: #222222;
+}
+
+.editBcgImgBtnBdr
+{
+    --editBcgImgBtnBoxWidth: 2.5rem;
+    --editBcgImgBtnIconWidth: 1rem;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: block;
+    margin: 1.25rem;
+    z-index: 10;
+}
+
+.editBcgImgBtnBdr .editBcgImgBtnBox
+{
+    position: relative;
+    width: var(--editBcgImgBtnBoxWidth);
+    height: var(--editBcgImgBtnBoxWidth);
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--genWhiteTypeLight);
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+}
+
+.editBcgImgBtnBox .editBcgImgBtnIconBox
+{
+    width: var(--editBcgImgBtnIconWidth);
+}
+
+.editBcgImgBtnIconBox .editBcgImgBtnIcon
+{
+    width: 100%;
+    fill: #000000;
+}
+
+.editBcgImgBtnBox .editBcgImgBtnTextBox
+{
+    --editBcgImgBtnTextAfterProp: 0.4375rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: 2.5rem;
+    border-radius: 0.625rem;
+    background-color: var(--genWhiteTypeLight);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(calc(-100% - var(--editBcgImgBtnTextAfterProp)));
+    transition: all 300ms ease-in-out;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.editBcgImgBtnTextBox .editBcgImgBtnText
+{
+    position: relative;
+    padding: 0.625rem;
+    color: #000000;
+    font-size: 0.8125rem;
+    text-wrap:nowrap;
+}
+
+.editBcgImgBtnText::after
+{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-top: var(--editBcgImgBtnTextAfterProp) solid var(--genWhiteTypeLight);
+    border-left: var(--editBcgImgBtnTextAfterProp) solid #00000000;
+    border-right: var(--editBcgImgBtnTextAfterProp) solid #00000000;
+    transform: translate(calc(50% - (var(--editBcgImgBtnBoxWidth) / 2)), 100%);
+}
+
+
+.openSelectBcgPicModal.inactive,
+.openSelectFrgPicModal.inactive
+{
+    display: none;
+}
+
+
+.editProfileFrgImgBase
+{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: var(--switchProfOptImgBoxWidth);
+    height: var(--switchProfOptImgBoxWidth);
+    display: block;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.editProfileFrgImgBase .editProfileFrgImgBdr
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.editProfileFrgImgBdr .editProfileFrgImgBox
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #111111;
+    box-shadow: 0rem 0rem 0rem .5rem #181818;
+    overflow: hidden;
+}
+
+.editProfileFrgImgBox .editProfileFrgImg
+{
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-position: center;
+    object-fit: cover;
+}
+
+.editProfileFrgImgBdr .editProfileBadgeBdr
+{
+    display: flex;
+}
+
+.editProfileFrgImgBdr .editProfileFrgImgOverlayBdr
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.editProfileFrgImgOverlayBdr .editProfileFrgImgOverlayBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000085;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 300ms ease-in-out;
+}
+
+.editProfileFrgImgOverlayBox .editProfileFrgImgOverlayText
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 0.75rem;
+    padding: 0.4375rem 0.625rem;
+    border-radius: 0.9375rem;
+    background-color: #222222;
+}
+
+
+.editProfileBox .editProfileDetBdr
+{
+    width: 100%;
+    border-radius: 0.3125rem;
+    background-color: #111111;
+    overflow: hidden;
+}
+
+.editProfileDetBdr .editProfileDetBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0.625rem;
+}
+
+.editProfileDetBox.inactive
+{
+    display: none;
+}
+
+.editProfileDetBox .editProfileDetSect
+{
+    width: 100%;
+    padding: 1.25rem 0;
+    border-bottom: 0.0625rem solid #333333;
+}
+
+.editProfileDetSect:last-child
+{
+    border: none;
+}
+
+.editProfileDetSect .editProfileDetSectCtnt
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.625rem;
+}
+
+.editProfileDetSectCtnt .editProfileDetSectHead
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.625rem;
+}
+
+.editProfileDetSectHead .editProfileDetSectHeadText
+{
+    font-size: 1rem;
+    color: var(--genWhiteTypeLight);
+}
+
+.editProfileDetSectCtnt .editProfileDetSectBody
+{
+    width: 100%;
+}
+
+.editProfileDetSectBody .editProfileDetSectBodyText
+{
+    width: 100%;
+    color: var(--genWhiteTypeMid);
+    font-size: 0.875rem;
+}
+
+.openSelectBcgPicModal
+{
+    cursor: pointer;
+}
+
+.deleteProfile
+{
+    color: var(--warningClr);
+    cursor: pointer;
+}
+
+.editProfileNameBdr
+{
+    width: 100%;
+    height: 2.5rem;
+    margin-bottom: 0.4375rem;
+}
+
+.editProfileNameBdr .editProfileNameBox
+{
+    width: 100%;
+    height: 100%;
+}
+
+.editProfileNameBox .editProfileNameField
+{
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    padding: 0 0.3125rem;
+    font-size: 1rem;
+    color: var(--genWhiteTypeMid);
+    border-bottom: 0.125rem solid var(--genWhiteTypeDark);
+    background-color: #00000000;
+    transition: all 300ms ease-in-out;
+}
+
+.editProfileNameField:focus
+{
+    border-color: var(--genGreenTypeLight);
+}
+
+.editProfileNameWarnBdr
+{
+    width: 100%;
+    display: none;
+}
+
+.editProfileNameWarnBdr.active
+{
+    display: block;
+}
+
+.editProfileNameWarnBdr .editProfileNameWarnBox
+{
+    width: 100%;
+}
+
+.editProfileNameWarnBox .editProfileNameWarnText
+{
+    width: 100%;
+    color: var(--warningClr);
+    font-size: 0.75rem;
+}
+
+.editProfileLangSelectBdr
+{
+    position: relative;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.editProfileLangSelectBdr .editProfileLangSelectBox
+{
+    max-width: 7.8125rem;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.3125rem;
+    background-color: #262626;
+    cursor: pointer;
+}
+
+.editProfileLangSelectBox::after
+{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    border-top: 0.3125rem solid var(--genWhiteTypeLight);
+    border-left: 0.3125rem solid #00000000;
+    border-right: 0.3125rem solid #00000000;
+    transform: translate(100%, -50%);
+}
+
+.editProfileLangSelectBox .editProfileLangSelectText
+{
+    --editProfileLangSelectTextLineNo: 1;
+    --editProfileLangSelectTextLineH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--editProfileLangSelectTextLineNo);
+    -webkit-box-orient: vertical;
+    line-clamp: var(--editProfileLangSelectTextLineNo);
+    display: -webkit-box;
+    max-height: calc(var(--editProfileLangSelectTextLineNo) * 1em * var(--editProfileLangSelectTextLineH));
+    line-height: var(--editProfileLangSelectTextLineH);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    color: var(--genWhiteTypeLight);
+    font-size: 0.875rem;
+    margin-left: 0.3125rem;
+    text-wrap: nowrap;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+.editProfileLangSelectBdr .editProfileLangOptBdr
+{
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 17.1875rem;
+    height: -moz-fit-content;
+    height: fit-content;
+    max-height: 18.75rem;
+    display: none;
+    background-color: #1b1b1b;
+    overflow: hidden;
+    overflow-y: auto;
+    z-index: 4;
+}
+
+.editProfileLangSelectBdr.active .editProfileLangSelectBox
+{
+    border-bottom-left-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+    background-color: #1b1b1b;
+}
+
+.editProfileLangSelectBdr.active .editProfileLangOptBdr
+{
+    display: block;
+}
+
+.editProfileLangOptBdr .editProfileLangOptBox
+{
+    width: 100%;
+    height: 100%;
+    padding: 0.75rem 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.editProfileLangOptBox .editProfileLangOptItems
+{
+    position: relative;
+    width: 100%;
+    padding: 0.625rem 0.75rem;
+    color: var(--genWhiteTypeMid);
+    font-size: 0.8125rem;
+    transition: all 150ms ease-in-out;
+    cursor: pointer;
+}
+
+.editProfileLangOptItems:active
+{
+    background-color: #282828;
+}
+
+.editProfileLangOptItems.active
+{
+    color: var(--genWhiteTypeBright);
+    background-color: #262626;
+}
+
+.editProfileLangOptItems.active::after
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0.1875rem;
+    height: 100%;
+    background-color: var(--genWhiteTypeBright);
+}
+
+
+.selectPicBdr
+{
+    width: 100%;
+    display: none;
+    border-radius: 0.3125rem;
+    background-color: #111111;
+}
+
+.selectFrgPicBdr.active,
+.selectBcgPicBdr.active
+{
+    display: block;
+}
+
+.selectPicBdr .selectPicBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem 0;
+}
+
+.selectPicBox .selectPicSect
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 2.5rem;
+}
+
+.selectPicSect .selectPicSectHeader
+{
+    width: 100%;
+    margin: 0 0 0.3125rem;
+    padding: 0 1.25rem;
+}
+
+.selectPicSectHeader .selectPicSectHeaderText
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 1rem;
+}
+
+.selectPicSect .selectPicSectCarouselBdr
+{
+    width: 100%;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.selectPicSectCarouselBdr .selectPicSectCarouselBox
+{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.selectPicSectCarouselBox  .selectPicCarouselArrBox
+{
+    position: absolute;
+    top: 0;
+    width: 2.1875rem;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    visibility: visible;
+    transition: 300ms;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.selectPicCarouselArrBox.selectPicCarouselArrLeftBox
+{
+    left: 0;
+}
+
+.selectPicCarouselArrBox.selectPicCarouselArrRightBox
+{
+    right: 0;
+}
+
+.selectPicCarouselArrBox.selectPicCarouselArrLeftBox
+{
+    background-image: -o-linear-gradient(to right,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
+    background-image: -moz-linear-gradient(to right,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
+    background-image: -webkit-linear-gradient(to right,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
+    background-image: linear-gradient(to right,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
+}
+
+.selectPicCarouselArrBox.selectPicCarouselArrRightBox
+{
+    background-image: -o-linear-gradient(to left,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
+    background-image: -moz-linear-gradient(to left,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
+    background-image: -webkit-linear-gradient(to left,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
+    background-image: linear-gradient(to left,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
+}
+
+.selectPicCarouselArrBox .selectPicCarouselArr
+{
+    width: var(--basicSlideArrowIconWidth);
+    height: var(--basicSlideArrowIconWidth);
+    fill: var(--genWhiteTypeMid);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 300ms ease-in-out;
+    cursor: none;
+}
+
+.selectPicSectCarouselBox .selectPicCarouselGrid
+{
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-color: #00000000 #00000000;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.selectPicCarouselGrid.isBasicSliderDown
+{
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+}
+
+
+/* ----- Profile (Frg) Carousel ----- */
+.selectPicCarouselGrid.selectFrgPicCarouselGrid
+{
+    --selectFrgPicCarouselGridRowNo: 5;
+    display: grid;
+    grid-auto-columns: calc((100% / var(--selectFrgPicCarouselGridRowNo)) - 0.5rem);
+    grid-auto-flow: column;
+    gap: 0.625rem;
+    padding: 0.625rem 1.875rem;
+    scroll-padding-left: 1.875rem;
+    scroll-padding-right: 1.875rem;
+}
+
+.selectFrgPicCarouselGrid .selectFrgPicCarouselCardBox
+{
+    scroll-snap-align: start;
+}
+
+.selectFrgPicCarouselCardBox .selectFrgPicCarouselCard
+{
+    position: relative;
+    width: 100%;
+    max-width: calc(var(--switchProfOptImgBoxWidth));
+    max-height: calc(var(--switchProfOptImgBoxWidth));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+}
+
+.selectFrgPicCarouselCard:active
+{
+    border: 0.125rem solid var(--genWhiteTypeLight);
+    transform: scale(1.15);
+    z-index: 4;
+}
+
+.selectFrgPicCarouselCard .selectFrgPicCarouselImgBox
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.selectFrgPicCarouselImgBox .selectFrgPicCarouselImg
+{
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-position: center;
+    object-fit: cover;
+}
+
+
+
+/* ----- Background (Bcg) Carousel ----- */
+.selectPicCarouselGrid.selectBcgPicCarouselGrid
+{
+    --selectBcgPicCarouselGridRowNo: 2;
+    display: grid;
+    grid-auto-columns: calc((100% / var(--selectBcgPicCarouselGridRowNo)) - 0.5rem);
+    grid-auto-flow: column;
+    gap: 0.625rem;
+    padding: 0.3125rem 1.875rem;
+    scroll-padding-left: 1.875rem;
+    scroll-padding-right: 1.875rem;
+}
+
+.selectBcgPicCarouselGrid .selectBcgPicCarouselCardBox
+{
+    scroll-snap-align: start;
+}
+
+.selectBcgPicCarouselCardBox .selectBcgPicCarouselCard
+{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.3125rem;
+    aspect-ratio: 7/3;
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+}
+
+.selectBcgPicCarouselCard::before
+{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.625rem;
+    border: 0.125rem solid var(--genWhiteTypeLight);
+    background-color: var(--genWhiteTypeLight);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.95);
+    transition: all 300ms ease-in-out;
+    z-index: -1;
+}
+
+.selectBcgPicCarouselCard:active
+{
+    transform: scale(1.025);
+}
+
+.selectBcgPicCarouselCard:active::before
+{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+}
+
+.selectBcgPicCarouselCard .selectBcgPicCarouselImgBox
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 0.625rem;
+    overflow: hidden;
+}
+
+.selectBcgPicCarouselImgBox .selectBcgPicCarouselImg
+{
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-position: center;
+    object-fit: cover;
+}
+
+
+
+
+
+
+
+
+@media(hover: hover)
+{
+    
+    .profileNavBox.shorten
+    {
+        width: calc(100% - var(--scrollBarWidth));
+        width: calc(100% - 0.125rem);
+    }  
+    
+    .switchProfOptBox:hover::before
+    {
+        opacity: 1;
+        transform: scale(1.0);
+    }
+
+    .editBcgImgBtnBdr:hover ~ .editProfileBcgImgOverlayBdr .editProfileBcgImgOverlayBox,
+    .editProfileBcgImgOverlayBdr:hover .editProfileBcgImgOverlayBox
+    {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .editBcgImgBtnBox:hover .editBcgImgBtnTextBox
+    {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .editProfileFrgImgBdr:hover .editProfileFrgImgOverlayBox
+    {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .selectFrgPicCarouselCard:hover
+    {
+        border: 0.125rem solid var(--genWhiteTypeLight);
+        transform: scale(1.15);
+        z-index: 4;
+    }
+
+    .editProfileLangOptItems:hover
+    {
+        background-color: #282828;
+    }
+
+    .selectBcgPicCarouselCard:hover
+    {
+        transform: scale(1.025);
+    }
+
+    .selectBcgPicCarouselCard:hover::before
+    {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1.0);
+    }
+}
 
 
 
@@ -210,7 +1528,59 @@ html:root
     {
         font-size: 0.875rem;
     }
+
+    .addNewProfIconBox .addNewProfIcon
+    {
+        width: 1.875rem;
+    }
+
+    .switchProfOptTextBox .switchProfOptText
+    {
+        font-size: 0.8125rem;
+    }
+
+    .editProfileFence .editProfileBase
+    {
+        padding: calc(var(--editProfileBcgImgHeightPlus)) 0 0;
+    }
+
+    .editProfileBcgImgBdr
+    {
+        max-height: var(--editProfileBcgImgHeightPlus);
+    }
+
+    .editProfileBase .editProfileBdr
+    {
+        max-height: calc((100% - (var(--editProfileBcgImgHeightPlus) * 2)));
+        min-height: 100%;
+        max-width: none;
+        padding: 0.625rem 0 0;
+        border-radius: 0rem;
+        overflow-y: visible;
+    }
+
+    .editProfileBcgImgOverlayBdr
+    {
+        display: block;
+    }
+
+    .editBcgImgBtnBdr
+    {
+        --editBcgImgBtnBoxWidth: 1.875rem;
+        --editBcgImgBtnIconWidth: 0.75rem;
+        position: absolute;
+        top: 0;
+        bottom: unset;
+        margin: 0 0.625rem;
+        transform: translateY(calc(-100% - (var(--editBcgImgBtnBoxWidth) / 2)));
+    }
+
+    .editBcgImgBtnBox .editBcgImgBtnTextBox
+    {
+        display: none;
+    }
 }
+
 
 
 @media only screen and (max-width: 30.3125rem)
@@ -250,7 +1620,100 @@ html:root
     {
         justify-content: center;
     }
+
+    .switchProfHeader .switchProfHeaderText
+    {
+        font-size: 1.875rem;
+    }
+
+    .editProfileBox .editProfileTitleBox
+    {
+        margin-bottom: 0.625rem;
+    }
+
+    .editProfileTitleBox .editProfileTitle
+    {
+        font-size: 1.375rem;
+    }
+
+    .editProfileDetSectHead .editProfileDetSectHeadText
+    {
+        font-size: 0.875rem;
+    }
+
+    .editProfileDetSectBody .editProfileDetSectBodyText
+    {
+        font-size: 0.75rem;
+    }
+
+    .editProfileNameBox .editProfileNameField
+    {
+        font-size: 0.875rem;
+    }
+
+    .editProfileNameWarnBox .editProfileNameWarnText
+    {
+        font-size: 0.6875rem;
+    }
+
+    .editProfileLangSelectBox .editProfileLangSelectText
+    {
+        font-size: 0.75rem;
+    }
+
+    .editProfileLangOptBox .editProfileLangOptItems
+    {
+        font-size: 0.6875rem;
+    }
+
+    .selectPicCarouselGrid.selectFrgPicCarouselGrid
+    {
+        --selectFrgPicCarouselGridRowNo: 4;
+        grid-auto-columns: calc((100% / var(--selectFrgPicCarouselGridRowNo)) - 0.25rem);
+        gap: 0.3125rem;
+        padding: 0.625rem 0.9375rem;
+        scroll-padding-left: 0.9375rem;
+        scroll-padding-right: 0.9375rem;
+    }
+
+    .selectPicCarouselGrid.selectBcgPicCarouselGrid
+    {
+        --selectBcgPicCarouselGridRowNo: 1;
+    }
 }
+
+
+
+@media only screen and (max-width: 25rem)
+{
+
+    .editProfileBcgImgOverlayBox .editProfileBcgImgOverlayText
+    {
+        font-size: 0.75rem;
+        transform: translateY(-50%);
+    }
+
+    .selectPicCarouselGrid.selectFrgPicCarouselGrid
+    {
+        --selectFrgPicCarouselGridRowNo: 3;
+    }
+}
+
+
+@media only screen and (max-width: 21.875rem)
+{
+
+    .addNewProfIconBox .addNewProfIcon
+    {
+        width: 1.5625rem;
+    }
+
+    .switchProfOptTextBox .switchProfOptText
+    {
+        font-size: 0.75rem;
+    }
+}
+
 
 
 @media only screen and (max-width: 20rem)
@@ -260,6 +1723,38 @@ html:root
     {
         flex-direction: column;
         align-items: center;
+    }
+}
+
+
+
+
+
+/* =============== NON-TOUCH SCREENS ============== */
+
+@media(hover: hover)
+{
+    /* --------- Switch Profiles Modal ---------- */
+    .switchProfBdr *,
+    .editProfileFence *
+    {
+        scrollbar-width: none;
+        scrollbar-color: #00000000 #00000000;
+    }
+
+    .switchProfBdr *::-webkit-scrollbar,
+    .editProfileFence *::-webkit-scrollbar
+    {
+        width: 0rem;
+        height: 0rem;
+        display: none;
+    }
+
+    .userProfileScrollbar::-webkit-scrollbar-thumb,
+    .userProfileScrollbar::-webkit-scrollbar-thumb:active,
+    .userProfileScrollbar::-webkit-scrollbar-thumb:hover
+    {
+        background-color: #dfdfdf80;
     }
 }
 
