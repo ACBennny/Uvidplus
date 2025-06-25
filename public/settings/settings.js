@@ -1494,10 +1494,11 @@
         {
             let usrData = await getUserData();
             let usrCtg = Number(usrData[menuUpdId]) || 0;
+            
             menuOptBtns[usrCtg].classList.add("selected");
             genMenuModalBox.scrollTo(
             {
-                top: (Math.round(menuOptBtns[usrCtg].getBoundingClientRect().top) - 25),
+                top: (Math.ceil((menuOptBtns[usrCtg].getBoundingClientRect().top - (window.innerHeight - genMenuModalBox.getBoundingClientRect().height) - 25))),
                 behavior: "smooth"
             });
         }
@@ -1533,7 +1534,6 @@
             btn.addEventListener("click", menu_atn);
         });
     }
-
 
 
 
