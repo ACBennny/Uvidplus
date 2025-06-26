@@ -1351,17 +1351,50 @@
         }
 
     
-    // GETTING CURRENT DATE IN FORMAT MMM : DD : YYYY
+    // GETTING DATES
 
-        function getCurrDate()
+        // Get the current date
+        function getCurrDate(format = null)
         {
-            let currentDate = new Date();
-            let currYear = currentDate.getFullYear();
-            let currMonth = currentDate.getMonth() + 0;
-            let monthArr = [`Jan` , `Feb` , `Mar` , `Apr` , `May` , `Jun` , `Jul` , `Aug` , `Sep` , `Oct` , `Nov` , `Dec`];
-            let currDay = currentDate.getDate();
-            let dateInStr = `${monthArr[currMonth]} ${currDay}, ${currYear}`;
+            const currentDate = new Date();
+            const currYear = currentDate.getFullYear();
+            const currMonth = currentDate.getMonth();
+            const monthArr = [`Jan` , `Feb` , `Mar` , `Apr` , `May` , `Jun` , `Jul` , `Aug` , `Sep` , `Oct` , `Nov` , `Dec`];
+            const currDay = currentDate.getDate();
+            const dateInStr = 
+                format === "short" 
+                ? `${currDay}/${(currMonth + 1)}/${currYear}` 
+                : `${monthArr[currMonth]} ${currDay}, ${currYear}`;
+
+            console.log("curr date", dateInStr);
             return dateInStr;
+        }
+
+
+        // Get the next date from the provided date by the number of days provided
+        function getNextDate(inpDate = getCurrDate('short'), incrmt_by = 0, format = null)
+        {
+            // Split input and extract day, month, year
+            const [day, month, year] = inpDate.split('/').map(Number);
+
+            // Create Date object (Note: months are 0-indexed in JS)
+            const date = new Date(year, month - 1, day);
+
+            // Add n days
+            date.setDate(date.getDate() + incrmt_by);
+
+            // Format result back to DD/MM/YYYY
+            const newYear = date.getFullYear();
+            const newMonth = date.getMonth();
+            const monthArr = [`Jan` , `Feb` , `Mar` , `Apr` , `May` , `Jun` , `Jul` , `Aug` , `Sep` , `Oct` , `Nov` , `Dec`];
+            const newDay = date.getDate();
+            const newDate = 
+                format === "short" 
+                ? `${newDay}/${(newMonth + 1)}/${newYear}` 
+                : `${monthArr[newMonth]} ${newDay}, ${newYear}`;
+
+            console.log(`From ${inpDate} to ${newDate}\nIncreased by ${incrmt_by}`);
+            return inpDate;
         }
 
 
