@@ -8,7 +8,6 @@
  *      phone_no: ``, // The user's phone number
  *      is_setup: true, // Determines if the user is still setting up their account
  *      stp_steps: `start`, // Holds the current step of the account setup process
- *      curr_plan_id: ``, // Current streaming plan (The id is used to get details of the plan)
  *      is_membership_active: false, // Boolean for if a membership is currently active
  *      cast_data_usage_ul: `auto`, // The Upper limit on how much data will be used during casting
  *      dwld_qlty_pref: `Always ask`, // The preferred quality for downloaded shows
@@ -19,6 +18,13 @@
  *      share_prsnl_info: true, // Boolean for if user wants their info to be shared/sold to 3rd party services (For demonstration only)
  *      conn_apps: [], // Apps connected to the user's account. Not available yet
  *      device_mngmt: [], // Manage all devices you've logged into. Not available yet
+ * 
+ *      curr_plan:
+ *      {
+ *          curr_plan_id: ``, // Current streaming plan (The id is used to get details of the plan)
+ *          curr_plan_start: ``, // The Start date
+ *          curr_plan_end: ``, // The end date
+ *      } 
 
  *      // Payment methods (Only cards accepted for now)
  *      pymt_mtd: 
@@ -40,11 +46,12 @@
  *              bill_plan_id: ``, // Id of the plan
  *              bill_plan_name: ``, // Name of the plan
  *              bill_plan_price: ``, // Price of the plan
+ *              bill_plan_date: ``, // The date the bill was issued
  *          },
  *      ],
 
  *      // Profiles (1 defualt profile, 4 more profiles can be added)
- *      profiles: 
+ *      profiles:
  *      [
  *          {
  *              prof_id: `dflt`, // Id for default profile. (Other profiles have a randomly generated id)
@@ -129,7 +136,6 @@
     // Attributes for a single user
     let uvid_sgl_usr_obj = 
     {
-        email: ``,
         full_name: ``,
         phone_no: ``,
         is_setup: true,

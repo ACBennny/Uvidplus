@@ -17,13 +17,14 @@
             if(auth.currentUser) 
             {
                 await auth.currentUser.reload();
+                await auth.currentUser.getIdToken(true);
                 window.uvidUser = auth.currentUser;
                 window.uvidUserVrfd = !!auth.currentUser.emailVerified;
                 console.log("user state refresh successfull")
             }
             else
             {
-                console.log("user state refresh failed")
+                console.log("User state refresh failed")
             }
         }
 

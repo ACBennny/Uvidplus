@@ -434,7 +434,6 @@
                         await user.sendEmailVerification();
                         
                         // Update the user details 
-                        uvid_sgl_usr_obj.email = user.email;
                         uvid_sgl_usr_obj.full_name = newFullName.value;
                         uvid_sgl_usr_obj.stp_steps = "2";
                         uvid_sgl_usr_obj.profiles = 
@@ -581,10 +580,7 @@
             // Attempt to send a new email verifcation
             try 
             {
-                await user.sendEmailVerification(
-                {
-                    url: "https://acuvid.netlify.app/verify",
-                });
+                await user.sendEmailVerification();
 
                 // Let user know the eamil verification has been sent successfully
                 notification(`notifyGood` , "Verification email sent! Please check your inbox(and spam).");
@@ -775,14 +771,30 @@
             // Get the selected plan
             let sel_plan = document.querySelector(".join_plan_sls_cardBdr[selected]").querySelector("input[name='join_plan_sls_rad']").getAttribute("value");
 
-            // Update the User's info
-            await updateUserData({
-                stp_steps: `3`,
-                curr_plan_id: `${sel_plan}`,
-            });
+            try
+            {
+                console.log(`User email verified = :${isUserVerified()}`);
+                
+                // Update the User's info
+                await updateUserData(
+                {
+                    stp_steps: `3`,
+                    curr_plan: 
+                    {
+                        curr_plan_id: `${sel_plan}`,
+                        curr_plan_name: ``,
+                        curr_plan_end: ``,
+                    },
+                });
 
-            // Move to the next step
-            switch_step(3);
+                // Move to the next step
+                switch_step(3);
+            }
+            catch (error)
+            {
+                console.error(error);
+                notification('notifyBad' , 'An error occured. Please try again')
+            }
         });
     }
 
@@ -794,19 +806,19 @@
         // Check that a plan has been selected
 
             const usrData = await getUserData();
-            const usrCurrPlan = usrData?.curr_plan_id;
+            const usrCurrPlan = usrData?.curr_plan.curr_plan_id;
             let plan_obj = uvid_signup_plans[usrCurrPlan];
 
-            if((typeof plan_obj === "undefined") || (typeof plan_obj !== "object") || (plan_obj === null)) 
+            if((typeof plan_obj !== "undefined") && (typeof plan_obj === "object") && (plan_obj !== null)) 
+            {
+                document.querySelectorAll("input.form_input_field").forEach(item => item.disabled = false);
+            }
+            else
             {
                 document.querySelectorAll("input.form_input_field").forEach(item => item.disabled = true);
                 notification('notifyBad' , 'A plan is required to proceed');
                 switch_step(2);
                 return;
-            }
-            else
-            {
-                document.querySelectorAll("input.form_input_field").forEach(item => item.disabled = false);
             }
 
 
@@ -1188,10 +1200,17 @@
                     planFormSbtBtn.disabled = true;
 
                     // Update the User's info
+                    let start_date = getCurrDate("short");
                     await updateUserData(
                     {
                         is_setup: false,
                         stp_steps: `outro`,
+                        curr_plan: 
+                        {
+                            curr_plan_id: `${usrCurrPlan}`,
+                            curr_plan_name: `${plan_obj.plan_name}`,
+                            curr_plan_end: `${getNextDate(start_date, 10, "short")}`,
+                        },
                         pymt_mtd: 
                         [
                             {
@@ -1208,7 +1227,8 @@
                             {
                                 bill_plan_id: `${usrCurrPlan}`,
                                 bill_plan_name: `${plan_obj.plan_name}`,
-                                bill_plan_price: `${plan_obj.plan_price_month}`
+                                bill_plan_price: `${plan_obj.plan_price_month}`,
+                                bill_plan_date: `${start_date}`,
                             }
                         ],
                     });
