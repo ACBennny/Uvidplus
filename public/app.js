@@ -418,10 +418,17 @@
                 // Delete all user's information
                 const proDelReq = async () => 
                 {
-                    await firebase.firestore().collection("users").doc(user.uid).delete();
-                    await user.delete();
-                    notification(`notifyGood`, "Account deleted. Goodbye for now :(");
-                    window.location.hash = "#/landing";
+                    try {
+                        await firebase.firestore().collection("uvp_fb_users").doc(user.uid).delete();
+                        await user.delete();
+                        notification(`notifyGood`, "Account deleted. Goodbye for now :(");
+                        window.location.hash = "#/landing";
+                    }
+                    catch(error)
+                    {
+                        console.error(error);
+                        notification(`notifyBad`, "Account deleted failed");
+                    }
                 }
                 
                 // Confirm one final time
