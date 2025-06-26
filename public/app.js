@@ -19,6 +19,11 @@
                 await auth.currentUser.reload();
                 window.uvidUser = auth.currentUser;
                 window.uvidUserVrfd = !!auth.currentUser.emailVerified;
+                console.log("user state refresh successfull")
+            }
+            else
+            {
+                console.log("user state refresh failed")
             }
         }
 
@@ -41,7 +46,7 @@
         }
 
         // Gets the currently signed in user's data
-        async function getUserData() 
+        async function getUserData()
         {
             const user = window.uvidUser;
 
@@ -301,8 +306,8 @@
                 }
                 // Checks if the input fits the specified pattern
                 else if(!(lastPassArrayVal.match(userPass_Cond_SpecialChar) 
-                    && pass.match(userPass_Cond_Lett_Upr)
-                    && pass.match(userPass_Cond_Lett_Lwr)
+                    && lastPassArrayVal.match(userPass_Cond_Lett_Upr)
+                    && lastPassArrayVal.match(userPass_Cond_Lett_Lwr)
                     && lastPassArrayVal.match(userPass_Cond_num)
                 ))
                 {
