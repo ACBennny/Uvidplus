@@ -52,13 +52,13 @@ let sett_cmpnt_lib =
     {
         sett_sect: `membership`,
         sett_orientation: `horizontal`,
-        sett_title: `Subscription`,
+        sett_title: `Manage Membership`,
         sett_desc: 
         `
-            View the details of your subscription plan, make changes and more.
+            View the details of your membership, make changes and more.
         `,
         sett_atn_type: `modal`,
-        sett_atn_id: `sett_subscription`,
+        sett_atn_id: `sett_mng_membership`,
         sett_atn_title: `Open`,
         sett_atn_func: ``,
     },
