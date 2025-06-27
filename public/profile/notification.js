@@ -26,13 +26,13 @@
     `;
     let ntfyStruct = 
     `
-        <div class="ntfy_base">
-            <div class="ntfy_bcg ntfy_close"></div>
-            <div class="ntfy_bdr">
-                <div class="ntfy_box">
-                    <div class="ntfy_hdr_bdr">
-                        <div class="ntfy_hdr_box">
-                            <div class="ntfy_hdr_TitleBdr">
+        <div class="genStaticBase ntfy_base">
+            <div class="genStaticBcg ntfy_close"></div>
+            <div class="genStaticBdr">
+                <div class="genStaticBox">
+                    <div class="genStaticHdrBdr">
+                        <div class="genStaticHdrBox">
+                            <div class="genStaticHdr_top">
                                 <button type="button" class="genBtnBox genIconBtn transBtn ntfy_close">
                                     <div class="genBtnIcon">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
@@ -40,41 +40,45 @@
                                         </svg>
                                     </div>
                                 </button>
-                                <div class="ntfy_hdr_TitleBox">
-                                    <div class="ntfy_hdr_TitleText">Notification</div>
+                                <div class="genStaticHdr_TitleBox">
+                                    <div class="genStaticHdr_TitleText">Notification</div>
                                 </div>
                             </div>
-                            <div class="ntfy_hdr_atnBdr">
-                                <button type="button" class="genBtnBox greySolidBtn markAllNotificationsAsRead">
-                                    <div class="genBtnIcon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
-                                            <path fill-rule="evenodd" d="M18.493 6.935a.75.75 0 0 1 .072 1.058l-7.857 9a.75.75 0 0 1-1.13 0l-3.143-3.6a.75.75 0 0 1 1.13-.986l2.578 2.953l7.292-8.353a.75.75 0 0 1 1.058-.072" clip-rule="evenodd" />
-                                        </svg>
-                                    </div>
-                                    <span class="genBtnText">Mark all as read</span>
-                                </button>
-                                <button type="button" class="genBtnBox greySolidBtn clear_ntfy_full clearAllNotifications">
-                                    <div class="genBtnIcon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
-                                            <path d="M3 6.524c0-.395.327-.714.73-.714h4.788c.006-.842.098-1.995.932-2.793A3.68 3.68 0 0 1 12 2a3.68 3.68 0 0 1 2.55 1.017c.834.798.926 1.951.932 2.793h4.788c.403 0 .73.32.73.714a.72.72 0 0 1-.73.714H3.73A.72.72 0 0 1 3 6.524" />
-                                            <path fill-rule="evenodd" d="M11.596 22h.808c2.783 0 4.174 0 5.08-.886c.904-.886.996-2.34 1.181-5.246l.267-4.187c.1-1.577.15-2.366-.303-2.866c-.454-.5-1.22-.5-2.753-.5H8.124c-1.533 0-2.3 0-2.753.5s-.404 1.289-.303 2.866l.267 4.188c.185 2.906.277 4.36 1.182 5.245c.905.886 2.296.886 5.079.886m-1.35-9.811c-.04-.434-.408-.75-.82-.707c-.413.043-.713.43-.672.864l.5 5.263c.04.434.408.75.82.707c.413-.044.713-.43.672-.864zm4.329-.707c.412.043.713.43.671.864l-.5 5.263c-.04.434-.409.75-.82.707c-.413-.044-.713-.43-.672-.864l.5-5.264c.04-.433.409-.75.82-.707" clip-rule="evenodd" />
-                                        </svg>
-                                    </div>
-                                    <span class="genBtnText">Clear all</span>
-                                </button>
-                                <button type="button" class="genBtnBox genIconBtn greySolidBtn clear_ntfy_half clearAllNotifications">
-                                    <div class="genBtnIcon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
-                                            <path d="M3 6.524c0-.395.327-.714.73-.714h4.788c.006-.842.098-1.995.932-2.793A3.68 3.68 0 0 1 12 2a3.68 3.68 0 0 1 2.55 1.017c.834.798.926 1.951.932 2.793h4.788c.403 0 .73.32.73.714a.72.72 0 0 1-.73.714H3.73A.72.72 0 0 1 3 6.524" />
-                                            <path fill-rule="evenodd" d="M11.596 22h.808c2.783 0 4.174 0 5.08-.886c.904-.886.996-2.34 1.181-5.246l.267-4.187c.1-1.577.15-2.366-.303-2.866c-.454-.5-1.22-.5-2.753-.5H8.124c-1.533 0-2.3 0-2.753.5s-.404 1.289-.303 2.866l.267 4.188c.185 2.906.277 4.36 1.182 5.245c.905.886 2.296.886 5.079.886m-1.35-9.811c-.04-.434-.408-.75-.82-.707c-.413.043-.713.43-.672.864l.5 5.263c.04.434.408.75.82.707c.413-.044.713-.43.672-.864zm4.329-.707c.412.043.713.43.671.864l-.5 5.263c-.04.434-.409.75-.82.707c-.413-.044-.713-.43-.672-.864l.5-5.264c.04-.433.409-.75.82-.707" clip-rule="evenodd" />
-                                        </svg>
-                                    </div>
-                                </button>
+                            <div class="genStaticHdr_btm">
+                                <div class="ntfy_hdr_atnBdr">
+                                    <button type="button" class="genBtnBox greySolidBtn markAllNotificationsAsRead">
+                                        <div class="genBtnIcon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
+                                                <path fill-rule="evenodd" d="M18.493 6.935a.75.75 0 0 1 .072 1.058l-7.857 9a.75.75 0 0 1-1.13 0l-3.143-3.6a.75.75 0 0 1 1.13-.986l2.578 2.953l7.292-8.353a.75.75 0 0 1 1.058-.072" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <span class="genBtnText">Mark all as read</span>
+                                    </button>
+                                    <button type="button" class="genBtnBox greySolidBtn clear_ntfy_full clearAllNotifications">
+                                        <div class="genBtnIcon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
+                                                <path d="M3 6.524c0-.395.327-.714.73-.714h4.788c.006-.842.098-1.995.932-2.793A3.68 3.68 0 0 1 12 2a3.68 3.68 0 0 1 2.55 1.017c.834.798.926 1.951.932 2.793h4.788c.403 0 .73.32.73.714a.72.72 0 0 1-.73.714H3.73A.72.72 0 0 1 3 6.524" />
+                                                <path fill-rule="evenodd" d="M11.596 22h.808c2.783 0 4.174 0 5.08-.886c.904-.886.996-2.34 1.181-5.246l.267-4.187c.1-1.577.15-2.366-.303-2.866c-.454-.5-1.22-.5-2.753-.5H8.124c-1.533 0-2.3 0-2.753.5s-.404 1.289-.303 2.866l.267 4.188c.185 2.906.277 4.36 1.182 5.245c.905.886 2.296.886 5.079.886m-1.35-9.811c-.04-.434-.408-.75-.82-.707c-.413.043-.713.43-.672.864l.5 5.263c.04.434.408.75.82.707c.413-.044.713-.43.672-.864zm4.329-.707c.412.043.713.43.671.864l-.5 5.263c-.04.434-.409.75-.82.707c-.413-.044-.713-.43-.672-.864l.5-5.264c.04-.433.409-.75.82-.707" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <span class="genBtnText">Clear all</span>
+                                    </button>
+                                    <button type="button" class="genBtnBox genIconBtn greySolidBtn clear_ntfy_half clearAllNotifications">
+                                        <div class="genBtnIcon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
+                                                <path d="M3 6.524c0-.395.327-.714.73-.714h4.788c.006-.842.098-1.995.932-2.793A3.68 3.68 0 0 1 12 2a3.68 3.68 0 0 1 2.55 1.017c.834.798.926 1.951.932 2.793h4.788c.403 0 .73.32.73.714a.72.72 0 0 1-.73.714H3.73A.72.72 0 0 1 3 6.524" />
+                                                <path fill-rule="evenodd" d="M11.596 22h.808c2.783 0 4.174 0 5.08-.886c.904-.886.996-2.34 1.181-5.246l.267-4.187c.1-1.577.15-2.366-.303-2.866c-.454-.5-1.22-.5-2.753-.5H8.124c-1.533 0-2.3 0-2.753.5s-.404 1.289-.303 2.866l.267 4.188c.185 2.906.277 4.36 1.182 5.245c.905.886 2.296.886 5.079.886m-1.35-9.811c-.04-.434-.408-.75-.82-.707c-.413.043-.713.43-.672.864l.5 5.263c.04.434.408.75.82.707c.413-.044.713-.43.672-.864zm4.329-.707c.412.043.713.43.671.864l-.5 5.263c-.04.434-.409.75-.82.707c-.413-.044-.713-.43-.672-.864l.5-5.264c.04-.433.409-.75.82-.707" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="ntfy_ctnt_bdr">
-                        <div class="ntfy_ctnt_box">${emptyNtfyStruct}</div>
+                    <div class="genStaticCtntBdr">
+                        <div class="genStaticCtntBox">
+                            <div class="ntfy_ctnt_box">${emptyNtfyStruct}</div>
+                        </div>
                     </div>
                 </div>
             </div>

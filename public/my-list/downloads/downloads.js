@@ -84,14 +84,14 @@
             </div>
         </div>
 
-        <div class="dlMdlBase">
-            <div class="dlMdlBcg dlMdlBaseCloseBtn"></div>
-            <div class="dlMdlBdr">
-                <div class="dlMdlBox genTick_chkSelState">
-                    <div class="dlMdlHdrBdr">
-                        <div class="dlMdlHdrBox">
-                            <div class="dlMdlHdr_top">
-                                <div class="dlMdlHdr_BckBtnBdr">
+        <div class="genStaticBase dlMdlBase">
+            <div class="genStaticBcg dlMdlBaseCloseBtn"></div>
+            <div class="genStaticBdr">
+                <div class="genStaticBox dlMdlBox genTick_chkSelState">
+                    <div class="genStaticHdrBdr">
+                        <div class="genStaticHdrBox">
+                            <div class="genStaticHdr_top">
+                                <div class="genStaticHdr_BckBtnBdr">
                                     <button type="button" class="genBtnBox transBtn genIconBtn dlMdlBaseCloseBtn" title="Close Download list">
                                         <div class="genBtnIcon">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
@@ -100,54 +100,56 @@
                                         </div>
                                     </button>
                                 </div>
-                                <div class="dlMdlHdr_TitleBox">
-                                    <div class="dlMdlHdr_TitleText">N/A</div>
+                                <div class="genStaticHdr_TitleBox">
+                                    <div class="genStaticHdr_TitleText dlMdlHdr_TitleText">N/A</div>
                                 </div>
                             </div>
-                            <div class="dlMdlHdr_btm">
-                                <div class="dlMdlHdr_ssnDetBdr">
-                                    <div class="dlMdlHdr_epDetBox">
-                                        <p class="dlMdlHdr_epDetText dlMdlHdr_epNo">N/A</p>
-                                    </div>
-                                    <div class="dlMdlHdr_epDetBox">
-                                        <p class="dlMdlHdr_epDetText ">•</p>
-                                    </div>
-                                    <div class="dlMdlHdr_epDetBox">
-                                        <p class="dlMdlHdr_epDetText dlMdlHdr_epSize">N/A</p>
-                                    </div>
-                                </div>
-                                <label class="dlMdlHdr_ssnSelAllBdr dlMdlHdr_ssnSelAllLbl">
-                                    <div class="dlMdlHdr_ssnSelAllChkBdr genTick_chkBase">
-                                        <div class="genTick_chkBdr">
-                                            <div class="genTick_chkBox">
-                                                <label for="dlMdlHdr_ssnSelAll_chkFldId" class="genTick_chkFldLbl">
-                                                    <input type="checkbox" id="dlMdlHdr_ssnSelAll_chkFldId" class="genTick_chkFldCls">
-                                                    <div class="genTick_chkFldIconBox">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genTick_chkFldIconSvg">
-                                                            <path fill-rule="evenodd" d="M18.493 6.935a.75.75 0 0 1 .072 1.058l-7.857 9a.75.75 0 0 1-1.13 0l-3.143-3.6a.75.75 0 0 1 1.13-.986l2.578 2.953l7.292-8.353a.75.75 0 0 1 1.058-.072" clip-rule="evenodd" />
-                                                        </svg>
-                                                    </div>
-                                                </label>
-                                            </div>
+                            <div class="genStaticHdr_btm">
+                                <div class="dlMdlHdr_btm">
+                                    <div class="dlMdlHdr_ssnDetBdr">
+                                        <div class="dlMdlHdr_epDetBox">
+                                            <p class="dlMdlHdr_epDetText dlMdlHdr_epNo">N/A</p>
+                                        </div>
+                                        <div class="dlMdlHdr_epDetBox">
+                                            <p class="dlMdlHdr_epDetText ">•</p>
+                                        </div>
+                                        <div class="dlMdlHdr_epDetBox">
+                                            <p class="dlMdlHdr_epDetText dlMdlHdr_epSize">N/A</p>
                                         </div>
                                     </div>
-                                    <div class="dlMdlHdr_epDetBox">
-                                        <p class="dlMdlHdr_epDetText">Select All</p>
+                                    <label class="dlMdlHdr_ssnSelAllBdr dlMdlHdr_ssnSelAllLbl">
+                                        <div class="dlMdlHdr_ssnSelAllChkBdr genTick_chkBase">
+                                            <div class="genTick_chkBdr">
+                                                <div class="genTick_chkBox">
+                                                    <label for="dlMdlHdr_ssnSelAll_chkFldId" class="genTick_chkFldLbl">
+                                                        <input type="checkbox" id="dlMdlHdr_ssnSelAll_chkFldId" class="genTick_chkFldCls">
+                                                        <div class="genTick_chkFldIconBox">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genTick_chkFldIconSvg">
+                                                                <path fill-rule="evenodd" d="M18.493 6.935a.75.75 0 0 1 .072 1.058l-7.857 9a.75.75 0 0 1-1.13 0l-3.143-3.6a.75.75 0 0 1 1.13-.986l2.578 2.953l7.292-8.353a.75.75 0 0 1 1.058-.072" clip-rule="evenodd" />
+                                                            </svg>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="dlMdlHdr_epDetBox">
+                                            <p class="dlMdlHdr_epDetText">Select All</p>
+                                        </div>
+                                    </label>
+                                    <div class="dlMdlHdr_ssnAtnBdr">
+                                        <button type="button" class="genBtnBox midSolidBtn dlMdlHdr_epDelBtn hide">
+                                            <div class="genBtnText">Delete</div>
+                                        </button>
+                                        <button type="button" class="genBtnBox greySolidBtn dlMdlHdr_ssnAtnBtn">
+                                            <div class="genBtnText">Edit</div>
+                                        </button>
                                     </div>
-                                </label>
-                                <div class="dlMdlHdr_ssnAtnBdr">
-                                    <button type="button" class="genBtnBox midSolidBtn dlMdlHdr_epDelBtn hide">
-                                        <div class="genBtnText">Delete</div>
-                                    </button>
-                                    <button type="button" class="genBtnBox greySolidBtn dlMdlHdr_ssnAtnBtn">
-                                        <div class="genBtnText">Edit</div>
-                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="dlMdlCtntBdr">
-                        <div class="dlMdlCtntBox">
+                    <div class="genStaticCtntBdr">
+                        <div class="genStaticCtntBox">
                             <div class="dlMdlCtntGrid"></div>
                         </div>
                     </div>

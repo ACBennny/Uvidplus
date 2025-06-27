@@ -136,6 +136,8 @@ html:root
     --clModalActionMenuSvgSize: 1.125rem;
     --clModalActionMenuClr: var(--genWhiteTypeMid);
     --notifyIconBoxWidth: 3.75rem;
+    --genStaticBdrH: 6.25rem;
+    --genStatic_pd: 1rem;
     --footerTextClrGreen: var(--genGreenTypeLight);
     --footerTxtClrBright: var(--color8);
     --footerTxtClrMid: #b7b7b7;
@@ -3811,9 +3813,146 @@ html:root:has(.btmNavBar.hidden)
 
 
 
+/* -------- GENERAL (STATIC) MODAL -------- */
+.genStaticBase
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: #00000099;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: all 300ms ease-in-out;
+    z-index: 115;
+}
+
+.genStaticBase.active
+{
+    opacity: 1;
+    visibility: visible;
+}
+
+.genStaticBase .genStaticBcg
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-backdrop-filter: blur(0.625rem);
+    backdrop-filter: blur(0%);
+    z-index: -1;
+}
+
+.genStaticBase .genStaticBdr
+{
+    width: 100%;
+    max-width: 43.75rem;
+    height: 0;
+    border-top-left-radius: 0.9375rem;
+    border-top-right-radius: 0.9375rem;
+    background-color: #111111;
+    overflow: hidden;
+    transition: all 300ms ease-in-out;
+}
+
+.genStaticBase.active .genStaticBdr
+{
+    height: calc((100% - var(--genStaticBdrH)));
+}
+
+.genStaticBdr .genStaticBox
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden auto;
+}
 
 
-/* ----------- GENERAL DRAGGABLE MODAL ------------- */
+
+/* -------- DL Modal Header ------- */
+.genStaticBox .genStaticHdrBdr
+{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    margin-bottom: 1rem;
+    background-color: #111111;
+    z-index: 10;
+}
+
+.genStaticHdrBdr .genStaticHdrBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: var(--genStatic_pd) var(--genStatic_pd) 0;
+    border-bottom: 0.0625rem solid #ffffff20;
+}
+
+.genStaticHdrBox .genStaticHdr_top
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.genStaticHdr_top .genStaticHdr_BckBtnBdr
+{
+    margin-right: 0.5rem;
+}
+
+.genStaticHdr_top .genStaticHdr_TitleBox
+{
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.genStaticHdr_TitleBox .genStaticHdr_TitleText
+{
+    font-size: 1rem;
+    color: var(--genWhiteTypeLight);
+}
+
+.genStaticHdrBox .genStaticHdr_btm
+{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.genStaticBox .genStaticCtntBdr
+{
+    width: 100%;
+}
+
+.genStaticCtntBdr .genStaticCtntBox
+{
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ----------- GENERAL (DRAGGABLE) MENU MODAL ------------- */
 .genMenuModalBdr
 {
     position: fixed;
@@ -5056,6 +5195,7 @@ html:root:has(.btmNavBar.hidden)
         --navBarNotificationPosR: -18.75rem;
         --navBarProfilePosT: calc(var(--navBarHeight) - 0.625rem);
         --navBarProfilePosR: -18.75rem;
+        --genStaticBdrH: 0rem;
     }
 
     ::-webkit-scrollbar
@@ -5150,6 +5290,12 @@ html:root:has(.btmNavBar.hidden)
     .basicCatalogBox
     {
         --basicCatalogCardWidth: 10.3125rem;
+    }
+
+    .genStaticBase .genStaticBdr
+    {
+        max-width: none;
+        border-radius: 0rem;
     }
     
     .genMenuModalBdr
@@ -5440,6 +5586,11 @@ only screen and (max-height: 30.375rem)
     .notifyIconBox .notifyIcon
     {
         display: none;
+    }
+
+    .genStaticHdr_TitleBox .genStaticHdr_TitleText
+    {
+        font-size: 0.9375rem;
     }
 }
 
