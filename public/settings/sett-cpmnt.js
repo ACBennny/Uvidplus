@@ -103,21 +103,6 @@ let sett_cmpnt_lib =
         sett_atn_title: `Open`,
         sett_atn_func: `init_giftcode_mdl`,
     },
-    {
-        sett_sect: `membership`,
-        sett_orientation: `horizontal`,
-        sett_title: `Cancel Membership`,
-        sett_desc: 
-        `
-            You can cancel your membership at anytime.
-            When cancelled, your plan will remain active till the end of the billing cycle.
-            Note that no refunds are provided for cancelling a membership.
-        `,
-        sett_atn_type: `modal`,
-        sett_atn_id: `sett_cancel_membership`,
-        sett_atn_title: `Open`,
-        sett_atn_func: ``,
-    },
 
 
 
