@@ -319,7 +319,7 @@
 
 
 
-// SETTING SECTOR NAV
+// NAVIGATING SETTINGS PAGE
 
     function attachSettSectNavListeners()
     {
@@ -430,8 +430,11 @@
 
 
 
-// UPDATE CURRENT INFO
 
+
+// GENERAL SETTINGS
+
+    // Adds the current information of their corresponding sectors
     async function upd_sett_info()
     {
         const auth = window.firebaseAuth;
@@ -474,9 +477,258 @@
     }
 
 
+    // Updates items with toggle buttons
+    function attachSectAtnTglListeners()
+    {
+        const sett_rad_btn = document.querySelectorAll(".settCtntSectAtnToggle");
 
-// UPDATING FULLNAME
+        sett_rad_btn.forEach((olditem) => 
+        {
+            if((olditem.sett_atn))
+            {
+                olditem.removeEventListener("click" , olditem.sett_atn)
+            }
+        });
 
+        sett_rad_btn.forEach((newBtn) => 
+        {
+            const rad_atn = async () => 
+            {
+                sett_rad_btn.forEach(item => item.disabled = true);
+                let checkBtn = newBtn.parentElement.querySelector(`input[type="checkbox"]#${newBtn.id}:checked`);
+                let ischk = false;
+
+                if(checkBtn)
+                {
+                    // Update flag to true
+                    ischk = true;
+                }
+                else
+                {
+                    // Update flag to false
+                    ischk = false;
+                }
+
+                //  Update the corresponding property
+                try 
+                {
+                    switch(newBtn.id)
+                    {
+                        case 'sett_wifi_dwld':
+                            await updateUserData(
+                            {
+                                wifi_only_dwld: ischk
+                            });
+                            notification('notifyGood', 'Preferences saved');
+                            break;
+                            
+                        case 'sett_wifi_stream':
+                            await updateUserData(
+                            {
+                                wifi_only_stream: ischk
+                            });
+                            notification('notifyGood', 'Preferences saved');
+                            break;
+                            
+                        case 'sett_cellular_stream':
+                            await updateUserData(
+                            {
+                                cellular_stream_ntfy: ischk
+                            });
+                            notification('notifyGood', 'Preferences saved');
+                            break;
+                            
+                        case 'sett_prsnl_info_shrng':
+                            await updateUserData(
+                            {
+                                share_prsnl_info: ischk
+                            });
+                            notification('notifyGood', 'Preferences saved');
+                            break;
+
+                        default:
+                            notification('notifyBad', 'Failed to update preferences');
+                            break;
+                    }
+
+                    // Re-enable toggle buttons
+                    sett_rad_btn.forEach(item => item.disabled = false);
+                }
+                catch(err)
+                {
+                    // Log any errors and re-enable toggle buttons
+                    console.error(err);
+                    sett_rad_btn.forEach(item => item.disabled = false);
+                }
+            }
+
+            newBtn.addEventListener("click", rad_atn);
+            newBtn.sett_atn = rad_atn;
+        });
+    }
+
+
+    // Updates items with draggable menus
+    async function attachSettSectMenuListeners(event)
+    {
+        // Get the clicked button
+        let settCardMenuBtn = event.target.closest("[data-gen-menu-modal-type='sett_sect_menu']");
+        
+        if (!settCardMenuBtn)
+        {
+            console.error("Button with attribute [data-gen-menu-modal-type='sett_sect_menu'] not found.");
+            return;
+        }
+
+        // Get the id
+        let settCardId = settCardMenuBtn.id;
+
+        if (!settCardId)
+        {
+            console.error("Button is invalid");
+            return;
+        }
+
+        // Generate the content of the menu
+        let menuCtntBox = document.querySelector(".settSectMenuCtntBox");
+        let menuLangId = settCardId !== "sett_dwld_qlty" ? settCardId !== "sett_dwld_lang" ? "cast_data_usage_ul" : "dwld_audio_pref" : "dwld_qlty_pref";
+        let menuUpdId = settCardId !== "sett_dwld_qlty" ? settCardId !== "sett_dwld_lang" ? "cast_data_usage_ul" : "dwld_audio_pref" : "dwld_qlty_pref";
+        let menuCtntStruct = ``;
+
+        // Build up the menu
+        if((settCardId === "sett_dwld_lang"))
+        {
+            // Default Option
+            menuCtntStruct = 
+            `
+                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="0">
+                    <div class="genMenuModalCtntBtnText">None</div>
+                </button>
+            `;
+
+            // Insert other options
+            for(let i = 0; i < LangOptLib.langOptInv.audioLangSelect.lang_options.length; i++)
+            {
+                let item = LangOptLib.langOptInv.audioLangSelect.lang_options[i];
+                
+                menuCtntStruct += 
+                `
+                    <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="${i+1}">
+                        <div class="genMenuModalCtntBtnText">${item.opt}</div>
+                    </button>
+                `;
+            }
+        }
+        else if((settCardId === "sett_dwld_qlty"))
+        {
+            menuCtntStruct = 
+            `
+                <div class="genMenuModalCtntSectBox">
+                    <p class="genMenuModalCtntSectText">Max Size for approx. 25mins</p>
+                </div>
+                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="0">
+                    <div class="genMenuModalCtntBtnText">Always ask</div>
+                </button>
+                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="1">
+                    <div class="genMenuModalCtntBtnText">Best (0.7GB)</div>
+                </button>
+                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="2">
+                    <div class="genMenuModalCtntBtnText">Better (0.45GB)</div>
+                </button>
+                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="3">
+                    <div class="genMenuModalCtntBtnText">Good (0.3GB)</div>
+                </button>
+                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="4">
+                    <div class="genMenuModalCtntBtnText">Data Saver (0.11GB)</div>
+                </button>
+            `;
+        }
+        else if((settCardId === "sett_cast_data_usage"))
+        {
+            menuCtntStruct = 
+            `
+                <div class="genMenuModalCtntSectBox">
+                    <p class="genMenuModalCtntSectText">Max Allocated Bandwidth</p>
+                </div>
+                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="0">
+                    <div class="genMenuModalCtntBtnText">Unlimited</div>
+                </button>
+                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="1">
+                    <div class="genMenuModalCtntBtnText">250GB</div>
+                </button>
+                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="2">
+                    <div class="genMenuModalCtntBtnText">100GB</div>
+                </button>
+                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="3">
+                    <div class="genMenuModalCtntBtnText">50GB</div>
+                </button>
+                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="4">
+                    <div class="genMenuModalCtntBtnText">10GB</div>
+                </button>
+            `;
+        }
+        else
+        {
+            console.error("NOt");
+            return;
+        }
+
+        // Insert menu options and add seletors
+        menuCtntBox.innerHTML = menuCtntStruct;
+        let menuOptBtns = document.querySelectorAll(".settSectMenuOptBtn");
+
+        // Get, select, and scroll to the chosen option
+        try 
+        {
+            let usrData = await getUserData();
+            let usrCtg = Number(usrData[menuUpdId]) || 0;
+            
+            menuOptBtns[usrCtg].classList.add("selected");
+            genMenuModalBox.scrollTo(
+            {
+                top: (Math.ceil((menuOptBtns[usrCtg].getBoundingClientRect().top - (window.innerHeight - genMenuModalBox.getBoundingClientRect().height) - 25))),
+                behavior: "smooth"
+            });
+        }
+        catch(error)
+        {
+            console.error(error);
+            menuOptBtns[0].classList.add("selected");
+        }
+
+        // Updates the user's prefered option for the chosen category
+        menuOptBtns.forEach((btn) => 
+        {
+            const menu_atn = async () => 
+            {
+                try 
+                {
+                    let btnOptNo = Number(btn.getAttribute("data-sett-sect-opt")) || 0;
+
+                    await updateUserData(
+                    {
+                        [`${menuUpdId}`]: btnOptNo
+                    });
+
+                    notification(`notifyGood`, `Preferences saved`);
+                } 
+                catch(error) 
+                {
+                    console.error(error);
+                    notification(`notifyBad`, `Failed to update preferences`);
+                }
+            }
+
+            btn.addEventListener("click", menu_atn);
+        });
+    }
+
+
+
+
+// MEMBERSHIP SETTINGS
+
+    // Update User's fullname
     function updUsrFullName(btnEv)
     {
         const updFullnameBdr = document.createElement("div");
@@ -649,9 +901,7 @@
     }
 
 
-    
-// UPDATING PASSWORD
-
+    // Updates User's password
     function valPassUpd()
     {
         const updUsrPassBdr = document.createElement("div");
@@ -949,9 +1199,7 @@
     }
 
 
-    
-// UPDATING EMAIL
-
+    // Updates User's email
     function valEmailUpd()
     {
         const updUsrEmailBdr = document.createElement("div");
@@ -1284,258 +1532,406 @@
 
 
 
-// UPDATING TOGGLE OPTIONS
+// APP EXPERIENCE SETTINGS
 
-    // Attach listeners
-    function attachSectAtnTglListeners()
+    // Updating Notification Preferences (Non-operational)
+    function init_ntfy_prefence()
     {
-        const sett_rad_btn = document.querySelectorAll(".settCtntSectAtnToggle");
-
-        sett_rad_btn.forEach((olditem) => 
-        {
-            if((olditem.sett_atn))
-            {
-                olditem.removeEventListener("click" , olditem.sett_atn)
-            }
-        });
-
-        sett_rad_btn.forEach((newBtn) => 
-        {
-            const rad_atn = async () => 
-            {
-                sett_rad_btn.forEach(item => item.disabled = true);
-                let checkBtn = newBtn.parentElement.querySelector(`input[type="checkbox"]#${newBtn.id}:checked`);
-                let ischk = false;
-
-                if(checkBtn)
-                {
-                    // Update flag to true
-                    ischk = true;
-                }
-                else
-                {
-                    // Update flag to false
-                    ischk = false;
-                }
-
-                //  Update the corresponding property
-                try 
-                {
-                    switch(newBtn.id)
-                    {
-                        case 'sett_wifi_dwld':
-                            await updateUserData(
-                            {
-                                wifi_only_dwld: ischk
-                            });
-                            notification('notifyGood', 'Preferences saved');
-                            break;
-                            
-                        case 'sett_wifi_stream':
-                            await updateUserData(
-                            {
-                                wifi_only_stream: ischk
-                            });
-                            notification('notifyGood', 'Preferences saved');
-                            break;
-                            
-                        case 'sett_cellular_stream':
-                            await updateUserData(
-                            {
-                                cellular_stream_ntfy: ischk
-                            });
-                            notification('notifyGood', 'Preferences saved');
-                            break;
-                            
-                        case 'sett_prsnl_info_shrng':
-                            await updateUserData(
-                            {
-                                share_prsnl_info: ischk
-                            });
-                            notification('notifyGood', 'Preferences saved');
-                            break;
-
-                        default:
-                            notification('notifyBad', 'Failed to update preferences');
-                            break;
-                    }
-
-                    // Re-enable toggle buttons
-                    sett_rad_btn.forEach(item => item.disabled = false);
-                }
-                catch(err)
-                {
-                    // Log any errors and re-enable toggle buttons
-                    console.error(err);
-                    sett_rad_btn.forEach(item => item.disabled = false);
-                }
-            }
-
-            newBtn.addEventListener("click", rad_atn);
-            newBtn.sett_atn = rad_atn;
-        });
-    }
-
-
-
-// UPDATING MENU OPTIONS
-
-    // Attaching listeners
-    async function attachSettSectMenuListeners(event)
-    {
-        // Get the clicked button
-        let settCardMenuBtn = event.target.closest("[data-gen-menu-modal-type='sett_sect_menu']");
-        
-        if (!settCardMenuBtn)
-        {
-            console.error("Button with attribute [data-gen-menu-modal-type='sett_sect_menu'] not found.");
-            return;
-        }
-
-        // Get the id
-        let settCardId = settCardMenuBtn.id;
-
-        if (!settCardId)
-        {
-            console.error("Button is invalid");
-            return;
-        }
-
-        // Generate the content of the menu
-        let menuCtntBox = document.querySelector(".settSectMenuCtntBox");
-        let menuLangId = settCardId !== "sett_dwld_qlty" ? settCardId !== "sett_dwld_lang" ? "cast_data_usage_ul" : "dwld_audio_pref" : "dwld_qlty_pref";
-        let menuUpdId = settCardId !== "sett_dwld_qlty" ? settCardId !== "sett_dwld_lang" ? "cast_data_usage_ul" : "dwld_audio_pref" : "dwld_qlty_pref";
-        let menuCtntStruct = ``;
-
-        // Build up the menu
-        if((settCardId === "sett_dwld_lang"))
-        {
-            // Default Option
-            menuCtntStruct = 
-            `
-                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="0">
-                    <div class="genMenuModalCtntBtnText">None</div>
-                </button>
-            `;
-
-            // Insert other options
-            for(let i = 0; i < LangOptLib.langOptInv.audioLangSelect.lang_options.length; i++)
-            {
-                let item = LangOptLib.langOptInv.audioLangSelect.lang_options[i];
-                
-                menuCtntStruct += 
-                `
-                    <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="${i+1}">
-                        <div class="genMenuModalCtntBtnText">${item.opt}</div>
-                    </button>
-                `;
-            }
-        }
-        else if((settCardId === "sett_dwld_qlty"))
-        {
-            menuCtntStruct = 
-            `
-                <div class="genMenuModalCtntSectBox">
-                    <p class="genMenuModalCtntSectText">Max Size for approx. 25mins</p>
+        const mngNtfyBdr = document.createElement("div");
+        mngNtfyBdr.classList.add("genAtnModalBdr");
+        mngNtfyBdr.innerHTML = 
+        `
+            <div class="genAtnModalBcg closeMngNtfyBtn"></div>
+            <div class="genAtnModalBox">
+                <div class="genAtnModalCtnt">
+                    <div class="genAtnModalHeader">
+                        <div class="genAtnModalHeaderIconBox closeMngNtfyBtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="genAtnModalHeaderIcon">
+                                <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                            </svg>
+                        </div>
+                        <div class="genAtnModalHeaderText">
+                            <span class="large">N</span>
+                            <span class="small">otification Preferences</span>
+                        </div>
+                    </div>
+                    <div class="genAtnModalOptBcg createProfItemBcg">
+                        <div class="genAtnModalOptBdr createProfItemBox">
+                            <div class="genAtnModalOptBox">
+                                <div class="mngNtfyTtlBox">
+                                    <p class="mngNtfyTtlText">What you stream</p>
+                                </div>
+                                <div class="mngNtfyAtnBtn">
+                                    <div class="genCheckBoxBase">
+                                        <input type="checkbox" id="ntfy_watch" class="genCheckBoxInput mngNtfyAtnBtnTgl" tabindex="-1">
+                                        <label for="ntfy_watch" class="genCheckBoxToggle">
+                                            <span class="genCheckBoxToggleCircle"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="genAtnModalOptBox">
+                                <div class="mngNtfyTtlBox">
+                                    <p class="mngNtfyTtlText">Watch recommendations & more</p>
+                                </div>
+                                <div class="mngNtfyAtnBtn">
+                                    <div class="genCheckBoxBase">
+                                        <input type="checkbox" id="ntfy_recommend" class="genCheckBoxInput mngNtfyAtnBtnTgl" tabindex="-1">
+                                        <label for="ntfy_recommend" class="genCheckBoxToggle">
+                                            <span class="genCheckBoxToggleCircle"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="genAtnModalOptBox">
+                                <div class="mngNtfyTtlBox">
+                                    <p class="mngNtfyTtlText">Exploring Uvid+</p>
+                                </div>
+                                <div class="mngNtfyAtnBtnBox">
+                                    <div class="genCheckBoxBase">
+                                        <input type="checkbox" id="ntfy_explore" class="genCheckBoxInput mngNtfyAtnBtnTgl" tabindex="-1">
+                                        <label for="ntfy_explore" class="genCheckBoxToggle">
+                                            <span class="genCheckBoxToggleCircle"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="genAtnModalOptBox">
+                                <div class="mngNtfyTtlBox">
+                                    <p class="mngNtfyTtlText">Promotions & membership Offers</p>
+                                </div>
+                                <div class="mngNtfyAtnBtn">
+                                    <div class="genCheckBoxBase">
+                                        <input type="checkbox" id="ntfy_promotions" class="genCheckBoxInput mngNtfyAtnBtnTgl" tabindex="-1">
+                                        <label for="ntfy_promotions" class="genCheckBoxToggle">
+                                            <span class="genCheckBoxToggleCircle"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="genAtnModalOptBox">
+                                <div class="mngNtfyTtlBox">
+                                    <p class="mngNtfyTtlText">Surveys, research & more</p>
+                                </div>
+                                <div class="mngNtfyAtnBtn">
+                                    <div class="genCheckBoxBase">
+                                        <input type="checkbox" id="ntfy_participation" class="genCheckBoxInput mngNtfyAtnBtnTgl" tabindex="-1">
+                                        <label for="ntfy_participation" class="genCheckBoxToggle">
+                                            <span class="genCheckBoxToggleCircle"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="0">
-                    <div class="genMenuModalCtntBtnText">Always ask</div>
-                </button>
-                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="1">
-                    <div class="genMenuModalCtntBtnText">Best (0.7GB)</div>
-                </button>
-                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="2">
-                    <div class="genMenuModalCtntBtnText">Better (0.45GB)</div>
-                </button>
-                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="3">
-                    <div class="genMenuModalCtntBtnText">Good (0.3GB)</div>
-                </button>
-                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="4">
-                    <div class="genMenuModalCtntBtnText">Data Saver (0.11GB)</div>
-                </button>
-            `;
-        }
-        else if((settCardId === "sett_cast_data_usage"))
-        {
-            menuCtntStruct = 
-            `
-                <div class="genMenuModalCtntSectBox">
-                    <p class="genMenuModalCtntSectText">Max Allocated Bandwidth</p>
-                </div>
-                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="0">
-                    <div class="genMenuModalCtntBtnText">Unlimited</div>
-                </button>
-                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="1">
-                    <div class="genMenuModalCtntBtnText">250GB</div>
-                </button>
-                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="2">
-                    <div class="genMenuModalCtntBtnText">100GB</div>
-                </button>
-                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="3">
-                    <div class="genMenuModalCtntBtnText">50GB</div>
-                </button>
-                <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="4">
-                    <div class="genMenuModalCtntBtnText">10GB</div>
-                </button>
-            `;
-        }
-        else
-        {
-            console.error("NOt");
-            return;
-        }
+            </div>
+        `;
+        documentBody.appendChild(mngNtfyBdr);
 
-        // Insert menu options and add seletors
-        menuCtntBox.innerHTML = menuCtntStruct;
-        let menuOptBtns = document.querySelectorAll(".settSectMenuOptBtn");
+        const mngNtfyCloseBtn = document.querySelectorAll(".closeMngNtfyBtn");
+        let mngNtfyTimer;
 
-        // Get, select, and scroll to the chosen option
-        try 
+        // Disabling btn to prevent multiple calls
+        if(typeof btnEv !== "undefined") btnEv.disabled = true;
+
+        // Transitioning elements
+        mngNtfyTimer = setTimeout(() => 
         {
-            let usrData = await getUserData();
-            let usrCtg = Number(usrData[menuUpdId]) || 0;
-            
-            menuOptBtns[usrCtg].classList.add("selected");
-            genMenuModalBox.scrollTo(
+            clearTimeout(mngNtfyTimer);
+            documentBody.setAttribute(`data-modal-state` , `open`);
+            mngNtfyBdr.classList.add("active");
+            attachMngNtfyListeners();
+        }, 250);
+
+        // Closes the mngNtfy modal
+        async function closeUpdFullname()
+        {
+            mngNtfyBdr.classList.remove("active");
+            mngNtfyBdr.addEventListener("transitionend" , function handleTransitionEnd()
             {
-                top: (Math.ceil((menuOptBtns[usrCtg].getBoundingClientRect().top - (window.innerHeight - genMenuModalBox.getBoundingClientRect().height) - 25))),
-                behavior: "smooth"
+                mngNtfyBdr.removeEventListener("transitionend" , handleTransitionEnd);
+                documentBody.removeChild(mngNtfyBdr);
+                documentBody.removeAttribute(`data-modal-state`);
+                if(typeof btnEv !== "undefined") btnEv.disabled = false;
             });
         }
-        catch(error)
+
+        // Closes the modal
+        mngNtfyCloseBtn.forEach(one => 
         {
-            console.error(error);
-            menuOptBtns[0].classList.add("selected");
-        }
-
-        // Updates the user's prefered option for the chosen category
-        menuOptBtns.forEach((btn) => 
-        {
-            const menu_atn = async () => 
-            {
-                try 
-                {
-                    let btnOptNo = Number(btn.getAttribute("data-sett-sect-opt")) || 0;
-
-                    await updateUserData(
-                    {
-                        [`${menuUpdId}`]: btnOptNo
-                    });
-
-                    notification(`notifyGood`, `Preferences saved`);
-                } 
-                catch(error) 
-                {
-                    console.error(error);
-                    notification(`notifyBad`, `Failed to update preferences`);
-                }
-            }
-
-            btn.addEventListener("click", menu_atn);
+            one.addEventListener("mousedown" , closeUpdFullname);
         });
+
+        function attachMngNtfyListeners()
+        {
+            const ntfy_rad_btn = document.querySelectorAll(".mngNtfyAtnBtnTgl");
+
+            ntfy_rad_btn.forEach((olditem) => 
+            {
+                if((olditem.sett_atn))
+                {
+                    olditem.removeEventListener("click" , olditem.sett_atn)
+                }
+            });
+
+            ntfy_rad_btn.forEach((newBtn) => 
+            {
+                const rad_atn = async () => 
+                {
+                    ntfy_rad_btn.forEach(item => item.disabled = true);
+                    let checkBtn = newBtn.parentElement.querySelector(`input[type="checkbox"]#${newBtn.id}:checked`);
+                    let ischk = false;
+
+                    if(checkBtn)
+                    {
+                        // Update flag to true
+                        ischk = true;
+                    }
+                    else
+                    {
+                        // Update flag to false
+                        ischk = false;
+                    }
+
+                    // console.log(`Tgl state: ${ischk}`);
+                    ntfy_rad_btn.forEach(item => item.disabled = false);
+                    return;
+
+                    //  Update the corresponding property
+                    try 
+                    {
+                        switch(newBtn.id)
+                        {
+                            case 'ntfy_watch':
+                                await updateUserData(
+                                {});
+                                notification('notifyGood', 'Preferences saved');
+                                break;
+                                
+                            case 'ntfy_recommend':
+                                await updateUserData(
+                                {});
+                                notification('notifyGood', 'Preferences saved');
+                                break;
+                                
+                            case 'ntfy_explore':
+                                await updateUserData(
+                                {});
+                                notification('notifyGood', 'Preferences saved');
+                                break;
+                                
+                            case 'ntfy_promotions':
+                                await updateUserData(
+                                {});
+                                notification('notifyGood', 'Preferences saved');
+                                break;
+                                
+                            case 'ntfy_participation':
+                                await updateUserData(
+                                {});
+                                notification('notifyGood', 'Preferences saved');
+                                break;
+
+                            default:
+                                notification('notifyBad', 'Failed to update preferences');
+                                break;
+                        }
+
+                        // Re-enable toggle buttons
+                        ntfy_rad_btn.forEach(item => item.disabled = false);
+                    }
+                    catch(err)
+                    {
+                        // Log any errors and re-enable toggle buttons
+                        console.error(err);
+                        ntfy_rad_btn.forEach(item => item.disabled = false);
+                    }
+                }
+
+                newBtn.addEventListener("click", rad_atn);
+                newBtn.sett_atn = rad_atn;
+            });
+        }
     }
 
+    
+    // Connecting to 3rd-party apps (Non-operational)
+    function init_3rd_party_connect()
+    {
+        const cnct3rdPartyAppBdr = document.createElement("div");
+        cnct3rdPartyAppBdr.classList.add("genAtnModalBdr");
+        cnct3rdPartyAppBdr.innerHTML = 
+        `
+            <div class="genAtnModalBcg closeCnct3rdPartyAppBtn"></div>
+            <div class="genAtnModalBox">
+                <div class="genAtnModalCtnt">
+                    <div class="genAtnModalHeader">
+                        <div class="genAtnModalHeaderIconBox closeCnct3rdPartyAppBtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="genAtnModalHeaderIcon">
+                                <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                            </svg>
+                        </div>
+                        <div class="genAtnModalHeaderText">
+                            <span class="large">C</span>
+                            <span class="small">onnect Apps</span>
+                        </div>
+                    </div>
+                    <div class="genAtnModalOptBcg createProfItemBcg">
+                        <div class="genAtnModalOptBdr createProfItemBox">
+                            <button class="genAtnModalOptBox cnct3rdPartyAppItem">
+                                <div class="genAtnModalOptIconBox">
+                                    <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="genAtnModalOptIconSvg">
+                                        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"></path>
+                                    </svg>
+                                </div>
+                                <div class="genAtnModalOptTextBox ">
+                                    <span class="genAtnModalOptText ">Discord</span>
+                                </div>
+                            </button>
+                            <button class="genAtnModalOptBox cnct3rdPartyAppItem">
+                                <div class="genAtnModalOptIconBox">
+                                    <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="genAtnModalOptIconSvg">
+                                        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"></path>
+                                    </svg>
+                                </div>
+                                <div class="genAtnModalOptTextBox ">
+                                    <span class="genAtnModalOptText ">Epic Games</span>
+                                </div>
+                            </button>
+                            <button class="genAtnModalOptBox cnct3rdPartyAppItem">
+                                <div class="genAtnModalOptIconBox">
+                                    <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="genAtnModalOptIconSvg">
+                                        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"></path>
+                                    </svg>
+                                </div>
+                                <div class="genAtnModalOptTextBox ">
+                                    <span class="genAtnModalOptText ">Facebook</span>
+                                </div>
+                            </button>
+                            <button class="genAtnModalOptBox cnct3rdPartyAppItem">
+                                <div class="genAtnModalOptIconBox">
+                                    <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="genAtnModalOptIconSvg">
+                                        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"></path>
+                                    </svg>
+                                </div>
+                                <div class="genAtnModalOptTextBox ">
+                                    <span class="genAtnModalOptText ">Guilded</span>
+                                </div>
+                            </button>
+                            <button class="genAtnModalOptBox cnct3rdPartyAppItem">
+                                <div class="genAtnModalOptIconBox">
+                                    <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="genAtnModalOptIconSvg">
+                                        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"></path>
+                                    </svg>
+                                </div>
+                                <div class="genAtnModalOptTextBox ">
+                                    <span class="genAtnModalOptText ">Nitendo</span>
+                                </div>
+                            </button>
+                            <button class="genAtnModalOptBox cnct3rdPartyAppItem">
+                                <div class="genAtnModalOptIconBox">
+                                    <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="genAtnModalOptIconSvg">
+                                        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"></path>
+                                    </svg>
+                                </div>
+                                <div class="genAtnModalOptTextBox ">
+                                    <span class="genAtnModalOptText ">Playstation</span>
+                                </div>
+                            </button>
+                            <button class="genAtnModalOptBox cnct3rdPartyAppItem">
+                                <div class="genAtnModalOptIconBox">
+                                    <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="genAtnModalOptIconSvg">
+                                        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"></path>
+                                    </svg>
+                                </div>
+                                <div class="genAtnModalOptTextBox ">
+                                    <span class="genAtnModalOptText ">Steam</span>
+                                </div>
+                            </button>
+                            <button class="genAtnModalOptBox cnct3rdPartyAppItem">
+                                <div class="genAtnModalOptIconBox">
+                                    <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="genAtnModalOptIconSvg">
+                                        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"></path>
+                                    </svg>
+                                </div>
+                                <div class="genAtnModalOptTextBox ">
+                                    <span class="genAtnModalOptText ">Twitch</span>
+                                </div>
+                            </button>
+                            <button class="genAtnModalOptBox cnct3rdPartyAppItem">
+                                <div class="genAtnModalOptIconBox">
+                                    <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="genAtnModalOptIconSvg">
+                                        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"></path>
+                                    </svg>
+                                </div>
+                                <div class="genAtnModalOptTextBox ">
+                                    <span class="genAtnModalOptText ">Ubisoft</span>
+                                </div>
+                            </button>
+                            <button class="genAtnModalOptBox cnct3rdPartyAppItem">
+                                <div class="genAtnModalOptIconBox">
+                                    <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="genAtnModalOptIconSvg">
+                                        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"></path>
+                                    </svg>
+                                </div>
+                                <div class="genAtnModalOptTextBox ">
+                                    <span class="genAtnModalOptText ">Xbox</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        documentBody.appendChild(cnct3rdPartyAppBdr);
 
+        const cnct3rdPartyAppCloseBtn = document.querySelectorAll(".closeCnct3rdPartyAppBtn");
+        const cnct3rdPartyAppItemBtn = document.querySelectorAll(".cnct3rdPartyAppItem");
+        let cnct3rdPartyAppTimer;
+
+        // Disabling btn to prevent multiple calls
+        if(typeof btnEv !== "undefined") btnEv.disabled = true;
+
+        // Transitioning elements
+        cnct3rdPartyAppTimer = setTimeout(async () => 
+        {
+            clearTimeout(cnct3rdPartyAppTimer);
+            documentBody.setAttribute(`data-modal-state` , `open`);
+            cnct3rdPartyAppBdr.classList.add("active");
+        }, 250);
+
+        // Closes the Cnct3rdPartyApp modal
+        async function closeUpdFullname()
+        {
+            cnct3rdPartyAppBdr.classList.remove("active");
+            cnct3rdPartyAppBdr.addEventListener("transitionend" , function handleTransitionEnd()
+            {
+                cnct3rdPartyAppBdr.removeEventListener("transitionend" , handleTransitionEnd);
+                documentBody.removeChild(cnct3rdPartyAppBdr);
+                documentBody.removeAttribute(`data-modal-state`);
+                if(typeof btnEv !== "undefined") btnEv.disabled = false;
+            });
+        }
+
+        // Let user know it's non-operational
+        cnct3rdPartyAppItemBtn.forEach((btn) => 
+        {
+            btn.onclick = () => 
+            {
+                notification(
+                    `notifyBad`,
+                    `Unable to connect to ${btn.querySelector(".genAtnModalOptText").textContent} at this time.`
+                );
+            }
+        });
+
+        // Closes the modal
+        cnct3rdPartyAppCloseBtn.forEach(one => 
+        {
+            one.addEventListener("mousedown" , closeUpdFullname);
+        });
+    }
 
 
 

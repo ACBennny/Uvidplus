@@ -260,8 +260,6 @@ html:root
 
 
 /* -------- Section Action Btn ------- */
-.settCtntSectAtnBdr
-{}
 
 .settCtntSectAtnBdr .settCtntSectAtnBox
 {
@@ -291,6 +289,21 @@ html:root
     width: 100%;
     height: 100%;
     fill: var(--genWhiteTypeLight);
+}
+
+
+
+
+/* =============== Notification Preferences ========== */
+.mngNtfyTtlBox
+{
+    width: calc((100% - 2.8125rem));
+}
+
+.mngNtfyTtlBox .mngNtfyTtlText
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 1rem;
 }
 
 

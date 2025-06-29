@@ -164,7 +164,7 @@ let sett_cmpnt_lib =
         sett_atn_type: `modal`,
         sett_atn_id: `sett_app_ntfy`,
         sett_atn_title: `Open`,
-        sett_atn_func: ``,
+        sett_atn_func: `init_ntfy_prefence`,
     },
     {
         sett_sect: `experience`,
@@ -262,7 +262,7 @@ let sett_cmpnt_lib =
         sett_atn_type: `modal`,
         sett_atn_id: `sett_connect_apps`,
         sett_atn_title: `Open`,
-        sett_atn_func: ``,
+        sett_atn_func: `init_3rd_party_connect`,
     },
 
 
