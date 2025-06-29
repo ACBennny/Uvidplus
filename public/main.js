@@ -1869,7 +1869,13 @@
             if((typeof e === "undefined")) return;
 
             // Return if user is typing in a field
-            if((e.target.closest("input") || (e.target.closest("textarea")))) return;
+            if((
+                (documentBody.classList.contains("bodystop")) 
+                || (documentBody.getAttribute("data-modal-state") === "open") 
+                || (documentBody.getAttribute("gen-menu-modal-is-dragging") === "true") 
+                || (e.target.closest("input"))
+                || (e.target.closest("textarea"))
+            )) return;
 
             let keyVal = e.key.toLowerCase();
 
