@@ -1531,6 +1531,111 @@
     }
 
 
+    // Giftcards & Promocodes (Non-operational)
+    function init_giftcode_mdl()
+    {
+        const giftCodeMdlBdr = document.createElement("div");
+        giftCodeMdlBdr.classList.add("genAtnModalBdr");
+        giftCodeMdlBdr.innerHTML = 
+        `
+            <div class="genAtnModalBcg closeGiftCodeMdlBtn"></div>
+            <div class="genAtnModalBox">
+                <div class="genAtnModalCtnt">
+                    <div class="genAtnModalHeader">
+                        <div class="genAtnModalHeaderIconBox closeGiftCodeMdlBtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="genAtnModalHeaderIcon">
+                                <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                            </svg>
+                        </div>
+                        <div class="genAtnModalHeaderText">
+                            <span class="large">E</span>
+                            <span class="small">nter Promocode</span>
+                        </div>
+                    </div>
+                    <div class="genAtnModalOptBcg createProfItemBcg">
+                        <div class="genAtnModalOptBdr createProfItemBox">
+                            <div class="newCLBdr active">
+                                <div class="newCLBox">
+                                    <div class="newCLInputBdr">
+                                        <div class="newCLInputBox">
+                                            <input type="text" name="delPassField" id="giftCodeMdlInputId" class="newCLInputClass" placeholder="Enter code here" />
+                                        </div>
+                                    </div>
+                                    <div class="newCLWarnBdr">
+                                        <div class="newCLWarnBox">
+                                            <p id="giftCodeMdlWarnId" class="newCLWarnText empty" tabindex="-1"></p>
+                                        </div>
+                                    </div>
+                                    <div class="newCLAtnBdr">
+                                        <div class="newCLAtnBox">
+                                            <button type="button" id="cfrmUpdFullname" class="genBtnBox midSolidBtn">
+                                                <div class="genBtnText">Redeem</div>
+                                            </button>
+                                            <button type="button" id="cnclGiftCodeMdl" class="genBtnBox hollowBtn closeGiftCodeMdlBtn">
+                                                <div class="genBtnText">Cancel</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        documentBody.appendChild(giftCodeMdlBdr);
+
+        const giftCodeMdlCloseBtn = document.querySelectorAll(".closeGiftCodeMdlBtn");
+        const giftCodeMdlWarn = document.querySelector("#giftCodeMdlWarnId");
+        const giftCodeMdlInput = document.querySelector("#giftCodeMdlInputId");
+        const giftCodeMdlBtn = document.querySelector("#cfrmUpdFullname");
+        let giftCodeMdlTimer;
+
+        // Disabling btn to prevent multiple calls
+        if(typeof btnEv !== "undefined") btnEv.disabled = true;
+
+        // Transitioning elements
+        giftCodeMdlTimer = setTimeout(async () => 
+        {
+            clearTimeout(giftCodeMdlTimer);
+            documentBody.setAttribute(`data-modal-state` , `open`);
+            giftCodeMdlBdr.classList.add("active");
+        }, 250);
+        
+        // Automatically focus on input feild after transition
+        giftCodeMdlBdr.addEventListener("transitionend" , function handleTransitionEnd()
+        {
+            giftCodeMdlBdr.removeEventListener("transitionend" , handleTransitionEnd);
+            giftCodeMdlInput.focus();
+        });
+
+        // Closes the mngNtfy modal
+        async function closeGiftCodeMdl()
+        {
+            giftCodeMdlBdr.classList.remove("active");
+            giftCodeMdlBdr.addEventListener("transitionend" , function handleTransitionEnd()
+            {
+                giftCodeMdlBdr.removeEventListener("transitionend" , handleTransitionEnd);
+                documentBody.removeChild(giftCodeMdlBdr);
+                documentBody.removeAttribute(`data-modal-state`);
+                if(typeof btnEv !== "undefined") btnEv.disabled = false;
+            });
+        }
+
+        //
+        giftCodeMdlBtn.onclick = () => 
+        {
+            notification(`notifyBad`, `Invalid Code`);
+        }
+
+        // Closes the modal
+        giftCodeMdlCloseBtn.forEach(one => 
+        {
+            one.addEventListener("mousedown" , closeGiftCodeMdl);
+        });
+    }
+
+
 
 // APP EXPERIENCE SETTINGS
 
@@ -1645,7 +1750,7 @@
         }, 250);
 
         // Closes the mngNtfy modal
-        async function closeUpdFullname()
+        async function closeMngNtfyMdl()
         {
             mngNtfyBdr.classList.remove("active");
             mngNtfyBdr.addEventListener("transitionend" , function handleTransitionEnd()
@@ -1660,7 +1765,7 @@
         // Closes the modal
         mngNtfyCloseBtn.forEach(one => 
         {
-            one.addEventListener("mousedown" , closeUpdFullname);
+            one.addEventListener("mousedown" , closeMngNtfyMdl);
         });
 
         function attachMngNtfyListeners()
