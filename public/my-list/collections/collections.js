@@ -305,7 +305,7 @@ let emptyCLStruct =
                     <p class="emptyMyListPageNoteText">
                         You don't have any collections.
                         </br>
-                        Click the "Add" button to start creating your own unique collectionss.
+                        Click the "Add" button to start creating your own unique collections.
                     </p>
                 </div>
             </div>
@@ -1020,16 +1020,6 @@ let editCLStruct =
             errorLoadingMyListCollection();
             return;
         }
-
-        // Return if the library is empty
-        if((selectedProfile.prof_collections.length <= 0))
-        {
-            insertEmptyCLBdr();
-            return;
-        }
-
-        // Remove the empty bdr
-        removeEmptyCLPageBdr();
         
         // Map the watchistlist invenory with its item index
         clLibraryIndexedInv = selectedProfile.prof_collections.map((collection, index) => 
@@ -1048,38 +1038,19 @@ let editCLStruct =
     }
 
 
-    // Adding Event listeners for Opening collection modal
-    function addOpenCLListeners()
-    {
-
-        let myListCLCatalogItemOpenCLBtn = document.querySelectorAll(".myListCLCatalog_ItemOpenCLBtn");
-
-        myListCLCatalogItemOpenCLBtn.forEach((btn) => 
-        {
-            if(btn.action)
-            {
-                btn.removeEventListener("click" , btn.action);
-            }
-        });
-
-        myListCLCatalogItemOpenCLBtn.forEach((btn, i) => 
-        {
-            const action = () => 
-            {
-                myListCLCatalogItemOpenCLBtn.forEach(item => item.disabled = true);
-                clBodyCardIndex = i;
-                openCLModal();
-            }
-
-            btn.addEventListener("click" , action);
-            btn.action = action;
-        });
-    }
-
-
     // Filling in the content
     function generateCLCards(inv)
     {
+        // Return if the user has no collections
+        if((inv.length <= 0))
+        {
+            insertEmptyCLBdr();
+            return;
+        }
+
+        // Remove the empty bdr
+        removeEmptyCLPageBdr();
+
         // Clear the Grid
         clCatalogGrid.innerHTML = "";
 
@@ -1157,6 +1128,35 @@ let editCLStruct =
         // Add listeneners
         addOpenCLListeners();
         addDelCLEventListeners();
+    }
+
+
+    // Adding Event listeners for Opening collection modal
+    function addOpenCLListeners()
+    {
+
+        let myListCLCatalogItemOpenCLBtn = document.querySelectorAll(".myListCLCatalog_ItemOpenCLBtn");
+
+        myListCLCatalogItemOpenCLBtn.forEach((btn) => 
+        {
+            if(btn.action)
+            {
+                btn.removeEventListener("click" , btn.action);
+            }
+        });
+
+        myListCLCatalogItemOpenCLBtn.forEach((btn, i) => 
+        {
+            const action = () => 
+            {
+                myListCLCatalogItemOpenCLBtn.forEach(item => item.disabled = true);
+                clBodyCardIndex = i;
+                openCLModal();
+            }
+
+            btn.addEventListener("click" , action);
+            btn.action = action;
+        });
     }
 
 
