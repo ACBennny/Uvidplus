@@ -13,45 +13,6 @@ let sett_cmpnt_lib =
     {
         sett_sect: `membership`,
         sett_orientation: `horizontal`,
-        sett_title: `Fullname`,
-        sett_desc: 
-        `
-            N/A
-        `,
-        sett_atn_type: `modal`,
-        sett_atn_id: `sett_change_fullname`,
-        sett_atn_title: `Open`,
-        sett_atn_func: `updUsrFullName`,
-    },
-    {
-        sett_sect: `membership`,
-        sett_orientation: `horizontal`,
-        sett_title: `Email`,
-        sett_desc: 
-        `
-            N/A
-        `,
-        sett_atn_type: `modal`,
-        sett_atn_id: `sett_change_email`,
-        sett_atn_title: `Open`,
-        sett_atn_func: `valEmailUpd`,
-    },
-    {
-        sett_sect: `membership`,
-        sett_orientation: `horizontal`,
-        sett_title: `Password`,
-        sett_desc: 
-        `
-            Change your password.
-        `,
-        sett_atn_type: `modal`,
-        sett_atn_id: `sett_change_pass`,
-        sett_atn_title: `Open`,
-        sett_atn_func: `valPassUpd`,
-    },
-    {
-        sett_sect: `membership`,
-        sett_orientation: `horizontal`,
         sett_title: `Manage Membership`,
         sett_desc: 
         `
@@ -256,6 +217,45 @@ let sett_cmpnt_lib =
     {
         sett_sect: `privacy`,
         sett_orientation: `horizontal`,
+        sett_title: `Fullname`,
+        sett_desc: 
+        `
+            N/A
+        `,
+        sett_atn_type: `modal`,
+        sett_atn_id: `sett_change_fullname`,
+        sett_atn_title: `Open`,
+        sett_atn_func: `updUsrFullName`,
+    },
+    {
+        sett_sect: `privacy`,
+        sett_orientation: `horizontal`,
+        sett_title: `Email`,
+        sett_desc: 
+        `
+            N/A
+        `,
+        sett_atn_type: `modal`,
+        sett_atn_id: `sett_change_email`,
+        sett_atn_title: `Open`,
+        sett_atn_func: `valEmailUpd`,
+    },
+    {
+        sett_sect: `privacy`,
+        sett_orientation: `horizontal`,
+        sett_title: `Password`,
+        sett_desc: 
+        `
+            Change your password.
+        `,
+        sett_atn_type: `modal`,
+        sett_atn_id: `sett_change_pass`,
+        sett_atn_title: `Open`,
+        sett_atn_func: `valPassUpd`,
+    },
+    {
+        sett_sect: `privacy`,
+        sett_orientation: `horizontal`,
         sett_title: `Device Management`,
         sett_desc: 
         `
@@ -284,20 +284,6 @@ let sett_cmpnt_lib =
     {
         sett_sect: `privacy`,
         sett_orientation: `horizontal`,
-        sett_title: `Delete your Account`,
-        sett_desc: 
-        `
-            Deleting your account is a permanent action. 
-            Once deleted, it is irrecoverable, meaning you can not recover the account.
-        `,
-        sett_atn_type: `modal`,
-        sett_atn_id: `sett_del_acc`,
-        sett_atn_title: `Delete`,
-        sett_atn_func: `cfrmB4DelAcc`,
-    },
-    {
-        sett_sect: `privacy`,
-        sett_orientation: `horizontal`,
         sett_title: `Sign Out`,
         sett_desc: 
         `
@@ -308,6 +294,20 @@ let sett_cmpnt_lib =
         sett_atn_id: `sett_sign_out`,
         sett_atn_title: `Sign Out`,
         sett_atn_func: `cfrmB4SignOut`,
+    },
+    {
+        sett_sect: `privacy`,
+        sett_orientation: `horizontal`,
+        sett_title: `Delete your Account`,
+        sett_desc: 
+        `
+            Deleting your account is a permanent action. 
+            Once deleted, it is irrecoverable, meaning you can not recover the account.
+        `,
+        sett_atn_type: `modal`,
+        sett_atn_id: `sett_del_acc`,
+        sett_atn_title: `Delete`,
+        sett_atn_func: `cfrmB4DelAcc`,
     },
 
 
