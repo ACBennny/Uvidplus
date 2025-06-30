@@ -509,7 +509,7 @@
         // View schedule
         latestEp_ViewScheduleBtn.addEventListener("click" , () => 
         {
-            window.open(scheduleLink.getAttribute("href") , "_blank");
+            window.open(scheduleLink.getAttribute("href") , "_self");
         });
     }
 
