@@ -2752,10 +2752,10 @@
                 selectedEntry = profEntries.find(([key, prof]) => prof.prof_selected);
             }
             
-            
+            // Return iff no profile is found
             if((typeof selectedEntry !== "object") || (selectedEntry == null))
             {
-                notification(`notifyBad`, "An error occured while updating profile");
+                notification(`notifyBad`, "Profile not found");
                 return;
             }
 
