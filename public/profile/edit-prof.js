@@ -414,6 +414,13 @@
 
         // Update listeners
         changeEditProfAtnListener(`click` , closeSelectPicModals , saveCurrProfEdits , `Save`);
+
+        // Scroll back to the top
+        document.querySelector(".editProfileBase").scrollTo(
+        {
+            top: 0,
+            behavior: "instant"
+        });
     }
 
 
@@ -435,6 +442,13 @@
             errorloadFrgImgLib();
             return;
         }
+
+        // Scroll back to the top
+        document.querySelector(".editProfileBase").scrollTo(
+        {
+            top: 0,
+            behavior: "instant"
+        });
 
         // Insert the different sections in the modal
         let selectPicBox = document.querySelector(".selectFrgPicBdr .selectPicBox");
@@ -544,6 +558,13 @@
         `;
         let bcgImgArray = BcgImgLib.bcgImgInv;
         editProfileBox.insertAdjacentHTML(`beforeend` , struct);
+
+        // Scroll back to the top
+        document.querySelector(".editProfileBase").scrollTo(
+        {
+            top: 0,
+            behavior: "instant"
+        });
 
         // Check if the inventory is defined and not empty
         if(((bcgImgArray == undefined) || (bcgImgArray.length == 0)))
