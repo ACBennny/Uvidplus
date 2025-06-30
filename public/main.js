@@ -2741,20 +2741,22 @@
         {
             const userData = await getUserData(); 
             const profEntries = Object.entries(userData.profiles);
-            let selectedEntry = profEntries.find(([key, prof]) => prof.prof_selected);
+            let selectedEntry = null;
 
-            if(!selectedEntry) 
+            if((profId != null) && (typeof profId === "string") && (profId !== ""))
             {
-                if((profId != null) && (profId !== ""))
-                {
-                    selectedEntry = profEntries.find(([key, prof]) => key === profId);
-                }
-                else
-                {
-                    console.warn("No selected profile found.");
-                    notification(`notifyBad`, "No selected profile found.");
-                    return;
-                }
+                selectedEntry = profEntries.find(([key, prof]) => key === profId);
+            }
+            else if((profId == null))
+            {
+                selectedEntry = profEntries.find(([key, prof]) => prof.prof_selected);
+            }
+            
+            
+            if((typeof selectedEntry !== "object") || (selectedEntry == null))
+            {
+                notification(`notifyBad`, "An error occured while updating profile");
+                return;
             }
 
             const selectedProfileKey = selectedEntry[0];
