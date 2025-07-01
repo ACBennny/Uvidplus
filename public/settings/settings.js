@@ -1531,7 +1531,7 @@
     }
 
 
-    // billing History
+    // Billing History
     async function init_bill_hist(btnEv)
     {
         let billHistStruct = 
