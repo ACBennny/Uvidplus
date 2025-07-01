@@ -1235,7 +1235,7 @@ html:root
     visibility: visible;
     transition: 300ms;
     cursor: pointer;
-    z-index: 2;
+    z-index: 5;
 }
 
 .selectPicCarouselArrBox.selectPicCarouselArrLeftBox
@@ -1250,18 +1250,18 @@ html:root
 
 .selectPicCarouselArrBox.selectPicCarouselArrLeftBox
 {
-    background-image: -o-linear-gradient(to right,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
-    background-image: -moz-linear-gradient(to right,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
-    background-image: -webkit-linear-gradient(to right,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
-    background-image: linear-gradient(to right,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
+    background-image: -o-linear-gradient(to right,#111111ff, #111111dd, #111111bb, #00000000);
+    background-image: -moz-linear-gradient(to right,#111111ff, #111111dd, #111111bb, #00000000);
+    background-image: -webkit-linear-gradient(to right,#111111ff, #111111dd, #111111bb, #00000000);
+    background-image: linear-gradient(to right,#111111ff, #111111dd, #111111bb, #00000000);
 }
 
 .selectPicCarouselArrBox.selectPicCarouselArrRightBox
 {
-    background-image: -o-linear-gradient(to left,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
-    background-image: -moz-linear-gradient(to left,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
-    background-image: -webkit-linear-gradient(to left,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
-    background-image: linear-gradient(to left,#000000d2, #000000ad, #0000008b, #00000059, #00000000);
+    background-image: -o-linear-gradient(to left,#111111ff, #111111dd, #111111bb, #00000000);
+    background-image: -moz-linear-gradient(to left,#111111ff, #111111dd, #111111bb, #00000000);
+    background-image: -webkit-linear-gradient(to left,#111111ff, #111111dd, #111111bb, #00000000);
+    background-image: linear-gradient(to left,#111111ff, #111111dd, #111111bb, #00000000);
 }
 
 .selectPicCarouselArrBox .selectPicCarouselArr
