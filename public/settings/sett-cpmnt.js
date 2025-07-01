@@ -49,7 +49,7 @@ let sett_cmpnt_lib =
         sett_atn_type: `modal`,
         sett_atn_id: `sett_billing_info`,
         sett_atn_title: `Open`,
-        sett_atn_func: ``,
+        sett_atn_func: `init_bill_hist`,
     },
     {
         sett_sect: `membership`,

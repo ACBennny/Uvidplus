@@ -1531,6 +1531,140 @@
     }
 
 
+    // billing History
+    async function init_bill_hist(btnEv)
+    {
+        let billHistStruct = 
+        `
+            <div class="genStaticBase bill_hist_base">
+                <div class="genStaticBcg bill_hist_close"></div>
+                <div class="genStaticBdr">
+                    <div class="genStaticBox">
+                        <div class="genStaticHdrBdr">
+                            <div class="genStaticHdrBox">
+                                <div class="genStaticHdr_top">
+                                    <button type="button" class="genBtnBox genIconBtn transBtn bill_hist_close">
+                                        <div class="genBtnIcon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
+                                                <path fill-rule="evenodd" d="M10.53 5.47a.75.75 0 0 1 0 1.06l-4.72 4.72H20a.75.75 0 0 1 0 1.5H5.81l4.72 4.72a.75.75 0 1 1-1.06 1.06l-6-6a.75.75 0 0 1 0-1.06l6-6a.75.75 0 0 1 1.06 0" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                    </button>
+                                    <div class="genStaticHdr_TitleBox">
+                                        <div class="genStaticHdr_TitleText">Billing History</div>
+                                    </div>
+                                </div>
+                                <div class="genStaticHdr_btm">
+                                    <div class="bill_hist_hdr_atnBdr"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="genStaticCtntBdr">
+                            <div class="genStaticCtntBox">
+                                <div class="bill_hist_ctnt_box"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        documentCtnt.insertAdjacentHTML(`beforeend`, billHistStruct);
+
+        // Attach selectors
+        let billHistBase = document.querySelector(".bill_hist_base");
+        let billHistGrid = document.querySelector(".bill_hist_ctnt_box");
+        let billHistClose = document.querySelectorAll(".bill_hist_close");
+        let billItemStruct = ``;
+        let billHistTimer;
+
+        // Fetch Billing history
+        let userData = await getUserData();
+        let billHistData = userData?.billing_hist;
+
+        // Return and close if billing history is unobtainable
+        if((typeof billHistData === "undefined") || (billHistData.length <= 0))
+        {
+            notification(`notifyBad`, `Billing history unobtainable at this time`);
+            closeBillHistMdl();
+            return;
+        }
+
+        // Display Modal
+        billHistTimer = setTimeout(() => 
+        {
+            clearTimeout(billHistTimer);
+            billHistBase.classList.add("active");
+            documentBody.classList.add("bodystop");
+        }, 100);
+
+        // Build history elements
+        for(let i = 0; i < billHistData.length; i++)
+        {
+            let bill = billHistData[0];
+            let bill_status_bool = bill.bill_plan_status !== null 
+                ? bill.bill_plan_status == true
+                ? "true" : "false"
+                : "null";
+            let bill_status_txt = bill.bill_plan_status !== null 
+                ? bill.bill_plan_status == true
+                ? "Paid" : "Not paid"
+                : "No payment";
+
+            billItemStruct +=
+            `
+                <div class="bill_hist_card_bdr">
+                    <div class="bill_hist_card_box">
+                        <div class="bill_hist_card_pymt_bdr">
+                            <div class="bill_hist_card_pymt_box">
+                                <div class="bill_hist_card_pymt_price_box">
+                                    <div class="bill_hist_card_pymt_price_txt">${bill.bill_plan_price}</div>
+                                </div>
+                                <div class="bill_hist_card_pymt_status_box" data-pymt-status="${bill_status_bool}">
+                                    <p class="bill_hist_card_pymt_status_txt">${bill_status_txt}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bill_hist_card_name_box">
+                            <p class="bill_hist_card_name_txt">Uvid+ ${bill.bill_plan_name}</p>
+                        </div>
+                        <div class="bill_hist_card_det_bdr">
+                            <div class="bill_hist_card_det_box">
+                                <div class="bill_hist_card_issue_ttl_box">
+                                    <p class="bill_hist_card_issue_ttl_txt">Date issued</p>
+                                </div>
+                                <div class="bill_hist_card_issue_date_box">
+                                    <p class="bill_hist_card_issue_date_txt">${bill.bill_plan_date}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        billHistGrid.innerHTML = billItemStruct;
+
+        // Close the modal
+        function closeBillHistMdl()
+        {
+            billHistBase.classList.remove("active");
+            billHistBase.addEventListener("transitionend" , function handleTransitionEnd()
+            {
+                billHistBase.removeEventListener("transitionend" , handleTransitionEnd);
+                documentCtnt.removeChild(billHistBase);
+                documentBody.classList.remove("bodystop");
+
+                if(typeof btnEv !== "undefined") btnEv.disabled = false;
+            });
+        }
+
+        billHistClose.forEach((btn) => 
+        {
+            btn.onclick = () => closeBillHistMdl();
+        });
+    }
+
+
     // Giftcards & Promocodes (Non-operational)
     function init_giftcode_mdl()
     {
@@ -1617,7 +1751,7 @@
             {
                 giftCodeMdlBdr.removeEventListener("transitionend" , handleTransitionEnd);
                 documentBody.removeChild(giftCodeMdlBdr);
-                documentBody.removeAttribute(`data-modal-state`);
+                documentBody.classList.remove("bodystop");
                 if(typeof btnEv !== "undefined") btnEv.disabled = false;
             });
         }
