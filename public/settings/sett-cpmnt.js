@@ -71,10 +71,10 @@ let sett_cmpnt_lib =
     {
         sett_sect: `parenting`,
         sett_orientation: `vertical`,
-        sett_title: `Manage Profiles`,
+        sett_title: `Coming Soon`,
         sett_desc: 
         `   
-            Manage settings, set viewing restrictions, lock profiles and many more.
+            Manage profile settings, set viewing restrictions, lock profiles and more.
         `,
         sett_atn_type: null,
         sett_atn_id: null,
