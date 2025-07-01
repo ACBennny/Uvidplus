@@ -3655,47 +3655,7 @@ html:root:has(.btmNavBar.hidden)
 
 
 
-
-/* =========== DRAG AND SORTABLE LIST ========= */
-
-.genDraggableElement.dragging
-{
-    opacity: 0;
-}
-
-.genDraggableElement.notDragging
-{
-    pointer-events: none;
-}
-
-.genDraggablePreview
-{
-    position: fixed;
-    width: clamp(--cusPrvWidth , --cusPrvWidth, --cusPrvWidth);
-    height: clamp(--cusPrvWidth , --cusPrvWidth, --cusPrvWidth);
-    padding: inherit;
-    background-color: #ffffff20 !important;
-    opacity: 1;
-    transition: none !important;
-    text-decoration: none;
-    -moz-user-select: -moz-none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    pointer-events: none;
-    z-index: 1000;
-}
-
-
-
-
-
-
-
-
-
-
-/* =============== General Confirmation Modal ============= */
+/* ============ GENERAL CONFRIMATION MODAL ============ */
 .confirmModalBase
 {
     position: fixed;
@@ -3813,7 +3773,7 @@ html:root:has(.btmNavBar.hidden)
 
 
 
-/* -------- GENERAL (STATIC) MODAL -------- */
+/* =========== GENERAL (STATIC) MODAL =========== */
 .genStaticBase
 {
     position: fixed;
@@ -3824,7 +3784,7 @@ html:root:has(.btmNavBar.hidden)
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    background-color: #00000099;
+    background-color: #000000c3;
     opacity: 0;
     visibility: hidden;
     overflow: hidden;
@@ -3846,7 +3806,7 @@ html:root:has(.btmNavBar.hidden)
     width: 100%;
     height: 100%;
     -webkit-backdrop-filter: blur(0.625rem);
-    backdrop-filter: blur(0%);
+    backdrop-filter: blur(0.625rem);
     z-index: -1;
 }
 
@@ -3951,8 +3911,48 @@ html:root:has(.btmNavBar.hidden)
 
 
 
+/* =========== DRAG AND SORTABLE LIST ========= */
 
-/* ----------- GENERAL (DRAGGABLE) MENU MODAL ------------- */
+.genDraggableElement.dragging
+{
+    opacity: 0;
+}
+
+.genDraggableElement.notDragging
+{
+    pointer-events: none;
+}
+
+.genDraggablePreview
+{
+    position: fixed;
+    width: clamp(--cusPrvWidth , --cusPrvWidth, --cusPrvWidth);
+    height: clamp(--cusPrvWidth , --cusPrvWidth, --cusPrvWidth);
+    padding: inherit;
+    background-color: #ffffff20 !important;
+    opacity: 1;
+    transition: none !important;
+    text-decoration: none;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========== GENERAL (DRAGGABLE) MENU MODAL =========== */
 .genMenuModalBdr
 {
     position: fixed;
@@ -3989,7 +3989,7 @@ html:root:has(.btmNavBar.hidden)
     width: 100%;
     height: 100%;
     display: none;
-    background-color: #00000099;
+    background-color: #000000c3;
     -webkit-backdrop-filter: blur(0.625rem);
     backdrop-filter: blur(0.625rem);
     z-index: -1;
@@ -4204,7 +4204,7 @@ html:root:has(.btmNavBar.hidden)
 
 
 
-/* ================== Modal For Playlist, Dcld, Socials ================= */
+/* ================== GENERAL ACTION MODAL ================= */
 .genAtnModalBdr
 {
     position: fixed;
