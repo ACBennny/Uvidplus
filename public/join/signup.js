@@ -1212,16 +1212,17 @@
                             curr_plan_end: `${getNextDate(start_date, 10, "short")}`,
                         },
                         pymt_mtd: 
-                        [
+                        {
+                            [`${generateRandomString(32)}`]: 
                             {
-                                pay_type: `card`,
-                                pay_cardName: `${cardNum.value}`,
-                                pay_cardNo: `${cardExp.value}`,
-                                pay_cardExp: `${cardCode.value}`,
-                                pay_cardCode: `${cardName.value}`,
-                                pay_isDflt: true
+                                pymt_type: `card`,
+                                pymt_cardName: `${cardNum.value}`,
+                                pymt_cardNo: `${cardExp.value}`,
+                                pymt_cardExp: `${cardCode.value}`,
+                                pymt_cardCode: `${cardName.value}`,
+                                pymt_isDflt: true
                             }
-                        ],
+                        },
                         billing_hist: 
                         [
                             {
@@ -1307,3 +1308,5 @@
             preHomeSection();
         }, 1000);
     }
+
+    let x = `msD8nj2bW84wDE7yXd1qAJ8deUsRtw2S`;
