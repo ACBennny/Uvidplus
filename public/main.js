@@ -1679,7 +1679,6 @@
                 });
             }
 
-
             // Close Quick Search
             function closeQuickSearchModal()
             {
