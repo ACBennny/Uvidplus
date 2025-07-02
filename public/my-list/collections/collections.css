@@ -242,7 +242,7 @@ html:root
 
 
 
-/* ------- Open Watch List ------ */
+/* ------- Open Collection ------ */
 .myListCLCatalog_ItemBox .myListCLCatalog_ItemOpenCLBdr
 {
     position: absolute;
@@ -262,64 +262,6 @@ html:root
     border: none;
     background-color: #00000000;
     cursor: pointer;
-}
-
-
-
-
-/* --------- Deletes Watchlist ---------- */
-.myListCLCatalog_ItemBox .myListCLCatalog_ItemBadgeBdr
-{
-    position: absolute;
-    top: var(--myListCLCatalogItemDetPadding);
-    right: var(--myListCLCatalogItemDetPadding);
-    width: -moz-fit-content;
-    width: fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-    z-index: 7;
-    cursor: pointer;
-    display: none;
-}
-
-.myListCLCatalog_ItemBadgeBdr .myListCLCatalog_ItemBadgeBox
-{
-    width: 100%;
-    height: 100%;
-}
-
-.myListCLCatalog_ItemBadgeBox .myListCLCatalog_ItemBadgeIcon
-{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.625rem;
-    border-radius: 50%;
-    background-color: #00000099;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 300ms ease-in-out;
-}
-
-.myListCLCatalog_ItemBox:active .myListCLCatalog_ItemBadgeIcon
-{
-    opacity: 1;
-    visibility: visible;
-}
-
-.myListCLCatalog_ItemBadgeIcon .myListCLCatalog_ItemBadgeSvg
-{
-    width: 1.125rem;
-    height: 1.125rem;
-    fill: var(--genWhiteTypeMid);
-    transition: all 300ms ease-in-out;
-}
-
-.myListCLCatalog_ItemBadgeBdr:active .myListCLCatalog_ItemBadgeSvg
-{
-    fill: var(--genGreenTypeLight);
 }
 
 
