@@ -339,7 +339,7 @@
         const enfDelProf = async () => 
         {
             // Remove profile from user data
-            updateUserData(
+            await updateUserData(
             {
                 [`profiles.${profId}`]: firebase.firestore.FieldValue.delete()
             });
