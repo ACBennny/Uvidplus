@@ -13,6 +13,8 @@ html:root
     --settingNavBoxWidth: 17.5rem;
     --settingTopPadding: 7rem;
     --settCtntSectAtnIconSize: 2rem;
+    --settPymtLyrTopBcg: var(--genGreyTypeDark);
+    --settPymtLyrBtmBcg: var(--genGreyTypeMid);
 }
 
 
@@ -466,6 +468,229 @@ html:root
 {
     color: var(--genWhiteTypeLight);
     font-size: 0.875rem;
+}
+
+
+
+
+
+
+/* ============== PAYMENT OPTIONS ============= */
+
+.pymt_mtds_hdr_atnBdr
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.pymt_mtds_ctnt_box
+{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--myListCLCatalogItemWidth), 1fr));
+    grid-template-rows: auto;
+    justify-items: center;
+    gap: 0.9375rem;
+    padding: 0 var(--genStatic_pd);
+}
+
+.pymt_mtds_ctnt_box .pymt_card_bdr
+{
+    width: 100%;
+    max-width: 21.875rem;
+    max-height: 12.5rem;
+    margin-bottom: 1.25rem;
+    aspect-ratio: 16/9;
+    border-radius: 0.625rem;
+    border: 0.0625rem solid var(--genGreyTypeMid);
+    overflow: hidden;
+}
+
+.pymt_card_bdr[data-pymt-card-default="true"]
+{
+    box-shadow: 0rem 0rem 0rem 0.125rem var(--genGreenTypeMid);
+}
+
+.pymt_card_bdr .pymt_card_box
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.pymt_card_box .pymt_card_det_bdr
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 7;
+}
+
+.pymt_card_det_bdr .pymt_card_det_box
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.pymt_card_det_box .pymt_card_det_name_box
+{
+    width: 100%;
+    padding: 0.625rem 2.8125rem 0.625rem 0.625rem;
+}
+
+.pymt_card_det_name_box .pymt_card_det_name_txt
+{
+    --pymt_card_det_name_txtNo: 1;
+    --pymt_card_det_name_txtH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--pymt_card_det_name_txtNo);
+    -webkit-box-orient: vertical;
+    line-clamp:  var(--pymt_card_det_name_txtNo);
+    display: -webkit-box;
+    max-height: calc(var(--pymt_card_det_name_txtNo) * 1em * var(--pymt_card_det_name_txtH));
+    line-height: var(--pymt_card_det_name_txtH);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    color: var(--genWhiteTypeLight);
+    font-size: 0.875rem;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+.pymt_card_det_box .pymt_card_det_info_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: flex-end;
+    padding: 0.75rem;
+}
+
+.pymt_card_det_info_box .pymt_card_det_info_txt
+{
+    font-size: 0.875rem;
+}
+
+.pymt_card_det_info_txt .num_trim
+{
+    color: var(--genWhiteTypeLight);
+}
+
+.pymt_card_det_info_txt .num_exp
+{
+    color: var(--genGreenTypeLight);
+}
+
+
+
+.pymt_card_box .pymt_card_base_icon_bdr
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3.125rem;
+    height: 3.125rem;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 5;
+}
+
+.pymt_card_base_icon_bdr .pymt_card_base_icon_box
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 0.0625rem solid var(--genGreenTypeMid2);
+    background-color: var(--genGreyTypeLight);
+}
+
+.pymt_card_base_icon_box .pymt_card_base_icon_svg
+{
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: var(--genWhiteTypeLight);
+}
+
+
+.pymt_card_box .pymt_card_sqr_bdr
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--settPymtLyrTopBcg);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.pymt_card_sqr_bdr .pymt_card_sqr_box
+{
+    width: 50%;
+    height: 100%;
+    background-color: var(--genGreyTypeMid);
+}
+
+
+.pymt_card_box .pymt_card_crv_elem
+{
+    --bdr_rad: 70%;
+    position: absolute;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.pymt_card_crv_elem.pymt_card_crv_top
+{
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    border-bottom-left-radius: var(--bdr_rad);
+    background-color: var(--settPymtLyrTopBcg);
+}
+
+.pymt_card_crv_elem.pymt_card_crv_btm
+{
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    height: 50%;
+    border-top-right-radius: var(--bdr_rad);
+    background-color: var(--settPymtLyrBtmBcg);
+}
+
+
+.pymt_card_box .pymt_card_atn_bdr
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: -moz-fit-content;
+    width: fit-content;
+    z-index: 9;
+}
+
+.pymt_card_atn_bdr .pymt_card_atn_box
+{
+    width: 100%;
 }
 
 

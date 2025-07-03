@@ -26,16 +26,16 @@ let sett_cmpnt_lib =
     {
         sett_sect: `membership`,
         sett_orientation: `horizontal`,
-        sett_title: `Payment Info`,
+        sett_title: `Payment Cards`,
         sett_desc: 
         `
-            View, edit, update or add new payment methods.
-            Note that at least one payment method must be present unless membership is cancelled.
+            View, edit, update or add new payment cards.
+            Note that at least one payment card must be present unless membership is cancelled.
         `,
         sett_atn_type: `modal`,
         sett_atn_id: `sett_pay_info`,
         sett_atn_title: `Open`,
-        sett_atn_func: ``,
+        sett_atn_func: `init_pymt_mtds`,
     },
     {
         sett_sect: `membership`,

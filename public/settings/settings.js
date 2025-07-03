@@ -1114,7 +1114,7 @@
                 currPassInput.disabled = true;
                 newPassInput.disabled = true;
                 updUsrPassCfrmBtn.disabled = true;
-                closeDelAcc(true);
+                closeUpdPass(true);
             }
             else
             {
@@ -1123,7 +1123,7 @@
         });
 
         // Closes the updUsrPass modal
-        async function closeDelAcc(isPass = false)
+        async function closeUpdPass(isPass = false)
         {
             if(isPass == true) await reauthB4PassUpd(currPassInput.value, newPassInput.value);
 
@@ -1147,7 +1147,7 @@
         // Closes the modal
         updUsrPassCloseBtn.forEach(one => 
         {
-            one.addEventListener("mousedown" , closeDelAcc);
+            one.addEventListener("mousedown" , closeUpdPass);
         });
 
 
@@ -1531,9 +1531,339 @@
     }
 
 
-    // Billing History
+    // Manage payment methods
+    async function init_pymt_mtds(btnEv)
+    {
+        if(typeof btnEv !== "undefined") btnEv.disabled = true;
+
+        let pymtMtdsStruct = 
+        `
+            <div class="genStaticBase pymt_mtds_base">
+                <div class="genStaticBcg pymt_mtds_close"></div>
+                <div class="genStaticBdr">
+                    <div class="genStaticBox">
+                        <div class="genStaticHdrBdr">
+                            <div class="genStaticHdrBox">
+                                <div class="genStaticHdr_top">
+                                    <button type="button" class="genBtnBox genIconBtn transBtn pymt_mtds_close">
+                                        <div class="genBtnIcon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
+                                                <path fill-rule="evenodd" d="M10.53 5.47a.75.75 0 0 1 0 1.06l-4.72 4.72H20a.75.75 0 0 1 0 1.5H5.81l4.72 4.72a.75.75 0 1 1-1.06 1.06l-6-6a.75.75 0 0 1 0-1.06l6-6a.75.75 0 0 1 1.06 0" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                    </button>
+                                    <div class="genStaticHdr_TitleBox">
+                                        <div class="genStaticHdr_TitleText">Payment Cards</div>
+                                    </div>
+                                </div>
+                                <div class="genStaticHdr_btm">
+                                    <div class="pymt_mtds_hdr_atnBdr">
+                                        <button type="button" class="genBtnBox greySolidBtn add_pymt_mtd">
+                                            <div class="genBtnIcon">
+                                                <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="genBtnSvg">
+                                                    <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
+                                                </svg>
+                                            </div>
+                                            <span class="genBtnText">Add</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="genStaticCtntBdr">
+                            <div class="genStaticCtntBox">
+                                <div class="pymt_mtds_ctnt_box"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        documentCtnt.insertAdjacentHTML(`beforeend`, pymtMtdsStruct);
+
+        // Attach selectors
+        let pymtMtdsBase = document.querySelector(".pymt_mtds_base");
+        let pymtMtdsGrid = document.querySelector(".pymt_mtds_ctnt_box");
+        let pymtMtdsClose = document.querySelectorAll(".pymt_mtds_close");
+        let pymtMtdsAdd = document.querySelector(".add_pymt_mtd");
+        let pymtItemsStruct = ``;
+        let pymtMtdsTimer;
+
+        // Fetch payment methods
+        let userData = await getUserData();
+        let pymtMtdsData = userData?.pymt_mtd;
+
+        // Return and close if payment methods is unobtainable
+        if((typeof pymtMtdsData === "undefined") || (Object.keys(pymtMtdsData).length <= 0))
+        {
+            notification(`notifyBad`, `Payment methods unobtainable at this time`);
+            closePymtMtdsMdl();
+            return;
+        }
+
+        // Display Modal
+        pymtMtdsTimer = setTimeout(() => 
+        {
+            clearTimeout(pymtMtdsTimer);
+            pymtMtdsBase.classList.add("active");
+            documentBody.classList.add("bodystop");
+        }, 100);
+
+        // Build payment card elements
+        Object.entries(pymtMtdsData).forEach(([key, card]) => 
+        {
+            let cardNo = card.pymt_cardNo.toString().replace(/\s/g, '');
+            let cardNoTrim = cardNo.slice(-4);
+
+            pymtItemsStruct +=
+            `
+                <div class="pymt_card_bdr" data-pymt-card-id="${key}" data-pymt-card-default="${card.pymt_isDflt}">
+                    <div class="pymt_card_box">
+                        <div class="pymt_card_det_bdr">
+                            <div class="pymt_card_det_box">
+                                <div class="pymt_card_det_name_box">
+                                    <p class="pymt_card_det_name_txt">${card.pymt_cardName}</p>
+                                </div>
+                                <div class="pymt_card_det_info_box">
+                                    <p class="pymt_card_det_info_txt">
+                                        <span class="num_trim">••${cardNoTrim} |</span> 
+                                        <span class="num_exp">${card.pymt_cardExp}</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pymt_card_sqr_bdr">
+                            <div class="pymt_card_sqr_box"></div>
+                        </div>
+                        <div class="pymt_card_crv_elem pymt_card_crv_top"></div>
+                        <div class="pymt_card_crv_elem pymt_card_crv_btm"></div>
+                        <div class="pymt_card_base_icon_bdr">
+                            <div class="pymt_card_base_icon_box">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="pymt_card_base_icon_svg">
+                                    <path fill-rule="evenodd" d="M9.944 3.25h4.112c1.838 0 3.294 0 4.433.153c1.172.158 2.121.49 2.87 1.238c.748.749 1.08 1.698 1.238 2.87c.09.673.127 1.456.142 2.363a.8.8 0 0 1 .004.23q.009.848.007 1.84v.112c0 1.838 0 3.294-.153 4.433c-.158 1.172-.49 2.121-1.238 2.87c-.749.748-1.698 1.08-2.87 1.238c-1.14.153-2.595.153-4.433.153H9.944c-1.838 0-3.294 0-4.433-.153c-1.172-.158-2.121-.49-2.87-1.238c-.748-.749-1.08-1.698-1.238-2.87c-.153-1.14-.153-2.595-.153-4.433v-.112q-.002-.992.007-1.84a.8.8 0 0 1 .003-.23c.016-.907.053-1.69.143-2.363c.158-1.172.49-2.121 1.238-2.87c.749-.748 1.698-1.08 2.87-1.238c1.14-.153 2.595-.153 4.433-.153m-7.192 7.5q-.002.582-.002 1.25c0 1.907.002 3.262.14 4.29c.135 1.005.389 1.585.812 2.008s1.003.677 2.009.812c1.028.138 2.382.14 4.289.14h4c1.907 0 3.262-.002 4.29-.14c1.005-.135 1.585-.389 2.008-.812s.677-1.003.812-2.009c.138-1.028.14-2.382.14-4.289q0-.668-.002-1.25zm18.472-1.5H2.776c.02-.587.054-1.094.114-1.54c.135-1.005.389-1.585.812-2.008s1.003-.677 2.009-.812c1.028-.138 2.382-.14 4.289-.14h4c1.907 0 3.262.002 4.29.14c1.005.135 1.585.389 2.008.812s.677 1.003.812 2.009c.06.445.094.952.114 1.539M5.25 16a.75.75 0 0 1 .75-.75h4a.75.75 0 0 1 0 1.5H6a.75.75 0 0 1-.75-.75m6.5 0a.75.75 0 0 1 .75-.75H14a.75.75 0 0 1 0 1.5h-1.5a.75.75 0 0 1-.75-.75" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="pymt_card_atn_bdr">
+                            <div class="pymt_card_atn_box">
+                                <button type="button" class="genBtnBox genIconBtn transBtn openGenMenuModalBtn" data-gen-menu-modal-type="sett_pymt_mtds_menu">
+                                    <div class="genBtnIcon">
+                                        <svg transform="scale(0.80)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512" class="genBtnSvg">
+                                            <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
+                                        </svg>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            cardNo, cardNoTrim = null;
+        });
+        pymtMtdsGrid.innerHTML = pymtItemsStruct;
+
+        // Add Listeners
+        pymtMtdsAdd.onclick = () => initPymtMtdModal();
+        attachGenMenuModalEventListeners();
+
+
+        // Close the modal
+        function closePymtMtdsMdl()
+        {
+            pymtMtdsBase.classList.remove("active");
+            pymtMtdsBase.addEventListener("transitionend" , function handleTransitionEnd()
+            {
+                pymtMtdsBase.removeEventListener("transitionend" , handleTransitionEnd);
+                documentCtnt.removeChild(pymtMtdsBase);
+                documentBody.classList.remove("bodystop");
+
+                if(typeof btnEv !== "undefined") btnEv.disabled = false;
+            });
+        }
+
+        pymtMtdsClose.forEach((btn) => 
+        {
+            btn.onclick = () => closePymtMtdsMdl();
+        });
+    }
+
+    // Payment Method Card listeners
+    function attachPymtMtdCardListeners(event)
+    {
+        // Get the clicked button
+        let pymtCardMenuBtn = event.target.closest("[data-gen-menu-modal-type='sett_pymt_mtds_menu']");
+        
+        if (!pymtCardMenuBtn)
+        {
+            console.error("Button with attribute [data-gen-menu-modal-type='sett_pymt_mtds_menu'] not found.");
+            return;
+        }
+
+        // Find the parent 
+        let pymtCardBdr = pymtCardMenuBtn.closest(".pymt_card_bdr");
+        if (!pymtCardBdr)
+        {
+            console.error("Parent element not found.");
+            return;
+        }
+
+        // Get all parents elements to obtain the current index
+        let allPymtCards = Array.from(document.querySelectorAll(".pymt_card_bdr"));
+        let pymtCardIndex = allPymtCards.indexOf(pymtCardBdr);
+
+        if (pymtCardIndex === -1)
+        {
+            console.error("Failed to find the index of the clicked card.");
+            return;
+        }
+
+        let dfltPymtMtdBtn = document.querySelector(".dflt_pymt_mtd_btn");
+        let delPymtMtdBtn = document.querySelector(".del_pymt_mtd_btn");
+        let pid = pymtCardBdr.getAttribute("data-pymt-card-id");
+        let isChsnDflt = false;
+
+        // Set payment method as default
+        dfltPymtMtdBtn.onclick = async () => 
+        {
+            // Fetch payment methods
+            let userData = await getUserData();
+            let pymtMtdsData = userData?.pymt_mtd;
+
+            // Return if payment methods is unobtainable
+            if((typeof pymtMtdsData === "undefined") || (Object.keys(pymtMtdsData).length <= 0))
+            {
+                notification(`notifyBad`, `Failed to set as default`);
+                return;
+            }
+
+            // Set the chosen card as default, and all other cards to false
+            Object.entries(pymtMtdsData).forEach(([key, pymt]) => 
+            {
+                if((key === pid))
+                {
+                    pymt.pymt_isDflt = true;
+                }
+                else
+                {
+                    pymt.pymt_isDflt = false;
+                }
+            });
+
+            // Update user data
+            try
+            {
+                await updateUserData(
+                {
+                    pymt_mtd: pymtMtdsData
+                });
+
+                // Update UI
+                allPymtCards.forEach(item => item.setAttribute("data-pymt-card-default", "false"));
+                pymtCardBdr.setAttribute("data-pymt-card-default", "true");
+
+                // Notify user
+                notification(`notifyGood` , `Payment card successfully set as defualt`);
+            }
+            catch(error)
+            {
+                console.error(error)
+                notification(`notifyBad`, `Failed to set as default`);
+            }
+        }
+
+        // Delete payment method
+        delPymtMtdBtn.onclick = async () => 
+        {
+            // Fetch payment methods
+            let userData = await getUserData();
+            let pymtMtdsData = userData?.pymt_mtd;
+
+            // Return if only one payment method present
+            if((typeof pymtMtdsData === "undefined") || (Object.keys(pymtMtdsData).length <= 1))
+            {
+                notification(`notifyBad`, `At least one payment method must be present`);
+                return;
+            }
+            
+            // Set flag to true if chosen payment method is the default
+            if(pymtMtdsData[`${pid}`].pymt_isDflt == true) isChsnDflt = true;
+
+            // Confirm before deletion
+            initConfirmModal(
+                `Are you sure you want to delete this card`,
+                `This action is permanent`,
+                `Delete`,
+                `Cancel`,
+                reqDelPymtMtd
+            );
+        }
+
+        // Performs deletion of payment method
+        const reqDelPymtMtd = async () => 
+        {
+            try 
+            {
+                // Remove payment method from user data
+                await updateUserData(
+                {
+                    [`pymt_mtd.${pid}`]: firebase.firestore.FieldValue.delete()
+                });
+
+                // Remove card from DOM
+                pymtCardBdr.remove();
+
+                // Notify user
+                notification(`notifyGood` , `Payment card successfully deleted`);
+            }
+            catch(error)
+            {
+                console.error(error)
+                notification(`notifyBad`, `Failed to delete payment method`);
+                return;
+            }
+
+            // Fetch payment methods
+            let userData = await getUserData();
+            let pymtMtdsData = userData?.pymt_mtd;
+
+            // Return if payment methods is unobtainable
+            if((typeof pymtMtdsData === "undefined") || (Object.keys(pymtMtdsData).length <= 0)) return;
+
+            // Set another card as default if the chosen one is the current default
+            if(isChsnDflt)
+            {
+                let newDfltId = Object.entries(pymtMtdsData)[0][0];
+                console.log("newDfltId", newDfltId);
+
+                // Update user data
+                await updateUserData(
+                {
+                    [`pymt_mtd.${newDfltId}.pymt_isDflt`]: true
+                });
+
+                // Update DOM elements
+                allPymtCards.forEach((card) => 
+                {
+                    if((card.getAttribute("data-pymt-card-id") === newDfltId)) card.setAttribute("data-pymt-card-default", "true");
+                });
+            }
+        }
+    }
+
+    // Add new payment method
+    function initPymtMtdModal()
+    {
+        notification('notifyBad', 'Feature unavailable');
+    }
+
+
+    // View Billing History
     async function init_bill_hist(btnEv)
     {
+        if(typeof btnEv !== "undefined") btnEv.disabled = true;
+
         let billHistStruct = 
         `
             <div class="genStaticBase bill_hist_base">
@@ -1554,9 +1884,6 @@
                                         <div class="genStaticHdr_TitleText">Billing History</div>
                                     </div>
                                 </div>
-                                <div class="genStaticHdr_btm">
-                                    <div class="bill_hist_hdr_atnBdr"></div>
-                                </div>
                             </div>
                         </div>
                         <div class="genStaticCtntBdr">
@@ -1568,7 +1895,6 @@
                 </div>
             </div>
         `;
-
         documentCtnt.insertAdjacentHTML(`beforeend`, billHistStruct);
 
         // Attach selectors
@@ -1751,7 +2077,7 @@
             {
                 giftCodeMdlBdr.removeEventListener("transitionend" , handleTransitionEnd);
                 documentBody.removeChild(giftCodeMdlBdr);
-                documentBody.classList.remove("bodystop");
+                documentBody.removeAttribute(`data-modal-state`);
                 if(typeof btnEv !== "undefined") btnEv.disabled = false;
             });
         }
