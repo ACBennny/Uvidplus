@@ -1366,7 +1366,6 @@
                 ? `${currDay}/${(currMonth + 1)}/${currYear}` 
                 : `${monthArr[currMonth]} ${currDay}, ${currYear}`;
 
-            console.log("curr date", dateInStr);
             return dateInStr;
         }
 
@@ -1393,8 +1392,7 @@
                 ? `${newDay}/${(newMonth + 1)}/${newYear}` 
                 : `${monthArr[newMonth]} ${newDay}, ${newYear}`;
 
-            console.log(`From ${inpDate} to ${newDate}\nIncreased by ${incrmt_by}`);
-            return inpDate;
+            return newDate;
         }
 
 
