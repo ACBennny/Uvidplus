@@ -175,6 +175,12 @@ html:has(body[gen-menu-modal-is-dragging="true"])
     scroll-behavior: auto;
 }
 
+html:has(body[gen-menu-modal-is-dragging="true"])
+::-webkit-scrollbar-thumb
+{
+    background-color: #00000000;
+}
+
 html:has(body[data-modal-state="open"])
 {
     overflow: hidden !important;
