@@ -1219,10 +1219,10 @@
                             [`${generateRandomString(32)}`]: 
                             {
                                 pymt_type: `card`,
-                                pymt_cardName: `${cardNum.value}`,
-                                pymt_cardNo: `${cardExp.value}`,
-                                pymt_cardExp: `${cardCode.value}`,
-                                pymt_cardCode: `${cardName.value}`,
+                                pymt_cardName: `${cardName.value}`,
+                                pymt_cardNo: `${cardNum.value}`,
+                                pymt_cardExp: `${cardExp.value}`,
+                                pymt_cardCode: `${cardCode.value}`,
                                 pymt_isDflt: true
                             }
                         },
