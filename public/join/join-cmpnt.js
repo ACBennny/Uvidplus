@@ -833,7 +833,7 @@
                                             <div class="form_input_name">Card Name</div>
                                         </label>
                                         <div class="form_input_box">
-                                            <input type="text" id="form_pymt_cardName" class="form_input_field" placeholder="Enter full name on Card" required>
+                                            <input type="text" id="form_pymt_cardName" class="form_input_field" placeholder="Enter full name on Card" maxlength="250" required>
                                         </div>
 
                                         <!-- warning/error -->

@@ -26,11 +26,11 @@
                         <div class="feedback_ctnt">
                             <label for="feedback_subject" class="feedback_sectBox feedback_sectInputBox">
                                 <div class="feedback_sectLabel">Title</div>
-                                <input type="text" name="subject" id="feedback_subject" class="feedback_sectField feedback_sectInput"  placeholder="Enter title" disabled />
+                                <input type="text" name="subject" id="feedback_subject" class="feedback_sectField feedback_sectInput"  placeholder="Enter title" maxlength="125" required disabled />
                             </label>
                             <label for="feedback_desc" class="feedback_sectBox feedback_sectInputBox">
                                 <div class="feedback_sectLabel">Description</div>
-                                <textarea name="text" id="feedback_desc" class="feedback_sectField feedback_sectTextArea" placeholder="Enter description" disabled></textarea>
+                                <textarea name="text" id="feedback_desc" class="feedback_sectField feedback_sectTextArea" placeholder="Enter description" maxlength="1250" required disabled></textarea>
                             </label>
                             <div class="feedback_selectBdr">
                                 <label for="feedback_type" class="feedback_sectBox feedback_sectSelectBox">
