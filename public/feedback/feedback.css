@@ -174,6 +174,11 @@
     cursor: text;
 }
 
+.feedback_sectInputBox:has(input[data-inp-invalid])
+{
+    background-color: #351919;
+}
+
 .feedback_sectBox .feedback_sectLabel
 {
     position: absolute;
@@ -209,6 +214,11 @@
     background-color: #00000000;
     transition: all 300ms ease-in-out;
     cursor: text;
+}
+
+.feedback_sectInputBox .feedback_sectField[data-inp-invalid]
+{
+    color: var(--warningClr);
 }
 
 .feedback_sectField.feedback_sectTextArea
@@ -283,6 +293,11 @@
     .feedback_sectBox:hover
     {
         background-color: #ffffff20;
+    }
+
+    .feedback_sectInputBox:has(input[data-inp-invalid]):hover
+    {
+        background-color: #441f1f;
     }
 }
 
