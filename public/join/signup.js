@@ -97,21 +97,18 @@
             const allFormFields = document.querySelectorAll(".form_input_bdr .form_input_field");
 
             // Full name
-            let fullNameArray = [];
             const newFullName = document.querySelector("#form_signUp_fullname");
             const newFullNameWarn = document.querySelector("#form_signUp_fullnameWarn");
             let isFullNameValid = false;
 
             // Email
             const new_email_cond = new RegExp("^[A-Za-z0-9@.%_+-]*$");
-            let emailArray = [];
             const newEmail = document.querySelector("#form_signUp_email");
             const newEmailWarn = document.querySelector("#form_signUp_emailWarn");
             let isEmailValid = false;
 
             // Password
             const new_pass_cond = new RegExp("^[A-Za-z0-9!@#$%^&*_+-~`)(></\"?|]");
-            let passwordArray = [];
             const newPassword = document.querySelector("#form_signUp_pass");
 
             // Conditions for password
@@ -147,20 +144,18 @@
             
             function validateFullName(event)
             {
-                fullNameArray.length = 0;
-                fullNameArray.push(newFullName.value);
-                let lastCurArrayVal = fullNameArray.at(-1);
+                let fname = newFullName.value.toString().trim();
                 let fullName_Condition = /^\s*\S+(?:\s+\S+)+\s*$/;
 
                 // Checks if empty
-                if((event.data == null) && (lastCurArrayVal.length <= 0))
+                if((event.data == null) && (fname === ""))
                 {
                     newFullNameWarn.textContent = "Required";
                     newFullNameWarn.classList.add("active");
                     isFullNameValid = false;
                 }
                 // Checks if Full name was entered
-                else if(!(lastCurArrayVal.match(fullName_Condition)))
+                else if(!(fullName_Condition.test(fname)))
                 {
                     newFullNameWarn.textContent = "First and last name required";
                     newFullNameWarn.classList.add("active");
@@ -209,20 +204,17 @@
             // Validation function For "Email"
             function validateNewEmail(event)
             {
-                emailArray.length = 0;
-                emailArray.push(newEmail.value);
-                let lastEmailArrayval = emailArray.at(-1);
-
+                let eml = newEmail.value.toString().trim();
                 let check_for_AtSign_in_Email = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
                 // Checks if the field is empty
-                if((event.data == null) && (lastEmailArrayval.length <= 0))
+                if((event.data == null) && (eml === ""))
                 {
                     newEmailWarn.textContent = "Required";
                     newEmailWarn.classList.add("active");
                     isEmailValid = false;
                 }
-                else if(!(lastEmailArrayval.match(check_for_AtSign_in_Email)))
+                else if(!(check_for_AtSign_in_Email.test(eml)))
                 {
                     newEmailWarn.textContent = "Invalid Email";
                     newEmailWarn.classList.add("active");
@@ -235,8 +227,6 @@
                     newEmailWarn.classList.remove("active");
                     isEmailValid = true;
                 }
-
-                
             }
 
             newEmail.addEventListener("input" , validateNewEmail);
@@ -290,16 +280,14 @@
             // Validation for Password
             function validateNewPassword(event) 
             {
-                passwordArray.length = 0;
-                passwordArray.push(newPassword.value);
-                let lastPassArrayVal = passwordArray.at(-1);
+                let pswd = newPassword.value.toString().trim().replace(/s+/g, '');
                 const userPass_Cond_SpecialChar = /\W/g;
                 const userPass_Cond_num = /\d/g;
                 const userPass_Cond_Lett_Upr = /[A-Z]/g;
                 const userPass_Cond_Lett_Lwr = /[a-z]/g;
 
                 // Checks if there is any value in the input feild
-                if(((event.data == null) && (newPassword.length <= 0)))
+                if(((event.data == null) && (pswd === "")))
                 {
                     newPassLength.classList.replace("goodCond" , "badCond");
                     isPassLengthValid = false;
@@ -309,7 +297,7 @@
                 }
 
                 // Checks if the pattern is less "8" characters
-                if(((lastPassArrayVal.length > -1) && (lastPassArrayVal.length < 8)))
+                if(((pswd.length > -1) && (pswd.length < 8)))
                 {
                     newPassLength.classList.replace("goodCond" , "badCond");
                     isPassLengthValid = false;
@@ -321,7 +309,7 @@
                 }
 
                 // Checks if it contains an Upercase Letter
-                if((lastPassArrayVal.match(userPass_Cond_Lett_Upr)))
+                if((userPass_Cond_Lett_Upr.test(pswd)))
                 {
                     newPassLetterUpr.classList.replace("badCond" , "goodCond");
                     isPassLetterValid = true;
@@ -333,7 +321,7 @@
                 }
 
                 // Checks if it contains a Lowercase Letter
-                if((lastPassArrayVal.match(userPass_Cond_Lett_Lwr)))
+                if((userPass_Cond_Lett_Lwr.test(pswd)))
                 {
                     newPassLetterLwr.classList.replace("badCond" , "goodCond");
                     isPassLetterValid = true;
@@ -345,7 +333,7 @@
                 }
 
                 // Checks if it contains number
-                if((lastPassArrayVal.match(userPass_Cond_num)))
+                if((userPass_Cond_num.test(pswd)))
                 {
                     newPassNumber.classList.replace("badCond" , "goodCond");
                     isPassNumberValid = true;
@@ -357,7 +345,7 @@
                 }
                 
                 // Checks if it contains a special character
-                if((lastPassArrayVal.match(userPass_Cond_SpecialChar)))
+                if((userPass_Cond_SpecialChar.test(pswd)))
                 {
                     newPassSpecChar.classList.replace("badCond" , "goodCond");
                     isPassSpecCharValid = true;
@@ -1309,5 +1297,3 @@
             preHomeSection();
         }, 1000);
     }
-
-    let x = `msD8nj2bW84wDE7yXd1qAJ8deUsRtw2S`;
