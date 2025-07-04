@@ -36,21 +36,16 @@
 
             // User email
             const user_email_cond = new RegExp("^[A-Za-z0-9@.%_+-]*$");
-            let userEmailArray = [];
             const userEmail = document.querySelector("#form_logIn_id");
             let isUserEmailValid = false;
             
             // Password
             const user_pass_cond = new RegExp("^[A-Za-z0-9!@#$%^&*_+-~`)(></\"?|]");
-            let userpasswordArray = [];
             const userPassword = document.querySelector("#form_logIn_pass");
             let isUserPassValid = false;
 
             // Warning
             const logInWarn = document.querySelector("#logIn_warn");
-
-            // Account Recovery / Reset Password
-            let testTimer;
 
             // Submitting Info
             const logInBtn = document.querySelector("#logIn_btn");
@@ -58,7 +53,6 @@
 
             // Forgot password
             const resetPass_email_cond = new RegExp("^[A-Za-z0-9@.%_+-]*$");
-            let resetPassArray = [];
             const resetPass_email = document.querySelector("#form_recover_Acc");
             const resetPass_warn = document.querySelector("#form_recover_AccWarn");
             const resetPass_SubmitBtn = document.querySelector("#recoverAcc_btn");
@@ -134,17 +128,15 @@
             // Validation function For "User"
             function validateLogInEmail(event)
             {
-                userEmailArray.length = 0;
-                userEmailArray.push(userEmail.value);
-                let lastEmailArrayval = userEmailArray.at(-1);
+                let eml = newEmail.value.toString().trim();
                 let check_for_AtSign_in_Email = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
                 // Checks if the field is empty
-                if((event.data == null) && (lastEmailArrayval.length <= 0))
+                if((event.data == null) && (eml === ""))
                 {
                     isUserEmailValid = false;
                 }
-                else if(!(lastEmailArrayval.match(check_for_AtSign_in_Email)))
+                else if(!(check_for_AtSign_in_Email.match(eml)))
                 {
                     isUserEmailValid = false;
                 }
@@ -153,8 +145,6 @@
                 {
                     isUserEmailValid = true;
                 }
-
-                
             }
 
             userEmail.addEventListener("input" , validateLogInEmail);
@@ -193,27 +183,25 @@
             // Validation for Password
             function validateUserPassword(event) 
             {
-                userpasswordArray.length = 0;
-                userpasswordArray.push(userPassword.value);
-                let lastPassArrayVal = userpasswordArray.at(-1);
+                let pswd = newEmail.value.toString().trim();
                 const userPass_Cond_SpecialChar = /\W/g;
                 const userPass_Cond_num = /\d/g;
                 const userPass_Cond_Lett = /[A-Z a-z]/g;
 
                 // Checks if there is any value in the input feild
-                if(((event.data == null) && (lastPassArrayVal.length <= 0)))
+                if(((event.data == null) && (pswd === "")))
                 {
                     isUserPassValid = false;
                 }
                 // Checks if the pattern is less "8" characters and above than "100" characters
-                else if(((lastPassArrayVal.length > 0) && (lastPassArrayVal.length < 8)) || (lastPassArrayVal.length > 100))
+                else if(((pswd.length > 0) && (pswd.length < 8)))
                 {
                     isUserPassValid = false;
                 }
                 // Checks if the input fits the specified pattern
-                else if(!(lastPassArrayVal.match(userPass_Cond_SpecialChar) 
-                    && lastPassArrayVal.match(userPass_Cond_Lett)
-                    && lastPassArrayVal.match(userPass_Cond_num)
+                else if(!(userPass_Cond_SpecialChar.match(pswd) 
+                    && userPass_Cond_num.match(pswd)
+                    && userPass_Cond_Lett.match(pswd)
                 ))
                 {
                     isUserPassValid = false;
@@ -297,19 +285,17 @@
 
             function resetPasswordRequest(e)
             {
-                resetPassArray.length = 0;
-                resetPassArray.push(resetPass_email.value);
-                let lastEmailArrayval = resetPassArray.at(-1);
+                let rst_pswd = newEmail.value.toString().trim();
 
                 // Checks if the field is empty
-                if((e.data == null) && (lastEmailArrayval.length <= 0))
+                if((e.data == null) && (rst_pswd === ""))
                 {
                     resetPass_SubmitBtn.disabled = true;
                     resetPass_warn.textContent = "Invalid Email";
                     resetPass_warn.classList.add("active");
                 }
                 // Condition for valid email
-                else if(!(lastEmailArrayval.match(resetPass_validEmail)))
+                else if(!(resetPass_validEmail.match(rst_pswd)))
                 {
                     resetPass_SubmitBtn.disabled = true;
                     resetPass_warn.textContent = "Invalid Email";
