@@ -1665,7 +1665,11 @@
         pymtMtdsGrid.innerHTML = pymtItemsStruct;
 
         // Add Listeners
-        pymtMtdsAdd.onclick = () => initPymtMtdModal();
+        pymtMtdsAdd.onclick = () => 
+        {
+            closePymtMtdsMdl();
+            initAddPymtMtdModal();
+        }
         attachGenMenuModalEventListeners();
 
 
@@ -1853,9 +1857,529 @@
     }
 
     // Add new payment method
-    function initPymtMtdModal()
+    async function initAddPymtMtdModal()
     {
-        notification('notifyBad', 'Feature unavailable');
+        // Fetch payment methods
+        let pymtMtdMAX = 5;
+        let userData = await getUserData();
+        let pymtMtdsData = userData?.pymt_mtd;
+
+        // Return and close if payment methods is unobtainable
+        if((typeof pymtMtdsData === "undefined") || (Object.keys(pymtMtdsData).length <= 0))
+        {
+            notification(`notifyBad`, `Cannot create payment methods at this time`);
+            init_pymt_mtds();
+            return;
+        }
+
+        // Return if user has the max payment methods
+        if((Object.keys(pymtMtdsData).length >= pymtMtdMAX))
+        {
+            notification(`notifyBad`, `You can only have "${pymtMtdMAX}" payment methods`);
+            init_pymt_mtds();
+            return;
+        }
+
+        let add_pymt_mtd_struct = 
+        `
+            <div class="feedback_base add_pymt_mtd_base">
+                <div class="feedback_bdr">
+                    <div class="feedback_bcg add_pymt_mtd_bcg add_pymt_mtd_cls_btn"></div>
+                    <div class="feedback_box">
+                        <form id="payment_card_form" name="payment_card_form" class="feedback_form">
+                            <div class="feedback_closeBdr add_pymt_mtd_cls_btn">
+                                <div class="feedback_closeBox ">
+                                    <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="feedback_closeIcon">
+                                        <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="feedback_header">
+                                <div class="feedback_name">Add Payment Card</div>
+                            </div>
+                            <div class="feedback_ctnt">
+                                <label for="form_pymt_cardNum" class="feedback_sectBox feedback_sectInputBox">
+                                    <div class="feedback_sectLabel">Card No.</div>
+                                    <input type="text" name="card_name" id="form_pymt_cardNum" class="feedback_sectField feedback_sectInput" placeholder="1234 5678 9123 4567" maxlength="19" required disabled />
+                                </label>
+                                <div class="feedback_selectBdr">
+                                    <label for="form_pymt_cardExp" class="feedback_sectBox feedback_sectInputBox">
+                                        <div class="feedback_sectLabel">Expiry</div>
+                                        <input type="text" name="card_expiry" id="form_pymt_cardExp" class="feedback_sectField feedback_sectInput" placeholder="MM/YY" maxlength="5" required disabled />
+                                    </label>
+                                    <label for="form_pymt_cardSec" class="feedback_sectBox feedback_sectInputBox">
+                                        <div class="feedback_sectLabel">CVV/CVC</div>
+                                        <input type="password" name="card_sec_code" id="form_pymt_cardSec" class="feedback_sectField feedback_sectInput" placeholder="••••" maxlength="4" required disabled />
+                                    </label>
+                                </div>
+                                <label for="form_pymt_cardName" class="feedback_sectBox feedback_sectInputBox">
+                                    <div class="feedback_sectLabel">Card Name</div>
+                                    <input type="text" name="card_name" id="form_pymt_cardName" class="feedback_sectField feedback_sectInput" placeholder="Enter fullname on card" maxlength="250" required disabled />
+                                </label>
+                            </div>
+                            <div class="feedback_atnBox">
+                                <button type="button" id="req_new_pymt_mtd" class="genBtnBox midSolidBtn disabled">
+                                    <div class="genBtnText">Add</div>
+                                </button>
+                                <button type="button" class="genBtnBox hollowBtn add_pymt_mtd_cls_btn disabled">
+                                    <div class="genBtnText">Cancel</div>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        documentCtnt.insertAdjacentHTML(`beforeend`, add_pymt_mtd_struct);
+
+        const addPymtMtdBase = document.querySelector(".add_pymt_mtd_base");
+        const closeAddPymtMtdMdl = document.querySelectorAll(".add_pymt_mtd_cls_btn");
+        let addPymtMtdTimer;
+
+        // All form fields
+        const allFormFields = addPymtMtdBase.querySelectorAll(".feedback_sectInput");
+        const allFormBtns = addPymtMtdBase.querySelectorAll("button");
+
+        // Card Number
+        const card_num_cond = new RegExp("^[0-9]*$");
+        const cardNum = document.querySelector("#form_pymt_cardNum");
+        let isCardNumValid = false;
+
+        // Card Expiry date
+        const card_exp_cond = new RegExp("^[0-9]*$");
+        const cardExp = document.querySelector("#form_pymt_cardExp");
+        let isCardExpValid = false;
+
+        // Card Security Code
+        const card_code_cond = new RegExp("^[0-9]*$");
+        const cardCode = document.querySelector("#form_pymt_cardSec");
+        let isCardCodeValid = false;
+
+        // Card Full Name
+        const cardName = document.querySelector("#form_pymt_cardName");
+        let isCardNameValid = false;
+
+        // Submit button
+        const sbmtPymtForm = document.querySelector("#req_new_pymt_mtd");
+        
+
+        // Display modal
+        addPymtMtdTimer = setTimeout(() => 
+        {
+            clearTimeout(addPymtMtdTimer);
+            documentBody.setAttribute(`data-modal-state` , `open`);
+            addPymtMtdBase.classList.add("active");
+            allFormFields.forEach(fld => fld.disabled = false);
+            allFormBtns.forEach(btn => btn.disabled = false);
+        }, 100);
+
+
+        // Validates Input for Card Number
+
+            // Conditions -
+            /**
+             *  1 - Should be at least thirteen (13) numbers
+             */
+
+            // Allows 0-9
+            cardNum.addEventListener("beforeinput", (event) => 
+            {
+                if (event.data != null && !(card_num_cond.test(event.data))) 
+                    event.preventDefault();
+            });
+
+            // Validation function For "Card Number"
+            // Adds a space after every four (4) numbers
+            function validateCardNum(e)
+            {
+                // Checks if the field is empty
+                if((e.data == null) && (cardNum.value.toString().length <= 0))
+                {
+                    cardNum.setAttribute(`data-inp-invalid`, 'true');
+                    isCardNumValid = false;
+                }
+                // Checks if the card number length is less than the specified
+                else
+                {
+                    const cardNumInp = e.target;
+                    const cardNumVal = cardNumInp.value;
+                    const cursor = cardNumInp.selectionStart;
+
+                    // Store only digits
+                    const digits = cardNumVal.replace(/\D/g, '');
+
+                    // Format & break into groups of four (4)
+                    const newCardNum = digits.match(/.{1,4}/g)?.join(' ') || '';
+
+                    // Calculate the numnber of digits before the cursor
+                    const digitsBeforeCursor = cardNumVal.slice(0, cursor).replace(/\D/g, '').length;
+
+                    // Rebuild string and find new cursor position
+                    let newCursor = 0;
+                    let digitCount = 0;
+
+                    for (let i = 0; i < newCardNum.length; i++) 
+                    {
+                        if (/\d/.test(newCardNum[i])) 
+                        {
+                            digitCount++;
+                        }
+                        if (digitCount === digitsBeforeCursor) 
+                        {
+                            newCursor = i + 1;
+                            break;
+                        }
+                    }
+
+                    cardNumInp.value = newCardNum;
+                    cardNumInp.setSelectionRange(newCursor, newCursor);
+
+                    if(digits.length < 13)
+                    {
+                        cardNum.setAttribute(`data-inp-invalid`, 'true');
+                        isCardNumValid = false;
+                    }
+                    // If all conditions are met, the input is valid, i.e "true";
+                    else
+                    {
+                        cardNum.removeAttribute(`data-inp-invalid`);
+                        isCardNumValid = true;
+                    }
+                }
+            }
+
+            cardNum.addEventListener("input" , validateCardNum);
+
+            // Switch to the next field
+            cardNum.onkeyup = (e) => 
+            {
+                if((typeof e === "undefined") || (typeof e.key === "undefined") || !(isCardNumValid)) return;
+                
+                let key = e.key.toLowerCase();
+
+                if(key === "enter")
+                {
+                    cardExp.focus();
+                }
+            }
+
+
+        // Validates Input for Expiry Date
+
+            // Conditions -
+            /**
+             *  1 - Should be in the format "MM/YY"
+             */
+
+            // Allows 0-9
+            cardExp.addEventListener("beforeinput", (event) => 
+            {
+                if (event.data != null && !(card_exp_cond.test(event.data))) 
+                    event.preventDefault();
+            });
+
+            // Validation function For "Security Code"
+            // Also Formats the input to "MM/YY"
+            function validateCardExp(e)
+            {
+                let input = e.target;
+                let raw = input.value;
+                let cursor = input.selectionStart;
+
+                // Strip non-digits and cap at 4 digits
+                let digits = raw.replace(/\D/g, '').slice(0, 4);
+
+                // Checks if the field is empty
+                if((e.data == null) && (digits.length <= 0))
+                {
+                    cardExp.setAttribute(`data-inp-invalid`, 'true');
+                    isCardExpValid = false;
+
+                    return;
+                }
+
+                // Auto-prepend "0" if user entered single-digit month (3 → 03)
+                if (digits.length === 1 && parseInt(digits, 10) > 1) 
+                {
+                    digits = '0' + digits;
+                    cursor = cursor + 1;
+                }
+
+                // Format as MM/YY
+                let formatted = '';
+
+                if (digits.length >= 3) 
+                {
+                    formatted = `${digits.slice(0, 2)}/${digits.slice(2)}`;
+                } 
+                else 
+                {
+                    formatted = digits;
+                }
+
+                // Detect if slash was added
+                const addedSlash = formatted[cursor - 1] === '/' && raw[cursor - 2] !== '/';
+                let newCursor = cursor;
+
+                if (raw.length < formatted.length && addedSlash) 
+                {
+                    newCursor++;
+                }
+
+                input.value = formatted;
+                input.setSelectionRange(newCursor, newCursor);
+
+                if((digits > 4))
+                {
+                    const month = parseInt(digits.slice(0, 2), 10);
+                    const year = parseInt(digits.slice(2), 10);
+
+                        // get last 2 digits of current year
+                    const currYr = new Date().getFullYear() % 100;
+                    const maxValidYear = currYr + 50;
+
+                    const isMonthValid = month >= 1 && month <= 12;
+                    const isYearValid = year >= currYr && year <= maxValidYear;
+
+                    if (!isMonthValid || !isYearValid) 
+                    {
+                        cardExp.setAttribute(`data-inp-invalid`, 'true');
+                        isCardExpValid = false;
+                    }
+                    else
+                    {
+                        cardExp.removeAttribute(`data-inp-invalid`);
+                        isCardExpValid = true;
+                    }
+                    return
+                }
+                cardExp.setAttribute(`data-inp-invalid`, 'true');
+                isCardExpValid = false;
+            }
+
+            cardExp.addEventListener("input" , validateCardExp);
+
+            // Switch to the next field
+            cardExp.onkeyup = (e) => 
+            {
+                if((typeof e === "undefined") || (typeof e.key === "undefined") || !(isCardExpValid)) return;
+                
+                let key = e.key.toLowerCase();
+
+                if(key === "enter")
+                {
+                    cardCode.focus();
+                }
+            }
+
+
+        // Validates Input for Security Code
+
+            // Conditions -
+            /**
+             *  1 - Should be at least three (3) numbers
+             */
+
+            // Allows 0-9
+            cardCode.addEventListener("beforeinput", (event) => 
+            {
+                if (event.data != null && !(card_code_cond.test(event.data))) 
+                    event.preventDefault();
+            });
+
+            // Validation function For "Security Code"
+            function validateSecCode(event)
+            {
+                // Return if value is not a number
+                if(!(/^\d+$/.test(cardCode.value)))
+                {
+                    cardCode.setAttribute(`data-inp-invalid`, 'true');
+                    isCardCodeValid = false;
+                    return;
+                }
+
+                // Strip non-digits and cap at 4 digits
+                let digits = cardCode.value.replace(/\D/g, '');
+
+                // Checks if the field is empty
+                if((event.data == null) && (digits <= 0))
+                {
+                    cardCode.setAttribute(`data-inp-invalid`, 'true');
+                    isCardCodeValid = false;
+                }
+                else if((digits < 3))
+                {
+                    cardCode.setAttribute(`data-inp-invalid`, 'true');
+                    isCardCodeValid = false;
+                }
+                // If all conditions are met, the input is valid, i.e "true";
+                else
+                {
+                    cardCode.removeAttribute(`data-inp-invalid`);
+                    isCardCodeValid = true;
+                }
+            }
+
+            cardCode.addEventListener("input" , validateSecCode);
+
+            // Switch to the next field
+            cardCode.onkeyup = (e) => 
+            {
+                if((typeof e === "undefined") || (typeof e.key === "undefined") || !(isCardCodeValid)) return;
+                
+                let key = e.key.toLowerCase();
+
+                if(key === "enter")
+                {
+                    cardName.focus();
+                }
+            }
+
+
+        // Validates Input for Card Name
+
+            // Conditions -
+            /**
+             *  1 - At least two (2) non-whitespace characters separated by a space
+             */
+            
+            function validateCardName(event)
+            {
+                let fname = cardName.value.toString().trim();
+                let fullName_Condition = /^\s*\S+(?:\s+\S+)+\s*$/;
+
+                // Checks if empty
+                if((event.data == null) && (fname === ""))
+                {
+                    cardName.setAttribute(`data-inp-invalid`, 'true');
+                    isCardNameValid = false;
+                }
+                // Checks if Full name was entered
+                else if(!(fullName_Condition.test(fname)))
+                {
+                    cardName.setAttribute(`data-inp-invalid`, 'true');
+                    isCardNameValid = false;
+                }
+                else
+                {
+                    cardName.removeAttribute(`data-inp-invalid`);
+                    isCardNameValid = true;
+                } 
+            }
+
+            cardName.addEventListener("input" , validateCardName);
+
+            // Switch to the next field
+            cardName.onkeyup = (e) => 
+            {
+                if((typeof e === "undefined") || (typeof e.key === "undefined")) return;
+                
+                let key = e.key.toLowerCase();
+
+                if(key === "enter")
+                {
+                    sbmtPymtForm.click();
+                }
+            }
+
+
+        // Submission
+        sbmtPymtForm.addEventListener("click" , async () => 
+        {
+            const auth = window.firebaseAuth;
+            const user = auth.currentUser;
+
+            // Return if user isn't logged in
+            if (!user)
+            {
+                notification(`notifyBad` , "You are not logged in.");
+                return;
+            }
+
+            // If all input fields are filled correctly, update properties and finalise
+            if(((isCardNumValid == true) && (isCardExpValid == true) && (isCardCodeValid == true) && (isCardNameValid == true)))
+            {
+                // Fetch payment methods
+                let userData = await getUserData();
+                let pymtMtdsData = userData?.pymt_mtd;
+
+                // Return and close if payment methods is unobtainable
+                if((typeof pymtMtdsData === "undefined") || (Object.keys(pymtMtdsData).length <= 0))
+                {
+                    notification(`notifyBad`, `Cannot create payment methods at this time`);
+                    reqClsAddPymtMtdMdl();
+                    return;
+                }
+
+                // Return if user has the max payment methods
+                if((Object.keys(pymtMtdsData).length >= pymtMtdMAX))
+                {
+                    notification(`notifyBad`, `You can only have "${pymtMtdMAX}" payment methods`);
+                    reqClsAddPymtMtdMdl();
+                    return;
+                }
+
+                // Disable all input fields and buttons
+                allFormFields.forEach(item => item.disabled = true);
+                sbmtPymtForm.disabled = true;
+
+                // Update the User's info
+                try
+                {
+                    await updateUserData(
+                    {
+                        [`pymt_mtd.${generateRandomString(32)}`]: 
+                        {
+                            pymt_type: `card`,
+                            pymt_cardName: `${cardName.value}`,
+                            pymt_cardNo: `${cardNum.value}`,
+                            pymt_cardExp: `${cardExp.value}`,
+                            pymt_cardCode: `${cardCode.value}`,
+                            pymt_isDflt: false
+                        }
+                    });
+
+                    // Notify user
+                    notification(`notifyGood`, `Payment method added successfully`);
+
+                    // Close and re-initialize the payment methods modal to reflect changes
+                    reqClsAddPymtMtdMdl();
+                }
+                catch(error)
+                {
+                    console.error(error);
+                    notification(`notifyBad`, `Cannot create payment methods at this time`);
+                }
+            }
+            // If not filled correctly, alert user 
+            else
+            {
+                notification(`notifyBad` , `Please check that all fields have been correctly filled`);
+            }
+        });
+
+
+        // Close the modal
+        function reqClsAddPymtMtdMdl()
+        {
+            addPymtMtdBase.classList.remove("active");
+            allFormFields.forEach(fld => fld.disabled = true);
+            allFormBtns.forEach(btn => btn.disabled = true);
+
+            addPymtMtdTimer = setTimeout(() => 
+            {
+                clearTimeout(addPymtMtdTimer);
+                addPymtMtdBase.remove();
+                documentBody.setAttribute(`data-modal-state` , `open`);
+                init_pymt_mtds();
+            }, 300);
+        }
+
+        closeAddPymtMtdMdl.forEach((btn) => 
+        {
+            btn.addEventListener("click", reqClsAddPymtMtdMdl);
+        });
     }
 
 

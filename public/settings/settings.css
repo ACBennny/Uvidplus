@@ -694,6 +694,21 @@ html:root
 }
 
 
+/* --------- Add New Payment Method --------- */
+.add_pymt_mtd_base
+{
+    background-color: #000000c3;
+}
+
+
+.add_pymt_mtd_base .add_pymt_mtd_bcg
+{
+    background-image: none;
+    -webkit-backdrop-filter: blur(0.625rem);
+    backdrop-filter: blur(0.625rem);
+}
+
+
 
 
 
