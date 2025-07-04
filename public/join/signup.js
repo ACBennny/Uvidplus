@@ -1049,7 +1049,10 @@
                             cardExpWarn.textContent = '';
                             isCardExpValid = true;
                         }
+                        return;
                     }
+                    cardExpWarn.textContent = "Invalid expiry date";
+                    isCardExpValid = false;
                 }
 
                 cardExp.addEventListener("input" , validateCardExp);
