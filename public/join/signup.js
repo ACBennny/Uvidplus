@@ -770,7 +770,7 @@
                     curr_plan: 
                     {
                         curr_plan_id: `${sel_plan}`,
-                        curr_plan_name: ``,
+                        curr_plan_start: ``,
                         curr_plan_end: ``,
                     },
                 });
@@ -1197,7 +1197,7 @@
                         curr_plan: 
                         {
                             curr_plan_id: `${usrCurrPlan}`,
-                            curr_plan_name: `${plan_obj.plan_name}`,
+                            curr_plan_start: `${start_date}`,
                             curr_plan_end: `${getNextDate(start_date, 10, "short")}`,
                         },
                         pymt_mtd: 
