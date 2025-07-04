@@ -3085,7 +3085,6 @@
         const updFullnameWarn = document.querySelector("#updFullnameWarnId");
         const updFullnameInput = document.querySelector("#updFullnameInputId");
         const updFullnameBtn = document.querySelector("#cfrmUpdFullname");
-        let updFullnameArray = [];
         let isUpdNameValid = false;
         let updFullnameTimer;
 
@@ -3112,20 +3111,18 @@
         // Validate fullname
         function valFullname(event) 
         {
-            updFullnameArray.length = 0;
-            updFullnameArray.push(updFullnameInput.value);
-            let lastFNameArrayVal = updFullnameArray.at(-1);
+            let fname = cardName.value.toString().trim();
             let fullName_Condition = /^\s*\S+(?:\s+\S+)+\s*$/;
 
             // Checks if empty
-            if((event.data == null) && (lastFNameArrayVal.length <= 0))
+            if((event.data == null) && (fname === ""))
             {
                 updFullnameWarn.textContent = "Required";
                 updFullnameWarn.classList.add("active");
                 isUpdNameValid = false;
             }
             // Checks if Full name was entered
-            else if(!(lastFNameArrayVal.match(fullName_Condition)))
+            else if(!(fullName_Condition.test(fname)))
             {
                 updFullnameWarn.textContent = "First and last name required";
                 updFullnameWarn.classList.add("active");
