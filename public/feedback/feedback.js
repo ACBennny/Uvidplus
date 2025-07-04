@@ -12,7 +12,7 @@
             <div class="feedback_bdr">
                 <div class="feedback_bcg"></div>
                 <div class="feedback_box">
-                    <form id="feedback_form" class="feedback_form">
+                    <form id="feedback_form" name="feedback_form" class="feedback_form">
                         <div class="feedback_closeBdr feedback_closeBtn">
                             <div class="feedback_closeBox ">
                                 <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="feedback_closeIcon">
