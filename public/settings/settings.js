@@ -1900,16 +1900,16 @@
                             <div class="feedback_ctnt">
                                 <label for="form_pymt_cardNum" class="feedback_sectBox feedback_sectInputBox">
                                     <div class="feedback_sectLabel">Card No.</div>
-                                    <input type="text" name="card_name" id="form_pymt_cardNum" class="feedback_sectField feedback_sectInput" placeholder="1234 5678 9123 4567" maxlength="19" required disabled />
+                                    <input type="text" name="card_name" id="form_pymt_cardNum" class="feedback_sectField feedback_sectInput" placeholder="1234 5678 9123 4567" inputmode="numeric" pattern="\d*" maxlength="19" required disabled />
                                 </label>
                                 <div class="feedback_selectBdr">
                                     <label for="form_pymt_cardExp" class="feedback_sectBox feedback_sectInputBox">
                                         <div class="feedback_sectLabel">Expiry</div>
-                                        <input type="text" name="card_expiry" id="form_pymt_cardExp" class="feedback_sectField feedback_sectInput" placeholder="MM/YY" maxlength="5" required disabled />
+                                        <input type="text" name="card_expiry" id="form_pymt_cardExp" class="feedback_sectField feedback_sectInput" placeholder="MM/YY" inputmode="numeric" pattern="\d*" maxlength="5" required disabled />
                                     </label>
                                     <label for="form_pymt_cardSec" class="feedback_sectBox feedback_sectInputBox">
                                         <div class="feedback_sectLabel">CVV/CVC</div>
-                                        <input type="password" name="card_sec_code" id="form_pymt_cardSec" class="feedback_sectField feedback_sectInput" placeholder="••••" maxlength="4" required disabled />
+                                        <input type="password" name="card_sec_code" id="form_pymt_cardSec" class="feedback_sectField feedback_sectInput" placeholder="••••" inputmode="numeric" pattern="\d*" maxlength="4" required disabled />
                                     </label>
                                 </div>
                                 <label for="form_pymt_cardName" class="feedback_sectBox feedback_sectInputBox">
@@ -2203,12 +2203,12 @@
                 let digits = cardCode.value.replace(/\D/g, '');
 
                 // Checks if the field is empty
-                if((event.data == null) && (digits <= 0))
+                if((event.data == null) && (digits.length <= 0))
                 {
                     cardCode.setAttribute(`data-inp-invalid`, 'true');
                     isCardCodeValid = false;
                 }
-                else if((digits < 3))
+                else if((digits.length < 3))
                 {
                     cardCode.setAttribute(`data-inp-invalid`, 'true');
                     isCardCodeValid = false;
