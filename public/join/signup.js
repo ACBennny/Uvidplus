@@ -1093,13 +1093,13 @@
                     let digits = cardCode.value.replace(/\D/g, '');
 
                     // Checks if the field is empty
-                    if((event.data == null) && (digits <= 0))
+                    if((event.data == null) && (digits.length <= 0))
                     {
                         cardCodeWarn.textContent = "Required";
                         cardCodeWarn.classList.add("active");
                         isCardCodeValid = false;
                     }
-                    else if((digits < 3))
+                    else if((digits.length < 3))
                     {
                         cardCodeWarn.textContent = "Invalid Security Code";
                         cardCodeWarn.classList.add("active");
