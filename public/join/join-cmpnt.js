@@ -794,7 +794,7 @@
                                             <div class="form_input_name">Card Number</div>
                                         </label>
                                         <div class="form_input_box">
-                                            <input type="text" id="form_pymt_cardNum" class="form_input_field" placeholder="1234 5678 9123 4567" maxlength="19" required>
+                                            <input type="text" id="form_pymt_cardNum" class="form_input_field" placeholder="1234 5678 9123 4567" maxlength="19" inputmode="numeric" pattern="\d*" required>
                                         </div>
 
                                         <!-- warning/error -->
@@ -807,7 +807,7 @@
                                             <div class="form_input_name">Expiry date</div>
                                         </label>
                                         <div class="form_input_box">
-                                            <input type="text" id="form_pymt_cardExp" class="form_input_field" placeholder="MM/YY" maxlength="5" required>
+                                            <input type="text" id="form_pymt_cardExp" class="form_input_field" placeholder="MM/YY" maxlength="5" inputmode="numeric" pattern="\d*" required>
                                         </div>
 
                                         <!-- warning/error -->
@@ -820,7 +820,7 @@
                                             <div class="form_input_name">CVV/CVC</div>
                                         </label>
                                         <div class="form_input_box form_PassBox">
-                                            <input type="password" id="form_pymt_cardSec" class="form_input_field form_Pass" placeholder="••••" maxlength="4" required>
+                                            <input type="password" id="form_pymt_cardSec" class="form_input_field form_Pass" placeholder="••••" maxlength="4" inputmode="numeric" pattern="\d*" required>
                                         </div>
 
                                         <!-- warning/error -->
