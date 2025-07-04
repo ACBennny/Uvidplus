@@ -829,7 +829,6 @@
 
             // Card Number
             const card_num_cond = new RegExp("^[0-9]*$");
-            let cardNumArray = [];
             const cardNum = document.querySelector("#form_pymt_cardNum");
             const cardNumWarn = document.querySelector("#form_pymt_cardNumWarn");
             let isCardNumValid = false;
@@ -842,13 +841,11 @@
 
             // Card Security Code
             const card_code_cond = new RegExp("^[0-9]*$");
-            let cardCodeArray = [];
             const cardCode = document.querySelector("#form_pymt_cardSec");
             const cardCodeWarn = document.querySelector("#form_pymt_cardSecWarn");
             let isCardCodeValid = false;
 
             // Card Full Name
-            let cardNameArray = [];
             const cardName = document.querySelector("#form_pymt_cardName");
             const cardNameWarn = document.querySelector("#form_pymt_cardNameWarn");
             let isCardNameValid = false;
@@ -880,12 +877,8 @@
                 // Adds a space after every four (4) numbers
                 function validateCardNum(e)
                 {
-                    cardNumArray.length = 0;
-                    cardNumArray.push(cardNum.value);
-                    let cardNumArrayVal = cardNumArray.at(-1);
-
                     // Checks if the field is empty
-                    if((e.data == null) && (cardNumArrayVal.length <= 0))
+                    if((e.data == null) && (cardNum.value.toString().length <= 0))
                     {
                         cardNumWarn.textContent = "Required";
                         cardNumWarn.classList.add("active");
@@ -1088,18 +1081,25 @@
                 // Validation function For "Security Code"
                 function validateSecCode(event)
                 {
-                    cardCodeArray.length = 0;
-                    cardCodeArray.push(cardCode.value);
-                    let cardCodeArrayVal = cardCodeArray.at(-1);
+                    // Return if value is not a number
+                    if(!(/^\d+$/.test(cardCode.value)))
+                    {
+                        cardCode.setAttribute(`data-inp-invalid`, 'true');
+                        isCardCodeValid = false;
+                        return;
+                    }
+
+                    // Strip non-digits and cap at 4 digits
+                    let digits = cardCode.value.replace(/\D/g, '');
 
                     // Checks if the field is empty
-                    if((event.data == null) && (cardCodeArrayVal.length <= 0))
+                    if((event.data == null) && (digits <= 0))
                     {
                         cardCodeWarn.textContent = "Required";
                         cardCodeWarn.classList.add("active");
                         isCardCodeValid = false;
                     }
-                    else if((cardCodeArrayVal.length < 3))
+                    else if((digits < 3))
                     {
                         cardCodeWarn.textContent = "Invalid Security Code";
                         cardCodeWarn.classList.add("active");
@@ -1139,20 +1139,18 @@
                 
                 function validateCardName(event)
                 {
-                    cardNameArray.length = 0;
-                    cardNameArray.push(cardName.value);
-                    let lastCurArrayVal = cardNameArray.at(-1);
+                    let fname = cardName.value.toString().trim();
                     let fullName_Condition = /^\s*\S+(?:\s+\S+)+\s*$/;
 
                     // Checks if empty
-                    if((event.data == null) && (lastCurArrayVal.length <= 0))
+                    if((event.data == null) && (fname === ""))
                     {
                         cardNameWarn.textContent = "Required";
                         cardNameWarn.classList.add("active");
                         isCardNameValid = false;
                     }
                     // Checks if Full name was entered
-                    else if(!(lastCurArrayVal.match(fullName_Condition)))
+                    else if(!(fullName_Condition.test(fname)))
                     {
                         cardNameWarn.textContent = "First and last name required";
                         cardNameWarn.classList.add("active");
