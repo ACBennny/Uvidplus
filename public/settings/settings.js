@@ -728,6 +728,465 @@
 
 // MEMBERSHIP SETTINGS
 
+    // Managing membership
+    async function init_mng_mbsp(btnEv)
+    {
+        if(typeof btnEv !== "undefined") btnEv.disabled = true;
+
+        // Fetch payment methods
+        const userData = await getUserData();
+        const curr_mbsp_info = userData?.curr_plan;
+
+        if((typeof curr_mbsp_info !== "object") || (curr_mbsp_info == null))
+        {
+            notification(`notifyBad`, `Failed to retrieve membership information`);
+            return;
+        }
+
+        const mngMbspBase = document.createElement("div");
+        mngMbspBase.classList.add("genStaticBase", "mng_mbsp_base");
+        mngMbspBase.innerHTML = 
+        `
+            <div class="genStaticBcg mng_mbsp_close"></div>
+            <div class="genStaticBdr">
+                <div class="genStaticBox">
+                    <div class="genStaticHdrBdr">
+                        <div class="genStaticHdrBox">
+                            <div class="genStaticHdr_top">
+                                <button type="button" class="genBtnBox genIconBtn transBtn mng_mbsp_close">
+                                    <div class="genBtnIcon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
+                                            <path fill-rule="evenodd" d="M10.53 5.47a.75.75 0 0 1 0 1.06l-4.72 4.72H20a.75.75 0 0 1 0 1.5H5.81l4.72 4.72a.75.75 0 1 1-1.06 1.06l-6-6a.75.75 0 0 1 0-1.06l6-6a.75.75 0 0 1 1.06 0" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </button>
+                                <div class="genStaticHdr_TitleBox">
+                                    <div class="genStaticHdr_TitleText mng_mbsp_hdr_TtlTxt">Uvid+ Membership</div>
+                                </div>
+                            </div>
+                            <div class="genStaticHdr_btm">
+                                <div class="mng_mbsp_hdr_btm">
+                                    <div class="mng_mbsp_hdr_billBox">
+                                        <p class="mng_mbsp_hdr_billTxt">Your next bill is for <strong>N/A</strong on <strong>N/A</strong></p>
+                                    </div>
+                                    <div class="mng_mbsp_hdr_atnBdr">
+                                        <button type="button" class="genBtnBox midSolidBtn hide mng_mbsp_add">
+                                            <span class="genBtnText">Add</span>
+                                        </button>
+                                        <button type="button" class="genBtnBox greySolidBtn mng_mbsp_switch">
+                                            <span class="genBtnText">Switch</span>
+                                        </button>
+                                        <button type="button" class="genBtnBox greySolidBtn mng_mbsp_cancel">
+                                            <span class="genBtnText">Cancel</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="genStaticCtntBdr">
+                        <div class="genStaticCtntBox">
+                            <div class="mng_mbsp_ctnt_box"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        const mbsp_obj_curr = uvid_signup_plans[`${curr_mbsp_info?.curr_plan_id}`];
+        const mbsp_obj_next = uvid_signup_plans[`${curr_mbsp_info?.curr_plan_next}`];
+        const mngMbspClsBtn = mngMbspBase.querySelectorAll(".mng_mbsp_close");
+        const mngMbspTtlTxt = mngMbspBase.querySelector(".mng_mbsp_hdr_TtlTxt");
+        const mngMbspBillTxt = mngMbspBase.querySelector(".mng_mbsp_hdr_billTxt");
+        const mngMbspAddBtn = mngMbspBase.querySelector(".mng_mbsp_add");
+        const mngMbspSwitchBtn = mngMbspBase.querySelector(".mng_mbsp_switch");
+        const mngMbspCancelBtn = mngMbspBase.querySelector(".mng_mbsp_cancel");
+        const mngMbspCtntBox = mngMbspBase.querySelector(".mng_mbsp_ctnt_box");
+        let mngMbspCtntStruct = ``;
+        let mngMbspTimer;
+
+        // Membership name
+        mngMbspTtlTxt.innerHTML = `Your plan: <span class="mjr">Uvid+ ${mbsp_obj_curr?.plan_name}</span>`;
+
+        // Next billing date
+        mngMbspBillTxt.innerHTML = 
+            curr_mbsp_info?.curr_plan_next == null 
+            ? `Membership will not renew after expiring on <strong>${curr_mbsp_info?.curr_plan_end}</strong>`
+            : `
+                Your next bill is 
+                for <strong>Uvid+ ${mbsp_obj_next?.plan_name}</strong> 
+                at <strong>${mbsp_obj_next?.plan_price_month}</strong> 
+                on <strong>${curr_mbsp_info?.curr_plan_end}</strong>
+              `;
+        
+        // Membership benefits
+        Object.entries(mbsp_obj_curr.plan_benefits).forEach(([key, bnft]) => 
+        {
+            if((bnft.bnft_name.toString().trim().toLowerCase() !== "monthly price"))
+            {
+                mngMbspCtntStruct +=
+                `
+                    <div class="mng_mbsp_card_bdr">
+                        <div class="mng_mbsp_card_box">
+                            <div class="mng_mbsp_card_icon_bdr">
+                                <div class="mng_mbsp_card_icon_box">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="mng_mbsp_card_icon_svg">
+                                        <path fill-rule="evenodd" d="M18.493 6.935a.75.75 0 0 1 .072 1.058l-7.857 9a.75.75 0 0 1-1.13 0l-3.143-3.6a.75.75 0 0 1 1.13-.986l2.578 2.953l7.292-8.353a.75.75 0 0 1 1.058-.072" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="mng_mbsp_card_desc_bdr">
+                                <div class="mng_mbsp_card_desc_box">
+                                    <div class="mng_mbsp_card_desc_mjr_box">
+                                        <p class="mng_mbsp_card_desc_mjr_txt">${bnft.bnft_name}</p>
+                                    </div>
+                                    <div class="mng_mbsp_card_desc_mnr_box">
+                                        <p class="mng_mbsp_card_desc_mnr_txt">${bnft.bnft_desc}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        });
+        mngMbspCtntBox.innerHTML = mngMbspCtntStruct;
+
+        // Insert and display the modal
+        documentCtnt.insertAdjacentElement('beforeend', mngMbspBase);
+        mngMbspTimer = setTimeout(() => 
+        {
+            clearTimeout(mngMbspTimer);
+            mngMbspBase.classList.add("active");
+            documentBody.classList.add("bodystop");
+        }, 300);
+
+        // Close the modal
+        function closeMngMbspMdl()
+        {
+            mngMbspBase.classList.remove("active");
+            mngMbspTimer = setTimeout(() => 
+            {
+                clearTimeout(mngMbspTimer);
+                mngMbspBase.remove();
+                documentBody.classList.remove("bodystop");
+            }, 300);
+        }
+
+        mngMbspClsBtn.forEach((btn) => 
+        {
+            btn.addEventListener("click", closeMngMbspMdl);
+        });
+
+
+        // Switching memberships
+        function req_mbsp_switch(e)        
+        {
+            closeMngMbspMdl();
+            init_mbsp_switch(e);
+        }
+
+        // Cancel membership
+        function cfrm_b4_cncl_1()
+        {
+            initConfirmModal(
+                `Are you trying to cancel your membership?`,
+                ``,
+                `I think so?`,
+                `No`,
+                cfrm_b4_cncl_2
+            );
+        }
+        function cfrm_b4_cncl_2()
+        {
+            initConfirmModal(
+                `Do you want to cancel your membership?`,
+                `You'll lose all access and benefits after your current membership ends`,
+                `Sadly, yes`,
+                `No, I don't`,
+                cfrm_b4_cncl_3
+            );
+        }
+        function cfrm_b4_cncl_3()
+        {
+            initConfirmModal(
+                `Are you sure you want to cancel your membership?`,
+                `You'll risk losing all access to any future grants, benefits, and future discounts on Uvid+`,
+                `Lose everything :/`,
+                `Stay awesome`,
+                cfrm_b4_cncl_4
+            );
+        }
+        function cfrm_b4_cncl_4()
+        {
+            initConfirmModal(
+                `You are about to cancel your membership?`,
+                `You current membership remains active until the billing cycle ends`,
+                `I understand..`,
+                `Certainly not`,
+                cfrm_b4_cncl_5
+            );
+        }
+        function cfrm_b4_cncl_5()
+        {
+            initConfirmModal(
+                `Final confirmation: Cancel membership`,
+                `Last opportunity to return`,
+                `Confirm my loss`,
+                `Cancel`,
+                req_mbsp_cncl
+            );
+        }
+        async function req_mbsp_cncl()
+        {
+            const tempUserData = await getUserData();
+            const curr_mbsp_info = tempUserData?.curr_plan;
+
+            if((typeof curr_mbsp_info !== "object") || (curr_mbsp_info == null))
+            {
+                notification(`notifyBad`, `Failed to cancel membership. Try again later`);
+                return;
+            }
+
+            // Set to null
+            try
+            {
+                await updateUserData(
+                {
+                    [`curr_plan.curr_plan_next`]: null
+                });
+
+                notification(`notifyBad`, `Membership canceled.`);
+
+                // Close and reopen to reflect changes
+                closeMngMbspMdl();
+                init_mng_mbsp();
+            }
+            catch(err)
+            {
+                console.err(err);
+                notification(`notifyBad`, `Failed to cancel membership. Try again later`);
+            }
+        }
+
+        // Display the "Add" button if the user's membership is cancelled
+        if((curr_mbsp_info?.curr_plan_next == null))
+        {
+            mngMbspSwitchBtn.classList.add("hide");
+            mngMbspSwitchBtn.removeEventListener("click", init_mbsp_switch);
+
+            mngMbspCancelBtn.classList.add("hide");
+            mngMbspCancelBtn.removeEventListener("click", cfrm_b4_cncl_1);
+
+            mngMbspAddBtn.classList.remove("hide");
+            mngMbspAddBtn.addEventListener("click", req_mbsp_switch);
+            console.log("Membership is alr canceled")
+            return;
+        }
+
+        mngMbspSwitchBtn.addEventListener("click", req_mbsp_switch);
+        mngMbspCancelBtn.addEventListener("click", cfrm_b4_cncl_1);
+    }
+
+
+    // Switch membership
+    async function init_mbsp_switch(btnEv)
+    {
+        if(typeof btnEv !== "undefined") btnEv.disabled = true;
+
+        // Fetch payment methods
+        const userData = await getUserData();
+        const curr_mbsp_info = userData?.curr_plan;
+
+        if((typeof curr_mbsp_info !== "object") || (curr_mbsp_info == null))
+        {
+            notification(`notifyBad`, `Failed to retrieve membership information`);
+            return;
+        }
+
+        // Build modal
+        let switchFence = document.createElement("div");
+        switchFence.classList.add("join_fence");
+
+        switchFence.innerHTML = // signup_2 from "join-cmpnt.js" 
+        `
+            <div class="join_area">${signup_2}</div>
+            <br><br>
+        `;
+        
+
+        const planFtrUL = switchFence.querySelector(".join_plan_ftr_ul");
+        const planSlsBox = switchFence.querySelector(".join_plan_sls_box");
+        const planSbtBtn = switchFence.querySelector("#join_plan_submitBtn");
+        let planSlsBtn;
+        let planSlsBtns = ``;
+        let switchMbspTmr;
+
+
+        // Building the plan features
+        const bld_plan_ftr = (plan = "") => 
+        {
+            plan_obj = uvid_signup_plans[plan];
+
+            if((typeof plan_obj === "undefined") || (typeof plan_obj !== "object") || (plan_obj === null)) 
+                return notification('notifyBad' , 'An error occured while loading plan features');
+
+            let ftr_struct = ``;
+            let plan_bnft = plan_obj.plan_benefits;
+
+            Object.entries(plan_bnft).forEach((bnft_obj) =>
+            {
+                let bnft_ftr = bnft_obj[1];
+                ftr_struct += 
+                `
+                    <li class="join_plan_ftr_cardBdr">
+                        <div class="join_plan_ftr_cardBox">
+                            <div class="join_plan_ftr_mnr_box">
+                                <p class="join_plan_ftr_mnr_txt">${bnft_ftr.bnft_name}</p>
+                            </div>
+                            <div class="join_plan_ftr_mjr_box">
+                                <p class="join_plan_ftr_mjr_txt">${bnft_ftr.bnft_desc}</p>
+                            </div>
+                        </div>
+                    </li>
+                `;
+            });
+
+            planFtrUL.innerHTML = ftr_struct;
+        }
+
+        // Build the plan option buttons
+        Object.entries(uvid_signup_plans).forEach((plan_obj) =>
+        {
+            let plan = plan_obj[1];
+            planSlsBtns +=
+            `
+                <div class="join_plan_sls_cardBase">
+                    <div class="join_plan_sls_cardBdr">
+                        <input type="radio" name="join_plan_sls_rad" id="join_plan_sls_rad${plan.plan_id}" class="join_plan_sls_radCls" value="${plan.plan_id.toLowerCase()}" />
+                        <label for="join_plan_sls_rad${plan.plan_id}" class="join_plan_sls_lbl">
+                            <div class="join_plan_sls_cardBox">
+                                <div class="join_plan_sls_ttl_box">
+                                    <div class="join_plan_sls_ttl_txt">${plan.plan_name}</div>
+                                </div>
+                                <div class="join_plan_sls_sub_box">
+                                    <p class="join_plan_sls_sub_txt">${plan.plan_benefits.rsltn.bnft_desc}</p>
+                                </div>
+                                <div class="join_plan_sls_icon_bdr">
+                                    <div class="join_plan_sls_icon_box">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="join_plan_sls_icon_svg">
+                                            <path fill-rule="evenodd" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10m-5.97-3.03a.75.75 0 0 1 0 1.06l-5 5a.75.75 0 0 1-1.06 0l-2-2a.75.75 0 1 1 1.06-1.06l1.47 1.47l2.235-2.235L14.97 8.97a.75.75 0 0 1 1.06 0" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            `;
+            
+            // Display the default plan option's features
+            if((plan_obj[0] === "ultm")) bld_plan_ftr("ultm");
+        });
+        planSlsBox.innerHTML = planSlsBtns;
+
+        // Selecting a plan option
+        planSlsBtn = switchFence.querySelectorAll(".join_plan_sls_cardBdr");
+        planSlsBtn.forEach((oldbtn) => 
+        {
+            if(oldbtn.disp_atn)
+            {
+                btn.addEventListener("click", oldbtn.disp_atn);
+            }
+        });
+        planSlsBtn.forEach((btn) => 
+        {
+            const sel_atn = () => 
+            {
+                let btn_opt = btn.querySelector("input[name='join_plan_sls_rad']").getAttribute("value");
+
+                if((btn_opt !== ""))
+                {
+                    // Remove any selected states
+                    planSlsBtn.forEach(isSlBtn => isSlBtn.hasAttribute("selected") ? isSlBtn.removeAttribute("selected") : null);
+
+                    // Update the plan features
+                    bld_plan_ftr(btn_opt);
+
+                    // And the selected state to current element
+                    btn.setAttribute("selected", "");
+                }
+            }
+
+            btn.addEventListener("click", sel_atn);
+            btn.disp_atn = sel_atn;
+        });
+
+        // Display the bdr
+        switchMbspTmr = setTimeout(() => 
+        {
+            clearTimeout(switchMbspTmr);
+            documentCtnt.insertAdjacentElement(`beforeend`, switchFence);
+            documentBody.classList.add("bodystop");
+
+            // Select the 3rd option by default
+            switchFence.querySelectorAll(".join_plan_sls_cardBdr")[2].click();
+
+            // Add visual identifier the membership plan for the next billing
+            if((curr_mbsp_info?.curr_plan_next == null)) return;
+            switchFence.querySelector(`.join_plan_sls_cardBdr:has(input[name='join_plan_sls_rad'][value='${curr_mbsp_info?.curr_plan_next}'])`).setAttribute(`data-pre-selected`, `true`);
+        }, 300);
+
+        // Moving to the next step
+        planSbtBtn.addEventListener("click", async () => 
+        {
+            const auth = window.firebaseAuth;
+            const user = auth.currentUser;
+
+            // Return if user isn't logged in
+            if (!user)
+            {
+                notification(`notifyBad` , "You are not logged in.");
+                return;
+            }
+
+            // Get the selected plan
+            let sel_plan = document.querySelector(".join_plan_sls_cardBdr[selected]").querySelector("input[name='join_plan_sls_rad']").getAttribute("value");
+
+            try
+            {
+                // Update the User's info
+                await updateUserData(
+                {
+                    [`curr_plan.curr_plan_next`]: `${sel_plan}`,
+                });
+
+                // Close modal
+                clsSwitchMbspMdl(true);
+
+                // Notify user
+                notification('notifyGood' , 'Membership plan changed, effective in next billing cycle');
+            }
+            catch (error)
+            {
+                console.error(error);
+                notification('notifyBad' , 'Failed to change membership plan');
+                clsSwitchMbspMdl(false);
+            }
+        });
+
+        function clsSwitchMbspMdl()
+        {
+            switchMbspTmr = setTimeout(() => 
+            {
+                clearTimeout(switchMbspTmr);
+                switchFence.remove();
+                documentBody.classList.remove("bodystop");
+            }, 300);
+        }
+    }
+
+
     // Manage payment methods
     async function init_pymt_mtds(btnEv)
     {
@@ -1568,7 +2027,7 @@
             {
                 clearTimeout(addPymtMtdTimer);
                 addPymtMtdBase.remove();
-                documentBody.setAttribute(`data-modal-state` , `open`);
+                documentBody.removeAttribute(`data-modal-state`);
                 init_pymt_mtds();
             }, 300);
         }

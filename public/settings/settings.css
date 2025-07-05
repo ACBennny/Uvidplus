@@ -296,17 +296,133 @@ html:root
 
 
 
-/* =============== Notification Preferences ========== */
-.mngNtfyTtlBox
+
+
+/* =============== Manage Membership ========== */
+.mng_mbsp_base .mng_mbsp_hdr_btm
 {
-    width: calc((100% - 2.8125rem));
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.mngNtfyTtlBox .mngNtfyTtlText
+.mng_mbsp_hdr_TtlTxt .mjr
 {
-    color: var(--genWhiteTypeLight);
-    font-size: 1rem;
+    color: var(--genGreenTypeLight2);
 }
+
+.mng_mbsp_hdr_btm .mng_mbsp_hdr_billBox
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.mng_mbsp_hdr_billBox .mng_mbsp_hdr_billTxt
+{
+    color: var(--genWhiteTypeMid);
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+.mng_mbsp_hdr_btm .mng_mbsp_hdr_atnBdr
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.mng_mbsp_base .mng_mbsp_ctnt_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 var(--genStatic_pd);
+}
+
+.mng_mbsp_ctnt_box .mng_mbsp_card_bdr
+{
+    width: 100%;
+    border-radius: 0.625rem;
+    background-color: var(--genGreyTypeDark);
+    margin-bottom: 1rem;
+    padding: 0.875rem var(--genStatic_pd);
+}
+
+.mng_mbsp_card_bdr .mng_mbsp_card_box
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.mng_mbsp_card_box .mng_mbsp_card_icon_bdr
+{
+    width: 2.75rem;
+    height: 2.75rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: var(--genGreyTypeMid);
+    margin-right: var(--genStatic_pd);
+}
+
+.mng_mbsp_card_icon_bdr .mng_mbsp_card_icon_box
+{
+    width: 75%;
+    height: 75%;
+}
+
+.mng_mbsp_card_icon_box .mng_mbsp_card_icon_svg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--genGreenTypeMid);
+}
+
+.mng_mbsp_card_box .mng_mbsp_card_desc_bdr
+{
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.mng_mbsp_card_desc_bdr .mng_mbsp_card_desc_box
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.mng_mbsp_card_desc_box .mng_mbsp_card_desc_mjr_box
+{
+    width: 100%;
+}
+
+.mng_mbsp_card_desc_mjr_box .mng_mbsp_card_desc_mjr_txt
+{
+    color: var(--genWhiteTypeDark);
+    font-size: 0.75rem;
+}
+
+.mng_mbsp_card_desc_box .mng_mbsp_card_desc_mnr_box
+{
+    width: 100%;
+}
+
+.mng_mbsp_card_desc_mnr_box .mng_mbsp_card_desc_mnr_txt
+{
+    color: var(--genWhiteTypeMid2);
+    font-size: 0.875rem;
+}
+
+
 
 
 
@@ -713,6 +829,23 @@ html:root
 
 
 
+/* =============== Notification Preferences ========== */
+.mngNtfyTtlBox
+{
+    width: calc((100% - 2.8125rem));
+}
+
+.mngNtfyTtlBox .mngNtfyTtlText
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 1rem;
+}
+
+
+
+
+
+
 
 
 
@@ -776,6 +909,18 @@ html:root
         font-size: 0.875rem;
     }
 
+}
+
+
+
+@media only screen and (max-width: 48rem)
+{
+    .mng_mbsp_base .mng_mbsp_hdr_btm
+    {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
 }
 
 
