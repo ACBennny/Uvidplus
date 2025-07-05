@@ -1527,8 +1527,7 @@
 
             confirmModalOptPosBtn.addEventListener("click" , () => 
             {
-                positiveFunc();
-                closeConfirmModal();
+                closeConfirmModal(positiveFunc, true);
             });
             confirmModalOptNegBtn.addEventListener("click" , closeConfirmModal);
             confirmModalBcg.addEventListener("click" , closeConfirmModal);
@@ -1545,7 +1544,7 @@
             });
         }
 
-        function closeConfirmModal()
+        function closeConfirmModal(posfunc, call = false)
         {
             confirmModalBase.classList.remove("active");
 
@@ -1554,6 +1553,7 @@
                 documentBody.removeAttribute(`data-modal-state`);
                 confirmModalBase.removeEventListener("transitionend" , handleTransitionEnd);
                 confirmModalBase.innerHTML = confirmModalStruct;
+                if(call) posfunc();
             });
         }
 
