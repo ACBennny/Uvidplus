@@ -128,7 +128,7 @@
             // Validation function For "User"
             function validateLogInEmail(event)
             {
-                let eml = newEmail.value.toString().trim();
+                let eml = userEmail.value.toString().trim();
                 let check_for_AtSign_in_Email = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
                 // Checks if the field is empty
@@ -183,7 +183,7 @@
             // Validation for Password
             function validateUserPassword(event) 
             {
-                let pswd = newEmail.value.toString().trim();
+                let pswd = userPassword.value.toString().trim();
                 const userPass_Cond_SpecialChar = /\W/g;
                 const userPass_Cond_num = /\d/g;
                 const userPass_Cond_Lett = /[A-Z a-z]/g;
