@@ -17,6 +17,47 @@ html:root
 
 
 
+/* ------ NOTIFICATION STATUS NUMBER ------ */
+
+.navBarNotificationStatusNo_bdr
+{
+    --navBarNotificationStatusNo_sizing: 1.25rem;
+    position: absolute;
+    bottom: 50%;
+    left: 100%;
+    transform: translate(-50% ,0);
+    pointer-events: none;
+}
+
+.navBarNotificationStatusNo_bdr .navBarNotificationStatusNo_box
+{
+    width: var(--navBarNotificationStatusNo_sizing);
+    height: var(--navBarNotificationStatusNo_sizing);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #ce2a2a;
+}
+
+.navBarNotificationStatusNo_box.active
+{
+    display: flex;
+}
+
+.navBarNotificationStatusNo_box .navBarNotificationStatusNo_text
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 0.625rem;
+}
+
+
+
+
+
+
+
+/* ============ NOTIFICATION MODAL ============ */
 .genStaticHdr_btm .ntfy_hdr_atnBdr
 {
     width: 100%;
