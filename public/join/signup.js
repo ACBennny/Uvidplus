@@ -761,8 +761,6 @@
 
             try
             {
-                console.log(`User email verified = :${isUserVerified()}`);
-                
                 // Update the User's info
                 await updateUserData(
                 {
