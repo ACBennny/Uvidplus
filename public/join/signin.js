@@ -136,7 +136,7 @@
                 {
                     isUserEmailValid = false;
                 }
-                else if(!(check_for_AtSign_in_Email.match(eml)))
+                else if(!(check_for_AtSign_in_Email.test(eml)))
                 {
                     isUserEmailValid = false;
                 }
@@ -186,7 +186,8 @@
                 let pswd = userPassword.value.toString().trim();
                 const userPass_Cond_SpecialChar = /\W/g;
                 const userPass_Cond_num = /\d/g;
-                const userPass_Cond_Lett = /[A-Z a-z]/g;
+                const userPass_Cond_Lett_Upr = /[A-Z]/g;
+                const userPass_Cond_Lett_Lwr = /[a-z]/g;
 
                 // Checks if there is any value in the input feild
                 if(((event.data == null) && (pswd === "")))
@@ -199,9 +200,10 @@
                     isUserPassValid = false;
                 }
                 // Checks if the input fits the specified pattern
-                else if(!(userPass_Cond_SpecialChar.match(pswd) 
-                    && userPass_Cond_num.match(pswd)
-                    && userPass_Cond_Lett.match(pswd)
+                else if(!(userPass_Cond_SpecialChar.test(pswd) 
+                    && userPass_Cond_num.test(pswd)
+                    && userPass_Cond_Lett_Upr.test(pswd)
+                    && userPass_Cond_Lett_Lwr.test(pswd)
                 ))
                 {
                     isUserPassValid = false;
