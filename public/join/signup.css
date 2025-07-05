@@ -207,6 +207,11 @@ html:root
     transition: all 150ms ease-in-out;
 }
 
+.join_plan_sls_cardBdr[data-pre-selected]
+{
+    box-shadow: 0rem 0rem 0rem 0.125rem var(--warningClr);
+}
+
 .join_plan_sls_cardBdr[selected]:has( .join_plan_sls_radCls[value="ultm"])
 {
     background: linear-gradient(300deg, var(--genGreenTypeLight2) 10%,  var(--genGreyTypeDark) 70%);
