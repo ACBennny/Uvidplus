@@ -2782,7 +2782,7 @@
         async function getSelectedProfile()
         {
             const usrData = await getUserData();
-            return Object.values(usrData.profiles).find(item => item.prof_selected);
+            return Object.values(usrData.profiles).find(item => item.prof_selected) || null;
         }
 
         // Gets the details of provided profile id

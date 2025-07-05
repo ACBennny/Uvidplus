@@ -318,9 +318,34 @@
     {
         let profileInfoInv = await getUsrProfInv();
         let selectedProfile = await getSelectedProfile();
+
+        // Select the default user profile, if prev selected profile could not be obtained
+        if(((selectedProfile == undefined) || (selectedProfile == null)))
+        {
+            Object.entries(profileInfoInv).forEach(([key, profile]) => 
+            {
+                if((profile.prof_type === "default"))
+                {
+                    profileInfoInv[`profiles.${key}.prof_selected`] = true;
+                }
+                else
+                {
+                    profileInfoInv[`profiles.${key}.prof_selected`] = false;
+                }
+            });
+            
+            await updateUserData(profileInfoInv);
+
+            // Notify user
+            notification(`notifyBad`, `An error occured`);
+            refreshPage();
+            return;
+        }
+
         let selectedProfileId = Object.entries(profileInfoInv).find(([key, profile]) => 
             profile.prof_selected === selectedProfile.prof_selected
-        );
+        ) ;
+
 
         // Insert document element
         documentCtnt.insertAdjacentHTML(`afterbegin` , profPageStruct);

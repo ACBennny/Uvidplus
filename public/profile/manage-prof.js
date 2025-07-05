@@ -271,9 +271,6 @@
             {
                 // Update the profile
                 await switchProfAtn(boxId);
-
-                // Close the modal
-                closeManageProfModal();
             }
 
             box.addEventListener("click", box_atn);
@@ -292,21 +289,34 @@
         const profileInfoInv = await getUsrProfInv();
         const switch_obj = {};
 
-        // Build the object of profiles to be update
-        Object.entries(profileInfoInv).forEach(([key, prof]) =>
-        {
-            if((key === switch_id))
-            {
-                switch_obj[`profiles.${key}.prof_selected`] = true;
-            }
-            else
-            {
-                switch_obj[`profiles.${key}.prof_selected`] = false;
-            }
-        });
+        let slsProf = Object.entries(profileInfoInv).find(([key, prof]) => key === switch_id) || null;
 
-        // Update user data
-        await updateUserData(switch_obj);
+        // Build the object of profiles to be update
+        if((typeof slsProf === "object") && (slsProf !== null))
+        {
+            Object.entries(profileInfoInv).forEach(([key, prof]) =>
+            {
+                if((key === switch_id))
+                {
+                    switch_obj[`profiles.${key}.prof_selected`] = true;
+                }
+                else
+                {
+                    switch_obj[`profiles.${key}.prof_selected`] = false;
+                }
+            });
+
+            // Update user data
+            await updateUserData(switch_obj);
+
+            // Close the modal
+            closeManageProfModal();
+        }
+        else
+        {
+            notification(`notifyBad`, `An error occured`);
+            refreshPage();
+        }
     }
 
 
