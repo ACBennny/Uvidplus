@@ -285,7 +285,7 @@
 
             function resetPasswordRequest(e)
             {
-                let rst_pswd = newEmail.value.toString().trim();
+                let rst_pswd = resetPass_email.value.toString().trim();
 
                 // Checks if the field is empty
                 if((e.data == null) && (rst_pswd === ""))
