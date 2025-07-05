@@ -101,6 +101,19 @@ let sett_cmpnt_lib =
     {
         sett_sect: `experience`,
         sett_orientation: `horizontal`,
+        sett_title: `Theater Mode`,
+        sett_desc: 
+        `
+            Toggles Fullscreen.
+        `,
+        sett_atn_type: `modal`,
+        sett_atn_id: `sett_theater_mode`,
+        sett_atn_title: `Open`,
+        sett_atn_func: `toggleFullscreen`,
+    },
+    {
+        sett_sect: `experience`,
+        sett_orientation: `horizontal`,
         sett_title: `Notifications`,
         sett_desc: 
         `
