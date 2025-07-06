@@ -970,7 +970,7 @@
     {
         --jn_hs_anm_flt_start: 1;
         margin: 0;
-        padding: var(--navBarHeight) var(--genBorderSpacing) 2rem;
+        padding: calc((var(--navBarHeight) + 1rem)) var(--genBorderSpacing);
         border-radius: 0rem;
         background-color: #00000000;
         -webkit-backdrop-filter: blur(0rem);
