@@ -1011,7 +1011,6 @@
         switchFence.innerHTML = // signup_2 from "join-cmpnt.js" 
         `
             <div class="join_area">${signup_2}</div>
-            <br><br>
         `;
         
 
