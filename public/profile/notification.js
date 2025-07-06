@@ -133,17 +133,17 @@
 
     async function fetchNotification()
     {
-        let selectedProfile = await getSelectedProfile();
+        let userData = await getUserData();
 
         // Check if the library is available
-        if((selectedProfile.prof_notifications == undefined))
+        if((userData.notifications == undefined))
         {
             errorLoadingNotifications();
             return;
         }
 
         // Check if there is content inside the library
-        if((selectedProfile.prof_notifications.length <= 0))
+        if((userData.notifications.length <= 0))
         {
             return;
         }
@@ -155,9 +155,9 @@
         removeEmptyNtfyBdr();
 
         // Fetching content
-        for(let i = 0; i < selectedProfile.prof_notifications.length; i++)
+        for(let i = 0; i < userData.notifications.length; i++)
         {
-            const item = selectedProfile.prof_notifications[i];
+            const item = userData.notifications[i];
             const notificationCardStruct = 
             `
                 <div class="notification_card_bdr" data-read-status="${item.notify_readStatus}">
@@ -218,7 +218,7 @@
         let selectedProfile = await getSelectedProfile();
 
         // Update all notification entries in Library
-        selectedProfile.prof_notifications.forEach((item) => 
+        userData.notifications.forEach((item) => 
         {
             item.notify_readStatus = true;
         });
@@ -226,7 +226,7 @@
         // Update user data
         await updUsrProfFlds(
         {
-            prof_notifications: selectedProfile.prof_notifications
+            prof_notifications: userData.notifications
         });
 
         // Update all notification entries in DOM
@@ -273,7 +273,7 @@
         let selectedProfile = await getSelectedProfile();
 
         // Remove all notification entries
-        selectedProfile.prof_notifications.length = 0;
+        userData.notifications.length = 0;
 
         // Update user data
         await updUsrProfInv(null, selectedProfile);
@@ -283,6 +283,21 @@
 
         // Notify user
         notification(`notifyGood` , `Notifications cleared successfully`);
+    }
+
+    async function gg()
+    {
+        await updateUserData(
+        {
+            ntfy_pref:
+            {
+                ntfy_what_you_stream: true,
+                ntfy_recommendation: true,
+                ntfy_exploration: true,
+                ntfy_promotions: true,
+                ntfy_surveys: true,
+            }
+        });
     }
 
     // Attaches listener for clearing all notifications

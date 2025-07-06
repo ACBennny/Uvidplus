@@ -2279,7 +2279,7 @@
 
 // APP EXPERIENCE SETTINGS
 
-    // Updating Notification Preferences (Non-operational)
+    // Updating Notification Preferences
     function init_ntfy_prefence()
     {
         const mngNtfyBdr = document.createElement("div");
@@ -2381,12 +2381,23 @@
         if(typeof btnEv !== "undefined") btnEv.disabled = true;
 
         // Transitioning elements
-        mngNtfyTimer = setTimeout(() => 
+        mngNtfyTimer = setTimeout(async () => 
         {
             clearTimeout(mngNtfyTimer);
             documentBody.setAttribute(`data-modal-state` , `open`);
             mngNtfyBdr.classList.add("active");
             attachMngNtfyListeners();
+
+            // Update toggles with currently selected preferences
+            let usrNtfyPrefs = await getUserData();
+            if((usrNtfyPrefs?.ntfy_pref !== undefined) && (usrNtfyPrefs?.ntfy_pref != null));
+            {
+                document.querySelector(".mngNtfyAtnBtnTgl#ntfy_watch").checked = usrNtfyPrefs?.ntfy_pref?.ntfy_what_you_stream;
+                document.querySelector(".mngNtfyAtnBtnTgl#ntfy_recommend").checked = usrNtfyPrefs?.ntfy_pref?.ntfy_recommendation;
+                document.querySelector(".mngNtfyAtnBtnTgl#ntfy_explore").checked = usrNtfyPrefs?.ntfy_pref?.ntfy_exploration;
+                document.querySelector(".mngNtfyAtnBtnTgl#ntfy_promotions").checked = usrNtfyPrefs?.ntfy_pref?.ntfy_promotions;
+                document.querySelector(".mngNtfyAtnBtnTgl#ntfy_participation").checked = usrNtfyPrefs?.ntfy_pref?.ntfy_surveys;
+            }
         }, 250);
 
         // Closes the mngNtfy modal
@@ -2439,9 +2450,8 @@
                         ischk = false;
                     }
 
-                    // console.log(`Tgl state: ${ischk}`);
+                    console.log(`Tgl state: ${ischk}`);
                     ntfy_rad_btn.forEach(item => item.disabled = false);
-                    return;
 
                     //  Update the corresponding property
                     try 
@@ -2450,31 +2460,41 @@
                         {
                             case 'ntfy_watch':
                                 await updateUserData(
-                                {});
+                                {
+                                    [`ntfy_pref.ntfy_what_you_stream`]: ischk
+                                });
                                 notification('notifyGood', 'Preferences saved');
                                 break;
                                 
                             case 'ntfy_recommend':
                                 await updateUserData(
-                                {});
+                                {
+                                    [`ntfy_pref.ntfy_recommendation`]: ischk
+                                });
                                 notification('notifyGood', 'Preferences saved');
                                 break;
                                 
                             case 'ntfy_explore':
                                 await updateUserData(
-                                {});
+                                {
+                                    [`ntfy_pref.ntfy_exploration`]: ischk
+                                });
                                 notification('notifyGood', 'Preferences saved');
                                 break;
                                 
                             case 'ntfy_promotions':
                                 await updateUserData(
-                                {});
+                                {
+                                    [`ntfy_pref.ntfy_promotions`]: ischk
+                                });
                                 notification('notifyGood', 'Preferences saved');
                                 break;
                                 
                             case 'ntfy_participation':
                                 await updateUserData(
-                                {});
+                                {
+                                    [`ntfy_pref.ntfy_surveys`]: ischk
+                                });
                                 notification('notifyGood', 'Preferences saved');
                                 break;
 

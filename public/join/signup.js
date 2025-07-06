@@ -452,28 +452,36 @@
                                 [],
                                 prof_collections:
                                 [],
-                                prof_notifications:
-                                [
-                                    {
-                                        notify_addedDate: `just now`,
-                                        notify_readStatus: false,
-                                        notify_thumbnail: `/images/uvid-bcg1.jpg`,
-                                        notify_mainTopic: `Welcome to Uvid+`,
-                                        notify_subTopic: `We are glad you joined us. Browse and watch your favourite movies and tv shows.`,
-                                        notify_actionText: `Explore`,
-                                        notify_actionLink: `#/explore`,
-                                    },
-                                    {
-                                        notify_addedDate: `just now`,
-                                        notify_readStatus: false,
-                                        notify_thumbnail: `/images/uvid-bcg2.jpg`,
-                                        notify_mainTopic: `Switch Profiles`,
-                                        notify_subTopic: `You can now create and customize up to five different profiles.`,
-                                        notify_actionText: `Try it Out`,
-                                        notify_actionLink: `#/profile/switch`,
-                                    },
-                                ]
                             },
+                            notifications:
+                            [
+                                {
+                                    notify_addedDate: `${getCurrDate("short")}`,
+                                    notify_readStatus: false,
+                                    notify_thumbnail: `/images/uvid-bcg1.jpg`,
+                                    notify_mainTopic: `Welcome to Uvid+`,
+                                    notify_subTopic: `We are glad you joined us. Browse and watch your favourite movies and tv shows.`,
+                                    notify_actionText: `Explore`,
+                                    notify_actionLink: `#/explore`,
+                                },
+                                {
+                                    notify_addedDate: `${getCurrDate("short")}`,
+                                    notify_readStatus: false,
+                                    notify_thumbnail: `/images/uvid-bcg2.jpg`,
+                                    notify_mainTopic: `Switch Profiles`,
+                                    notify_subTopic: `You can now create and customize up to five different profiles.`,
+                                    notify_actionText: `Try it Out`,
+                                    notify_actionLink: `#/profile/switch`,
+                                },
+                            ],
+                            ntfy_pref:
+                            {
+                                ntfy_what_you_stream: true,
+                                ntfy_recommendation: true,
+                                ntfy_exploration: true,
+                                ntfy_promotions: true,
+                                ntfy_surveys: true,
+                            }
                         };
 
                         // Store the user's object in firebase
