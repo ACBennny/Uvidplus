@@ -21,6 +21,7 @@
         {
             route_pbl_only: true,
             route_auth: false,
+            route_member: false,
             route_atn: "initialiseLanding",
             route_title: null,
         },
@@ -28,6 +29,7 @@
         {
             route_pbl_only: true,
             route_auth: false,
+            route_member: false,
             route_atn: "initSignUpForm",
             route_title: "Sign Up for Uvid+",
         },
@@ -35,6 +37,7 @@
         {
             route_pbl_only: true,
             route_auth: false,
+            route_member: false,
             route_atn: "initSignInForm",
             route_title: "Sign In to Uvid+",
         },
@@ -42,6 +45,7 @@
         {
             route_pbl_only: false,
             route_auth: true,
+            route_member: false,
             route_atn: "cfrmB4SignOut",
             route_title: null,
         },
@@ -49,6 +53,7 @@
         {
             route_pbl_only: false,
             route_auth: false,
+            route_member: false,
             route_atn: "display_tou_",
             route_title: "Terms of Use • Uvid+",
         },
@@ -56,6 +61,7 @@
         {
             route_pbl_only: false,
             route_auth: false,
+            route_member: false,
             route_atn: "display_privacy_",
             route_title: "Privacy • Uvid+",
         },
@@ -63,6 +69,7 @@
         {
             route_pbl_only: false,
             route_auth: false,
+            route_member: false,
             route_atn: "display_ad_chc_",
             route_title: "Ad Choices & Disclaimers • Uvid+",
         },
@@ -70,6 +77,7 @@
         {
             route_pbl_only: false,
             route_auth: false,
+            route_member: false,
             route_atn: "display_cpy_right_",
             route_title: "Copyright Act & Disclaimers • Uvid+",
         },
@@ -77,6 +85,7 @@
         {
             route_pbl_only: false,
             route_auth: false,
+            route_member: false,
             route_atn: "nav_help_pgs",
             route_title: "Help Center • Uvid+",
         },
@@ -84,8 +93,17 @@
         {
             route_pbl_only: false,
             route_auth: false,
+            route_member: false,
             route_atn: "page_route_error",
             route_title: "News • Uvid+",
+        },
+        'setup': 
+        {
+            route_pbl_only: true,
+            route_auth: false,
+            route_member: false,
+            route_atn: null,
+            route_title: "Create or Restart your Membership • Uvid+",
         },
         
 
@@ -94,6 +112,7 @@
         {
             route_pbl_only: false,
             route_auth: true,
+            route_member: true,
             route_atn: "preHomeSection",
             route_title: null,
         },
@@ -101,6 +120,7 @@
         {
             route_pbl_only: false,
             route_auth: true,
+            route_member: true,
             route_atn: "initCategories",
             route_title: "Explore • Uvid+",
         },
@@ -108,6 +128,7 @@
         {
             route_pbl_only: false,
             route_auth: true,
+            route_member: true,
             route_atn: "launchTrendingPage",
             route_title: "Trending • Uvid+",
         },
@@ -115,6 +136,7 @@
         {
             route_pbl_only: false,
             route_auth: true,
+            route_member: true,
             route_atn: "preLoadMyListPageStruct",
             route_title: "My Lists • Uvid+",
         },
@@ -122,6 +144,7 @@
         {
             route_pbl_only: false,
             route_auth: true,
+            route_member: true,
             route_atn: "preShowSection",
             route_title: null,
         },
@@ -129,6 +152,7 @@
         {
             route_pbl_only: false,
             route_auth: true,
+            route_member: true,
             route_atn: "page_route_error",
             route_title: null,
         },
@@ -136,6 +160,7 @@
         {
             route_pbl_only: false,
             route_auth: true,
+            route_member: true,
             route_atn: "initSchedule",
             route_title: "Schedule • Uvid+",
         },
@@ -143,6 +168,7 @@
         {
             route_pbl_only: false,
             route_auth: true,
+            route_member: true,
             route_atn: "initProfilePage",
             route_title: "Profile • Uvid+",
         },
@@ -150,6 +176,7 @@
         {
             route_pbl_only: false,
             route_auth: true,
+            route_member: true,
             route_atn: "initSettPage",
             route_title: "Settings • Uvid+",
         },
@@ -157,6 +184,7 @@
         {
             route_pbl_only: false,
             route_auth: true,
+            route_member: true,
             route_atn: "init_FeedbackForm",
             route_title: "Feedback • Uvid+",
         },
@@ -246,6 +274,8 @@
     // Handles routing process
     async function page_router()
     {
+        // K
+
         // Get the current hash value
         hash_win = window.location.hash || page_route_fallback();
 
@@ -289,11 +319,12 @@
         const isUsrVrfd = isUserVerified();
         const usrData = await getUserData();
         const isUsrStp = usrData?.is_setup;
+        const isUsrMmbr = usrData?.is_membership_active;
 
         // If no route is found
         if(!curr_route)
         {
-            if(isUsrIn)
+            if((isUsrIn) && (isUsrMmbr))
             {
                 window.location.hash = "#/home";
                 return;
@@ -331,14 +362,22 @@
             return;
         }
 
+        // 
+        if(2 > 3)
+        {}
+
+        // Go to plan section if user's membership is inactive
+        if((curr_route.route_auth) && (isUsrIn) && !(isUsrMmbr)) return usrMbspExp();
+
         // Defer signed-in user to homepage if on public-only page (e.g landing, signup/sign in)
         if((curr_route.route_pbl_only) && (isUsrIn))
         {
+            if(!(isUsrMmbr)) return usrMbspExp();
             window.location.hash = "#/home";
         }
 
         // Initialize navbars if user is signed-in
-        if((isUsrIn))
+        if((isUsrIn) && (isUsrMmbr))
         {
             sideNavBar.classList.add("initialize");
             btmNavBar.classList.add("initialize");
