@@ -432,7 +432,10 @@ html:root
     font-size: 0.75rem;
 }
 
-/* ----- Selected plan in paymeny form --- */
+
+
+
+/* ===== Selected plan in payment form ===== */
 .form_plan_bdr
 {
     width: 100%;
@@ -501,6 +504,163 @@ html:root
     left: 0%;
     width: 100%;
 }
+
+
+
+
+
+
+
+
+
+/* ======== PAYMENT PLANS ======== */
+.form_pymt_mtd_bdr
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form_pymt_mtd_bdr .form_pymt_mtd_hdr_bdr
+{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.form_pymt_mtd_hdr_bdr .form_pymt_mtd_hdr_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form_pymt_mtd_hdr_box .form_pymt_mtd_hdr_ttl_box
+{
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.form_pymt_mtd_hdr_ttl_box .form_pymt_mtd_hdr_ttl_txt
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 0.875rem;
+}
+
+.form_pymt_mtd_bdr .form_pymt_mtd_box
+{
+    width: 100%;
+    border-radius: 0.625rem;
+    background-color: var(--genGreyTypeMid);
+}
+
+.form_pymt_mtd_box .form_pymt_mtd_grid
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+
+.form_pymt_mtd_grid .form_pymt_mtd_card_bdr
+{
+    width: 100%;
+    border-radius: 0.625rem;
+    transition: all 150ms ease-in-out;
+    cursor: pointer;
+}
+
+.form_pymt_mtd_card_bdr:hover
+{
+    background-color: var(--genGreyTypeLight);
+}
+
+.form_pymt_mtd_card_bdr:active
+{
+    background-color: #ffffff15;
+}
+
+.form_pymt_mtd_card_bdr[data-pymt-card-default="true"]
+{
+    box-shadow: 0rem 0rem 0rem 0.0625rem var(--genGreenTypeMid);
+    background-color: #ffffff15;
+    filter: brightness(1.25);
+}
+
+.form_pymt_mtd_card_bdr .form_pymt_mtd_card_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem;
+}
+
+.form_pymt_mtd_card_box .form_pymt_mtd_card_static_icon_bdr
+{
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+.form_pymt_mtd_card_static_icon_bdr .form_pymt_mtd_card_static_icon_box
+{
+    width: 75%;
+    height: 75%;
+}
+
+.form_pymt_mtd_card_static_icon_box .form_pymt_mtd_card_static_icon_svg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--genGreenTypeMid);
+}
+
+.form_pymt_mtd_card_box .form_pymt_mtd_card_det_bdr
+{
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.form_pymt_mtd_card_det_bdr .form_pymt_mtd_card_det_box
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.form_pymt_mtd_card_det_box .form_pymt_mtd_det_name_box
+{
+    width: 100%;
+}
+
+.form_pymt_mtd_det_name_box .form_pymt_mtd_det_name_txt
+{
+    color: var(--genWhiteTypeMid);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.form_pymt_mtd_card_det_box .form_pymt_mtd_det_info_box
+{
+    width: 100%;
+}
+
+.form_pymt_mtd_det_info_box .form_pymt_mtd_det_info_txt
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 0.875rem;
+}
+
+
+
+
+
+
 
 
 

@@ -19,11 +19,36 @@
     // Init setup section (Available after user creates an account)
     function init_setup()
     {
+        history.replaceState(null, '', '#/setup');
         preload.classList.add("preloadClose");
         documentCtnt.insertAdjacentHTML(`beforeend` , signup_base);
         topNavBar.innerHTML = setup_nav;
         topNavBar.classList.add("initialize");
         attachSignOutEventlisteners();
+    }
+
+    // Message for users with expired memberships
+    function msg_mbsp_exp()
+    {
+        document.querySelector(".join_area").innerHTML = mbsp_exp_ntc;
+        let ds = document.querySelector(".mbsp_exp_ntc_btn");
+
+        ds.onclick = async () => 
+        {
+            try
+            {
+                await updateUserData(
+                {
+                    stp_steps: 2
+                });
+                switch_step(2);
+            }
+            catch(error)
+            {
+                console.error(error)
+                notification(`notifyBad`, `An error occurred. Try reloading the page`);
+            }
+        }
     }
 
     // Switch sign up steps
@@ -48,7 +73,7 @@
         }
         else if((step_no == 3))
         {
-            jn_area.innerHTML = signup_3;
+            jn_area.innerHTML = "";
             init_signup_3();
         }
         else
@@ -798,23 +823,250 @@
     {
 
         // Check that a plan has been selected
+        const usrData = await getUserData();
+        const usrCurrPlan = usrData?.curr_plan.curr_plan_id;
+        const plan_obj = uvid_signup_plans[usrCurrPlan];
 
-            const usrData = await getUserData();
-            const usrCurrPlan = usrData?.curr_plan.curr_plan_id;
-            let plan_obj = uvid_signup_plans[usrCurrPlan];
+        if(!(typeof plan_obj !== "undefined") && (typeof plan_obj === "object") && (plan_obj !== null)) 
+        {
+            document.querySelectorAll("input.form_input_field").forEach(item => item.disabled = false);
+            notification('notifyBad' , 'A plan is required to proceed');
+            switch_step(2);
+            return;
+        }
 
-            if((typeof plan_obj !== "undefined") && (typeof plan_obj === "object") && (plan_obj !== null)) 
+        // Check if user already has saved payment methods
+        const pymtMtdsData = usrData?.pymt_mtd;
+
+        // Initialize modal for new users, as they don't have any saved payment methods
+        if((typeof pymtMtdsData === "undefined") || ((typeof pymtMtdsData !== "object"))
+            || (pymtMtdsData == null) || (Object.keys(pymtMtdsData).length <= 0)
+        )
+        {
+            init_1st_setup_pymt_opt_register();
+            return;
+        }
+
+        // Insert struct
+        document.querySelector(".join_area").innerHTML = signup_3_1;
+
+        // Get currently selected plan
+        get_setup_sls_plan();
+
+        // Build the payment options
+        const pymtBox = document.createElement("div");
+        let pymtItemsStruct = ``;
+        pymtBox.classList.add("form_pymt_mtd_grid");
+
+        // Build payment card elements
+        Object.entries(pymtMtdsData).forEach(([key, card]) => 
+        {
+            let cardNo = card.pymt_cardNo.toString().replace(/\s/g, '');
+            let cardNoTrim = cardNo.slice(-4);
+
+            pymtItemsStruct +=
+            `
+                <div class="form_pymt_mtd_card_bdr" data-pymt-card-id="${key}" data-pymt-card-default="${card.pymt_isDflt}">
+                    <div class="form_pymt_mtd_card_box">
+                        <div class="form_pymt_mtd_card_static_icon_bdr">
+                            <div class="form_pymt_mtd_card_static_icon_box">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="form_pymt_mtd_card_static_icon_svg">
+                                    <path fill-rule="evenodd" d="M9.944 3.25h4.112c1.838 0 3.294 0 4.433.153c1.172.158 2.121.49 2.87 1.238c.748.749 1.08 1.698 1.238 2.87c.09.673.127 1.456.142 2.363a.8.8 0 0 1 .004.23q.009.848.007 1.84v.112c0 1.838 0 3.294-.153 4.433c-.158 1.172-.49 2.121-1.238 2.87c-.749.748-1.698 1.08-2.87 1.238c-1.14.153-2.595.153-4.433.153H9.944c-1.838 0-3.294 0-4.433-.153c-1.172-.158-2.121-.49-2.87-1.238c-.748-.749-1.08-1.698-1.238-2.87c-.153-1.14-.153-2.595-.153-4.433v-.112q-.002-.992.007-1.84a.8.8 0 0 1 .003-.23c.016-.907.053-1.69.143-2.363c.158-1.172.49-2.121 1.238-2.87c.749-.748 1.698-1.08 2.87-1.238c1.14-.153 2.595-.153 4.433-.153m-7.192 7.5q-.002.582-.002 1.25c0 1.907.002 3.262.14 4.29c.135 1.005.389 1.585.812 2.008s1.003.677 2.009.812c1.028.138 2.382.14 4.289.14h4c1.907 0 3.262-.002 4.29-.14c1.005-.135 1.585-.389 2.008-.812s.677-1.003.812-2.009c.138-1.028.14-2.382.14-4.289q0-.668-.002-1.25zm18.472-1.5H2.776c.02-.587.054-1.094.114-1.54c.135-1.005.389-1.585.812-2.008s1.003-.677 2.009-.812c1.028-.138 2.382-.14 4.289-.14h4c1.907 0 3.262.002 4.29.14c1.005.135 1.585.389 2.008.812s.677 1.003.812 2.009c.06.445.094.952.114 1.539M5.25 16a.75.75 0 0 1 .75-.75h4a.75.75 0 0 1 0 1.5H6a.75.75 0 0 1-.75-.75m6.5 0a.75.75 0 0 1 .75-.75H14a.75.75 0 0 1 0 1.5h-1.5a.75.75 0 0 1-.75-.75" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="form_pymt_mtd_card_det_bdr">
+                            <div class="form_pymt_mtd_card_det_box">
+                                <div class="form_pymt_mtd_det_name_box">
+                                    <p class="form_pymt_mtd_det_name_txt">${card.pymt_cardName}</p>
+                                </div>
+                                <div class="form_pymt_mtd_det_info_box">
+                                    <p class="form_pymt_mtd_det_info_txt">
+                                        <span class="num_trim">••${cardNoTrim} |</span> 
+                                        <span class="num_exp">${card.pymt_cardExp}</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            cardNo, cardNoTrim = null;
+        });
+
+        pymtBox.innerHTML = pymtItemsStruct;
+        document.querySelector(".form_pymt_mtd_box").appendChild(pymtBox);
+
+        // Pymt selectors
+        const pymtCardsBdr = pymtBox.querySelectorAll(".form_pymt_mtd_card_bdr");
+        const pymtCardAddBtn = document.querySelector(".form_pymt_mtd_hdr_atn_btn");
+
+        // Selecting a (default) payment option
+        pymtCardsBdr.forEach((btn) => 
+        {
+            const btn_set_atn = async () => 
             {
-                document.querySelectorAll("input.form_input_field").forEach(item => item.disabled = false);
+                let btnId = btn.getAttribute("data-pymt-card-id");
+
+                // Fetch payment methods
+                let tempUserData = await getUserData();
+                let pymtMtdsData = tempUserData?.pymt_mtd;
+
+                // Return if payment methods is unobtainable
+                if((typeof pymtMtdsData === "undefined") || (Object.keys(pymtMtdsData).length <= 0))
+                {
+                    notification(`notifyBad`, `Failed to select card`);
+                    return;
+                }
+
+                // Return if selected method doesn't exist
+                let chsnPymr = pymtMtdsData[`${btnId}`] || null;
+
+                if((chsnPymr == undefined) || (chsnPymr == null) || (typeof chsnPymr !== "object"))
+                {
+                    notification(`notifyBad`, `Selected payment method is unavailable`);
+                    init_signup_3();
+                    return;
+                }
+
+                // Set the chosen card as default, and all other cards to false
+                Object.entries(pymtMtdsData).forEach(([key, pymt]) => 
+                {
+                    if((key === btnId))
+                    {
+                        pymt.pymt_isDflt = true;
+                    }
+                    else
+                    {
+                        pymt.pymt_isDflt = false;
+                    }
+                });
+
+                // Update user data
+                try
+                {
+                    await updateUserData(
+                    {
+                        pymt_mtd: pymtMtdsData
+                    });
+
+                    // Update UI
+                    pymtCardsBdr.forEach(item => item.setAttribute("data-pymt-card-default", "false"));
+                    btn.setAttribute("data-pymt-card-default", "true");
+
+                    // Notify user
+                    notification(`notifyGood` , `Payment card selected and set as default`);
+                }
+                catch(error)
+                {
+                    console.error(error)
+                    notification(`notifyBad`, `Failed to select card`);
+                }
             }
-            else
+
+            btn.addEventListener("click", btn_set_atn);
+        });
+
+        // Adding a new payment card
+        pymtCardAddBtn.onclick = () => 
+        {
+            initAddPymtMtdModal("init_signup_3");
+        }
+
+        // Starting memebership
+        const pymtSbmtBtn = document.querySelector("#form_pymt_sbmtBtn");
+
+        pymtSbmtBtn.addEventListener("click", async () => 
+        {
+            // Check if a card is selected
+            let isDlft = false;
+            pymtCardsBdr.forEach((btn) => 
             {
-                document.querySelectorAll("input.form_input_field").forEach(item => item.disabled = true);
-                notification('notifyBad' , 'A plan is required to proceed');
-                switch_step(2);
+                if(btn.hasAttribute("data-pymt-card-default") && (btn.getAttribute("data-pymt-card-default") === "true"))
+                {
+                    isDlft = true;
+                }
+            });
+
+            // Return if no card is selected
+            if(!(isDlft))
+            {
+                notification(`notifyBad`, `Please select a payment option to continue`);
                 return;
             }
 
+            
+            try
+            {
+                let start_date = getCurrDate("short");
+
+                // Update billing information
+                let tempUserData = await getUserData();
+                let currBillHist = tempUserData?.billing_hist || [];
+
+                // Push new billing details
+                currBillHist.push(
+                    {
+                        bill_plan_id: `${usrCurrPlan}`,
+                        bill_plan_name: `${plan_obj.plan_name}`,
+                        bill_plan_price: `${plan_obj.plan_price_month}`,
+                        bill_plan_date: `${start_date}`,
+                    }
+                );
+
+                // Update the User's info
+                await updateUserData(
+                {
+                    is_membership_active: true,
+                    stp_steps: `outro`,
+                    billing_hist: currBillHist,
+                    curr_plan: 
+                    {
+                        curr_plan_id: `${usrCurrPlan}`,
+                        curr_plan_start: `${start_date}`,
+                        curr_plan_end: `${getNextDate(start_date, 10, "short")}`,
+                        curr_plan_next: `${usrCurrPlan}`,
+                    },
+                });
+
+                // Initialize finalization message
+                init_signup_outro();
+            }
+            catch(err)
+            {
+                console.error(err)
+                notification(`notifyBad`, `Something went wrong. Try again later`);
+            }
+        });
+    }
+
+    // Initializes the modal for new users to enter their payment card details.
+    async function init_1st_setup_pymt_opt_register()
+    {
+
+        // Check that a plan has been selected
+        const usrData = await getUserData();
+        const usrCurrPlan = usrData?.curr_plan.curr_plan_id;
+        const plan_obj = uvid_signup_plans[usrCurrPlan];
+
+        if((typeof plan_obj !== "undefined") && (typeof plan_obj === "object") && (plan_obj !== null)) 
+        {
+            document.querySelectorAll("input.form_input_field").forEach(item => item.disabled = false);
+        }
+        else
+        {
+            document.querySelectorAll("input.form_input_field").forEach(item => item.disabled = true);
+            notification('notifyBad' , 'A plan is required to proceed');
+            switch_step(2);
+            return;
+        }
+
+        // Get currently selected plan
+        get_setup_sls_plan();
+
+        // Insert struct
+        document.querySelector(".join_area").innerHTML = signup_3_2;
 
         // Definitions
 
@@ -846,363 +1098,364 @@
 
             // Submit button
             const planFormSbtBtn = document.querySelector("#form_pymt_sbmtBtn");
-
-            // Switch plan
-            const chsnPlanBdr = document.querySelector(".form_plan_bdr");
-            let chsnPlanBtn;
             
 
 
-            // Validates Input for Card Number
+        // Validates Input for Card Number
 
-                // Conditions -
-                /**
-                 *  1 - Should be at least thirteen (13) numbers
-                 */
+            // Conditions -
+            /**
+             *  1 - Should be at least thirteen (13) numbers
+             */
 
-                // Allows 0-9
-                cardNum.addEventListener("beforeinput", (event) => 
+            // Allows 0-9
+            cardNum.addEventListener("beforeinput", (event) => 
+            {
+                if (event.data != null && !(card_num_cond.test(event.data))) 
+                    event.preventDefault();
+            });
+
+            // Validation function For "Card Number"
+            // Adds a space after every four (4) numbers
+            function validateCardNum(e)
+            {
+                // Checks if the field is empty
+                if((e.data == null) && (cardNum.value.toString().length <= 0))
                 {
-                    if (event.data != null && !(card_num_cond.test(event.data))) 
-                        event.preventDefault();
-                });
-
-                // Validation function For "Card Number"
-                // Adds a space after every four (4) numbers
-                function validateCardNum(e)
+                    cardNumWarn.textContent = "Required";
+                    cardNumWarn.classList.add("active");
+                    isCardNumValid = false;
+                }
+                // Checks if the card number length is less than the specified
+                else
                 {
-                    // Checks if the field is empty
-                    if((e.data == null) && (cardNum.value.toString().length <= 0))
+                    const cardNumInp = e.target;
+                    const cardNumVal = cardNumInp.value;
+                    const cursor = cardNumInp.selectionStart;
+
+                    // Store only digits
+                    const digits = cardNumVal.replace(/\D/g, '');
+
+                    // Format & break into groups of four (4)
+                    const newCardNum = digits.match(/.{1,4}/g)?.join(' ') || '';
+
+                    // Calculate the numnber of digits before the cursor
+                    const digitsBeforeCursor = cardNumVal.slice(0, cursor).replace(/\D/g, '').length;
+
+                    // Rebuild string and find new cursor position
+                    let newCursor = 0;
+                    let digitCount = 0;
+
+                    for (let i = 0; i < newCardNum.length; i++) 
                     {
-                        cardNumWarn.textContent = "Required";
+                        if (/\d/.test(newCardNum[i])) 
+                        {
+                            digitCount++;
+                        }
+                        if (digitCount === digitsBeforeCursor) 
+                        {
+                            newCursor = i + 1;
+                            break;
+                        }
+                    }
+
+                    cardNumInp.value = newCardNum;
+                    cardNumInp.setSelectionRange(newCursor, newCursor);
+
+                    if(digits.length < 13)
+                    {
+                        cardNumWarn.textContent = "Card number must be at least 13";
                         cardNumWarn.classList.add("active");
                         isCardNumValid = false;
-                    }
-                    // Checks if the card number length is less than the specified
-                    else
-                    {
-                        const cardNumInp = e.target;
-                        const cardNumVal = cardNumInp.value;
-                        const cursor = cardNumInp.selectionStart;
-
-                        // Store only digits
-                        const digits = cardNumVal.replace(/\D/g, '');
-
-                        // Format & break into groups of four (4)
-                        const newCardNum = digits.match(/.{1,4}/g)?.join(' ') || '';
-
-                        // Calculate the numnber of digits before the cursor
-                        const digitsBeforeCursor = cardNumVal.slice(0, cursor).replace(/\D/g, '').length;
-
-                        // Rebuild string and find new cursor position
-                        let newCursor = 0;
-                        let digitCount = 0;
-
-                        for (let i = 0; i < newCardNum.length; i++) 
-                        {
-                            if (/\d/.test(newCardNum[i])) 
-                            {
-                                digitCount++;
-                            }
-                            if (digitCount === digitsBeforeCursor) 
-                            {
-                                newCursor = i + 1;
-                                break;
-                            }
-                        }
-
-                        cardNumInp.value = newCardNum;
-                        cardNumInp.setSelectionRange(newCursor, newCursor);
-
-                        if(digits.length < 13)
-                        {
-                            cardNumWarn.textContent = "Card number must be at least 13";
-                            cardNumWarn.classList.add("active");
-                            isCardNumValid = false;
-                        }
-                        // If all conditions are met, the input is valid, i.e "true";
-                        else
-                        {
-                            cardNumWarn.textContent = "";
-                            cardNumWarn.classList.remove("active");
-                            isCardNumValid = true;
-                        }
-                    }
-                }
-
-                cardNum.addEventListener("input" , validateCardNum);
-
-                // Switch to the next field
-                cardNum.onkeyup = (e) => 
-                {
-                    if((typeof e === "undefined") || (typeof e.key === "undefined") || !(isCardNumValid)) return;
-                    
-                    let key = e.key.toLowerCase();
-
-                    if(key === "enter")
-                    {
-                        cardExp.focus();
-                    }
-                }
-
-
-            // Validates Input for Expiry Date
-
-                // Conditions -
-                /**
-                 *  1 - Should be in the format "MM/YY"
-                 */
-
-                // Allows 0-9
-                cardExp.addEventListener("beforeinput", (event) => 
-                {
-                    if (event.data != null && !(card_exp_cond.test(event.data))) 
-                        event.preventDefault();
-                });
-
-                // Validation function For "Security Code"
-                // Also Formats the input to "MM/YY"
-                function validateCardExp(e)
-                {
-                    let input = e.target;
-                    let raw = input.value;
-                    let cursor = input.selectionStart;
-
-                    // Strip non-digits and cap at 4 digits
-                    let digits = raw.replace(/\D/g, '').slice(0, 4);
-
-                    // Checks if the field is empty
-                    if((e.data == null) && (digits.length <= 0))
-                    {
-                        cardExpWarn.textContent = "Required";
-                        cardExpWarn.classList.add("active");
-                        isCardExpValid = false;
-
-                        return;
-                    }
-
-                    // Auto-prepend "0" if user entered single-digit month (3 → 03)
-                    if (digits.length === 1 && parseInt(digits, 10) > 1) 
-                    {
-                        digits = '0' + digits;
-                        cursor = cursor + 1;
-                    }
-
-                    // Format as MM/YY
-                    let formatted = '';
-
-                    if (digits.length >= 3) 
-                    {
-                        formatted = `${digits.slice(0, 2)}/${digits.slice(2)}`;
-                    } 
-                    else 
-                    {
-                        formatted = digits;
-                    }
-
-                    // Detect if slash was added
-                    const addedSlash = formatted[cursor - 1] === '/' && raw[cursor - 2] !== '/';
-                    let newCursor = cursor;
-
-                    if (raw.length < formatted.length && addedSlash) 
-                    {
-                        newCursor++;
-                    }
-
-                    input.value = formatted;
-                    input.setSelectionRange(newCursor, newCursor);
-
-                    if((digits > 4))
-                    {
-                        const month = parseInt(digits.slice(0, 2), 10);
-                        const year = parseInt(digits.slice(2), 10);
-
-                         // get last 2 digits of current year
-                        const currYr = new Date().getFullYear() % 100;
-                        const maxValidYear = currYr + 50;
-
-                        const isMonthValid = month >= 1 && month <= 12;
-                        const isYearValid = year >= currYr && year <= maxValidYear;
-
-                        if (!isMonthValid || !isYearValid) 
-                        {
-                            cardExpWarn.classList.add("active");
-                            cardExpWarn.textContent = "Invalid expiry date";
-                            isCardExpValid = false;
-                        }
-                        else
-                        {
-                            cardExpWarn.classList.remove("active");
-                            cardExpWarn.textContent = '';
-                            isCardExpValid = true;
-                        }
-                        return;
-                    }
-                    cardExpWarn.textContent = "Invalid expiry date";
-                    isCardExpValid = false;
-                }
-
-                cardExp.addEventListener("input" , validateCardExp);
-
-                // Switch to the next field
-                cardExp.onkeyup = (e) => 
-                {
-                    if((typeof e === "undefined") || (typeof e.key === "undefined") || !(isCardExpValid)) return;
-                    
-                    let key = e.key.toLowerCase();
-
-                    if(key === "enter")
-                    {
-                        cardCode.focus();
-                    }
-                }
-
-
-            // Validates Input for Security Code
-
-                // Conditions -
-                /**
-                 *  1 - Should be at least three (3) numbers
-                 */
-
-                // Allows 0-9
-                cardCode.addEventListener("beforeinput", (event) => 
-                {
-                    if (event.data != null && !(card_code_cond.test(event.data))) 
-                        event.preventDefault();
-                });
-
-                // Validation function For "Security Code"
-                function validateSecCode(event)
-                {
-                    // Return if value is not a number
-                    if(!(/^\d+$/.test(cardCode.value)))
-                    {
-                        cardCode.setAttribute(`data-inp-invalid`, 'true');
-                        isCardCodeValid = false;
-                        return;
-                    }
-
-                    // Strip non-digits and cap at 4 digits
-                    let digits = cardCode.value.replace(/\D/g, '');
-
-                    // Checks if the field is empty
-                    if((event.data == null) && (digits.length <= 0))
-                    {
-                        cardCodeWarn.textContent = "Required";
-                        cardCodeWarn.classList.add("active");
-                        isCardCodeValid = false;
-                    }
-                    else if((digits.length < 3))
-                    {
-                        cardCodeWarn.textContent = "Invalid Security Code";
-                        cardCodeWarn.classList.add("active");
-                        isCardCodeValid = false;
                     }
                     // If all conditions are met, the input is valid, i.e "true";
                     else
                     {
-                        cardCodeWarn.textContent = "";
-                        cardCodeWarn.classList.remove("active");
-                        isCardCodeValid = true;
+                        cardNumWarn.textContent = "";
+                        cardNumWarn.classList.remove("active");
+                        isCardNumValid = true;
                     }
                 }
+            }
 
-                cardCode.addEventListener("input" , validateSecCode);
+            cardNum.addEventListener("input" , validateCardNum);
 
-                // Switch to the next field
-                cardCode.onkeyup = (e) => 
-                {
-                    if((typeof e === "undefined") || (typeof e.key === "undefined") || !(isCardCodeValid)) return;
-                    
-                    let key = e.key.toLowerCase();
-
-                    if(key === "enter")
-                    {
-                        cardName.focus();
-                    }
-                }
-
-
-            // Validates Input for Card Name
-
-                // Conditions -
-                /**
-                 *  1 - At least two (2) non-whitespace characters separated by a space
-                 */
-                
-                function validateCardName(event)
-                {
-                    let fname = cardName.value.toString().trim();
-                    let fullName_Condition = /^\s*\S+(?:\s+\S+)+\s*$/;
-
-                    // Checks if empty
-                    if((event.data == null) && (fname === ""))
-                    {
-                        cardNameWarn.textContent = "Required";
-                        cardNameWarn.classList.add("active");
-                        isCardNameValid = false;
-                    }
-                    // Checks if Full name was entered
-                    else if(!(fullName_Condition.test(fname)))
-                    {
-                        cardNameWarn.textContent = "First and last name required";
-                        cardNameWarn.classList.add("active");
-                        isCardNameValid = false;
-                    }
-                    else
-                    {
-                        cardNameWarn.textContent = "";
-                        cardNameWarn.classList.remove("active");
-                        isCardNameValid = true;
-                    } 
-                }
-
-                cardName.addEventListener("input" , validateCardName);
-
-                // Switch to the next field
-                cardName.onkeyup = (e) => 
-                {
-                    if((typeof e === "undefined") || (typeof e.key === "undefined")) return;
-                    
-                    let key = e.key.toLowerCase();
-
-                    if(key === "enter")
-                    {
-                        planFormSbtBtn.click();
-                    }
-                }
-
-
-            // Submission
-            planFormSbtBtn.addEventListener("click" , async () => 
+            // Switch to the next field
+            cardNum.onkeyup = (e) => 
             {
-                const auth = window.firebaseAuth;
-                const user = auth.currentUser;
+                if((typeof e === "undefined") || (typeof e.key === "undefined") || !(isCardNumValid)) return;
+                
+                let key = e.key.toLowerCase();
 
-                // Return if user isn't logged in
-                if (!user)
+                if(key === "enter")
                 {
-                    notification(`notifyBad` , "You are not logged in.");
+                    cardExp.focus();
+                }
+            }
+
+
+        // Validates Input for Expiry Date
+
+            // Conditions -
+            /**
+             *  1 - Should be in the format "MM/YY"
+             */
+
+            // Allows 0-9
+            cardExp.addEventListener("beforeinput", (event) => 
+            {
+                if (event.data != null && !(card_exp_cond.test(event.data))) 
+                    event.preventDefault();
+            });
+
+            // Validation function For "Security Code"
+            // Also Formats the input to "MM/YY"
+            function validateCardExp(e)
+            {
+                let input = e.target;
+                let raw = input.value;
+                let cursor = input.selectionStart;
+
+                // Strip non-digits and cap at 4 digits
+                let digits = raw.replace(/\D/g, '').slice(0, 4);
+
+                // Checks if the field is empty
+                if((e.data == null) && (digits.length <= 0))
+                {
+                    cardExpWarn.textContent = "Required";
+                    cardExpWarn.classList.add("active");
+                    isCardExpValid = false;
+
                     return;
                 }
 
-                // If all input fields are filled correctly, update properties and finalise
-                if(((isCardNumValid == true) && (isCardExpValid == true) && (isCardCodeValid == true) && (isCardNameValid == true)))
+                // Auto-prepend "0" if user entered single-digit month (3 → 03)
+                if (digits.length === 1 && parseInt(digits, 10) > 1) 
                 {
-                    // Disable all input fields and buttons
-                    allFormFields.forEach(item => item.disabled = true);
-                    planFormSbtBtn.disabled = true;
+                    digits = '0' + digits;
+                    cursor = cursor + 1;
+                }
 
-                    // Update the User's info
-                    let start_date = getCurrDate("short");
+                // Format as MM/YY
+                let formatted = '';
+
+                if (digits.length >= 3) 
+                {
+                    formatted = `${digits.slice(0, 2)}/${digits.slice(2)}`;
+                } 
+                else 
+                {
+                    formatted = digits;
+                }
+
+                // Detect if slash was added
+                const addedSlash = formatted[cursor - 1] === '/' && raw[cursor - 2] !== '/';
+                let newCursor = cursor;
+
+                if (raw.length < formatted.length && addedSlash) 
+                {
+                    newCursor++;
+                }
+
+                input.value = formatted;
+                input.setSelectionRange(newCursor, newCursor);
+
+                if((digits > 4))
+                {
+                    const month = parseInt(digits.slice(0, 2), 10);
+                    const year = parseInt(digits.slice(2), 10);
+
+                        // get last 2 digits of current year
+                    const currYr = new Date().getFullYear() % 100;
+                    const maxValidYear = currYr + 50;
+
+                    const isMonthValid = month >= 1 && month <= 12;
+                    const isYearValid = year >= currYr && year <= maxValidYear;
+
+                    if (!isMonthValid || !isYearValid) 
+                    {
+                        cardExpWarn.classList.add("active");
+                        cardExpWarn.textContent = "Invalid expiry date";
+                        isCardExpValid = false;
+                    }
+                    else
+                    {
+                        cardExpWarn.classList.remove("active");
+                        cardExpWarn.textContent = '';
+                        isCardExpValid = true;
+                    }
+                    return;
+                }
+                cardExpWarn.textContent = "Invalid expiry date";
+                isCardExpValid = false;
+            }
+
+            cardExp.addEventListener("input" , validateCardExp);
+
+            // Switch to the next field
+            cardExp.onkeyup = (e) => 
+            {
+                if((typeof e === "undefined") || (typeof e.key === "undefined") || !(isCardExpValid)) return;
+                
+                let key = e.key.toLowerCase();
+
+                if(key === "enter")
+                {
+                    cardCode.focus();
+                }
+            }
+
+
+        // Validates Input for Security Code
+
+            // Conditions -
+            /**
+             *  1 - Should be at least three (3) numbers
+             */
+
+            // Allows 0-9
+            cardCode.addEventListener("beforeinput", (event) => 
+            {
+                if (event.data != null && !(card_code_cond.test(event.data))) 
+                    event.preventDefault();
+            });
+
+            // Validation function For "Security Code"
+            function validateSecCode(event)
+            {
+                // Return if value is not a number
+                if(!(/^\d+$/.test(cardCode.value)))
+                {
+                    cardCode.setAttribute(`data-inp-invalid`, 'true');
+                    isCardCodeValid = false;
+                    return;
+                }
+
+                // Strip non-digits and cap at 4 digits
+                let digits = cardCode.value.replace(/\D/g, '');
+
+                // Checks if the field is empty
+                if((event.data == null) && (digits.length <= 0))
+                {
+                    cardCodeWarn.textContent = "Required";
+                    cardCodeWarn.classList.add("active");
+                    isCardCodeValid = false;
+                }
+                else if((digits.length < 3))
+                {
+                    cardCodeWarn.textContent = "Invalid Security Code";
+                    cardCodeWarn.classList.add("active");
+                    isCardCodeValid = false;
+                }
+                // If all conditions are met, the input is valid, i.e "true";
+                else
+                {
+                    cardCodeWarn.textContent = "";
+                    cardCodeWarn.classList.remove("active");
+                    isCardCodeValid = true;
+                }
+            }
+
+            cardCode.addEventListener("input" , validateSecCode);
+
+            // Switch to the next field
+            cardCode.onkeyup = (e) => 
+            {
+                if((typeof e === "undefined") || (typeof e.key === "undefined") || !(isCardCodeValid)) return;
+                
+                let key = e.key.toLowerCase();
+
+                if(key === "enter")
+                {
+                    cardName.focus();
+                }
+            }
+
+
+        // Validates Input for Card Name
+
+            // Conditions -
+            /**
+             *  1 - At least two (2) non-whitespace characters separated by a space
+             */
+            
+            function validateCardName(event)
+            {
+                let fname = cardName.value.toString().trim();
+                let fullName_Condition = /^\s*\S+(?:\s+\S+)+\s*$/;
+
+                // Checks if empty
+                if((event.data == null) && (fname === ""))
+                {
+                    cardNameWarn.textContent = "Required";
+                    cardNameWarn.classList.add("active");
+                    isCardNameValid = false;
+                }
+                // Checks if Full name was entered
+                else if(!(fullName_Condition.test(fname)))
+                {
+                    cardNameWarn.textContent = "First and last name required";
+                    cardNameWarn.classList.add("active");
+                    isCardNameValid = false;
+                }
+                else
+                {
+                    cardNameWarn.textContent = "";
+                    cardNameWarn.classList.remove("active");
+                    isCardNameValid = true;
+                } 
+            }
+
+            cardName.addEventListener("input" , validateCardName);
+
+            // Switch to the next field
+            cardName.onkeyup = (e) => 
+            {
+                if((typeof e === "undefined") || (typeof e.key === "undefined")) return;
+                
+                let key = e.key.toLowerCase();
+
+                if(key === "enter")
+                {
+                    planFormSbtBtn.click();
+                }
+            }
+
+
+        // Submission
+        planFormSbtBtn.addEventListener("click" , async () => 
+        {
+            const auth = window.firebaseAuth;
+            const user = auth.currentUser;
+
+            // Return if user isn't logged in
+            if (!user)
+            {
+                notification(`notifyBad` , "You are not logged in.");
+                return;
+            }
+
+            // If all input fields are filled correctly, update properties and finalise
+            if(((isCardNumValid == true) && (isCardExpValid == true) && (isCardCodeValid == true) && (isCardNameValid == true)))
+            {
+                // Disable all input fields and buttons
+                allFormFields.forEach(item => item.disabled = true);
+                planFormSbtBtn.disabled = true;
+
+                // Update the User's info
+                let start_date = getCurrDate("short");
+
+                try
+                {
                     await updateUserData(
                     {
                         is_setup: false,
+                        is_membership_active: true,
                         stp_steps: `outro`,
                         curr_plan: 
                         {
                             curr_plan_id: `${usrCurrPlan}`,
+                            curr_plan_next: `${usrCurrPlan}`,
                             curr_plan_start: `${start_date}`,
                             curr_plan_end: `${getNextDate(start_date, 10, "short")}`,
                         },
@@ -1229,54 +1482,80 @@
                         ],
                     });
 
-                    // Initizlize finalization message
+                    // Initialize finalization message
                     init_signup_outro();
                 }
-                // If not filled correctly, alert user 
-                else
+                catch(err)
                 {
-                    notification(`notifyBad` , `Please check that all fields have been correctly filled`);
+                    console.error(err)
+                    notification(`notifyBad`, `Something went wrong. Try again later`);
                 }
-            });
+            }
+            // If not filled correctly, alert user 
+            else
+            {
+                notification(`notifyBad` , `Please check that all fields have been correctly filled`);
+            }
+        });
+    }
 
-            
-            // Insert the current plan
-            chsnPlanBdr.innerHTML = 
-            `
-                <div class="form_plan_box">
-                    <div class="form_plan_det_bdr">
-                        <div class="form_plan_det_box">
-                            <div class="form_plan_price_box">
-                                <p class="form_plan_price_txt">${plan_obj.plan_price_month}</p>
-                            </div>
-                            <div class="form_plan_name_box">
-                                <p class="form_plan_name_txt">Uvid+ ${plan_obj.plan_name}</p>
-                            </div>
+    // Gets the information for the currently selected plan
+    async function get_setup_sls_plan()
+    {
+        // Check that a plan has been selected
+        const usrData = await getUserData();
+        const usrCurrPlan = usrData?.curr_plan.curr_plan_id;
+        const plan_obj = uvid_signup_plans[usrCurrPlan];
+        
+        // Switching plans
+        const chsnPlanBdr = document.querySelector(".form_plan_bdr");
+        let chsnPlanBtn;
+
+        if(!(typeof plan_obj !== "undefined") && (typeof plan_obj === "object") && (plan_obj !== null)
+            || (chsnPlanBdr == undefined) || (chsnPlanBdr == null)
+        ) 
+        {
+            console.error("Failed to initialize currently selected plan")
+            return;
+        }
+
+        // Insert the current plan
+        chsnPlanBdr.innerHTML = 
+        `
+            <div class="form_plan_box">
+                <div class="form_plan_det_bdr">
+                    <div class="form_plan_det_box">
+                        <div class="form_plan_price_box">
+                            <p class="form_plan_price_txt">${plan_obj.plan_price_month}</p>
+                        </div>
+                        <div class="form_plan_name_box">
+                            <p class="form_plan_name_txt">Uvid+ ${plan_obj.plan_name}</p>
                         </div>
                     </div>
-                    <button type="button" class="genBtnBox thin transBtn form_plan_atn_btn form_plan_atn_box">
-                        <span class="genBtnText form_plan_atn_txt">Switch</span>
-                    </button>
                 </div>
-            `;
-            chsnPlanBtn = document.querySelector(".form_plan_atn_btn");
+                <button type="button" class="genBtnBox thin transBtn form_plan_atn_btn form_plan_atn_box">
+                    <span class="genBtnText form_plan_atn_txt">Switch</span>
+                </button>
+            </div>
+        `;
+        chsnPlanBtn = document.querySelector(".form_plan_atn_btn");
 
-            // Change your plan
-            const switchPlan = () => switch_step(2);
+        // Change your plan
+        const switchPlan = () => switch_step(2);
 
-            // Confirm before going back to change your plan
-            const cfrmB4PlanSwitch = () =>
-            {
-                initConfirmModal(
-                    `Are you sure you want to go back`,
-                    `Current changes will not be saved`,
-                    `Go back`,
-                    `Stay`,
-                    switchPlan
-                );
-            }
+        // Confirm before going back to change your plan
+        const cfrmB4PlanSwitch = () =>
+        {
+            initConfirmModal(
+                `Are you sure you want to go back`,
+                `Current changes will not be saved`,
+                `Go back`,
+                `Stay`,
+                switchPlan
+            );
+        }
 
-            chsnPlanBtn.onclick = () => cfrmB4PlanSwitch();
+        chsnPlanBtn.onclick = () => cfrmB4PlanSwitch();
     }
 
 

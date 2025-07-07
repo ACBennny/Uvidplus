@@ -284,6 +284,35 @@
         </div>
     `;
 
+    const mbsp_exp_ntc = 
+    `
+        <div class="join_house mbsp_exp_ntc">
+            <div class="join_bdr">
+                <div class="join_box">
+                    <div class="join_outro_bdr">
+                        <div class="join_outro_box">
+                            <div class="join_plan_hdr_box">
+                                <div class="join_plan_hdr_txt_mjr">Membership Expired</div>
+                            </div>
+                            <div class="join_outro_det_box">
+                                <p class="join_outro_det_txt">
+                                    Hello, your Uvid+ membership has expired. 
+                                    There's a lot going on in the world of Uvid+ and you certainly don't want to be left out.
+                                </p>
+                                <p class="join_outro_det_txt">
+                                    Hit the button below to get back into the action.
+                                </p>
+                            </div>
+                            <div class="join_submit_box space_h">
+                                <input type="button" class=" genBtn join_submit_btn mbsp_exp_ntc_btn" value="Continue" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
     const signup_vrfy = 
     `
         <div class="join_house signup_vrfy">
@@ -311,7 +340,7 @@
                             </div>
                             <div class="join_submit_box space_h">
                                 <input type="button" id="join_rsnd_btn" class="genBtn join_submit_btn" value="Resend" disabled />
-                                <input type="button" id="join_vrfy_btn" class="genBtn join_submit_btn" value="Contiune" />
+                                <input type="button" id="join_vrfy_btn" class="genBtn join_submit_btn" value="Continue" />
                             </div>
                         </div>
                     </div>
@@ -768,9 +797,95 @@
         },
     };
 
-    const signup_3 = 
+    const signup_3_1 = 
     `
-        <div class="join_house signup_3">
+        <div class="join_house signup_3_2">
+            <div class="join_bdr">
+                <div class="join_box">
+
+                    <!-- Payment Form -->
+                    <div class="join_formBox active">
+                        <form action="#" name="pymt_form" id="pymt_form_id" class="join_form">
+                            <div class="form_ctnt">
+
+                                <!-- title -->
+                                <div class="join_plan_hdr_box">
+                                    <div class="join_plan_hdr_txt_mjr">Confirm Your Subscription</div>
+                                    <p class="join_plan_hdr_txt_mnr">No commitments. Cancel anytime.</p>
+                                </div>
+
+                                <!-- Form Fields -->
+                                <div class="form_inputArea">
+
+                                    <!-- Pymt plans -->
+                                    <div class="form_input_bdr">
+                                        <div class="form_pymt_mtd_bdr">
+                                            <div class="form_pymt_mtd_hdr_bdr">
+                                                <div class="form_pymt_mtd_hdr_box">
+                                                    <div class="form_pymt_mtd_hdr_ttl_box">
+                                                        <div class="form_pymt_mtd_hdr_ttl_txt">Select payment method</div>
+                                                    </div>
+                                                    <div class="form_pymt_mtd_hdr_atn_box">
+                                                        <button type="button" class="genBtnBox darkSolidBtn form_pymt_mtd_hdr_atn_btn">
+                                                            <div class="genBtnIcon">
+                                                                <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="genBtnSvg">
+                                                                    <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
+                                                                </svg>
+                                                            </div>
+                                                            <span class="genBtnText">Add</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form_pymt_mtd_box"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Chosen Plan -->
+                                    <div class="form_input_bdr">
+                                        <div class="form_plan_bdr"></div>
+                                    </div>
+
+                                    <!--- Important Notices --->
+                                    <div class="join_plan_ntc_bdr">
+                                        <div class="join_plan_ntc_box">
+                                            <div class="join_plan_ntc_cardBox">
+                                                <p class="join_plan_ntc_card_txt">
+                                                    Prices displayed do not include taxes, processing fees, or other addtional bank fees (if applicable).
+                                                </p>
+                                            </div>
+                                            <div class="join_plan_ntc_cardBox">
+                                                <p class="join_plan_ntc_card_txt">
+                                                    By pressing "Start Membership" you acknowledge you have read, understood, and agree to both the
+                                                    <span onclick="window.open('#/tou')"><strong>Terms of Use</strong></span> and 
+                                                    <span onclick="window.open('#/privacy')"><strong>Privacy Policy</strong></span>.
+                                                    Uvid+ will automatically continue your membership and charge the selected membership fee to  
+                                                    your payment method until you cancel. You can cancel at any time to avoid future charges.
+                                                    Visit our <span onclick="window.open('#/help')"><strong>Help Center</strong></span> if you have any questions.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form_input_bdr tandc"></div>
+
+                                    <!-- Sign Up button -->
+                                    <div class="form_input_bdr">
+                                        <div class="join_submit_box">
+                                            <input type="button" class="genBtn join_submit_btn" id="form_pymt_sbmtBtn" value="Start Membership">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    const signup_3_2 = 
+    `
+        <div class="join_house signup_3_2">
             <div class="join_bdr">
                 <div class="join_box">
 
