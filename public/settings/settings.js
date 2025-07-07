@@ -170,6 +170,7 @@
         attachSettSectNavListeners();
         upd_sett_info();
         attachSectAtnTglListeners();
+        attachSettSectMdlListeners();
     }
 
     // Toggle Nav for smaller screens
@@ -242,12 +243,12 @@
                 }
                 else if(item.sett_atn_type === "modal")
                 {
-                    let atn_func = item.sett_atn_func !== "" ? `${item.sett_atn_func}()` : `notification('notifyBad', 'Feature currently unavailable')`;
+                    let atn_func = item.sett_atn_func !== "" ? `${item.sett_atn_func}` : `notification('notifyBad', 'Feature currently unavailable')`;
                     settCtntAtnStruct = 
                     `
                         <div class="settCtntSectAtnBdr">
                             <div class="settCtntSectAtnBox">
-                                <button onclick="${atn_func}" id="${item.sett_atn_id}" class="settCtntSectAtnBtn settCtntSectAtnIcon">
+                                <button data-sett-sect-type="modal" data-modal-atn="${atn_func}" id="${item.sett_atn_id}" class="settCtntSectAtnBtn settCtntSectAtnIcon">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="settCtntSectAtnSvg">
                                         <path fill-rule="evenodd" d="M8.512 4.43a.75.75 0 0 1 1.057.082l6 7a.75.75 0 0 1 0 .976l-6 7a.75.75 0 0 1-1.138-.976L14.012 12L8.431 5.488a.75.75 0 0 1 .08-1.057" clip-rule="evenodd" />
                                     </svg>
@@ -723,6 +724,40 @@
         });
     }
 
+    // Adds listeners for data-sett-sect-type: modal
+    function attachSettSectMdlListeners()
+    {
+        const btns = document.querySelectorAll(".settCtntSectAtnBtn[data-sett-sect-type='modal']");
+
+        btns.forEach((oldBtn) => 
+        {
+            if((oldBtn.sett_atn)) oldBtn.removeEventListener("click", oldBtn.sett_atn);
+        });
+
+        btns.forEach((newBtn) => 
+        {
+            const btn_sett_atn = (e) =>
+            {
+                const mdl_atn = newBtn.getAttribute("data-modal-atn");
+
+                try
+                {
+                    callGlobalFunctions(mdl_atn, [e]);
+                    // newBtn.disabled = true;
+                }
+                catch(error)
+                {
+                    console.error(error);
+                    notification(`notifyBad`, `An error occured`);
+                    newBtn.disabled = false;
+                }
+            }
+
+            newBtn.addEventListener("click", btn_sett_atn);
+            newBtn.sett_atn = btn_sett_atn;
+        });
+    }
+
 
 
 
@@ -731,7 +766,7 @@
     // Managing membership
     async function init_mng_mbsp(btnEv)
     {
-        if(typeof btnEv !== "undefined") btnEv.disabled = true;
+        if(typeof btnEv !== "undefined") btnEv.target.closest(`.settCtntSectAtnBtn[data-sett-sect-type='modal']`).disabled = true;
 
         // Fetch payment methods
         const userData = await getUserData();
@@ -870,6 +905,8 @@
                 clearTimeout(mngMbspTimer);
                 mngMbspBase.remove();
                 documentBody.classList.remove("bodystop");
+
+                if(typeof btnEv !== "undefined") btnEv.target.closest(`.settCtntSectAtnBtn[data-sett-sect-type='modal']`).disabled = false;
             }, 300);
         }
 
@@ -980,7 +1017,6 @@
 
             mngMbspAddBtn.classList.remove("hide");
             mngMbspAddBtn.addEventListener("click", req_mbsp_switch);
-            console.log("Membership is alr canceled")
             return;
         }
 
@@ -992,8 +1028,6 @@
     // Switch membership
     async function init_mbsp_switch(btnEv)
     {
-        if(typeof btnEv !== "undefined") btnEv.disabled = true;
-
         // Fetch payment methods
         const userData = await getUserData();
         const curr_mbsp_info = userData?.curr_plan;
@@ -1206,7 +1240,7 @@
     // Manage payment methods
     async function init_pymt_mtds(btnEv)
     {
-        if(typeof btnEv !== "undefined") btnEv.disabled = true;
+        if(typeof btnEv !== "undefined") btnEv.target.closest(`.settCtntSectAtnBtn[data-sett-sect-type='modal']`).disabled = true;
 
         let pymtMtdsStruct = 
         `
@@ -1355,7 +1389,7 @@
                 documentCtnt.removeChild(pymtMtdsBase);
                 documentBody.classList.remove("bodystop");
 
-                if(typeof btnEv !== "undefined") btnEv.disabled = false;
+                if(typeof btnEv !== "undefined") btnEv.target.closest(`.settCtntSectAtnBtn[data-sett-sect-type='modal']`).disabled = false;
             });
         }
 
@@ -2058,7 +2092,7 @@
     // View Billing History
     async function init_bill_hist(btnEv)
     {
-        if(typeof btnEv !== "undefined") btnEv.disabled = true;
+        if(typeof btnEv !== "undefined") btnEv.target.closest(`.settCtntSectAtnBtn[data-sett-sect-type='modal']`).disabled = true;
 
         let billHistStruct = 
         `
@@ -2176,7 +2210,7 @@
                 documentCtnt.removeChild(billHistBase);
                 documentBody.classList.remove("bodystop");
 
-                if(typeof btnEv !== "undefined") btnEv.disabled = false;
+                if(typeof btnEv !== "undefined") btnEv.target.closest(`.settCtntSectAtnBtn[data-sett-sect-type='modal']`).disabled = false;
             });
         }
 
@@ -2248,7 +2282,7 @@
         let giftCodeMdlTimer;
 
         // Disabling btn to prevent multiple calls
-        if(typeof btnEv !== "undefined") btnEv.disabled = true;
+        if(typeof btnEv !== "undefined") btnEv.target.closest(`.settCtntSectAtnBtn[data-sett-sect-type='modal']`).disabled = true;
 
         // Transitioning elements
         giftCodeMdlTimer = setTimeout(async () => 
@@ -2274,7 +2308,7 @@
                 giftCodeMdlBdr.removeEventListener("transitionend" , handleTransitionEnd);
                 documentBody.removeChild(giftCodeMdlBdr);
                 documentBody.removeAttribute(`data-modal-state`);
-                if(typeof btnEv !== "undefined") btnEv.disabled = false;
+                if(typeof btnEv !== "undefined") btnEv.target.closest(`.settCtntSectAtnBtn[data-sett-sect-type='modal']`).disabled = false;
             });
         }
 
@@ -2394,7 +2428,7 @@
         let mngNtfyTimer;
 
         // Disabling btn to prevent multiple calls
-        if(typeof btnEv !== "undefined") btnEv.disabled = true;
+        if(typeof btnEv !== "undefined") btnEv.target.closest(`.settCtntSectAtnBtn[data-sett-sect-type='modal']`).disabled = true;
 
         // Transitioning elements
         mngNtfyTimer = setTimeout(async () => 
@@ -2425,7 +2459,7 @@
                 mngNtfyBdr.removeEventListener("transitionend" , handleTransitionEnd);
                 documentBody.removeChild(mngNtfyBdr);
                 documentBody.removeAttribute(`data-modal-state`);
-                if(typeof btnEv !== "undefined") btnEv.disabled = false;
+                if(typeof btnEv !== "undefined") btnEv.target.closest(`.settCtntSectAtnBtn[data-sett-sect-type='modal']`).disabled = false;
             });
         }
 
@@ -2672,7 +2706,7 @@
         let cnct3rdPartyAppTimer;
 
         // Disabling btn to prevent multiple calls
-        if(typeof btnEv !== "undefined") btnEv.disabled = true;
+        if(typeof btnEv !== "undefined") btnEv.target.closest(`.settCtntSectAtnBtn[data-sett-sect-type='modal']`).disabled = true;
 
         // Transitioning elements
         cnct3rdPartyAppTimer = setTimeout(async () => 
@@ -2691,7 +2725,7 @@
                 cnct3rdPartyAppBdr.removeEventListener("transitionend" , handleTransitionEnd);
                 documentBody.removeChild(cnct3rdPartyAppBdr);
                 documentBody.removeAttribute(`data-modal-state`);
-                if(typeof btnEv !== "undefined") btnEv.disabled = false;
+                if(typeof btnEv !== "undefined") btnEv.target.closest(`.settCtntSectAtnBtn[data-sett-sect-type='modal']`).disabled = false;
             });
         }
 
@@ -2781,7 +2815,7 @@
         let updFullnameTimer;
 
         // Disabling btn to prevent multiple calls
-        if(typeof btnEv !== "undefined") btnEv.disabled = true;
+        if(typeof btnEv !== "undefined") btnEv.target.closest(`.settCtntSectAtnBtn[data-sett-sect-type='modal']`).disabled = true;
 
         // Transitioning elements
         updFullnameTimer = setTimeout(async () => 
@@ -2877,7 +2911,7 @@
                 updFullnameBdr.removeEventListener("transitionend" , handleTransitionEnd);
                 documentBody.removeChild(updFullnameBdr);
                 documentBody.removeAttribute(`data-modal-state`);
-                if(typeof btnEv !== "undefined") btnEv.disabled = false;
+                if(typeof btnEv !== "undefined") btnEv.target.closest(`.settCtntSectAtnBtn[data-sett-sect-type='modal']`).disabled = false;
             });
         }
 
@@ -2965,7 +2999,7 @@
         let updUsrPassTimer;
 
         // Disabling btn to prevent multiple calls
-        if(typeof btnEv !== "undefined") btnEv.disabled = true;
+        if(typeof btnEv !== "undefined") btnEv.target.closest(`.settCtntSectAtnBtn[data-sett-sect-type='modal']`).disabled = true;
 
         // Transitioning elements
         updUsrPassTimer = setTimeout(() => 
@@ -3128,7 +3162,7 @@
                 updUsrPassBdr.removeEventListener("transitionend" , handleTransitionEnd);
                 documentBody.removeChild(updUsrPassBdr);
                 documentBody.removeAttribute(`data-modal-state`);
-                if(typeof btnEv !== "undefined") btnEv.disabled = false;
+                if(typeof btnEv !== "undefined") btnEv.target.closest(`.settCtntSectAtnBtn[data-sett-sect-type='modal']`).disabled = false;
             });
         }
 
@@ -3265,7 +3299,7 @@
         let updUsrEmailTimer;
 
         // Disabling btn to prevent multiple calls
-        if(typeof btnEv !== "undefined") btnEv.disabled = true;
+        if(typeof btnEv !== "undefined") btnEv.target.closest(`.settCtntSectAtnBtn[data-sett-sect-type='modal']`).disabled = true;
 
         // Transitioning elements
         updUsrEmailTimer = setTimeout(() => 
@@ -3430,7 +3464,7 @@
                 currPassInput.disabled = true;
                 newEmailInput.disabled = true;
                 updUsrEmailCfrmBtn.disabled = true;
-                closeDelAcc(true);
+                closeEmailUpd(true);
             }
             else
             {
@@ -3439,7 +3473,7 @@
         });
 
         // Closes the updUsrEmail modal
-        async function closeDelAcc(isEmail = false)
+        async function closeEmailUpd(isEmail = false)
         {
             if(isEmail == true) await reauthB4EmailUpd(currPassInput.value, newEmailInput.value);
 
@@ -3456,14 +3490,14 @@
                 updUsrEmailBdr.removeEventListener("transitionend" , handleTransitionEnd);
                 documentBody.removeChild(updUsrEmailBdr);
                 documentBody.removeAttribute(`data-modal-state`);
-                if(typeof btnEv !== "undefined") btnEv.disabled = false;
+                if(typeof btnEv !== "undefined") btnEv.target.closest(`.settCtntSectAtnBtn[data-sett-sect-type='modal']`).disabled = false;
             });
         }
 
         // Closes the modal
         updUsrEmailCloseBtn.forEach(one => 
         {
-            one.addEventListener("mousedown" , closeDelAcc);
+            one.addEventListener("mousedown" , closeEmailUpd);
         });
 
 
