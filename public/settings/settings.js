@@ -920,7 +920,7 @@
         function req_mbsp_switch(e)        
         {
             closeMngMbspMdl();
-            init_mbsp_switch(e);
+            init_mbsp_switch("init_mng_mbsp");
         }
 
         // Cancel membership
@@ -1026,7 +1026,7 @@
 
 
     // Switch membership
-    async function init_mbsp_switch(btnEv)
+    async function init_mbsp_switch(req_fnc = null)
     {
         // Fetch payment methods
         const userData = await getUserData();
@@ -1217,6 +1217,8 @@
                 clearTimeout(switchMbspTmr);
                 switchFence.remove();
                 documentBody.classList.remove("bodystop");
+
+                if(req_fnc != null) callGlobalFunctions("init_mng_mbsp");
             }, 300);
         }
 
@@ -1374,7 +1376,7 @@
         pymtMtdsAdd.onclick = () => 
         {
             closePymtMtdsMdl();
-            initAddPymtMtdModal();
+            initAddPymtMtdModal("init_pymt_mtds");
         }
         attachGenMenuModalEventListeners();
 
@@ -1563,7 +1565,7 @@
     }
 
     // Add new payment method
-    async function initAddPymtMtdModal()
+    async function initAddPymtMtdModal(req_fnc = null)
     {
         // Fetch payment methods
         let pymtMtdMAX = 5;
@@ -2078,7 +2080,8 @@
                 clearTimeout(addPymtMtdTimer);
                 addPymtMtdBase.remove();
                 documentBody.removeAttribute(`data-modal-state`);
-                init_pymt_mtds();
+                
+                if(req_fnc != null) callGlobalFunctions(req_fnc);
             }, 300);
         }
 
