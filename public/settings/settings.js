@@ -372,7 +372,7 @@
         }
         else
         {
-            // Defualts to membership section
+            // Defaults to membership section
             sett_sect_dstn("membership");
         }
     }
@@ -1440,13 +1440,23 @@
         dfltPymtMtdBtn.onclick = async () => 
         {
             // Fetch payment methods
-            let userData = await getUserData();
-            let pymtMtdsData = userData?.pymt_mtd;
+            let tempUserData = await getUserData();
+            let pymtMtdsData = tempUserData?.pymt_mtd;
 
             // Return if payment methods is unobtainable
             if((typeof pymtMtdsData === "undefined") || (Object.keys(pymtMtdsData).length <= 0))
             {
                 notification(`notifyBad`, `Failed to set as default`);
+                return;
+            }
+
+            // Return if selected method doesn't exist
+            let chsnPymr = pymtMtdsData[`${pid}`] || null;
+
+            if((chsnPymr == undefined) || (chsnPymr == null) || (typeof chsnPymr !== "object"))
+            {
+                notification(`notifyBad`, `Selected payment method is unavailable`);
+                init_pymt_mtds();
                 return;
             }
 
@@ -1476,7 +1486,7 @@
                 pymtCardBdr.setAttribute("data-pymt-card-default", "true");
 
                 // Notify user
-                notification(`notifyGood` , `Payment card successfully set as defualt`);
+                notification(`notifyGood` , `Payment card successfully set as default`);
             }
             catch(error)
             {
@@ -1496,6 +1506,16 @@
             if((typeof pymtMtdsData === "undefined") || (Object.keys(pymtMtdsData).length <= 1))
             {
                 notification(`notifyBad`, `At least one payment method must be present`);
+                return;
+            }
+
+            // Return if selected method doesn't exist
+            let chsnPymr = pymtMtdsData[`${pid}`] || null;
+
+            if((chsnPymr == undefined) || (chsnPymr == null) || (typeof chsnPymr !== "object"))
+            {
+                notification(`notifyBad`, `Selected payment method is unavailable`);
+                init_pymt_mtds();
                 return;
             }
             
