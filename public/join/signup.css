@@ -209,7 +209,7 @@ html:root
 
 .join_plan_sls_cardBdr[data-pre-selected]
 {
-    box-shadow: 0rem 0rem 0rem 0.125rem var(--warningClr);
+    box-shadow: 0rem 0rem 0rem 0.0625rem var(--warningClr);
 }
 
 .join_plan_sls_cardBdr[selected]:has( .join_plan_sls_radCls[value="ultm"])
