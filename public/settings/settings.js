@@ -1007,6 +1007,7 @@
         // Build modal
         let switchFence = document.createElement("div");
         switchFence.classList.add("join_fence");
+        switchFence.style.zIndex = "199"; // To prevent clipping on Navbars
 
         switchFence.innerHTML = // signup_2 from "join-cmpnt.js" 
         `
@@ -1136,7 +1137,7 @@
             switchFence.querySelector(`.join_plan_sls_cardBdr:has(input[name='join_plan_sls_rad'][value='${curr_mbsp_info?.curr_plan_next}'])`).setAttribute(`data-pre-selected`, `true`);
         }, 300);
 
-        // Moving to the next step
+        // Updating plan changes
         planSbtBtn.addEventListener("click", async () => 
         {
             const auth = window.firebaseAuth;
@@ -1174,6 +1175,7 @@
             }
         });
 
+        // Close the modal
         function clsSwitchMbspMdl()
         {
             switchMbspTmr = setTimeout(() => 
@@ -1183,6 +1185,21 @@
                 documentBody.classList.remove("bodystop");
             }, 300);
         }
+
+        // Insert button to close the modal
+        const clsMdlBtn = document.createElement("div");
+        const clsMdlInp = document.createElement("input");
+
+        clsMdlBtn.classList.add("join_submit_box");
+        clsMdlInp.setAttribute(`type`, `button`);
+        clsMdlInp.setAttribute(`id`, `mbsp_change_mdl_close`);
+        clsMdlInp.setAttribute(`value`, `Close`);
+        clsMdlInp.classList.add("genBtn", "genBtnBox", "join_submit_btn", "hollowBtn");
+
+        clsMdlBtn.appendChild(clsMdlInp);
+        planSbtBtn.parentElement.insertAdjacentElement('afterend', clsMdlBtn);
+
+        clsMdlInp.addEventListener("click", clsSwitchMbspMdl);
     }
 
 
