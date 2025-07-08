@@ -508,10 +508,6 @@
                     [],
                     prof_collections:
                     [],
-                    prof_downloads:
-                    [],
-                    prof_notifications:
-                    [],
                 }
             });
 
