@@ -92,7 +92,7 @@
     // Insert Notification struct
     function startNotification()
     {
-        documentBody.insertAdjacentHTML(`beforeend` , ntfyStruct);
+        documentCtnt.insertAdjacentHTML(`beforeend` , ntfyStruct);
 
         ntfyBase = document.querySelector(".ntfy_base");
         ntfyCtntBox = document.querySelector(".ntfy_ctnt_box");
@@ -215,18 +215,19 @@
     // Mark all Notificatiions as read
     async function markAllNotificationsAsRead()
     {
-        let selectedProfile = await getSelectedProfile();
+        let userData = await getUserData();
+        let userNtfns = userData?.notifications;
 
         // Update all notification entries in Library
-        userData.notifications.forEach((item) => 
+        userNtfns.forEach((item) => 
         {
             item.notify_readStatus = true;
         });
 
         // Update user data
-        await updUsrProfFlds(
+        await updateUserData(
         {
-            prof_notifications: userData.notifications
+            notifications: userNtfns
         });
 
         // Update all notification entries in DOM
@@ -270,34 +271,23 @@
     // Clear all Notificatiions
     async function clearAllNotifications()
     {
-        let selectedProfile = await getSelectedProfile();
+        let userData = await getUserData();
+        let userNtfns = userData?.notifications;
 
         // Remove all notification entries
-        userData.notifications.length = 0;
+        userNtfns.length = 0;
 
         // Update user data
-        await updUsrProfInv(null, selectedProfile);
+        await updateUserData(
+        {
+            notifications: userNtfns
+        });
     
         // Close the modal
         closeNotificationModal();
 
         // Notify user
         notification(`notifyGood` , `Notifications cleared successfully`);
-    }
-
-    async function gg()
-    {
-        await updateUserData(
-        {
-            ntfy_pref:
-            {
-                ntfy_what_you_stream: true,
-                ntfy_recommendation: true,
-                ntfy_exploration: true,
-                ntfy_promotions: true,
-                ntfy_surveys: true,
-            }
-        });
     }
 
     // Attaches listener for clearing all notifications
