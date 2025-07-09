@@ -146,7 +146,7 @@ html:root
 
 body
 {
-    width: 100%;
+    min-height: 100svh;
     min-height: 100vh;
 }
 
@@ -333,6 +333,14 @@ html:has(body[data-modal-state="open"])
     font-size: 1.125rem;
     text-align: center;
 }
+
+
+
+
+
+
+
+
 /* ========== INACTIVITY ========= */
 
 .inactivity_bcg
