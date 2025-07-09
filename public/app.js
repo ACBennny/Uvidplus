@@ -20,11 +20,11 @@
                 await auth.currentUser.getIdToken(true);
                 window.uvidUser = auth.currentUser;
                 window.uvidUserVrfd = !!auth.currentUser.emailVerified;
-                console.log("user state refresh successfull")
+                console.info("user state refresh successfull")
             }
             else
             {
-                console.log("User state refresh failed")
+                console.error("User state refresh failed")
             }
         }
 
@@ -86,6 +86,159 @@
 
             const db = window.firebaseDB;
             await db.collection("uvp_fb_users").doc(user.uid).update(updates);
+        }
+
+        // Checks membership status after a period of time
+        function mbspStatusTmr()
+        {
+            let prd = 1000 * 60 * 1; // 1 minute
+            let tmr_interval;
+
+            tmr_interval = setInterval(() => 
+            {
+                handleMbspStatus();
+            }, prd);
+        }
+
+        // Check & Update membership status
+        async function handleMbspStatus()
+        {
+            // Return if user isn't signed in
+            if(!(getSignedInUser())) return;
+
+            const userData = await getUserData();
+            const isUsrMmbr = userData?.is_membership_active;
+
+            // Return if user membership is inactive
+            if((isUsrMmbr == null) || (typeof isUsrMmbr !== "boolean") || (isUsrMmbr != true)) return;
+
+
+            const isMbspAuto = userData?.curr_plan?.curr_plan_next;
+            const daysLeft = getDiffBtwDates(getCurrDate("short"), userData?.curr_plan?.curr_plan_end);
+
+            // Auto-renewal is turned on
+            if((typeof isMbspAuto === "string") && (isMbspAuto.trim() !== ""))
+            {
+                // Restart membership
+                if(daysLeft < 1)
+                {
+                    try
+                    {
+                        let start_date = getCurrDate("short");
+                        let end_date = getNextDate(start_date, membership_BILL_CYCLE, "short");
+                        let currBillHist = userData?.billing_hist || [];
+                        const plan_obj = uvid_signup_plans[isMbspAuto];
+
+                        if(!(typeof plan_obj !== "undefined") && (typeof plan_obj === "object") && (plan_obj !== null)) 
+                        {
+                            console.error("Failed to update membership state");
+                            return;
+                        }
+
+                        // Push new billing details
+                        currBillHist.push(
+                            {
+                                bill_plan_id: `${isMbspAuto}`,
+                                bill_plan_name: `${plan_obj.plan_name}`,
+                                bill_plan_price: `${plan_obj.plan_price_month}`,
+                                bill_plan_date: `${start_date}`,
+                                bill_plan_status: null,
+                            }
+                        );
+
+                        // Update user data
+                        await updateUserData(
+                        {
+                            is_3_day_ntc: false,
+                            billing_hist: currBillHist,
+                            curr_plan: 
+                            {
+                                curr_plan_id: `${isMbspAuto}`,
+                                curr_plan_start: `${start_date}`,
+                                curr_plan_end: `${end_date}`,
+                                curr_plan_next: `${isMbspAuto}`,
+                            },
+                        });
+
+                        // Notify the user
+                        generateNotificationMsg(
+                            `Membership renewed`,
+                            `
+                                Your Uvid+ membership was automatically renewed on ${start_date}.
+                                Your next billing date is on ${end_date}.
+                            `,
+                            `View Membership`,
+                            `#/settings/membership/manage`,
+                            ``,
+                            `Failed to set 'Renewal Success' notification`
+                        );
+
+                        // Refresh to display changes
+                        refreshPage();
+                    }
+                    catch(error)
+                    {
+                        console.error("Failed to update membership state");
+                        console.error(error);
+                    }
+                }
+            }
+            
+            // Auto-renewal is turned off
+            else if((isMbspAuto == null))
+            {
+                // Check if the user has already been notified
+                let exp3DayNtc = userData?.is_3_day_ntc;
+
+                // Membership expired
+                if((daysLeft < 1))
+                {
+                    // Update membership status
+                    await updateUserData(
+                    {
+                        is_membership_active: false
+                    });
+
+                    // Refresh to display changes
+                    refreshPage();
+                }
+                // Membership expiring soon
+                else if((daysLeft >= 1) && (daysLeft <= 4))
+                {
+                    // Return if user has already been notified
+                    if((exp3DayNtc == true)) return;
+
+                    // Notify the user
+                    generateNotificationMsg(
+                        `Membership expiring soon`,
+                        `
+                            Your Uvid+ membership expires soon (on ${userData?.curr_plan?.curr_plan_end}). 
+                            As auto-renewal is turned off, all services will be halted after expiration.
+                            You can renew your membership now to continue your uninterrupted streaming.
+                        `,
+                        `Renew Membership`,
+                        `#/settings/membership/manage`,
+                        ``,
+                        `Failed to set 3-day notification of expiration`
+                    );
+
+                    // Update flag
+                    await updateUserData(
+                    {
+                        is_3_day_ntc: true
+                    });
+
+                    // Refresh to display changes
+                    refreshPage();
+                }
+            }
+        }
+
+        // Uvid+ membership is expired
+        async function usrMbspExp()
+        {
+            init_setup();
+            msg_mbsp_exp();
         }
 
     

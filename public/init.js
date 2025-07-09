@@ -90,6 +90,7 @@
                     window.uvidUser = user;
                     window.uvidUserVrfd = !!(user && user.emailVerified);
 
+                    handleMbspStatus();
                     startApplication();
                 });
             }
