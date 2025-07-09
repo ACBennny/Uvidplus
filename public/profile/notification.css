@@ -9,8 +9,8 @@
 
 html:root
 {
-    --notification_thumbnail_width: 6.25rem;
-    --notification_thumbnail_height: 9.375rem;
+    --notification_thumbnail_width: 7.8125rem;
+    --notification_thumbnail_height: 11.5625rem;
     --notification_SubTopic_margin: 0.625rem;
 }
 
@@ -167,6 +167,29 @@ html:root
     text-align: left;
 }
 
+.notification_detail_box .notification_date_bdr
+{
+    width: 100%;
+    margin-top: var(--notification_SubTopic_margin);
+}
+
+.notification_date_bdr .notification_date_box
+{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+}
+
+.notification_date_box .notification_date_text
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    color: var(--genWhiteTypeDark);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: left;
+}
+
 .notification_detail_box .notification_SubTopic_bdr
 {
     width: 100%;
@@ -238,7 +261,7 @@ html:root
 
 /* ================== RESPONSIVENESS ================ */
 
-@media only screen and (max-width: 35.125rem)
+@media only screen and (max-width: 35.3125rem)
 {
     html:root
     {
@@ -269,6 +292,22 @@ html:root
     .notification_action_box .notification_action_text
     {
         font-size: 0.8125rem;
+    }
+}
+
+
+
+@media only screen and (max-width: 30.3125rem)
+{
+    .notification_thumbnail_bdr
+    {
+        display: none;
+    }
+
+    .notification_card_box  .notification_detail_bdr
+    {
+        width: 100%;
+        margin-left: 0rem;
     }
 }
  
