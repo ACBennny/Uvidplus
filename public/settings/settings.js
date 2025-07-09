@@ -2180,7 +2180,7 @@
         // Build history elements
         for(let i = 0; i < billHistData.length; i++)
         {
-            let bill = billHistData[0];
+            let bill = billHistData[i];
             let bill_status_bool = bill.bill_plan_status !== null 
                 ? bill.bill_plan_status == true
                 ? "true" : "false"
