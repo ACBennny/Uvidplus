@@ -978,6 +978,7 @@
 
 
             // Components & Functionalities
+            mbspStatusTmr();
             page_router();
             attachReturnToHomePageListeners();
             attachReturnToTopOfPageListeners();
@@ -1419,7 +1420,7 @@
 
             // Calculate difference in milliseconds and convert to days
             const diffInMs = end - start;
-            const diffInDays = Math.round(diffInMs / (1000 * 60 * 60 * 24));
+            const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
 
             return diffInDays;
         }
@@ -1447,6 +1448,7 @@
 
             try
             {
+                let userData = await getUserData();
                 let currNtfy = userData?.notifications || [];
 
                 currNtfy.push(
