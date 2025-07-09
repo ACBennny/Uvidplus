@@ -134,16 +134,17 @@
     async function fetchNotification()
     {
         let userData = await getUserData();
+        let userNtfns = userData?.notifications;
 
         // Check if the library is available
-        if((userData.notifications == undefined))
+        if((userNtfns == undefined))
         {
             errorLoadingNotifications();
             return;
         }
 
         // Check if there is content inside the library
-        if((userData.notifications.length <= 0))
+        if((userNtfns.length <= 0))
         {
             return;
         }
@@ -155,9 +156,9 @@
         removeEmptyNtfyBdr();
 
         // Fetching content
-        for(let i = 0; i < userData.notifications.length; i++)
+        for(let i = (userNtfns.length - 1); i >= 0; i--)
         {
-            const item = userData.notifications[i];
+            const item = userNtfns[i];
             const notificationCardStruct = 
             `
                 <div class="notification_card_bdr" data-read-status="${item.notify_readStatus}">
@@ -179,6 +180,11 @@
                                 <div class="notification_MainTopic_bdr">
                                     <div class="notification_MainTopic_box">
                                         <div class="notification_MainTopic_text">${item.notify_mainTopic}</div>
+                                    </div>
+                                </div>
+                                <div class="notification_date_bdr">
+                                    <div class="notification_date_box">
+                                        <p class="notification_date_text">${item.notify_addedDate}</p>
                                     </div>
                                 </div>
                                 <div class="notification_SubTopic_bdr">
