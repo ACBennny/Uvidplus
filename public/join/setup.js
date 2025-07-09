@@ -974,6 +974,7 @@
             initAddPymtMtdModal("init_signup_3");
         }
 
+        
         // Starting memebership
         const pymtSbmtBtn = document.querySelector("#form_pymt_sbmtBtn");
 
@@ -1000,6 +1001,7 @@
             try
             {
                 let start_date = getCurrDate("short");
+                let end_date = getNextDate(start_date, membership_BILL_CYCLE, "short");
 
                 // Update billing information
                 let tempUserData = await getUserData();
@@ -1026,10 +1028,23 @@
                     {
                         curr_plan_id: `${usrCurrPlan}`,
                         curr_plan_start: `${start_date}`,
-                        curr_plan_end: `${getNextDate(start_date, membership_BILL_CYCLE, "short")}`,
+                        curr_plan_end: `${end_date}`,
                         curr_plan_next: `${usrCurrPlan}`,
                     },
                 });
+
+                // Notify the user
+                generateNotificationMsg(
+                    `Membership renewed`,
+                    `
+                        Your Uvid+ membership was renewed on ${start_date}.
+                        Your next billing date is on ${end_date}.
+                    `,
+                    `View Membership`,
+                    `#/settings/membership/manage`,
+                    ``,
+                    `Failed to set 'Renewal Success' notification`
+                );
 
                 // Initialize finalization message
                 init_signup_outro();
