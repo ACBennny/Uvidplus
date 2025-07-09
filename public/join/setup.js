@@ -1026,7 +1026,7 @@
                     {
                         curr_plan_id: `${usrCurrPlan}`,
                         curr_plan_start: `${start_date}`,
-                        curr_plan_end: `${getNextDate(start_date, 30, "short")}`,
+                        curr_plan_end: `${getNextDate(start_date, membership_BILL_CYCLE, "short")}`,
                         curr_plan_next: `${usrCurrPlan}`,
                     },
                 });
@@ -1458,7 +1458,7 @@
                             curr_plan_id: `${usrCurrPlan}`,
                             curr_plan_next: `${usrCurrPlan}`,
                             curr_plan_start: `${start_date}`,
-                            curr_plan_end: `${getNextDate(start_date, 30, "short")}`,
+                            curr_plan_end: `${getNextDate(start_date, membership_BILL_CYCLE, "short")}`,
                         },
                         pymt_mtd: 
                         {

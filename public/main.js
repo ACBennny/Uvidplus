@@ -24,6 +24,7 @@
     const footerWrp = document.querySelector(".footer_wrapper");
     const gblInvalidChar1 = /^[A-Za-z0-9.()[\]_\-\n\s]+$/;
     const gblInvalidChar = /[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/;
+    const membership_BILL_CYCLE = 30;
     let sideNavLinks;
     let btmNavLinks;
     let genContainerMaxWidth = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--genMaxContainerWidth').trim());
@@ -1395,6 +1396,83 @@
             return newDate;
         }
 
+        
+        // Returns the difference in days between two dates
+        function getDiffBtwDates(start_date, end_date)
+        {
+            // Return if params are not strings
+            if((typeof start_date !== "string") || (typeof end_date !== "string"))
+            {
+                console.error(`The ${start_date} or ${end_date} may be invalid`);
+                return null;
+            }
+
+            // Helper to parse "D:M:YYYY" into a Date object
+            function parseDate(dateStr)
+            {
+                const [day, month, year] = dateStr.toString().split('/').map(Number);
+                return new Date(year, month - 1, day);
+            }
+
+            const start = parseDate(start_date);
+            const end = parseDate(end_date);
+
+            // Calculate difference in milliseconds and convert to days
+            const diffInMs = end - start;
+            const diffInDays = Math.round(diffInMs / (1000 * 60 * 60 * 24));
+
+            return diffInDays;
+        }
+
+
+
+
+    // GENERATES A NOTIFICATION
+        
+        /**
+         * 
+         * @param {string} sbj This contains the subject/main topic of the notification
+         * @param {string} msg This conatains more details about the subject
+         * @param {string} atn_txt The text value of the action link
+         * @param {string} atn_lnk The destination link the user gets taken to
+         * @param {string} thumb The thumbnail image. If left empty, the default thumbnail; uvid-green-bcg1-light is used
+         * @param {string} error_note An optional error message 
+         * @returns 
+         */
+
+        async function generateNotificationMsg(sbj, msg, atn_txt, atn_lnk, thumb, error_note)
+        {
+            let dflt_thumb = "/images/uvid-bcg1.jpg";
+            let dflt_error = "Failed to set notice";
+
+            try
+            {
+                let currNtfy = userData?.notifications || [];
+
+                currNtfy.push(
+                {
+                    notify_addedDate: `${getCurrDate("short")}`,
+                    notify_readStatus: false,
+                    notify_thumbnail: `${thumb != null ? thumb !== "" ? thumb : thumb : thumb}`,
+                    notify_mainTopic: `${sbj}`,
+                    notify_subTopic: `${msg}`,
+                    notify_actionText: `${atn_txt}`,
+                    notify_actionLink: `${atn_lnk}`,
+                });
+
+                //
+                await updateUserData(
+                {
+                    notifications: currNtfy
+                });
+            }
+            catch(err)
+            {
+                console.error(`${error_note != null ? error_note !== "" ? error_note : dflt_error : dflt_error}`);
+                console.error(err);
+            }
+        }
+
 
 
 
@@ -1410,16 +1488,17 @@
          * 
          * Sample usage
          * 
-            loadScriptOnce(
-                `/script_file_path.js`,
-                `script_id`,
-                [
-                    {func_name: `onloadFunc_name`, ev_name: null,},
-                ],
-                [
-                    {func_name: `failedScriptLoad`, ev_name: null,},
-                ],
-            );
+         *   loadScriptOnce(
+         * 
+         *       `/script_file_path.js`,
+         *       `script_id`,
+         *       [
+         *           {func_name: `onloadFunc_name`, ev_name: null,},
+         *       ],
+         *       [
+         *           {func_name: `failedScriptLoad`, ev_name: null,},
+         *       ],
+          *  );
          */
         function loadScriptOnce(scriptSrc, scriptId, onLoadFuncArray, onErrorFuncArray)
         {
