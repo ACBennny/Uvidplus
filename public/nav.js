@@ -362,10 +362,6 @@
             return;
         }
 
-        // 
-        if(2 > 3)
-        {}
-
         // Go to plan section if user's membership is inactive
         if((curr_route.route_auth) && (isUsrIn) && !(isUsrMmbr)) return usrMbspExp();
 
