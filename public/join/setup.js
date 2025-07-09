@@ -1012,6 +1012,7 @@
                         bill_plan_name: `${plan_obj.plan_name}`,
                         bill_plan_price: `${plan_obj.plan_price_month}`,
                         bill_plan_date: `${start_date}`,
+                        bill_plan_status: null,
                     }
                 );
 
@@ -1478,6 +1479,7 @@
                                 bill_plan_name: `${plan_obj.plan_name}`,
                                 bill_plan_price: `${plan_obj.plan_price_month}`,
                                 bill_plan_date: `${start_date}`,
+                                bill_plan_status: null,
                             }
                         ],
                     });
