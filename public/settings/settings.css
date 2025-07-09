@@ -455,11 +455,6 @@ html:root
     pointer-events: none;
 }
 
-.bill_hist_card_bdr:last-child
-{
-    margin-bottom: 0;
-}
-
 .bill_hist_card_bdr:last-child:after
 {
     content: none;
