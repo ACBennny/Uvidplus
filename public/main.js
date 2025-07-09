@@ -1455,7 +1455,7 @@
                 {
                     notify_addedDate: `${getCurrDate("short")}`,
                     notify_readStatus: false,
-                    notify_thumbnail: `${thumb != null ? thumb !== "" ? thumb : thumb : thumb}`,
+                    notify_thumbnail: `${thumb != null ? thumb !== "" ? thumb : dflt_thumb : dflt_thumb}`,
                     notify_mainTopic: `${sbj}`,
                     notify_subTopic: `${msg}`,
                     notify_actionText: `${atn_txt}`,
