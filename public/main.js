@@ -1462,7 +1462,7 @@
                     notify_actionLink: `${atn_lnk}`,
                 });
 
-                //
+                // Update user info
                 await updateUserData(
                 {
                     notifications: currNtfy
