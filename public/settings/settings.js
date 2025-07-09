@@ -2353,7 +2353,7 @@
 // APP EXPERIENCE SETTINGS
 
     // Updating Notification Preferences
-    function init_ntfy_prefence()
+    function init_ntfy_preference()
     {
         const mngNtfyBdr = document.createElement("div");
         mngNtfyBdr.classList.add("genAtnModalBdr");
