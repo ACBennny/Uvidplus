@@ -2081,15 +2081,13 @@
         }
 
 
-        function toggleFullscreen(btn)
+        function toggleFullscreen()
         {
             if(!(document.fullscreenElement))
             {
-                if((typeof btn !== "undefined")) btn.classList.add("isFullScreen");
                 documentHTML.requestFullscreen();
                 return;
             }
-            if((typeof btn !== "undefined")) btn.classList.remove("isFullScreen");
             document.exitFullscreen();
         }
 
