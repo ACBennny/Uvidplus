@@ -2817,7 +2817,7 @@
         async function updUsrProfFlds(fldsToUpd, profId = null) 
         {
             const userData = await getUserData(); 
-            const profEntries = Object.entries(userData.profiles);
+            const profEntries = Object.entries(userData?.profiles);
             let selectedEntry = null;
 
             if((profId != null) && (typeof profId === "string") && (profId !== ""))
@@ -2862,14 +2862,14 @@
         async function getSelectedProfile()
         {
             const usrData = await getUserData();
-            return Object.values(usrData.profiles).find(item => item.prof_selected) || null;
+            return Object.values(usrData?.profiles).find(item => item.prof_selected) || null;
         }
 
         // Gets the details of provided profile id
         async function getUsrProfFld(prof_id)
         {
             const usrData = await getUserData();
-            return Object.entries(usrData.profiles).find(([key, profile]) => key === prof_id);
+            return Object.entries(usrData?.profiles).find(([key, profile]) => key === prof_id);
         }
 
 
