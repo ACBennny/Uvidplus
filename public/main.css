@@ -1103,8 +1103,12 @@ html:has( .backtotop_float_left) .backtotop_float.float
 
 
 
-/* ================ IMAGES ============= */
 
+/* ================ IMAGES ============= */
+img[alt]
+{
+    font-size: 0.75rem;
+}
 
 * .img_preload_box,
 .img_preload_box
