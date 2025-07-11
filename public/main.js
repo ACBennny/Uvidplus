@@ -2810,7 +2810,7 @@
         async function getUsrProfInv() 
         {
             let usrData = await getUserData();
-            return usrData.profiles;
+            return usrData?.profiles;
         }
 
         // Updates the user profiles
