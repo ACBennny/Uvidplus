@@ -2046,6 +2046,7 @@
 
     // TOGGLE FULLSCREEN
 
+        // Attaches listener for toggling fullscreen
         function attachToggleFullScreenEventListeners()
         {
             // Toggle Fullscreen
@@ -2080,7 +2081,7 @@
             });
         }
 
-
+        // Toggles fullscreen
         function toggleFullscreen()
         {
             if(!(document.fullscreenElement))
