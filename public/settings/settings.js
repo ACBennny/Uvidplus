@@ -3134,7 +3134,7 @@
                         </div>
                         <div class="genAtnModalHeaderText">
                             <span class="large">C</span>
-                            <span class="small">onnect Apps</span>
+                            <span class="small">onnected Apps</span>
                         </div>
                     </div>
                     <div class="genAtnModalOptBcg createProfItemBcg">
