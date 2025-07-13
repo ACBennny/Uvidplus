@@ -7,7 +7,7 @@
 ****************************************************************/
 
 
-let sett_cmpnt_lib = 
+const sett_cmpnt_lib = 
 [
     // Membership & Billing
     {
@@ -68,19 +68,7 @@ let sett_cmpnt_lib =
 
 
     // Profile & Parental Controls
-    {
-        sett_sect: `parenting`,
-        sett_orientation: `vertical`,
-        sett_title: `Coming Soon`,
-        sett_desc: 
-        `   
-            Manage profile settings, set viewing restrictions, lock profiles and more.
-        `,
-        sett_atn_type: null,
-        sett_atn_id: null,
-        sett_atn_title: null,
-        sett_atn_func: null,
-    },
+    // Content is dynamically generated
 
 
     
@@ -418,6 +406,88 @@ let sett_cmpnt_lib =
         sett_atn_func: `#/feedback`,
     },
 ];
+
+
+
+
+// PROFILE PREFERENCES
+const sett_prof_pref_cmp = 
+[
+    {
+        p_type: `menu`,
+        p_id: `sett_mng_prof_audio_lang`,
+        p_name: `Audio Language`,
+        p_desc: 
+        `
+            If available, the selected audio language will be used instead of the show's origin language.
+        `,
+    },
+    {
+        p_type: `menu`,
+        p_id: `sett_mng_prof_sbtl_lang`,
+        p_name: `Subtitle Language`,
+        p_desc: 
+        `
+            If available, the selected subtitle language will be used instead of the show's origin language.
+        `,
+    },
+    {
+        p_type: `toggle`,
+        p_id: `sett_mng_prof_sbtl_aprnc`,
+        p_name: `Subtitle Appearance`,
+        p_desc: 
+        `
+            Enabling this option displays the show's subtitles when available.
+        `,
+    },
+    {
+        p_type: `toggle`,
+        p_id: `sett_mng_prof_auto_next`,
+        p_name: `Auto Next`,
+        p_desc: 
+        `
+            Automatically play the next show in a series once the current one has ended.
+        `,
+    },
+    {
+        p_type: `toggle`,
+        p_id: `sett_mng_prof_auto_play`,
+        p_name: `Auto Play`,
+        p_desc: 
+        `
+            Automatically play the show once loaded without waiting for the user to press the play button.
+        `,
+    },
+    {
+        p_type: `toggle`,
+        p_id: `sett_mng_prof_auto_skip`,
+        p_name: `Auto Skip`,
+        p_desc: 
+        `
+            Automatically skip past opening and ending sequences (intros & outros) when detected.
+        `,
+    },
+    {
+        p_type: `menu`,
+        p_id: `sett_mng_prof_ctnt_restriction`,
+        p_name: `Content Restrictions`,
+        p_desc: 
+        `
+            Select the maximum age range for the age rating of content to be displayed.
+        `,
+    },
+];
+
+
+const sett_ctnt_restrictions_opt = 
+{
+    "0": `All audiences`,
+    "1": `Parental Guidance`,
+    "2": `12 years and older`,
+    "3": `14 years and older`,
+    "4": `16 years and older`,
+    "5": `18 years and older`,
+}
 
 
 

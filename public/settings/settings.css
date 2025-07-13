@@ -15,6 +15,7 @@ html:root
     --settCtntSectAtnIconSize: 2rem;
     --settPymtLyrTopBcg: var(--genGreyTypeDark);
     --settPymtLyrBtmBcg: var(--genGreyTypeMid);
+    --sett_prof_card_img_size: 4rem;
 }
 
 
@@ -836,6 +837,179 @@ html:root
     font-size: 1rem;
 }
 
+
+
+
+
+
+
+
+/* ============ PROFILE MANAGEMENT ============ */
+
+.sett_ctnt_vrtl:has(+ .sett_ctnt_hrtl .sett_prof_card_bdr)
+{
+    margin-bottom: 2rem;
+}
+
+.sett_ctnt_hrtl:has( .sett_prof_card_bdr):not(:last-child)
+{
+    margin-bottom: 1rem;
+}
+
+.sett_prof_card_bdr
+{
+    max-width: 75%;
+}
+
+.sett_prof_card_bdr .sett_prof_card_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.sett_prof_card_box .sett_prof_card_img_bdr
+{
+    width: var(--sett_prof_card_img_size);
+    height: var(--sett_prof_card_img_size);
+    box-shadow: 0rem 0rem 0rem 0.125rem var(--genGreenTypeMid2);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.sett_prof_card_img_bdr .sett_prof_card_img_box
+{
+    width: 100%;
+    height: 100%;
+}
+
+.sett_prof_card_img_box .sett_prof_card_img_src
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.sett_prof_card_box .sett_prof_card_ttl_box
+{
+    width: calc((100% - var(--sett_prof_card_img_size)));
+    padding-left: 0.75rem;
+}
+
+.sett_prof_card_ttl_box .sett_prof_card_ttl_txt
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 1rem;
+    text-align: left;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+}
+
+
+/* ------- Profile Managemnet Modal ------- */
+
+.mng_prof_hdr_TtlTxt .mjr
+{
+    color: var(--genGreenTypeLight);
+}
+
+.mng_prof_hdr_btm
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.mng_profs_ctnt_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem var(--genStatic_pd);
+}
+
+.mng_profs_ctnt_box .mng_prof_card_bdr
+{
+    width: 100%;
+    margin-bottom: 1.25rem;
+}
+
+.mng_prof_card_bdr .mng_prof_card_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.mng_prof_card_box .mng_prof_card_det_bdr
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    max-width: 70%;
+}
+
+.mng_prof_card_det_bdr .mng_prof_card_det_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.mng_prof_card_det_box .mng_prof_card_det_ttl_box
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-bottom: 0.5rem;
+}
+
+.mng_prof_card_det_ttl_box .mng_prof_card_det_ttl_txt
+{
+    color: var(--genGreenTypeMid);
+    font-size: 0.875rem;
+}
+
+.mng_prof_card_det_box .mng_prof_card_det_desc_box
+{
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.mng_prof_card_det_desc_box .mng_prof_card_det_desc_txt
+{
+    color: var(--genWhiteTypeMid);
+    font-size: 0.875rem;
+}
+
+.mng_prof_card_atn_box .genBtnBox
+{
+    max-width: 9.375rem;
+}
+
+.mng_prof_card_atn_box .genBtnBox .genBtnText
+{
+    --lineNo: 1;
+    --lineHeight: 1.4;
+    position: relative;
+    max-width: calc((100% - var(--genBtnIconSize)));
+    display: -webkit-box;
+    max-height: calc(var(--lineNo) * 1em * var(--lineHeight));
+    line-height: var(--lineHeight);
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--lineNo);
+    line-clamp: var(--lineNo);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    text-align: left;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
 
 
 

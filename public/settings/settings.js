@@ -3,7 +3,7 @@
  * 
  * Navigation Keys:
  * Membership & billing = membership
- * Profile & Parental Controls = parenting
+ * Profile & Parental Controls = preferences
  * App experience = experience
  * Privacy & Security = privacy
  * About & legal = information
@@ -35,7 +35,7 @@
                             </div>
                             <p class="settingNavOptText">Membership & Billing</p>
                         </button>
-                        <button type="button" class="settingNavOptBox settSectNavOptBtn" data-sett-sect="parenting">
+                        <button type="button" class="settingNavOptBox settSectNavOptBtn" data-sett-sect="preferences">
                             <div class="settingNavOptIcon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="settingNavOptSvg">
                                     <path d="M15.5 7.5a3.5 3.5 0 1 1-7 0a3.5 3.5 0 0 1 7 0m2.5 9c0 1.933-2.686 3.5-6 3.5s-6-1.567-6-3.5S8.686 13 12 13s6 1.567 6 3.5M7.122 5q.267 0 .518.05A5 5 0 0 0 7 7.5c0 .868.221 1.685.61 2.396q-.237.045-.488.045c-1.414 0-2.561-1.106-2.561-2.47S5.708 5 7.122 5M5.447 18.986C4.88 18.307 4.5 17.474 4.5 16.5c0-.944.357-1.756.896-2.423C3.49 14.225 2 15.267 2 16.529c0 1.275 1.517 2.325 3.447 2.457M17 7.5c0 .868-.221 1.685-.61 2.396q.236.045.488.045c1.414 0 2.56-1.106 2.56-2.47S18.293 5 16.879 5q-.267 0-.518.05c.407.724.64 1.56.64 2.45m1.552 11.486c1.93-.132 3.447-1.182 3.447-2.457c0-1.263-1.491-2.304-3.396-2.452c.54.667.896 1.479.896 2.423c0 .974-.38 1.807-.947 2.486" />
@@ -81,7 +81,7 @@
                                 </div>
                             </div>
                         </section>
-                        <section class="settCtntTab" id="sett_parenting">
+                        <section class="settCtntTab" id="sett_preferences">
                             <div class="settCtntTitleBox">
                                 <div class="settCtntTitleText">
                                     <span class="major">P</span>
@@ -141,6 +141,7 @@
         </div>
     `;
     let settNavBdr;
+    let sett_mng_prfls_curr_pid = null;
 
 
 
@@ -165,6 +166,7 @@
     // Functions to call
     function settCallFunc()
     {
+        init_sett_profile_cards();
         sett_sect_router();
         attachGenMenuModalEventListeners();
         attachSettSectNavListeners();
@@ -354,9 +356,9 @@
     {
         let settNav = hash_parts[2];
 
-        if((settNav === "parenting"))
+        if((settNav === "preferences"))
         {
-            sett_sect_dstn("parenting");
+            sett_sect_dstn("preferences");
         }
         else if(settNav === "experience")
         {
@@ -592,7 +594,6 @@
 
         // Generate the content of the menu
         let menuCtntBox = document.querySelector(".settSectMenuCtntBox");
-        let menuLangId = settCardId !== "sett_dwld_qlty" ? settCardId !== "sett_dwld_lang" ? "cast_data_usage_ul" : "dwld_audio_pref" : "dwld_qlty_pref";
         let menuUpdId = settCardId !== "sett_dwld_qlty" ? settCardId !== "sett_dwld_lang" ? "cast_data_usage_ul" : "dwld_audio_pref" : "dwld_qlty_pref";
         let menuCtntStruct = ``;
 
@@ -671,6 +672,7 @@
         else
         {
             console.error("NOt");
+            notification(`notifyBad`, `An error occured`);
             return;
         }
 
@@ -723,6 +725,7 @@
             btn.addEventListener("click", menu_atn);
         });
     }
+
 
     // Adds listeners for data-sett-sect-type: modal
     function attachSettSectMdlListeners()
@@ -2345,6 +2348,514 @@
         giftCodeMdlCloseBtn.forEach(one => 
         {
             one.addEventListener("mousedown" , closeGiftCodeMdl);
+        });
+    }
+
+
+
+// PROFILE & PARENTAL CONTROL SETTINGS
+
+    async function init_sett_profile_cards()
+    {
+        const userProfiles = await getUsrProfInv();
+        let prof_struct = ``;
+
+        if(userProfiles == null)
+        {
+            notification(`notifyBad`, `Failed to fetch profiles`);
+            document.querySelector("#sett_preferences").insertAdjacentHTML(
+                `beforeend`,
+                `
+                    <div class="settCtntSectBox">
+                        <div class="sett_ctnt_vrtl">
+                            <div class="sett_ctnt_info">
+                                <div class="settCtntSectTitleBox">
+                                    <div class="settCtntSectTitleText">Manage Profiles</div>
+                                </div>
+                                <div class="settCtntSectDescBox">
+                                    <p class="settCtntSectDescText">
+                                        Manage profile settings, set viewing restrictions, lock profiles and more.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            );
+            return;
+        }
+
+        Object.entries(userProfiles).forEach(([key, prfl]) =>
+        {
+            prof_struct += 
+            `
+                <div class="sett_ctnt_hrtl">
+                    <div class="sett_prof_card_bdr">
+                        <div class="sett_prof_card_box">
+                            <div class="sett_prof_card_img_bdr">
+                                <div class="sett_prof_card_img_box">
+                                    <img src="${prfl.prof_frgImg}" alt="profile image" class="sett_prof_card_img_src">
+                                </div>
+                            </div>
+                            <div class="sett_prof_card_ttl_box">
+                                <div class="sett_prof_card_ttl_txt">${prfl.prof_name}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="settCtntSectAtnBdr">
+                        <div class="settCtntSectAtnBox">
+                            <button id="${key}" class="settCtntSectAtnBtn settCtntSectAtnIcon sett_prof_card_btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="settCtntSectAtnSvg">
+                                    <path fill-rule="evenodd" d="M8.512 4.43a.75.75 0 0 1 1.057.082l6 7a.75.75 0 0 1 0 .976l-6 7a.75.75 0 0 1-1.138-.976L14.012 12L8.431 5.488a.75.75 0 0 1 .08-1.057" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        const prfl_bdr = document.createElement("div");
+        prfl_bdr.classList.add("settCtntSectBdr");
+        prfl_bdr.innerHTML = 
+        `
+            <div class="settCtntSectBox">
+                <div class="sett_ctnt_vrtl">
+                    <div class="sett_ctnt_info">
+                        <div class="settCtntSectTitleBox">
+                            <div class="settCtntSectTitleText">Manage Profiles</div>
+                        </div>
+                        <div class="settCtntSectDescBox">
+                            <p class="settCtntSectDescText">
+                                Manage profile settings, set viewing restrictions, lock profiles and more.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                ${prof_struct}
+            </div>
+        `;
+        document.querySelector("#sett_preferences").insertAdjacentElement('beforeend', prfl_bdr);
+
+        const prfl_card_btns = prfl_bdr.querySelectorAll(".sett_prof_card_btn");
+        prfl_card_btns.forEach((btn) => 
+        {
+            btn.onclick = () => init_mng_prfls(btn, btn.id);
+        });
+    }
+
+    // Initialize modal for managing a profile's preferences
+    async function init_mng_prfls(btnEv, prof_id)
+    {
+        // Get Profile data
+        const userProfiles = await getUsrProfInv();
+
+        if(userProfiles == null)
+        {
+            notification(`notifyBad`, `Failed to fetch profile information`);
+            if(typeof btnEv !== "undefined") btnEv.disabled = false;
+            return;
+        }
+
+        sett_mng_prfls_curr_pid = prof_id;
+        const thisProf = userProfiles[`${prof_id}`];
+        const mngProfBase = document.createElement("div");
+        mngProfBase.classList.add("genStaticBase", "mng_prof_base");
+        mngProfBase.innerHTML = 
+        `
+            <div class="genStaticBcg mng_prof_close"></div>
+            <div class="genStaticBdr">
+                <div class="genStaticBox">
+                    <div class="genStaticHdrBdr">
+                        <div class="genStaticHdrBox">
+                            <div class="genStaticHdr_top">
+                                <button type="button" class="genBtnBox genIconBtn transBtn mng_prof_close">
+                                    <div class="genBtnIcon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
+                                            <path fill-rule="evenodd" d="M10.53 5.47a.75.75 0 0 1 0 1.06l-4.72 4.72H20a.75.75 0 0 1 0 1.5H5.81l4.72 4.72a.75.75 0 1 1-1.06 1.06l-6-6a.75.75 0 0 1 0-1.06l6-6a.75.75 0 0 1 1.06 0" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </button>
+                                <div class="genStaticHdr_TitleBox">
+                                    <div class="genStaticHdr_TitleText mng_prof_hdr_TtlTxt">
+                                        Preferences for <span class="mjr">N/A</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="genStaticHdr_btm">
+                                <div class="mng_prof_hdr_btm">
+                                    <button type="button" class="genBtnBox greySolidBtn" onclick="notification('notifyBad', 'Feature unavailable')">
+                                        <div class="genBtnIcon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
+                                                <path fill-rule="evenodd" d="M5.25 10.055V8a6.75 6.75 0 0 1 13.5 0v2.055c1.115.083 1.84.293 2.371.824C22 11.757 22 13.172 22 16s0 4.243-.879 5.121C20.243 22 18.828 22 16 22H8c-2.828 0-4.243 0-5.121-.879C2 20.243 2 18.828 2 16s0-4.243.879-5.121c.53-.531 1.256-.741 2.371-.824M6.75 8a5.25 5.25 0 0 1 10.5 0v2.004Q16.676 9.999 16 10H8q-.677-.001-1.25.004zM8 17a1 1 0 1 0 0-2a1 1 0 0 0 0 2m4 0a1 1 0 1 0 0-2a1 1 0 0 0 0 2m5-1a1 1 0 1 1-2 0a1 1 0 0 1 2 0" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <span class="genBtnText">Profile Lock</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="genStaticCtntBdr">
+                        <div class="genStaticCtntBox">
+                            <div class="mng_profs_ctnt_box"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        const mngProfHdrTxt = mngProfBase.querySelector(".mng_prof_hdr_TtlTxt .mjr");
+        const mngProfClsBtns = mngProfBase.querySelectorAll(".mng_prof_close");
+        const mngProfCtnt = mngProfBase.querySelector(".mng_profs_ctnt_box");
+        let profCtntStruct = ``;
+        let mngPrflTimer;
+
+        // Set Title
+        mngProfHdrTxt.textContent = `${thisProf?.prof_name}`;
+
+        // Build up the options
+        sett_prof_pref_cmp.forEach((item) => 
+        {
+            const {
+                p_type,
+                p_id,
+                p_name,
+                p_desc
+            } = item;
+
+            if((p_type === "toggle"))
+            {
+                profCtntStruct += 
+                `
+                    <div class="mng_prof_card_bdr">
+                        <div class="mng_prof_card_box">
+                            <div class="mng_prof_card_det_bdr">
+                                <div class="mng_prof_card_det_box">
+                                    <div class="mng_prof_card_det_ttl_box">
+                                        <div class="mng_prof_card_det_ttl_txt">${p_name}</div>
+                                    </div>
+                                    <div class="mng_prof_card_det_desc_box">
+                                        <p class="mng_prof_card_det_desc_txt">${p_desc}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mng_prof_card_atn_bdr">
+                                <div class="mng_prof_card_atn_box">
+                                    <div class="genCheckBoxBase" title="${p_name}">
+                                        <input type="checkbox" id="${p_id}" class="genCheckBoxInput settMngProfTglInp" tabindex="-1" checked="">
+                                        <label for="${p_id}" class="genCheckBoxToggle">
+                                            <span class="genCheckBoxToggleCircle"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            else if((p_type === "menu"))
+            {
+                profCtntStruct += 
+                `
+                    <div class="mng_prof_card_bdr">
+                        <div class="mng_prof_card_box">
+                            <div class="mng_prof_card_det_bdr">
+                                <div class="mng_prof_card_det_box">
+                                    <div class="mng_prof_card_det_ttl_box">
+                                        <div class="mng_prof_card_det_ttl_txt">${p_name}</div>
+                                    </div>
+                                    <div class="mng_prof_card_det_desc_box">
+                                        <p class="mng_prof_card_det_desc_txt">${p_desc}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mng_prof_card_atn_bdr">
+                                <div class="mng_prof_card_atn_box">
+                                    <button type="button" id="${p_id}" aria-labelledby="${p_name}" class="genBtnBox greySolidBtn openGenMenuModalBtn" data-gen-menu-modal-type="sett_mng_prof_menu">
+                                        <div class="genBtnIcon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
+                                                <path fill-rule="evenodd" d="M4.43 8.512a.75.75 0 0 1 1.058-.081L12 14.012l6.512-5.581a.75.75 0 0 1 .976 1.138l-7 6a.75.75 0 0 1-.976 0l-7-6a.75.75 0 0 1-.081-1.057" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <span class="genBtnText">N/A</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        });
+
+        mngProfCtnt.innerHTML = profCtntStruct;
+
+        // Get the current info for each option
+        const sbtl_aprnc = thisProf?.prof_show_subtitles;
+        const auto_next = thisProf?.prof_auto_next;
+        const auto_play = thisProf?.prof_auto_play;
+        const auto_skip = thisProf?.prof_auto_skip;
+        const audio_lang = LangOptLib.langOptInv.audioLangSelect.lang_options[thisProf?.prof_audio_lang].opt || "N/A";
+        const sbtl_lang = LangOptLib.langOptInv.subCCLangSelect.lang_options[thisProf?.prof_subtitle_lang].opt || "N/A";
+        const ctnt_lang = sett_ctnt_restrictions_opt[thisProf?.prof_ctnt_restriction] || "N/A";
+
+        // Display content
+        documentCtnt.insertAdjacentElement('beforeend', mngProfBase);
+        mngPrflTimer = setTimeout(() => 
+        {
+            clearTimeout(mngPrflTimer);
+            mngProfBase.classList.add("active");
+            documentBody.classList.add("bodystop");
+        }, 300);
+
+        // Update toggle buttons
+        mngProfBase.querySelector("#sett_mng_prof_sbtl_aprnc").checked = typeof sbtl_aprnc === "boolean" ? sbtl_aprnc : null;
+        mngProfBase.querySelector("#sett_mng_prof_auto_next").checked = typeof auto_next === "boolean" ? auto_next : null;
+        mngProfBase.querySelector("#sett_mng_prof_auto_play").checked = typeof auto_play === "boolean" ? auto_play : null;
+        mngProfBase.querySelector("#sett_mng_prof_auto_skip").checked = typeof auto_skip === "boolean" ? auto_skip : null;
+
+        // Update the menu items
+        const audio_lang_btn = mngProfBase.querySelector("#sett_mng_prof_audio_lang");
+        const sbtl_lang_btn = mngProfBase.querySelector("#sett_mng_prof_sbtl_lang");
+        const ctnt_lang_btn = mngProfBase.querySelector("#sett_mng_prof_ctnt_restriction");
+
+        audio_lang_btn.querySelector(".genBtnText").textContent = audio_lang;
+        audio_lang_btn.setAttribute("title", `${audio_lang}`);
+        sbtl_lang_btn.querySelector(".genBtnText").textContent = sbtl_lang;
+        sbtl_lang_btn.setAttribute("title", `${sbtl_lang}`);
+        ctnt_lang_btn.querySelector(".genBtnText").textContent = ctnt_lang;
+        ctnt_lang_btn.setAttribute("title", `${ctnt_lang}`);
+
+        // Update Toggle buttons
+        const sett_rad_btn = document.querySelectorAll(".settMngProfTglInp");
+
+        sett_rad_btn.forEach((newBtn) => 
+        {
+            const rad_atn = async () => 
+            {
+                sett_rad_btn.forEach(item => item.disabled = true);
+                let checkBtn = newBtn.parentElement.querySelector(`input[type="checkbox"]#${newBtn.id}:checked`);
+                let ischk = false;
+
+                if(checkBtn)
+                {
+                    // Update flag to true
+                    ischk = true;
+                }
+                else
+                {
+                    // Update flag to false
+                    ischk = false;
+                }
+
+                //  Update the corresponding property
+                try 
+                {
+                    switch(newBtn.id)
+                    {
+                        case 'sett_mng_prof_sbtl_aprnc':
+                            await updUsrProfFlds(
+                            {
+                                prof_show_subtitles: ischk
+                            }, prof_id);
+                            notification('notifyGood', 'Preferences saved');
+                            break;
+                            
+                        case 'sett_mng_prof_auto_next':
+                            await updUsrProfFlds(
+                            {
+                                prof_auto_next: ischk
+                            }, prof_id);
+                            notification('notifyGood', 'Preferences saved');
+                            break;
+                            
+                        case 'sett_mng_prof_auto_play':
+                            await updUsrProfFlds(
+                            {
+                                prof_auto_play: ischk
+                            }, prof_id);
+                            notification('notifyGood', 'Preferences saved');
+                            break;
+                            
+                        case 'sett_mng_prof_auto_skip':
+                            await updUsrProfFlds(
+                            {
+                                prof_auto_skip: ischk
+                            }, prof_id);
+                            notification('notifyGood', 'Preferences saved');
+                            break;
+
+                        default:
+                            notification('notifyBad', 'Failed to update preferences');
+                            break;
+                    }
+
+                    // Re-enable toggle buttons
+                    sett_rad_btn.forEach(item => item.disabled = false);
+                }
+                catch(err)
+                {
+                    // Log any errors and re-enable toggle buttons
+                    console.error(err);
+                    sett_rad_btn.forEach(item => item.disabled = false);
+                }
+            }
+
+            newBtn.addEventListener("click", rad_atn);
+        });
+        
+        // Update menu items
+        attachGenMenuModalEventListeners();
+
+        // Close the modal
+        function closeMngPrflMdl()
+        {
+            if(typeof btnEv !== "undefined") btnEv.disabled = false;
+            mngProfBase.classList.remove("active");
+
+            mngProfBase.addEventListener("transitionend", function handleTransitionEnd()
+            {
+                mngProfBase.removeEventListener("transitionend", handleTransitionEnd);
+                mngProfBase.remove();
+                documentBody.classList.remove("bodystop");
+            });
+        }
+
+        mngProfClsBtns.forEach((btn) => 
+        {
+            btn.addEventListener("click", closeMngPrflMdl);
+        });
+    }
+
+    // Updates items with draggable menus
+    async function attachSettMngProfMenuListeners(event)
+    {
+        // Get the clicked button
+        let settCardMenuBtn = event.target.closest("[data-gen-menu-modal-type='sett_mng_prof_menu']");
+        
+        if (!settCardMenuBtn)
+        {
+            console.error("Button with attribute [data-gen-menu-modal-type='sett_mng_prof_menu'] not found.");
+            return;
+        }
+
+        // Get the id
+        let settCardId = settCardMenuBtn.id;
+
+        if (!settCardId)
+        {
+            console.error("Button is invalid");
+            return;
+        }
+
+        // Generate the content of the menu
+        let menuCtntBox = document.querySelector(".settMngProfCtntBox");
+        let menuUpdId = settCardId !== "sett_mng_prof_sbtl_lang" ? settCardId !== "sett_mng_prof_audio_lang" ? "prof_ctnt_restriction" : "prof_audio_lang" : "prof_subtitle_lang";
+        let menuCtntStruct = ``;
+
+        // Build up the menu
+        if((settCardId === "sett_mng_prof_audio_lang"))
+        {
+            for(let i = 0; i < LangOptLib.langOptInv.audioLangSelect.lang_options.length; i++)
+            {
+                let item = LangOptLib.langOptInv.audioLangSelect.lang_options[i];
+                
+                menuCtntStruct += 
+                `
+                    <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="${i}">
+                        <div class="genMenuModalCtntBtnText">${item.opt}</div>
+                    </button>
+                `;
+            }
+        }
+        else if((settCardId === "sett_mng_prof_sbtl_lang"))
+        {
+            for(let i = 0; i < LangOptLib.langOptInv.subCCLangSelect.lang_options.length; i++)
+            {
+                let item = LangOptLib.langOptInv.subCCLangSelect.lang_options[i];
+                
+                menuCtntStruct += 
+                `
+                    <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="${i}">
+                        <div class="genMenuModalCtntBtnText">${item.opt}</div>
+                    </button>
+                `;
+            }
+        }
+        else if((settCardId === "sett_mng_prof_ctnt_restriction"))
+        {
+            let i = 0;
+            Object.entries(sett_ctnt_restrictions_opt).forEach(([key, opt]) => 
+            {
+                menuCtntStruct += 
+                `
+                    <button class="genMenuModalCtntBtnBox settSectMenuOptBtn" data-sett-sect-opt="${i}">
+                        <div class="genMenuModalCtntBtnText">${opt}</div>
+                    </button>
+                `;
+                i++;
+            });
+        }
+        else
+        {
+            console.error("NOt");
+            notification(`notifyBad`, `An error occured`);
+            return;
+        }
+
+        // Insert menu options and add seletors
+        menuCtntBox.innerHTML = menuCtntStruct;
+        let menuOptBtns = document.querySelectorAll(".settSectMenuOptBtn");
+
+        // Get, select, and scroll to the chosen option
+        try 
+        {
+            let usrData = await getUsrProfInv();
+            let usrCtg = (Number(usrData[`${sett_mng_prfls_curr_pid}`][menuUpdId])) || 0;
+            
+            menuOptBtns[usrCtg].classList.add("selected");
+            genMenuModalBox.scrollTo(
+            {
+                top: (Math.ceil((menuOptBtns[usrCtg].getBoundingClientRect().top - (window.innerHeight - genMenuModalBox.getBoundingClientRect().height) - 25))),
+                behavior: "smooth"
+            });
+        }
+        catch(error)
+        {
+            console.error(error);
+            menuOptBtns[0].classList.add("selected");
+        }
+
+        // Updates the user's prefered option for the chosen category
+        menuOptBtns.forEach((btn) => 
+        {
+            const menu_atn = async () => 
+            {
+                try 
+                {
+                    let btnOptNo = Number(btn.getAttribute("data-sett-sect-opt")) || 0;
+                    let btnText = btn.querySelector(".genMenuModalCtntBtnText")?.textContent || "N/A";
+
+                    // Update userminfo
+                    await updUsrProfFlds(
+                    {
+                        [`${menuUpdId}`]: btnOptNo
+                    }, sett_mng_prfls_curr_pid);
+
+                    // Update button in modal
+                    document.querySelector(`#${settCardId}`).querySelector(".genBtnText").textContent = btnText;
+
+                    // Notify user
+                    notification(`notifyGood`, `Preferences saved`);
+                } 
+                catch(error) 
+                {
+                    console.error(error);
+                    notification(`notifyBad`, `Failed to update preferences`);
+                }
+            }
+
+            btn.addEventListener("click", menu_atn);
         });
     }
 
