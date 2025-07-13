@@ -489,15 +489,15 @@
                     prof_type: `other`,
                     prof_frgImg: `/images/uvid-profile-base.png`,
                     prof_bcgImg: `/images/uvid-green-bcg1-dark.jpg`,
-                    prof_audio_lang: `English`,
-                    prof_subtitle_lang: `English`,
+                    prof_audio_lang: 8,
+                    prof_subtitle_lang: 8,
                     prof_show_subtitles: false,
                     prof_auto_play: false,
                     prof_auto_next: false,
                     prof_auto_skip: false,
                     prof_lock_state: false,
                     prof_lock_pin: `0000`,
-                    prof_ctnt_restriction: `18+`,
+                    prof_ctnt_restriction: `ctnt_18`,
                     prof_history:
                     [],
                     prof_likes:
