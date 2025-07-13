@@ -2364,8 +2364,10 @@
 
 
 
+
 // PROFILE & PARENTAL CONTROL SETTINGS
 
+    // Initializes the profile cards in the settings menu
     async function init_sett_profile_cards()
     {
         const userProfiles = await getUsrProfInv();
@@ -2870,8 +2872,13 @@
         });
     }
 
+    // Manage the profile locks
+    function sett_mng_prfl_lock()
+    {}
 
 
+
+    
 // APP EXPERIENCE SETTINGS
 
     // Updating Notification Preferences
@@ -3382,7 +3389,7 @@
         // Validate fullname
         function valFullname(event) 
         {
-            let fname = cardName.value.toString().trim();
+            let fname = updFullnameInput.value.toString().trim();
             let fullName_Condition = /^\s*\S+(?:\s+\S+)+\s*$/;
 
             // Checks if empty
@@ -3840,7 +3847,6 @@
         const usr_pass_cond = new RegExp("^[A-Za-z0-9!@#$%^&*_+-~`)(></\"?|]");
         let isNewEmailValid = false;
         let isCurrPassValid = false;
-        let emailArray = [];
         let updUsrEmailTimer;
 
         // Disabling btn to prevent multiple calls
@@ -3876,20 +3882,17 @@
         // Validation function for "Email"
         function valEmail(event)
         {
-            emailArray.length = 0;
-            emailArray.push(newEmailInput.value);
-            let lastEmailArrayval = emailArray.at(-1);
-
+            let eml = newEmailInput.toString().trim();
             let check_for_AtSign_in_Email = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
             // Checks if the field is empty
-            if((event.data == null) && (lastEmailArrayval.length <= 0))
+            if((event.data == null) && (eml.length == ""))
             {
                 newEmailWarn.textContent = "Required";
                 newEmailWarn.classList.add("active");
                 isNewEmailValid = false;
             }
-            else if(!(lastEmailArrayval.match(check_for_AtSign_in_Email)))
+            else if(!(check_for_AtSign_in_Email.test(eml)))
             {
                 newEmailWarn.textContent = "Invalid Email";
                 newEmailWarn.classList.add("active");
@@ -3920,7 +3923,7 @@
         // Validate current "Password"
         function valPass(pass = "", warn = null) 
         {
-            pass = pass.toString();
+            pass = pass.toString().trim();
             const userPass_Cond_SpecialChar = /\W/g;
             const userPass_Cond_num = /\d/g;
             const userPass_Cond_Lett_Upr = /[A-Z]/g;
