@@ -245,19 +245,30 @@
                 }
                 else if(item.sett_atn_type === "modal")
                 {
-                    let atn_func = item.sett_atn_func !== "" ? `${item.sett_atn_func}` : `notification('notifyBad', 'Feature currently unavailable')`;
-                    settCtntAtnStruct = 
-                    `
-                        <div class="settCtntSectAtnBdr">
-                            <div class="settCtntSectAtnBox">
-                                <button data-sett-sect-type="modal" data-modal-atn="${atn_func}" id="${item.sett_atn_id}" class="settCtntSectAtnBtn settCtntSectAtnIcon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="settCtntSectAtnSvg">
-                                        <path fill-rule="evenodd" d="M8.512 4.43a.75.75 0 0 1 1.057.082l6 7a.75.75 0 0 1 0 .976l-6 7a.75.75 0 0 1-1.138-.976L14.012 12L8.431 5.488a.75.75 0 0 1 .08-1.057" clip-rule="evenodd" />
-                                    </svg>
-                                </button>
+                    settCtntAtnStruct = item.sett_atn_func !== "" 
+                    ?   `
+                            <div class="settCtntSectAtnBdr">
+                                <div class="settCtntSectAtnBox">
+                                    <button data-sett-sect-type="modal" data-modal-atn="${item.sett_atn_func}" id="${item.sett_atn_id}" class="settCtntSectAtnBtn settCtntSectAtnIcon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="settCtntSectAtnSvg">
+                                            <path fill-rule="evenodd" d="M8.512 4.43a.75.75 0 0 1 1.057.082l6 7a.75.75 0 0 1 0 .976l-6 7a.75.75 0 0 1-1.138-.976L14.012 12L8.431 5.488a.75.75 0 0 1 .08-1.057" clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    `;
+                        `
+                    :    `
+                            <div class="settCtntSectAtnBdr">
+                                <div class="settCtntSectAtnBox">
+                                    <button onclick="notification('notifyBad', 'Feature currently unavailable')" id="${item.sett_atn_id}" class="settCtntSectAtnBtn settCtntSectAtnIcon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="settCtntSectAtnSvg">
+                                            <path fill-rule="evenodd" d="M8.512 4.43a.75.75 0 0 1 1.057.082l6 7a.75.75 0 0 1 0 .976l-6 7a.75.75 0 0 1-1.138-.976L14.012 12L8.431 5.488a.75.75 0 0 1 .08-1.057" clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+                        
                 }
                 else if(item.sett_atn_type === "link")
                 {
