@@ -690,6 +690,7 @@
         // Insert menu options and add seletors
         menuCtntBox.innerHTML = menuCtntStruct;
         let menuOptBtns = document.querySelectorAll(".settSectMenuOptBtn");
+        let timer;
 
         // Get, select, and scroll to the chosen option
         try 
@@ -698,11 +699,14 @@
             let usrCtg = Number(usrData[menuUpdId]) || 0;
             
             menuOptBtns[usrCtg].classList.add("selected");
-            genMenuModalBox.scrollTo(
+            setTimeout(() => 
             {
-                top: (Math.ceil((menuOptBtns[usrCtg].getBoundingClientRect().top - ((window.innerHeight * 1.25) - genMenuModalBox.getBoundingClientRect().height) - 25))),
-                behavior: "smooth"
-            });
+                genMenuModalBox.scrollTo(
+                {
+                    top: (Math.ceil((menuOptBtns[usrCtg].getBoundingClientRect().top - (window.innerHeight - (genMenuModalBox.getBoundingClientRect().height * 0.80)) - 25))),
+                    behavior: "smooth"
+                });
+            }, 100);
         }
         catch(error)
         {
@@ -2827,11 +2831,14 @@
             let usrCtg = (Number(usrData[`${sett_mng_prfls_curr_pid}`][menuUpdId])) || 0;
             
             menuOptBtns[usrCtg].classList.add("selected");
-            genMenuModalBox.scrollTo(
+            setTimeout(() => 
             {
-                top: (Math.ceil((menuOptBtns[usrCtg].getBoundingClientRect().top - ((window.innerHeight / 1.25) - genMenuModalBox.getBoundingClientRect().height) - 25))),
-                behavior: "smooth"
-            });
+                genMenuModalBox.scrollTo(
+                {
+                    top: (Math.ceil((menuOptBtns[usrCtg].getBoundingClientRect().top - (window.innerHeight - (genMenuModalBox.getBoundingClientRect().height * 0.80)) - 25))),
+                    behavior: "smooth"
+                });
+            }, 100);
         }
         catch(error)
         {
