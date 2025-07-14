@@ -700,7 +700,7 @@
             menuOptBtns[usrCtg].classList.add("selected");
             genMenuModalBox.scrollTo(
             {
-                top: (Math.ceil((menuOptBtns[usrCtg].getBoundingClientRect().top - (window.innerHeight - genMenuModalBox.getBoundingClientRect().height) - 25))),
+                top: (Math.ceil((menuOptBtns[usrCtg].getBoundingClientRect().top - ((window.innerHeight * 1.25) - genMenuModalBox.getBoundingClientRect().height) - 25))),
                 behavior: "smooth"
             });
         }
@@ -2829,7 +2829,7 @@
             menuOptBtns[usrCtg].classList.add("selected");
             genMenuModalBox.scrollTo(
             {
-                top: (Math.ceil((menuOptBtns[usrCtg].getBoundingClientRect().top - (window.innerHeight - genMenuModalBox.getBoundingClientRect().height) - 25))),
+                top: (Math.ceil((menuOptBtns[usrCtg].getBoundingClientRect().top - ((window.innerHeight / 1.25) - genMenuModalBox.getBoundingClientRect().height) - 25))),
                 behavior: "smooth"
             });
         }
