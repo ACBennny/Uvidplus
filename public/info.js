@@ -795,11 +795,11 @@
             let bcgImgBdr = document.querySelector(".bcg_img_bdr");
             let bcgImgBox = document.querySelector(".bcg_img_box");
             let bcgImgGradient = document.querySelector(".bcg_img_gradient");
-            let bcgImgBdrBound;
-            let bcgImgBdrHeight;
-            let bcgImgBdrHalf;
-            let bcgImgBdr3Qarts;
-            let bcgImgBdr3QartsH;
+            let bcgImgBdrBound = 0;
+            let bcgImgBdrHeight = 0;
+            let bcgImgBdrHalf = 0;
+            let bcgImgBdr3Qarts = 0;
+            let bcgImgBdr3QartsH = 0;
             let openQuickAtnModalBdr = document.querySelector(".open_quickAtnModalBdr");
             let quickAtnModalBdr = document.querySelector(".quickAtnModalBdr");
             let likeBtnBox = document.querySelector(".like_buttonsBox");
@@ -1164,7 +1164,7 @@
                 else
                 {
                     // Open the first episode of the first show
-                    window.open(`#/watch/${seasonSet.querySelectorAll(".ep_cardBdr .ep_cardCtntBdr")[0].getAttribute("href")}` , "_self");
+                    window.open(`${seasonSet.querySelectorAll(".ep_cardBdr .ep_cardCtntBdr")[0].getAttribute("href")}` , "_self");
                 }
             });
 
