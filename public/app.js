@@ -517,7 +517,7 @@
                 delAccBdr.addEventListener("transitionend" , function handleTransitionEnd()
                 {
                     delAccBdr.removeEventListener("transitionend" , handleTransitionEnd);
-                    documentBody.removeChild(delAccBdr);
+                    delAccBdr.remove();
                     documentBody.removeAttribute(`data-modal-state`);
                     if(typeof btnEv !== "undefined") btnEv.disabled = false;
                 });

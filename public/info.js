@@ -1074,7 +1074,7 @@
                     </div>
                 `;
 
-                documentBody.appendChild(trailerBdr);
+                documentCtnt.appendChild(trailerBdr);
                 documentBody.classList.add('bodystop');
 
                 trailerTimer = setTimeout
@@ -1088,7 +1088,7 @@
                         const closeTrailer = trailerBdr.querySelector(".closeTrailer");
                         closeTrailer.addEventListener("click" , () => 
                         {
-                            documentBody.removeChild(trailerBdr);
+                            trailerBdr.remove();
                             documentBody.classList.remove('bodystop');
                         });
                     }

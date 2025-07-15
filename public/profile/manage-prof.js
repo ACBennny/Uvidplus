@@ -551,7 +551,7 @@
             createProfBdr.addEventListener("transitionend" , function handleTransitionEnd()
             {
                 createProfBdr.removeEventListener("transitionend" , handleTransitionEnd);
-                documentBody.removeChild(createProfBdr);
+                createProfBdr.remove();
                 e.disabled = false;
                 documentBody.removeAttribute(`data-modal-state`);
 

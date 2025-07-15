@@ -3207,7 +3207,7 @@
                         clBdr.addEventListener("transitionend" , function handleTransitionEnd()
                         {
                             clBdr.removeEventListener("transitionend" , handleTransitionEnd);
-                            documentBody.removeChild(clBdr);
+                            clBdr.remove();
                             documentBody.removeAttribute(`data-modal-state`);
                             btn.disabled = false;
                         });
@@ -3385,7 +3385,7 @@
                         sclShareBdr.addEventListener("transitionend" , function handleTransitionEnd()
                         {
                             sclShareBdr.removeEventListener("transitionend" , handleTransitionEnd);
-                            documentBody.removeChild(sclShareBdr);
+                            sclShareBdr.remove();
                             documentBody.removeAttribute(`data-modal-state`);
                             btn.addEventListener("click" , () => 
                             {

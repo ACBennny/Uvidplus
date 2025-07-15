@@ -926,7 +926,7 @@ let editCLStruct =
                     createListBdr.addEventListener("transitionend" , function handleTransitionEnd()
                     {
                         createListBdr.removeEventListener("transitionend" , handleTransitionEnd);
-                        documentBody.removeChild(createListBdr);
+                        createListBdr.remove();
                         btn.disabled = false;
                         documentBody.removeAttribute(`data-modal-state`);
                     });
@@ -1721,7 +1721,7 @@ let editCLStruct =
 
                     createCLTimer = setTimeout(() => 
                     {
-                        documentBody.removeChild(readFullDescBdr);
+                        readFullDescBdr.remove();
                         openReadFullDesc.forEach(btn => 
                         {
                             btn.addEventListener("click" , () => 
@@ -2244,7 +2244,7 @@ let editCLStruct =
                     editListBdr.addEventListener("transitionend" , function handleTransitionEnd()
                     {
                         editListBdr.removeEventListener("transitionend" , handleTransitionEnd);
-                        documentBody.removeChild(editListBdr);
+                        editListBdr.remove();
                         btn.disabled = false;
                         documentBody.removeAttribute(`data-modal-state`);
                     });
