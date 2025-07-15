@@ -3216,7 +3216,7 @@
             clearTimeout(mngPrflLockTimer);
 
             // Fetch current data
-            let l_c = await getUserData();
+            const l_c = await getUserData();
             mngPrflLockInput.value = l_c?.profiles[`${prof_id}`]?.prof_lock_pin || "";
             mngPrflLockBdr.querySelector("#mng_prof_tgl_btn").checked = l_c?.profiles[`${prof_id}`]?.prof_lock_state || false;
             mngPrflLockInput.focus();
@@ -3317,7 +3317,7 @@
                 {
                     // Get the toggle state
                     let isReq = false;
-                    let tglBtn = mngPrflLockBdr.querySelector("#mng_prof_tgl_btn:checked");
+                    const tglBtn = mngPrflLockBdr.querySelector("#mng_prof_tgl_btn:checked");
 
                     // Update to true if selected
                     if(tglBtn) isReq = true;
