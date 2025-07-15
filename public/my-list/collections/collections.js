@@ -687,7 +687,7 @@ let editCLStruct =
                 const createListBdr = document.createElement("div");
                 createListBdr.classList.add("genAtnModalBdr");
                 createListBdr.innerHTML = createCLStruct;
-                documentBody.appendChild(createListBdr);
+                documentCtnt.appendChild(createListBdr);
 
                 const createListCloseBtn = document.querySelectorAll(".closeCreateCLBtn");
                 const newCLInput = document.querySelector("#newCLInputId");
@@ -1693,7 +1693,7 @@ let editCLStruct =
                 const readFullDescBdr = document.createElement("div");
                 readFullDescBdr.classList.add("genAtnModalBdr");
                 readFullDescBdr.innerHTML = readFullDescCLStruct;
-                documentBody.appendChild(readFullDescBdr);
+                documentCtnt.appendChild(readFullDescBdr);
 
                 const readFullDescCloseBtn = document.querySelectorAll(".closeReadFullDescCLBtn");
                 const readFullDescBox = document.querySelector(".readFullDescBox");
@@ -2064,7 +2064,7 @@ let editCLStruct =
                 const editListBdr = document.createElement("div");
                 editListBdr.classList.add("genAtnModalBdr");
                 editListBdr.innerHTML = editCLStruct;
-                documentBody.appendChild(editListBdr);
+                documentCtnt.appendChild(editListBdr);
 
                 const editListCloseBtn = document.querySelectorAll(".closeEditCLModalBtn");
                 const editSectBtn = document.querySelectorAll(".editSectionBtn");
