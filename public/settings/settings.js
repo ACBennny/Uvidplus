@@ -2411,7 +2411,13 @@
                         <div class="sett_prof_card_box">
                             <div class="sett_prof_card_img_bdr">
                                 <div class="sett_prof_card_img_box">
-                                    <img src="${prfl.prof_frgImg}" alt="profile image" class="sett_prof_card_img_src">
+                                    <div class="img_preload_box">
+                                        <div class="img_preload_sibling"></div>
+                                        <img loading="lazy" 
+                                            onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                            src="${prfl.prof_frgImg}" alt="Thumbnail image of ${prfl.prof_name}'s profile" class="sett_prof_card_img_src"
+                                        >
+                                    </div>
                                 </div>
                             </div>
                             <div class="sett_prof_card_ttl_box">
