@@ -1945,7 +1945,7 @@
                     return;
                 }
 
-                // Strip non-digits and cap at 4 digits
+                // Strip non-digits
                 let digits = cardCode.value.replace(/\D/g, '');
 
                 // Checks if the field is empty
@@ -2289,7 +2289,7 @@
                                 <div class="newCLBox">
                                     <div class="newCLInputBdr">
                                         <div class="newCLInputBox">
-                                            <input type="text" name="delPassField" id="giftCodeMdlInputId" class="newCLInputClass" placeholder="Enter code here" />
+                                            <input type="text" name="giftCodeInput" id="giftCodeMdlInputId" class="newCLInputClass" placeholder="Enter code here" />
                                         </div>
                                     </div>
                                     <div class="newCLWarnBdr">
@@ -2314,7 +2314,7 @@
                 </div>
             </div>
         `;
-        documentBody.appendChild(giftCodeMdlBdr);
+        documentCtnt.appendChild(giftCodeMdlBdr);
 
         const giftCodeMdlCloseBtn = document.querySelectorAll(".closeGiftCodeMdlBtn");
         const giftCodeMdlWarn = document.querySelector("#giftCodeMdlWarnId");
@@ -2347,7 +2347,7 @@
             giftCodeMdlBdr.addEventListener("transitionend" , function handleTransitionEnd()
             {
                 giftCodeMdlBdr.removeEventListener("transitionend" , handleTransitionEnd);
-                documentBody.removeChild(giftCodeMdlBdr);
+                giftCodeMdlBdr.remove();
                 documentBody.removeAttribute(`data-modal-state`);
                 if(typeof btnEv !== "undefined") btnEv.target.closest(`.settCtntSectAtnBtn[data-sett-sect-type='modal']`).disabled = false;
             });
@@ -2501,7 +2501,7 @@
                             </div>
                             <div class="genStaticHdr_btm">
                                 <div class="mng_prof_hdr_btm">
-                                    <button type="button" class="genBtnBox greySolidBtn" onclick="notification('notifyBad', 'Feature unavailable')">
+                                    <button type="button" class="genBtnBox greySolidBtn mng_prof_lock_btn" onclick="notification('notifyBad', 'Feature unavailable')">
                                         <div class="genBtnIcon">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
                                                 <path fill-rule="evenodd" d="M5.25 10.055V8a6.75 6.75 0 0 1 13.5 0v2.055c1.115.083 1.84.293 2.371.824C22 11.757 22 13.172 22 16s0 4.243-.879 5.121C20.243 22 18.828 22 16 22H8c-2.828 0-4.243 0-5.121-.879C2 20.243 2 18.828 2 16s0-4.243.879-5.121c.53-.531 1.256-.741 2.371-.824M6.75 8a5.25 5.25 0 0 1 10.5 0v2.004Q16.676 9.999 16 10H8q-.677-.001-1.25.004zM8 17a1 1 0 1 0 0-2a1 1 0 0 0 0 2m4 0a1 1 0 1 0 0-2a1 1 0 0 0 0 2m5-1a1 1 0 1 1-2 0a1 1 0 0 1 2 0" clip-rule="evenodd" />
@@ -2525,6 +2525,7 @@
         const mngProfHdrTxt = mngProfBase.querySelector(".mng_prof_hdr_TtlTxt .mjr");
         const mngProfClsBtns = mngProfBase.querySelectorAll(".mng_prof_close");
         const mngProfCtnt = mngProfBase.querySelector(".mng_profs_ctnt_box");
+        const mngProfLockBtn = mngProfBase.querySelector(".mng_prof_lock_btn");
         let profCtntStruct = ``;
         let mngPrflTimer;
 
@@ -2720,9 +2721,15 @@
 
             newBtn.addEventListener("click", rad_atn);
         });
+
+        mngProfLockBtn.onclick = () => 
+        {
+            reqPassB4MngPrflLock(prof_id);
+        }
         
         // Update menu items
         attachGenMenuModalEventListeners();
+
 
         // Close the modal
         function closeMngPrflMdl()
@@ -2879,9 +2886,479 @@
         });
     }
 
+    // Confirms Password
+    async function reqPassB4MngPrflLock(prof_id)
+    {
+        const cfrmPassBdr = document.createElement("div");
+        cfrmPassBdr.classList.add("genAtnModalBdr");
+        cfrmPassBdr.innerHTML = 
+        `
+            <div class="genAtnModalBcg closeCfrmPassBtn"></div>
+            <div class="genAtnModalBox">
+                <div class="genAtnModalCtnt">
+                    <div class="genAtnModalHeader">
+                        <div class="genAtnModalHeaderIconBox closeCfrmPassBtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="genAtnModalHeaderIcon">
+                                <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                            </svg>
+                        </div>
+                        <div class="genAtnModalHeaderText">
+                            <span class="large">C</span>
+                            <span class="small">onfirm Password</span>
+                        </div>
+                    </div>
+                    <div class="genAtnModalOptBcg createProfItemBcg">
+                        <div class="genAtnModalOptBdr createProfItemBox">
+                            <div class="newCLBdr active">
+                                <div class="newCLBox">
+                                    <div class="newCLInputBdr">
+                                        <div class="newCLInputBox">
+                                            <input type="password" name="cfrmPassField" id="cfrmPassInputId" class="newCLInputClass" placeholder="Enter password" />
+                                        </div>
+                                    </div>
+                                    <div class="newCLWarnBdr">
+                                        <div class="newCLWarnBox">
+                                            <p id="cfrmPassWarnId" class="newCLWarnText empty" tabindex="-1"></p>
+                                        </div>
+                                    </div>
+                                    <div class="newCLAtnBdr">
+                                        <div class="newCLAtnBox">
+                                            <button type="button" id="cfrmCurrPassBtn" class="genBtnBox midSolidBtn">
+                                                <div class="genBtnText">Continue</div>
+                                            </button>
+                                            <button type="button" id="cnclPassBtn" class="genBtnBox hollowBtn closeCfrmPassBtn">
+                                                <div class="genBtnText">Cancel</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        documentCtnt.appendChild(cfrmPassBdr);
+
+        const cfrmCurrPassCloseBtn = document.querySelectorAll(".closeCfrmPassBtn");
+        const cfrmCurrPassCfrmBtn = document.querySelector("#cfrmCurrPassBtn");
+        const currPassWarn = document.querySelector("#cfrmPassWarnId");
+        const currPassInput = document.querySelector("#cfrmPassInputId");
+        const usr_pass_cond = new RegExp("^[A-Za-z0-9!@#$%^&*_+-~`)(></\"?|]");
+        let isCurrPassValid = false;
+        let cfrmPassTimer;
+
+        // Transitioning elements
+        cfrmPassTimer = setTimeout(() => 
+        {
+            clearTimeout(cfrmPassTimer);
+            documentBody.setAttribute(`data-modal-state` , `open`);
+            cfrmPassBdr.classList.add("active");
+            currPassInput.focus();
+        }, 250);
+
+        // Only allow valid characters
+        currPassInput.addEventListener("beforeinput", (event) => 
+        {
+            if(event.data != null && !(usr_pass_cond).test(event.data))
+                event.preventDefault();
+        });
+
+        // Validate current "Password"
+        function valPass(pass = "", warn = null) 
+        {
+            pass = pass.toString().trim();
+            const userPass_Cond_SpecialChar = /\W/g;
+            const userPass_Cond_num = /\d/g;
+            const userPass_Cond_Lett_Upr = /[A-Z]/g;
+            const userPass_Cond_Lett_Lwr = /[a-z]/g;
+
+
+            // Checks if there is any value in the input feild
+            if(((pass === "") && (pass.length <= 0)))
+            {
+                if((warn != null))
+                {
+                    warn.innerHTML = `Required`;
+                    warn.classList.add("active");
+                }
+                return false;
+            }
+            // Checks if the input fits the specified pattern
+            else if(!(pass.match(userPass_Cond_SpecialChar) 
+                && pass.match(userPass_Cond_num)
+                && pass.match(userPass_Cond_Lett_Upr)
+                && pass.match(userPass_Cond_Lett_Lwr)
+            ))
+            {
+                if((warn != null))
+                {
+                    warn.innerHTML = 
+                    `
+                        Password must contain:
+                        </br>
+                        1. Uppercase and lowercase letter
+                        </br>
+                        2. Special character ex. "/$%^&*"
+                        </br>
+                        3. A number 0-9
+                        </br>
+                        4. At least eight characters
+                        </br>
+                    `;
+                    warn.classList.add("active");
+                }
+                return false;
+            }
+            // Checks if the pattern is less "8" characters and above than "100" characters
+            else if(((pass.length > 0) && (pass.length < 8)))
+            {
+                if((warn != null))
+                {
+                    warn.innerHTML = `Password length must be at least 8 characters`;
+                    warn.classList.add("active");
+                }
+                return false;
+            }
+            // If all checks are completed then it is accepted
+            else
+            {
+                if((warn != null))
+                {
+                    warn.innerHTML = ``;
+                    warn.classList.remove("active");
+                }
+                return true;
+            }
+        }
+        
+        currPassInput.addEventListener("input", () => 
+        {
+            isCurrPassValid = valPass(currPassInput.value, currPassWarn);
+        });
+
+        // Validate pass by pressing the "Enter" key
+        currPassInput.addEventListener("keyup" , (e) => 
+        {
+            if((isCurrPassValid == false) || (typeof e === undefined) || (typeof e.key === "undefined")) return;
+
+            if((e.key.toLowerCase() === "enter"))
+            {
+                cfrmCurrPassCfrmBtn.click();
+            }
+        });
+
+        //  Verification inputs for reauthentication
+        cfrmCurrPassCfrmBtn.addEventListener("click" , () => 
+        {
+            if((isCurrPassValid == true))
+            {
+                currPassInput.disabled = true;
+                cfrmCurrPassCfrmBtn.disabled = true;
+                closeCfrmPassMdl(true);
+            }
+            else
+            {
+                notification(`notifyBad`, "Check all fields are filled correctly");
+            }
+        });
+
+        // Closes the updUsrEmail modal
+        async function closeCfrmPassMdl(isPass = false)
+        {
+            let isVrfd = false;
+            if(isPass == true) isVrfd = await reauthToCfrmPass(currPassInput.value);
+
+            cfrmCurrPassCfrmBtn.classList.replace("midSolidBtn" , "inactiveBtn");
+            currPassInput.value = "";
+            currPassInput.disabled = true;
+            cfrmCurrPassCfrmBtn.disabled = true;
+            cfrmPassBdr.classList.remove("active");
+            
+            cfrmPassBdr.addEventListener("transitionend" , function handleTransitionEnd()
+            {
+                cfrmPassBdr.removeEventListener("transitionend" , handleTransitionEnd);
+                cfrmPassBdr.remove();
+                documentBody.removeAttribute(`data-modal-state`);
+
+                if(isVrfd) sett_mng_prfl_lock(prof_id);
+            });
+        }
+
+        // Closes the modal
+        cfrmCurrPassCloseBtn.forEach(one => 
+        {
+            one.addEventListener("mousedown" , closeCfrmPassMdl);
+        });
+
+
+        // Reauthenticate user before updating their email
+        async function reauthToCfrmPass(currPass)
+        {
+            const auth = window.firebaseAuth;
+            const user = auth.currentUser;
+
+            // Return if no user is signed in
+            if(!user)
+            {
+                notification(`notifyBad`, "No user is currently signed in.");
+                return false;
+            }
+
+            const email = user.email; // Use email from current session
+            const credential = firebase.auth.EmailAuthProvider.credential(email, currPass);
+
+            try
+            {
+                await user.reauthenticateWithCredential(credential);
+                return true;
+            } 
+            catch (error) 
+            {
+                notification(`notifyBad`, "Incorrect password");
+                console.error("Reauthentication failed:\n", error);
+                return false;
+            }
+        }
+    }
+
     // Manage the profile locks
-    function sett_mng_prfl_lock()
-    {}
+    async function sett_mng_prfl_lock(prof_id)
+    {
+
+        const mngPrflLockBdr = document.createElement("div");
+        mngPrflLockBdr.classList.add("genAtnModalBdr");
+        mngPrflLockBdr.innerHTML = 
+        `
+            <div class="genAtnModalBcg closeMngPrflLockBtn"></div>
+            <div class="genAtnModalBox">
+                <div class="genAtnModalCtnt">
+                    <div class="genAtnModalHeader">
+                        <div class="genAtnModalHeaderIconBox closeMngPrflLockBtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="genAtnModalHeaderIcon">
+                                <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                            </svg>
+                        </div>
+                        <div class="genAtnModalHeaderText">
+                            <span class="large">P</span>
+                            <span class="small">rofile Lock Settings</span>
+                        </div>
+                    </div>
+                    <div class="genAtnModalOptBcg createProfItemBcg">
+                        <div class="genAtnModalOptBdr createProfItemBox">
+                            <div class="newCLBdr active">
+                                <div class="newCLBox">
+                                    <div class="newCLInputBdr">
+                                        <div class="newCLInputBox">
+                                            <input type="text" name="mngPrflLockField" id="mngPrflLockInputId" class="newCLInputClass" inputmode="numeric" pattern="\d*" maxlength="4" placeholder="Enter a 4-digit PIN" required />
+                                        </div>
+                                    </div>
+                                    <div class="newCLWarnBdr">
+                                        <div class="newCLWarnBox">
+                                            <p id="mngPrflLockWarnId" class="newCLWarnText empty" tabindex="-1"></p>
+                                        </div>
+                                    </div>
+                                    <div class="mng_prof_lock_toggle_bdr genTick_chkSelState" data-cards-are-selectable="true">
+                                        <div class="mng_prof_lock_toggle_box">
+                                            <div class="mng_prof_lock_toggle_atn_bdr">
+                                                <div class="mng_prof_lock_toggle_atn_box">
+                                                    <div class="genTick_chkBase">
+                                                        <div class="genTick_chkBdr">
+                                                            <div class="genTick_chkBox">
+                                                                <label for="mng_prof_tgl_btn" class="genTick_chkFldLbl">
+                                                                    <input type="checkbox" id="mng_prof_tgl_btn" class="genTick_chkFldCls">
+                                                                    <div class="genTick_chkFldIconBox">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genTick_chkFldIconSvg">
+                                                                            <path fill-rule="evenodd" d="M18.493 6.935a.75.75 0 0 1 .072 1.058l-7.857 9a.75.75 0 0 1-1.13 0l-3.143-3.6a.75.75 0 0 1 1.13-.986l2.578 2.953l7.292-8.353a.75.75 0 0 1 1.058-.072" clip-rule="evenodd" />
+                                                                        </svg>
+                                                                    </div>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <label for="mng_prof_tgl_btn" class="mng_prof_lock_toggle_det_box">
+                                                <p class="mng_prof_lock_toggle_det_txt">Require PIN to select profile</p>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="newCLAtnBdr">
+                                        <div class="newCLAtnBox">
+                                            <button type="button" id="cfrmMngPrflLock" class="genBtnBox midSolidBtn">
+                                                <div class="genBtnText">Save</div>
+                                            </button>
+                                            <button type="button" id="cnclMngPrflLock" class="genBtnBox hollowBtn closeMngPrflLockBtn">
+                                                <div class="genBtnText">Cancel</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        documentCtnt.appendChild(mngPrflLockBdr);
+
+        const mngPrflLockCloseBtn = document.querySelectorAll(".closeMngPrflLockBtn");
+        const mngPrflLockWarn = document.querySelector("#mngPrflLockWarnId");
+        const mngPrflLockInput = document.querySelector("#mngPrflLockInputId");
+        const mngPrflLockBtn = document.querySelector("#cfrmMngPrflLock");
+        const lock_code_cond = new RegExp("^[0-9]*$");
+        let isLockCodeValid = false;
+        let mngPrflLockTimer;
+
+        // Transitioning elements
+        mngPrflLockTimer = setTimeout(async () => 
+        {
+            clearTimeout(mngPrflLockTimer);
+
+            // Fetch current data
+            let l_c = await getUserData();
+            mngPrflLockInput.value = l_c?.profiles[`${prof_id}`]?.prof_lock_pin || "";
+            mngPrflLockBdr.querySelector("#mng_prof_tgl_btn").checked = l_c?.profiles[`${prof_id}`]?.prof_lock_state || false;
+            mngPrflLockInput.focus();
+
+            documentBody.setAttribute(`data-modal-state` , `open`);
+            mngPrflLockBdr.classList.add("active");
+        }, 250);
+        
+        // Automatically focus on input feild after transition
+        mngPrflLockBdr.addEventListener("transitionend" , function handleTransitionEnd()
+        {
+            mngPrflLockBdr.removeEventListener("transitionend" , handleTransitionEnd);
+            mngPrflLockInput.focus();
+        });
+
+        // Only allow valid characters
+        mngPrflLockInput.addEventListener("beforeinput", (event) => 
+        {
+            if((event.data != null) && !(lock_code_cond).test(event.data))
+                event.preventDefault();
+        });
+
+        // Validate fullname
+        function valLockComb(event) 
+        {
+            let lckCd = mngPrflLockInput.value.toString().trim();
+
+            // Return if value is not a number
+            if(!(/^\d+$/.test(lckCd)))
+            {
+                mngPrflLockWarn.textContent = "Required";
+                mngPrflLockWarn.classList.add("active");
+                isLockCodeValid = false;
+                return;
+            }
+
+            // Strip non-digits and cap at 4 digits
+            let digits = lckCd.replace(/\D/g, '').slice(0, 4);
+
+            // Checks if the field is empty
+            if((event.data == null) && (digits.length <= 0))
+            {
+                mngPrflLockWarn.textContent = "Required";
+                mngPrflLockWarn.classList.add("active");
+                isLockCodeValid = false;
+            }
+            // Check that 
+            else if((digits.length != 4))
+            {
+                mngPrflLockWarn.textContent = "PIN must be 4 digits long";
+                mngPrflLockWarn.classList.add("active");
+                isLockCodeValid = false;
+            }
+            // If all conditions are met, the input is valid, i.e "true";
+            else
+            {
+                mngPrflLockWarn.textContent = "";
+                mngPrflLockWarn.classList.remove("active");
+                isLockCodeValid = true;
+            }
+        }
+        
+        mngPrflLockInput.addEventListener("input", valLockComb);
+
+        // Verify the lock combination
+        mngPrflLockBtn.addEventListener("click" , () => 
+        {
+            if(isLockCodeValid == true)
+            {
+                mngPrflLockInput.disabled = true;
+                mngPrflLockBtn.disabled = true;
+                closeMngPrflLock(true);
+            }
+            else
+            {
+                notification(`notifyBad`, "Check that the field has been filled correctly");
+            }
+        });
+
+        // Confirm before closing the mngPrflLock modal
+        function cfrmB4Cls()
+        {
+            initConfirmModal(
+                `Are you sure you want to close this modal`,
+                `Any unsaved changes may be lost`,
+                `Yes`,
+                `No`,
+                closeMngPrflLock
+            );
+        }
+
+        // Closes the mngPrflLock modal
+        async function closeMngPrflLock(isLock = false)
+        {
+            if(isLock == true)
+            {
+                try
+                {
+                    // Get the toggle state
+                    let isReq = false;
+                    let tglBtn = mngPrflLockBdr.querySelector("#mng_prof_tgl_btn:checked");
+
+                    // Update to true if selected
+                    if(tglBtn) isReq = true;
+
+                    // Update user data
+                    await updateUserData(
+                    {
+                        [`profiles.${prof_id}.prof_lock_pin`]: mngPrflLockInput.value,
+                        [`profiles.${prof_id}.prof_lock_state`]: isReq
+                    });
+
+                    // Notify the user
+                    notification(`notifyGood`, `Profile lock settings updated successfully`); 
+                }
+                catch(err)
+                {
+                    console.error(err);
+                    notification(`notifyBad`, `Failed to update profile lock settings`); 
+                }
+            }
+
+            mngPrflLockBtn.classList.replace("midSolidBtn" , "inactiveBtn");
+            mngPrflLockInput.value = "";
+            mngPrflLockInput.disabled = true;
+            mngPrflLockBtn.disabled = true;
+            mngPrflLockBdr.classList.remove("active");
+            
+            mngPrflLockBdr.addEventListener("transitionend" , function handleTransitionEnd()
+            {
+                mngPrflLockBdr.removeEventListener("transitionend" , handleTransitionEnd);
+                mngPrflLockBdr.remove();
+                documentBody.removeAttribute(`data-modal-state`);
+            });
+        }
+
+        // Closes the modal
+        mngPrflLockCloseBtn.forEach(one => 
+        {
+            one.addEventListener("click" , cfrmB4Cls);
+        });
+    }
 
 
 
@@ -2981,7 +3458,7 @@
                 </div>
             </div>
         `;
-        documentBody.appendChild(mngNtfyBdr);
+        documentCtnt.appendChild(mngNtfyBdr);
 
         const mngNtfyCloseBtn = document.querySelectorAll(".closeMngNtfyBtn");
         let mngNtfyTimer;
@@ -3016,7 +3493,7 @@
             mngNtfyBdr.addEventListener("transitionend" , function handleTransitionEnd()
             {
                 mngNtfyBdr.removeEventListener("transitionend" , handleTransitionEnd);
-                documentBody.removeChild(mngNtfyBdr);
+                mngNtfyBdr.remove();
                 documentBody.removeAttribute(`data-modal-state`);
                 if(typeof btnEv !== "undefined") btnEv.target.closest(`.settCtntSectAtnBtn[data-sett-sect-type='modal']`).disabled = false;
             });
@@ -3258,7 +3735,7 @@
                 </div>
             </div>
         `;
-        documentBody.appendChild(cnct3rdPartyAppBdr);
+        documentCtnt.appendChild(cnct3rdPartyAppBdr);
 
         const cnct3rdPartyAppCloseBtn = document.querySelectorAll(".closeCnct3rdPartyAppBtn");
         const cnct3rdPartyAppItemBtn = document.querySelectorAll(".cnct3rdPartyAppItem");
@@ -3282,7 +3759,7 @@
             cnct3rdPartyAppBdr.addEventListener("transitionend" , function handleTransitionEnd()
             {
                 cnct3rdPartyAppBdr.removeEventListener("transitionend" , handleTransitionEnd);
-                documentBody.removeChild(cnct3rdPartyAppBdr);
+                cnct3rdPartyAppBdr.remove();
                 documentBody.removeAttribute(`data-modal-state`);
                 if(typeof btnEv !== "undefined") btnEv.target.closest(`.settCtntSectAtnBtn[data-sett-sect-type='modal']`).disabled = false;
             });
@@ -3339,7 +3816,7 @@
                                 <div class="newCLBox">
                                     <div class="newCLInputBdr">
                                         <div class="newCLInputBox">
-                                            <input type="text" name="delPassField" id="updFullnameInputId" class="newCLInputClass" placeholder="Enter your fullname" />
+                                            <input type="text" name="updNameField" id="updFullnameInputId" class="newCLInputClass" placeholder="Enter your fullname" />
                                         </div>
                                     </div>
                                     <div class="newCLWarnBdr">
@@ -3364,7 +3841,7 @@
                 </div>
             </div>
         `;
-        documentBody.appendChild(updFullnameBdr);
+        documentCtnt.appendChild(updFullnameBdr);
 
         const updFullnameCloseBtn = document.querySelectorAll(".closeUpdFullnameBtn");
         const updFullnameWarn = document.querySelector("#updFullnameWarnId");
@@ -3445,7 +3922,7 @@
             }
             else
             {
-                notification(`notifyBad`, "Invalid password");
+                notification(`notifyBad`, "Check that the field has been filled correctly");
             }
         });
 
@@ -3454,9 +3931,16 @@
         {
             if(isName == true)
             {
-                await updateUserData({full_name: updFullnameInput.value});
-                document.getElementById("sett_change_fullname").closest(".sett_ctnt_hrtl").querySelector(".settCtntSectDescText").textContent = updFullnameInput.value;
-                notification(`notifyGood`, `Fullname updated successfully`);
+                try {
+                    await updateUserData({full_name: updFullnameInput.value});
+                    document.getElementById("sett_change_fullname").closest(".sett_ctnt_hrtl").querySelector(".settCtntSectDescText").textContent = updFullnameInput.value;
+                    notification(`notifyGood`, `Fullname updated successfully`);
+                }
+                catch (error)
+                {
+                    console.error(error);
+                    notification(`notifyBad`, `Failed to update fullname`); 
+                }
             }
 
             updFullnameBtn.classList.replace("midSolidBtn" , "inactiveBtn");
@@ -3468,7 +3952,7 @@
             updFullnameBdr.addEventListener("transitionend" , function handleTransitionEnd()
             {
                 updFullnameBdr.removeEventListener("transitionend" , handleTransitionEnd);
-                documentBody.removeChild(updFullnameBdr);
+                updFullnameBdr.remove();
                 documentBody.removeAttribute(`data-modal-state`);
                 if(typeof btnEv !== "undefined") btnEv.target.closest(`.settCtntSectAtnBtn[data-sett-sect-type='modal']`).disabled = false;
             });
@@ -3544,7 +4028,7 @@
                 </div>
             </div>
         `;
-        documentBody.appendChild(updUsrPassBdr);
+        documentCtnt.appendChild(updUsrPassBdr);
 
         const updUsrPassCloseBtn = document.querySelectorAll(".closeUpdPassBtn");
         const updUsrPassCfrmBtn = document.querySelector("#cfrmUpdPass");
@@ -3719,7 +4203,7 @@
             updUsrPassBdr.addEventListener("transitionend" , function handleTransitionEnd()
             {
                 updUsrPassBdr.removeEventListener("transitionend" , handleTransitionEnd);
-                documentBody.removeChild(updUsrPassBdr);
+                updUsrPassBdr.remove();
                 documentBody.removeAttribute(`data-modal-state`);
                 if(typeof btnEv !== "undefined") btnEv.target.closest(`.settCtntSectAtnBtn[data-sett-sect-type='modal']`).disabled = false;
             });
@@ -3842,7 +4326,7 @@
                 </div>
             </div>
         `;
-        documentBody.appendChild(updUsrEmailBdr);
+        documentCtnt.appendChild(updUsrEmailBdr);
 
         const updUsrEmailCloseBtn = document.querySelectorAll(".closeUpdEmailBtn");
         const updUsrEmailCfrmBtn = document.querySelector("#cfrmUpdEmail");
@@ -4043,7 +4527,7 @@
             updUsrEmailBdr.addEventListener("transitionend" , function handleTransitionEnd()
             {
                 updUsrEmailBdr.removeEventListener("transitionend" , handleTransitionEnd);
-                documentBody.removeChild(updUsrEmailBdr);
+                updUsrEmailBdr.remove();
                 documentBody.removeAttribute(`data-modal-state`);
                 if(typeof btnEv !== "undefined") btnEv.target.closest(`.settCtntSectAtnBtn[data-sett-sect-type='modal']`).disabled = false;
             });
@@ -4059,7 +4543,6 @@
         // Reauthenticate user before updating their email
         async function reauthB4EmailUpd(currPass, newEmail)
         {
-            // return console.log("Here");
             const auth = window.firebaseAuth;
             const user = auth.currentUser;
 

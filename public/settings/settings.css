@@ -1012,6 +1012,35 @@ html:root
 }
 
 
+/* -------------- Profile Lock Settings -------------- */
+.mng_prof_lock_toggle_bdr
+{
+    width: 100%;
+    margin-bottom: 0.875rem;
+}
+
+.mng_prof_lock_toggle_bdr .mng_prof_lock_toggle_box
+{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.mng_prof_lock_toggle_box .mng_prof_lock_toggle_det_box
+{
+    max-width: calc((100% - var(--genTick_chkBaseW)));
+    cursor: pointer;
+}
+
+.mng_prof_lock_toggle_det_box .mng_prof_lock_toggle_det_txt
+{
+    color: var(--genWhiteTypeMid);
+    font-size: 0.875rem;
+}
+
+
 
 
 
