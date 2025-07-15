@@ -62,4 +62,17 @@ let gen_cmpnt_lib =
             </div>
         `,
     },
+    {
+        cmpnt_name: `Image preloader`,
+        cmpnt_struct: 
+        `
+            <div class="img_preload_box">
+                <div class="img_preload_sibling"></div>
+                <img loading="lazy" 
+                    onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                    src="" alt="image" class=""
+                >
+            </div>
+        `,
+    },
 ];
