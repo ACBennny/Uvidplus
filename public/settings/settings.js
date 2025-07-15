@@ -3213,7 +3213,7 @@
         const mngPrflLockInput = document.querySelector("#mngPrflLockInputId");
         const mngPrflLockBtn = document.querySelector("#cfrmMngPrflLock");
         const lock_code_cond = new RegExp("^[0-9]*$");
-        let isLockCodeValid = false;
+        let isLockCodeValid = true;
         let mngPrflLockTimer;
 
         // Transitioning elements
