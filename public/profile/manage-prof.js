@@ -269,8 +269,22 @@
 
             const box_atn = async () =>
             {
-                // Update the profile
-                await switchProfAtn(boxId);
+                // Check if profile requires a PIN
+                const prof = await getUsrProfFld(boxId);
+                const isCurrSel = prof[1]?.prof_selected || false;
+                const isPINreq = prof[1]?.prof_lock_state || false;
+
+                // Select the profile if it's the current ly selected one
+                if(isCurrSel) return switchProfAtn(boxId);
+
+                if(isPINreq == true)
+                {
+                    cfrmB4ProfSwitch(boxId)
+                }
+                else
+                {
+                    switchProfAtn(boxId);
+                }
             }
 
             box.addEventListener("click", box_atn);
@@ -284,6 +298,214 @@
         }
     }
 
+    // Requests PIN verification if the profile has this set up
+    async function cfrmB4ProfSwitch(prof_id)
+    {
+        const cfrmPassBdr = document.createElement("div");
+        cfrmPassBdr.classList.add("genAtnModalBdr");
+        cfrmPassBdr.innerHTML = 
+        `
+            <div class="genAtnModalBcg closeCfrmPassBtn"></div>
+            <div class="genAtnModalBox">
+                <div class="genAtnModalCtnt">
+                    <div class="genAtnModalHeader">
+                        <div class="genAtnModalHeaderIconBox closeCfrmPassBtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="genAtnModalHeaderIcon">
+                                <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                            </svg>
+                        </div>
+                        <div class="genAtnModalHeaderText">
+                            <span class="large">E</span>
+                            <span class="small">nter Your PIN</span>
+                        </div>
+                    </div>
+                    <div class="genAtnModalOptBcg createProfItemBcg">
+                        <div class="genAtnModalOptBdr createProfItemBox">
+                            <div class="newCLBdr active">
+                                <div class="newCLBox">
+                                    <div class="newCLInputBdr">
+                                        <div class="newCLInputBox">
+                                            <input type="password" name="cfrmPassField" id="cfrmPassInputId" class="newCLInputClass" inputmode="numeric" pattern="\d*" maxlength="4" placeholder="Enter PIN to continue" required />
+                                        </div>
+                                    </div>
+                                    <div class="newCLWarnBdr">
+                                        <div class="newCLWarnBox">
+                                            <p id="cfrmPassWarnId" class="newCLWarnText empty" tabindex="-1"></p>
+                                        </div>
+                                    </div>
+                                    <div class="mng_prof_lock_toggle_bdr genTick_chkSelState" data-cards-are-selectable="true">
+                                        <div class="mng_prof_lock_toggle_box">
+                                            <div for="mng_prof_tgl_btn" class="mng_prof_lock_toggle_det_box" onclick="window.open('#/settings/preferences', '_self')">
+                                                <p class="mng_prof_lock_toggle_det_txt"><u>Forgot PIN? Reset it here</u></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="newCLAtnBdr">
+                                        <div class="newCLAtnBox">
+                                            <button type="button" id="cfrmCurrPassBtn" class="genBtnBox midSolidBtn">
+                                                <div class="genBtnText">Continue</div>
+                                            </button>
+                                            <button type="button" id="cnclPassBtn" class="genBtnBox hollowBtn closeCfrmPassBtn">
+                                                <div class="genBtnText">Cancel</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        documentCtnt.appendChild(cfrmPassBdr);
+
+        const cfrmCurrPassCloseBtn = document.querySelectorAll(".closeCfrmPassBtn");
+        const cfrmCurrPassCfrmBtn = document.querySelector("#cfrmCurrPassBtn");
+        const currPassWarn = document.querySelector("#cfrmPassWarnId");
+        const currPassInput = document.querySelector("#cfrmPassInputId");
+        const usr_pass_cond = new RegExp("^[0-9]*$");
+        let isCurrPassValid = false;
+        let cfrmPassTimer;
+
+        // Transitioning elements
+        cfrmPassTimer = setTimeout(() => 
+        {
+            clearTimeout(cfrmPassTimer);
+            documentBody.setAttribute(`data-modal-state` , `open`);
+            cfrmPassBdr.classList.add("active");
+            currPassInput.focus();
+        }, 250);
+
+        // Only allow valid characters
+        currPassInput.addEventListener("beforeinput", (event) => 
+        {
+            if(event.data != null && !(usr_pass_cond).test(event.data))
+                event.preventDefault();
+        });
+
+        // Validate current "Password"
+        function valLockComb(event) 
+        {
+            let lckCd = currPassInput.value.toString().trim();
+
+            // Return if value is not a number
+            if(!(/^\d+$/.test(lckCd)))
+            {
+                currPassWarn.textContent = "Required";
+                currPassWarn.classList.add("active");
+                isCurrPassValid = false;
+                return;
+            }
+
+            // Strip non-digits and cap at 4 digits
+            let digits = lckCd.replace(/\D/g, '').slice(0, 4);
+
+            // Checks if the field is empty
+            if((event.data == null) && (digits.length <= 0))
+            {
+                currPassWarn.textContent = "Required";
+                currPassWarn.classList.add("active");
+                isCurrPassValid = false;
+            }
+            // Check that 
+            else if((digits.length != 4))
+            {
+                currPassWarn.textContent = "PIN must be 4 digits long";
+                currPassWarn.classList.add("active");
+                isCurrPassValid = false;
+            }
+            // If all conditions are met, the input is valid, i.e "true";
+            else
+            {
+                currPassWarn.textContent = "";
+                currPassWarn.classList.remove("active");
+                isCurrPassValid = true;
+            }
+        }
+        
+        currPassInput.addEventListener("input", valLockComb);
+
+        // Validate pass by pressing the "Enter" key
+        currPassInput.addEventListener("keyup" , (e) => 
+        {
+            if((isCurrPassValid == false) || (typeof e === undefined) || (typeof e.key === "undefined")) return;
+
+            if((e.key.toLowerCase() === "enter"))
+            {
+                cfrmCurrPassCfrmBtn.click();
+            }
+        });
+
+        //  Verification inputs for reauthentication
+        cfrmCurrPassCfrmBtn.addEventListener("click" , async () => 
+        {
+            if((isCurrPassValid == true))
+            {
+                currPassInput.disabled = true;
+                cfrmCurrPassCfrmBtn.disabled = true;
+
+                const selProf = await getUsrProfFld(prof_id);
+                const selPass = selProf[1]?.prof_lock_pin;
+
+                if((currPassInput.value === selPass))
+                {
+                    closeCfrmPassMdl(true);
+                }
+                else
+                {
+                    notification(`notifyBad`, `Incorrect PIN entered`);
+                    currPassInput.disabled = false;
+                    cfrmCurrPassCfrmBtn.disabled = false;
+                }
+            }
+            else
+            {
+                notification(`notifyBad`, "Check all fields are filled correctly");
+            }
+        });
+
+
+        // Confirm the provided PIN is correct
+        async function cfrmPassIsVal(currPass)
+        {
+            const selProf = await getUsrProfFld(prof_id);
+            const selPass = selProf[1]?.prof_lock_pin;
+
+            if((currPass === selPass)) return true;
+            return false;
+        }
+
+        // Closes the updUsrEmail modal
+        async function closeCfrmPassMdl(isPass = false)
+        {
+            let isVrfd = false;
+            if(isPass) isVrfd = await cfrmPassIsVal(currPassInput.value);
+
+            cfrmCurrPassCfrmBtn.classList.replace("midSolidBtn" , "inactiveBtn");
+            currPassInput.value = "";
+            currPassInput.disabled = true;
+            cfrmCurrPassCfrmBtn.disabled = true;
+            cfrmPassBdr.classList.remove("active");
+            
+            cfrmPassBdr.addEventListener("transitionend" , function handleTransitionEnd()
+            {
+                cfrmPassBdr.removeEventListener("transitionend" , handleTransitionEnd);
+                cfrmPassBdr.remove();
+                documentBody.removeAttribute(`data-modal-state`);
+
+                // Switch to selected profile
+                if(isVrfd) switchProfAtn(prof_id);
+            });
+        }
+
+        // Closes the modal
+        cfrmCurrPassCloseBtn.forEach(one => 
+        {
+            one.addEventListener("mousedown" , closeCfrmPassMdl);
+        });
+    }
+
+    // Performs the switching of the profiles
     async function switchProfAtn(switch_id)
     {
         const profileInfoInv = await getUsrProfInv();
