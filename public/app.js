@@ -554,7 +554,7 @@
             catch (error) 
             {
                 notification(`notifyBad`, "Incorrect password");
-                console.error("Reauthentication failed:", error);
+                console.error("Reauthentication failed:\n", error);
                 return false;
             }
         }
