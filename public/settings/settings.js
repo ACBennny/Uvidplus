@@ -2886,7 +2886,7 @@
         });
     }
 
-    // Confirms Password
+    // Confirms password before opening the profile lock settings
     async function reqPassB4MngPrflLock(prof_id)
     {
         const cfrmPassBdr = document.createElement("div");
@@ -3063,7 +3063,7 @@
             }
         });
 
-        // Closes the updUsrEmail modal
+        // Closes the cfrmPassBdr modal
         async function closeCfrmPassMdl(isPass = false)
         {
             let isVrfd = false;
@@ -3092,7 +3092,7 @@
         });
 
 
-        // Reauthenticate user before updating their email
+        // Reauthenticate user to confirm password
         async function reauthToCfrmPass(currPass)
         {
             const auth = window.firebaseAuth;
