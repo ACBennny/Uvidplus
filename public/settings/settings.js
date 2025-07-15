@@ -3216,9 +3216,9 @@
             clearTimeout(mngPrflLockTimer);
 
             // Fetch current data
-            const l_c = await getUserData();
-            mngPrflLockInput.value = l_c?.profiles[`${prof_id}`]?.prof_lock_pin || "";
-            mngPrflLockBdr.querySelector("#mng_prof_tgl_btn").checked = l_c?.profiles[`${prof_id}`]?.prof_lock_state || false;
+            const l_c = await getUsrProfFld(prof_id);
+            mngPrflLockInput.value = l_c[1]?.prof_lock_pin || "";
+            mngPrflLockBdr.querySelector("#mng_prof_tgl_btn").checked = l_c[1]?.prof_lock_state || false;
             mngPrflLockInput.focus();
 
             documentBody.setAttribute(`data-modal-state` , `open`);
