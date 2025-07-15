@@ -1584,7 +1584,7 @@
             confirmModalBase = document.createElement("div");
             confirmModalBase.classList.add("confirmModalBase");
             confirmModalBase.innerHTML = confirmModalStruct;
-            documentBody.appendChild(confirmModalBase);
+            documentCtnt.appendChild(confirmModalBase);
 
             let confirmModalBcg = confirmModalBase.querySelector(".confirmModalBcg");
             let confirmModalQtnText = confirmModalBase.querySelector(".confirmModalQtnText");
@@ -2906,7 +2906,7 @@
                     const clBdr = document.createElement("div");
                     clBdr.classList.add("genAtnModalBdr");
                     clBdr.innerHTML = addToCLHTML;
-                    documentBody.appendChild(clBdr);
+                    documentCtnt.appendChild(clBdr);
         
                     let selectedProfile = await getSelectedProfile();
                     let clCloseBtn = document.querySelectorAll(".closeAddToCL");
@@ -3272,7 +3272,7 @@
                     const sclShareBdr = document.createElement("div");
                     sclShareBdr.classList.add("genAtnModalBdr");
                     sclShareBdr.innerHTML = socialShareHTML;
-                    documentBody.appendChild(sclShareBdr);
+                    documentCtnt.appendChild(sclShareBdr);
                     
                     const sclShareCloseBtn = document.querySelectorAll(".closeSclShare");
                     const sclShareBox = document.querySelector(".sclShareBox");
