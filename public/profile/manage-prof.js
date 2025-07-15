@@ -400,7 +400,7 @@
         const createProfBdr = document.createElement("div");
         createProfBdr.classList.add("genAtnModalBdr");
         createProfBdr.innerHTML = createProfStruct;
-        documentBody.appendChild(createProfBdr);
+        documentCtnt.appendChild(createProfBdr);
 
         const createProfCloseBtn = document.querySelectorAll(".closeCreateProfBtn");
         const newProfInput = document.querySelector("#newProfInputId");
