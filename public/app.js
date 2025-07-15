@@ -401,7 +401,7 @@
                     </div>
                 </div>
             `;
-            documentBody.appendChild(delAccBdr);
+            documentCtnt.appendChild(delAccBdr);
     
             const delAccCloseBtn = document.querySelectorAll(".closeDelAccBtn");
             const delAccWarn = document.querySelector("#delAccWarnId");
