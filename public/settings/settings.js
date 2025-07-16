@@ -158,7 +158,6 @@
         settNavBdr = document.querySelector(".settingNavBdr");
         topNavBar.innerHTML = settPageNav;
 
-        window.addEventListener("resize", toggleSettNav);
         toggleSettNav();
         sett_cmpnt_builder();
     }
@@ -166,6 +165,7 @@
     // Functions to call
     function settCallFunc()
     {
+        window.addEventListener("resize", toggleSettNav);
         init_sett_profile_cards();
         sett_sect_router();
         attachGenMenuModalEventListeners();
@@ -178,8 +178,11 @@
     // Toggle Nav for smaller screens
     function toggleSettNav()
     {
-        settNavBdr.classList.toggle("hidden", window.innerWidth < winWidth1025);
-        topNavBar.classList.toggle("initialize", window.innerWidth < winWidth1025);
+        if((hash_parts[1] === "settings"))
+        {
+            settNavBdr.classList.toggle("hidden", window.innerWidth < winWidth1025);
+            topNavBar.classList.toggle("initialize", window.innerWidth < winWidth1025);
+        }
     }
 
     // Build the components of each section
