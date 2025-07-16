@@ -951,9 +951,6 @@
         // Start App
         function startApplication()
         {
-            // Confirm before refresh (Annoying)
-            // window.addEventListener("beforeunload" , b4UnloadHandler);
-            
             // Insert the NavBars' content
             sideNavBar.innerHTML = sideNavBarStruct;
             btmNavBar.innerHTML = btmNavBarStruct;
@@ -1011,7 +1008,7 @@
 
             developerProfile.forEach((dev) => 
             {
-                dev.title = `This website was designed and developed by acbennny (me😁). You can check out my portfolio at: "${developerLink}"`;
+                dev.title = `This website was designed and developed by acbennny (me😁).\nYou can check out my portfolio at: "${developerLink}"`;
 
                 // Opening my portfolio (in a new tab)
                 const d_click = () =>
@@ -1048,13 +1045,6 @@
 
     
     // RELOADING
-
-        // Warns if user tries to refresh
-        function b4UnloadHandler(event)
-        {
-            event.preventDefault();
-            event.returnValue = '';
-        };
         
         // Refreshes page content without reloading the page
         function refreshPage()
@@ -1232,31 +1222,6 @@
             // Darken NavBar on scroll
             topNavBar.classList.toggle("float" , window.scrollY > 0);
 
-            // Hide/Unhide navbar while scrolling (If fullscreen is disabled)
-            if((!(document.fullscreenElement) && (window.innerHeight != screen.height)))
-            {
-                let currentWindowScroll = window.scrollY;
-
-                if((currentWindowScroll > lastWindowScroll))
-                {
-                    topNavBar.classList.add("isScrollingDown");
-                    btmNavBar.classList.add("isScrollingDown");
-                }
-
-                if((currentWindowScroll < lastWindowScroll))
-                {
-                    topNavBar.classList.remove("isScrollingDown");
-                    btmNavBar.classList.remove("isScrollingDown");
-                }
-
-                lastWindowScroll = currentWindowScroll;
-            }
-            else
-            {
-                topNavBar.classList.remove("isScrollingDown");
-                btmNavBar.classList.remove("isScrollingDown");
-            }
-
             // Hide/Unhide navbar on My-List pages (currently only on Downloads)
             if((hash_parts[1] === "my-list") && (hash_parts[2] === "downloads"))
             {
@@ -1281,7 +1246,7 @@
             }
         }
 
-        // *** TO DO **** Locks scrolling when menu is open
+        // Locks scrolling when menu is open
         const menuIsOpenScrl = (e) =>
         {
             if(
@@ -2464,8 +2429,6 @@
 
 
     // GENERAL MENU MODAL
-
-        // Load the file if not present
 
         // Initialization
         function initGenMenuModal()
