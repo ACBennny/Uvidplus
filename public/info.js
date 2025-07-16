@@ -168,7 +168,7 @@
         
         let showHTMLCtnt =  
         `
-            <div class="watch_base" id="top">
+            <div class="watch_base">
 
                 <div class="main_bcg">
                     <div class="bcg_img_bdr">
@@ -1169,6 +1169,7 @@
             });
 
 
+
         // DOWNLOAD
 
             // Downloads show
@@ -1176,6 +1177,7 @@
             {
                 btn.addEventListener("click" , dwldShowSsn);
             });
+
 
 
         // MARK AS WATCHED
@@ -1475,6 +1477,14 @@
 
         let showEpModalCtntBtnBox = document.querySelectorAll(".genMenuModalCtntBtnBox.showEpModalCtntBtnBox");
         showEpModalCtntBtnBox[epSelectedSet].classList.add("selected");
+        setTimeout(() => 
+        {
+            genMenuModalBox.scrollTo(
+            {
+                top: (Math.ceil((showEpModalCtntBtnBox[epSelectedSet].getBoundingClientRect().top - (window.innerHeight - (genMenuModalBox.getBoundingClientRect().height * 0.80)) - 25))),
+                behavior: "smooth"
+            });
+        }, 100);
         
         showEpModalCtntBtnBox.forEach((btn, index) => 
         {
