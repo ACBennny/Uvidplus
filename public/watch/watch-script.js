@@ -8,18 +8,34 @@
 
     const watch_pg_struct = 
     `
-            <div class="">
-                <div class="">
+        <div class="watch_pg_base active">
+            <div class="watch_pg_bcg"></div>
+            <div class="watch_pg_bdr">
+                <div class="watch_pg_box">
                     <div class="">
                         <div class="">
-                            <!---- Video player --->
+                            <div class="vid_bdr">
+                                <div class="vid_box">
+                                    <div class="container video_player show-controls">
+                                        <video preload="metadata" class="main-video">
+                                            <source src="/Library/TV/Watch/JujutsuKaisen/S1/Media/3_360p.mp4" size="360" type="video/mp4">
+                                            <source src="/Library/TV/Watch/JujutsuKaisen/S1/Media/3_360p.mp4" size="480" type="video/mp4">
+                                            <source src="/Library/TV/Watch/JujutsuKaisen/S1/Media/3_720p.mp4" size="640" type="video/mp4">
+                                            <source src="/Library/TV/Watch/JujutsuKaisen/S1/Media/3_720p.mp4" size="720" type="video/mp4">
+                                            <source src="/Library/TV/Watch/JujutsuKaisen/S1/Media/3_1080p.mp4" size="1080" type="video/mp4">
+                                            <track label="English" kind="subtitles" src="/Library/subtitleTest1.vtt" srclang="en">
+                                            <track label="Japanese" kind="subtitles" src="/Library/subtitleTest2.vtt" srclang="en">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="">
-                        <div class="">
-                            <div class="">
-                                <div class="">
-                                    <button type="button" class="genBtnBox transBtn thin">
+                    <div class="watch_pg_nav_bdr">
+                        <div class="watch_pg_nav_box">
+                            <div class="watch_pg_det_bdr">
+                                <div class="watch_pg_det_box">
+                                    <button type="button" class="genBtnBox transBtn thin watch_pg_ret_btn">
                                         <div class="genBtnIcon">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
                                                 <path fill-rule="evenodd" d="M15.488 4.43a.75.75 0 0 1 .081 1.058L9.988 12l5.581 6.512a.75.75 0 1 1-1.138.976l-6-7a.75.75 0 0 1 0-.976l6-7a.75.75 0 0 1 1.057-.081" clip-rule="evenodd" />
@@ -27,34 +43,34 @@
                                         </div>
                                         <span class="genBtnText">Back</span>
                                     </button>
-                                    <div class="">
-                                        <p class="">/</p>
+                                    <div class="watch_pg_dvd_box">
+                                        <p class="watch_pg_dvd_txt">/</p>
                                     </div>
-                                    <div class="">
-                                        <p class="">The Day I Reincarnated As a Slime</p>
+                                    <div class="watch_pg_ttl_box">
+                                        <p class="watch_pg_ttl_txt">The Day I Reincarnated As a Slime: Never actually happened cus it was just a dream or nightmare I heard someone else talking about with me</p>
                                     </div>
-                                    <div class="">
-                                        <div class="">S1E1096</div>
+                                    <div class="watch_pg_ep_box">
+                                        <div class="watch_pg_ep_txt">S109E1096</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="">
-                                <div class="">
-                                    <button type="button" class="genBtnBox genIconBtn transBtn" title="Previous Episode">
+                            <div class="watch_pg_atn_bdr">
+                                <div class="watch_pg_atn_box">
+                                    <button type="button" class="genBtnBox genIconBtn transBtn watch_pg_prev_ep_btn" title="Previous Episode">
                                         <div class="genBtnIcon">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
                                                 <path d="M8.09 14.647c-1.787-1.154-1.787-4.14 0-5.294l10.79-6.968c1.736-1.121 3.87.339 3.87 2.648v13.934c0 2.31-2.134 3.769-3.87 2.648zM2 5a.75.75 0 0 1 1.5 0v14A.75.75 0 0 1 2 19z" />
                                             </svg>
                                         </div>
                                     </button>
-                                    <button type="button" class="genBtnBox genIconBtn transBtn" title="Next Episode">
+                                    <button type="button" class="genBtnBox genIconBtn transBtn watch_pg_next_ep_btn" title="Next Episode">
                                         <div class="genBtnIcon">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
                                                 <path d="M16.66 14.647c1.787-1.154 1.787-4.14 0-5.294L5.87 2.385C4.135 1.264 2 2.724 2 5.033v13.934c0 2.31 2.134 3.769 3.87 2.648zM22.75 5a.75.75 0 0 0-1.5 0v14a.75.75 0 0 0 1.5 0z" />
                                             </svg>
                                         </div>
                                     </button>
-                                    <button type="button" class="genBtnBox transBtn">
+                                    <button type="button" class="genBtnBox transBtn watch_pg_ep_sel_btn">
                                         <div class="genBtnIcon">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
                                                 <g fill-rule="evenodd" clip-rule="evenodd">
@@ -65,7 +81,7 @@
                                         </div>
                                         <span class="genBtnText">Episodes</span>
                                     </button>
-                                    <button type="button" class="genBtnBox greySolidBtn">
+                                    <button type="button" class="genBtnBox greySolidBtn watch_pg_ply_sel_btn">
                                         <div class="genBtnIcon">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
                                                 <path fill-rule="evenodd" d="M4.43 8.512a.75.75 0 0 1 1.058-.081L12 14.012l6.512-5.581a.75.75 0 0 1 .976 1.138l-7 6a.75.75 0 0 1-.976 0l-7-6a.75.75 0 0 1-.081-1.057" clip-rule="evenodd" />
@@ -79,6 +95,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     `;
     
 

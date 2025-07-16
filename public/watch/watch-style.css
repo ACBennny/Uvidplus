@@ -1,0 +1,81 @@
+/*************************************************************
+ * This is the style for the Episode pages of Uvid+
+ * 
+ * @author (Anyanwu Benedict Chukwuemeka)
+ * @version (v0.01)
+ *************************************************************/
+
+
+
+html:root
+{
+}
+
+
+.watch_pg_base
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.75);
+    transition: all 300ms ease-in-out;
+    pointer-events: none;
+    z-index: 999;
+}
+
+.watch_pg_base.active
+{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.00);
+    pointer-events: all;
+}
+
+.watch_pg_base .watch_pg_bcg
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    z-index: -1;
+}
+
+.watch_pg_base .watch_pg_bdr
+{
+    width: 100%;
+    height: 100%;
+}
+
+.watch_pg_bdr .watch_pg_box
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
