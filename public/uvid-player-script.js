@@ -8,6 +8,9 @@
 
 
     // VIDEO PLAYER
+    
+    function initUVPlyr()
+    {
         
         const mainVid = document.querySelectorAll(".video_player .main-video");
         const vidQualities = document.querySelectorAll("source[size]");
@@ -38,7 +41,7 @@
                     <div class="episode_title_box">
                         <div class="companyTitle">
                             <h1 class="head">U</h1>
-                            <h1 class="tail">vid</h1>
+                            <h1 class="tail">vid+</h1>
                         </div>
                         <div class="episodeTitle"></div>
                     </div>
@@ -80,7 +83,7 @@
                 </div>
                 <div class="wrapper">
                     <div class="progress-area">
-                    <canvas class="bufferedBar"></canvas>
+                        <canvas class="bufferedBar"></canvas>
                         <div class="progress-bar">
                             <span></span>
                         </div>
@@ -1497,4 +1500,6 @@
             });
 
         });
+
+    }
         
