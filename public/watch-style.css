@@ -6,16 +6,12 @@
  *************************************************************/
 
 
+
 html:root
 {
-    --leftColWidth: calc(100% - var(--rightColWidth));
-    --rightColWidth: 35%;
-    --next_epImgBoxWidth: 9.375rem;
-    --showlist_MoreEpCloseBoxHeight: 1.875rem;
-    --showlist_MoreEpHeaderBdrHeight: 3.125rem;
-    --moreEpCtntBox_columnWidth: 17.1875rem;
-    --showlist_epImgBoxWidth: 9.375rem;
 }
+
+
 
 
 
