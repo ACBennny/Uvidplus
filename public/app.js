@@ -284,9 +284,6 @@
             notification(`notifyBad` , `Signed Out`);
             toggleNavBarUnderLayer();
 
-            // Remove the beforeunload listener
-            window.removeEventListener("beforeunload" , b4UnloadHandler);
-
             // Remove the signed in user from local storage
             const auth = window.firebaseAuth;
 
