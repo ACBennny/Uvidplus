@@ -21,7 +21,7 @@ html:root
 
 /* ======================= BODY =================== */
 
-.watch_base
+.info_pg_base
 {
     width: 100%;
     display: flex;
@@ -31,7 +31,7 @@ html:root
     scroll-behavior: smooth;
 }
 
-.main_bcg
+.info_pg_bcg
 {
     width: 100%;
     height: fit-content;
@@ -80,7 +80,7 @@ html:root
     background-image: radial-gradient(100% 80% at 50% 20%, #00000000 0%, #000000 100%);
 }
 
-.main_bdr
+.info_pg_bdr
 {
     width: 100%;
     height: fit-content;
@@ -88,7 +88,7 @@ html:root
     justify-content: center;
 }
 
-.main_box
+.info_pg_box
 {
     position: relative;
     width: 100%;
@@ -615,6 +615,9 @@ html:root
     width: fit-content;
     margin: 0.375rem 0.75rem;
     padding: 0.3125rem;
+    outline: none;
+    border: none;
+    background-color: #00000000;
     cursor: pointer;
 }
 
@@ -1622,7 +1625,7 @@ html:root
         background-image: radial-gradient(100% 80% at 50% 0%, #00000000 0%, #000000 100%);
     }
     
-    .main_box
+    .info_pg_box
     {
         flex-direction: column;
         gap: 0.625rem;
