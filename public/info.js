@@ -7,6 +7,7 @@
 ****************************************************************/
 
 
+    let info_pg_show_name = null;
     let showsStructData;
     let moreShowsToWatchStruct = 
     `
@@ -134,10 +135,10 @@
 
 
 
-    function preShowSection()
+    function preShowSection(namePrvd)
     {
-
-        showsStructData = infoInvLinkMap.get(hash_parts[2]);
+        info_pg_show_name = namePrvd || hash_parts[2];
+        showsStructData = infoInvLinkMap.get(info_pg_show_name);
 
         // If no match, redirect to error page
         if(!(showsStructData))
@@ -168,9 +169,8 @@
         
         let showHTMLCtnt =  
         `
-            <div class="watch_base">
-
-                <div class="main_bcg">
+            <div class="info_pg_base">
+                <div class="info_pg_bcg">
                     <div class="bcg_img_bdr">
                         <div class="bcg_img_box">
                             <div class="img_preload_box">
@@ -183,8 +183,8 @@
                         </div>
                         <div class="bcg_img_gradient"></div>
                     </div>
-                    <div class="main_bdr">
-                        <div class="main_box">
+                    <div class="info_pg_bdr">
+                        <div class="info_pg_box">
                             <div class="title-plate">
                                 <div class="title_ImgBdr">
                                     <div class="title_ImgBox">
@@ -349,15 +349,15 @@
                                     <div class="ctnt-tab-headerBcg">
                                         <div class="ctnt-tab-headerBdr">
                                             <div class="ctnt-tab-headerBox">
-                                                <div class="ctnt-tab-headerOpt selected">
+                                                <button type="button" class="ctnt-tab-headerOpt selected">
                                                     <div class="ctnt-tab-headerText">Overview</div>
-                                                </div>
-                                                <div class="ctnt-tab-headerOpt ">
+                                                </button>
+                                                <button type="button" class="ctnt-tab-headerOpt ">
                                                     <div class="ctnt-tab-headerText">Episodes</div>
-                                                </div>
-                                                <div class="ctnt-tab-headerOpt ">
+                                                </button>
+                                                <button type="button" class="ctnt-tab-headerOpt ">
                                                     <div class="ctnt-tab-headerText">Related</div>
-                                                </div>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -555,7 +555,7 @@
         `;
 
         documentCtnt.insertAdjacentHTML(`afterbegin` , showHTMLCtnt);
-        document.title = `Uvid+ • Watch ${showsStructData.show_title}`;
+        document.title = `Watch ${showsStructData.show_title} • Uvid+`;
         genShowLinkForCL = showsStructData.show_link;
 
         epSetArr.length = 0;
@@ -670,7 +670,7 @@
                                         <img loading="lazy" onload="this.classList.add('loaded')" class="ep_cardThumbImg" src="${showsStructData.show_background}">
                                     </div>
                                 </div>
-                                <a href="#/watch/movie/${hash_parts[2]}/1" class="ep_cardCtntBdr">
+                                <a href="#/watch/movie/${info_pg_show_name}/1" class="ep_cardCtntBdr">
                                     <div class="ep_cardCtntBox">
                                         <div class="ep_cardCtnt_titleBox">
                                             <p class="ep_cardCtnt_titleText">Full movie</p>
@@ -722,8 +722,8 @@
 
     function insertMoreShowsToWatch()
     {
-        let watchBase = document.querySelector(".watch_base");
-        watchBase.insertAdjacentHTML(`afterend` , moreShowsToWatchStruct);
+        let InfoPgBase = document.querySelector(".info_pg_base");
+        InfoPgBase.insertAdjacentHTML(`afterend` , moreShowsToWatchStruct);
 
         let tempInv = searchInventory;
         let tempShuffle = shuffleArray([...tempInv]);
@@ -1538,7 +1538,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#/watch/tv/${hash_parts[2]}/${ssn}/${i}" class="ep_cardCtntBdr">
+                        <a href="#/watch/tv/${info_pg_show_name}/${ssn}/${i}" class="ep_cardCtntBdr">
                             <div class="ep_cardCtntBox">
                                 <div class="ep_cardCtnt_titleBox">
                                     <p class="ep_cardCtnt_titleText">Episode ${i}</p>
