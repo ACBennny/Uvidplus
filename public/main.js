@@ -25,6 +25,8 @@
     const gblInvalidChar1 = /^[A-Za-z0-9.()[\]_\-\n\s]+$/;
     const gblInvalidChar = /[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/;
     const membership_BILL_CYCLE = 30;
+    const pcWindow = window.matchMedia("(hover: hover)");
+    const mobWindow = window.matchMedia("(hover: none)");
     let sideNavLinks;
     let btmNavLinks;
     let genContainerMaxWidth = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--genMaxContainerWidth').trim());
