@@ -440,6 +440,7 @@ svg.hide
     margin-left: 0.1875rem;
     max-width: 4.6875rem;
     accent-color: var(--genGreenTypeMid2);
+    outline: none;
 }
 
 .options .video-timer
