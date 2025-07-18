@@ -141,7 +141,7 @@
                 if((watchPgShowEps <= 1))
                 {
                     // Return if user is at the end of the series
-                    if(watchPgShowSsn >= watchPgShowData.show_episodes.length)
+                    if(watchPgShowSsn == 1)
                     {
                         notification ('notifyBad', `You are at the start of the series`);
                         return;
@@ -180,7 +180,7 @@
                     else
                     {
                         // Set values for new season
-                        watchPgShowSsn--;
+                        watchPgShowSsn++;
                         watchPgShowEps = 1;
                     }
                 }
