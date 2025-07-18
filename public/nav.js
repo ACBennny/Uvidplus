@@ -153,7 +153,7 @@
             route_pbl_only: false,
             route_auth: true,
             route_member: true,
-            route_atn: "page_route_error",
+            route_atn: "initWatchPage",
             route_title: null,
         },
         'schedule': 

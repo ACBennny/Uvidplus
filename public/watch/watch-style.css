@@ -9,6 +9,9 @@
 
 html:root
 {
+    --watch_pg_nav_h: 6.25rem;
+    --watch_pg_atn_box_w: 21.25rem;
+    --watch_pg_ret_btn_w: 5.3125rem;
 }
 
 
@@ -26,7 +29,7 @@ html:root
     transform: scale(0.75);
     transition: all 300ms ease-in-out;
     pointer-events: none;
-    z-index: 999;
+    z-index: 125;
 }
 
 .watch_pg_base.active
@@ -62,6 +65,231 @@ html:root
     height: 100%;
     display: flex;
     flex-direction: column;
+}
+
+
+
+
+/* ======== WATCHPAGE PLAYER ======= */
+.watch_pg_box .watch_pg_ply_bdr
+{
+    width: 100%;
+    height: 100%;
+    max-height: calc(100% - (var(--watch_pg_nav_h)));
+    overflow: hidden;
+}
+
+.watch_pg_ply_bdr .watch_pg_ply_box
+{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+/* ======== WATCHPAGE NAVBAR ======= */
+.watch_pg_box .watch_pg_nav_bdr
+{
+    width: 100%;
+    height: var(--watch_pg_nav_h);
+    padding: 0.875rem;
+}
+
+.watch_pg_nav_bdr .watch_pg_nav_box
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.875rem;
+    border-radius: 0.625rem;
+    border-left: 0.125rem solid var(--genGreenTypeMid);
+    border-right: 0.125rem solid var(--genGreenTypeMid);
+    background-color: var(--genModalBcg);
+}
+
+.watch_pg_nav_box .watch_pg_det_bdr
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    width: calc((90% - var(--watch_pg_atn_box_w)));
+    height: 100%;
+}
+
+.watch_pg_det_bdr .watch_pg_det_box
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.genBtnBox.watch_pg_ret_btn
+{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.watch_pg_det_box .watch_pg_dvd_box
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 0 0.5rem;
+}
+
+.genBtnBox.watch_pg_ret_btn .genBtnText,
+.watch_pg_dvd_box .watch_pg_dvd_txt,
+.watch_pg_ep_box .watch_pg_ep_txt
+{
+    color: var(--genWhiteTypeMid);
+    font-size: 1rem;
+}
+
+.watch_pg_det_box .watch_pg_ttl_box
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    max-width: calc((100% - var(--watch_pg_ret_btn_w)));
+}
+
+.watch_pg_ttl_box .watch_pg_ttl_txt
+{
+    --lineNo: 1;
+    --lineHeight: 1.4;
+    position: relative;
+    width: 100%;
+    display: -webkit-box;
+    max-height: calc(var(--lineNo) * 1em * var(--lineHeight));
+    line-height: var(--lineHeight);
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--lineNo);
+    line-clamp: var(--lineNo);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    color: var(--genWhiteTypeLight);
+    font-size: 1rem;
+}
+
+.watch_pg_nav_box .watch_pg_atn_bdr
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    height: 100%;
+}
+
+.watch_pg_atn_bdr .watch_pg_atn_box
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.3125em;
+}
+
+.watch_pg_atn_box .watch_pg_ep_box
+{
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 60rem)
+{
+    html:root
+    {
+        --watch_pg_atn_box_w: 16.25rem;
+    }
+}
+
+
+
+@media only screen and (max-width: 48rem)
+{
+    html:root
+    {
+        --watch_pg_nav_h: 9.375rem;
+        --watch_pg_atn_box_w: 0rem;
+    }
+
+    .watch_pg_nav_bdr .watch_pg_nav_box
+    {
+        flex-direction: column;
+        border: none;
+        border-bottom: 0.125rem solid var(--genGreenTypeMid);
+    }
+
+    .watch_pg_nav_box .watch_pg_det_bdr,
+    .watch_pg_nav_box .watch_pg_atn_bdr
+    {
+        width: 100%;
+    }
+
+    .watch_pg_det_bdr .watch_pg_det_box,
+    .watch_pg_atn_bdr .watch_pg_atn_box
+    {
+        justify-content: center;
+    }
+}
+
+
+
+@media only screen and (max-width: 35.3125rem)
+{
+
+    .genBtnBox.watch_pg_ret_btn .genBtnText,
+    .watch_pg_dvd_box .watch_pg_dvd_txt,
+    .watch_pg_ep_box .watch_pg_ep_txt,
+    .watch_pg_ttl_box .watch_pg_ttl_txt
+    {
+        font-size: 0.875rem;
+    }
+}
+
+
+
+@media only screen and (max-width: 30.3125rem)
+{
+    html:root
+    {
+        --watch_pg_nav_h: 8.75rem;
+    }
+
+    .watch_pg_box .watch_pg_nav_bdr
+    {
+        padding: 0.625rem;
+    }
+
+    .watch_pg_nav_bdr .watch_pg_nav_box
+    {
+        padding: 0.625rem;
+    }
+
+    .watch_pg_ep_box .watch_pg_ep_txt
+    {
+        text-align: center;
+    }
 }
 
 
