@@ -604,7 +604,7 @@
                 fetch(url)
                 .then(() => 
                 {
-                    console.log(`The URL:${url} warmed in cache`);
+                    console.log(`The Test Video URL [${i+1}]:${url} warmed in cache`);
                 })
                 .catch((err) => 
                 {
@@ -620,8 +620,6 @@
         // Reset flag for load completed event
         window.__uvp_uvplr_ctnt_loaded = false;
     }
-    
-    // window.addEventListener("load", prepUVCtnt);
 
 
     // Preloads all the files to be used by the web player
@@ -680,6 +678,8 @@
             document.addEventListener("keydown",  kybrdShtCt);
         };
     }
+    
+    window.addEventListener("load", prepUVCtnt);
 
 
 
