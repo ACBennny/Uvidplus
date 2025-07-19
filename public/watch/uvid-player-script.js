@@ -1032,7 +1032,7 @@
     }
 
 
-
+// VIDEO PLAYER STAGES
 
     // Inserts the sources and tracks for the video player
     function preUVPlyr()
