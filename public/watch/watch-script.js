@@ -271,7 +271,7 @@
                 preShowSection(watch_pg_show_name);
 
                 // Building the video player
-                initUVPlyr();
+                preUVPlyr();
             });
         },300);
 

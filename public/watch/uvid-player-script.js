@@ -7,7 +7,6 @@
 
 
 
-    
     const video_player_html = 
     `
         <div class="loader">
@@ -22,15 +21,7 @@
                 <div class="episodeTitle">Test Video</div>
             </div>
         </div>
-        <video poster="/images/uvid-bcg0.jpg" preload="metadata" class="main-video">
-            <source src="/watch/3_360p.mp4" size="360" type="video/mp4">
-            <source src="/watch/3_360p.mp4" size="480" type="video/mp4">
-            <source src="/watch/3_720p.mp4" size="640" type="video/mp4">
-            <source src="/watch/3_720p.mp4" size="720" type="video/mp4">
-            <source src="/watch/3_1080p.mp4" size="1080" type="video/mp4">
-            <track label="English" kind="subtitles" src="/watch/subtitle-test1" srclang="en">
-            <track label="Japanese" kind="subtitles" src="/watch/subtitle-test1" srclang="jp">
-        </video>
+        <video poster="/images/uvid-bcg0.jpg" preload="metadata" class="main-video"></video>
         <div class="cover-vid">
             <div class="playPause_fullscreen_VidPc"></div>
             <div class="mobile_controls_box">
@@ -529,7 +520,6 @@
     
 
 
-
     // Keyboard key functions for pc only
     function kybrdShtCt(e)
     {
@@ -620,66 +610,8 @@
         // Reset flag for load completed event
         window.__uvp_uvplr_ctnt_loaded = false;
     }
-
-
-    // Preloads all the files to be used by the web player
-    function preLoadVidCtnt()
-    {
-        // Create background <video> to preload
-        const preloader = document.createElement("video");
-        preloader.preload = "auto";
-        preloader.muted = true;
-        preloader.style.display = "none";
-        preloader.style.pointerEvents = "none";
-
-        // Add sources
-        const sources = 
-        [
-            { src: "/watch/3_360p.mp4", size: "360", type: "video/mp4" },
-            { src: "/watch/3_720p.mp4", size: "720", type: "video/mp4" },
-            { src: "/watch/3_1080p.mp4", size: "1080", type: "video/mp4" }
-        ];
-
-        sources.forEach(s => 
-        {
-            const source = document.createElement("source");
-            source.src = s.src;
-            source.setAttribute("size", s.size);
-            source.type = s.type;
-            preloadedSources.push(source);
-            preloader.appendChild(source);
-        });
-
-        // Add subtitle tracks
-        const tracks = 
-        [
-            { label: "English", src: "/watch/subtitle-test1.vtt", srclang: "en" },
-            { label: "Japanese", src: "/watch/subtitle-test2.vtt", srclang: "ja" }
-        ];
-
-        tracks.forEach(t => 
-        {
-            const track = document.createElement("track");
-            track.label = t.label;
-            track.kind = "subtitles";
-            track.src = t.src;
-            track.srclang = t.srclang;
-            preloadedTracks.push(track);
-            preloader.appendChild(track);
-        });
-        // Start buffering
-        document.body.appendChild(preloader);
-        preloader.load();
-
-        // Remove preloaded elements
-        preloader.oncanplaythrough = () => 
-        {
-            console.log("Video fully preloaded in background.");
-            document.addEventListener("keydown",  kybrdShtCt);
-        };
-    }
     
-    window.addEventListener("load", prepUVCtnt);
+    // window.addEventListener("load", prepUVCtnt);
 
 
 
@@ -799,7 +731,6 @@
     {
         mainVideo.currentTime += skipLength;
     }
-
     
     // Restart video
     async function restartVid()
@@ -1015,14 +946,57 @@
 
 
 
+
+    // Inserts the sources and tracks for the video player
+    function preUVPlyr()
+    {
+        video_player = document.querySelector(".video_player");
+        video_player.innerHTML = video_player_html;
+        mainVideo = video_player.querySelector(".main-video");
+
+        const sources = 
+        [
+            { src: "/watch/3_360p.mp4", size: "360", type: "video/mp4" },
+            { src: "/watch/3_720p.mp4", size: "720", type: "video/mp4" },
+            { src: "/watch/3_1080p.mp4", size: "1080", type: "video/mp4" }
+        ];
+        const tracks = 
+        [
+            { label: "English", src: "/watch/subtitle-test1.vtt", srclang: "en" },
+            { label: "Japanese", src: "/watch/subtitle-test2.vtt", srclang: "ja" }
+        ];
+
+        // Add sources
+        sources.forEach(s => 
+        {
+            const source = document.createElement("source");
+            source.src = s.src;
+            source.setAttribute("size", s.size);
+            source.type = s.type;
+            mainVideo.appendChild(source);
+        });
+
+        // Add subtitle tracks
+        tracks.forEach(t => 
+        {
+            const track = document.createElement("track");
+            track.label = t.label;
+            track.kind = "subtitles";
+            track.src = t.src;
+            track.srclang = t.srclang;
+            mainVideo.appendChild(track);
+        });
+        
+        // Initialize video player
+        initUVPlyr();
+    }
+
+
     // Initializes the video player
     function initUVPlyr()
     {
         vidBdr = document.querySelector(".vid_bdr");
-        video_player = document.querySelector(".video_player");
-        video_player.innerHTML = video_player_html;
 
-        mainVideo = video_player.querySelector(".main-video");
         current = video_player.querySelector(".current-time");
         totalDuration = video_player.querySelector(".video-duration");
 
@@ -1079,19 +1053,6 @@
         thumbnailBox = video_player.querySelector(".thumbnailBox");
         thumbnail = video_player.querySelector(".thumbnail");
         
-        
-        // // Move preloaded resources and tracks into the player
-        // preloadedSources.forEach(srcEl => 
-        // {
-        //     mainVideo.appendChild(srcEl.cloneNode(true));
-        // });
-        // preloadedTracks.forEach(trackEl => 
-        // {
-        //     mainVideo.appendChild(trackEl.cloneNode(true));
-        // });
-
-        // // Re-initialize video with new sources
-        // mainVideo.load();
 
         // Reset flag for load completed event
         window.__uvp_uvplr_ctnt_loaded = false;
