@@ -1026,6 +1026,7 @@
             });
 
 
+
         // WATCHLIST
 
             // Toggle the state if show in watchlist
@@ -1127,7 +1128,7 @@
         // ***** RETURN ******
         
             // if NO Episodes Present
-            if((seasonSelector.length === 0))
+            if((seasonSelector.length === 0) && (showsStructData.show_type.toLowerCase() === "tv"))
             {
                 watchNowBtn.addEventListener("click" , () => 
                 {
