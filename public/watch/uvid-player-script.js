@@ -585,7 +585,12 @@
     // Preps the videos for play to simulate quick loading times
     function prepUVCtnt()
     {
-        const vid_urls = ["/watch/3_360p.mp4", "/watch/3_720p.mp4", "/watch/3_1080p.mp4"];
+        const vid_urls = 
+        [
+            // "/watch/3_360p.mp4", 
+            // "/watch/3_720p.mp4", 
+            "/watch/3_1080p.mp4"
+        ];
 
         vid_urls.forEach((url, i) => 
         {
@@ -611,7 +616,7 @@
         window.__uvp_uvplr_ctnt_loaded = false;
     }
     
-    // window.addEventListener("load", prepUVCtnt);
+    window.addEventListener("load", prepUVCtnt);
 
 
 
@@ -956,8 +961,8 @@
 
         const sources = 
         [
-            { src: "/watch/3_360p.mp4", size: "360", type: "video/mp4" },
-            { src: "/watch/3_720p.mp4", size: "720", type: "video/mp4" },
+            // { src: "/watch/3_360p.mp4", size: "360", type: "video/mp4" },
+            // { src: "/watch/3_720p.mp4", size: "720", type: "video/mp4" },
             { src: "/watch/3_1080p.mp4", size: "1080", type: "video/mp4" }
         ];
         const tracks = 
