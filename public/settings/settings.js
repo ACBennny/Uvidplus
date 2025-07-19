@@ -2690,6 +2690,14 @@
                             notification('notifyGood', 'Preferences saved');
                             break;
                             
+                        case 'sett_mng_prof_auto_mute':
+                            await updUsrProfFlds(
+                            {
+                                prof_auto_mute: ischk
+                            }, prof_id);
+                            notification('notifyGood', 'Preferences saved');
+                            break;
+                            
                         case 'sett_mng_prof_auto_next':
                             await updUsrProfFlds(
                             {
@@ -2710,14 +2718,6 @@
                             await updUsrProfFlds(
                             {
                                 prof_auto_skip: ischk
-                            }, prof_id);
-                            notification('notifyGood', 'Preferences saved');
-                            break;
-                            
-                        case 'sett_mng_prof_mute_audio':
-                            await updUsrProfFlds(
-                            {
-                                prof_mute_audio: ischk
                             }, prof_id);
                             notification('notifyGood', 'Preferences saved');
                             break;
