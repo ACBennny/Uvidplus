@@ -1170,7 +1170,7 @@
                 if(watchNowItem.length > 0)
                 {
                     // Open if it exists
-                    window.open(watchNowItem[(thisProf.length - 1)].hist_link , "_self");
+                    window.open(watchNowItem[(watchNowItem.length - 1)].hist_link , "_self");
                 }
                 else
                 {
