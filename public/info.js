@@ -1139,28 +1139,37 @@
 
         
 
-        //  ATTACH SELECTORS
-
-            seasonSub = document.querySelector('.show-sub');
-            seasonSet = document.querySelector('.showset');
-
-
-
         // WATCH NOW
 
+            // Update the button if user has started watching the show
+            const wn_hist = selectedProfile.prof_history.filter(item => 
+                item.hist_link.split('/')[3] === showsStructData.show_link.split('/')[2]
+            );
+
+            if((wn_hist.length > 0))
+            {
+                let wn_hist_link = wn_hist[(wn_hist.length - 1)].hist_link.split('/');
+
+                watchNowBtn.querySelector(".genBtnText").textContent = 
+                showsStructData.show_type.toLowerCase() === "tv" 
+                ? `Continue S${wn_hist_link[4]} E${wn_hist_link[5]}`
+                : `Continue`;
+            }
+
+            // Open the most recent episode
             watchNowBtn.addEventListener("click" , async () => 
             {
-                let selectedProfile = await getSelectedProfile();
+                let thisProf = await getSelectedProfile();
 
                 // Get the most recent addition to watch history for that show
-                let watchNowItem = selectedProfile.prof_history.filter(item => 
+                let watchNowItem = thisProf.prof_history.filter(item => 
                     item.hist_link.split('/')[3] === showsStructData.show_link.split('/')[2]
                 );
 
                 if(watchNowItem.length > 0)
                 {
                     // Open if it exists
-                    window.open(watchNowItem[0].hist_link , "_self");
+                    window.open(watchNowItem[(thisProf.length - 1)].hist_link , "_self");
                 }
                 else
                 {
@@ -1241,6 +1250,9 @@
 
 
         // SEASON SELECTOR
+
+            seasonSub = document.querySelector('.show-sub');
+            seasonSet = document.querySelector('.showset');
 
             // Open season selector
             seasonHeaderBox.addEventListener("click" , () => 
