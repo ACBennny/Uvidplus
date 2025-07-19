@@ -1043,8 +1043,8 @@
 
         const sources = 
         [
-            // { src: "/watch/3.mp4", size: "1080", type: "video/mp4" },
-            { src: "/watch/3_360p.mp4", size: "360", type: "video/mp4" },
+            { src: "/watch/3.mp4", size: "1080", type: "video/mp4" },
+            // { src: "/watch/3_360p.mp4", size: "360", type: "video/mp4" },
             // { src: "/watch/3_720p.mp4", size: "720", type: "video/mp4" },
             // { src: "/watch/3_1080p.mp4", size: "1080", type: "video/mp4" }
         ];
