@@ -470,7 +470,7 @@
     let volumeLowBtn;
     let volumeOffBtn;
     let volumeSlider;
-    let current;
+    let currentDuration;
     let totalDuration;
     let picture_in_picutre;
     let fullScreenBtnBox;
@@ -514,6 +514,7 @@
     let qualityUL;
     let qualities;
     let ctrltimer;
+    let watchProgressRecTmr;
 
 
 
@@ -765,6 +766,9 @@
 
             // Autoplay video, if on
             if((isAutoPlay) && (typeof isAutoPlay === "boolean") && (isAutoPlay == true)) toggleVidPlay();
+
+            // Update Timeline based on show watch history
+            setTimeLineByHist();
         }
         catch(error)
         {
@@ -778,12 +782,7 @@
     {
         video_player.classList.add("show-controls");
         clearTimeout(ctrltimer);
-
-        // // Exit fullscreen if on
-        // if(document.fullscreenElement) 
-        // {
-        //     toggleFullScreenMode();
-        // }
+        clearInterval(watchProgressRecTmr);
 
         // Go to Next episode when video ends, if auto next is on
         if(autoNextEpCheckBox.checked == true)
@@ -886,7 +885,32 @@
         let timelineWidth = progressArea.clientWidth;
         progress_Bar.style.width = `${e.offsetX}px`;
         mainVideo.currentTime = (e.offsetX / timelineWidth) * mainVideo.duration;
-        current.innerText = formatTime(mainVideo.currentTime);
+        currentDuration.innerText = formatTime(mainVideo.currentTime);
+    }
+
+
+    // Check and update the video timeline based on it's state in the user's watch history
+    async function setTimeLineByHist()
+    {
+        let showLink = `${window.location.hash}`;
+
+        try
+        {
+            const selProf = await getSelectedProfile();
+            const selProfHist = selProf?.prof_history.filter(item => item.hist_link === showLink);
+
+            if((selProfHist.length > 0) && (selProfHist[0]?.hist_currTime))
+            {
+                const vd_duration = timeToSeconds(`${selProfHist[0]?.hist_currTime}`);
+
+                if(vd_duration) mainVideo.currentTime = vd_duration;
+            }
+        }
+        catch(error)
+        {
+            console.error(`Failed to fetch watch history for ${showLink}\n${error}`);
+            notification(`notifyBad`, `Failed to fetch watch history for the current show`);
+        }
     }
 
 
@@ -934,6 +958,63 @@
     }
 
 
+    // Save currentDuration progress to user history
+    function saveWatchProgessInHist()
+    {
+        clearInterval(watchProgressRecTmr);
+
+        if(!(isPageWatchPage())) return;
+
+        let sv_prd_cycle = 1000 * 3 // 3 seconds period
+
+
+        const sv_prg = async () => 
+        {
+            if(mainVideo.paused) return;
+
+            clearInterval(watchProgressRecTmr);
+            
+            let currTime = currentDuration.textContent;
+            let ttlTime = totalDuration.textContent;
+
+            try
+            {
+                let selectedProfile = await getSelectedProfile();
+                let showLink = `${window.location.hash}`;
+                
+                // Check and remove the old entry
+                selectedProfile.prof_history = selectedProfile.prof_history.filter(item => item.hist_link !== showLink);
+        
+                // Add new entry
+                selectedProfile.prof_history.push(
+                    {
+                        hist_link: showLink,
+                        hist_currTime: `${currTime}`,
+                        hist_totalTime: `${ttlTime}`,
+                    }
+                );
+
+                // Update user data
+                await updUsrProfFlds(
+                {
+                    prof_history: selectedProfile.prof_history
+                });
+
+                // Restart interval
+                watchProgressRecTmr = setInterval(sv_prg, sv_prd_cycle);
+            }
+            catch(error)
+            {
+                console.error(`Failed to save watch progress at: [${currTime}/${ttlTime}]\n${error}`);
+
+                // Restart interval
+                watchProgressRecTmr = setInterval(sv_prg, sv_prd_cycle);
+            }
+        }
+
+        watchProgressRecTmr = setInterval(sv_prg, sv_prd_cycle);
+    }
+
 
     // Checks if user is in the watch page
     function isPageWatchPage()
@@ -962,8 +1043,8 @@
 
         const sources = 
         [
-            { src: "/watch/3.mp4", size: "1080", type: "video/mp4" },
-            // { src: "/watch/3_360p.mp4", size: "360", type: "video/mp4" },
+            // { src: "/watch/3.mp4", size: "1080", type: "video/mp4" },
+            { src: "/watch/3_360p.mp4", size: "360", type: "video/mp4" },
             // { src: "/watch/3_720p.mp4", size: "720", type: "video/mp4" },
             // { src: "/watch/3_1080p.mp4", size: "1080", type: "video/mp4" }
         ];
@@ -1004,7 +1085,7 @@
     {
         vidBdr = document.querySelector(".vid_bdr");
 
-        current = video_player.querySelector(".current-time");
+        currentDuration = video_player.querySelector(".current-time");
         totalDuration = video_player.querySelector(".video-duration");
 
         progressAreaTime = video_player.querySelector(".progressAreaTime");
@@ -1069,7 +1150,7 @@
         let ttlSrcLength = mainVideoSources.length;
         let srcProgress = new Array(ttlSrcLength).fill(0);
 
-        // Update UI based on current vid process
+        // Update UI based on currentDuration vid process
         const updUVPlyrBlobProgress = () =>
         {
             const ttl_progress = srcProgress.reduce((a, b) => a + b, 0);
@@ -1089,6 +1170,9 @@
 
                 // Add listeners for other functionalities
                 startUVPlyr();
+
+                // Update Timeline based on show watch history
+                setTimeLineByHist();
 
                 // Remove the preloader
                 postUVPlyr();
@@ -1214,10 +1298,10 @@
             let {currentTime, duration} = e.target;
             let percent = (currentTime / duration) * 100;
             progress_Bar.style.width = `${percent}%`;
-            current.innerText = formatTime(currentTime);
+            currentDuration.innerText = formatTime(currentTime);
         });
 
-        // Updating playing video's current time according to the progress bar width
+        // Updating playing video's currentDuration time according to the progress bar width
         progressArea.addEventListener("pointerdown", (e) => 
         {
             progressArea.setPointerCapture(e.pointerId);
@@ -1303,6 +1387,7 @@
             video_player.classList.add("show-controls");
             clearTimeout(ctrltimer);
             hideControls();
+            saveWatchProgessInHist();
         });
     
         // Paused Video
@@ -1323,6 +1408,8 @@
             });
             video_player.classList.add("show-controls");
             clearTimeout(ctrltimer);
+            clearInterval(watchProgressRecTmr);
+            
             hideControls();
         });
 
@@ -1604,6 +1691,7 @@
                         closeSettingsOpt();
                         settingsBase.classList.remove("active");
                         clearTimeout(ctrltimer);
+                        clearInterval(watchProgressRecTmr);
                         toggleVidPlay();
                     }
                 });
