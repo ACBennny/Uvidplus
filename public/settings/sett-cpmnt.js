@@ -442,6 +442,15 @@ const sett_prof_pref_cmp =
     },
     {
         p_type: `toggle`,
+        p_id: `sett_mng_prof_auto_mute`,
+        p_name: `Auto Mute`,
+        p_desc: 
+        `
+            If enabled, the audio is always muted before playing the video.
+        `,
+    },
+    {
+        p_type: `toggle`,
         p_id: `sett_mng_prof_auto_next`,
         p_name: `Auto Next`,
         p_desc: 
@@ -465,15 +474,6 @@ const sett_prof_pref_cmp =
         p_desc: 
         `
             Automatically skip past opening and ending sequences (intros & outros) when detected.
-        `,
-    },
-    {
-        p_type: `toggle`,
-        p_id: `sett_mng_prof_mute_audio`,
-        p_name: `Mute Audio`,
-        p_desc: 
-        `
-            If enabled, the audio is always muted before playing the video.
         `,
     },
     {

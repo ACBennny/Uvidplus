@@ -2619,10 +2619,10 @@
 
         // Get the current info for each option
         const sbtl_aprnc = thisProf?.prof_show_subtitles;
+        const auto_mute = thisProf?.prof_auto_mute;
         const auto_next = thisProf?.prof_auto_next;
         const auto_play = thisProf?.prof_auto_play;
         const auto_skip = thisProf?.prof_auto_skip;
-        const mute_audio = thisProf?.prof_mute_audio;
         const audio_lang = LangOptLib.langOptInv.audioLangSelect.lang_options[thisProf?.prof_audio_lang].opt || "N/A";
         const sbtl_lang = LangOptLib.langOptInv.subCCLangSelect.lang_options[thisProf?.prof_subtitle_lang].opt || "N/A";
         const ctnt_lang = sett_ctnt_restrictions_opt[thisProf?.prof_ctnt_restriction] || "N/A";
@@ -2638,10 +2638,10 @@
 
         // Update toggle buttons
         mngProfBase.querySelector("#sett_mng_prof_sbtl_aprnc").checked = typeof sbtl_aprnc === "boolean" ? sbtl_aprnc : null;
+        mngProfBase.querySelector("#sett_mng_prof_auto_mute").checked = typeof auto_mute === "boolean" ? auto_mute : null;
         mngProfBase.querySelector("#sett_mng_prof_auto_next").checked = typeof auto_next === "boolean" ? auto_next : null;
         mngProfBase.querySelector("#sett_mng_prof_auto_play").checked = typeof auto_play === "boolean" ? auto_play : null;
         mngProfBase.querySelector("#sett_mng_prof_auto_skip").checked = typeof auto_skip === "boolean" ? auto_skip : null;
-        mngProfBase.querySelector("#sett_mng_prof_mute_audio").checked = typeof mute_audio === "boolean" ? mute_audio : null;
 
         // Update the menu items
         const audio_lang_btn = mngProfBase.querySelector("#sett_mng_prof_audio_lang");
