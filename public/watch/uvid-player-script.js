@@ -182,6 +182,31 @@
                                 </div>
                             </li>
                             <li>
+                                <label for="vid_AutoMuteToggleCheckbox" class="settingsHomeListItem listItemAutoMute">
+                                    <div class="itemLeft">
+                                        <span class="itemIconBox">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="itemIcon">
+                                                <path fill-rule="evenodd" d="M20.515 6.316a.75.75 0 0 1 .991.376c.468 1.035.994 2.768.994 5.308c0 2.192-.392 3.783-.8 4.844a7.7 7.7 0 0 1-.572 1.195a5 5 0 0 1-.289.425l-.007.01l-.003.003l-.002.002L20.25 18l.576.48a.75.75 0 0 1-1.156-.956l.003-.004l.031-.041a3 3 0 0 0 .137-.212c.12-.199.288-.516.459-.961c.342-.889.7-2.298.7-4.306c0-2.326-.48-3.849-.86-4.692a.75.75 0 0 1 .375-.992m-2.101 2.95a.75.75 0 0 1 .887.582c.11.53.199 1.24.199 2.152c0 1.11-.132 1.923-.273 2.474a5 5 0 0 1-.203.631a3 3 0 0 1-.102.228l-.01.018l-.003.007l-.002.003v.002s-.001.001-.657-.363l.656.364a.75.75 0 0 1-1.317-.719l.005-.01l.038-.087a4 4 0 0 0 .141-.447c.11-.424.227-1.111.227-2.101a9 9 0 0 0-.168-1.848a.75.75 0 0 1 .582-.886" clip-rule="evenodd" />
+                                                <path d="M21.78 3.53a.75.75 0 0 0-1.06-1.06l-4.45 4.449a11 11 0 0 0-.193-1.39c-.172-.788-.477-1.473-1.116-1.923a3 3 0 0 0-.769-.39c-.818-.28-1.631-.057-2.457.345c-.814.395-1.8 1.046-3.032 1.857l-.267.176c-.447.295-.602.394-.76.464q-.257.115-.535.16c-.171.03-.354.032-.89.032h-.162c-1.217 0-2.062-.001-2.814.347A3.96 3.96 0 0 0 1.548 8.22c-.392.729-.438 1.491-.504 2.575l-.008.13C1.014 11.294 1 11.658 1 12s.014.706.036 1.074l.008.13c.066 1.084.112 1.846.504 2.575a3.96 3.96 0 0 0 1.727 1.624c.61.283 1.283.336 2.166.345L2.72 20.47a.75.75 0 1 0 1.06 1.06zM16.5 12a.75.75 0 0 0-1.255-.554l-.071.074l-6 6.274A.778.778 0 0 0 9.34 19c1.039.68 1.899 1.225 2.631 1.549c.743.328 1.48.489 2.222.236a3 3 0 0 0 .769-.391c.706-.497 1.005-1.28 1.167-2.18c.159-.884.213-2.056.281-3.516l.003-.058a68 68 0 0 0 .088-2.64" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <div class="itemCenter">
+                                        <p class="itemName">Auto Mute</p>
+                                    </div>
+                                    <div class="itemRight">
+                                        <span class="itemValue">
+                                            <div class="genCheckBoxBase">
+                                                <input type="checkbox" id="vid_AutoMuteToggleCheckbox" class="genCheckBoxInput autoSettTglBtn" tabindex="-1" checked>
+                                                <label for="vid_AutoMuteToggleCheckbox" class="genCheckBoxToggle">
+                                                    <span class="genCheckBoxToggleCircle"></span>
+                                                </label>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
                                 <label for="vid_AutoNextToggleCheckbox" class="settingsHomeListItem listItemAutoNext">
                                     <div class="itemLeft">
                                         <span class="itemIconBox">
@@ -197,7 +222,7 @@
                                     <div class="itemRight">
                                         <span class="itemValue">
                                             <div class="genCheckBoxBase">
-                                                <input type="checkbox" id="vid_AutoNextToggleCheckbox" class="genCheckBoxInput" tabindex="-1" checked>
+                                                <input type="checkbox" id="vid_AutoNextToggleCheckbox" class="genCheckBoxInput autoSettTglBtn" tabindex="-1" checked>
                                                 <label for="vid_AutoNextToggleCheckbox" class="genCheckBoxToggle">
                                                     <span class="genCheckBoxToggleCircle"></span>
                                                 </label>
@@ -224,7 +249,7 @@
                                     <div class="itemRight">
                                         <span class="itemValue">
                                             <div class="genCheckBoxBase">
-                                                <input type="checkbox" id="vid_AutoPlayToggleCheckbox" class="genCheckBoxInput" tabindex="-1" checked>
+                                                <input type="checkbox" id="vid_AutoPlayToggleCheckbox" class="genCheckBoxInput autoSettTglBtn" tabindex="-1" checked>
                                                 <label for="vid_AutoPlayToggleCheckbox" class="genCheckBoxToggle">
                                                     <span class="genCheckBoxToggleCircle"></span>
                                                 </label>
@@ -248,7 +273,7 @@
                                     <div class="itemRight">
                                         <span class="itemValue">
                                             <div class="genCheckBoxBase">
-                                                <input type="checkbox" id="vid_AutoSkipToggleCheckbox" class="genCheckBoxInput" tabindex="-1" checked>
+                                                <input type="checkbox" id="vid_AutoSkipToggleCheckbox" class="genCheckBoxInput autoSettTglBtn" tabindex="-1" checked>
                                                 <label for="vid_AutoSkipToggleCheckbox" class="genCheckBoxToggle">
                                                     <span class="genCheckBoxToggleCircle"></span>
                                                 </label>
@@ -479,8 +504,11 @@
     let settingsOptBdr;
     let openSettingsOptBdr;
     let closeSettingsOptBdr;
-    let autoPlay;
+    let autoSettRadBtns;
+    let autoMuteEpCheckBox;
+    let autoNextEpCheckBox;
     let autoPlayEpCheckBox;
+    let autoSkipEpCheckBox;
     let caption_labels;
     let caption_text;
     let languageUL;
@@ -576,7 +604,6 @@
                 fetch(url)
                 .then(() => 
                 {
-                    document.addEventListener("keydown",  kybrdShtCt);
                     console.log(`The URL:${url} warmed in cache`);
                 })
                 .catch((err) => 
@@ -586,9 +613,15 @@
                 });
             }, (i * 5000));
         });
+
+        // Add lisener for keyboard shortcuts on video player
+        document.addEventListener("keydown",  kybrdShtCt);
+
+        // Reset flag for load completed event
+        window.__uvp_uvplr_ctnt_loaded = false;
     }
     
-    window.addEventListener("load", prepUVCtnt);
+    // window.addEventListener("load", prepUVCtnt);
 
 
     // Preloads all the files to be used by the web player
@@ -728,10 +761,10 @@
         }
     }
 
-    // To toggle between mute
-    function toggleMute()
-    {
-        if(!(volumeOffBtn.classList.contains("hide")))
+    // Toggles between mute or auto mutes if "mute == true"
+    function toggleMute(mute = null)
+    { 
+        if((mute == false) || !(volumeOffBtn.classList.contains("hide")))
         {
             mainVideo.volume = 0.5;
             volumeHighBtn.classList.remove("hide");
@@ -740,7 +773,7 @@
             volumeBtnBox.title = "mute";
             volumeBtnBox.ariaLabel = "mute";
         }
-        else
+        else if((mute == true) || (volumeOffBtn.classList.contains("hide")))
         {
             mainVideo.volume = 0.0;
             volumeOffBtn.classList.remove("hide");
@@ -748,6 +781,15 @@
             volumeHighBtn.classList.add("hide");
             volumeBtnBox.title = "unmute";
             volumeBtnBox.ariaLabel = "unmute";
+        }
+        else
+        {
+            mainVideo.volume = 0.5;
+            volumeHighBtn.classList.remove("hide");
+            volumeLowBtn.classList.add("hide");
+            volumeOffBtn.classList.add("hide");
+            volumeBtnBox.title = "mute";
+            volumeBtnBox.ariaLabel = "mute";
         }
         volumeSlider.value = mainVideo.volume;
     }
@@ -758,22 +800,58 @@
         mainVideo.currentTime += skipLength;
     }
 
-    // Handles Auto Play
+    
+    // Restart video
+    async function restartVid()
+    {
+        // Restart video
+        mainVideo.pause();
+        mainVideo.currentTime = 0;
+
+        // Auto play if set on
+        try
+        {
+            // Check for user's preferences
+            let selProf = await getSelectedProfile();
+            let isAutoMute = selProf?.prof_auto_mute;
+            let isAutoPlay = selProf?.prof_auto_play;
+
+            // Mute audio, if on
+            if((isAutoMute) && (typeof isAutoMute === "boolean") && (isAutoMute == true))
+            {
+                toggleMute(true);
+            }
+            else
+            {
+                toggleMute(false);
+            }
+
+            // Autoplay video, if on
+            if((isAutoPlay) && (typeof isAutoPlay === "boolean") && (isAutoPlay == true)) toggleVidPlay();
+        }
+        catch(error)
+        {
+            console.error(`Failed to fetch user preferences\n${err}`);
+            notification(`notifyBad`, `Failed to fetch user preferences`);
+        }
+    }
+
+    // Handles Auto Next
     function vidHasEnded()
     {
         video_player.classList.add("show-controls");
         clearTimeout(ctrltimer);
 
+        // Exit fullscreen if on
         if(document.fullscreenElement) 
         {
             toggleFullScreenMode();
         }
 
         // Go to Next episode when video ends, if auto next is on
-        if(autoPlayEpCheckBox.checked == true)
+        if(autoNextEpCheckBox.checked == true)
         {
-            if(autoPlayEpCheckBox.checked == false) return;
-            toggleVidPlay();
+            document.querySelector(".watch_pg_next_ep_btn").click();
         }
     }
 
@@ -919,30 +997,6 @@
     }
 
 
-    // Blob Video URL
-    function blobUrl(video, videoUrl)
-    {
-        let xhr = new XMLHttpRequest();
-        xhr.open("GET", videoUrl);
-        xhr.responseType = "arraybuffer";
-        xhr.onload = (e) => 
-        {
-            let blob = new Blob([xhr.response]);
-            let url = URL.createObjectURL(blob);
-            video.src = url;
-        };
-        xhr.onprogress = (event) => 
-        {
-            if (event.lengthComputable) 
-            {
-                // const percent = (event.loaded / event.total) * 100;
-                // console.log(`Loading: ${percent.toFixed(1)}%`);
-                // Update your UI here
-            }
-        };
-        xhr.send();
-    }
-
 
     // Checks if user is in the watch page
     function isPageWatchPage()
@@ -961,630 +1015,795 @@
 
 
 
-    // Init the video player
+    // Initializes the video player
     function initUVPlyr()
     {
         vidBdr = document.querySelector(".vid_bdr");
         video_player = document.querySelector(".video_player");
+        video_player.innerHTML = video_player_html;
 
-        // Build the video player
-        // video_players.forEach(video_player => 
+        mainVideo = video_player.querySelector(".main-video");
+        current = video_player.querySelector(".current-time");
+        totalDuration = video_player.querySelector(".video-duration");
+
+        progressAreaTime = video_player.querySelector(".progressAreaTime");
+        vidCtrlBdr = video_player.querySelector(".wrapper");
+        progressArea = video_player.querySelector(".progress-area");
+        bufferedBar = video_player.querySelector(".bufferedBar");
+        progress_Bar = video_player.querySelector(".progress-bar");
+        skipBackward = video_player.querySelectorAll(".skip-backward .skipBackwardIcon");
+        skipForward = video_player.querySelectorAll(".skip-forward .skipForwardIcon");
+        playPauseBtnBox = video_player.querySelectorAll(".play-pause");
+        playPauseBtn = video_player.querySelectorAll(".play-pause svg");
+        playBtn = video_player.querySelectorAll(".play-pause .playIcon");
+        pauseBtn = video_player.querySelectorAll(".play-pause .pauseIcon");
+        volumeBtnBox = video_player.querySelector(".volume");
+        volumeBtn = video_player.querySelectorAll(".volume svg");
+        volumeHighBtn = video_player.querySelector(".volume .volume_highIcon");
+        volumeLowBtn = video_player.querySelector(".volume .volume_lowIcon");
+        volumeOffBtn = video_player.querySelector(".volume .volume_offIcon");
+        volumeSlider = video_player.querySelector(".left input.volume-range");
+        picture_in_picutre = video_player.querySelector(".pic-in-pic .picInPicIcon");
+        fullScreenBtnBox = video_player.querySelectorAll(".fullscreenBtn");
+        fullScreenBtn = video_player.querySelectorAll(".fullscreenBtn svg");
+        fullScreenExpandBtn = video_player.querySelector(".fullscreenBtn .expandIcon");
+        fullScreenContractBtn = video_player.querySelector(".fullscreenBtn .compressIcon");
+        tracks = video_player.querySelectorAll("track");
+        loader = video_player.querySelector(".loader");
+        pcControlTapBox = video_player.querySelector(".playPause_fullscreen_VidPc");
+        settingsBtn = video_player.querySelector(".settingsBtn");
+        settingsBase = video_player.querySelector(".settingsBase");
+        closeSettingsBase = video_player.querySelector(".closeSettingsBase");
+        settingsHomeBdr = video_player.querySelector(".settingsHomeBdr");
+        settingsOptBdr = video_player.querySelectorAll(".settingsOptBdr");
+        openSettingsOptBdr = video_player.querySelectorAll(".openSettingsOptBdr");
+        closeSettingsOptBdr = video_player.querySelectorAll(".closeSettingsOptBdr");
+        autoSettRadBtns = video_player.querySelectorAll(".autoSettTglBtn");
+        autoMuteEpCheckBox = video_player.querySelector(".listItemAutoMute #vid_AutoMuteToggleCheckbox");
+        autoNextEpCheckBox = video_player.querySelector(".listItemAutoNext #vid_AutoNextToggleCheckbox");
+        autoPlayEpCheckBox = video_player.querySelector(".listItemAutoPlay #vid_AutoPlayToggleCheckbox");
+        autoSkipEpCheckBox = video_player.querySelector(".listItemAutoSkip #vid_AutoSkipToggleCheckbox");
+        caption_labels = video_player.querySelector(".captions_UL");
+        caption_text = video_player.querySelector(".captionText");
+        languageUL = video_player.querySelector(".language_UL");
+        languageLI = languageUL.querySelectorAll(".language_LI");
+        playbackUL = video_player.querySelector(".playbackSpeed_UL");
+        normalPlaybackLI = playbackUL.querySelector(".normalPlaybackspeed_LI");
+        playbackLI = playbackUL.querySelectorAll(".playbackSpeed_LI");
+        listItemLang = settingsBase.querySelector(".listItemLanguage");
+        listItemCaption = settingsBase.querySelector(".listItemSubtitleCC");
+        listItemSpeed = settingsBase.querySelector(".listItemPlaybackSpeed");
+        listItemQuality = settingsBase.querySelector(".listItemQuality");
+        qualityUL = video_player.querySelector(".quality_UL");
+        qualities = video_player.querySelectorAll("source[size]");
+        thumbnailBox = video_player.querySelector(".thumbnailBox");
+        thumbnail = video_player.querySelector(".thumbnail");
+        
+        
+        // // Move preloaded resources and tracks into the player
+        // preloadedSources.forEach(srcEl => 
         // {
+        //     mainVideo.appendChild(srcEl.cloneNode(true));
+        // });
+        // preloadedTracks.forEach(trackEl => 
+        // {
+        //     mainVideo.appendChild(trackEl.cloneNode(true));
+        // });
 
-            video_player.innerHTML = video_player_html;
+        // // Re-initialize video with new sources
+        // mainVideo.load();
 
+        // Reset flag for load completed event
+        window.__uvp_uvplr_ctnt_loaded = false;
 
-            mainVideo = video_player.querySelector(".main-video");
+        // Blob url
+        let mainVideoSources = mainVideo.querySelectorAll("source");
+        let ttlSrcLength = mainVideoSources.length;
+        let srcProgress = new Array(ttlSrcLength).fill(0);
 
-            // Move preloaded resources and tracks into the player
-            preloadedSources.forEach(srcEl => 
+        // Update UI based on current vid process
+        const updUVPlyrBlobProgress = () =>
+        {
+            const ttl_progress = srcProgress.reduce((a, b) => a + b, 0);
+            const ttl_pctl = ttl_progress / ttlSrcLength;
+
+            let ldr_txt = document.querySelector(".watch_pg_plyr_ldr_pctl_txt");
+            ldr_txt.textContent = `${ttl_pctl.toFixed(1)}%`;
+
+            // Action(s) to be performed when progress is at 100%
+            if((ttl_pctl >= 100) && !(window.__uvp_uvplr_ctnt_loaded))
             {
-                mainVideo.appendChild(srcEl.cloneNode(true));
-            });
-            preloadedTracks.forEach(trackEl => 
+                // Set flag to true to prevent repetitive calls
+                window.__uvp_uvplr_ctnt_loaded = true;
+
+                // Force reload since blob is ready
+                mainVideo.load();
+
+                // Add listeners for other functionalities
+                startUVPlyr();
+
+                // Remove the preloader
+                postUVPlyr();
+            }
+        }
+
+        // Get and blob each url
+        for (let i = 0; i < mainVideoSources.length; i++)
+        {
+            let vidSrc = mainVideoSources[i];
+            let vidSrcUrl = mainVideoSources[i].src;
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", vidSrcUrl);
+            xhr.responseType = "arraybuffer";
+
+            // Track loading progress
+            xhr.onprogress = (event) => 
             {
-                mainVideo.appendChild(trackEl.cloneNode(true));
-            });
+                if (event.lengthComputable) 
+                {
+                    const percent = (event.loaded / event.total) * 100;
+                    srcProgress[i] = percent;
+                    updUVPlyrBlobProgress();
+                }
+            };
 
-            // Re-initialize video with new sources
-            mainVideo.load(); 
-
-            progressAreaTime = video_player.querySelector(".progressAreaTime");
-            vidCtrlBdr = video_player.querySelector(".wrapper");
-            progressArea = video_player.querySelector(".progress-area");
-            bufferedBar = video_player.querySelector(".bufferedBar");
-            progress_Bar = video_player.querySelector(".progress-bar");
-            skipBackward = video_player.querySelectorAll(".skip-backward .skipBackwardIcon");
-            skipForward = video_player.querySelectorAll(".skip-forward .skipForwardIcon");
-            playPauseBtnBox = video_player.querySelectorAll(".play-pause");
-            playPauseBtn = video_player.querySelectorAll(".play-pause svg");
-            playBtn = video_player.querySelectorAll(".play-pause .playIcon");
-            pauseBtn = video_player.querySelectorAll(".play-pause .pauseIcon");
-            volumeBtnBox = video_player.querySelector(".volume");
-            volumeBtn = video_player.querySelectorAll(".volume svg");
-            volumeHighBtn = video_player.querySelector(".volume .volume_highIcon");
-            volumeLowBtn = video_player.querySelector(".volume .volume_lowIcon");
-            volumeOffBtn = video_player.querySelector(".volume .volume_offIcon");
-            volumeSlider = video_player.querySelector(".left input.volume-range");
-            current = video_player.querySelector(".current-time");
-            totalDuration = video_player.querySelector(".video-duration");
-            picture_in_picutre = video_player.querySelector(".pic-in-pic .picInPicIcon");
-            fullScreenBtnBox = video_player.querySelectorAll(".fullscreenBtn");
-            fullScreenBtn = video_player.querySelectorAll(".fullscreenBtn svg");
-            fullScreenExpandBtn = video_player.querySelector(".fullscreenBtn .expandIcon");
-            fullScreenContractBtn = video_player.querySelector(".fullscreenBtn .compressIcon");
-            tracks = video_player.querySelectorAll("track");
-            loader = video_player.querySelector(".loader");
-            pcControlTapBox = video_player.querySelector(".playPause_fullscreen_VidPc");
-            thumbnailBox = video_player.querySelector(".thumbnailBox");
-            thumbnail = video_player.querySelector(".thumbnail");
-            settingsBtn = video_player.querySelector(".settingsBtn");
-            settingsBase = video_player.querySelector(".settingsBase");
-            closeSettingsBase = video_player.querySelector(".closeSettingsBase");
-            settingsHomeBdr = video_player.querySelector(".settingsHomeBdr");
-            settingsOptBdr = video_player.querySelectorAll(".settingsOptBdr");
-            openSettingsOptBdr = video_player.querySelectorAll(".openSettingsOptBdr");
-            closeSettingsOptBdr = video_player.querySelectorAll(".closeSettingsOptBdr");
-            autoPlay = video_player.querySelector(".listItemAutoPlay");
-            autoPlayEpCheckBox = video_player.querySelector(".listItemAutoPlay #vid_AutoPlayToggleCheckbox");
-            caption_labels = video_player.querySelector(".captions_UL");
-            caption_text = video_player.querySelector(".captionText");
-            languageUL = video_player.querySelector(".language_UL");
-            languageLI = languageUL.querySelectorAll(".language_LI");
-            playbackUL = video_player.querySelector(".playbackSpeed_UL");
-            normalPlaybackLI = playbackUL.querySelector(".normalPlaybackspeed_LI");
-            playbackLI = playbackUL.querySelectorAll(".playbackSpeed_LI");
-            listItemLang = settingsBase.querySelector(".listItemLanguage");
-            listItemCaption = settingsBase.querySelector(".listItemSubtitleCC");
-            listItemSpeed = settingsBase.querySelector(".listItemPlaybackSpeed");
-            listItemQuality = settingsBase.querySelector(".listItemQuality");
-            qualityUL = video_player.querySelector(".quality_UL");
-            qualities = video_player.querySelectorAll("source[size]");
-
-
-            
-            window.addEventListener("scroll" , checkVidBdrBounds);
-            window.addEventListener("resize" , checkVidBdrBounds);
-            window.addEventListener("change" , () => 
+            // Create blob after loading
+            xhr.onload = (e) => 
             {
-                checkVidBdrBounds();
-                checkPIP();
-            });
+                let blob = new Blob([xhr.response]);
+                let url = URL.createObjectURL(blob);
+                vidSrc.src = url;
+                srcProgress[i] = 100;
+                updUVPlyrBlobProgress();
+            };
+
+            xhr.send();
+        } 
+
+        // Prevent context menu from opening
+        mainVideo.addEventListener("contextmenu", (e) => 
+        {
+            e.preventDefault();
+        });
+
+        // Load video duration
+        mainVideo.addEventListener("loadeddata", (e) => 
+        {
+            totalDuration.innerHTML = formatTime(mainVideo.duration);
+            mainVideo.volume = volumeSlider.value;
+        });
+    }
+
+
+    // Starts the video player
+    async function startUVPlyr()
+    {
+        window.addEventListener("scroll" , checkVidBdrBounds);
+        window.addEventListener("resize" , checkVidBdrBounds);
+        window.addEventListener("change" , () => 
+        {
             checkVidBdrBounds();
             checkPIP();
+        });
+        checkVidBdrBounds();
+        checkPIP();
 
-            document.addEventListener("fullscreenchange", () => 
+        document.addEventListener("fullscreenchange", () => 
+        {
+            if((isPageWatchPage()) && !(document.fullscreenElement))
             {
-                if((isPageWatchPage()) && !(document.fullscreenElement))
+                video_player.classList.remove("fullscreen");
+                fullScreenContractBtn.classList.add("hide");
+                fullScreenExpandBtn.classList.remove("hide");
+                fullScreenBtnBox.forEach(box => 
                 {
-                    video_player.classList.remove("fullscreen");
-                    fullScreenContractBtn.classList.add("hide");
-                    fullScreenExpandBtn.classList.remove("hide");
-                    fullScreenBtnBox.forEach(box => 
-                    {
-                        box.title = "enter fullscreen";
-                        box.ariaLabel = "enter fullscreen";
-                    });
-                }
-            });
-
-            // Insert tracks into list if present
-            if (tracks.length != 0) 
-            {
-                caption_labels.insertAdjacentHTML(
-                    "afterbegin",
-                    `
-                        <li data-track="OFF" class="settingsCtnt_LI captions_LI active">
-                            <p>Off</p>
-                        </li>
-                    `
-                );
-                for (let i = 0; i < tracks.length; i++) 
-                {
-                    let trackLI = 
-                    `
-                        <li data-track="${tracks[i].label}" class="settingsCtnt_LI captions_LI" title="${tracks[i].label}" aria-label="${tracks[i].label}">
-                            <p>${tracks[i].label}</p>
-                        </li>
-                    `;
-                    caption_labels.insertAdjacentHTML("beforeend", trackLI);
-                }
+                    box.title = "enter fullscreen";
+                    box.ariaLabel = "enter fullscreen";
+                });
             }
-            const caption = caption_labels.querySelectorAll(".captions_LI");
+        });
 
-            // Showing controls on mouse move
-            video_player.addEventListener("mousemove", () => 
+        // Insert tracks into list if present
+        if (tracks.length != 0) 
+        {
+            caption_labels.insertAdjacentHTML(
+                "afterbegin",
+                `
+                    <li data-track="OFF" class="settingsCtnt_LI captions_LI active">
+                        <p>Off</p>
+                    </li>
+                `
+            );
+            for (let i = 0; i < tracks.length; i++) 
             {
-                video_player.classList.add("show-controls");
-                if (tracks.length != 0)
-                {
-                    caption_text.classList.remove("active");
-                }
-                clearTimeout(ctrltimer);
-                hideControls();
-            });
+                let trackLI = 
+                `
+                    <li data-track="${tracks[i].label}" class="settingsCtnt_LI captions_LI" title="${tracks[i].label}" aria-label="${tracks[i].label}">
+                        <p>${tracks[i].label}</p>
+                    </li>
+                `;
+                caption_labels.insertAdjacentHTML("beforeend", trackLI);
+            }
+        }
+        const caption = caption_labels.querySelectorAll(".captions_LI");
 
-            // Load video duration
-            mainVideo.addEventListener("loadeddata", (e) => 
+        // Showing controls on mouse move
+        video_player.addEventListener("mousemove", () => 
+        {
+            video_player.classList.add("show-controls");
+            if (tracks.length != 0)
             {
-                totalDuration.innerHTML = formatTime(mainVideo.duration);
-                mainVideo.volume = volumeSlider.value;
-            });
+                caption_text.classList.remove("active");
+            }
+            clearTimeout(ctrltimer);
+            hideControls();
+        });
 
-            // Current video duration
-            mainVideo.addEventListener("timeupdate", (e) => 
-            {
-                let {currentTime, duration} = e.target;
-                let percent = (currentTime / duration) * 100;
-                progress_Bar.style.width = `${percent}%`;
-                current.innerText = formatTime(currentTime);
-            });
+        // Current video duration
+        mainVideo.addEventListener("timeupdate", (e) => 
+        {
+            let {currentTime, duration} = e.target;
+            let percent = (currentTime / duration) * 100;
+            progress_Bar.style.width = `${percent}%`;
+            current.innerText = formatTime(currentTime);
+        });
 
-            // Updating playing video's current time according to the progress bar width
-            progressArea.addEventListener("pointerdown", (e) => 
+        // Updating playing video's current time according to the progress bar width
+        progressArea.addEventListener("pointerdown", (e) => 
+        {
+            progressArea.setPointerCapture(e.pointerId);
+            setTimelinePosition(e);
+            progressArea.addEventListener("pointermove", setTimelinePosition);
+            progressArea.addEventListener("pointerup", () => 
             {
-                progressArea.setPointerCapture(e.pointerId);
-                setTimelinePosition(e);
-                progressArea.addEventListener("pointermove", setTimelinePosition);
-                progressArea.addEventListener("pointerup", () => 
-                {
-                    progressArea.removeEventListener("pointermove", setTimelinePosition);
-                });
+                progressArea.removeEventListener("pointermove", setTimelinePosition);
             });
+        });
 
-            mainVideo.addEventListener('progress', () => 
-            {
-                drawProgress(bufferedBar, mainVideo.buffered, mainVideo.duration);
-            });
+        mainVideo.addEventListener('progress', () => 
+        {
+            drawProgress(bufferedBar, mainVideo.buffered, mainVideo.duration);
+        });
 
-            mainVideo.addEventListener('waiting', () => 
-            {
-                loader.style.display = "flex";
-            });
+        mainVideo.addEventListener('waiting', () => 
+        {
+            loader.style.display = "flex";
+        });
 
-            mainVideo.addEventListener('canplay', () => 
-            {
-                loader.style.display = "none";
-            });
+        mainVideo.addEventListener('canplay', () => 
+        {
+            loader.style.display = "none";
+        });
 
-            // Rewinding video
-            skipBackward.forEach(btn => 
+        // Rewinding video
+        skipBackward.forEach(btn => 
+        {
+            btn.addEventListener("click", () => 
             {
-                btn.addEventListener("click", () => 
-                {
-                    videoSkip(-5);
-                });
+                videoSkip(-5);
             });
-        
-            // Fast forwarding video
-            skipForward.forEach(btn => 
+        });
+    
+        // Fast forwarding video
+        skipForward.forEach(btn => 
+        {
+            btn.addEventListener("click", () => 
             {
-                btn.addEventListener("click", () => 
-                {
-                    videoSkip(5);
-                });
+                videoSkip(5);
             });
-        
-            playPauseBtn.forEach(btn => 
-            {
-                btn.addEventListener("click", () => 
-                {
-                    toggleVidPlay();
-                });
-            });
-
-            // Pause/play (single click) For Pc users only 
-            pcControlTapBox.addEventListener("click" , () => 
+        });
+    
+        // Pause/play video
+        playPauseBtn.forEach(btn => 
+        {
+            btn.addEventListener("click", () => 
             {
                 toggleVidPlay();
             });
+        });
 
-            // Fullscreen (dbl click) For Pc users only 
-            pcControlTapBox.addEventListener("dblclick" , () => 
+        // Pause/play (single click) For Pc users only 
+        pcControlTapBox.addEventListener("click" , () => 
+        {
+            toggleVidPlay();
+        });
+
+        // Fullscreen (dbl click) For Pc users only 
+        pcControlTapBox.addEventListener("dblclick" , () => 
+        {
+            toggleFullScreenMode();
+        });
+    
+        // Playing Video
+        mainVideo.addEventListener("play", () => 
+        {
+            window.scrollTo(0, 0);
+            playBtn.forEach(btn => 
+            {
+                btn.classList.add("hide");
+            });
+            pauseBtn.forEach(btn => 
+            {
+                btn.classList.remove("hide");
+            });
+            playPauseBtnBox.forEach(box => 
+            {
+                box.title = "pause";
+                box.ariaLabel = "pause";
+            });
+            video_player.classList.add("show-controls");
+            clearTimeout(ctrltimer);
+            hideControls();
+        });
+    
+        // Paused Video
+        mainVideo.addEventListener("pause", () => 
+        {
+            playBtn.forEach(btn => 
+            {
+                btn.classList.remove("hide");
+            });
+            pauseBtn.forEach(btn => 
+            {
+                btn.classList.add("hide");
+            });
+            playPauseBtnBox.forEach(box => 
+            {
+                box.title = "play";
+                box.ariaLabel = "play";
+            });
+            video_player.classList.add("show-controls");
+            clearTimeout(ctrltimer);
+            hideControls();
+        });
+
+        volumeSlider.addEventListener("input", e => 
+        {
+            mainVideo.volume = e.target.value;
+            updateVolumeIcon(e.target.value);
+        });
+
+        volumeBtn.forEach(btn => 
+        {
+            btn.addEventListener("click", () => 
+            {
+                toggleMute();
+            });
+        });
+
+        // Update the progress area time and display it on mouse movement
+        progressArea.addEventListener("mousemove", (e) => 
+        {
+            let timelineWidth = progressArea.clientWidth;
+            let posX = e.offsetX;
+            let percent = Math.floor((posX / timelineWidth) * mainVideo.duration);
+            const progressTime = progressArea.querySelector("span");
+            posX = posX < thumbnailSpacing ? thumbnailSpacing : (posX > (timelineWidth - thumbnailSpacing)) ? (timelineWidth - thumbnailSpacing) : posX;
+            progressAreaTime.innerText = formatTime(percent);
+
+            // Displaying thumbnail
+            thumbnailBox.style.setProperty("--posX", `${posX}px`);
+            thumbnail.style.setProperty("--posX", `${posX}px`);
+            thumbnailBox.classList.add("show");
+
+            for (let item of thumbnails)
+            {
+                let data = item.sec.find(x1 => x1.index === Math.floor(percent));
+
+                // Show thumbnail if found
+                if (data)
+                {
+                    if (item.data != undefined)
+                    {
+                        thumbnail.setAttribute("style", `background-image: url(${item.data});background-position-x: ${data.backgroundPositionX}px;background-position-y: ${data.backgroundPositionY}px;--posX: ${posX}px;`);
+                        return;
+                    }
+                }
+            }
+
+        });
+        
+        // Hiding thumbnail and progress area time when mouse is not hovering the progress area
+        progressArea.addEventListener("mouseleave", () => 
+        {
+            thumbnailBox.classList.remove("show");
+        });
+
+        // Actions for when video ends
+        mainVideo.addEventListener('ended', () => 
+        {
+            vidHasEnded();
+        });
+
+        // Picture in picture
+        picture_in_picutre.addEventListener("click", () => 
+        {
+            mainVideo.requestPictureInPicture();
+        });
+
+        // Full screen function
+        fullScreenBtn.forEach(btn => 
+        {
+            btn.addEventListener("click", () => 
             {
                 toggleFullScreenMode();
             });
+        });
+
+        // Open settings
+        settingsBtn.addEventListener("click", () => 
+        {
+            settingsBase.classList.toggle("active");
+            settingsBtn.classList.toggle("active");
+
+            // Pause video for mob/touch devices
+            if(mobWindow.matches || window.innerWidth < 884 || window.innerHeight < 485)
+            {
+                mainVideo.pause();
+            }
+
+            if ((settingsHomeBdr.classList.contains("notActive")))
+            {
+                closeSettingsOpt();
+            };
+        });
         
-            // Playing Video
-            mainVideo.addEventListener("play", () => 
-            {
-                window.scrollTo(0, 0);
-                playBtn.forEach(btn => 
-                {
-                    btn.classList.add("hide");
-                });
-                pauseBtn.forEach(btn => 
-                {
-                    btn.classList.remove("hide");
-                });
-                playPauseBtnBox.forEach(box => 
-                {
-                    box.title = "pause";
-                    box.ariaLabel = "pause";
-                });
-                video_player.classList.add("show-controls");
-                clearTimeout(ctrltimer);
-                hideControls();
-            });
+        video_player.addEventListener("mousedown", e =>
+        {
+            if(mobWindow.matches) return;
+            hideSettingsBase();
+        });
+
+        closeSettingsBase.addEventListener("click" , () => 
+        {
+            settingsBase.classList.remove("active");
+            settingsBtn.classList.remove("active");
+            mainVideo.play();
+        });
         
-            // Paused Video
-            mainVideo.addEventListener("pause", () => 
+        // Opening sections of the settings menu
+        openSettingsOptBdr.forEach((btn, opnBdr) => 
+        {
+            btn.addEventListener("click" , () => 
             {
-                playBtn.forEach(btn => 
-                {
-                    btn.classList.remove("hide");
-                });
-                pauseBtn.forEach(btn => 
-                {
-                    btn.classList.add("hide");
-                });
-                playPauseBtnBox.forEach(box => 
-                {
-                    box.title = "play";
-                    box.ariaLabel = "play";
-                });
-                video_player.classList.add("show-controls");
-                clearTimeout(ctrltimer);
-                hideControls();
+                settingsHomeBdr.classList.add("notActive");
+                settingsOptBdr[opnBdr].classList.add("active");
+                settingsBase.scrollTo(0, 0);
             });
+        });
+        
+        closeSettingsOptBdr.forEach(btn => 
+        {
+            btn.addEventListener("click" , closeSettingsOpt);
+        });
 
-            volumeSlider.addEventListener("input", e => 
-            {
-                mainVideo.volume = e.target.value;
-                updateVolumeIcon(e.target.value);
-            });
-
-            volumeBtn.forEach(btn => 
-            {
-                btn.addEventListener("click", () => 
-                {
-                    toggleMute();
-                });
-            });
-
-            // Update the progress area time and display it on mouse movement
-            progressArea.addEventListener("mousemove", (e) => 
-            {
-                let timelineWidth = progressArea.clientWidth;
-                let posX = e.offsetX;
-                let percent = Math.floor((posX / timelineWidth) * mainVideo.duration);
-                const progressTime = progressArea.querySelector("span");
-                posX = posX < thumbnailSpacing ? thumbnailSpacing : (posX > (timelineWidth - thumbnailSpacing)) ? (timelineWidth - thumbnailSpacing) : posX;
-                progressAreaTime.innerText = formatTime(percent);
-
-                // Displaying thumbnail
-                thumbnailBox.style.setProperty("--posX", `${posX}px`);
-                thumbnail.style.setProperty("--posX", `${posX}px`);
-                thumbnailBox.classList.add("show");
-
-                for (let item of thumbnails)
-                {
-                    let data = item.sec.find(x1 => x1.index === Math.floor(percent));
-
-                    // Show thumbnail if found
-                    if (data)
-                    {
-                        if (item.data != undefined)
-                        {
-                            thumbnail.setAttribute("style", `background-image: url(${item.data});background-position-x: ${data.backgroundPositionX}px;background-position-y: ${data.backgroundPositionY}px;--posX: ${posX}px;`);
-                            return;
-                        }
-                    }
-                }
-
-            });
+        // Init Auto Settings (i.e. auto mute, auto next, auto play, auto skip)
+        try
+        {
+            let selProfForAutoSett = await getSelectedProfile();
+            let auto_mute = selProfForAutoSett?.prof_auto_mute;
+            let auto_next = selProfForAutoSett?.prof_auto_next;
+            let auto_play = selProfForAutoSett?.prof_auto_play;
+            let auto_skip = selProfForAutoSett?.prof_auto_skip;
             
-            // Hiding thumbnail and progress area time when mouse is not hovering the progress area
-            progressArea.addEventListener("mouseleave", () => 
-            {
-                thumbnailBox.classList.remove("show");
-            });
+            autoMuteEpCheckBox.checked = typeof auto_mute === "boolean" ? auto_mute : null;
+            autoNextEpCheckBox.checked = typeof auto_next === "boolean" ? auto_next : null;
+            autoPlayEpCheckBox.checked = typeof auto_play === "boolean" ? auto_play : null;
+            autoSkipEpCheckBox.checked = typeof auto_skip === "boolean" ? auto_skip : null;
+        }
+        catch(err)
+        {
+            console.error(`Failed to initialize Auto Settings\n${err}`);
+            notification(`notifyBad`, `Failed to initialize Auto Settings`);
+        }
 
-            mainVideo.addEventListener('ended', () => 
+        // Update listeners for Auto 
+        autoSettRadBtns.forEach((radBtn) => 
+        {
+            const rad_atn = async () => 
             {
-                vidHasEnded();
-            });
+                autoSettRadBtns.forEach(item => item.disabled = true);
+                let checkBtn = radBtn.parentElement.querySelector(`input[type="checkbox"]#${radBtn.id}:checked`);
+                let ischk = false;
 
-            // Picture in picture
-            picture_in_picutre.addEventListener("click", () => 
-            {
-                mainVideo.requestPictureInPicture();
-            });
-
-            // Full screen function
-
-            fullScreenBtn.forEach(btn => 
-            {
-                btn.addEventListener("click", () => 
+                if(checkBtn)
                 {
-                    toggleFullScreenMode();
-                });
-            });
-
-            // Open settings
-            settingsBtn.addEventListener("click", () => 
-            {
-                settingsBase.classList.toggle("active");
-                settingsBtn.classList.toggle("active");
-
-                // Pause video for mob/touch devices
-                if(mobWindow.matches || window.innerWidth < 884 || window.innerHeight < 485)
-                {
-                    mainVideo.pause();
-                }
-
-                if ((settingsHomeBdr.classList.contains("notActive")))
-                {
-                    closeSettingsOpt();
-                };
-            });
-            
-            video_player.addEventListener("mousedown", e =>
-            {
-                if(mobWindow.matches) return;
-                hideSettingsBase();
-            });
-
-            closeSettingsBase.addEventListener("click" , () => 
-            {
-                settingsBase.classList.remove("active");
-                settingsBtn.classList.remove("active");
-                mainVideo.play();
-            });
-            
-            // Opening sections of the settings menu
-            openSettingsOptBdr.forEach((btn, opnBdr) => 
-            {
-                btn.addEventListener("click" , () => 
-                {
-                    settingsHomeBdr.classList.add("notActive");
-                    settingsOptBdr[opnBdr].classList.add("active");
-                    settingsBase.scrollTo(0, 0);
-                });
-            });
-            
-            closeSettingsOptBdr.forEach(btn => 
-            {
-                btn.addEventListener("click" , closeSettingsOpt);
-            });
-
-            // Auto play
-            autoPlay.addEventListener("click", () => 
-            {
-                if (autoPlayEpCheckBox.checked == true) 
-                {
-                    autoPlay.title = "Autoplay is on";
-                    autoPlay.ariaLabel = "Autoplay is on";
+                    // Update flag to true
+                    ischk = true;
                 }
                 else
                 {
-                    autoPlay.title = "Autoplay is off";
-                    autoPlay.ariaLabel = "Autoplay is off";
+                    // Update flag to false
+                    ischk = false;
                 }
-            });
 
-            // Language Settings
-            languageLI.forEach(option => 
-            {
-                option.addEventListener("click", () => 
+                //  Update the corresponding property
+                try 
                 {
-                    removeActiveClasses(languageLI);
-                    option.classList.add("active");
-                    listItemLang.title = "Language is " + option.querySelector("p").textContent;
-                    listItemLang.ariaLabel = "Language is " + option.querySelector("p").textContent;
-                    listItemLang.querySelector(".itemValue").textContent = option.querySelector("p").textContent;
-                });
-            });
-
-            // Speed options menu
-            playbackLI.forEach(option => 
-            {
-                let dataSpeed = option.dataset.speed;
-                option.title = "x" + dataSpeed+ " speed";
-                option.ariaLabel = "x" + dataSpeed + " speed";
-                option.addEventListener("click", () => 
-                {
-                    mainVideo.playbackRate = dataSpeed;
-                    removeActiveClasses(playbackLI);
-                    option.classList.add("active");
-                    listItemSpeed.title = "Playback Speed is " + option.querySelector("p").textContent;
-                    listItemSpeed.ariaLabel = "Playback Speed is " + option.querySelector("p").textContent;
-                    listItemSpeed.querySelector(".itemValue").textContent = option.querySelector("p").textContent;
-                });
-            });
-
-            // Video Quality
-            qualities.forEach(event =>
-            {
-                let quality_html = 
-                `
-                    <li data-quality="${event.getAttribute('size')}" class="settingsCtnt_LI quality_LI" title="${event.getAttribute('size')}p" aria-label="${event.getAttribute('size')}p">
-                        <p>${event.getAttribute('size')}p</p>
-                    </li>
-                `;
-                qualityUL.insertAdjacentHTML('afterbegin', quality_html);
-            });
-
-            const qualityLI = qualityUL.querySelectorAll(".quality_LI");
-            qualityLI.forEach((event) => 
-            {
-                event.addEventListener('click', (e) => 
-                {
-                    let quality = event.getAttribute('data-quality');
-                    removeActiveClasses(qualityLI);
-                    event.classList.add('active');
-
-                    qualities.forEach(event => 
+                    switch(radBtn.id)
                     {
-                        if (event.getAttribute('size') == quality)
-                        {
-                            let video_current_duration = mainVideo.currentTime;
-                            let video_source = event.getAttribute('src');
-                            mainVideo.src = video_source;
-                            mainVideo.currentTime = video_current_duration;
-                            closeSettingsOpt();
-                            settingsBase.classList.remove("active");
-                            clearTimeout(ctrltimer);
-                            toggleVidPlay();
-                        }
-                    });
+                        case 'vid_AutoMuteToggleCheckbox':
+                            await updUsrProfFlds(
+                            {
+                                prof_auto_mute: ischk
+                            });
+                            notification('notifyGood', 'Preferences saved');
+                            break;
 
-                    removeActiveClasses(playbackLI);
-                    normalPlaybackLI.classList.add("active");
-                    listItemSpeed.title = "Playback Speed is " + normalPlaybackLI.querySelector("p").textContent;
-                    listItemSpeed.ariaLabel = "Playback Speed is " + normalPlaybackLI.querySelector("p").textContent;
-                    listItemSpeed.querySelector(".itemValue").textContent = normalPlaybackLI.querySelector("p").textContent;
+                        case 'vid_AutoNextToggleCheckbox':
+                            await updUsrProfFlds(
+                            {
+                                prof_auto_next: ischk
+                            });
+                            notification('notifyGood', 'Preferences saved');
+                            break;
+                            
+                        case 'vid_AutoPlayToggleCheckbox':
+                            await updUsrProfFlds(
+                            {
+                                prof_auto_play: ischk
+                            });
+                            notification('notifyGood', 'Preferences saved');
+                            break;
+                            
+                        case 'vid_AutoSkipToggleCheckbox':
+                            await updUsrProfFlds(
+                            {
+                                prof_auto_skip: ischk
+                            });
+                            notification('notifyGood', 'Preferences saved');
+                            break;
 
-                    listItemQuality.title = "Video Quality is " + event.querySelector("p").textContent;
-                    listItemQuality.ariaLabel = "Video Quality is " + event.querySelector("p").textContent;
-                    listItemQuality.querySelector(".itemValue").textContent = event.querySelector("p").textContent;
-                });
-            });
-
-            // Captions
-            caption.forEach((event) => 
-            {
-                event.addEventListener("click", () => 
-                {
-                    removeActiveClasses(caption);
-                    event.classList.add("active");
-                    changeCaption(event);
-                    caption_text.innerHTML = "";
-                    listItemCaption.title = "Subtitles/CC is " + event.querySelector("p").textContent;
-                    listItemCaption.ariaLabel = "Playback Speed is " + event.querySelector("p").textContent;
-                    listItemCaption.querySelector(".itemValue").textContent = event.querySelector("p").textContent;
-                });
-            });
-
-            let track = mainVideo.textTracks;
-
-            function changeCaption(lbl) 
-            {
-                let trackLabel = lbl.getAttribute("data-track");
-                for (let i = 0; i < track.length; i++)
-                {
-                    track[i].mode = "disabled";
-                    if (track[i].label == trackLabel)
-                    {
-                        track[i].mode = "showing";
+                        default:
+                            notification('notifyBad', 'Failed to update preferences');
+                            break;
                     }
+
+                    // Re-enable toggle buttons
+                    autoSettRadBtns.forEach(item => item.disabled = false);
+                }
+                catch(err)
+                {
+                    // Log any errors and re-enable toggle buttons
+                    console.error(err);
+                    autoSettRadBtns.forEach(item => item.disabled = false);
                 }
             }
 
+            radBtn.addEventListener("click", rad_atn);
+        });
+
+        // Language Settings
+        languageLI.forEach(option => 
+        {
+            option.addEventListener("click", () => 
+            {
+                removeActiveClasses(languageLI);
+                option.classList.add("active");
+                listItemLang.title = "Language is " + option.querySelector("p").textContent;
+                listItemLang.ariaLabel = "Language is " + option.querySelector("p").textContent;
+                listItemLang.querySelector(".itemValue").textContent = option.querySelector("p").textContent;
+            });
+        });
+
+        // Speed options menu
+        playbackLI.forEach(option => 
+        {
+            let dataSpeed = option.dataset.speed;
+            option.title = "x" + dataSpeed+ " speed";
+            option.ariaLabel = "x" + dataSpeed + " speed";
+            option.addEventListener("click", () => 
+            {
+                mainVideo.playbackRate = dataSpeed;
+                removeActiveClasses(playbackLI);
+                option.classList.add("active");
+                listItemSpeed.title = "Playback Speed is " + option.querySelector("p").textContent;
+                listItemSpeed.ariaLabel = "Playback Speed is " + option.querySelector("p").textContent;
+                listItemSpeed.querySelector(".itemValue").textContent = option.querySelector("p").textContent;
+            });
+        });
+
+        // Video Quality
+        qualities.forEach(event =>
+        {
+            let quality_html = 
+            `
+                <li data-quality="${event.getAttribute('size')}" class="settingsCtnt_LI quality_LI" title="${event.getAttribute('size')}p" aria-label="${event.getAttribute('size')}p">
+                    <p>${event.getAttribute('size')}p</p>
+                </li>
+            `;
+            qualityUL.insertAdjacentHTML('afterbegin', quality_html);
+        });
+
+        const qualityLI = qualityUL.querySelectorAll(".quality_LI");
+        qualityLI.forEach((event) => 
+        {
+            event.addEventListener('click', (e) => 
+            {
+                let quality = event.getAttribute('data-quality');
+                removeActiveClasses(qualityLI);
+                event.classList.add('active');
+
+                qualities.forEach(event => 
+                {
+                    if (event.getAttribute('size') == quality)
+                    {
+                        let video_current_duration = mainVideo.currentTime;
+                        let video_source = event.getAttribute('src');
+                        mainVideo.src = video_source;
+                        mainVideo.currentTime = video_current_duration;
+                        closeSettingsOpt();
+                        settingsBase.classList.remove("active");
+                        clearTimeout(ctrltimer);
+                        toggleVidPlay();
+                    }
+                });
+
+                removeActiveClasses(playbackLI);
+                normalPlaybackLI.classList.add("active");
+                listItemSpeed.title = "Playback Speed is " + normalPlaybackLI.querySelector("p").textContent;
+                listItemSpeed.ariaLabel = "Playback Speed is " + normalPlaybackLI.querySelector("p").textContent;
+                listItemSpeed.querySelector(".itemValue").textContent = normalPlaybackLI.querySelector("p").textContent;
+
+                listItemQuality.title = "Video Quality is " + event.querySelector("p").textContent;
+                listItemQuality.ariaLabel = "Video Quality is " + event.querySelector("p").textContent;
+                listItemQuality.querySelector(".itemValue").textContent = event.querySelector("p").textContent;
+            });
+        });
+
+        // Captions
+        caption.forEach((event) => 
+        {
+            event.addEventListener("click", () => 
+            {
+                removeActiveClasses(caption);
+                event.classList.add("active");
+                changeCaption(event);
+                caption_text.innerHTML = "";
+                listItemCaption.title = "Subtitles/CC is " + event.querySelector("p").textContent;
+                listItemCaption.ariaLabel = "Playback Speed is " + event.querySelector("p").textContent;
+                listItemCaption.querySelector(".itemValue").textContent = event.querySelector("p").textContent;
+            });
+        });
+
+        let track = mainVideo.textTracks;
+
+        function changeCaption(lbl) 
+        {
+            let trackLabel = lbl.getAttribute("data-track");
             for (let i = 0; i < track.length; i++)
             {
-                track[i].addEventListener("cuechange", () =>
+                track[i].mode = "disabled";
+                if (track[i].label == trackLabel)
                 {
-                    if (track[i].mode === "showing")
-                    {
-                        if (track[i].activeCues[0])
-                        {
-                            let span = 
-                            `
-                                <span>
-                                    <mark>${track[i].activeCues[0].text}</mark>
-                                </span>
-                            `;
-                            caption_text.innerHTML = span;
-                        }
-                        else
-                        {
-                            caption_text.innerHTML = "";
-                        }
-                    }
-                });
-            }
-
-            // Blob url
-            let mainVideoSources = mainVideo.querySelectorAll("source");
-            for (let i = 0; i < mainVideoSources.length; i++)
-            {
-                let videoUrl = mainVideoSources[i].src;
-                blobUrl(mainVideoSources[i], videoUrl);
-            }
-
-            mainVideo.addEventListener("contextmenu", (e) => 
-            {
-                e.preventDefault();
-            });
-
-            if (tracks.length == 0)
-            {
-                caption_labels.remove();
-                captionsBtn.parentNode.remove();
-            }
-
-
-            // Creating thumbnails
-            let preview_video = document.createElement('video');
-            preview_video.preload = "metadata";
-            preview_video.width = "500";
-            preview_video.height = "300"
-            preview_video.controls = true;
-            preview_video.src = mainVideo.querySelector("source").src;
-            preview_video.addEventListener("loadeddata", async function()
-            {
-                preview_video.pause();
-
-                let count = 1;
-                let id = 1;
-                let x = 0,
-                y = 0;
-
-                let array = [];
-
-                let duration = parseInt(preview_video.duration);
-                for (let i = 1; i <= duration; i++)
-                {
-                    array.push(i);
+                    track[i].mode = "showing";
                 }
+            }
+        }
 
-                let canvas;
-
-                let i, j;
-
-                for (i = 0, j = array.length; i < j; i += horizontalItemCount)
+        for (let i = 0; i < track.length; i++)
+        {
+            track[i].addEventListener("cuechange", () =>
+            {
+                if (track[i].mode === "showing")
                 {
-                    for (let startIndex of array.slice(i, i + horizontalItemCount))
+                    if (track[i].activeCues[0])
                     {
-                        let backgroundPositionX = x * thumbnailWidth;
-                        let backgroundPositionY = y * thumbnailHeight;
-                        let item = thumbnails.find((x) => x.id === id);
+                        let span = 
+                        `
+                            <span>
+                                <mark>${track[i].activeCues[0].text}</mark>
+                            </span>
+                        `;
+                        caption_text.innerHTML = span;
+                    }
+                    else
+                    {
+                        caption_text.innerHTML = "";
+                    }
+                }
+            });
+        }
 
-                        if (!item)
+        // Remove options if no content exist
+        if (tracks.length == 0)
+        {
+            caption_labels.remove();
+            captionsBtn.parentNode.remove();
+        }
+
+
+        // Creating thumbnails
+        let preview_video = document.createElement('video');
+        preview_video.preload = "metadata";
+        preview_video.width = "500";
+        preview_video.height = "300"
+        preview_video.controls = true;
+        preview_video.src = mainVideo.querySelector("source").src;
+        preview_video.addEventListener("loadeddata", async function()
+        {
+            preview_video.pause();
+
+            let count = 1;
+            let id = 1;
+            let x = 0,
+            y = 0;
+
+            let array = [];
+
+            let duration = parseInt(preview_video.duration);
+            for (let i = 1; i <= duration; i++)
+            {
+                array.push(i);
+            }
+
+            let canvas;
+
+            let i, j;
+
+            for (i = 0, j = array.length; i < j; i += horizontalItemCount)
+            {
+                for (let startIndex of array.slice(i, i + horizontalItemCount))
+                {
+                    let backgroundPositionX = x * thumbnailWidth;
+                    let backgroundPositionY = y * thumbnailHeight;
+                    let item = thumbnails.find((x) => x.id === id);
+
+                    if (!item)
+                    {
+                        canvas = document.createElement("canvas");
+                        canvas.width = thumbnailWidth * horizontalItemCount;
+                        canvas.height = thumbnailHeight * verticalItemCount;
+                        thumbnails.push(
                         {
-                            canvas = document.createElement("canvas");
-                            canvas.width = thumbnailWidth * horizontalItemCount;
-                            canvas.height = thumbnailHeight * verticalItemCount;
-                            thumbnails.push(
-                            {
-                                id: id,
-                                canvas: canvas,
-                                sec: [
-                                    {
-                                        index: startIndex,
-                                        backgroundPositionX: -backgroundPositionX,
-                                        backgroundPositionY: -backgroundPositionY,
-                                    },
-                                ],
-                            });
-                        }
-                        else
+                            id: id,
+                            canvas: canvas,
+                            sec: [
+                                {
+                                    index: startIndex,
+                                    backgroundPositionX: -backgroundPositionX,
+                                    backgroundPositionY: -backgroundPositionY,
+                                },
+                            ],
+                        });
+                    }
+                    else if(item.canvas)
+                    {
+                        canvas = item.canvas;
+                        item.sec.push(
                         {
-                            canvas = item.canvas;
-                            item.sec.push(
+                            index: startIndex,
+                            backgroundPositionX: -backgroundPositionX,
+                            backgroundPositionY: -backgroundPositionY,
+                        });
+                    }
+                    else
+                    {
+                        canvas = document.createElement("canvas");
+                        canvas.width = thumbnailWidth * horizontalItemCount;
+                        canvas.height = thumbnailHeight * verticalItemCount;
+                        
+                        // Reattach the new canvas
+                        item.canvas = canvas;
+                        item.sec = 
+                        [
                             {
                                 index: startIndex,
                                 backgroundPositionX: -backgroundPositionX,
                                 backgroundPositionY: -backgroundPositionY,
-                            });
-                        }
+                            },
+                        ];
+                    }
 
-                        let context = canvas.getContext("2d");
-                        preview_video.currentTime = startIndex;
-                        await new Promise(function (resolve)
+                    preview_video.currentTime = startIndex;
+                    await new Promise((resolve) => 
+                    {
+                        preview_video.addEventListener("seeked", () => 
                         {
-                            let event = function ()
+                            let context = canvas.getContext("2d");
+
+                            if(context && preview_video.readyState >= 2)
                             {
                                 context.drawImage(
                                     preview_video,
@@ -1593,47 +1812,122 @@
                                     thumbnailWidth,
                                     thumbnailHeight
                                 );
+
                                 x++;
-
-                                // removing duplicate events
-                                preview_video.removeEventListener("canplay", event);
                                 resolve();
-                            };
-                            preview_video.addEventListener("canplay", event);
-                        });
+                            }
+                            else
+                            {
+                                console.error("Error: Video not ready or canvas context not available.");
+                                resolve();
+                            }
+                        }, { once: true });
+                    });
 
-                        // 1 thumbnail is generated completely
-                        count++;
-                    }
-
-                    // reset x coordinate
-                    x = 0;
-
-                    // increase y coordinate
-                    y++;
-
-                    // checking for overflow
-                    if (count > horizontalItemCount * verticalItemCount)
-                    {
-                        count = 1;
-                        x = 0;
-                        y = 0;
-                        id++;
-                    }
+                    // 1 thumbnail is generated completely
+                    count++;
                 }
 
-                // looping through thumbnail list to update thumbnail
-                thumbnails.forEach(function (item)
+                // reset x coordinate
+                x = 0;
+
+                // increase y coordinate
+                y++;
+
+                // checking for overflow
+                if (count > horizontalItemCount * verticalItemCount)
                 {
-                    // converting canvas to blob to get short url
-                    item.canvas.toBlob((blob) => (item.data = URL.createObjectURL(blob)), "image/jpeg");
+                    count = 1;
+                    x = 0;
+                    y = 0;
+                    id++;
+                }
+            }
 
-                    // deleting unused property
-                    delete item.canvas;
-                });
+            // looping through thumbnail list to update thumbnail
+            thumbnails.forEach(function (item)
+            {
+                // converting canvas to blob to get short url
+                item.canvas.toBlob((blob) => (item.data = URL.createObjectURL(blob)), "image/jpeg");
+
+                // deleting unused property
+                delete item.canvas;
             });
+        });
 
-        // });
+    }
 
+
+    // Handles other actions after content has fully loaded
+    async function postUVPlyr()
+    {
+        const ldr_bdr = document.querySelector(".watch_pg_plyr_ldr_bdr");
+        const ldr_icon_bdr = ldr_bdr.querySelector(".watch_pg_plyr_ldr_icon_bdr");
+        const ldr_pctl_box = ldr_bdr.querySelector(".watch_pg_plyr_ldr_pctl_box");
+        const ldr_btn = ldr_bdr.querySelector(".watch_pg_plyr_atn_btn");
+
+        // Action for Player loader button
+        const postPlyrLdrBtn_atn = () =>
+        {
+            // Remove listener and disable button
+            ldr_btn.classList.add("hide");
+            ldr_btn.disabled = true;
+            ldr_btn.removeEventListener("click", postPlyrLdrBtn_atn);
+
+            // Hide the modal
+            ldr_bdr.classList.add("loaded");
+
+            // Play the video
+            toggleVidPlay();
+        }
+        
+        try
+        {
+            // Check for user's preferences
+            let selProf = await getSelectedProfile();
+            let isAutoMute = selProf?.prof_auto_mute;
+            let isAutoPlay = selProf?.prof_auto_play;
+
+            // Remove Loader icon & progress text
+            ldr_icon_bdr.classList.add("loaded");
+            ldr_pctl_box.classList.add("loaded");
+
+            // Mute audio, if on
+            if((isAutoMute) && (typeof isAutoMute === "boolean") && (isAutoMute == true))
+            {
+                toggleMute(true);
+            }
+            else
+            {
+                toggleMute(false);
+            }
+
+            // Autoplay video, if on
+            if((isAutoPlay) && (typeof isAutoPlay === "boolean") && (isAutoPlay == true))
+            {
+                // Hide the modal
+                ldr_bdr.classList.add("loaded");
+
+                // Automatically play the video
+                toggleVidPlay();
+            }
+            else
+            {
+                // Add listener for play button & display it
+                ldr_btn.disabled = false;
+                ldr_btn.addEventListener("click", postPlyrLdrBtn_atn);
+                ldr_btn.classList.remove("hide");
+            }
+        }
+        catch(err)
+        {
+            console.error(`Failed to fetch user preferences\n${err}`);
+            notification(`notifyBad`, `Failed to fetch user preferences`);
+
+            // Add listener for play button & display it
+            ldr_btn.disabled = false;
+            ldr_btn.addEventListener("click", postPlyrLdrBtn_atn);
+            ldr_btn.classList.remove("hide");
+        }
     }
         

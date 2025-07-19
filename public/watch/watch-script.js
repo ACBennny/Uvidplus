@@ -46,8 +46,28 @@
             <div class="watch_pg_bcg"></div>
             <div class="watch_pg_bdr">
                 <div class="watch_pg_box">
-                    <div class="watch_pg_ply_bdr">
-                        <div class="watch_pg_ply_box">
+                    <div class="watch_pg_plyr_bdr">
+                        <div class="watch_pg_plyr_box">
+                            <div class="watch_pg_plyr_ldr_bdr">
+                                <div class="watch_pg_plyr_ldr_box">
+                                    <div class="watch_pg_plyr_ldr_pctl_bdr">
+                                        <div class="watch_pg_plyr_ldr_icon_bdr">
+                                        </div>
+                                        <div class="watch_pg_plyr_ldr_pctl_box">
+                                            <p class="watch_pg_plyr_ldr_pctl_txt">N/A%</p>
+                                        </div>
+                                        <div class="watch_pg_plyr_atn_bdr">
+                                            <button type="button" class="genBtnBox genIconBtn transBtn watch_pg_plyr_atn_btn hide" disabled>
+                                                <div class="genBtnIcon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
+                                                        <path d="M21.409 9.353a2.998 2.998 0 0 1 0 5.294L8.597 21.614C6.534 22.737 4 21.277 4 18.968V5.033c0-2.31 2.534-3.769 4.597-2.648z" />
+                                                    </svg>
+                                                </div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="vid_bdr">
                                 <div class="vid_box">
                                     <div class="container video_player show-controls">
@@ -163,7 +183,7 @@
                 history.pushState(null, '', `#/watch/${watchPgShowData.show_type.toLowerCase()}/${watch_pg_show_name}/${watchPgShowSsn}/${watchPgShowEps}`);
 
                 // Restart video
-                mainVideo.currentTime = 0;
+                restartVid();
             }
 
             // Going to the next episode
@@ -194,7 +214,7 @@
                 history.pushState(null, '', `#/watch/${watchPgShowData.show_type.toLowerCase()}/${watch_pg_show_name}/${watchPgShowSsn}/${watchPgShowEps}`);
 
                 // Restart video
-                mainVideo.currentTime = 0;
+                restartVid();
             }
             
             // Selecting Episodes (Currently redirects you to the shows info page)
@@ -271,7 +291,7 @@
                     srcSets.forEach((source) => 
                     {
                         // Revoke blob URL
-                        if (source.src.startsWith("blob:"))
+                        if(source.src.startsWith("blob:"))
                         {
                             URL.revokeObjectURL(source.src);
                         }
@@ -302,11 +322,6 @@
         }
 
         watchPgRetBtn.onclick = () => clsWatchPgMdl();
-    }
-
-    // Add listeners for the watch page
-    function addWatchPageListeners()
-    {
     }
 
 
