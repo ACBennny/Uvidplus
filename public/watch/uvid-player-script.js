@@ -599,7 +599,7 @@
                 fetch(url)
                 .then(() => 
                 {
-                    console.log(`The Test Video URL [${i+1}]:${url} warmed in cache`);
+                    // console.log(`The Test Video URL [${i+1}]:${url} warmed in cache`);
                 })
                 .catch((err) => 
                 {
