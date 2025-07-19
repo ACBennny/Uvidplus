@@ -468,6 +468,15 @@ const sett_prof_pref_cmp =
         `,
     },
     {
+        p_type: `toggle`,
+        p_id: `sett_mng_prof_mute_audio`,
+        p_name: `Mute Audio`,
+        p_desc: 
+        `
+            If enabled, the audio is always muted before playing the video.
+        `,
+    },
+    {
         p_type: `menu`,
         p_id: `sett_mng_prof_ctnt_restriction`,
         p_name: `Content Restrictions`,
