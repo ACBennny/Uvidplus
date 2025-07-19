@@ -132,6 +132,7 @@
     let epSetLength = 40;
     let epSelectedSet = 0;
     let epSetArr = [];
+    let sample_ep_duration = `00:57`;
 
 
 
@@ -1227,8 +1228,8 @@
                             selectedProfile.prof_history.push(
                                 {
                                     hist_link: `#/watch/${show_type}/${show_name}/${currSsnNo}/${(i+1)}`,
-                                    hist_currTime: `23:59`, // Random value as no shows are streamed
-                                    hist_totalTime: `23:59`, // Random value as no shows are streamed
+                                    hist_currTime: `${sample_ep_duration}`, // Random value as no shows are streamed
+                                    hist_totalTime: `${sample_ep_duration}`, // Random value as no shows are streamed
                                 }
                             );
                         }
@@ -1649,8 +1650,8 @@
                 selectedProfile.prof_history.push(
                     {
                         hist_link: showLink,
-                        hist_currTime: `23:59`, // Random value as no shows are streamed
-                        hist_totalTime: `23:59`, // Random value as no shows are streamed
+                        hist_currTime: `${sample_ep_duration}`, // Random value as no shows are streamed
+                        hist_totalTime: `${sample_ep_duration}`, // Random value as no shows are streamed
                     }
                 );
 
