@@ -779,11 +779,11 @@
         video_player.classList.add("show-controls");
         clearTimeout(ctrltimer);
 
-        // Exit fullscreen if on
-        if(document.fullscreenElement) 
-        {
-            toggleFullScreenMode();
-        }
+        // // Exit fullscreen if on
+        // if(document.fullscreenElement) 
+        // {
+        //     toggleFullScreenMode();
+        // }
 
         // Go to Next episode when video ends, if auto next is on
         if(autoNextEpCheckBox.checked == true)
