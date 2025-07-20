@@ -73,7 +73,7 @@
                 if((this_slider_box == undefined) || (this_slider_box == null) || (this_slider_box.length <= 0)) return crsl_error(type);
 
                 // Display an "Empty Status" message to the user if there's no content to display
-                if((selectedProfile[fld].length <= 0))
+                if((selectedProfile[fld] == undefined) || (selectedProfile[fld] == null) || (selectedProfile[fld].length <= 0))
                 {
                     this_slider_box.forEach((box) => 
                     {
