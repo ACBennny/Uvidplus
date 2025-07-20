@@ -806,7 +806,6 @@
             let likeBtnBox = document.querySelector(".like_buttonsBox");
             let likeTheEp = document.querySelector(".add_to_LikedShowsBox");
             let dontLikeTheEp = document.querySelector(".add_to_DislikedShowsBox");
-            let watchNowBtn = document.querySelector(".watchShowNowBtn");
             let showHeaderName = document.querySelector("#show_Header_Name");
             let watchTrailerBox = document.querySelector('.watchTrailer_box');
             let trailerTimer;
@@ -1142,42 +1141,8 @@
 
         // WATCH NOW
 
-            // Update the button if user has started watching the show
-            const wn_hist = selectedProfile.prof_history.filter(item => 
-                item.hist_link.split('/')[3] === showsStructData.show_link.split('/')[2]
-            );
-
-            if((wn_hist.length > 0))
-            {
-                let wn_hist_link = wn_hist[(wn_hist.length - 1)].hist_link.split('/');
-
-                watchNowBtn.querySelector(".genBtnText").textContent = 
-                showsStructData.show_type.toLowerCase() === "tv" 
-                ? `Continue S${wn_hist_link[4]} E${wn_hist_link[5]}`
-                : `Continue`;
-            }
-
-            // Open the most recent episode
-            watchNowBtn.addEventListener("click" , async () => 
-            {
-                let thisProf = await getSelectedProfile();
-
-                // Get the most recent addition to watch history for that show
-                let watchNowItem = thisProf.prof_history.filter(item => 
-                    item.hist_link.split('/')[3] === showsStructData.show_link.split('/')[2]
-                );
-
-                if(watchNowItem.length > 0)
-                {
-                    // Open if it exists
-                    window.open(watchNowItem[(watchNowItem.length - 1)].hist_link , "_self");
-                }
-                else
-                {
-                    // Open the first episode of the first show
-                    window.open(`${seasonSet.querySelectorAll(".ep_cardBdr .ep_cardCtntBdr")[0].getAttribute("href")}` , "_self");
-                }
-            });
+            // Inits the watch now button
+            updInfoPageCTA();
 
 
 
@@ -1483,6 +1448,53 @@
             });
     }
 
+
+    // Setting the Primary CTA button
+    async function updInfoPageCTA()
+    {
+        const watchNowBtn = document.querySelector(".watchShowNowBtn");
+        const selectedProfile = await getSelectedProfile();
+
+        // Update the button if user has started watching the show
+        const wn_hist = selectedProfile.prof_history.filter(item => 
+            item.hist_link.split('/')[3] === showsStructData.show_link.split('/')[2]
+        );
+
+        if((wn_hist.length > 0))
+        {
+            let wn_hist_link = wn_hist[(wn_hist.length - 1)].hist_link.split('/');
+
+            watchNowBtn.querySelector(".genBtnText").textContent = 
+            showsStructData.show_type.toLowerCase() === "tv" 
+            ? `Continue S${wn_hist_link[4]} E${wn_hist_link[5]}`
+            : `Continue`;
+        }
+
+        // Open the most recent episode
+        watchNowBtn.addEventListener("click" , async () => 
+        {
+            let thisProf = await getSelectedProfile();
+
+            // Get the most recent addition to watch history for that show
+            let watchNowItem = thisProf.prof_history.filter(item => 
+                item.hist_link.split('/')[3] === showsStructData.show_link.split('/')[2]
+            );
+
+            if(watchNowItem.length > 0)
+            {
+                // Open if it exists
+                window.open(watchNowItem[(watchNowItem.length - 1)].hist_link , "_self");
+            }
+            else
+            {
+                // Open the first episode of the first show
+                window.open(`${seasonSet.querySelectorAll(".ep_cardBdr .ep_cardCtntBdr")[0].getAttribute("href")}` , "_self");
+            }
+        });
+    }
+
+
+
     // Generates a menu containing the various sets of episodes of the current sseason
     function showEpSetsMenu()
     {
@@ -1527,6 +1539,7 @@
             });
         });
     }
+
 
     // Generates the episode cards
     function generateShowEpCards(ssn, start, end)
@@ -1679,6 +1692,7 @@
         // Download the show
         epCardDwldBtn.onclick = () => selDwldPpty('episode', epCardSsnNum, epCardEpNum);
     }
+
 
     // Download an entire Season
     function dwldShowSsn()
