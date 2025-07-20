@@ -1488,7 +1488,7 @@
             else
             {
                 // Open the first episode of the first show
-                window.open(`${seasonSet.querySelectorAll(".ep_cardBdr .ep_cardCtntBdr")[0].getAttribute("href")}` , "_self");
+                window.open(`${document.querySelector('.showset').querySelectorAll(".ep_cardBdr .ep_cardCtntBdr")[0].getAttribute("href")}` , "_self");
             }
         });
     }
