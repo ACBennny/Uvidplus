@@ -1102,7 +1102,7 @@ only screen and (hover: hover) and (max-width: 55.25rem)
 }
 
 
-@media only screen and (max-width: 30.3125rem)
+@media only screen and (max-width: 18.75rem)
 {
     html:root
     {
@@ -1164,31 +1164,6 @@ only screen and (hover: hover) and (max-width: 55.25rem)
     .mobile_controls_box .mobile_controls
     {
         gap: 2.8125rem;
-    }
-}
-
-
-@media only screen and (max-width: 18.75rem)
-{
-
-    .wrapper .video-controls
-    {
-        padding: 0.3125rem 0.3125rem;
-    }
-
-    .wrapper .progress-area
-    {
-        height: 0.1875rem;
-    }
-
-    .options .video-timer
-    {
-        font-size: 0.625rem;
-    }
-
-    .mobile_controls_box .mobile_controls
-    {
-        gap: 2.1875rem;
     }
 }
 
