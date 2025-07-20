@@ -4610,6 +4610,43 @@
     }
 
 
+    // Clears the selected profile's watch history
+    async function clearSelProfHist()
+    {
+        try
+        {
+            await updUsrProfFlds(
+            {
+                prof_history: []
+            });
+
+            notification(`notifyGood`, `Profile watch history cleared successfully`);
+        }
+        catch(error)
+        {
+            console.error(`Failed to clear profile watch history\n${error}`);
+            notification(`notifyBad`, `Failed to clear profile watch history`);
+        }
+    }
+
+    // Confirm before clearing watch history
+    async function cfrmB4ClrSelProfHist()
+    {
+        // Get the selected profile's name
+        let selProf = await getSelectedProfile();
+        let selProfName = selProf?.prof_name !== null ? `${selProf?.prof_name}'s profile` : `this profile`;
+
+        // Ask user for confirmation before clearing
+        initConfirmModal(
+            `Are you sure you want to clear the watch history for ${selProfName}?`,
+            `Once cleared, it can not be recovered`,
+            `Clear`,
+            `Cancel`,
+            clearSelProfHist
+        );
+    }
+
+
 
 
 
