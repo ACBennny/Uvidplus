@@ -588,10 +588,10 @@
     {
         const vid_urls = 
         [
-            "/watch/3.mp4",
+            // "/watch/3.mp4",
             // "/watch/3_360p.mp4", 
             // "/watch/3_720p.mp4", 
-            // "/watch/3_1080p.mp4"
+            "/watch/3_1080p.mp4"
         ];
 
         vid_urls.forEach((url, i) => 
@@ -903,7 +903,7 @@
             {
                 const vd_duration = timeToSeconds(`${selProfHist[0]?.hist_currTime}`);
 
-                if(vd_duration) mainVideo.currentTime = vd_duration;
+                if((vd_duration) && (vd_duration <= mainVideo.duration)) mainVideo.currentTime = vd_duration;
             }
         }
         catch(error)
@@ -1043,10 +1043,10 @@
 
         const sources = 
         [
-            { src: "/watch/3.mp4", size: "1080", type: "video/mp4" },
+            // { src: "/watch/3.mp4", size: "480", type: "video/mp4" },
             // { src: "/watch/3_360p.mp4", size: "360", type: "video/mp4" },
             // { src: "/watch/3_720p.mp4", size: "720", type: "video/mp4" },
-            // { src: "/watch/3_1080p.mp4", size: "1080", type: "video/mp4" }
+            { src: "/watch/3_1080p.mp4", size: "1080", type: "video/mp4" }
         ];
         const tracks = 
         [
