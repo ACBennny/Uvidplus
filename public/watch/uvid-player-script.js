@@ -515,6 +515,9 @@
     let qualities;
     let ctrltimer;
     let watchProgressRecTmr;
+    let sv_prd_cycle = 3;
+    let lastUVidSv = 0;
+    let isUVidSv = false;
 
 
 
@@ -613,6 +616,15 @@
 
         // Add lisener for keyboard shortcuts on video player
         document.addEventListener("keydown",  kybrdShtCt);
+
+        // Add listener for saving watch history if user switches tabs
+        document.addEventListener("visibilitychange", async () => 
+        {
+            if((isPageWatchPage()) && (document.visibilityState === "hidden"))
+            {
+                await saveWatchProgessInHist();
+            }
+        });
 
         // Reset flag for load completed event
         window.__uvp_uvplr_ctnt_loaded = false;
@@ -749,6 +761,12 @@
         // Auto play if set on
         try
         {
+            // Set show in history
+            await saveWatchProgessInHist();
+
+            // Update show's CTA button
+            updInfoPageCTA();
+
             // Check for user's preferences
             let selProf = await getSelectedProfile();
             let isAutoMute = selProf?.prof_auto_mute;
@@ -782,7 +800,6 @@
     {
         video_player.classList.add("show-controls");
         clearTimeout(ctrltimer);
-        clearInterval(watchProgressRecTmr);
 
         // Go to Next episode when video ends, if auto next is on
         if(autoNextEpCheckBox.checked == true)
@@ -959,60 +976,48 @@
 
 
     // Save currentDuration progress to user history
-    function saveWatchProgessInHist()
+    const saveWatchProgessInHist = async () => 
     {
-        clearInterval(watchProgressRecTmr);
-
         if(!(isPageWatchPage())) return;
 
-        let sv_prd_cycle = 1000 * 3 // 3 seconds period
-
-
-        const sv_prg = async () => 
-        {
-            if(mainVideo.paused) return;
-
-            clearInterval(watchProgressRecTmr);
-            
-            let currTime = currentDuration.textContent;
-            let ttlTime = totalDuration.textContent;
-
-            try
-            {
-                let selectedProfile = await getSelectedProfile();
-                let showLink = `${window.location.hash}`;
-                
-                // Check and remove the old entry
-                selectedProfile.prof_history = selectedProfile.prof_history.filter(item => item.hist_link !== showLink);
+        isUVidSv = true;
         
-                // Add new entry
-                selectedProfile.prof_history.push(
-                    {
-                        hist_link: showLink,
-                        hist_currTime: `${currTime}`,
-                        hist_totalTime: `${ttlTime}`,
-                    }
-                );
+        let currTime = currentDuration.textContent;
+        let ttlTime = totalDuration.textContent;
 
-                // Update user data
-                await updUsrProfFlds(
+        try
+        {
+            let selectedProfile = await getSelectedProfile();
+            let showLink = `${window.location.hash}`;
+            
+            // Check and remove the old entry
+            selectedProfile.prof_history = selectedProfile.prof_history.filter(item => item.hist_link !== showLink);
+    
+            // Add new entry
+            selectedProfile.prof_history.push(
                 {
-                    prof_history: selectedProfile.prof_history
-                });
+                    hist_link: showLink,
+                    hist_currTime: `${currTime}`,
+                    hist_totalTime: `${ttlTime}`,
+                }
+            );
 
-                // Restart interval
-                watchProgressRecTmr = setInterval(sv_prg, sv_prd_cycle);
-            }
-            catch(error)
+            // Update user data
+            await updUsrProfFlds(
             {
-                console.error(`Failed to save watch progress at: [${currTime}/${ttlTime}]\n${error}`);
+                prof_history: selectedProfile.prof_history
+            });
 
-                // Restart interval
-                watchProgressRecTmr = setInterval(sv_prg, sv_prd_cycle);
-            }
+            // Reset flag
+            isUVidSv = false;
         }
+        catch(error)
+        {
+            console.error(`Failed to save watch progress at: [${currTime}/${ttlTime}]\n${error}`);
 
-        watchProgressRecTmr = setInterval(sv_prg, sv_prd_cycle);
+            // Reset flag
+            isUVidSv = false;
+        }
     }
 
 
@@ -1293,12 +1298,20 @@
         });
 
         // Current video duration
-        mainVideo.addEventListener("timeupdate", (e) => 
+        mainVideo.addEventListener("timeupdate", async (e) => 
         {
             let {currentTime, duration} = e.target;
             let percent = (currentTime / duration) * 100;
             progress_Bar.style.width = `${percent}%`;
             currentDuration.innerText = formatTime(currentTime);
+
+            const currTimeFlr = Math.floor(currentTime);
+
+            if(((currTimeFlr - lastUVidSv) >= sv_prd_cycle) && !isUVidSv)
+            {
+                lastUVidSv = currTimeFlr;
+                await saveWatchProgessInHist();
+            }
         });
 
         // Updating playing video's currentDuration time according to the progress bar width
@@ -1387,11 +1400,10 @@
             video_player.classList.add("show-controls");
             clearTimeout(ctrltimer);
             hideControls();
-            saveWatchProgessInHist();
         });
     
         // Paused Video
-        mainVideo.addEventListener("pause", () => 
+        mainVideo.addEventListener("pause", async () => 
         {
             playBtn.forEach(btn => 
             {
@@ -1408,9 +1420,14 @@
             });
             video_player.classList.add("show-controls");
             clearTimeout(ctrltimer);
-            clearInterval(watchProgressRecTmr);
-            
             hideControls();
+            await saveWatchProgessInHist();
+        });
+    
+        // Seeking in Video
+        mainVideo.addEventListener("seeked", async () => 
+        {
+            await saveWatchProgessInHist();
         });
 
         volumeSlider.addEventListener("input", e => 
@@ -1691,7 +1708,6 @@
                         closeSettingsOpt();
                         settingsBase.classList.remove("active");
                         clearTimeout(ctrltimer);
-                        clearInterval(watchProgressRecTmr);
                         toggleVidPlay();
                     }
                 });
@@ -1987,3 +2003,8 @@
         }
     }
         
+
+
+
+
+    

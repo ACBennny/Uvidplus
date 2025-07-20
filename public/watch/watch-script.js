@@ -6,6 +6,8 @@
  *************************************************************/
 
 
+
+    let watch_pg_show_link = null;
     let watch_pg_show_name = null;
     let watchPgShowData = null;
     let watchPgShowSsn = null;
@@ -15,6 +17,7 @@
     // Init watch page
     function initWatchPage(namePrvd)
     {
+        watch_pg_show_link = `${window.location.hash}`;
         watch_pg_show_name = namePrvd || hash_parts[3];
         watchPgShowSsn = Number(hash_parts[4]);
         watchPgShowEps = Number(hash_parts[5]);
@@ -276,10 +279,12 @@
         },300);
 
         // Returning back to show's info page (Closes the watch page)
-        const clsWatchPgMdl = () =>
+        const clsWatchPgMdl = async () =>
         {
             // Stop and remove video
+            document.querySelector(".watch_pg_plyr_ldr_bdr").classList.remove("loaded");
             const currVid = document.querySelector(".video_player .main-video");
+            
             if(currVid) 
             {
                 currVid.pause();
@@ -308,6 +313,10 @@
                 // Unload the video
                 currVid.load();
             }
+
+            // Update show's CTA button
+            await saveWatchProgessInHist();
+            updInfoPageCTA();
 
             // Update page url with equivalent
             history.pushState(null, '', `#/info/${watch_pg_show_name}`);
