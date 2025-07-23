@@ -93,7 +93,6 @@ html:root
     position: relative;
     width: 100%;
     max-width: var(--genMaxContainerWidth);
-    height: fit-content;
     display: flex;
     flex-direction: column;
     padding: 0 var(--genBorderSpacing);
@@ -548,7 +547,6 @@ html:root
 .tro
 {
     width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
 }
