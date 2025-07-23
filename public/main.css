@@ -19,8 +19,6 @@
 
 html
 {
-    display: block;
-    font-family: 'Zen Dots', sans-serif;
     background-color: #000000;
     -moz-user-select: -moz-none;
     -moz-user-select: none;
@@ -146,6 +144,7 @@ html:root
 
 body
 {
+    font-family: 'Zen Dots', sans-serif;
     min-height: 100svh;
     min-height: 100vh;
 }
@@ -160,7 +159,7 @@ body
 
 body.bodystart
 {
-    overflow: visible;
+    overflow: auto;
 }
 
 body.bodystop
@@ -1104,7 +1103,7 @@ html:has( .backtotop_float_left) .backtotop_float.float
 
 
 
-/* ================ IMAGES ============= */
+/* ================ IMAGES =============== */
 
 img[alt]
 {
