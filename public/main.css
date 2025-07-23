@@ -1105,6 +1105,15 @@ html:has( .backtotop_float_left) .backtotop_float.float
 
 
 /* ================ IMAGES ============= */
+img, .img_preload_box
+{
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
 img[alt]
 {
     font-size: 0.75rem;
