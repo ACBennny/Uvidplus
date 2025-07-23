@@ -178,6 +178,7 @@
                                 <div class="img_preload_sibling"></div>
                                 <img loading="lazy" 
                                     onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                    onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
                                     src="${show_background}" alt="Thumbnail image of ${show_title}" class="bcgImg"
                                 >
                             </div>
@@ -193,6 +194,7 @@
                                             <div class="img_preload_sibling"></div>
                                             <img loading="lazy" 
                                                 onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                                onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
                                                 src="${show_foreground}" alt="Thumbnail image of ${show_title}" class="title_Img"
                                             >
                                         </div>
@@ -745,6 +747,7 @@
                                         <div class="img_preload_sibling"></div>
                                         <img loading="lazy" 
                                             onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                            onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
                                             src="${item.show_foreground}" alt="Thumbnail image of ${item.show_title}" class="cardImg"
                                         >
                                     </div>
