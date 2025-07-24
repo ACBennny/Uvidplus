@@ -121,6 +121,15 @@
                                 show_foreground,
                             } = itemMatch;
 
+                            // Insert correct layout for episode count based on show type
+                            const itemPrgTxt = show_type.toLowerCase() === "tv"
+                            ?
+                                `
+                                    <span class="cardProgressName_szn">S${itemSsn}</span>
+                                    <span class="cardProgressName_eps">E${itemEp}</span>
+                                `
+                            : `Movie`;
+
                             crsl_struct += 
                             `
                                 <div class="slide_card_base basic_carousel_card crsl_card">
@@ -154,10 +163,7 @@
                                                         <div class="cardProgressBox" style="--cardProgressBarCurrLengthWidth: ${percentage}%">
                                                             <div class="cardProgressHeader">
                                                                 <div class="cardProgressName">
-                                                                    <p class="cardProgressName_text">
-                                                                        <span class="cardProgressName_szn">S${itemSsn}</span>
-                                                                        <span class="cardProgressName_eps">E${itemEp}</span>
-                                                                    </p>
+                                                                    <p class="cardProgressName_text">${itemPrgTxt}</p>
                                                                 </div>
                                                                 <div class="cardProgressTime">
                                                                     <p class="cardProgressTime_current">${hist_item.hist_currTime}</p>
