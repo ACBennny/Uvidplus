@@ -591,10 +591,10 @@
     {
         const vid_urls = 
         [
-            // "/watch/3.mp4",
-            // "/watch/3_360p.mp4", 
-            // "/watch/3_720p.mp4", 
-            "/watch/3_1080p.mp4"
+            // "/media/videos/3.mp4",
+            // "/media/videos/3_360p.mp4", 
+            // "/media/videos/3_720p.mp4", 
+            "/media/videos/3_1080p.mp4"
         ];
 
         vid_urls.forEach((url, i) => 
@@ -1048,15 +1048,15 @@
 
         const sources = 
         [
-            // { src: "/watch/3.mp4", size: "480", type: "video/mp4" },
-            // { src: "/watch/3_360p.mp4", size: "360", type: "video/mp4" },
-            // { src: "/watch/3_720p.mp4", size: "720", type: "video/mp4" },
-            { src: "/watch/3_1080p.mp4", size: "1080", type: "video/mp4" }
+            // { src: "/media/videos/3.mp4", size: "480", type: "video/mp4" },
+            // { src: "/media/videos/3_360p.mp4", size: "360", type: "video/mp4" },
+            // { src: "/media/videos/3_720p.mp4", size: "720", type: "video/mp4" },
+            { src: "/media/videos/3_1080p.mp4", size: "1080", type: "video/mp4" }
         ];
         const tracks = 
         [
-            { label: "English", src: "/watch/subtitle-test1.vtt", srclang: "en" },
-            { label: "Japanese", src: "/watch/subtitle-test2.vtt", srclang: "ja" }
+            { label: "English", src: "/media/subtitles/subtitle-test1.vtt", srclang: "en" },
+            { label: "Japanese", src: "/media/subtitles/subtitle-test2.vtt", srclang: "ja" }
         ];
 
         // Add sources
