@@ -700,6 +700,8 @@ button
 {
     font-family: 'Zen dots', sans-serif;
     outline: none;
+    border: none;
+    background-color: #00000000;
 }
 
 .openGenMenuModalBtn
