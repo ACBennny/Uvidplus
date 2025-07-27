@@ -53,7 +53,7 @@
         
 
         // Load and build schedule
-        // await loadSchedule();
+        await loadSchedule();
     }
 
 
