@@ -70,6 +70,7 @@ let gen_cmpnt_lib =
                 <div class="img_preload_sibling"></div>
                 <img loading="lazy" 
                     onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                    onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
                     src="" alt="image" class=""
                 >
             </div>
