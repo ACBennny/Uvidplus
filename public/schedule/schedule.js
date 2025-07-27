@@ -53,7 +53,7 @@
         
 
         // Load and build schedule
-        await loadSchedule();
+        // await loadSchedule();
     }
 
 
@@ -63,6 +63,7 @@
 
         const today = new Date();
         const dateList = [];
+        const validTypes = ["Scripted", "Animation"];
 
         // Get the 7 dates for the week scedule
         for(let i = 0; i < 7; i++) 
@@ -84,11 +85,11 @@
 
             const results = await Promise.all(fetches);
 
-            // Merge back
+            // Merge results with their dates
             const allSchedules = dateList.map((dateObj, i) => (
             {
                 ...dateObj,
-                shows: results[i] || []
+                shows: (results[i] || []).filter(item => validTypes.includes(item.show?.type))
             }));
 
             buildSchedule(allSchedules);
@@ -194,7 +195,10 @@
                 const episodeBox = document.createElement("div");
                 episodeBox.className = "schedule_ctntDetEpBox";
 
-                const episodeTitle = airing.name || `S${airing.season}E${airing.number}`;
+                // const episodeTitle = airing.name || `S${airing.season}E${airing.number}`;
+                const episodeTitle = (airing.season && airing.number)
+                    ? `S${airing.season} E${airing.number}`
+                    : airing.name;
                 const localTime = airing.airstamp
                     ? new Date(airing.airstamp).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
                     : "Unknown time";
@@ -258,6 +262,7 @@
             // Scroll to top of list
             window.scrollTo(null, 0);
         });
+
 
         postSchedule();
     }
