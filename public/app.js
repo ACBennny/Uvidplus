@@ -7,6 +7,40 @@
 ****************************************************************/
 
 
+    // Catches HTTPS 429 (Rate-limiting) error and retries after given time
+    async function fetchWithRetry(url, options = {}, retries = 1, delayMs = 2000)
+    {
+        let attempt = 0;
+
+        while(attempt <= retries)
+        {
+            const response = await fetch(url, options);
+
+            if(response.status === 429)
+            {
+                if(attempt < retries)
+                {
+                    console.warn(`Rate limited. Retrying in ${delayMs}ms...`);
+                    await new Promise(res => setTimeout(res, delayMs));
+                    attempt++;
+                    continue;
+                }
+                else
+                {
+                    throw new Error("Too many requests - try again later.");
+                }
+            }
+
+            if(!response.ok)
+            {
+                throw new Error(`HTTP error ${response.status}`);
+            }
+
+            return await response.json();
+        }
+    }
+
+
     // USER PROCESSING
 
         // Refreshes and resyncs user info
