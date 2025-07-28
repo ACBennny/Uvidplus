@@ -7,11 +7,14 @@
 ****************************************************************/
 
 
+const dflt_schdl_fltr_rgn = "JP";
+
+
     async function initSchedule()
     {
         const scheduleBaseStruct = 
         `
-            <div class="schedule_base">
+            <div class="schedule_base backtotop_float_left">
                 <div class="schedule_bdr">
                     <div class="schedule_box">
                         <div class="schedule_selBase">
@@ -43,6 +46,13 @@
                     </div>
                 </div>
             </div>
+            <div class="genBtnBox genIconBtn midSolidBtn schedulte_filter_box schedulte_filter_btn openGenMenuModalBtn" data-gen-menu-modal-type="schedule_filter_menu" title="Select a region to see its schedule">
+                <div class="genBtnIcon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
+                        <path d="M9.25 14a3 3 0 1 1 0 6a3 3 0 0 1 0-6m5-10a3 3 0 1 0 0 6a3 3 0 0 0 0-6m-5.5 2.209a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1 0-1.5zm6 10a.75.75 0 0 0 0 1.5h7a.75.75 0 0 0 0-1.5zM1 16.959a.75.75 0 0 1 .75-.75h2a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1-.75-.75m20.75-10.75a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5z" />
+                    </svg>
+                </div>
+            </div>
         `;
 
         documentCtnt.insertAdjacentHTML(`afterbegin` , scheduleBaseStruct);
@@ -54,6 +64,8 @@
 
         // Load and build schedule
         await loadSchedule();
+
+        attachGenMenuModalEventListeners();
     }
 
 
@@ -76,10 +88,13 @@
 
         try
         {
+            // Get selected region (if any)
+            const rgn = (window.__uvp_schdl_fltr_rgn || dflt_schdl_fltr_rgn).toString().toUpperCase();
+
             // Fetch with retry
             const fetches = dateList.map(({ dateStr }) => 
             {
-                const url = `https://api.tvmaze.com/schedule?country=JP&date=${dateStr}`;
+                const url = `https://api.tvmaze.com/schedule?country=${rgn}&date=${dateStr}`;
                 return fetchWithRetry(url);
             });
 
@@ -384,4 +399,99 @@
             scheduleSelBase.classList.toggle("sticky" , currScroll > (scheduleSelBdr.offsetTop * 2));
         });
 
+    }
+
+
+    // Updates items with draggable menus
+    async function attachSchdlFltrListeners()
+    {
+        // Notify user of the purpose
+        notification(`notifyGood`, `Select a region to see its schedule.`);
+
+        // Return if rgn sets are unavailable
+        if((typeof uvp_regions === "undefined") || (uvp_regions.length <= 0))
+        {
+            console.error("Schedule filter initialization failed.\nRegions unavailable");
+            notification(`notifyBad`, `Failed to load filters`);
+            return;
+        }
+
+        // Build up the menu
+        const menuCtntBox = document.querySelector(".scheduleFilterCtntBox");
+        let menuCtntStruct = ``;
+
+        uvp_regions.forEach((rgn) => 
+        {
+            menuCtntStruct += 
+            `
+                <button class="genMenuModalCtntBtnBox scheduleFilterOptBtn" data-region-code="${rgn.rg_code}">
+                    <div class="genMenuModalCtntBtnText">${rgn.rg_name}</div>
+                </button>
+            `
+        });
+
+
+        // Insert menu options and add seletors
+        menuCtntBox.innerHTML = menuCtntStruct;
+        const menuOptBtns = document.querySelectorAll(".scheduleFilterOptBtn");
+
+        // Get, select, and scroll to the chosen option
+        try 
+        {
+            const rgn = (window.__uvp_schdl_fltr_rgn || dflt_schdl_fltr_rgn).toString().toUpperCase();
+
+            for(m in menuOptBtns)
+            {
+                const btn = menuOptBtns[m];
+
+                if(btn.getAttribute("data-region-code").toUpperCase() === rgn)
+                {
+                    btn.classList.add("selected");
+                    setTimeout(() => 
+                    {
+                        genMenuModalBox.scrollTo(
+                        {
+                            top: (Math.ceil((btn.getBoundingClientRect().top - (window.innerHeight - (genMenuModalBox.getBoundingClientRect().height * 0.80)) - 25))),
+                            behavior: "smooth"
+                        });
+                    }, 100);
+                    break;
+                }
+            }
+        }
+        catch(error)
+        {
+            console.error(error);
+        }
+
+        // Updates the user's prefered option for the chosen category
+        menuOptBtns.forEach((btn) => 
+        {
+            const menu_atn = async () => 
+            {
+                try 
+                {
+                    let btnOptNo = btn.getAttribute("data-region-code").toUpperCase();
+
+                    // Update flag
+                    window.__uvp_schdl_fltr_rgn = btnOptNo !== ""
+                        ? btnOptNo
+                        : dflt_schdl_fltr_rgn
+
+
+                    // Refresh page to reflect changes
+                    setTimeout(refreshPage, 100);
+
+                    // Notify User
+                    notification(`notifyGood`, `Displaying schedule for "${btn.querySelector(".genMenuModalCtntBtnText").textContent}"`);
+                } 
+                catch(error) 
+                {
+                    console.error(error);
+                    notification(`notifyBad`, `Failed to apply filters`);
+                }
+            }
+
+            btn.addEventListener("click", menu_atn);
+        });
     }
