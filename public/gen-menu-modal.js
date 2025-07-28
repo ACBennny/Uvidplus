@@ -580,6 +580,13 @@
                 </div>
             `,
         },
+        {
+            menu_id: `schedule_filter_menu`,
+            menu_ctnt: 
+            `
+                <div class="genMenuModalCtntBox scheduleFilterCtntBox"></div>
+            `,
+        },
     ];
 
 
@@ -681,5 +688,10 @@
 
     function help_ctr_chatbot()
     {}
+
+    function schedule_filter_menu()
+    {
+        callGlobalFunctions(`attachSchdlFltrListeners`);
+    }
 
 

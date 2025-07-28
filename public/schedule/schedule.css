@@ -41,6 +41,25 @@ html:root
 
 
 
+/* ---------- Filter button --------- */
+.schedulte_filter_box,
+.schedulte_filter_box.genBtnBox
+{
+    position: fixed;
+    width: 3rem;
+    height: 3rem;
+    bottom: calc((var(--btmNavBarHeight) + var(--genBorderSpacing)));
+    right: var(--genBorderSpacing);
+    box-shadow: 0rem 0.125rem 0.125rem 0.125rem #11111150;
+    overflow: hidden;
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+    z-index: 101;
+}
+
+
+
+
 
 
 /* =================== SELECTORS ==================== */
