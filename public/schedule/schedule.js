@@ -210,13 +210,12 @@ const dflt_schdl_fltr_rgn = "JP";
                 const episodeBox = document.createElement("div");
                 episodeBox.className = "schedule_ctntDetEpBox";
 
-                // const episodeTitle = airing.name || `S${airing.season}E${airing.number}`;
-                const episodeTitle = (airing.season && airing.number)
-                    ? `S${airing.season} E${airing.number}`
-                    : airing.name;
                 const localTime = airing.airstamp
                     ? new Date(airing.airstamp).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
                     : "Unknown time";
+                const episodeTitle = (airing.season && airing.number)
+                    ? `S${airing.season} E${airing.number}`
+                    : airing.name;
 
                 const episodeText = document.createElement("p");
                 episodeText.className = "schedule_ctntDetEpText";
