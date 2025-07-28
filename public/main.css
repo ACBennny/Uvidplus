@@ -930,7 +930,7 @@ button
 html:has( .backtotop_float_left) .backtotop_float
 {
     right: unset;
-    left: var(--genBorderSpacing);
+    left: calc((var(--genBorderSpacing) + var(--sideNavBarWidth)));
     transform: translateX(-100%);
 }
 
