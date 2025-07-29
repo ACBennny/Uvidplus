@@ -16,6 +16,9 @@ html:root
     --schedule_ctntDetDescTextClr: var(--navOptionColor);
 }
 
+
+
+
 .schedule_base
 {
     width: 100%;
@@ -310,23 +313,45 @@ html:root
     flex-direction: row;
 }
 
-.schedule_ctntBox .schedule_ctntGrid
+.schedule_ctntBox .schedule_ctntGridBdr
 {
     width: 100%;
     display: none;
+}
+
+.schedule_ctntGridBdr.curr_day
+{
+    display: block;
+}
+
+.schedule_ctntGridBdr .schedule_ctntGridBox
+{
+    width: 100%;
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(var(--schedule_ctntGridColW), 1fr));
     grid-template-rows: auto;
     justify-items: center;
     gap: 0.9375rem;
-    transition: 100ms;
 }
 
-.schedule_ctntGrid.curr_day
+.schedule_ctntGridBdr.curr_day .schedule_ctntGridBox
 {
-    display: grid;
+    animation: schedule_ctntGridBox_flick 300ms linear;
 }
 
-.schedule_ctntGrid .schedule_ctntCardBdr
+@keyframes schedule_ctntGridBox_flick 
+{
+    from
+    {
+        filter: brightness(0);
+    }
+    to
+    {
+        filter: brightness(1);
+    }
+}
+
+.schedule_ctntGridBox .schedule_ctntCardBdr
 {
     width: 100%;
     display: block;
@@ -498,12 +523,12 @@ html:root
         font-size: 1.125rem;
     }
 
-    .schedule_ctntBox .schedule_ctntGrid
+    .schedule_ctntBox .schedule_ctntGridBox
     {
         grid-template-columns: 100%;
     }
 
-    .schedule_ctntGrid .schedule_ctntCardBdr
+    .schedule_ctntGridBox .schedule_ctntCardBdr
     {
         padding: 0.625rem;
     }
