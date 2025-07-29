@@ -7,39 +7,6 @@
 ****************************************************************/
 
 
-    // Catches HTTPS 429 (Rate-limiting) error and retries after given time
-    async function fetchWithRetry(url, options = {}, retries = 1, delayMs = 2000)
-    {
-        let attempt = 0;
-
-        while(attempt <= retries)
-        {
-            const response = await fetch(url, options);
-
-            if(response.status === 429)
-            {
-                if(attempt < retries)
-                {
-                    console.warn(`Rate limited. Retrying in ${delayMs}ms...`);
-                    await new Promise(res => setTimeout(res, delayMs));
-                    attempt++;
-                    continue;
-                }
-                else
-                {
-                    throw new Error("Too many requests - try again later.");
-                }
-            }
-
-            if(!response.ok)
-            {
-                throw new Error(`HTTP error ${response.status}`);
-            }
-
-            return await response.json();
-        }
-    }
-
 
     // USER PROCESSING
 
@@ -273,6 +240,76 @@
         {
             init_setup();
             msg_mbsp_exp();
+        }
+
+    
+    
+    // PROFILE
+
+        // Fetches the user profiles
+        async function getUsrProfInv() 
+        {
+            let usrData = await getUserData();
+            return usrData?.profiles;
+        }
+
+        // Updates the user profiles
+        async function updUsrProfFlds(fldsToUpd, profId = null) 
+        {
+            const userData = await getUserData(); 
+            const profEntries = Object.entries(userData?.profiles);
+            let selectedEntry = null;
+
+            if((profId != null) && (typeof profId === "string") && (profId !== ""))
+            {
+                selectedEntry = profEntries.find(([key, prof]) => key === profId);
+            }
+            else if((profId == null))
+            {
+                selectedEntry = profEntries.find(([key, prof]) => prof.prof_selected);
+            }
+            
+            // Return iff no profile is found
+            if((typeof selectedEntry !== "object") || (selectedEntry == null))
+            {
+                notification(`notifyBad`, "Profile not found");
+                return;
+            }
+
+            const selectedProfileKey = selectedEntry[0];
+
+            // Build update object with full Firestore paths
+            const updateObj = {};
+
+            for(const [fld, value] of Object.entries(fldsToUpd)) 
+            {
+                updateObj[`profiles.${selectedProfileKey}.${fld}`] = value;
+            }
+
+            // Update objects in Firestore
+            try
+            {
+                await updateUserData(updateObj);
+            }
+            catch(err)
+            {
+                console.error("Multi-field update failed:", err);
+                notification(`notifyBad`, "Failed to save changes.");
+            }
+        }
+
+        // Gets the currently selected profile
+        async function getSelectedProfile()
+        {
+            const usrData = await getUserData();
+            return Object.values(usrData?.profiles).find(item => item.prof_selected) || null;
+        }
+
+        // Gets the details of provided profile id
+        async function getUsrProfFld(prof_id)
+        {
+            const usrData = await getUserData();
+            return Object.entries(usrData?.profiles).find(([key, profile]) => key === prof_id);
         }
 
     
