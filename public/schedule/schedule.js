@@ -7,54 +7,78 @@
 ****************************************************************/
 
 
-const dflt_schdl_fltr_rgn = "JP";
-
-
-    async function initSchedule()
-    {
-        const scheduleBaseStruct = 
-        `
-            <div class="schedule_base backtotop_float_left">
-                <div class="schedule_bdr">
-                    <div class="schedule_box">
-                        <div class="schedule_selBase">
-                            <div class="schedule_selBdr">
-                                <div class="schedule_selBox">
-                                    <div class="schedule_dateBdr">
-                                        <div class="schedule_dateBox">
-                                            <div class="schedule_dateAllBorder schedule_dateLeftBorder hide"></div>
-                                            <div class="schedule_dateAllBorder schedule_dateRightBorder hide"></div>
-                                            <div class="schedule_dateSlider"></div>
-                                        </div>
+    const scheduleBaseStruct = 
+    `
+        <div class="schedule_base backtotop_float_left">
+            <div class="schedule_bdr">
+                <div class="schedule_box">
+                    <div class="schedule_selBase">
+                        <div class="schedule_selBdr">
+                            <div class="schedule_selBox">
+                                <div class="schedule_dateBdr">
+                                    <div class="schedule_dateBox">
+                                        <div class="schedule_dateAllBorder schedule_dateLeftBorder hide"></div>
+                                        <div class="schedule_dateAllBorder schedule_dateRightBorder hide"></div>
+                                        <div class="schedule_dateSlider"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="schedule_ctntBdr">
-                            <div class="schedule_ctntBox">
-                                <div class="preload_2_bdr">
-                                    <div class="preload_2_box">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="preload_2_spinner">
-                                            <path d="M10.14,1.16a11,11,0,0,0-9,8.92A1.59,1.59,0,0,0,2.46,12,1.52,1.52,0,0,0,4.11,10.7a8,8,0,0,1,6.66-6.61A1.42,1.42,0,0,0,12,2.69h0A1.57,1.57,0,0,0,10.14,1.16Z">
-                                                <animateTransform attributeName="transform" dur="0.75s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12" />
-                                            </path>
-                                        </svg>
-                                    </div>
+                    </div>
+                    <div class="schedule_ctntBdr">
+                        <div class="schedule_ctntBox">
+                            <div class="preload_2_bdr">
+                                <div class="preload_2_box">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="preload_2_spinner">
+                                        <path d="M10.14,1.16a11,11,0,0,0-9,8.92A1.59,1.59,0,0,0,2.46,12,1.52,1.52,0,0,0,4.11,10.7a8,8,0,0,1,6.66-6.61A1.42,1.42,0,0,0,12,2.69h0A1.57,1.57,0,0,0,10.14,1.16Z">
+                                            <animateTransform attributeName="transform" dur="0.75s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12" />
+                                        </path>
+                                    </svg>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="genBtnBox genIconBtn midSolidBtn schedulte_filter_box schedulte_filter_btn openGenMenuModalBtn" data-gen-menu-modal-type="schedule_filter_menu" title="Select a region to see its schedule">
-                <div class="genBtnIcon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
-                        <path d="M9.25 14a3 3 0 1 1 0 6a3 3 0 0 1 0-6m5-10a3 3 0 1 0 0 6a3 3 0 0 0 0-6m-5.5 2.209a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1 0-1.5zm6 10a.75.75 0 0 0 0 1.5h7a.75.75 0 0 0 0-1.5zM1 16.959a.75.75 0 0 1 .75-.75h2a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1-.75-.75m20.75-10.75a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5z" />
-                    </svg>
+        </div>
+        <div class="genBtnBox genIconBtn midSolidBtn schedulte_filter_box schedulte_filter_btn openGenMenuModalBtn" data-gen-menu-modal-type="schedule_filter_menu" title="Select a region to see its schedule">
+            <div class="genBtnIcon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
+                    <path fill-rule="evenodd" d="M1.25 7A.75.75 0 0 1 2 6.25h8a.75.75 0 0 1 0 1.5H2A.75.75 0 0 1 1.25 7m0 5a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5H2a.75.75 0 0 1-.75-.75m0 5a.75.75 0 0 1 .75-.75h8a.75.75 0 0 1 0 1.5H2a.75.75 0 0 1-.75-.75M17 17a5 5 0 1 0 0-10a5 5 0 0 0 0 10m.75-7a.75.75 0 0 0-1.5 0v1.846c0 .18.065.355.183.491l1 1.154a.75.75 0 0 0 1.134-.982l-.817-.943z" clip-rule="evenodd" />
+                </svg>
+            </div>
+        </div>
+    `;
+    const empty_schdl_pg_struct = 
+    `
+        <div class="emptyMyListPageBdr">
+            <div class="emptyMyListPageBox">
+                <div class="emptyMyListPageCtnt">
+                    <div class="emptyMyListPageIconBox">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="emptyMyListPageIconSvg">
+                            <path fill-rule="evenodd" d="M18 15.75a2.25 2.25 0 1 0 0 4.5a2.25 2.25 0 0 0 0-4.5M14.25 18a3.75 3.75 0 1 1 6.879 2.068l1.401 1.402a.75.75 0 1 1-1.06 1.06l-1.402-1.401A3.75 3.75 0 0 1 14.25 18" clip-rule="evenodd" />
+                            <path d="M7.75 2.5a.75.75 0 0 0-1.5 0v1.58c-1.44.115-2.384.397-3.078 1.092c-.695.694-.977 1.639-1.093 3.078h19.842c-.116-1.44-.398-2.384-1.093-3.078c-.694-.695-1.639-.977-3.078-1.093V2.5a.75.75 0 0 0-1.5 0v1.513C15.585 4 14.839 4 14 4h-4c-.839 0-1.585 0-2.25.013zM22 12v2.6a5.25 5.25 0 1 0-7.4 7.4H10c-3.771 0-5.657 0-6.828-1.172S2 17.771 2 14v-2c0-.839 0-1.585.013-2.25h19.974C22 10.415 22 11.161 22 12" />
+                        </svg>
+                    </div>
+                    <div class="emptyMyListPageNoteBox">
+                        <p class="emptyMyListPageNoteText">
+                            There are no shows streaming at this time
+                            <br>
+                            If you believe this to be an error, you can refresh the page by clicking
+                            <a onclick="refreshPage()"><strong>here.</strong></a>
+                        </p>
+                    </div>
                 </div>
             </div>
-        `;
+        </div>
+    `;
+    const dflt_schdl_fltr_rgn = "JP";
 
+
+
+    async function initSchedule()
+    {
+        // Insert schedule page base
         documentCtnt.insertAdjacentHTML(`afterbegin` , scheduleBaseStruct);
         
         // Update Navbar active states
@@ -64,8 +88,6 @@ const dflt_schdl_fltr_rgn = "JP";
 
         // Load and build schedule
         await loadSchedule();
-
-        attachGenMenuModalEventListeners();
     }
 
 
@@ -112,7 +134,7 @@ const dflt_schdl_fltr_rgn = "JP";
         catch(error)
         {
             console.error(`Failed to load schedule\n${error}`);
-            notification(`notifyBad`, `Failed to load schedule. Please try again later`);
+            notification(`notifyBad`, `Failed to load schedule. Please try again later.`);
         }
     }
 
@@ -154,101 +176,119 @@ const dflt_schdl_fltr_rgn = "JP";
             // Append button
             btn.dataset.dateKey = dateStr;
             dateSelector.appendChild(btn);
-
-
+            
             // Create Show Content Section
-            const section = document.createElement("div");
-            section.className = "schedule_ctntGrid";
-            section.dataset.dateKey = dateStr;
+            const sectionBdr = document.createElement("div");
+            sectionBdr.className = "schedule_ctntGridBdr";
+            sectionBdr.dataset.dateKey = dateStr;
 
             // Display section for the current day
-            if (index === 0) section.classList.add("curr_day");
+            if (index === 0) sectionBdr.classList.add("curr_day");
 
-            // Build content for each section
-            shows.forEach((airing) => 
+
+            // Display if shows exist for the given date
+            if(shows.length > 0)
             {
-                const show = airing.show;
+                // Create Show Content Section
+                const sectionBox = document.createElement("div");
+                sectionBox.className = "schedule_ctntGridBox";
 
-                const cardBdr = document.createElement("div");
-                cardBdr.className = "schedule_ctntCardBdr";
+                // Build content for each section
+                shows.forEach((airing) => 
+                {
 
-                const cardBox = document.createElement("a");
-                cardBox.className = "schedule_ctntCardBox";
+                    const show = airing.show;
 
-                // Card Thumbnail (Poster)
-                const posterBdr = document.createElement("div");
-                posterBdr.className = "schedule_ctntThumbnailBdr";
+                    const cardBdr = document.createElement("div");
+                    cardBdr.className = "schedule_ctntCardBdr";
 
-                const posterBox = document.createElement("div");
-                posterBox.className = "schedule_ctntThumbnailBox";
-                posterBox.innerHTML = 
-                `
-                    <div class="img_preload_box">
-                        <div class="img_preload_sibling"></div>
-                        <img loading="lazy" 
-                            onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')"
-                            onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')" 
-                            src="${show.image?.medium || ''}" alt="${show.name}" class="schedule_ctntThumbnailImg"
-                        >
-                    </div>
-                `;
+                    const cardBox = document.createElement("a");
+                    cardBox.className = "schedule_ctntCardBox";
 
-                // Card details
-                const infoBdr = document.createElement("div");
-                infoBdr.className = "schedule_ctntDetBdr";
+                    // Card Thumbnail (Poster)
+                    const posterBdr = document.createElement("div");
+                    posterBdr.className = "schedule_ctntThumbnailBdr";
 
-                const infoBox = document.createElement("div");
-                infoBox.className = "schedule_ctntDetBox";
+                    const posterBox = document.createElement("div");
+                    posterBox.className = "schedule_ctntThumbnailBox";
+                    posterBox.innerHTML = 
+                    `
+                        <div class="img_preload_box">
+                            <div class="img_preload_sibling"></div>
+                            <img loading="lazy" 
+                                onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')"
+                                onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')" 
+                                src="${show.image?.medium || ''}" alt="${show.name}" class="schedule_ctntThumbnailImg"
+                            >
+                        </div>
+                    `;
 
-                const titleBox = document.createElement("div");
-                titleBox.className = "schedule_ctntDetTitleBox";
+                    // Card details
+                    const infoBdr = document.createElement("div");
+                    infoBdr.className = "schedule_ctntDetBdr";
 
-                const titleText = document.createElement("span");
-                titleText.className = "schedule_ctntDetTitleText";
-                titleText.textContent = show.name;
+                    const infoBox = document.createElement("div");
+                    infoBox.className = "schedule_ctntDetBox";
 
-                const episodeBox = document.createElement("div");
-                episodeBox.className = "schedule_ctntDetEpBox";
+                    const titleBox = document.createElement("div");
+                    titleBox.className = "schedule_ctntDetTitleBox";
 
-                const localTime = airing.airstamp
-                    ? new Date(airing.airstamp).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
-                    : "Unknown time";
-                const episodeTitle = (airing.season && airing.number)
-                    ? `S${airing.season} E${airing.number}`
-                    : airing.name;
+                    const titleText = document.createElement("span");
+                    titleText.className = "schedule_ctntDetTitleText";
+                    titleText.textContent = show.name;
 
-                const episodeText = document.createElement("p");
-                episodeText.className = "schedule_ctntDetEpText";
-                episodeText.innerHTML = `<strong>${episodeTitle}</strong> - ${localTime}`;
+                    const episodeBox = document.createElement("div");
+                    episodeBox.className = "schedule_ctntDetEpBox";
 
-                const descBox = document.createElement("div");
-                descBox.className = "schedule_ctntDetDescBox";
+                    const localTime = airing.airstamp
+                        ? new Date(airing.airstamp).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
+                        : "Unknown time";
+                    const episodeTitle = (airing.season && airing.number)
+                        ? `S${airing.season} E${airing.number}`
+                        : airing.name;
 
-                const descText = document.createElement("p");
-                descText.className = "schedule_ctntDetDescText";
-                descText.innerHTML = show.summary || "No description available.";
+                    const episodeText = document.createElement("p");
+                    episodeText.className = "schedule_ctntDetEpText";
+                    episodeText.innerHTML = `<strong>${episodeTitle}</strong> - ${localTime}`;
 
-                // Append components
-                titleBox.appendChild(titleText);
-                episodeBox.appendChild(episodeText);
-                descBox.appendChild(descText);
+                    const descBox = document.createElement("div");
+                    descBox.className = "schedule_ctntDetDescBox";
 
-                infoBox.appendChild(titleBox);
-                infoBox.appendChild(episodeBox);
-                infoBox.appendChild(descBox);
+                    const descText = document.createElement("p");
+                    descText.className = "schedule_ctntDetDescText";
+                    descText.innerHTML = show.summary || "No description available.";
 
-                infoBdr.appendChild(infoBox);
-                posterBdr.appendChild(posterBox);
-                
-                cardBox.appendChild(posterBdr);
-                cardBox.appendChild(infoBdr);
-                
-                cardBdr.appendChild(cardBox);
+                    // Append components
+                    titleBox.appendChild(titleText);
+                    episodeBox.appendChild(episodeText);
+                    descBox.appendChild(descText);
 
-                // Append to list
-                section.appendChild(cardBdr);
-            });
-            showsBox.appendChild(section);
+                    infoBox.appendChild(titleBox);
+                    infoBox.appendChild(episodeBox);
+                    infoBox.appendChild(descBox);
+
+                    infoBdr.appendChild(infoBox);
+                    posterBdr.appendChild(posterBox);
+                    
+                    cardBox.appendChild(posterBdr);
+                    cardBox.appendChild(infoBdr);
+                    
+                    cardBdr.appendChild(cardBox);
+
+                    // Append to list
+                    sectionBox.appendChild(cardBdr);
+                });
+
+                sectionBdr.appendChild(sectionBox);
+            }
+            else
+            {
+                // Display notice if no shedule available
+                sectionBdr.innerHTML = empty_schdl_pg_struct;
+            }
+
+            // Append to set
+            showsBox.appendChild(sectionBdr);
         });
 
         // Tab click event
@@ -264,8 +304,8 @@ const dflt_schdl_fltr_rgn = "JP";
             btn.classList.add("curr_day");
 
             // Update active show section
-            document.querySelectorAll(".schedule_ctntGrid").forEach(s => s.classList.remove("curr_day"));
-            document.querySelector(`.schedule_ctntGrid[data-date-key="${dateKey}"]`)?.classList.add("curr_day");
+            document.querySelectorAll(".schedule_ctntGridBdr").forEach(s => s.classList.remove("curr_day"));
+            document.querySelector(`.schedule_ctntGridBdr[data-date-key="${dateKey}"]`)?.classList.add("curr_day");
 
             // Scrolls to the currently selected date
             let currDateOffsetLeft = btn.offsetLeft - 50;
@@ -278,7 +318,11 @@ const dflt_schdl_fltr_rgn = "JP";
         });
 
 
+        // Attach listners for sliders
         postSchedule();
+
+        // Attach listeners for filters
+        attachGenMenuModalEventListeners();
     }
 
 
@@ -402,7 +446,7 @@ const dflt_schdl_fltr_rgn = "JP";
 
 
     // Updates items with draggable menus
-    async function attachSchdlFltrListeners()
+    function attachSchdlFltrListeners()
     {
         // Notify user of the purpose
         notification(`notifyGood`, `Select a region to see its schedule.`);
@@ -471,6 +515,13 @@ const dflt_schdl_fltr_rgn = "JP";
                 try 
                 {
                     let btnOptNo = btn.getAttribute("data-region-code").toUpperCase();
+
+                    // Return
+                    if((btnOptNo === "NK"))
+                    {
+                        notification(`notifyBad`, `What are you looking for? ¯\\\_(ツ)_/¯`);
+                        return;
+                    }
 
                     // Update flag
                     window.__uvp_schdl_fltr_rgn = btnOptNo !== ""
