@@ -906,28 +906,57 @@ const uvidplus_tou_ =
                             and accessible as a "demo" through 
                             <a class="goToHome" href="https://uvidplus.netlify.app" target="_blank">uvidplus.netlify.app</a>
                             which simulates the user interface and user experience of a streaming platform.
-                            It is provided as is, without warranty, and guarantee of any kind. 
+                            It is provided as is, without warranty, and without guarantee, of any kind. 
                             <br><br>
                             Uvid+ integrates <strong>Firebase</strong>, a service provided by Google for account creation, authentication, and customization.
                             <br><br>
-                            Uvid+ also uses the <strong>TMDB APIs</strong>, a tool provided by TMDB to provide details about tv shows, movies, and other related content.
-                            Note that Uvid+ is not affiliated, endorsed, certified, or otherwise approved by TMDB.
+                            Uvid+ also links to:
+                            <br>
+                            - <strong>TMDB APIs</strong>, a tool provided by TMDB,
+                            <br>
+                            - <strong>TVMaze APIs</strong>, a tool provided by TVMaze,
+                            <br>
+                            to provide details about tv shows, movies, and other related content.
+                            <br>
+                            Note that Uvid+ is not affiliated, endorsed, certified, or otherwise approved by any of these services.
                             <br><br>
-                            By using this demo, 
+                            By using this demo, you fully, wholefully, and completely:
                             <br>
-                            [1] you confirm that you are at least 18 years of age, 
+                            [1] confirm that you are at least 18 years of age, or the minimum age of maturity 
+                            as defined by your country of residence from which this demo is being accessed from,
+                            if and only if the minimum age is greater than 18 years.
                             <br>
-                            [2] you take full, whole, and complete responsibility for any, and every damage(s)
-                            that may occur, 
+                            [2] inherit, obtain, and/or incur responsibility for any, and every damage(s)
+                            that may occur.
                             <br>
-                            [3] you give up the right to pursue any form of legal action (including the right to sue) against the project,
+                            [3] give up the right to pursue any form of legal action (including the right to sue) against the project,
                             the GitHub account that developed the project, the owner(s) of the account, and mentioned affiliates
-                            in regards to your use of this demo, and
+                            in regards to your use of this demo.
                             <br>
-                            [4] you fully, wholefully, and completely understand, that Uvid+ does NOT, and will NOT bill, or request any form of monetary goods from you.
+                            [4] understand, that Uvid+ does NOT, and will NOT bill, or request any form of monetary goods from you.
+                            <br>
+                            [5] agree to NOT knowingly, and/or willfully provide, or incentisize anyone to provide real, factual, valid or invalid, 
+                            old or new, or any form of information, that directly or indirectly represents you, or any other individual,
+                            excluding a valid working email for the sole purpose of account related activities, which includes but is not limited to 
+                            account creation, and account management.
                             <br><br>
-                            As Uvid+ is simulating a streaming service, you may also see elements or components that appear to conflict with our policy. 
-                            In any conflicts of interest, our terms of use and privacy policy remain absolute.
+                            By creating an account on 
+                            <a class="goToHome" href="https://uvidplus.netlify.app" target="_blank">Uvid+</a>,
+                            you voluntaringly agree to respect, value, uphold, and be binded by these terms. 
+                            <br>
+                            Likewise, by deleting your
+                            <a class="goToHome" href="https://uvidplus.netlify.app" target="_blank">Uvid+</a> account,
+                            you are immediately relieved of these terms.
+                            <br><br>
+                            As Uvid+ is simulating a streaming service, you may see elements or components of the demo that appear to conflict with our policy. 
+                            In any conflicts of interest, our terms of use, and privacy policy remain absolute.
+                            <br><br>
+                            Our terms, and any of the other policies we provide only apply to this demo, 
+                            <a class="goToHome" href="https://uvidplus.netlify.app" target="_blank">Uvid+</a>.
+                            Other third-party services may have their own policies which may differ from ours.
+                            <br>
+                            Using this demo does not in any manner or form, bind you to any of the policies from the third-party services.
+                            Any issues you may have with the third-party services, and/or their policies must be addressed accordingly with them.
                             <br><br>
                             Note that this policy can be updated at any time without prior notification.
                         </p>

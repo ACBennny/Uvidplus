@@ -30,12 +30,6 @@
                             <br><br>
                             The random information you provide in Uvid+ will never be used to identify you.
                             <br><br>
-                            In this respect, you fully, wholefully, and completely 
-                            <strong>agree to NOT knowingly and/or willfully provide, or incentisize anyone to provide</strong> real, factual, valid or invalid, 
-                            old or new, or any form of information, that directly or indirectly represents you or any other individual
-                            <strong>excluding a valid working email</strong> for the sole purpose of account related activities which includes but is not limited to 
-                            account creation, account authorisation, account management, and account customization.
-                            <br><br>
                             This policy is non-applicable to third-party services that Uvid+ may integrate/link to its platform.
                             <br><br>
                             Note that this policy can be updated at any time without prior notification.

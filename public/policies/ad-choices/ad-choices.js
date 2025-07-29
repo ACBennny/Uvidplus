@@ -20,7 +20,9 @@
                     <div class="middle">
                         <h3 class="mid_Title">Ad Choices</h3>
                         <p class="mid_Note">
-                            Uvid+ does NOT provide any ADs on it's platform.
+                            Uvid+ does NOT in itself provide any ADs on its platform.
+                            <br><br>
+                            This policy is non-applicable to third-party services that Uvid+ may integrate/link to its platform.
                             <br><br>
                             Note that this policy can be updated at any time without prior notification.
                         </p>
