@@ -2334,7 +2334,7 @@ let editCLStruct =
     }
 
 
-    // Adding Event listeners for deleting collection items
+    // Adding Event listeners for deleting a collection
     function addDelCLEventListeners()
     {
         let clDeleteBtn = document.querySelectorAll(".clDeleteBtn");
