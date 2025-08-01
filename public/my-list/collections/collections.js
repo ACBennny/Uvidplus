@@ -1215,6 +1215,10 @@ let editCLStruct =
         clModalSortOrderText = document.querySelector(".clModalCtnt_sortStatusText .status_order");
         closeCLModalTimer;
 
+        // Get selected profile to access a shows watch status
+        const selectedProfile = await getSelectedProfile();
+        const profWL = selectedProfile?.prof_watchlist || [];
+
         // Setting the titlebar's width
         let clModalBoxScrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
 
@@ -1257,15 +1261,16 @@ let editCLStruct =
         // Filling in the grid content
         for(let g = 0; g < clLibraryIndexedInv[clBodyCardIndex].cl_items.length; g++)
         {
-            let itemId = clLibraryIndexedInv[clBodyCardIndex].cl_items[g].cl_itemId;
-            let itemIdLC = itemId.split('/')[2];
-            let itemMatch = infoInvLinkMap.get(itemIdLC);
+            const itemId = clLibraryIndexedInv[clBodyCardIndex].cl_items[g].cl_itemId;
+            const itemIdLC = itemId.split('/')[2];
+            const itemMatch = infoInvLinkMap.get(itemIdLC);
+            const itemWL = profWL.filter(item => item.wl_item === itemId) || [];
+            const itemStatus = itemWL[0]?.wl_status || 0;
             
             // If match found, add to grid
             if (itemMatch)
             {
                 const {
-                    show_watch_status,
                     show_background,
                     show_foreground,
                     show_link,
@@ -1280,7 +1285,7 @@ let editCLStruct =
                 clModalGrid_CardBdr.classList.add("clModalGrid_CardBdr");
                 clModalGrid_CardBdr.classList.add("genDraggableElement");
                 clModalGrid_CardBdr.setAttribute(`data-show-index` , g);
-                clModalGrid_CardBdr.setAttribute(`data-show-status-opt` , show_watch_status);
+                clModalGrid_CardBdr.setAttribute(`data-show-status-opt` , itemStatus);
                 
                 let itemStruct = 
                 `
@@ -2721,12 +2726,12 @@ let editCLStruct =
                 
             // Dropped
             case 4:
-                filterCLModalStatus(5);
+                filterCLModalStatus(4);
                 break;
                 
             // Completed
             case 5:
-                filterCLModalStatus(4);
+                filterCLModalStatus(5);
                 break;
                 
             // Notify of error 
