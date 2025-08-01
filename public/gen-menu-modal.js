@@ -614,7 +614,7 @@
         else
         {
             // For others (collections, info pages. watch page)
-            callGlobalFunctions(`updShowsInWL`);
+            callGlobalFunctions(`updShowsInWL`, [btnEvent]);
         }
     }
 

@@ -137,7 +137,7 @@
     }
  
     // Updating the watchlist features outside the watchlist page
-    async function updShowsInWL()
+    async function updShowsInWL(event)
     {
         let selectedProfile = await getSelectedProfile();
         let wlWatchStatusOpt = document.querySelectorAll(".wlWatchStatusOpt");
@@ -217,6 +217,47 @@
                     });
                 }
 
+                // Update the watch status on the collections page or Refresh the page if element is not found
+                if(((hash_parts[1] === "my-list") && (hash_parts[2] === "collections")))
+                {
+                    // Get the clicked button
+                    let clModalGridCardMenuBtn = event.target.closest("[data-gen-menu-modal-type='cl_modal_cards']");
+                    
+                    if (!clModalGridCardMenuBtn)
+                    {
+                        console.error("Button with attribute [data-gen-menu-modal-type='cl_modal_cards'] not found.");
+                        refreshPage();
+                        return;
+                    }
+
+                    // Find the parent 
+                    let clModalGridCardBdr = clModalGridCardMenuBtn.closest(".clModalGrid_CardBdr");
+                    if (!clModalGridCardBdr)
+                    {
+                        console.error("Parent element not found.");
+                        refreshPage();
+                        return;
+                    }
+
+                    // Get all parents elements to obtain the current index
+                    let allGridCards = Array.from(document.querySelectorAll(".clModalGrid_CardBdr"));
+                    let clModalGridCardIndex = allGridCards.indexOf(clModalGridCardBdr);
+
+                    if (clModalGridCardIndex === -1)
+                    {
+                        console.error("Failed to find the index of the clicked card.");
+                        refreshPage();
+                        return;
+                    }
+
+                    // Update the show card in the collection
+                    if(!(clModalGridCardBdr.hasAttribute("data-show-status-opt")))
+                    {
+                        refreshPage();
+                        return;
+                    }
+                    clModalGridCardBdr.setAttribute("data-show-status-opt", currItemStatusOpt);
+                }
             }
 
             currItem.addEventListener("click" , upd_watch_status);
