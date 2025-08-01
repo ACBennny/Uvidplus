@@ -1313,7 +1313,7 @@ let editCLStruct =
                                             <img loading="lazy" 
                                                 onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
                                                 onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')" 
-                                                src="${show_background}" alt="Potrait thumbnail image for ${show_title}" class="clModalGrid_CardCtntThumbImg img_small"
+                                                src="${show_foreground}" alt="Potrait thumbnail image for ${show_title}" class="clModalGrid_CardCtntThumbImg img_small"
                                             >
                                         </div>
                                     </div>
