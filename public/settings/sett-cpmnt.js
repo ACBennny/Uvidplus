@@ -285,21 +285,6 @@ const sett_cmpnt_lib =
     {
         sett_sect: `privacy`,
         sett_orientation: `horizontal`,
-        sett_title: `Clear Watch History`,
-        sett_desc: 
-        `
-            This will clear the entire watch history of the currently selected profile.
-            If you want to clear the watch history of a different profile, kindly switch to that profile.
-            Note that this action is permanent and cannot be undone after execution. 
-        `,
-        sett_atn_type: `modal`,
-        sett_atn_id: `sett_clr_prof_hist`,
-        sett_atn_title: `Clear Watch History`,
-        sett_atn_func: `cfrmB4ClrSelProfHist`,
-    },
-    {
-        sett_sect: `privacy`,
-        sett_orientation: `horizontal`,
         sett_title: `Sign Out`,
         sett_desc: 
         `

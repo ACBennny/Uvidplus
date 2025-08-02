@@ -555,6 +555,67 @@
             `,
         },
         {
+            menu_id: `sett_mng_prof_fld_del`,
+            menu_ctnt: 
+            `
+                <div class="genMenuModalCtntBox settMngProfFldDelCtntBox">
+                    <div class="genMenuModalCtntSectBox">
+                        <p class="genMenuModalCtntSectText">Field Deletion is Permanent</p>
+                    </div>
+                    <button class="genMenuModalCtntBtnBox settMngProfFldDelBtn" data-prof-field="prof_history">
+                        <div class="genMenuModalCtntBtnIcon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genMenuModalCtntBtnSvg">
+                                <defs>
+                                    <mask id="solarClockCircleBold0">
+                                        <g fill="none">
+                                            <path fill="#fff" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10" />
+                                            <path fill="#000" fill-rule="evenodd" d="M12 7.25a.75.75 0 0 1 .75.75v3.69l2.28 2.28a.75.75 0 1 1-1.06 1.06l-2.5-2.5a.75.75 0 0 1-.22-.53V8a.75.75 0 0 1 .75-.75" clip-rule="evenodd" />
+                                        </g>
+                                    </mask>
+                                </defs>
+                                <path d="M0 0h24v24H0z" mask="url(#solarClockCircleBold0)" />
+                            </svg>
+                        </div>
+                        <div class="genMenuModalCtntBtnText">Delete History</div>
+                    </button>
+                    <button class="genMenuModalCtntBtnBox settMngProfFldDelBtn" data-prof-field="prof_watchlist">
+                        <div class="genMenuModalCtntBtnIcon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genMenuModalCtntBtnSvg">
+                                <path d="M8.106 18.247C5.298 16.083 2 13.542 2 9.137C2 4.274 7.5.825 12 5.501l2 1.998a.75.75 0 0 0 1.06-1.06l-1.93-1.933C17.369 1.403 22 4.675 22 9.137c0 4.405-3.298 6.946-6.106 9.11q-.44.337-.856.664C14 19.729 13 20.5 12 20.5s-2-.77-3.038-1.59q-.417-.326-.856-.663" />
+                            </svg>
+                        </div>
+                        <div class="genMenuModalCtntBtnText">Delete Watchlist</div>
+                    </button>
+                    <button class="genMenuModalCtntBtnBox settMngProfFldDelBtn" data-prof-field="prof_collections">
+                        <div class="genMenuModalCtntBtnIcon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genMenuModalCtntBtnSvg">
+                                <path d="M13 15.4c0-2.074 0-3.111.659-3.756S15.379 11 17.5 11s3.182 0 3.841.644C22 12.29 22 13.326 22 15.4v2.2c0 2.074 0 3.111-.659 3.756S19.621 22 17.5 22s-3.182 0-3.841-.644C13 20.71 13 19.674 13 17.6zM2 8.6c0 2.074 0 3.111.659 3.756S4.379 13 6.5 13s3.182 0 3.841-.644C11 11.71 11 10.674 11 8.6V6.4c0-2.074 0-3.111-.659-3.756S8.621 2 6.5 2s-3.182 0-3.841.644C2 3.29 2 4.326 2 6.4zm11-3.1c0-1.087 0-1.63.171-2.06a2.3 2.3 0 0 1 1.218-1.262C14.802 2 15.327 2 16.375 2h2.25c1.048 0 1.573 0 1.986.178c.551.236.99.69 1.218 1.262c.171.43.171.973.171 2.06s0 1.63-.171 2.06a2.3 2.3 0 0 1-1.218 1.262C20.198 9 19.673 9 18.625 9h-2.25c-1.048 0-1.573 0-1.986-.178a2.3 2.3 0 0 1-1.218-1.262C13 7.13 13 6.587 13 5.5m-11 13c0 1.087 0 1.63.171 2.06a2.3 2.3 0 0 0 1.218 1.262c.413.178.938.178 1.986.178h2.25c1.048 0 1.573 0 1.986-.178c.551-.236.99-.69 1.218-1.262c.171-.43.171-.973.171-2.06s0-1.63-.171-2.06a2.3 2.3 0 0 0-1.218-1.262C9.198 15 8.673 15 7.625 15h-2.25c-1.048 0-1.573 0-1.986.178c-.551.236-.99.69-1.218 1.262C2 16.87 2 17.413 2 18.5" />
+                            </svg>
+                        </div>
+                        <div class="genMenuModalCtntBtnText">Delete Collections</div>
+                    </button>
+                    <button class="genMenuModalCtntBtnBox settMngProfFldDelBtn" data-prof-field="prof_likes">
+                        <div class="genMenuModalCtntBtnIcon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genMenuModalCtntBtnSvg">
+                                <path d="m20.27 16.265l.705-4.08a1.666 1.666 0 0 0-1.64-1.95h-5.181a.833.833 0 0 1-.822-.969l.663-4.045a4.8 4.8 0 0 0-.09-1.973a1.64 1.64 0 0 0-1.092-1.137l-.145-.047a1.35 1.35 0 0 0-.994.068c-.34.164-.588.463-.68.818l-.476 1.834a7.6 7.6 0 0 1-.656 1.679c-.415.777-1.057 1.4-1.725 1.975l-1.439 1.24a1.67 1.67 0 0 0-.572 1.406l.812 9.393A1.666 1.666 0 0 0 8.597 22h4.648c3.482 0 6.453-2.426 7.025-5.735" />
+                                <path fill-rule="evenodd" d="M2.968 9.485a.75.75 0 0 1 .78.685l.97 11.236a1.237 1.237 0 1 1-2.468.107V10.234a.75.75 0 0 1 .718-.749" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="genMenuModalCtntBtnText">Delete Likes</div>
+                    </button>
+                    <button class="genMenuModalCtntBtnBox settMngProfFldDelBtn" data-prof-field="prof_dislikes">
+                        <div class="genMenuModalCtntBtnIcon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genMenuModalCtntBtnSvg">
+                                <path d="m20.27 8.485l.705 4.08a1.666 1.666 0 0 1-1.64 1.95h-5.181a.833.833 0 0 0-.822.969l.663 4.045a4.8 4.8 0 0 1-.09 1.974c-.139.533-.55.962-1.092 1.136l-.145.047c-.328.105-.685.08-.994-.068a1.26 1.26 0 0 1-.68-.818l-.476-1.834a7.6 7.6 0 0 0-.656-1.679c-.415-.777-1.057-1.4-1.725-1.975l-1.439-1.24a1.67 1.67 0 0 1-.572-1.406l.812-9.393A1.666 1.666 0 0 1 8.597 2.75h4.648c3.482 0 6.453 2.426 7.025 5.735" />
+                                <path fill-rule="evenodd" d="M2.968 15.265a.75.75 0 0 0 .78-.685l.97-11.236a1.237 1.237 0 1 0-2.468-.107v11.279a.75.75 0 0 0 .718.75" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="genMenuModalCtntBtnText">Delete Dislikes</div>
+                    </button>
+                </div>
+            `,
+        },
+        {
             menu_id: `help_ctr_chatbot`,
             menu_ctnt:
             `
@@ -684,6 +745,11 @@
     function sett_mng_prof_menu(btnEvent)
     {
         callGlobalFunctions(`attachSettMngProfMenuListeners` , [btnEvent]);
+    }
+
+    function sett_mng_prof_fld_del()
+    {
+        callGlobalFunctions("preSettMngProfFldDel");
     }
 
     function help_ctr_chatbot()

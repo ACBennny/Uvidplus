@@ -2470,6 +2470,7 @@
         });
     }
 
+
     // Initialize modal for managing a profile's preferences
     async function init_mng_prfls(btnEv, prof_id)
     {
@@ -2510,13 +2511,22 @@
                             </div>
                             <div class="genStaticHdr_btm">
                                 <div class="mng_prof_hdr_btm">
-                                    <button type="button" class="genBtnBox greySolidBtn mng_prof_lock_btn" onclick="notification('notifyBad', 'Feature unavailable')">
+                                    <button type="button" class="genBtnBox greySolidBtn mng_prof_lock_btn">
                                         <div class="genBtnIcon">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
                                                 <path fill-rule="evenodd" d="M5.25 10.055V8a6.75 6.75 0 0 1 13.5 0v2.055c1.115.083 1.84.293 2.371.824C22 11.757 22 13.172 22 16s0 4.243-.879 5.121C20.243 22 18.828 22 16 22H8c-2.828 0-4.243 0-5.121-.879C2 20.243 2 18.828 2 16s0-4.243.879-5.121c.53-.531 1.256-.741 2.371-.824M6.75 8a5.25 5.25 0 0 1 10.5 0v2.004Q16.676 9.999 16 10H8q-.677-.001-1.25.004zM8 17a1 1 0 1 0 0-2a1 1 0 0 0 0 2m4 0a1 1 0 1 0 0-2a1 1 0 0 0 0 2m5-1a1 1 0 1 1-2 0a1 1 0 0 1 2 0" clip-rule="evenodd" />
                                             </svg>
                                         </div>
                                         <span class="genBtnText">Profile Lock</span>
+                                    </button>
+                                    <button type="button" class="genBtnBox greySolidBtn openGenMenuModalBtn" data-gen-menu-modal-type="sett_mng_prof_fld_del">
+                                        <div class="genBtnIcon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
+                                                <path d="M3 6.524c0-.395.327-.714.73-.714h4.788c.006-.842.098-1.995.932-2.793A3.68 3.68 0 0 1 12 2a3.68 3.68 0 0 1 2.55 1.017c.834.798.926 1.951.932 2.793h4.788c.403 0 .73.32.73.714a.72.72 0 0 1-.73.714H3.73A.72.72 0 0 1 3 6.524" />
+                                                <path fill-rule="evenodd" d="M11.596 22h.808c2.783 0 4.174 0 5.08-.886c.904-.886.996-2.34 1.181-5.246l.267-4.187c.1-1.577.15-2.366-.303-2.866c-.454-.5-1.22-.5-2.753-.5H8.124c-1.533 0-2.3 0-2.753.5s-.404 1.289-.303 2.866l.267 4.188c.185 2.906.277 4.36 1.182 5.245c.905.886 2.296.886 5.079.886m-1.35-9.811c-.04-.434-.408-.75-.82-.707c-.413.043-.713.43-.672.864l.5 5.263c.04.434.408.75.82.707c.413-.044.713-.43.672-.864zm4.329-.707c.412.043.713.43.671.864l-.5 5.263c-.04.434-.409.75-.82.707c-.413-.044-.713-.43-.672-.864l.5-5.264c.04-.433.409-.75.82-.707" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <span class="genBtnText">Delete...</span>
                                     </button>
                                 </div>
                             </div>
@@ -2770,6 +2780,7 @@
         });
     }
 
+
     // Updates items with draggable menus
     async function attachSettMngProfMenuListeners(event)
     {
@@ -2904,6 +2915,7 @@
             btn.addEventListener("click", menu_atn);
         });
     }
+
 
     // Confirms password before opening the profile lock settings
     async function reqPassB4MngPrflLock(prof_id)
@@ -3377,6 +3389,77 @@
         {
             one.addEventListener("click" , cfrmB4Cls);
         });
+    }
+
+
+
+    // Confirm before deleting a field associated with a profile (e.g. history, likes, dislikes, etc.)
+    function preSettMngProfFldDel()
+    {
+        const fldDelSels = document.querySelectorAll(".settMngProfFldDelBtn");
+
+        fldDelSels.forEach((btn) => 
+        {
+            const sel_atn = () => 
+            {
+                // Get field attribute
+                const fld_id = btn.getAttribute("data-prof-field").toLowerCase() || "";
+
+                // Get field name (exclude the delete text)
+                const fld_name = btn.querySelector(".genMenuModalCtntBtnText")?.textContent.split(" ").at(-1) || "";
+
+                // Request deletion
+                reqSettMngProfFldDel(fld_id, fld_name);
+            }
+
+            btn.addEventListener("click", sel_atn);
+        });
+    }
+    
+    async function reqSettMngProfFldDel(prof_fld_id = "", prof_fld_name = "")
+    {
+        if((
+            ((typeof prof_fld_id === "string") && (prof_fld_id !== ""))
+            && ((typeof prof_fld_name === "string") && (prof_fld_name !== ""))
+        ))
+        {
+            const prof_id = sett_mng_prfls_curr_pid;
+
+            // Delete the selected field
+            const proceedToDelProfData = async () =>
+            {
+                try
+                {
+                    console.log(`Your '${prof_fld_name}' with id:"${prof_fld_id}" is being deleted`);
+                    
+                    await updUsrProfFlds(
+                    {
+                        [`${prof_fld_id}`]: []
+                    }, prof_id);
+
+                    notification(`notifyGood`, `Your ${prof_fld_name} was deleted successfully`);
+                }
+                catch(error)
+                {
+                    console.error(`Failed to perform deletion on the ${prof_fld_name}'s profile field: ${prof_fld_id}\n${error}`);
+                    notification(`notifyBad`, `Failed to delete your ${prof_fld_name}`);
+                }
+            }
+
+            // Ask user for confirmation before clearing
+            initConfirmModal(
+                `Are you sure you want to delete your ${prof_fld_name}?`,
+                `Once deleted, it can not be recovered`,
+                `Delete`,
+                `Cancel`,
+                proceedToDelProfData
+            );
+        }
+        else
+        {
+            console.error(`Failed to request deletion\n The fld name: ${prof_fld_name} or id: ${prof_fld_id} is invalid`);
+            notification(`notifyBad`, `An error occured. Please try again later.`);
+        }
     }
 
 
@@ -4607,43 +4690,6 @@
                 }
             });
         }
-    }
-
-
-    // Clears the selected profile's watch history
-    async function clearSelProfHist()
-    {
-        try
-        {
-            await updUsrProfFlds(
-            {
-                prof_history: []
-            });
-
-            notification(`notifyGood`, `Profile watch history cleared successfully`);
-        }
-        catch(error)
-        {
-            console.error(`Failed to clear profile watch history\n${error}`);
-            notification(`notifyBad`, `Failed to clear profile watch history`);
-        }
-    }
-
-    // Confirm before clearing watch history
-    async function cfrmB4ClrSelProfHist()
-    {
-        // Get the selected profile's name
-        let selProf = await getSelectedProfile();
-        let selProfName = selProf?.prof_name !== null ? `${selProf?.prof_name}'s profile` : `this profile`;
-
-        // Ask user for confirmation before clearing
-        initConfirmModal(
-            `Are you sure you want to clear the watch history for ${selProfName}?`,
-            `Once cleared, it can not be recovered`,
-            `Clear`,
-            `Cancel`,
-            clearSelProfHist
-        );
     }
 
 
