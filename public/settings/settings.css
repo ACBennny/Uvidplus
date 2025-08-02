@@ -922,6 +922,7 @@ html:root
     display: flex;
     flex-direction: row;
     justify-content: end;
+    gap: 0.5rem;
 }
 
 .mng_profs_ctnt_box
