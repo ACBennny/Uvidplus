@@ -33,6 +33,14 @@
             route_atn: "initSignUpForm",
             route_title: "Sign Up for Uvid+",
         },
+        'setup': 
+        {
+            route_pbl_only: true,
+            route_auth: true,
+            route_member: false,
+            route_atn: null,
+            route_title: "Create or Restart your Membership • Uvid+",
+        },
         'signin': 
         {
             route_pbl_only: true,
@@ -96,14 +104,6 @@
             route_member: false,
             route_atn: "page_route_error",
             route_title: "News • Uvid+",
-        },
-        'setup': 
-        {
-            route_pbl_only: true,
-            route_auth: false,
-            route_member: false,
-            route_atn: null,
-            route_title: "Create or Restart your Membership • Uvid+",
         },
         
 
@@ -334,26 +334,6 @@
 
         // Update page title according to route
         documentTitle.textContent = curr_route.route_title != null ? curr_route.route_title : "Stream Movies, Tv Shows, and so much more • Uvid+";
-
-        // Open verification if user isn't verified
-        if((isUsrIn) && !(isUsrVrfd))
-        {
-            init_setup();
-            init_signup_vrfy();
-            return;
-        }
-
-        // Go to last step if user is still in setup
-        if((isUsrIn) && (isUsrVrfd) && (isUsrStp))
-        {
-            const usrStpStep = usrData?.stp_steps;
-            if(usrStpStep)
-            {
-                init_setup();
-                switch_step(usrStpStep);
-                return;
-            }
-        }
         
         // Default to login page if user tries to access auth required pages
         if((curr_route.route_auth) && !(isUsrIn))
@@ -362,18 +342,43 @@
             return;
         }
 
-        // Go to plan section if user's membership is inactive
-        if((curr_route.route_auth) && (isUsrIn) && !(isUsrMmbr)) return usrMbspExp();
-
-        // Defer signed-in user to homepage if on public-only page (e.g landing, signup/sign in)
-        if((curr_route.route_pbl_only) && (isUsrIn))
+        // Open verification if user is signed in but isn't verified
+        if(((curr_route.route_pbl_only) || (curr_route.route_auth)) && (isUsrIn) && !(isUsrVrfd))
         {
-            if(!(isUsrMmbr)) return usrMbspExp();
-            window.location.hash = "#/home";
+            init_setup();
+            init_signup_vrfy();
+            return;
         }
 
-        // Initialize navbars if user is signed-in
-        if((isUsrIn) && (isUsrMmbr))
+        // If user is signed in and verified..
+        if(((curr_route.route_pbl_only) || (curr_route.route_auth)) && (isUsrIn) && (isUsrVrfd))
+        {
+            // Go to plan section if user's membership is inactive
+            if(!(isUsrMmbr) && !(isUsrStp)) return usrMbspExp();
+
+            // Go to last step if user is still in setup
+            else if(!(isUsrMmbr) && (isUsrStp))
+            {
+                const usrStpStep = usrData?.stp_steps;
+                if(usrStpStep)
+                {
+                    init_setup();
+                    switch_step(usrStpStep);
+                    console.log("stop here");
+                    return;
+                }
+            }
+        }
+
+        // Defer signed-in & verified user to homepage if on public-only page (e.g landing, signup/sign in)
+        if((curr_route.route_pbl_only) && (isUsrIn) && (isUsrVrfd) && (isUsrMmbr))
+        {
+            window.location.hash = "#/home";
+            return;
+        }
+
+        // Initialize navbars if user is a valid member
+        if((isUsrIn) && (isUsrVrfd) && (isUsrMmbr))
         {
             sideNavBar.classList.add("initialize");
             btmNavBar.classList.add("initialize");
