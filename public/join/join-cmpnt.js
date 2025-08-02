@@ -264,7 +264,9 @@
                                     <u>What does this mean?</u>
                                     <br>
                                     Uvid+ does <strong>NOT</strong> and will <strong>NOT</strong> bill you. Thus, it does not require any real information from you 
-                                    besides a valid working email for account activites (i.e. setup, management).
+                                    besides a valid working email for account activites (i.e. setup, management). 
+                                    <br>
+                                    You can enter random data on the other categoreies as it's not used for anything.
                                 </p>
                                 <p class="join_outro_det_txt">
                                     Visit the
