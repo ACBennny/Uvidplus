@@ -458,15 +458,15 @@
                                 prof_type: `default`,
                                 prof_frgImg: `/images/uvid-profile-base.png`,
                                 prof_bcgImg: `/images/uvid-green-bcg1-dark.jpg`,
-                                prof_audio_lang: `English`,
-                                prof_subtitle_lang: `English`,
+                                prof_audio_lang: 8,
+                                prof_subtitle_lang: 8,
                                 prof_show_subtitles: false,
                                 prof_auto_play: false,
                                 prof_auto_next: false,
                                 prof_auto_skip: false,
                                 prof_lock_state: false,
                                 prof_lock_pin: `0000`,
-                                prof_ctnt_restriction: `18+`,
+                                prof_ctnt_restriction: 5,
                                 prof_history:
                                 [],
                                 prof_likes:
@@ -478,35 +478,35 @@
                                 prof_collections:
                                 [],
                             },
-                            notifications:
-                            [
-                                {
-                                    notify_addedDate: `${getCurrDate("short")}`,
-                                    notify_readStatus: false,
-                                    notify_thumbnail: `/images/uvid-bcg1.jpg`,
-                                    notify_mainTopic: `Welcome to Uvid+`,
-                                    notify_subTopic: `We are glad you joined us. Browse and watch your favourite movies and tv shows.`,
-                                    notify_actionText: `Explore`,
-                                    notify_actionLink: `#/explore`,
-                                },
-                                {
-                                    notify_addedDate: `${getCurrDate("short")}`,
-                                    notify_readStatus: false,
-                                    notify_thumbnail: `/images/uvid-bcg2.jpg`,
-                                    notify_mainTopic: `Switch Profiles`,
-                                    notify_subTopic: `You can now create and customize up to five different profiles.`,
-                                    notify_actionText: `Try it Out`,
-                                    notify_actionLink: `#/profile/switch`,
-                                },
-                            ],
-                            ntfy_pref:
+                        };
+                        uvid_sgl_usr_obj[`notifications`] = 
+                        [
                             {
-                                ntfy_what_you_stream: true,
-                                ntfy_recommendation: true,
-                                ntfy_exploration: true,
-                                ntfy_promotions: true,
-                                ntfy_surveys: true,
-                            }
+                                notify_addedDate: `${getCurrDate("short")}`,
+                                notify_readStatus: false,
+                                notify_thumbnail: `/images/uvid-bcg1.jpg`,
+                                notify_mainTopic: `Welcome to Uvid+`,
+                                notify_subTopic: `We are glad you joined us. Browse and watch your favourite movies and tv shows.`,
+                                notify_actionText: `Explore`,
+                                notify_actionLink: `#/explore`,
+                            },
+                            {
+                                notify_addedDate: `${getCurrDate("short")}`,
+                                notify_readStatus: false,
+                                notify_thumbnail: `/images/uvid-bcg2.jpg`,
+                                notify_mainTopic: `Switch Profiles`,
+                                notify_subTopic: `You can now create and customize up to five different profiles.`,
+                                notify_actionText: `Try it Out`,
+                                notify_actionLink: `#/profile/switch`,
+                            },
+                        ];
+                        uvid_sgl_usr_obj[`ntfy_pref`] = 
+                        {
+                            ntfy_what_you_stream: true,
+                            ntfy_recommendation: true,
+                            ntfy_exploration: true,
+                            ntfy_promotions: true,
+                            ntfy_surveys: true,
                         };
 
                         // Store the user's object in firebase
