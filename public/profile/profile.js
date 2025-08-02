@@ -371,9 +371,9 @@
         document.querySelector(".openEditProfBtn").onclick = () => window.open(`#/profile/edit/${selectedProfileId[0]}` , `_self`);
 
         // Set the Notifications number (for unread notifications)
-        let ntfyLength = Number(userData.notifications.length);
-        let ntfyUnread = userData.notifications.filter(item => item.notify_readStatus == false);
-        let ntfyUnreadLength = Number(ntfyUnread.length);
+        let ntfyLength = Number(userData?.notifications?.length);
+        let ntfyUnread = userData?.notifications?.filter(item => item.notify_readStatus == false);
+        let ntfyUnreadLength = Number(ntfyUnread?.length);
         
         if((ntfyLength > 0) && (ntfyUnreadLength > 0))
         {
