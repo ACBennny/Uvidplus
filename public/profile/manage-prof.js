@@ -373,8 +373,14 @@
             clearTimeout(cfrmPassTimer);
             documentBody.setAttribute(`data-modal-state` , `open`);
             cfrmPassBdr.classList.add("active");
-            currPassInput.focus();
         }, 250);
+
+        // Automatically focus on input feild after transition
+        cfrmPassBdr.addEventListener("transitionend", function handleTransitionEnd()
+        {
+            cfrmPassBdr.removeEventListener("transitionend", handleTransitionEnd);
+            currPassInput.focus();
+        });
 
         // Only allow valid characters
         currPassInput.addEventListener("beforeinput", (event) => 
