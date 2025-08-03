@@ -75,8 +75,8 @@
             let boxWidth = boxDimension.width;
             let boxW = boxWidth - boxErrorMargin;
             let multiCardSlide = boxW;
-            let boxChildrenDimension = basic_slide_CardBase[0].getBoundingClientRect();
-            let boxChildrenWidth = boxChildrenDimension.width;
+            let boxChildrenDimension = item.querySelectorAll(".basic_carousel_card")[0]?.getBoundingClientRect();
+            let boxChildrenWidth = boxChildrenDimension?.width;
             singleCardSlide = boxChildrenWidth;
 
             // Unhide/hide right arrow if content is overflowing
