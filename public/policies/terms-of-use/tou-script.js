@@ -917,7 +917,7 @@ const uvidplus_tou_ =
                             - <strong>TVMaze APIs</strong>, a tool provided by TVMaze,
                             <br>
                             to provide details about tv shows, movies, and other related content.
-                            <br>
+                            <br><br>
                             Note that Uvid+ is not affiliated, endorsed, certified, or otherwise approved by any of these services.
                             <br><br>
                             By using this demo, you fully, wholefully, and completely:
