@@ -235,12 +235,12 @@
         let switchProfBdr = document.querySelector(".switchProfBdr");
 
         // Removes style classes
-        switchProfBdr.classList.remove("active");
+        switchProfBdr?.classList.remove("active");
 
         switchProfTimer = setTimeout(() => 
         {
             clearTimeout(switchProfTimer);
-            switchProfBdr.remove();
+            switchProfBdr?.remove();
             documentBody.classList.remove("bodystop");
 
             window.open('#/profile' , '_self');
@@ -512,7 +512,7 @@
     }
 
     // Performs the switching of the profiles
-    async function switchProfAtn(switch_id)
+    async function switchProfAtn(switch_id, origin = "")
     {
         const profileInfoInv = await getUsrProfInv();
         const switch_obj = {};
@@ -536,6 +536,17 @@
 
             // Update user data
             await updateUserData(switch_obj);
+
+            // Go to Manage profiles if coming from edit
+            if((origin === "edit"))
+            {
+                window.open("#/profile/switch" , "_self");
+                return
+            }
+            else if((origin === "create"))
+            {
+                window.open(`#/profile/edit/${newProfId}`, `_self`);
+            }
 
             // Close the modal
             closeManageProfModal();
@@ -744,9 +755,6 @@
 
             // Notify user of the newly created profile
             notification(`notifyGood` , `Profile created successfully`);
-
-            // Close "Create Profile" and go the edit page
-            closeCreateProf(true);
         }
 
         createProfBtn.addEventListener("click" , () => 
@@ -782,9 +790,6 @@
                 createProfBdr.remove();
                 e.disabled = false;
                 documentBody.removeAttribute(`data-modal-state`);
-
-                // Go to edit page
-                if(isProfNew == true) window.open(`#/profile/edit/${newProfId}`, `_self`);
             });
         }
 

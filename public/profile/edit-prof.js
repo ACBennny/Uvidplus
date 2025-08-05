@@ -343,17 +343,14 @@
             {
                 [`profiles.${profId}`]: firebase.firestore.FieldValue.delete()
             });
-            
-            // Select the default profile
-            const profileInfoInv = await getUsrProfInv();
-            let delProf = Object.entries(profileInfoInv).find(([key, prof]) => prof.prof_type === "default");
-            await switchProfAtn(delProf[0]);
-
-            // Return back to manage profiles
-            window.open("#/profile/switch" , "_self");
 
             // Notify the user
             notification(`notifyBad` , `Profile deleted`);
+            
+            // Select the default profile
+            const profileInfoInv = await getUsrProfInv();
+            const delProf = Object.entries(profileInfoInv).find(([key, prof]) => prof.prof_type === "default");
+            await switchProfAtn(delProf[0], "edit");
         }
     }
 
