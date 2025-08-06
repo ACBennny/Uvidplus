@@ -988,7 +988,7 @@
         function cfrm_b4_cncl_5()
         {
             initConfirmModal(
-                `Final confirmation: Cancel membership`,
+                `Final confirmation: Cancel membership?`,
                 `Last opportunity to return`,
                 `Confirm my loss`,
                 `Cancel`,
