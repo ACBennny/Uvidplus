@@ -396,7 +396,11 @@
         help_ctr_srch_pg_rslTerm.textContent = `${srch_qry.toUpperCase()}`;
 
         // Update the input fields
-        document.querySelectorAll(".help_ctr_hdr_ctnt_srchFldCls").forEach((fld) => fld.value = srch_qry);
+        document.querySelectorAll(".help_ctr_hdr_ctnt_srchFldCls").forEach((fld) => 
+        {
+            fld.value = srch_qry;
+            fld.blur();
+        });
     }
 
 
