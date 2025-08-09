@@ -3,123 +3,132 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Stream Movies, Tv Shows, and so much more • Uvid+</title>
-
-        <!-- Firebase CDNs -->
-        <script defer src="https://www.gstatic.com/firebasejs/11.8.1/firebase-app-compat.js"></script>
-        <script defer src="https://www.gstatic.com/firebasejs/11.8.1/firebase-auth-compat.js"></script>
-        <script defer src="https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore-compat.js"></script>
-
-        <!-- Logos -->
+        <title>Maintenance • Uvid+</title>
         <link rel="shortcut icon" href="logo/logo.ico" type="image/x-icon">
-        <link rel="preload" as="image" href="/images/uvid-logo.png" />
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            html
+            {
+                background-color: #000;
+                -moz-user-select: -moz-none;
+                -moz-user-select: none;
+                -webkit-user-select: none;
+                user-select: none;
+                scroll-behavior: smooth;
+            }
+            body
+            {   
+                font-family: 'Zen Dots', sans-serif;
+                min-height: 100svh;
+                min-height: 100vh;
+            }
+            .offline_mdl_bdr
+            {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                min-height: 100vh;
+                display: grid;
+                place-items: center;
+                background-image: radial-gradient(circle at 50% 50%, #2a2a2a 0%, #1e1e1e 60%);
+                z-index: 10000000000002;
+            }
 
-        <!-- Styles -->
-        <link rel="stylesheet" type="text/css" href="/error/error-all-style.css">
-        <link rel="stylesheet" type="text/css" href="/explore/explore.css">
-        <link rel="stylesheet" type="text/css" href="/feedback/feedback.css">
-        <link rel="stylesheet" type="text/css" href="/help/article.css">
-        <link rel="stylesheet" type="text/css" href="/help/contact.css">
-        <link rel="stylesheet" type="text/css" href="/help/help.css">
-        <link rel="stylesheet" type="text/css" href="/home/home-style.css">
-        <link rel="stylesheet" type="text/css" href="/info.css">
-        <link rel="stylesheet" type="text/css" href="/join/setup.css">
-        <link rel="stylesheet" type="text/css" href="/join/join-style.css">
-        <link rel="stylesheet" type="text/css" href="/landing.css">
-        <link rel="stylesheet" type="text/css" href="/main.css">
-        <link rel="stylesheet" type="text/css" href="/my-list/watchlist/watchlist.css">
-        <link rel="stylesheet" type="text/css" href="/my-list/collections/collections.css">
-        <link rel="stylesheet" type="text/css" href="/my-list/downloads/downloads.css">
-        <link rel="stylesheet" type="text/css" href="/my-list/my-list.css">
-        <link rel="stylesheet" type="text/css" href="/policies/terms-of-use/tou-style.css">
-        <link rel="stylesheet" type="text/css" href="/profile/notification.css">
-        <link rel="stylesheet" type="text/css" href="/profile/profile.css">
-        <link rel="stylesheet" type="text/css" href="/schedule/schedule.css">
-        <link rel="stylesheet" type="text/css" href="/settings/settings.css">
-        <link rel="stylesheet" type="text/css" href="/trending/trending.css">
-        <link rel="stylesheet" type="text/css" href="/watch/uvid-player-style.css">
-        <link rel="stylesheet" type="text/css" href="/watch/watch-style.css">
+            .offline_mdl_bdr .offline_mdl_box
+            {
+                width: -moz-fit-content;
+                width: fit-content;
+                height: -moz-fit-content;
+                height: fit-content;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .offline_mdl_box .offline_mdl_icon_bdr
+            {
+                width: 7.25rem;
+                height: 7.25rem;
+            }
+
+            .offline_mdl_icon_bdr .offline_mdl_icon_box
+            {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+
+            .offline_mdl_icon_box .offline_mdl_icon_svg
+            {
+                width: 100%;
+                height: 100%;
+                fill: var(--genGreenTypeLight);
+            }
+
+            .offline_mdl_box .offline_mdl_ttl_box
+            {
+                width: -moz-fit-content;
+                width: fit-content;
+                height: -moz-fit-content;
+                height: fit-content;
+                margin-top: 1.5rem;
+            }
+
+            .offline_mdl_ttl_box .offline_mdl_ttl_txt
+            {
+                color: #fff;
+                font-size: 1.875rem;
+                text-align: center;
+            }
+
+            .offline_mdl_box .offline_mdl_det_box
+            {
+                width: -moz-fit-content;
+                width: fit-content;
+                height: -moz-fit-content;
+                height: fit-content;
+                margin-top: 0.75rem;
+            }
+
+            .offline_mdl_det_box .offline_mdl_det_txt
+            {
+                font-family: 'Poppins', sans-serif;
+                color: #dfdfdf;
+                font-size: 1.125rem;
+                text-align: center;
+            }
+        </style>
     </head>
-    <body class="bodystart bodystop">
-        
-        <div id="preloader">
-            <div id="spinner"></div>
-        </div>
-        
-        <main>
-            <div>
-                <header class="topNavBar mainNavBar"></header>
-                <aside class="sideNavBar mainNavBar"></aside>
-                <nav class="btmNavBar mainNavBar"></nav>
-                <div class="pageGradient topPageGradient"></div>
-                <div class="pageGradient btmPageGradient"></div>
-                <div class="navbar_UnderLayer"></div>
-                <content class="">
-                    <div class="content"></div>
-                    <div class="genBtnBox genIconBtn greySolidBtn backtotop_float backtotop_btn">
-                        <div class="genBtnIcon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
-                                <path fill-rule="evenodd" d="M11.47 3.47a.75.75 0 0 1 1.06 0l6 6a.75.75 0 1 1-1.06 1.06l-4.72-4.72V20a.75.75 0 0 1-1.5 0V5.81l-4.72 4.72a.75.75 0 1 1-1.06-1.06z" clip-rule="evenodd" />
-                            </svg>
-                        </div>
+    <body>
+        <div class="offline_mdl_bdr">
+            <div class="offline_mdl_box">
+                <div class="offline_mdl_icon_bdr">
+                    <div class="offline_mdl_icon_box">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="offline_mdl_icon_svg">
+                            <path fill-rule="evenodd" d="M12 22c-1.886 0-2.828 0-3.414-.586S8 19.886 8 18s0-2.828.586-3.414S10.114 14 12 14s2.828 0 3.414.586S16 16.114 16 18s0 2.828-.586 3.414S13.886 22 12 22m-1.306-6.25a.667.667 0 0 0-.943.944L11.057 18l-1.306 1.306a.667.667 0 0 0 .943.943L12 18.943l1.306 1.306a.667.667 0 0 0 .943-.943L12.943 18l1.306-1.306a.667.667 0 0 0-.943-.943L12 17.057z" clip-rule="evenodd" />
+                            <path d="M6.5 18v-.09c0-.865 0-1.659.087-2.304c.095-.711.32-1.463.938-2.08c.618-.619 1.37-.844 2.08-.94c.646-.086 1.44-.086 2.306-.086h.178c.866 0 1.66 0 2.305.087c.711.095 1.463.32 2.08.938c.619.618.844 1.37.94 2.08c.085.637.086 1.416.086 2.267c2.573-.55 4.5-2.812 4.5-5.52c0-2.47-1.607-4.572-3.845-5.337C17.837 4.194 15.415 2 12.476 2C9.32 2 6.762 4.528 6.762 7.647c0 .69.125 1.35.354 1.962a4.4 4.4 0 0 0-.83-.08C3.919 9.53 2 11.426 2 13.765S3.919 18 6.286 18z" />
+                        </svg>
+                        <img class="offline_mdl_icon_svg" src="/images/uvid-logo.png" alt="" onload="this.previousElementSibling.style.display='none'">
                     </div>
-                    <footer class="footer_wrapper"></footer>
-                </content>
+                </div>
+                <div class="offline_mdl_ttl_box">
+                    <div class="offline_mdl_ttl_txt">Maintenance</div>
+                </div>
+                <div class="offline_mdl_det_box">
+                    <p class="offline_mdl_det_txt">We are currently undergoing maintenance and will be back shortly.</p>
+                </div>
             </div>
-        </main>
-
-        <script src="/init.js" id="initScriptID"></script>
-        <script src="/nav.js" id="navScriptID"></script>
-        <script src="/app.js" id="appScriptID"></script>
-        <script src="/main.js"id="mainScriptID"></script>
-        <script src="/inventory.js" id="inventoryID"></script>
-        <script src="/feedback/feedback.js" id="feedbackScriptID"></script>
-        <script src="/my-list/my-list.js" id="myListScriptID"></script>
-        <script src="/my-list/collections/collections.js" id="collectionsScriptID"></script>
-        <script src="/my-list/downloads/downloads.js" id="downloadsScriptID"></script>
-        <script src="/my-list/watchlist/watchlist.js" id="watchlistScriptID"></script>
-        <script src="/basic-slider.js"></script>
-        <script src="/gen-menu-modal.js"></script>
-        <script src="/explore/catalog.js"></script>
-        <script src="/explore/category.js"></script>
-        <script src="/explore/feature-category.js"></script>
-        <script src="/explore/genre-category.js"></script>
-        <script src="/explore/filter-inventory.js"></script>
-        <script src="/help/article.js"></script>
-        <script src="/help/contact.js"></script>
-        <script src="/help/help-cmpnt.js"></script>
-        <script src="/help/help-topics.js"></script>
-        <script src="/help/help.js"></script>
-        <script src="/home/home-lib.js"></script>
-        <script src="/home/home-script.js"></script>
-        <script src="/home/home-struct.js"></script>
-        <script src="/info.js"></script>
-        <script src="/join/join-param.js"></script>
-        <script src="/join/join-cmpnt.js"></script>
-        <script src="/join/join-script.js"></script>
-        <script src="/join/signin.js"></script>
-        <script src="/join/setup.js"></script>
-        <script src="/landing.js"></script>
-        <script src="/profile/notification.js"></script>
-        <script src="/profile/prof-ctnt.js"></script>
-        <script src="/profile/profile.js"></script>
-        <script src="/profile/manage-prof.js"></script>
-        <script src="/profile/edit-prof.js"></script>
-        <script src="/profile/bcg-img-lib.js"></script>
-        <script src="/profile/frg-img-lib.js"></script>
-        <script src="/profile/lang-opt-lib.js"></script>
-        <script src="/rgn.js"></script>
-        <script src="/schedule/schedule.js"></script>
-        <script src="/settings/sett-cpmnt.js"></script>
-        <script src="/settings/settings.js"></script>
-        <script src="/status_upd.js"></script>
-        <script src="/trending/trending.js"></script>
-        <script src="/policies/ad-choices/ad-choices.js"></script>
-        <script src="/policies/copyright/copyright.js"></script>
-        <script src="/policies/privacy/privacy.js"></script>
-        <script src="/policies/terms-of-use/tou-script.js"></script>
-        <script src="/watch/uvid-player-script.js"></script>
-        <script src="/watch/watch-script.js"></script>
-
+        </div>
     </body>
 </html>
