@@ -275,11 +275,16 @@
         ctct_ftr_send_btn.addEventListener("click" , () => 
         {
             validateUsrReq(ctct_ftr_input_fld.value);
+            ctct_ftr_input_fld.blur();
         });
 
         ctct_ftr_input_fld.addEventListener("keyup" , (e) => 
         {
-            if((e.shiftKey) && (e.key.toLowerCase() === "enter")) validateUsrReq(ctct_ftr_input_fld.value);
+            if((e.shiftKey) && (e.key.toLowerCase() === "enter"))
+            {
+                validateUsrReq(ctct_ftr_input_fld.value);
+                ctct_ftr_input_fld.blur();
+            }
         });
 
 
@@ -298,6 +303,7 @@
 
                     // Send chat
                     validateUsrReq(btn.querySelector(".ctct_msg_dflt_issues_txt").textContent);
+                    ctct_ftr_input_fld.blur();
                 });
             });
         }
@@ -328,6 +334,7 @@
         {
             ctct_base.removeEventListener("transitionend" , handleTransitionEnd);
             ctct_base.remove();
+            ctct_ftr_input_fld.blur();
 
             // Allow Chatbot intialization
             isHlpCtrChatBotInit = false;
