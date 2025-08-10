@@ -470,21 +470,31 @@ const sett_prof_pref_cmp =
     {
         p_type: `toggle`,
         p_id: `sett_mng_prof_auto_skip`,
-        p_name: `Auto Skip`,
+        p_name: `Auto Skip (Beta)`,
         p_desc: 
         `
             Automatically skip past opening and ending sequences (intros & outros) when detected.
         `,
     },
     {
-        p_type: `menu`,
-        p_id: `sett_mng_prof_ctnt_restriction`,
-        p_name: `Content Restrictions`,
+        p_type: `toggle`,
+        p_id: `sett_mng_prof_adult_ctnt`,
+        p_name: `NSFW Content (Beta)`,
         p_desc: 
         `
-            Select the maximum age range for the age rating of content to be displayed.
+            By default, all NSFW/adult content is kept hidden. 
+            If you would like to see it, you can turn it on.
         `,
     },
+    // {
+    //     p_type: `menu`,
+    //     p_id: `sett_mng_prof_ctnt_restriction`,
+    //     p_name: `Content Restrictions (Beta)`,
+    //     p_desc: 
+    //     `
+    //         Select the maximum age range for the age rating of content to be displayed.
+    //     `,
+    // },
 ];
 
 

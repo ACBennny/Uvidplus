@@ -466,6 +466,7 @@
                                 prof_auto_skip: false,
                                 prof_lock_state: false,
                                 prof_lock_pin: `0000`,
+                                prof_show_adult_ctnt: false,
                                 prof_ctnt_restriction: 5,
                                 prof_history:
                                 [],

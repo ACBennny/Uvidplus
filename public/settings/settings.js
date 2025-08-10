@@ -2633,6 +2633,7 @@
         const auto_next = thisProf?.prof_auto_next;
         const auto_play = thisProf?.prof_auto_play;
         const auto_skip = thisProf?.prof_auto_skip;
+        const adult_ctnt = thisProf?.prof_show_adult_ctnt;
         const audio_lang = LangOptLib.langOptInv.audioLangSelect.lang_options[thisProf?.prof_audio_lang].opt || "N/A";
         const sbtl_lang = LangOptLib.langOptInv.subCCLangSelect.lang_options[thisProf?.prof_subtitle_lang].opt || "N/A";
         const ctnt_lang = sett_ctnt_restrictions_opt[thisProf?.prof_ctnt_restriction] || "N/A";
@@ -2652,18 +2653,19 @@
         mngProfBase.querySelector("#sett_mng_prof_auto_next").checked = typeof auto_next === "boolean" ? auto_next : null;
         mngProfBase.querySelector("#sett_mng_prof_auto_play").checked = typeof auto_play === "boolean" ? auto_play : null;
         mngProfBase.querySelector("#sett_mng_prof_auto_skip").checked = typeof auto_skip === "boolean" ? auto_skip : null;
+        mngProfBase.querySelector("#sett_mng_prof_adult_ctnt").checked = typeof adult_ctnt === "boolean" ? adult_ctnt : null;
 
         // Update the menu items
         const audio_lang_btn = mngProfBase.querySelector("#sett_mng_prof_audio_lang");
         const sbtl_lang_btn = mngProfBase.querySelector("#sett_mng_prof_sbtl_lang");
-        const ctnt_lang_btn = mngProfBase.querySelector("#sett_mng_prof_ctnt_restriction");
+        // const ctnt_lang_btn = mngProfBase.querySelector("#sett_mng_prof_ctnt_restriction");
 
         audio_lang_btn.querySelector(".genBtnText").textContent = audio_lang;
         audio_lang_btn.setAttribute("title", `${audio_lang}`);
         sbtl_lang_btn.querySelector(".genBtnText").textContent = sbtl_lang;
         sbtl_lang_btn.setAttribute("title", `${sbtl_lang}`);
-        ctnt_lang_btn.querySelector(".genBtnText").textContent = ctnt_lang;
-        ctnt_lang_btn.setAttribute("title", `${ctnt_lang}`);
+        // ctnt_lang_btn.querySelector(".genBtnText").textContent = ctnt_lang;
+        // ctnt_lang_btn.setAttribute("title", `${ctnt_lang}`);
 
         // Update Toggle buttons
         const sett_rad_btn = document.querySelectorAll(".settMngProfTglInp");
@@ -2728,6 +2730,14 @@
                             await updUsrProfFlds(
                             {
                                 prof_auto_skip: ischk
+                            }, prof_id);
+                            notification('notifyGood', 'Preferences saved');
+                            break;
+                            
+                        case 'sett_mng_prof_adult_ctnt':
+                            await updUsrProfFlds(
+                            {
+                                prof_show_adult_ctnt: ischk
                             }, prof_id);
                             notification('notifyGood', 'Preferences saved');
                             break;
@@ -2893,7 +2903,7 @@
                     let btnOptNo = Number(btn.getAttribute("data-sett-sect-opt")) || 0;
                     let btnText = btn.querySelector(".genMenuModalCtntBtnText")?.textContent || "N/A";
 
-                    // Update userminfo
+                    // Update user info
                     await updUsrProfFlds(
                     {
                         [`${menuUpdId}`]: btnOptNo
