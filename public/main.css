@@ -696,12 +696,17 @@ p
     font-family: 'Poppins', sans-serif;
 }
 
-button
+button, input
 {
     font-family: 'Zen dots', sans-serif;
     outline: none;
     border: none;
     background-color: #00000000;
+}
+
+button:not(:disabled)
+{
+    cursor: pointer;
 }
 
 .openGenMenuModalBtn
@@ -2568,6 +2573,7 @@ html:root:has(.btmNavBar.hidden)
     font-size: 0.75rem;
     font-weight: 500;
     color: var(--genWhiteTypeMid);
+    text-transform: uppercase;
 }
 
 .quickSearchResultDetTagSectBox.quickSearchResultDetTagDividerBox
@@ -3021,6 +3027,7 @@ html:root:has(.btmNavBar.hidden)
     color: var(--genGreenTypeLight);
     font-size: 0.625rem;
     font-weight: 500;
+    text-transform: uppercase;
 }
 
 .cardInfoBox .cardInfo_titleBox
@@ -3045,6 +3052,7 @@ html:root:has(.btmNavBar.hidden)
     width: 100%;
     color: var(--genWhiteTypeBright);
     font-size: 0.875rem;
+    text-transform: capitalize;
     overflow-wrap: break-word;
     overflow: hidden;
 }
@@ -3701,10 +3709,20 @@ html:root:has(.btmNavBar.hidden)
 .genMenuModalStickyBdr
 {
    position: sticky;
-   bottom: 0;
+   top: 0;
    width: 100%;
    background-color: var(--genModalBcg);
    z-index: 5;
+}
+
+.genMenuModalStickyBdr.top
+{
+    top: 0;
+}
+
+.genMenuModalStickyBdr.btm
+{
+    bottom: 0;
 }
 
 .genMenuModalStickyBdr .genMenuModalStickyBox
@@ -5172,7 +5190,6 @@ only screen and (max-height: 30.375rem)
     .basic_slider_card_box
     {
         --basicSliderCardDivision: 3;
-        --basicCatalogDivisionGap: 0.46875rem;
     }
 }
 
