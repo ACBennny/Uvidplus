@@ -87,7 +87,7 @@
         
 
         // Load and build schedule
-        await loadSchedule();
+        // await loadSchedule();
     }
 
 
@@ -194,7 +194,7 @@
                 sectionBox.className = "schedule_ctntGridBox";
 
                 // Build content for each section
-                shows.forEach((airing) => 
+                shows.forEach(async (airing) => 
                 {
 
                     const show = airing.show;
@@ -202,8 +202,14 @@
                     const cardBdr = document.createElement("div");
                     cardBdr.className = "schedule_ctntCardBdr";
 
+                    const tmdb_info = await getTMDBInfoFromTVMazeId(show?.id);
+                    const tmdb_link = genUVPLink(tmdb_info);
+
                     const cardBox = document.createElement("a");
                     cardBox.className = "schedule_ctntCardBox";
+                    cardBox.dataset.id = show?.id;
+                    cardBox.href = tmdb_link;
+                    cardBox.target = "_blank";
 
                     // Card Thumbnail (Poster)
                     const posterBdr = document.createElement("div");
