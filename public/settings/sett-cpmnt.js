@@ -479,10 +479,10 @@ const sett_prof_pref_cmp =
     {
         p_type: `toggle`,
         p_id: `sett_mng_prof_adult_ctnt`,
-        p_name: `NSFW Content (Beta)`,
+        p_name: `Adult Content (Beta)`,
         p_desc: 
         `
-            By default, all NSFW/adult content is kept hidden. 
+            By default, all adult content is kept hidden. 
             If you would like to see it, you can turn it on.
         `,
     },
