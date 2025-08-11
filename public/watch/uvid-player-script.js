@@ -1024,7 +1024,7 @@
     // Checks if user is in the watch page
     function isPageWatchPage()
     {
-        let pg = window.location.hash.toLowerCase().split("/")[1];
+        let pg = window.location.hash.toLowerCase().split("/")[3];
 
         if(pg === "watch")
         {
