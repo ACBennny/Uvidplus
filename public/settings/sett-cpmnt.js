@@ -149,7 +149,6 @@ const sett_cmpnt_lib =
         `   
             When possible, you can select the language that will be downloaded along with the
             origin language of the show.
-            <br>
             If the chosen language is not available, you'll be asked to select from 
             currently available options.
         `,
