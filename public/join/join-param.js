@@ -134,19 +134,19 @@
 
 
     // Attributes for a single user
-    let uvid_sgl_usr_obj = 
-    {
-        full_name: ``,
-        phone_no: ``,
-        is_setup: true,
-        stp_steps: `start`,
-        curr_plan_id: ``,
-        is_membership_active: false,
-        cast_data_usage_ul: 0,
-        dwld_qlty_pref: 0,
-        dwld_audio_pref: 0,
-        wifi_only_dwld: true,
-        wifi_only_stream: false,
-        cellular_stream_ntfy: true,
-        share_prsnl_info: false,
-    };
+    // let uvid_sgl_usr_obj = 
+    // {
+    //     full_name: ``,
+    //     phone_no: ``,
+    //     is_setup: true,
+    //     stp_steps: `start`,
+    //     curr_plan_id: ``,
+    //     is_membership_active: false,
+    //     cast_data_usage_ul: 0,
+    //     dwld_qlty_pref: 0,
+    //     dwld_audio_pref: 0,
+    //     wifi_only_dwld: true,
+    //     wifi_only_stream: false,
+    //     cellular_stream_ntfy: true,
+    //     share_prsnl_info: false,
+    // };
