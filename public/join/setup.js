@@ -93,7 +93,6 @@
 
         joinNtcBtn.onclick = () => 
         {
-            uvid_sgl_usr_obj.stp_steps = "intro";
             switch_step(1);
         }
     }
@@ -105,7 +104,6 @@
 
         introSbtBtn.onclick = () => 
         {
-            uvid_sgl_usr_obj.stp_steps = "1";
             init_signup_rmnd();
         }
     }
@@ -447,71 +445,86 @@
                         await user.sendEmailVerification();
                         
                         // Update the user details 
-                        uvid_sgl_usr_obj.full_name = newFullName.value;
-                        uvid_sgl_usr_obj.stp_steps = "2";
-                        uvid_sgl_usr_obj.profiles = 
+                        const new_sgl_usr_obj = 
                         {
-                            [`${generateRandomString().toLowerCase()}`]: 
+                            full_name: newFullName.value,
+                            phone_no: ``,
+                            is_3_day_ntc: false,
+                            is_membership_active: false,
+                            is_setup: true,
+                            stp_steps: `2`,
+                            curr_plan_id: ``,
+                            cast_data_usage_ul: 0,
+                            dwld_qlty_pref: 0,
+                            dwld_audio_pref: 0,
+                            wifi_only_dwld: true,
+                            wifi_only_stream: false,
+                            cellular_stream_ntfy: true,
+                            share_prsnl_info: false,
+                            profiles:
                             {
-                                prof_selected: true,
-                                prof_name: `${newFullName.value}`,
-                                prof_type: `default`,
-                                prof_frgImg: `/images/uvid-profile-base.png`,
-                                prof_bcgImg: `/images/uvid-green-bcg1-dark.jpg`,
-                                prof_audio_lang: 8,
-                                prof_subtitle_lang: 8,
-                                prof_show_subtitles: false,
-                                prof_auto_play: false,
-                                prof_auto_next: false,
-                                prof_auto_skip: false,
-                                prof_lock_state: false,
-                                prof_lock_pin: `0000`,
-                                prof_show_adult_ctnt: false,
-                                prof_ctnt_restriction: 5,
-                                prof_history:
-                                [],
-                                prof_likes:
-                                [],
-                                prof_dislikes:
-                                [],
-                                prof_watchlist:
-                                [],
-                                prof_collections:
-                                [],
+                                [`${generateRandomString().toLowerCase()}`]: 
+                                {
+                                    prof_selected: true,
+                                    prof_name: `${newFullName.value}`,
+                                    prof_type: `default`,
+                                    prof_frgImg: `/images/uvid-profile-base.png`,
+                                    prof_bcgImg: `/images/uvid-green-bcg1-dark.jpg`,
+                                    prof_audio_lang: 8,
+                                    prof_subtitle_lang: 8,
+                                    prof_show_subtitles: false,
+                                    prof_auto_play: false,
+                                    prof_auto_next: false,
+                                    prof_auto_skip: false,
+                                    prof_lock_state: false,
+                                    prof_lock_pin: `0000`,
+                                    prof_show_adult_ctnt: false,
+                                    prof_ctnt_restriction: 5,
+                                    prof_history:
+                                    [],
+                                    prof_likes:
+                                    [],
+                                    prof_dislikes:
+                                    [],
+                                    prof_watchlist:
+                                    [],
+                                    prof_collections:
+                                    [],
+                                },
                             },
-                        };
-                        uvid_sgl_usr_obj[`notifications`] = 
-                        [
+                            ntfy_pref:
                             {
-                                notify_addedDate: `${getCurrDate("short")}`,
-                                notify_readStatus: false,
-                                notify_thumbnail: `/images/uvid-bcg1.jpg`,
-                                notify_mainTopic: `Welcome to Uvid+`,
-                                notify_subTopic: `We are glad you joined us. Browse and watch your favourite movies and tv shows.`,
-                                notify_actionText: `Explore`,
-                                notify_actionLink: `#/explore`,
+                                ntfy_what_you_stream: true,
+                                ntfy_recommendation: true,
+                                ntfy_exploration: true,
+                                ntfy_promotions: true,
+                                ntfy_surveys: true,
                             },
-                            {
-                                notify_addedDate: `${getCurrDate("short")}`,
-                                notify_readStatus: false,
-                                notify_thumbnail: `/images/uvid-bcg2.jpg`,
-                                notify_mainTopic: `Switch Profiles`,
-                                notify_subTopic: `You can now create and customize up to five different profiles.`,
-                                notify_actionText: `Try it Out`,
-                                notify_actionLink: `#/profile/switch`,
-                            },
-                        ];
-                        uvid_sgl_usr_obj[`ntfy_pref`] = 
-                        {
-                            ntfy_what_you_stream: true,
-                            ntfy_recommendation: true,
-                            ntfy_exploration: true,
-                            ntfy_promotions: true,
-                            ntfy_surveys: true,
+                            notifications:
+                            [
+                                {
+                                    notify_addedDate: `${getCurrDate("short")}`,
+                                    notify_readStatus: false,
+                                    notify_thumbnail: `/images/uvid-bcg1.jpg`,
+                                    notify_mainTopic: `Welcome to Uvid+`,
+                                    notify_subTopic: `We are glad you joined us. Browse and watch your favourite movies and tv shows.`,
+                                    notify_actionText: `Explore`,
+                                    notify_actionLink: `#/explore`,
+                                },
+                                {
+                                    notify_addedDate: `${getCurrDate("short")}`,
+                                    notify_readStatus: false,
+                                    notify_thumbnail: `/images/uvid-bcg2.jpg`,
+                                    notify_mainTopic: `Switch Profiles`,
+                                    notify_subTopic: `You can now create and customize up to five different profiles.`,
+                                    notify_actionText: `Try it Out`,
+                                    notify_actionLink: `#/profile/switch`,
+                                },
+                            ],
                         };
 
                         // Store the user's object in firebase
-                        await uv_fb_db.collection("uvp_fb_users").doc(uer_uid).set(uvid_sgl_usr_obj);
+                        await uv_fb_db.collection("uvp_fb_users").doc(uer_uid).set(new_sgl_usr_obj);
 
                         // Notify user of successful account creation
                         notification(`notifyGood` , "Account created");
