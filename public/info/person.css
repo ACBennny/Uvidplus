@@ -30,6 +30,7 @@ html:root
     max-width: 75rem;
     margin: 0 auto;
 }
+
 .prsn_info_bdr .prsn_info_box
 {
     width: 100%;
@@ -289,9 +290,11 @@ html:root
 
 @media only screen and (max-width: 48rem)
 {
+
     .prsn_info_bdr .prsn_info_box
     {
         flex-direction: column;
+        align-items: center;
         gap: 2.5rem;
     }
 
