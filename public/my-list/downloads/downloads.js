@@ -1417,7 +1417,9 @@
         let dlCardViewDetBtn = document.querySelector(".dlModalCardViewDetBtn");
 
         // Display the episode number
-        dlCardTitle.textContent = `Episode ${dlCardEpLnk.split('/')[5]}`;
+        dlCardTitle.textContent = (dlCardEpLnk.split('/')[1] === "tv")
+            ? `Episode${dlCardEpLnk.split('/')[5]}`
+            : "Full movie";
 
         // Watch the Episode
         dlCardPlyBtn.onclick = () => window.open(`${dlCardEpLnk}` , `_self`);
