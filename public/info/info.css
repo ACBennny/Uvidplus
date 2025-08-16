@@ -517,7 +517,7 @@ html:root
     position: relative;
     width: 98%;
     max-width: 50rem;
-    min-height: 25rem;
+    /* min-height: 25rem; */
     margin: 5.5rem 0;
     border-radius: 0.3125rem;
     background: #000000;
