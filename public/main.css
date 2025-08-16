@@ -3260,7 +3260,6 @@ html:root:has(.btmNavBar.hidden)
     grid-template-rows: auto;
     justify-items: center;
     gap: 0.9375rem;
-    padding: 0 var(--genBorderSpacing);
     transition: 100ms;
 }
 
