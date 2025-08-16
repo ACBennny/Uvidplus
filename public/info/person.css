@@ -35,7 +35,6 @@ html:root
     width: 100%;
     display: flex;
     flex-direction: row;
-    align-items: center;
     padding: var(--navBarHeight) var(--genBorderSpacing);
 }
 
@@ -259,6 +258,20 @@ html:root
     margin-bottom: 2rem;
 }
 
+
+
+
+
+
+
+
+@media(hover: hover)
+{
+    .prsn_det_bio_btn:hover
+    {
+        --prsn_det_bio_btn_clr: var(--genGreenTypeLight2);
+    }
+}
 
 
 

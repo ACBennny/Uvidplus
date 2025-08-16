@@ -602,10 +602,6 @@
             setTimeout(() => 
             {
                 fetch(url)
-                .then(() => 
-                {
-                    // console.log(`The Test Video URL [${i+1}]:${url} warmed in cache`);
-                })
                 .catch((err) => 
                 {
                     console.error(`Failed to fetch the video URL:${url}`);

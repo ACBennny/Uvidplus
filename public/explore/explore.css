@@ -7,7 +7,7 @@
 
 html:root
 {
-    --categoriesCardWidth: 12.5rem;
+    --exploreCardWidth: 12.5rem;
     --catalogHeadBoxItemTitleClr: var(--genWhiteTypeBright);
     --catalogHeadBoxItemDisplayBcg: var(--navBarBcgSolid);
     --catalogHeadBoxItemDisplayClr: var(--genWhiteTypeMid);
@@ -23,26 +23,26 @@ html:root
 }
 
 
-.categoriesBase, .catalogBase
+.exploreBase, .catalogBase
 {
     min-height: 100vh;
     padding: 0 var(--genBorderSpacing);
 }
 
 
-.categoriesBase
+.exploreBase
 {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.categoriesBase.hide
+.exploreBase.hide
 {
     display: none;
 }
 
-.categoriesBase .categoriesBdr
+.exploreBase .exploreBdr
 {
     width: 100%;
     max-width: var(--genMaxContainerWidth);
@@ -51,7 +51,7 @@ html:root
     padding: calc((var(--navBarHeight) + 1.25rem)) 0;
 }
 
-.categoriesBdr .categoriesBox
+.exploreBdr .exploreBox
 {
     width: 100%;
     display: flex;
@@ -59,34 +59,34 @@ html:root
     margin-bottom: 1.5625rem;
 }
 
-.categoriesBox .categoriesTitleBox
+.exploreBox .exploreTitleBox
 {
     width: 100%;
     margin: 0.9375rem 0;
 }
 
-.categoriesTitleBox .categoriesTitleText
+.exploreTitleBox .exploreTitleText
 {
     font-size: 1.125rem;
     color: var(--genWhiteTypeLight);
 }
 
-.categoriesBox .categoriesGridBdr
+.exploreBox .exploreGridBdr
 {
     width: 100%;
 }
 
-.categoriesGridBdr .categoriesGridBox
+.exploreGridBdr .exploreGridBox
 {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(var(--categoriesCardWidth), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(var(--exploreCardWidth), 1fr));
     grid-template-rows: auto;
     justify-items: center;
     gap: 1.25rem;
 }
 
-.categoriesGridBox .categoriesGridCardBdr
+.exploreGridBox .exploreGridCardBdr
 {
     position: relative;
     width: 100%;
@@ -96,7 +96,7 @@ html:root
     cursor: pointer;
 }
 
-.categoriesGridCardBdr .categoriesGridCardBcg
+.exploreGridCardBdr .exploreGridCardBcg
 {
     width: 100%;
     height: 100%;
@@ -104,7 +104,7 @@ html:root
     filter: blur(0.625rem) brightness(0.250);
 }
 
-.categoriesGridCardBdr .categoriesGridCardBox
+.exploreGridCardBdr .exploreGridCardBox
 {
     position: absolute;
     top: 0;
@@ -117,7 +117,7 @@ html:root
     background-color: #ffffff15;
 }
 
-.categoriesGridCardBox .categoriesGridCardLabelBox
+.exploreGridCardBox .exploreGridCardLabelBox
 {
     width: 100%;
     height: 100%;
@@ -126,13 +126,14 @@ html:root
     align-items: center;
 }
 
-.categoriesGridCardLabelBox .categoriesGridCardLabelText
+.exploreGridCardLabelBox .exploreGridCardLabelText
 {
     color: var(--genWhiteTypeLight);
     font-size: 1rem;
+    text-align: center;
 }
 
-.categoriesGridCardBdr .categoriesGridCardLink
+.exploreGridCardBdr .exploreGridCardLink
 {
     position: absolute;
     top: 0;
@@ -646,6 +647,90 @@ html:root
 
 
 
+/* ============= PAGINATION ============= */
+.catalog_pagination_bdr
+{
+    width: 100%;
+    display: none;
+    margin: 4rem 0;
+}
+
+.catalog_pagination_bdr.active
+{
+    display: block;
+}
+
+.catalog_pagination_bdr .catalog_pagination_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.catalog_pagination_box .catalog_pagination_ntc_box
+{
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.catalog_pagination_ntc_box .catalog_pagination_ntc_txt
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 1rem;
+}
+
+.catalog_pagination_ntc_txt .num
+{
+    color: var(--genGreenTypeLight);
+    font-weight: 600;
+}
+
+.catalog_pagination_box .catalog_pagination_ctrl_box
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.catalog_pagination_box .catalog_pagination_sel_box
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.catalog_pagination_sel_box .catalog_pagination_sel_inp_box
+{
+    width: 5rem;
+    height: 2.5rem;
+    border-radius: 0.625rem;
+    background-color: var(--genGreyTypeMid);
+    overflow: hidden;
+}
+
+.catalog_pagination_sel_inp_box .catalog_pagination_sel_inp_fldCls
+{
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    height: 100%;
+    padding: 0.625rem;
+    color: var(--genWhiteTypeLight);
+    font-size: 0.875rem;
+    background-color: #00000000;
+}
+
+
+
+
+
 
 
 
@@ -677,20 +762,20 @@ html:root
 {
     html:root
     {
-        --categoriesCardWidth: 10.625rem;
+        --exploreCardWidth: 10.625rem;
     }
 
-    .categoriesTitleBox .categoriesTitleText
+    .exploreTitleBox .exploreTitleText
     {
         font-size: 1rem;
     }
 
-    .categoriesGridBdr .categoriesGridBox
+    .exploreGridBdr .exploreGridBox
     {
         gap: 0.9375rem;
     }
 
-    .categoriesGridCardLabelBox .categoriesGridCardLabelText
+    .exploreGridCardLabelBox .exploreGridCardLabelText
     {
         font-size: 0.875rem;
     }
@@ -705,20 +790,20 @@ html:root
 {
     html:root
     {
-        --categoriesCardWidth: 9.375rem;
+        --exploreCardWidth: 9.375rem;
     }
 
-    .categoriesTitleBox .categoriesTitleText
+    .exploreTitleBox .exploreTitleText
     {
         font-size: 0.875rem;
     }
 
-    .categoriesGridBdr .categoriesGridBox
+    .exploreGridBdr .exploreGridBox
     {
         gap: 0.625rem;
     }
 
-    .categoriesGridCardLabelBox .categoriesGridCardLabelText
+    .exploreGridCardLabelBox .exploreGridCardLabelText
     {
         font-size: 0.75rem;
     }
@@ -751,7 +836,7 @@ html:root
 {
     html:root
     {
-        --categoriesCardWidth: 7.5rem;
+        --exploreCardWidth: 7.5rem;
     }
 }
 

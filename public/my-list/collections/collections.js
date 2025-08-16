@@ -1198,6 +1198,16 @@ let editCLStruct =
     // Opens the modal containing the info for a single collection
     async function openCLModal()
     {
+        // Disable the buttons to prevent multiple calls
+        document.querySelectorAll(".myListCLCatalog_ItemOpenCLBtn")?.forEach((btn) => 
+        {
+            btn.disabled = true;
+            if(btn.action)
+            {
+                btn.removeEventListener("click" , btn.action);
+            }
+        });
+
         // Update query selectors
         clModalBaseBarBdr = document.querySelector(".clModalBaseBarBdr");
         clModalBaseTitleText = document.querySelector(".clModalBaseTitleText");
@@ -1258,34 +1268,48 @@ let editCLStruct =
         clModalSortTypeText.textContent = `Manual`;
         clModalSortOrderText.textContent = `Asc ↑`;
 
-        // Filling in the grid content
-        for(let g = 0; g < clLibraryIndexedInv[clBodyCardIndex].cl_items.length; g++)
+        const cl_fetch = clLibraryIndexedInv[clBodyCardIndex]?.cl_items?.map(item => 
         {
-            const itemId = clLibraryIndexedInv[clBodyCardIndex].cl_items[g].cl_itemId;
-            const itemIdLC = itemId.split('/')[2];
-            const itemMatch = infoInvLinkMap.get(itemIdLC);
-            const itemWL = profWL.filter(item => item.wl_item === itemId) || [];
+            const itemSplit = item?.cl_itemId?.split('/');
+            const itemType = itemSplit[1];
+            const itemId = itemSplit[2];
+            
+            return __getUVPShowDet(itemId, itemType);
+        });
+        const cl_sets = await Promise.all(cl_fetch);
+
+        // Filling in the grid content
+        for(let g = 0; g < clLibraryIndexedInv[clBodyCardIndex]?.cl_items?.length; g++)
+        {
+            const itemLink = clLibraryIndexedInv[clBodyCardIndex]?.cl_items[g]?.cl_itemId;
+            const itemSplit = itemLink.split('/');
+            const itemType = itemSplit[1];
+            const itemMatch = cl_sets[g];
+            const itemWL = profWL.filter(item => item?.wl_item === itemLink) || [];
             const itemStatus = itemWL[0]?.wl_status || 0;
             
             // If match found, add to grid
             if (itemMatch)
             {
                 const {
-                    show_background,
-                    show_foreground,
-                    show_link,
-                    show_title,
-                    show_scores,
-                    show_type,
-                    show_year,
-                    show_description,
+                    show_link = itemLink,
+                    show_type = itemType,
+                    show_title = `${itemMatch?.name || itemMatch?.title}`,
+                    show_year = `${itemMatch?.first_air_date?.toString()?.trim()?.split("-")[0] || itemMatch?.release_date?.toString()?.trim()?.split("-")[0]}`,
+                    show_watch_status = itemStatus,
+                    show_foreground = `https://image.tmdb.org/t/p/original/${itemMatch?.poster_path}`,
+                    show_background = `https://image.tmdb.org/t/p/original/${itemMatch?.backdrop_path}`, 
+                    show_scores = `${(typeof itemMatch?.vote_average === "number")
+                        ? Number(itemMatch?.vote_average).toFixed(1)
+                        : "N/A"}`,
+                    show_description = `${itemMatch?.overview}`,
                 } = itemMatch;
 
                 clModalGrid_CardBdr = document.createElement("li");
                 clModalGrid_CardBdr.classList.add("clModalGrid_CardBdr");
                 clModalGrid_CardBdr.classList.add("genDraggableElement");
                 clModalGrid_CardBdr.setAttribute(`data-show-index` , g);
-                clModalGrid_CardBdr.setAttribute(`data-show-status-opt` , itemStatus);
+                clModalGrid_CardBdr.setAttribute(`data-show-status-opt` , show_watch_status);
                 
                 let itemStruct = 
                 `
@@ -1373,14 +1397,26 @@ let editCLStruct =
                 clModalGrid_CardBdr.innerHTML = itemStruct;
                 
                 // Fill up the array
-                clModalDfltInv.push(itemMatch);
+                clModalDfltInv.push(
+                    {
+                        show_link,
+                        show_type,
+                        show_title,
+                        show_watch_status,
+                        show_foreground,
+                        show_background,
+                        show_scores,
+                        show_year,
+                        show_description,
+                    }
+                );
                 
                 // Append item to the grid
                 clModalGridBox.appendChild(clModalGrid_CardBdr);
             }
             else
             {
-                console.error(`${itemIdLC} not found`);
+                console.error(`${itemLink} not found`);
             }
         }
 
@@ -1629,7 +1665,7 @@ let editCLStruct =
         catch(error)
         {
             console.error(error);
-            notification(`notifyBad`, `Failed to save changes`)
+            notification(`notifyBad`, `Failed to save changes`);
         }
     }
 
@@ -1790,7 +1826,7 @@ let editCLStruct =
         let addShowToCLStruct = 
         `
             <div class="quickSearchBase addShowToCLBase">
-                <div class="quickSearchBcg"></div>
+                <div class="quickSearchBcg quickSearchCloseBtn"></div>
                 <div class="quickSearchBdr">
                     <div class="quickSearchBox">
                         <div class="quickSearchNoteBdr">
@@ -1800,9 +1836,9 @@ let editCLStruct =
                         </div>
                         <div class="quickSearchInputBdr">
                             <div class="quickSearchInputBox">
-                                <div class="quickSearchInputIcon quickSearchInputLeftIcon">
+                                <div class="quickSearchInputIcon quickSearchInputLeftIcon quickSearchCloseIcon quickSearchCloseBtn">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="quickSearchInputSvg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 2.75a8.75 8.75 0 1 0 0 17.5a8.75 8.75 0 0 0 0-17.5M1.25 11.5c0-5.66 4.59-10.25 10.25-10.25S21.75 5.84 21.75 11.5c0 2.56-.939 4.902-2.491 6.698l3.271 3.272a.75.75 0 1 1-1.06 1.06l-3.272-3.271A10.2 10.2 0 0 1 11.5 21.75c-5.66 0-10.25-4.59-10.25-10.25"/>
+                                        <path fill-rule="evenodd" d="M10.53 5.47a.75.75 0 0 1 0 1.06l-4.72 4.72H20a.75.75 0 0 1 0 1.5H5.81l4.72 4.72a.75.75 0 1 1-1.06 1.06l-6-6a.75.75 0 0 1 0-1.06l6-6a.75.75 0 0 1 1.06 0" clip-rule="evenodd" />
                                     </svg>
                                 </div>
                                 <input type="text" name="quickSearchInputFieldName" id="addShowToCLInputField" class="quickSearchInputFieldClass" placeholder="Search..">
@@ -1837,11 +1873,11 @@ let editCLStruct =
         
         // Definitions
         addShowToCLBase = document.querySelector(".addShowToCLBase");
-        let addShowToCLBcg = addShowToCLBase.querySelector(".quickSearchBcg");
+        let closeAddShowToCLBtn = addShowToCLBase.querySelectorAll(".quickSearchCloseBtn");
         let addShowToCLInputField = addShowToCLBase.querySelector("#addShowToCLInputField");
         let addShowToCLClearInput = addShowToCLBase.querySelector(".quickSearchClearInput");
         let addShowToCLResultBox = addShowToCLBase.querySelector(".quickSearchResultBox");
-        let addShowToCLQuery;
+        let addShowToCLQuery = "";
 
         // Display modal
         addShowToCLBase.classList.add("active");
@@ -1854,9 +1890,9 @@ let editCLStruct =
 
 
         // Function to display search results
-        const displayAddShowToCLResult = (items) => 
+        const displayAddShowToCLResult = (items = []) => 
         {
-            // empty the array
+            // Empty the array
             addShowToCLArray.length = 0;
 
             // Only seven results are displayed
@@ -1864,11 +1900,35 @@ let editCLStruct =
 
             addShowToCLResultBox.innerHTML = resultRange.map((item) => 
             {
-                const { show_link, show_foreground, show_title, show_scores, show_type, show_year, show_airing_status } = item;
-                if((addShowToCLQuery.length > 0) && (addShowToCLQuery != undefined) && (addShowToCLQuery != null) && (addShowToCLQuery != " "))
+                const {
+                    show_link = `#/${item?.media_type}/${item?.id}`,
+                    show_type = `${item?.media_type}`,
+                    show_title = `${item?.name || item?.title || "N/A"}`,
+                    show_foreground = `https://image.tmdb.org/t/p/original/${item?.poster_path}`,
+                    show_background = `https://image.tmdb.org/t/p/original/${item?.backdrop_path}`, 
+                    show_scores = `${(typeof item?.vote_average === "number")
+                        ? Number(item?.vote_average).toFixed(1)
+                        : "N/A"}`,
+                    show_year = `${item?.first_air_date?.toString()?.trim()?.split("-")[0] || item?.release_date?.toString()?.trim()?.split("-")[0] || "N/A"}`,
+                    show_description = `${item?.overview || "No description available"}`,
+                } = item;
+
+                if((addShowToCLQuery.length >= 3) && (addShowToCLQuery !== ""))
                 {
                     // Add found items into the array
-                    addShowToCLArray.push(item);
+                    addShowToCLArray.push(
+                    {
+                        show_link,
+                        show_type,
+                        show_title,
+                        show_foreground,
+                        show_background,
+                        show_scores,
+                        show_year,
+                        show_description,
+                    });
+
+                    // Build result
                     return `
                         <div class="quickSearchResultCardBdr addItemToCLBtn" data-link="${show_link}">
                             <div class="quickSearchResultCardBox">
@@ -1915,11 +1975,10 @@ let editCLStruct =
                                                 </div>
                                             </div>
                                             <div class="quickSearchResultDetDescBox">
-                                                <h3 class="quickSearchResultDetDescText">${show_airing_status}</h3>
+                                                <p class="quickSearchResultDetDescText">${show_description}</p>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                 </div>
                             </div>
                         </div>
@@ -1935,16 +1994,33 @@ let editCLStruct =
             addItemToCL();
         };
 
-        // Filter and display result based on myList's entry
-        function filterAddShowToCLInput()
+        // Filter and display result based on user's entry
+        async function filterAddShowToCLInput()
         {
             addShowToCLQuery = postSanitizeUserInput(addShowToCLInputField.value.toString().trim().toLowerCase());
 
-            // Filter Items
-            const filteredData = searchInventory.filter((item) => item.show_searchKey.toLowerCase().includes(addShowToCLQuery));
-            displayAddShowToCLResult(filteredData);
+            // Search if query is less than three (3)
+            if((addShowToCLQuery.length >= 3))
+            {
+                const filteredData = await findShowDet(addShowToCLQuery);
+
+                // Display results if any
+                if((Array.isArray(filteredData)) && (filteredData.length > 0))
+                {
+                    displayAddShowToCLResult(filteredData)
+                }
+                else
+                {
+                    displayAddShowToCLResult();
+                }
+            }
+            else
+            {
+                displayAddShowToCLResult();
+            }
+
             
-            // Toggle the clear input & catalog Icons
+            // Toggle the clear input Icons
             if(addShowToCLInputField.value.length > 0)
             {
                 addShowToCLClearInput.classList.add("isTyping");
@@ -1953,7 +2029,7 @@ let editCLStruct =
             addShowToCLClearInput.classList.remove("isTyping");
         }
         
-        // Get myList entry
+        // Find show
         addShowToCLInputField.addEventListener("input", filterAddShowToCLInput);
 
         // Clears the search field
@@ -1965,7 +2041,10 @@ let editCLStruct =
         });
 
         // Close Quick Search
-        addShowToCLBcg.addEventListener("click" , closeAddShowToCL);
+        closeAddShowToCLBtn.forEach(btn => 
+        {
+            btn.addEventListener("click", closeAddShowToCL)
+        });
     }
 
     // Closes the modal for adding shows to yur collection
@@ -2024,7 +2103,7 @@ let editCLStruct =
                     clModalDfltInv.push(addShowToCLArray[index]);
                     initCLModalIndexedInv();
 
-                    // Append item to the DOM
+                    // Re-initialize the modal cards
                     sortCLModalCards(clModalSortTypeTabIndex);
 
                     // Update Show Count
@@ -2780,6 +2859,7 @@ let editCLStruct =
         let setCLThumbBtn = document.querySelector(".setCLThumbnailBtn");
         let removeShowBtn = document.querySelector(".clModalGridCardRemoveBtn");
         genShowLinkForCL = clModalGridCardLink;
+        genShowIndexForCL = clModalGridCardIndex;
 
 
         // Watch Now

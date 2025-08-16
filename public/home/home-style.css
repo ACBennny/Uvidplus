@@ -65,6 +65,7 @@ html:root
     width: 100%;
     height: 100%;
     display: grid;
+    z-index: 1;
 }
 
 
@@ -505,13 +506,9 @@ html:root
 
 /* ====== Sub Content ===== */
 
-.more_content
+.hm_more_ctnt
 {
-    width: 100%;
-    display: grid;
-    grid-template-columns: minmax(0, auto);
-    gap: 2.1875rem;
-    z-index: 10;
+    z-index: 5;
 }
 
 
@@ -889,7 +886,7 @@ html:root
 {
     width: 100%;
     height: var(--ftrBdrH);
-    margin: 0.625rem 0;
+    margin-bottom: 1rem;
     padding: 0 var(--genBorderSpacing);
 }
 
@@ -898,7 +895,7 @@ html:root
     position: relative;
     width: 100%;
     height: 100%;
-    border-radius: 0.9375rem;
+    border-radius: 1.5625rem;
     overflow: hidden;
 }
 

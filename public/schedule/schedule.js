@@ -87,7 +87,7 @@
         
 
         // Load and build schedule
-        // await loadSchedule();
+        await loadSchedule();
     }
 
 
@@ -209,7 +209,7 @@
                     cardBox.className = "schedule_ctntCardBox";
                     cardBox.dataset.id = show?.id;
                     cardBox.href = tmdb_link;
-                    cardBox.target = "_blank";
+                    cardBox.target = "_self";
 
                     // Card Thumbnail (Poster)
                     const posterBdr = document.createElement("div");

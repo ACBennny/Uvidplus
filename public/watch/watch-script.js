@@ -7,41 +7,64 @@
 
 
 
-    let watch_pg_show_link = null;
-    let watch_pg_show_name = null;
-    let watchPgShowData = null;
-    let watchPgShowSsn = null;
-    let watchPgShowEps = null;
+    let watch_pg_show_link = "";
+    let watch_pg_show_ssns = [];
+    let watchPgShowSsn = 0;
+    let watchPgShowEps = 1;
+
+
+    // Opens the Watch Page without reloading the page
+    function preWatchPage(url = "")
+    {
+        if(url.length > 0)
+        {
+            history.pushState(null, '', url);
+            initWatchPage(url.split("/")[4], url.split("/")[5]);
+        }
+    }
+
+
+    function formatWatchPgSsnEp(season, episode)
+    {
+        // If array is empty, no episodes exist
+        if (!watch_pg_show_ssns.length) return { season: null, episode: null };
+
+        // Default to first season and episode if invalid types or undefined/null
+        if(typeof season !== 'number' || typeof episode !== 'number' || isNaN(season) || isNaN(episode))
+        {
+            return {
+                season: watch_pg_show_ssns[0]?.season_number,
+                episode: 1
+            };
+        }
+
+        const seasonIndex = watch_pg_show_ssns.findIndex(s => s.season_number === season);
+        const maxEpisodes = watch_pg_show_ssns[seasonIndex].episode_count;
+
+        // Fallback to first available season & episode
+        if (seasonIndex === -1) 
+        {
+            return {
+                season: watch_pg_show_ssns[0].season_number,
+                episode: 1,
+            };
+        }
+
+        // Clamp to the first episode if less than one
+        if (episode < 1) episode = 1;
+
+        // Clamp to the last episode if less than one
+        if (episode > maxEpisodes) episode = maxEpisodes;
+
+        return { season, episode };
+    }
     
 
     // Init watch page
-    function initWatchPage(namePrvd)
+    async function initWatchPage(ssn = null, eps = null)
     {
-        watch_pg_show_link = `${window.location.hash}`;
-        watch_pg_show_name = namePrvd || hash_parts[3];
-        watchPgShowSsn = Number(hash_parts[4]);
-        watchPgShowEps = Number(hash_parts[5]);
-        watchPgShowData = infoInvLinkMap.get(watch_pg_show_name);
-
-        // If no match, redirect to error page
-        if(!(watchPgShowData))
-        {
-            page_route_error();
-            return;
-        }
-
-        // Check if episode is available
-        if(watchPgShowData.show_type.toLowerCase() === "tv" && (
-            (watchPgShowSsn > watchPgShowData?.show_episodes.length) 
-            || (watchPgShowEps > watchPgShowData?.show_episodes[(watchPgShowSsn - 1)]?.show_ep)
-        ))
-        {
-            console.error("Unavailable");
-            page_route_error();
-            return;
-        }
-
         // Build page base
+        let show_title = showsStructData?.name || showsStructData?.title || "N/A";
         const watchPgBase = document.createElement("div");
         watchPgBase.className = "watch_pg_base";
         watchPgBase.innerHTML = 
@@ -95,7 +118,7 @@
                                         <p class="watch_pg_dvd_txt">/</p>
                                     </div>
                                     <div class="watch_pg_ttl_box">
-                                        <p class="watch_pg_ttl_txt">${watchPgShowData.show_title}</p>
+                                        <p class="watch_pg_ttl_txt">${show_title}</p>
                                     </div>
                                 </div>
                             </div>
@@ -148,138 +171,8 @@
         const watchPgSelEpBtn = watchPgBase.querySelector(".watch_pg_eps_sel_btn");
         let watch_pg_tmr;
 
-        // Update layout for tv
-        if(watchPgShowData.show_type.toLowerCase() === "tv")
-        {
-            // Update Episode number
-            watchPgSsnTxt.textContent = `S${watchPgShowSsn}`;
-            watchPgEpsTxt.textContent = `E${watchPgShowEps}`;
-
-            // Remove hidden classes
-            [watchPgPrevBtn, watchPgNextBtn, watchPgSelEpBtn].forEach(item => item.classList.remove("hide"));
-
-            // Going to the previous episode
-            watchPgPrevBtn.onclick = () =>
-            {
-                if((watchPgShowEps <= 1))
-                {
-                    // Return if user is at the end of the series
-                    if(watchPgShowSsn == 1)
-                    {
-                        notification ('notifyBad', `You are at the start of the series`);
-                        return;
-                    }
-                    else
-                    {
-                        // Set values for new season
-                        watchPgShowSsn--
-                        watchPgShowEps = watchPgShowData.show_episodes[(watchPgShowSsn - 1)].show_ep;
-                    }
-                }
-                else
-                {
-                    watchPgShowEps--;
-                }
-
-                watchPgSsnTxt.textContent = `S${watchPgShowSsn}`;
-                watchPgEpsTxt.textContent = `E${watchPgShowEps}`;
-                history.pushState(null, '', `#/watch/${watchPgShowData.show_type.toLowerCase()}/${watch_pg_show_name}/${watchPgShowSsn}/${watchPgShowEps}`);
-
-                // Restart video
-                restartVid();
-            }
-
-            // Going to the next episode
-            watchPgNextBtn.onclick = () =>
-            {
-                if((watchPgShowEps >= watchPgShowData.show_episodes[(watchPgShowSsn - 1)].show_ep))
-                {
-                    // Return if user is at the end of the series
-                    if(watchPgShowSsn >= watchPgShowData.show_episodes.length)
-                    {
-                        notification ('notifyBad', `You are at the end of the series`);
-                        return;
-                    }
-                    else
-                    {
-                        // Set values for new season
-                        watchPgShowSsn++;
-                        watchPgShowEps = 1;
-                    }
-                }
-                else
-                {
-                    watchPgShowEps++;
-                }
-
-                watchPgSsnTxt.textContent = `S${watchPgShowSsn}`;
-                watchPgEpsTxt.textContent = `E${watchPgShowEps}`;
-                history.pushState(null, '', `#/watch/${watchPgShowData.show_type.toLowerCase()}/${watch_pg_show_name}/${watchPgShowSsn}/${watchPgShowEps}`);
-
-                // Restart video
-                restartVid();
-            }
-            
-            // Selecting Episodes (Currently redirects you to the shows info page)
-            watchPgSelEpBtn.onclick = () => 
-            {
-                // Close the modal
-                clsWatchPgMdl();
-
-                //
-                let epNav = document.querySelectorAll(".info_pg_base .ctnt-tab-headerOpt");
-
-                if(!epNav || (epNav.length <= 0))
-                {
-                    notification('notifyBad', `An error occured`);
-                    return;
-                }
-
-                // Click the "Episodes" button
-                epNav[1].click()
-
-                // Scroll to the section
-                window.scrollTo(
-                {
-                    top: Math.ceil((epNav[1].getBoundingClientRect().top + window.pageYOffset)),
-                    behavior: "smooth"
-                });
-            }
-        }
-        else
-        {
-            // Update layout for movie
-            watchPgSsnTxt.remove();
-            watchPgEpsTxt.remove();
-            watchPgBase.querySelector(".watch_pg_ep_txt").textContent = "Full movie";
-
-            // Remove the prev, next, and ep select buttons
-            watchPgPrevBtn.remove();
-            watchPgNextBtn.remove();
-            watchPgSelEpBtn.remove();
-        }
-
-        // Display base
-        watch_pg_tmr = setTimeout(() => 
-        {
-            clearTimeout(watch_pg_tmr);
-            documentBody.classList.add("bodystop");
-            watchPgBase.classList.add("active");
-
-            watchPgBase.addEventListener("transitionend", function handleTransitionEnd()
-            {
-                watchPgBase.removeEventListener("transitionend", handleTransitionEnd);
-
-                // Load the show's information
-                preShowSection(watch_pg_show_name);
-
-                // Building the video player
-                preUVPlyr();
-            });
-        },300);
-
         // Returning back to show's info page (Closes the watch page)
-        const clsWatchPgMdl = async () =>
+        const clsWatchPgMdl = async (isVal = false) =>
         {
             // Stop and remove video
             document.querySelector(".watch_pg_plyr_ldr_bdr").classList.remove("loaded");
@@ -315,11 +208,14 @@
             }
 
             // Update show's CTA button
-            await saveWatchProgessInHist();
-            updInfoPageCTA();
+            if((isVal == true))
+            {
+                await saveWatchProgessInHist();
+                updInfoPageCTA();
+            }
 
             // Update page url with equivalent
-            history.pushState(null, '', `#/info/${watch_pg_show_name}`);
+            history.pushState(null, '', info_pg_show_link);
 
             watchPgBase.classList.remove("active");
             watch_pg_tmr = setTimeout(() => 
@@ -330,15 +226,162 @@
             },300);
         }
 
+        // Update Show info
+        const updWatchInfo = () =>
+        {
+            watchPgSsnTxt.textContent = `S${watchPgShowSsn}`;
+            watchPgEpsTxt.textContent = `E${watchPgShowEps}`;
+            history.pushState(null, '', `#/${info_pg_show_type.toLowerCase()}/${info_pg_show_id}/watch/${watchPgShowSsn}/${watchPgShowEps}`);
+
+            // Restart video
+            restartVid();
+        }
+
+        // Update layout for tv shows
+        if(info_pg_show_type.toLowerCase() === "tv")
+        {
+            // Get and organize the seasons
+            watch_pg_show_ssns = showsStructData?.seasons?.filter(item => typeof item?.season_number === "number");
+            watch_pg_show_ssns.sort((a, b) => 
+            {
+                const valA = Number(a["season_number"]) || 0;
+                const valB = Number(b["season_number"]) || 0;
+                return valA - valB;
+            });
+
+            // Get and format season & episode
+            const valSsnEp = formatWatchPgSsnEp(Number(hash_parts[4] || ssn), Number(hash_parts[5] || eps));
+            watchPgShowSsn = valSsnEp?.season;
+            watchPgShowEps = valSsnEp?.episode;
+
+            // Clean up url (Remove unsued sections)
+            history.replaceState(null, '', `#/${info_pg_show_type}/${info_pg_show_id}/watch/${watchPgShowSsn}/${watchPgShowEps}`);
+
+            // Check if season & episode is available
+            if((watchPgShowSsn == null) || (watchPgShowEps == null))
+            {
+                console.error(`Invalid Season or Episode`);
+                notification(`notifyBad` , `Episode unavailable or doesn't exist`);
+                clsWatchPgMdl();
+                return;
+            }
+
+            // Update Episode number
+            watchPgSsnTxt.textContent = `S${watchPgShowSsn}`;
+            watchPgEpsTxt.textContent = `E${watchPgShowEps}`;
+
+            // Remove hidden classes
+            [watchPgPrevBtn, watchPgNextBtn, watchPgSelEpBtn].forEach(item => item.classList.remove("hide"));
+
+            // Going to the previous episode
+            watchPgPrevBtn.onclick = () =>
+            {
+                if((watchPgShowEps <= 1))
+                {
+                    const prevSsnIndex = watch_pg_show_ssns.findIndex(ssn => ssn.season_number === watchPgShowSsn) - 1;
+                    // Return if user is at the end of the series
+                    if(prevSsnIndex >= 0)
+                    {
+                        // Set values for new season
+                        watchPgShowSsn = watch_pg_show_ssns[prevSsnIndex]?.season_number;
+                        watchPgShowEps = watch_pg_show_ssns[prevSsnIndex]?.episode_count;
+                    }
+                    else
+                    {
+                        notification ('notifyBad', `You are at the start of the series`);
+                        return;
+                    }
+                }
+                else
+                {
+                    watchPgShowEps--;
+                }
+                updWatchInfo();
+            }
+
+            // Going to the next episode
+            watchPgNextBtn.onclick = () =>
+            {
+                const ssnIndex = watch_pg_show_ssns.findIndex(ssn => ssn?.season_number === watchPgShowSsn);
+                const maxEpisode = watch_pg_show_ssns[ssnIndex]?.episode_count;
+
+                if((watchPgShowEps >= maxEpisode))
+                {
+                    const nextSsnIndex = ssnIndex + 1;
+
+                    // Return if user is at the end of the series
+                    if(nextSsnIndex >= watch_pg_show_ssns.length)
+                    {
+                        notification ('notifyBad', `You are at the end of the series`);
+                        return;
+                    }
+                    else
+                    {
+                        // Set values for new season
+                        watchPgShowSsn = watch_pg_show_ssns[nextSsnIndex]?.season_number;
+                        watchPgShowEps = 1;
+                    }
+                }
+                else
+                {
+                    watchPgShowEps++;
+                }
+                updWatchInfo();
+            }
+            
+            // Selecting Episodes (Currently redirects you to the shows info page)
+            watchPgSelEpBtn.onclick = () => 
+            {
+                // Close the modal
+                clsWatchPgMdl();
+
+                // Scroll to the episode section
+                let epSect = document.getElementById("info_ep_list");
+
+                if(epSect)
+                {
+                    window.scrollTo(
+                    {
+                        top: Math.ceil((epSect.getBoundingClientRect().top + window.pageYOffset)),
+                        behavior: "smooth"
+                    });
+                }
+            }
+        }
+        else
+        {
+            // Clean up url (Remove unsued sections)
+            history.replaceState(null, '', `#/${info_pg_show_type}/${info_pg_show_id}/watch`);
+
+            // Update layout for movie
+            watchPgSsnTxt.remove();
+            watchPgEpsTxt.remove();
+            watchPgBase.querySelector(".watch_pg_ep_txt").textContent = "Full movie";
+
+            // Remove the prev, next, and ep select buttons
+            watchPgPrevBtn.remove();
+            watchPgNextBtn.remove();
+            watchPgSelEpBtn.remove();
+        }
+
+        // Display base
+        watch_pg_tmr = setTimeout(() => 
+        {
+            clearTimeout(watch_pg_tmr);
+            documentBody.classList.add("bodystop");
+            watchPgBase.classList.add("active");
+
+            watchPgBase.addEventListener("transitionend", function handleTransitionEnd()
+            {
+                watchPgBase.removeEventListener("transitionend", handleTransitionEnd);
+
+                // Build the video player
+                preUVPlyr();
+            });
+        },300);
+
+        // Close the watch page
         watchPgRetBtn.onclick = () => clsWatchPgMdl();
     }
-
-
-
-
-
-
-
-
 
 

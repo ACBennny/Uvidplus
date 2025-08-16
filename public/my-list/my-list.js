@@ -220,43 +220,16 @@
                 // Update the watch status on the collections page or Refresh the page if element is not found
                 if(((hash_parts[1] === "my-list") && (hash_parts[2] === "collections")))
                 {
-                    // Get the clicked button
-                    let clModalGridCardMenuBtn = event.target.closest("[data-gen-menu-modal-type='cl_modal_cards']");
-                    
-                    if (!clModalGridCardMenuBtn)
+                    if((typeof genShowIndexForCL === "number") && !(isNaN(genShowIndexForCL)) && (clModalDfltInv[genShowIndexForCL]))
                     {
-                        console.error("Button with attribute [data-gen-menu-modal-type='cl_modal_cards'] not found.");
-                        refreshPage();
-                        return;
+                        clModalDfltInv[genShowIndexForCL][`show_watch_status`] = currItemStatusOpt;
+                        initCLModalIndexedInv();
+                        sortCLModalCards(clModalSortTypeTabIndex);
                     }
-
-                    // Find the parent 
-                    let clModalGridCardBdr = clModalGridCardMenuBtn.closest(".clModalGrid_CardBdr");
-                    if (!clModalGridCardBdr)
-                    {
-                        console.error("Parent element not found.");
-                        refreshPage();
-                        return;
-                    }
-
-                    // Get all parents elements to obtain the current index
-                    let allGridCards = Array.from(document.querySelectorAll(".clModalGrid_CardBdr"));
-                    let clModalGridCardIndex = allGridCards.indexOf(clModalGridCardBdr);
-
-                    if (clModalGridCardIndex === -1)
-                    {
-                        console.error("Failed to find the index of the clicked card.");
-                        refreshPage();
-                        return;
-                    }
-
-                    // Update the show card in the collection
-                    if(!(clModalGridCardBdr.hasAttribute("data-show-status-opt")))
+                    else
                     {
                         refreshPage();
-                        return;
                     }
-                    clModalGridCardBdr.setAttribute("data-show-status-opt", currItemStatusOpt);
                 }
             }
 
@@ -304,11 +277,11 @@
     async function updEditShowInDLBtn(showLink, ssn_num, ep_num)
     {
         let dwld_lib = await getUsrDwldInv();
-        let isInDL = dwld_lib.filter(item => item.dl_link === showLink);
+        let isInDL = dwld_lib?.filter(item => item.dl_link === showLink);
         let ssn = Number(ssn_num);
         let ep = Number(ep_num);
 
-        if((isInDL.length > 0))
+        if((isInDL?.length > 0))
         {
             if(isInDL[0].dl_type == "movie")
             {
@@ -318,7 +291,7 @@
             else
             {
                 // Checking for tv shows
-                isInDL.forEach((dwldItem) => 
+                isInDL?.forEach((dwldItem) => 
                 {
                     // Find the season
                     if(dwldItem.dl_ssn == ssn)
@@ -343,17 +316,18 @@
 
 
     // Adds a season to Download library
-    async function addSsnToDwlDLib(showLink, epSize, showQlty, showLang, ssn_num, ep_length)
+    async function addSsnToDwlDLib(showLink, epSize, showQlty, showLang, ssn_name, ssn_num, ep_length)
     {
-        let dwld_lib = await getUsrDwldInv();
+        let dwld_lib = await getUsrDwldInv() || [];
+        let name = ssn_name?.toString()?.trim();
         let ssn = Number(ssn_num);
         let epLength = Number(ep_length);
-        let isInDL = dwld_lib.filter(item => 
+        let isInDL = dwld_lib?.filter(item => 
             item.dl_link === showLink
             && item.dl_ssn == ssn
         );
         
-        if((isInDL.length > 0))
+        if((isInDL?.length > 0))
         {
             // Create a set of the existing eps
             let epSet = new Set(isInDL[0].dl_eps.map(epObj => epObj.dl_ep_num));
@@ -403,11 +377,12 @@
             }
 
             // Add items
-            dwld_lib.push(
+            dwld_lib?.push(
                 {
                     dl_id: `${generateRandomString().toLowerCase()}`,
                     dl_link: `${showLink}`,
                     dl_type: `tv`,
+                    dl_name: name,
                     dl_ssn: ssn,
                     dl_eps: epArr,
                 }
@@ -425,20 +400,21 @@
     }
 
     // Adds an episode to Download library
-    async function addEpToDwlDLib(showLink, showType, epSize, showQlty, showLang, ssn_num, ep_num)
+    async function addEpToDwlDLib(showLink, showType, epSize, showQlty, showLang, ssn_name, ssn_num, ep_num)
     {
         let dwld_lib = await getUsrDwldInv();
+        let name = ssn_name?.toString()?.trim();
         let ssn = Number(ssn_num);
         let ep = Number(ep_num);
-        let isInDL = dwld_lib.filter(item => 
+        let isInDL = dwld_lib?.filter(item => 
             item.dl_link === showLink
             && item.dl_ssn == ssn
         );
         
         // Add to episode if show already exists
-        if((isInDL.length > 0))
+        if((isInDL?.length > 0))
         {
-            // Add episode toc the season in downloads
+            // Add episode to the season in downloads
             isInDL[0].dl_eps.push(
                 {
                     dl_ep_num: ep,
@@ -449,7 +425,7 @@
             );
 
             // Sort the episodes in ascending order
-            isInDL[0].dl_eps = isInDL[0].dl_eps.sort((a, b) => a.dl_ep_num - b.dl_ep_num);
+            isInDL[0].dl_eps = isInDL[0]?.dl_eps?.sort((a, b) => a?.dl_ep_num - b?.dl_ep_num);
 
             // Update user data
             await updateUserData(
@@ -466,7 +442,7 @@
             if(showType.toLowerCase() === "movie")
             {
                 // Add the movie
-                dwld_lib.push(
+                dwld_lib?.push(
                     {
                         dl_id: `${generateRandomString().toLowerCase()}`,
                         dl_link: `${showLink}`,
@@ -489,11 +465,12 @@
             else
             {
                 // Add the tv episode
-                dwld_lib.push(
+                dwld_lib?.push(
                     {
                         dl_id: `${generateRandomString().toLowerCase()}`,
                         dl_link: `${showLink}`,
                         dl_type: `tv`,
+                        dl_name: name,
                         dl_ssn: ssn,
                         dl_eps: 
                         [

@@ -27,6 +27,7 @@
     const membership_BILL_CYCLE = 30;
     const pcWindow = window.matchMedia("(hover: hover)");
     const mobWindow = window.matchMedia("(hover: none)");
+    const __uv_p_dev_tm_db_ap_ky = "c3cb60064993dbffac587a51b60b2c11";
     let sideNavLinks;
     let btmNavLinks;
     let genContainerMaxWidth = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--genMaxContainerWidth').trim());
@@ -75,6 +76,7 @@
     let currGenMenuBoxHeight = 0;
     let genMenuModalBoxHeightTimer;
     let genShowLinkForCL;
+    let genShowIndexForCL;
     let addToCLTimer;
     let socialShareTimer;
     let socialDestinationH;
@@ -87,7 +89,7 @@
     let inactivityStartTimerRange = inactivityStartFixedTimerRange;
     const offlineModal = 
     `
-        <div class="offline_mdl_bdr">
+        <div class="offline_mdl_bdr static">
             <div class="offline_mdl_box">
                 <div class="offline_mdl_icon_bdr">
                     <div class="offline_mdl_icon_box">
@@ -975,7 +977,6 @@
             // Quick Search Shortcut
             document.addEventListener("keydown" , quickSearchShortcut);
 
-
             // Components & Functionalities
             mbspStatusTmr();
             page_router();
@@ -987,6 +988,7 @@
             attachSharePageEventListeners();
             initGenMenuModal();
             genScrollingAtn();  
+            hideTMDBAdltCtnt();
         }
 
 
@@ -1057,82 +1059,6 @@
                 newURL: window.location.href
             }));
         }
-
-
-    // INACTIVITY TIMEOUT
-
-        (function trackUserInactivity() 
-        {
-            // Insert modal
-            documentBody.insertAdjacentHTML(`beforeend` , inactivityModalStruct);
-
-            const inatvPrd = 25 * 60 * 1000; // 25 minutes
-            const signoutPrd = 5 * 60 * 1000; // 5 minutes
-            let signoutTimeout;
-            let inactivityTimeout;
-            let inAtvMdl = document.querySelector(".inactivity_bcg");
-            let imAtvbtn = document.querySelector(".inactivity_actionBtn");
-
-            function showInactivityModal() 
-            {
-                inAtvMdl.classList.add("active");
-
-                // Sign Out User after 1 minute of modal display
-                signoutTimeout = setTimeout(() => 
-                {
-                    hideInactivityModal();
-                    accountSignOut();
-                }, signoutPrd);
-            }
-
-            function hideInactivityModal() 
-            {
-                inAtvMdl.classList.remove("active");
-                resetInactivityTimer();
-            }
-
-
-            // Triggered when user goes inactive
-            function handleInactivity() 
-            {
-                showInactivityModal();
-            }
-
-            // Called on any user activity
-            function resetInactivityTimer() 
-            {
-                if(!(isUserSignedIn())) return;
-                clearTimeout(inactivityTimeout);
-                clearTimeout(signoutTimeout);
-                inactivityTimeout = setTimeout(handleInactivity, inatvPrd);
-            }
-
-
-            if(imAtvbtn)
-            {
-                imAtvbtn.addEventListener("click", hideInactivityModal);
-            }
-
-            // Listen for common user activity events
-            ["mousemove", "keydown", "scroll", "touchstart"].forEach(event => 
-            {
-                document.addEventListener(event, resetInactivityTimer, { passive: true });
-            });
-
-            // Optionally treat tab switching as inactivity
-            document.addEventListener("visibilitychange", () => 
-            {
-                if (document.hidden) 
-                {
-                    resetInactivityTimer();
-                } else {
-                    resetInactivityTimer();
-                }
-            });
-
-            // Start the timer on load
-            resetInactivityTimer();
-        })();
 
 
 
@@ -1279,8 +1205,9 @@
 
 
 
-    // GENERAL ARRAY SHUFFLING
+    // GENERAL ARRAY METHODS
 
+        // Shuffles an array
         function shuffleArray(array) 
         {
             for (let i = array.length - 1; i > 0; i--) 
@@ -1289,6 +1216,44 @@
                 [array[i], array[j]] = [array[j], array[i]];
             }
             return array;
+        }
+
+
+        // Maps the media type to the result sets for endpoints that don't provide them
+        function addMediaTypeToShowSets(results = [], type = "")
+        {
+            return results?.map(item => (
+            {
+                ...item,
+                media_type: type
+            }));
+        }
+
+        
+        // Merges two array sets into one in a 1-2-1-2... format
+        function mergeAltArrSets(arr1 = [], arr2 = []) 
+        {
+            const result = [];
+            let i = 0, j = 0;
+
+            // Alternate between arr1 and arr2
+            while(i < arr1.length && j < arr2.length)
+            {
+                result.push(arr1[i++]);
+                result.push(arr2[j++]); 
+            }
+
+            // Append remaining items
+            while (i < arr1.length) 
+            {
+                result.push(arr1[i++]);
+            }
+            while (j < arr2.length)
+            {
+                result.push(arr2[j++]);
+            }
+
+            return result;
         }
 
 
@@ -1330,10 +1295,23 @@
             const currMonth = currentDate.getMonth();
             const monthArr = [`Jan` , `Feb` , `Mar` , `Apr` , `May` , `Jun` , `Jul` , `Aug` , `Sep` , `Oct` , `Nov` , `Dec`];
             const currDay = currentDate.getDate();
-            const dateInStr = 
-                format === "short" 
-                ? `${currDay}/${(currMonth + 1)}/${currYear}` 
-                : `${monthArr[currMonth]} ${currDay}, ${currYear}`;
+            let dateInStr = ``;
+
+            // Build date based on provided format
+            switch(format)
+            {
+                case 'short':
+                    dateInStr = `${currDay}/${(currMonth + 1)}/${currYear}`;
+                    break;
+                    
+                case 'hyphen':
+                    dateInStr = `${currDay}-${(currMonth + 1)}-${currYear}`;
+                    break;
+                    
+                default:
+                    dateInStr = `${monthArr[currMonth]} ${currDay}, ${currYear}`;
+                    break;
+            }
 
             return dateInStr;
         }
@@ -1661,7 +1639,6 @@
         // Sanitizes user input before performing an action with that input
         function postSanitizeUserInput(userInp)
         {
-            // console.log(`Pre-sanitize: ${userInp}`);
             // Return if the input is empty
             if((userInp == null) || (userInp === "")) return "";
 
@@ -1674,7 +1651,6 @@
 
             // Extra layer of sanitization
             const reSanitizedInp = charSanitize(userInp);
-            // console.log(`Re-sanitize: ${reSanitizedInp}`);
 
             // Return the re-sanitized input
             return reSanitizedInp;
@@ -1741,15 +1717,26 @@
             quickSearchClsBtn.addEventListener("click", closeQuickSearchModal);
 
             // Function to display search results
-            const displayQuickSearchResult = (items) => 
+            const displayQuickSearchResult = (items = []) => 
             {
                 // Only seven results are displayed
                 const resultRange = items.slice(0, 25);
 
                 quickSearchResultBox.innerHTML = resultRange.map((item) => 
                 {
-                    const { show_link, show_foreground, show_title, show_scores, show_type, show_year, show_airing_status } = item;
-                    if((quickSearchQuery.length > 0) && (quickSearchQuery !== ""))
+                    const {
+                        show_link = `#/${item?.media_type}/${item?.id}`,
+                        show_type = `${item?.media_type}`,
+                        show_title = `${item?.name || item?.title || "N/A"}`,
+                        show_foreground = `https://image.tmdb.org/t/p/original/${item?.poster_path}`,
+                        show_scores = `${(typeof item?.vote_average === "number")
+                            ? Number(item?.vote_average).toFixed(1)
+                            : "N/A"}`,
+                        show_year = `${item?.first_air_date?.toString()?.trim()?.split("-")[0] || item?.release_date?.toString()?.trim()?.split("-")[0] || "N/A"}`,
+                        show_description = `${item?.overview || "No description available"}`,
+                    } = item;
+
+                    if((quickSearchQuery.length >= 3) && (quickSearchQuery !== ""))
                     {
                         return `
                             <a href="${show_link}" class="quickSearchResultCardBdr">
@@ -1760,7 +1747,7 @@
                                                 <div class="img_preload_sibling"></div>
                                                 <img loading="lazy" 
                                                     onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
-                                                    onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
+                                                    onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')" 
                                                     src="${show_foreground}" alt="Thumbnail image of ${show_title}" class="quickSearchResultCardThumbImg"
                                                 >
                                             </div>
@@ -1797,11 +1784,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="quickSearchResultDetDescBox">
-                                                    <h3 class="quickSearchResultDetDescText">${show_airing_status}</h3>
+                                                    <p class="quickSearchResultDetDescText">${show_description}</p>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
                                     </div>
                                 </div>
                             </a>
@@ -1839,15 +1825,31 @@
             }
 
             // Filter and display result based on user's entry
-            function filterQuickSearchInput()
+            async function filterQuickSearchInput()
             {
-                let fld_input = postSanitizeUserInput(quickSearchInputField.value);
-                quickSearchQuery = fld_input.toString().trim().replace(/\s+/g, ' ').toLowerCase();
+                let fld_input = postSanitizeUserInput(quickSearchInputField.value).toString().trim().replace(/\s+/g, ' ').toLowerCase();
+                quickSearchQuery = fld_input;
                 encodedSearchQuery = encodeURIComponent(quickSearchQuery);
 
                 // Filter Items
-                const filteredData = searchInventory.filter((item) => item.show_searchKey.toLowerCase().includes(quickSearchQuery));
-                displayQuickSearchResult(filteredData);
+                if((quickSearchQuery.length >= 3))
+                {
+                    const filteredData = await findShowDet(quickSearchQuery);
+
+                    // Display results if any
+                    if((Array.isArray(filteredData)) && (filteredData.length > 0))
+                    {
+                        displayQuickSearchResult(filteredData)
+                    }
+                    else
+                    {
+                        displayQuickSearchResult();
+                    }
+                }
+                else
+                {
+                    displayQuickSearchResult();
+                }
                 
                 // Toggle the clear input & explore Icons
                 if(quickSearchInputField.value.length > 0)
@@ -1907,7 +1909,7 @@
             });
         }
                     
-        // Open quick search by shortcut: Ctrl + / 
+        // Open quick search by shortcut: "Ctrl" + "/"
         function quickSearchShortcut(e)
         {
             // Return if the keydown event is invalid
@@ -2029,7 +2031,7 @@
     // RATE LIMITING
 
         // Catches HTTPS 429 (Rate-limiting) error and retries after given time
-        async function fetchWithRetry(url, options = {}, retries = 1, delayMs = 2000)
+        async function fetchWithRetry(url, options = {}, retries = 3, delayMs = 2500)
         {
             let attempt = 0;
 
@@ -2059,6 +2061,176 @@
 
                 return await response.json();
             }
+        }
+
+
+
+    // API FOR SHOWS
+
+        // Fetches TMDB info from a TVMaze id using it's IMDB id
+        async function getTMDBInfoFromTVMazeId(tvmazeId)
+        {
+            try
+            {
+                // Step 1: Get the TVmaze show data
+                const tvmazeData = await fetchWithRetry(`https://api.tvmaze.com/shows/${tvmazeId}`);
+
+                // Step 2: Attempt to extract external ID (TMDb)
+                const externals = tvmazeData.externals;
+
+                if(externals && externals.thetvdb) 
+                {
+                    const tvdbId = externals.thetvdb;
+
+                    // Step 3: Query TMDB using the TVDB ID
+                    const tmdbApiKey = __uv_p_dev_tm_db_ap_ky;
+                    const url = `https://api.themoviedb.org/3/find/${tvdbId}?external_source=tvdb_id&api_key=${tmdbApiKey}`;
+
+                    const tmdbResult = await fetchWithRetry(url);
+
+                    // Step 4: Return TMDB show info if available
+                    const match = tmdbResult.tv_results?.[0] || tmdbResult.movie_results?.[0];
+                    return match || null;
+                }
+
+                return null; // No TVDB ID found
+
+            }
+            catch(error)
+            {
+                console.error("TMDB linking error:\n", error);
+                return null;
+            }
+        }
+
+        // Generates the appropriate link based on the TMDB info provided
+        function genUVPLink(info)
+        {
+            if (!info || !info.id) return "#/home";
+
+            const isMovie = !!info.title;
+            const typePath = isMovie ? "movie" : "tv";
+
+            return `#/${typePath}/${info.id}`;
+        }
+
+        // Get the details of a show
+        async function __getUVPShowDet(id, type, opt = []) 
+        {
+            const baseUrl = `https://api.themoviedb.org/3/${type}/${id}?api_key=${__uv_p_dev_tm_db_ap_ky}`;
+
+            // Build options if any
+            let apnd_opt = ((Array.isArray(opt)) && (opt.length > 0))
+                ? `${opt.map(item => item).join(",")}`
+                : "";
+
+            //
+            if(((typeof apnd_opt === "string") && (apnd_opt.trim().toLowerCase() !== "")))
+            {
+                // Specific details
+                return fetchWithRetry(`${baseUrl}&append_to_response=${apnd_opt}`);
+            }
+            else
+            {
+                // Default details
+                return fetchWithRetry(baseUrl);
+            }
+        }
+
+        
+        // Filters out non scripted/animated shows
+        function isNonScripted(tvItem)
+        {
+            // Documentary, News, Talk
+            const non_scripted_genres = [99, 10763, 10767];
+
+            // Exclude show if genres are not present
+            if(!(tvItem.genre_ids) || (tvItem.genre_ids.length <= 0)) return null;
+
+            return tvItem.genre_ids.every(id => !non_scripted_genres.includes(id));
+        }
+
+
+        // General filtering of fetched shows
+        function fltrFetchedShows(item) 
+        {
+            if (!["tv", "movie"].includes(item.media_type)) return false;
+            if (!window.__show_adult_ctnt && item.adult) return false;
+            if (item.media_type === "tv" && !isNonScripted(item)) return false;
+            return true;
+        }
+
+
+        // Cache filter for to hide/show adult ctnt from TMDB based on user preference
+        async function hideTMDBAdltCtnt()
+        {
+            try
+            {
+                if(!isUserSignedIn()) return;
+
+                const userData = await getUserData();
+                const isUsrMmbr = userData?.is_membership_active;
+
+                // Return if user membership is inactive
+                if((isUsrMmbr == null) || (typeof isUsrMmbr !== "boolean") || (isUsrMmbr != true)) return;
+                
+                const selectedProfile = await getSelectedProfile();
+                const tgl_adult_ctnt = selectedProfile?.prof_show_adult_ctnt || false;
+                window.__show_adult_ctnt = tgl_adult_ctnt;
+            }
+            catch(error)
+            {}
+        }
+
+
+        // General searching for shows
+        async function findShowDet(query = "")
+        {
+            const url = `https://api.themoviedb.org/3/search/multi?api_key=${__uv_p_dev_tm_db_ap_ky}&query=${encodeURIComponent(query)}&include_adult=false`;
+            return fetchWithRetry(url)
+                .then(data => data?.results?.filter(fltrFetchedShows));
+        }
+
+
+        // Gets a catalog of show details for Pagination
+        async function findShowCatalog(format = "", query = "", page = 1)
+        {
+            const url = `https://api.themoviedb.org/3/search/${format}?api_key=${__uv_p_dev_tm_db_ap_ky}&query=${encodeURIComponent(query)}&include_adult=false&vote_count.gte=50&page=${page}`;
+            const data = await fetchWithRetry(url);
+
+            return {
+                results: data?.results?.filter(item =>
+                    {
+                        if (!window.__show_adult_ctnt && item.adult) return false;
+                        if (format === "tv" && !isNonScripted(item)) return false;
+                        return true;
+                    }
+                ) || [],
+                totalPages: data?.total_pages || 0,
+                currentPage: data?.page || 1,
+                totalResults: data?.total_results || 0,
+            };
+        }
+
+        
+        // Gets the contents of the show genre
+        async function findShowCategory(format = "tv", url = "")
+        {
+            const full_url = `${url}&api_key=${__uv_p_dev_tm_db_ap_ky}`;
+            const data = await fetchWithRetry(full_url);
+
+            return {
+                results: data?.results?.filter(item =>
+                    {
+                        if (!window.__show_adult_ctnt && item.adult) return false;
+                        if (format === "tv" && !isNonScripted(item)) return false;
+                        return true;
+                    }
+                ) || [],
+                totalPages: data?.total_pages || 0,
+                currentPage: data?.page || 1,
+                totalResults: data?.total_results || 0,
+            };
         }
 
     

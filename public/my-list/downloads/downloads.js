@@ -377,25 +377,34 @@
 
 
     // Generating the cards
-    function insert_dl_body_cards()
+    async function insert_dl_body_cards()
     {
         let struct =  ``;
         dlCatalogGrid.innerHTML = ``;
+
+        const dl_fetch = dlLibraryIndexedInv.map(item => 
+        {
+            const itemSplit = item?.dl_link?.split('/');
+            const itemType = itemSplit[1];
+            const itemId = itemSplit[2];
+            
+            return __getUVPShowDet(itemId, itemType);
+        });
+        const dl_sets = await Promise.all(dl_fetch);
 
         // Filling in the grid content
         for(let g = 0; g < dlLibraryIndexedInv.length; g++)
         {
             let item = dlLibraryIndexedInv[g];
-            let itemId = item.dl_id;
-            let itemType = item.dl_type;
-            let itemSsn = item.dl_type === "tv" ? ` - Season ${item.dl_ssn}` : ``;
-            let itemEp = item.dl_type === "tv" ? item.dl_eps.length : 1;
+            let itemId = item?.dl_id;
+            let itemType = item?.dl_type;
+            let itemSsn = item?.dl_type === "tv" ? ` - ${item?.dl_name} (S${item?.dl_ssn})` : ``;
+            let itemEp = item?.dl_type === "tv" ? item?.dl_eps?.length : 1;
             let itemEpNo = Number(itemEp) == 1 ? `1 episode` : `${itemEp} episodes`;
             let itemSize = 0;
             let itemSizeStr = 0;
-            let itemLnk = item.dl_link;
-            let itemLnkLC = itemLnk.split('/')[2];
-            let itemMatch = infoInvLinkMap.get(itemLnkLC);
+            let itemLnk = item?.dl_link;
+            let itemMatch = dl_sets[g];
 
             // Calculate show size
             if(itemType === "movie")
@@ -416,10 +425,10 @@
             // If match found, add to grid
             if (itemMatch) 
             {
-                let {
-                    show_title,
-                    show_foreground,
-                    show_background,
+                const {
+                    show_title = `${itemMatch?.name || itemMatch?.title || "N/A"}`,
+                    show_foreground = `https://image.tmdb.org/t/p/original/${itemMatch?.poster_path}`,
+                    show_background = `https://image.tmdb.org/t/p/original/${itemMatch?.backdrop_path}`,
                 } = itemMatch;
 
                 
@@ -890,7 +899,7 @@
         {
             if(type === "movie")
             {
-                let movLnk = `#/watch/movie/${link.toString().split('/')[2]}/1`;
+                let movLnk = `#/movie/${link.toString().split('/')[2]}/watch`;
                 generate_dlModalGridCards(
                     `${id}`,
                     `${link}`,
@@ -913,7 +922,7 @@
                         `${link}`,
                         `${type}`,
                         `${item.dl_ep_qlty}`,
-                        `#/watch/tv/${link.toString().split('/')[2]}/${dlItem[0].dl_ssn}/${item.dl_ep_num}`,
+                        `#/tv/${link.toString().split('/')[2]}/watch/${dlItem[0].dl_ssn}/${item.dl_ep_num}`,
                         `${item.dl_ep_lang}`,
                         `${item.dl_ep_num}`,
                         `Episode ${item.dl_ep_num}`,
@@ -1311,6 +1320,9 @@
                 {
                     // Delete all elements if all are selected
                     dwld_lib = dwld_lib.filter(item => item.dl_id !== dlCardId);
+
+                    // Close the delete operation
+                    document.querySelectorAll(".dlMdlHdr_ssnAtnBtn")[0].click();
                 
                     // Close the modal
                     document.querySelectorAll(".dlMdlBaseCloseBtn")[0].click();
@@ -1337,6 +1349,9 @@
 
                         // Remove from Grid
                         parentDiv.remove();
+                
+                        // Close the modal
+                        document.querySelectorAll(".dlMdlBaseCloseBtn")[0].click();
                     });
                 }
 
@@ -1354,9 +1369,6 @@
     
                 // Regenerate the DL Body Cards
                 insert_dl_body_cards();
-
-                // Close the delete operation
-                document.querySelectorAll(".dlMdlHdr_ssnAtnBtn")[0].click();
             }
 
             newBtn.addEventListener("click" , dlt_atn);

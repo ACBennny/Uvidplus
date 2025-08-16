@@ -124,13 +124,21 @@
             route_atn: "initCategories",
             route_title: "Explore • Uvid+",
         },
-        'trending': 
+        'category': 
         {
             route_pbl_only: false,
             route_auth: true,
             route_member: true,
-            route_atn: "launchTrendingPage",
-            route_title: "Trending • Uvid+",
+            route_atn: "initCategoryPg",
+            route_title: "Categories • Uvid+",
+        },
+        'genre': 
+        {
+            route_pbl_only: false,
+            route_auth: true,
+            route_member: true,
+            route_atn: "initCategoryPg",
+            route_title: "Genres • Uvid+",
         },
         'my-list': 
         {
@@ -140,12 +148,28 @@
             route_atn: "preLoadMyListPageStruct",
             route_title: "My Lists • Uvid+",
         },
-        'info': 
+        'tv': 
         {
             route_pbl_only: false,
             route_auth: true,
             route_member: true,
             route_atn: "preShowSection",
+            route_title: null,
+        },
+        'movie': 
+        {
+            route_pbl_only: false,
+            route_auth: true,
+            route_member: true,
+            route_atn: "preShowSection",
+            route_title: null,
+        },
+        'person': 
+        {
+            route_pbl_only: false,
+            route_auth: true,
+            route_member: true,
+            route_atn: "initPrsnPg",
             route_title: null,
         },
         'watch': 
@@ -364,7 +388,6 @@
                 {
                     init_setup();
                     switch_step(usrStpStep);
-                    console.log("stop here");
                     return;
                 }
             }

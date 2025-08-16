@@ -292,9 +292,7 @@
         btmNavLinks[4].classList.add("active");
 
         if(prof_nav_sect === "create")
-        {
-            console.log("Create profile..");
-        }
+        {}
         else if(prof_nav_sect === "switch")
         {
             initManageProfileModal('switch');

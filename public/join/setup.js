@@ -461,6 +461,7 @@
                             wifi_only_stream: false,
                             cellular_stream_ntfy: true,
                             share_prsnl_info: false,
+                            downloads: [],
                             profiles:
                             {
                                 [`${generateRandomString().toLowerCase()}`]: 

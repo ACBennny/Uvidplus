@@ -1,5 +1,5 @@
 /*************************************************************
- * This is the style for the MyList Watchlist pages
+ * This is the style for the Collections pages
  * 
  * @author (Anyanwu Benedict Chukwuemeka)
  * @version (v0.01)
@@ -1131,6 +1131,7 @@ body[gen-menu-modal-is-dragging="true"] .clModalBox
     font-size: 0.75rem;
     font-weight: 500;
     color: var(--genWhiteTypeMid);
+    text-transform: uppercase;
 }
 
 .clModalGrid_CardCtnt_DetTagSectBox.clModalGrid_CardCtnt_DetTagDividerBox

@@ -372,28 +372,35 @@
 
 
     // Generating the cards
-    function insert_wl_cards()
+    async function insert_wl_cards()
     {
-
         let struct =  ``;
+        const wl_fetch = wlLibraryIndexedInv.map(item => 
+        {
+            const itemSplit = item?.wl_item?.split('/');
+            const itemType = itemSplit[1];
+            const itemId = itemSplit[2];
+            
+            return __getUVPShowDet(itemId, itemType);
+        });
+        const wl_sets = await Promise.all(wl_fetch);
 
         // Filling in the grid content
         for(let g = 0; g < wlLibraryIndexedInv.length; g++)
         {
-            let itemId = wlLibraryIndexedInv[g].wl_item;
-            let itemStatus = wlLibraryIndexedInv[g].wl_status;
-            let itemIdLC = itemId.split('/')[2];
-            let itemMatch = infoInvLinkMap.get(itemIdLC);
+            const itemLink = wlLibraryIndexedInv[g].wl_item;
+            const itemStatus = wlLibraryIndexedInv[g].wl_status;
+            const itemSplit = itemLink.split('/');
+            const itemType = itemSplit[1];
+            const itemMatch = wl_sets[g];
             
             // If match found, add to grid
             if (itemMatch) 
             {
-                let {
-                    show_link,
-                    show_title,
-                    show_type,
-                    show_year,
-                    show_foreground,
+                const {
+                    show_title = `${itemMatch?.name || itemMatch?.title || "N/A"}`,
+                    show_year = `${itemMatch?.first_air_date?.toString()?.trim()?.split("-")[0] || itemMatch?.release_date?.toString()?.trim()?.split("-")[0] || "N/A"}`,
+                    show_foreground = `https://image.tmdb.org/t/p/original/${itemMatch?.poster_path}`,
                 } = itemMatch;
 
                 
@@ -403,7 +410,7 @@
                         <div class="slide_card_bdr">
                             <div class="slide_card_box">
                                 <div class="slide_card">
-                                    <a href="${show_link}" class="cardLinkCover"></a>
+                                    <a href="${itemLink}" class="cardLinkCover"></a>
                                     <div class="cardImgBox">
                                         <div class="img_preload_box">
                                             <div class="img_preload_sibling"></div>
@@ -418,7 +425,7 @@
                                         <div class="cardInfoBox">
                                             <div class="cardInfo_tagBdr">
                                                 <div class="cardInfo_tagBox">
-                                                    <p class="cardInfo_tagText">${show_type}</p>
+                                                    <p class="cardInfo_tagText">${itemType}</p>
                                                 </div>
                                                 <div class="cardInfo_tagBox">
                                                     <p class="cardInfo_tagText">${show_year}</p>

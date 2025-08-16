@@ -1,0 +1,394 @@
+/*************************************************************
+ * This is the style for the search page of Trending page
+ * 
+ * @author (Anyanwu Benedict Chukwuemeka)
+ * @version (v0.01)
+ *************************************************************/
+
+
+
+html:root
+{
+    --categoryCardBdrPseudoInset: -1.5625rem;
+    --categoryImgBdrWidth: 9.375rem;
+    --categoryImgBdrHeight: 13.4375rem;
+    --categoryDetAboutTextClr: var(--color10);
+}
+
+
+
+.categoryBase
+{
+    width: 100%;
+}
+
+.categoryBase .categoryBdr
+{
+    width: 100%;
+    max-width: var(--genMaxContainerWidth);
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 1.25rem var(--genBorderSpacing);
+}
+
+.categoryBdr .categorySiteNameBdr
+{
+    width: 100%;
+    margin-bottom: calc(var(--categoryCardBdrPseudoInset) * -1.5);
+}
+
+.categorySiteNameBdr .categorySiteNameBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.categorySiteNameBox .categorySiteNameTop
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 1.25rem;
+}
+
+.categorySiteNameBox .categorySiteNameBtm
+{
+    color: var(--categoryDetAboutTextClr);
+    font-size: 0.9375rem;
+}
+
+.categoryBdr .categoryBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.categoryBox .categoryCardBdr
+{
+    position: relative;
+    width: 100%;
+    height: calc(var(--categoryImgBdrHeight) + (var(--categoryCardBdrPseudoInset) * -1));
+    margin-bottom: calc(var(--categoryCardBdrPseudoInset) * -2);
+    z-index: 1;
+}
+
+.categoryCardBdr::before
+{
+    content: '';
+    position: absolute;
+    inset: var(--categoryCardBdrPseudoInset);
+    border-radius: 0.625rem;
+    background-color: #1f1f1f;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.75);
+    transition: all 200ms ease-in-out;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.categoryCardBdr .categoryCardBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.categoryCardBox .categoryImgBdr
+{
+    width: var(--categoryImgBdrWidth);
+    height: 100%;
+}
+
+.categoryImgBdr .categoryImgBox
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 0.625rem;
+    overflow: hidden;
+}
+
+.categoryImgBox .categoryImg
+{
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-position: center;
+    object-fit: cover;
+}
+
+.categoryCardBox .categoryDetBdr
+{
+    width: calc(100% - var(--categoryImgBdrWidth));
+    height: 100%;
+}
+
+.categoryDetBdr .categoryDetBox
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 1.25rem;
+}
+
+.categoryDetBox .categoryDetTitleBdr
+{
+    width: 100%;
+}
+
+.categoryDetTitleBdr .categoryDetTitleBox
+{
+    position: relative;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.categoryDetTitleBox .categoryDetTitleText
+{
+    --categoryDetTitleTextNo: 2;
+    --categoryDetTitleTextH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--categoryDetTitleTextNo);
+    -webkit-box-orient: vertical;
+    line-clamp:  var(--categoryDetTitleTextNo);
+    display: -webkit-box;
+    max-height: calc(var(--categoryDetTitleTextNo) * 1em * var(--categoryDetTitleTextH));
+    line-height: var(--categoryDetTitleTextH);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    color: var(--genWhiteTypeLight);
+    font-size: 1.375rem;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+.categoryDetBox .categoryDetFeatureBdr
+{
+    width: 100%;
+    margin: 0.75rem 0;
+}
+
+.categoryDetFeatureBdr .categoryDetFeatureBox
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 1.5625rem;
+}
+
+.categoryDetFeatureBox .categoryDetFeatureCard
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.categoryDetFeatureCard .categoryDetFeatureCard_Top
+{
+    font-family: 'Poppins' , sans-serif;
+    font-size: 0.8125rem;
+    color: var(--genGreenTypeLight2);
+}
+
+.categoryDetFeatureCard .categoryDetFeatureCard_Btm
+{
+    font-size: 0.875rem;
+    color: var(--genWhiteTypeLight);
+    text-transform: uppercase;
+}
+
+.categoryDetBox .categoryDetAboutBdr
+{
+    width: 100%;
+    margin-bottom: 0.75rem;
+}
+
+.categoryDetAboutBdr .categoryDetAboutBox
+{
+    width: 100%;
+}
+
+.categoryDetAboutBox .categoryDetAboutText
+{
+    --categoryDetAboutTextNo: 2;
+    --categoryDetAboutTextH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--categoryDetAboutTextNo);
+    -webkit-box-orient: vertical;
+    line-clamp:  var(--categoryDetAboutTextNo);
+    display: -webkit-box;
+    max-height: calc(var(--categoryDetAboutTextNo) * 1em * var(--categoryDetAboutTextH));
+    line-height: var(--categoryDetAboutTextH);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    color: var(--categoryDetAboutTextClr);
+    font-size: 0.8125rem;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+.categoryDetBox .categoryDetWatchBdr
+{
+    width: 100%;
+    display: none;
+}
+
+.categoryDetWatchBdr .categoryDetWatchBox
+{
+    width: 100%;
+}
+
+.categoryDetWatchBox .categoryDetWatchBtn
+{
+    width: -moz-fit-content;
+    width: fit-content;
+    width: 11.5625rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.625rem;
+    background-color: var(--genGreenTypeMid2);
+}
+
+.categoryDetWatchBtn:active
+{
+    background-color: var(--genGreenTypeMid);
+}
+
+.categoryDetWatchBtn .categoryDetWatchBtnIcon
+{
+    width: 1.125rem;
+    fill: var(--genWhiteTypeLight);
+}
+
+.categoryDetWatchBtn .categoryDetWatchBtnText
+{
+    margin-left: 0.3125rem;
+    color: var(--genWhiteTypeLight);
+    font-size: 0.875rem;
+}
+
+
+
+
+
+
+
+@media(hover: hover)
+{
+    .categoryCardBdr:hover::before
+    {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1.00);
+    }
+
+    .categoryDetWatchBtn:hover
+    {
+        background-color: var(--genGreenTypeMid);
+    }
+}
+
+
+
+
+
+/* ================ RESPONSIVENES ============== */
+
+@media only screen and (max-width: 48rem)
+{
+    html:root
+    {
+        --categoryCardBdrPseudoInset: -0.9375rem;
+    }
+}
+
+
+
+@media only screen and (max-width: 35.125rem)
+{
+    html:root
+    {
+        --categoryCardBdrPseudoInset: 0rem;
+        --categoryImgBdrWidth: 7.5rem;
+        --categoryImgBdrHeight: 12.1875rem;
+    }
+
+    .categoryBase .categoryBdr
+    {
+        padding: 1.25rem 0.9375rem;
+    }
+
+    .categoryBdr .categorySiteNameBdr
+    {
+        margin-bottom: 1.25rem;
+    }
+
+    .categorySiteNameBox .categorySiteNameTop
+    {
+        font-size: 1.125rem;
+    }
+    
+    .categorySiteNameBox .categorySiteNameBtm
+    {
+        font-size: 0.875rem;
+    }
+
+    .categoryBox .categoryCardBdr
+    {
+        margin-bottom: 0rem;
+        padding: 0.625rem;
+    }
+
+    .categoryDetBdr .categoryDetBox
+    {
+        padding-left: 0.9375rem;
+    }
+    
+    .categoryDetTitleBox .categoryDetTitleText
+    {
+        font-size: 1.0625rem;
+    }
+
+    .categoryDetFeatureCard .categoryDetFeatureCard_Top,
+    .categoryDetFeatureCard .categoryDetFeatureCard_Btm,
+    .categoryDetAboutBox .categoryDetAboutText
+    {
+        font-size: 0.75rem;
+    }
+}
+
+
+
+@media only screen and (max-width: 25rem)
+{
+    html:root
+    {
+        --categoryImgBdrWidth: 6.25rem;
+        --categoryImgBdrHeight: 10.625rem;
+    }
+
+    .categoryDetBdr .categoryDetBox
+    {
+        padding-left: 0.75rem;
+    }
+
+    .categoryDetBox .categoryDetFeatureBdr
+    {
+        margin: 0.4375rem 0;
+    }
+
+    .categoryDetFeatureBdr .categoryDetFeatureBox
+    {
+        gap: 0.9375rem;
+    }
+}
+

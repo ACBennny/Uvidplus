@@ -62,7 +62,7 @@
         let selectedProfile = await getSelectedProfile();
         let crsl_struct = ``;
 
-        Object.entries(crsl_type_map).forEach(([key, fld]) =>
+        Object.entries(crsl_type_map).forEach(async ([key, fld]) =>
         {
             if((type === key))
             {
@@ -95,34 +95,43 @@
                 {
                     crsl_history_curr_index = init == true ? selectedProfile[fld].length : crsl_history_curr_index;
                     const next_index = Math.max((crsl_history_curr_index - crsl_step), 0);
-                    const hist_items = selectedProfile[fld].slice(next_index, crsl_history_curr_index);
-
-
-                    hist_items.reverse().forEach((hist_item) =>
+                    const hist_items = selectedProfile[fld]?.slice(next_index, crsl_history_curr_index);
+                    const hist_fetch = hist_items.map(item => 
                     {
-                        let itemLink = hist_item.hist_link
-                        let itemSplit = itemLink.split('/');
-                        let itemSsn = itemSplit[4];
-                        let itemEp = itemSplit[5];
-                        let itemMatch = infoInvLinkMap.get(itemSplit[3]);
+                        const itemSplit = item?.hist_link?.split('/');
+                        const itemType = itemSplit[1];
+                        const itemId = itemSplit[2];
+                        
+                        return __getUVPShowDet(itemId, itemType);
+                    });
+                    let hist_sets = await Promise.all(hist_fetch);
+                    hist_sets = hist_sets.reverse();
+
+                    hist_items.reverse().forEach((hist_item, i) =>
+                    {
+                        const itemLink = hist_item?.hist_link;
+                        const itemSplit = itemLink.split('/');
+                        const itemType = itemSplit[1];
+                        const itemSsn = itemSplit[4];
+                        const itemEp = itemSplit[5];
+                        const itemMatch = hist_sets[i];
 
                         // Convert current time and total time to seconds
-                        let currentTime = timeToSeconds(hist_item.hist_currTime);
-                        let totalTime = timeToSeconds(hist_item.hist_totalTime);
-                        let percentage = Math.round(((currentTime / totalTime) * 100));
-                        let percent_bound = type === "continue" ? 100 : 1000;
+                        const currentTime = timeToSeconds(hist_item.hist_currTime);
+                        const totalTime = timeToSeconds(hist_item.hist_totalTime);
+                        const percentage = Math.round(((currentTime / totalTime) * 100));
+                        const percent_bound = type === "continue" ? 100 : 1000;
 
                         if(itemMatch && (percentage < percent_bound))
                         {
                             const {
-                                show_title,
-                                show_type,
-                                show_year,
-                                show_foreground,
+                                show_title = `${itemMatch?.name || itemMatch?.title || "N/A"}`,
+                                show_year = `${itemMatch?.first_air_date?.toString()?.trim()?.split("-")[0] || itemMatch?.release_date?.toString()?.trim()?.split("-")[0] || "N/A"}`,
+                                show_foreground = `https://image.tmdb.org/t/p/original/${itemMatch?.poster_path}`,
                             } = itemMatch;
 
                             // Insert correct layout for episode count based on show type
-                            const itemPrgTxt = show_type.toLowerCase() === "tv"
+                            const itemPrgTxt = itemType.toLowerCase() === "tv"
                             ?
                                 `
                                     <span class="cardProgressName_szn">S${itemSsn}</span>
@@ -151,7 +160,7 @@
                                                     <div class="cardInfoBox">
                                                         <div class="cardInfo_tagBdr">
                                                             <div class="cardInfo_tagBox">
-                                                                <p class="cardInfo_tagText">${show_type}</p>
+                                                                <p class="cardInfo_tagText">${itemType}</p>
                                                             </div>
                                                             <div class="cardInfo_tagBox">
                                                                 <p class="cardInfo_tagText">${show_year}</p>
@@ -237,22 +246,30 @@
                 {
                     crsl_likes_curr_index = init == true ? selectedProfile[fld].length : crsl_likes_curr_index;
                     const next_index = Math.max((crsl_likes_curr_index - crsl_step), 0);
-                    const likes_items = selectedProfile[fld].slice(next_index, crsl_likes_curr_index);
-
-                    likes_items.reverse().forEach((hist_item) =>
+                    const likes_items = selectedProfile[fld]?.slice(next_index, crsl_likes_curr_index);
+                    const likes_fetch = likes_items.map(item => 
                     {
-                        const itemId = hist_item.ls_item;
-                        let itemIdLC = itemId.split('/')[2];
-                        let itemMatch = infoInvLinkMap.get(itemIdLC);
+                        const itemSplit = item?.ls_item?.split('/');
+                        const itemType = itemSplit[1];
+                        const itemId = itemSplit[2];
+                        
+                        return __getUVPShowDet(itemId, itemType);
+                    });
+                    const likes_sets = await Promise.all(likes_fetch);
+
+                    likes_items.reverse().forEach((likes_item, i) =>
+                    {
+                        const itemLink = likes_item.ls_item;
+                        const itemSplit = itemLink.split('/');
+                        const itemType = itemSplit[1];
+                        const itemMatch = likes_sets[i];
 
                         if(itemMatch)
                         {
                             const {
-                                show_link,
-                                show_title,
-                                show_type,
-                                show_year,
-                                show_foreground,
+                                show_title = `${itemMatch?.name || itemMatch?.title || "N/A"}`,
+                                show_year = `${itemMatch?.first_air_date?.toString()?.trim()?.split("-")[0] || itemMatch?.release_date?.toString()?.trim()?.split("-")[0] || "N/A"}`,
+                                show_foreground = `https://image.tmdb.org/t/p/original/${itemMatch?.poster_path}`,
                             } = itemMatch;
                             
                             crsl_struct += 
@@ -261,7 +278,7 @@
                                     <div class="slide_card_bdr">
                                         <div class="slide_card_box">
                                             <div class="slide_card">
-                                                <a href="${show_link}" class="cardLinkCover"></a>
+                                                <a href="${itemLink}" class="cardLinkCover"></a>
                                                 <div class="cardImgBox">
                                                     <div class="img_preload_box">
                                                         <div class="img_preload_sibling"></div>
@@ -276,7 +293,7 @@
                                                     <div class="cardInfoBox">
                                                         <div class="cardInfo_tagBdr">
                                                             <div class="cardInfo_tagBox">
-                                                                <p class="cardInfo_tagText">${show_type}</p>
+                                                                <p class="cardInfo_tagText">${itemType}</p>
                                                             </div>
                                                             <div class="cardInfo_tagBox">
                                                                 <p class="cardInfo_tagText">${show_year}</p>
@@ -336,22 +353,30 @@
                 {
                     crsl_dislikes_curr_index = init == true ? selectedProfile[fld].length : crsl_dislikes_curr_index;
                     const next_index = Math.max((crsl_dislikes_curr_index - crsl_step), 0);
-                    const dislikes_items = selectedProfile[fld].slice(next_index, crsl_dislikes_curr_index);
-
-                    dislikes_items.reverse().forEach((dislikes_item) =>
+                    const dislikes_items = selectedProfile[fld]?.slice(next_index, crsl_dislikes_curr_index);
+                    const dislikes_fetch = dislikes_items.map(item => 
                     {
-                        const itemId = dislikes_item.ds_item;
-                        let itemIdLC = itemId.split('/')[2];
-                        let itemMatch = infoInvLinkMap.get(itemIdLC);
+                        const itemSplit = item?.ds_item?.split('/');
+                        const itemType = itemSplit[1];
+                        const itemId = itemSplit[2];
+                        
+                        return __getUVPShowDet(itemId, itemType);
+                    });
+                    const dislikes_sets = await Promise.all(dislikes_fetch);
+
+                    dislikes_items.reverse().forEach((dislikes_item, i) =>
+                    {
+                        const itemLink = dislikes_item.ds_item;
+                        const itemSplit = itemLink.split('/');
+                        const itemType = itemSplit[1];
+                        const itemMatch = dislikes_sets[i];
 
                         if(itemMatch)
                         {
                             const {
-                                show_link,
-                                show_title,
-                                show_type,
-                                show_year,
-                                show_foreground,
+                                show_title = `${itemMatch?.name || itemMatch?.title || "N/A"}`,
+                                show_year = `${itemMatch?.first_air_date?.toString()?.trim()?.split("-")[0] || itemMatch?.release_date?.toString()?.trim()?.split("-")[0] || "N/A"}`,
+                                show_foreground = `https://image.tmdb.org/t/p/original/${itemMatch?.poster_path}`,
                             } = itemMatch;
                             
                             crsl_struct += 
@@ -360,13 +385,13 @@
                                     <div class="slide_card_bdr">
                                         <div class="slide_card_box">
                                             <div class="slide_card">
-                                                <a href="${show_link}" class="cardLinkCover"></a>
+                                                <a href="${itemLink}" class="cardLinkCover"></a>
                                                 <div class="cardImgBox">
                                                     <div class="img_preload_box">
                                                         <div class="img_preload_sibling"></div>
                                                         <img loading="lazy" 
                                                             onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
-                                                            onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
+                                                            onerror="this.parentElement.classList.add('loaderror')"
                                                             src="${show_foreground}" alt="Thumbnail image of ${show_title}" class="cardImg"
                                                         >
                                                     </div>
@@ -375,7 +400,7 @@
                                                     <div class="cardInfoBox">
                                                         <div class="cardInfo_tagBdr">
                                                             <div class="cardInfo_tagBox">
-                                                                <p class="cardInfo_tagText">${show_type}</p>
+                                                                <p class="cardInfo_tagText">${itemType}</p>
                                                             </div>
                                                             <div class="cardInfo_tagBox">
                                                                 <p class="cardInfo_tagText">${show_year}</p>
@@ -388,7 +413,7 @@
                                                 </div>
                                                 <div class="cardAddToListBdr">
                                                     <div class="cardAddToListBox">
-                                                        <div class="cardAddToListIconBox crsl_remove_btn" data-crsl-remove-type="dislikes" title="Remove from likes">
+                                                        <div class="cardAddToListIconBox crsl_remove_btn" data-crsl-remove-type="likes" title="Remove from likes">
                                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="cardAddToListIcon">
                                                                 <path d="M3 6.524c0-.395.327-.714.73-.714h4.788c.006-.842.098-1.995.932-2.793A3.68 3.68 0 0 1 12 2a3.68 3.68 0 0 1 2.55 1.017c.834.798.926 1.951.932 2.793h4.788c.403 0 .73.32.73.714a.72.72 0 0 1-.73.714H3.73A.72.72 0 0 1 3 6.524" />
                                                                 <path fill-rule="evenodd" d="M11.596 22h.808c2.783 0 4.174 0 5.08-.886c.904-.886.996-2.34 1.181-5.246l.267-4.187c.1-1.577.15-2.366-.303-2.866c-.454-.5-1.22-.5-2.753-.5H8.124c-1.533 0-2.3 0-2.753.5s-.404 1.289-.303 2.866l.267 4.188c.185 2.906.277 4.36 1.182 5.245c.905.886 2.296.886 5.079.886m-1.35-9.811c-.04-.434-.408-.75-.82-.707c-.413.043-.713.43-.672.864l.5 5.263c.04.434.408.75.82.707c.413-.044.713-.43.672-.864zm4.329-.707c.412.043.713.43.671.864l-.5 5.263c-.04.434-.409.75-.82.707c-.413-.044-.713-.43-.672-.864l.5-5.264c.04-.433.409-.75.82-.707" clip-rule="evenodd" />

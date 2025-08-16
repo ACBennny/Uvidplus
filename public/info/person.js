@@ -9,7 +9,7 @@
 
 let prsnData = {};
 
-    // Initializes the Perosn Page
+    // Initializes the Person Page
     async function initPrsnPg()
     {
         // return
@@ -39,17 +39,24 @@ let prsnData = {};
         const prsn_pfp = (prsnData?.profile_path)
             ? `https://image.tmdb.org/t/p/original/${prsnData?.profile_path}` 
             :  "/images/uvid-profile-base.png";
-        const prsn_name_mjr = prsnData?.name;
-        const prsn_dpmt = prsnData?.known_for_department;
-        const prsn_dob = prsnData?.birthday;
-        const prsn_lob = prsnData?.place_of_birth;
+        const prsn_name_mjr = prsnData?.name || "N/A";
+        const prsn_dpmt = prsnData?.known_for_department || "N/A";
+        const prsn_dob = prsnData?.birthday || "N/A";
+        const prsn_lob = prsnData?.place_of_birth || "N/A";
         const prsn_name_oth = 
         `
             ${
-                prsnData?.also_known_as?.map((item) => `<p class="prsn_det_sub_txt list_item">${item}</p>`).join("")
+                prsnData?.also_known_as?.map((item) => `<p class="prsn_det_sub_txt list_item">${item}</p>`).join("") || `<p class="prsn_det_sub_txt list_item">N/A</p>`
             }
         `;
-        const prsn_bio = prsnData?.biography;
+        const prsn_bio = (prsnData?.biography)
+            ?   `
+                    <p class="prsn_det_bio_txt">${prsnData?.biography}</p>
+                    <label class="prsn_det_bio_btn">
+                        <input type="checkbox" name="prsn_det_bio_inp" id="prsn_det_bio_inpId" class="prsn_det_bio_inpCls">
+                    </label>
+                `
+            : `<p class="prsn_det_bio_txt">No biography available.</p>`;
 
         const prsn_struct = 
         `
@@ -100,12 +107,7 @@ let prsnData = {};
                                         <p class="prsn_det_sub_txt"><strong>Also Known as:</strong></p>
                                         ${prsn_name_oth}
                                     </div>
-                                    <div class="prsn_det_bio_box">
-                                        <p class="prsn_det_bio_txt">${prsn_bio}</p>
-                                        <label class="prsn_det_bio_btn">
-                                            <input type="checkbox" name="prsn_det_bio_inp" id="prsn_det_bio_inpId" class="prsn_det_bio_inpCls">
-                                        </label>
-                                    </div>
+                                    <div class="prsn_det_bio_box">${prsn_bio}</div>
                                 </div>
                             </div>
                         </div>
@@ -226,10 +228,12 @@ let prsnData = {};
                 
                 if(prsn_credits_fetch)
                 {
-                    const prsn_credits_cmbn = mergeAltArrSets(
+                    let prsn_credits_cmbn = mergeAltArrSets(
                         (prsn_credits_fetch?.cast?.filter(fltrFetchedShows) || []),
                         (prsn_credits_fetch?.crew?.filter(fltrFetchedShows) || [])
                     )
+
+                    prsn_credits_cmbn = [...new Map(prsn_credits_cmbn.map(item => [item?.id, item])).values()];
 
                     if(prsn_credits_cmbn.length <= 0) return;
 
