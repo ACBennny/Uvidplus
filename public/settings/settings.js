@@ -1588,7 +1588,6 @@
             if(isChsnDflt)
             {
                 let newDfltId = Object.entries(pymtMtdsData)[0][0];
-                console.log("newDfltId", newDfltId);
 
                 // Update user data
                 await updateUserData(
@@ -3440,8 +3439,6 @@
             {
                 try
                 {
-                    console.log(`Your '${prof_fld_name}' with id:"${prof_fld_id}" is being deleted`);
-                    
                     await updUsrProfFlds(
                     {
                         [`${prof_fld_id}`]: []
@@ -3648,7 +3645,6 @@
                         ischk = false;
                     }
 
-                    console.log(`Tgl state: ${ischk}`);
                     ntfy_rad_btn.forEach(item => item.disabled = false);
 
                     //  Update the corresponding property
@@ -4671,11 +4667,9 @@
             await user.reauthenticateWithCredential(credential)
             .then(() => 
             {
-                console.log("reauth successful -> req email change");
                 return user.verifyBeforeUpdateEmail(newEmail)
                 .then(async () => 
                 {
-                    console.log("email ver sent -> req refresh user state.");
                     notification(`notifyGood`, "A confirmation email was sent to your new address");
                     accountSignOut();
                 })
