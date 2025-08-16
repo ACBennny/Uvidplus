@@ -1443,6 +1443,14 @@
                         }
                     }
                 });
+
+                field.addEventListener("keydown", (e) => 
+                {
+                    if((typeof e !== "undefined") && (typeof e.key !== "undefined") && (e.key.toLowerCase() === "enter"))
+                    {
+                        field.blur();
+                    }
+                });
             });
             
             
