@@ -1,0 +1,305 @@
+/*************************************************************
+ * This is the style for the person page of Uvid+
+ * 
+ * @author (Anyanwu Benedict Chukwuemeka)
+ * @version (v0.01)
+ *************************************************************/
+
+
+
+html:root
+{
+    --prsn_pfp_img_w: 15.625rem;
+    --prsn_pfp_img_h: 25rem;
+}
+
+
+.prsn_bdr
+{
+    width: 100%;
+}
+
+.prsn_bdr .prsn_box
+{
+    width: 100%;
+}
+
+.prsn_box .prsn_info_bdr
+{
+    width: 100%;
+    max-width: 75rem;
+    margin: 0 auto;
+}
+.prsn_info_bdr .prsn_info_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: var(--navBarHeight) var(--genBorderSpacing);
+}
+
+.prsn_info_box .prsn_pfp_bdr
+{
+    position: relative;
+    width: var(--prsn_pfp_img_w);
+    height: var(--prsn_pfp_img_h);
+}
+
+.prsn_pfp_bdr .prsn_pfp_bcg
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    scale: 1.125;
+    filter: blur(1.5625rem) brightness(0.45);
+    z-index: -1;
+}
+
+.prsn_pfp_bdr::before,
+.prsn_pfp_bdr::after
+{
+    content: '';
+    position: absolute;
+    width: 40%;
+    height: 20%;
+    background-color: var(--genGreenTypeMid);
+    border-radius: 0.625rem;
+    z-index: -2;
+}
+
+.prsn_pfp_bdr::before
+{
+    top: -10%;
+    left: -10%;
+}
+
+.prsn_pfp_bdr::after
+{
+    bottom: -10%;
+    right: -10%;
+}
+
+.prsn_pfp_bdr .prsn_pfp_box
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 0.625rem;
+    overflow: hidden;
+}
+
+.prsn_pfp_bdr .prsn_pfp_img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.prsn_info_box .prsn_det_bdr
+{
+    width: calc((100% - var(--prsn_pfp_img_w)));
+    padding-left: 2rem;
+}
+
+.prsn_det_bdr .prsn_det_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.prsn_det_box .prsn_det_ttl_box
+{
+    width: 100%;
+    margin-bottom: 0.75rem;
+}
+
+.prsn_det_ttl_box .prsn_det_ttl_txt
+{
+    color: var(--genWhiteTypeBright);
+    font-size: 2rem;
+}
+
+.prsn_det_box .prsn_det_sub_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.prsn_det_sub_box .prsn_det_sub_txt
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 1rem;
+}
+
+.prsn_det_sub_txt strong
+{
+    color: var(--genGreenTypeLight2);
+}
+
+.prsn_det_sub_txt.list_item
+{
+    padding: 0.3125rem 0.625rem;
+    border-radius: 1rem;
+    background-color: var(--genGreyTypeLight);
+}
+
+.prsn_det_box .prsn_det_bio_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.prsn_det_bio_box .prsn_det_bio_txt
+{
+    --lineNo: 4;
+    --lineHeight: 1.4;
+    position: relative;
+    width: 100%;
+    display: -webkit-box;
+    max-height: calc(var(--lineNo) * 1em * var(--lineHeight));
+    margin-bottom: 0.5rem;
+    line-height: var(--lineHeight);
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    color: var(--genWhiteTypeMid);
+    font-size: 1rem;
+    text-align: left;
+    text-align-last: left;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+.prsn_det_bio_txt::before
+{
+    display: none;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    background-image: linear-gradient(to top, #000000, #00000000);
+}
+
+.prsn_det_bio_txt:has(+ .prsn_det_bio_btn .prsn_det_bio_inpCls:checked)
+{
+    max-height: none;
+}
+
+.prsn_det_bio_txt:has(+ .prsn_det_bio_btn .prsn_det_bio_inpCls:not(:checked))
+{
+    -webkit-line-clamp: var(--lineNo);
+    line-clamp: var(--lineNo);
+}
+
+.prsn_det_bio_btn.genBtnBox .genBtnText
+{
+    font-size: 1rem;
+}
+
+.prsn_det_bio_box .prsn_det_bio_btn
+{
+    --prsn_det_bio_btn_clr: var(--genWhiteTypeMid2);
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding: 0.3125rem 0.5rem;
+    outline: none;
+    border-radius: 0.625rem;
+    border: 0.0625rem solid var(--prsn_det_bio_btn_clr);
+    cursor: pointer;
+    transition: all 150ms ease-in-out;
+}
+
+.prsn_det_bio_btn:active
+{
+    transform: scale(0.95);
+}
+
+.prsn_det_bio_btn .prsn_det_bio_inpCls
+{
+    -webkit-appearance: none;
+    appearance: none;
+    pointer-events: none;
+}
+
+.prsn_det_bio_inpCls::before
+{
+    content: 'Read More';
+    color: var(--prsn_det_bio_btn_clr);
+    font-family: 'Poppins' , sans-serif;
+    font-size:  0.875rem;
+    font-weight: 500;
+    transition: all 150ms ease-in-out;
+}
+
+.prsn_det_bio_inpCls:checked:before
+{
+    content: 'Read Less';
+}
+
+.prsn_basic_carousel
+{
+    margin-bottom: 2rem;
+}
+
+
+
+
+
+@media only screen and (max-width: 64rem)
+{
+    html:root
+    {
+        --prsn_pfp_img_w: 12.5rem;
+        --prsn_pfp_img_h: 18.75rem;
+    }
+}
+
+
+
+@media only screen and (max-width: 48rem)
+{
+    .prsn_info_bdr .prsn_info_box
+    {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    .prsn_info_box .prsn_det_bdr
+    {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .prsn_det_ttl_box .prsn_det_ttl_txt
+    {
+        font-size: 1.75rem;
+    }
+
+    .prsn_det_sub_box .prsn_det_sub_txt,
+    .prsn_det_bio_box .prsn_det_bio_txt
+    {
+        font-size: 0.875rem;
+    }
+}
+
+
+
+
