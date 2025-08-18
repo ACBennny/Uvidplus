@@ -18,6 +18,7 @@ html:root
     --sect_crsl_arr_size: 1.875rem;
     --sect_crsl_arr_bdr: 0.625rem;
     --sect_crsl_icn_size: 1.875rem;
+    --info_more_staff_ctnt_bcg: var(--genModalBcg);
     --info_more_staff_rslt_card_img_size: 3.125rem;
     --info_more_staff_rslt_card_w: 15.625rem;
 }
@@ -1160,25 +1161,25 @@ html:has(.sect-crsl-img-base.max) body
 
 .info_more_staff_bdr .info_more_staff_box
 {
-    position: relative;
     width: 100%;
     height: 100%;
+    /* padding: 4rem 3rem; */
     display: grid;
     place-items: center;
-    padding: 4rem 3rem;
     backdrop-filter: blur(1.5625rem);
     background-color: #000000cc;
-    overflow: hidden auto;
 }
 
 .info_more_staff_box .info_more_staff_ctnt_bdr
 {
     width: 100%;
     height: 100%;
+    width: 80%;
+    height: 80%;
     border-radius: 0.625rem;
-    background-color: var(--genModalBcg);
     scale: 0.75;
     transition: all 300ms ease-in-out;
+    overflow: hidden;
     z-index: 2;
 }
 
@@ -1189,17 +1190,25 @@ html:has(.sect-crsl-img-base.max) body
 
 .info_more_staff_ctnt_bdr .info_more_staff_ctnt_box
 {
+    position: relative;
     width: 100%;
-    height: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+    max-height: 100%;
     display: flex;
     flex-direction: column;
-    padding: 1rem;
-    gap: 0.5rem;
+    border-radius: 0.625rem;
+    background-color: var(--info_more_staff_ctnt_bcg);
+    overflow: hidden auto;
 }
 
 .info_more_staff_ctnt_box .info_more_staff_nav_bdr
 {
+    position: sticky;
+    top: 0;
     width: 100%;
+    background-color: var(--info_more_staff_ctnt_bcg);
+    z-index: 5;
 }
 
 .info_more_staff_nav_bdr .info_more_staff_nav_box
@@ -1209,6 +1218,17 @@ html:has(.sect-crsl-img-base.max) body
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem;
+}
+
+.info_more_staff_nav_box::after
+{
+    content: '';
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 2rem;
+    background-image: linear-gradient(to bottom, var(--info_more_staff_ctnt_bcg), #00000000);
 }
 
 .info_more_staff_nav_box .info_more_staff_nav_ttl_box
@@ -1226,7 +1246,7 @@ html:has(.sect-crsl-img-base.max) body
 .info_more_staff_ctnt_box .info_more_staff_rslt_bdr
 {
     width: 100%;
-    min-height: calc((100% - 8.5rem));
+    height: 100%;
     margin: 0.5rem 0;
 }
 
@@ -1239,11 +1259,12 @@ html:has(.sect-crsl-img-base.max) body
 .info_more_staff_rslt_box .info_more_staff_rslt_grid
 {
     width: 100%;
-    max-height: 100%;
+    height: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(var(--info_more_staff_rslt_card_w), 1fr));
     grid-template-rows: auto;
     gap: 0.5rem;
+    padding: 1rem;
 }
 
 .info_more_staff_rslt_grid .info_more_staff_rslt_card_bdr
@@ -1256,11 +1277,11 @@ html:has(.sect-crsl-img-base.max) body
     cursor: pointer;
 }
 
-.info_more_staff_rslt_grid:has( .info_more_staff_rslt_card_bdr:hover)
+/* .info_more_staff_rslt_grid:has( .info_more_staff_rslt_card_bdr:hover)
 .info_more_staff_rslt_card_bdr:not(:hover)
 {
     filter: brightness(0.5);
-}
+} */
 
 .info_more_staff_rslt_card_bdr:active
 {
@@ -1301,11 +1322,6 @@ html:has(.sect-crsl-img-base.max) body
     transition: all 300ms ease-in-out;
 }
 
-.info_more_staff_rslt_card_bdr:hover .info_more_staff_rslt_card_imgSrc
-{
-    scale: 1.25;
-}
-
 .info_more_staff_rslt_card_box .info_more_staff_rslt_card_det_bdr
 {
     width: calc((100% - var(--info_more_staff_rslt_card_img_size)));
@@ -1343,8 +1359,11 @@ html:has(.sect-crsl-img-base.max) body
 
 .info_more_staff_ctnt_box .info_more_staff_pgn_bdr
 {
+    position: sticky;
+    bottom: 0;
     width: 100%;
-    min-height: 3.75rem;
+    min-height: fit-content;
+    background-color: var(--info_more_staff_ctnt_bcg);
 }
 
 .info_more_staff_pgn_bdr .info_more_staff_pgn_box
@@ -1356,6 +1375,17 @@ html:has(.sect-crsl-img-base.max) body
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
+    padding: 1rem;
+}
+
+.info_more_staff_pgn_box::after
+{
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    width: 100%;
+    height: 2rem;
+    background-image: linear-gradient(to top, var(--info_more_staff_ctnt_bcg), #00000000);
 }
 
 .info_more_staff_pgn_box .info_more_staff_pgn_num_box
@@ -2316,6 +2346,11 @@ html:has(.sect-crsl-img-base.max) body
         visibility: visible;
         pointer-events: all;
     }
+
+    .info_more_staff_rslt_card_bdr:hover .info_more_staff_rslt_card_imgSrc
+    {
+        scale: 1.25;
+    }
 }
 
 
@@ -2543,9 +2578,10 @@ html:has(.sect-crsl-img-base.max) body
         --sect-crsl-card-dvn: 5;
     }
 
-    .info_more_staff_bdr .info_more_staff_box
+    .info_more_staff_box .info_more_staff_ctnt_bdr
     {
-        padding: 2rem 1rem;
+        width: 95%;
+        height: 95%;
     }
     
     .seasons_headerBdr .seasons_selectorBdr
