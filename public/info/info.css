@@ -1277,12 +1277,6 @@ html:has(.sect-crsl-img-base.max) body
     cursor: pointer;
 }
 
-/* .info_more_staff_rslt_grid:has( .info_more_staff_rslt_card_bdr:hover)
-.info_more_staff_rslt_card_bdr:not(:hover)
-{
-    filter: brightness(0.5);
-} */
-
 .info_more_staff_rslt_card_bdr:active
 {
     background-color: var(--genGreyTypeLight);
@@ -2308,6 +2302,16 @@ html:has(.sect-crsl-img-base.max) body
         visibility: visible;
     }
 
+    .info_more_staff_rslt_card_bdr:hover
+    {
+        filter: brightness(1.25);
+    }
+
+    .info_more_staff_rslt_card_bdr:hover .info_more_staff_rslt_card_imgSrc
+    {
+        scale: 1.25;
+    }
+
     .seasons_headerBox:hover
     {
         --seasons_headerClrs: var(--genGreenTypeLight);
@@ -2345,11 +2349,6 @@ html:has(.sect-crsl-img-base.max) body
         opacity: 1;
         visibility: visible;
         pointer-events: all;
-    }
-
-    .info_more_staff_rslt_card_bdr:hover .info_more_staff_rslt_card_imgSrc
-    {
-        scale: 1.25;
     }
 }
 
