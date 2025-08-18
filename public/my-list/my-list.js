@@ -319,9 +319,9 @@
     async function addSsnToDwlDLib(showLink, epSize, showQlty, showLang, ssn_name, ssn_num, ep_length)
     {
         let dwld_lib = await getUsrDwldInv() || [];
-        let name = ssn_name?.toString()?.trim();
-        let ssn = Number(ssn_num);
-        let epLength = Number(ep_length);
+        let name = ssn_name?.toString()?.trim() || "N/A";
+        let ssn = Number(ssn_num) || 0;
+        let epLength = Number(ep_length) || 0;
         let isInDL = dwld_lib?.filter(item => 
             item.dl_link === showLink
             && item.dl_ssn == ssn
@@ -402,10 +402,10 @@
     // Adds an episode to Download library
     async function addEpToDwlDLib(showLink, showType, epSize, showQlty, showLang, ssn_name, ssn_num, ep_num)
     {
-        let dwld_lib = await getUsrDwldInv();
-        let name = ssn_name?.toString()?.trim();
-        let ssn = Number(ssn_num);
-        let ep = Number(ep_num);
+        let dwld_lib = await getUsrDwldInv() || [];
+        let name = ssn_name?.toString()?.trim() || "N/A";
+        let ssn = Number(ssn_num) || 0;
+        let ep = Number(ep_num) || 0;
         let isInDL = dwld_lib?.filter(item => 
             item.dl_link === showLink
             && item.dl_ssn == ssn

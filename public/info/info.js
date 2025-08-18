@@ -2637,7 +2637,9 @@
             let selectedProfile = await getSelectedProfile();
             let show_type = `${epShowType}`;
             let show_id = `${info_pg_show_link.split('/')[2]}`;
-            let showLink = `#/${show_type}/${show_id}/watch/${epCardSsnNum}/${epCardEpNum}`;
+            let showLink = (epShowType === "tv")
+                ? `#/${show_type}/${show_id}/watch/${epCardSsnNum}/${epCardEpNum}`
+                : `#/${show_type}/${show_id}/watch`;
             let isItem = selectedProfile?.prof_history?.at(-1)?.hist_link;
 
             if(isItem !== showLink)
@@ -2676,7 +2678,17 @@
         updEditShowInDLBtn(info_pg_show_link, epCardSsnNum, epCardEpNum);
 
         // Download the show
-        epCardDwldBtn.onclick = () => selDwldPpty('episode', epCardName, epCardSsnNum, epCardEpNum);
+        epCardDwldBtn.onclick = () => 
+        {
+            if((epShowType === "tv"))
+            {
+                selDwldPpty('episode', epCardName, epCardSsnNum, epCardEpNum);
+            }
+            else
+            {
+                selDwldPpty('episode', epCardName);
+            }
+        }
     }
 
 
@@ -2867,16 +2879,29 @@
             }
             else
             {
-                addEpToDwlDLib(
-                    `${info_pg_show_link}`,
-                    info_pg_show_type,
-                    temp_ep_size,
-                    `${temp_ep_qlty}`,
-                    `${temp_ep_audio}`,
-                    ssnName,
-                    ssnNum,
-                    ep_num_or_length
-                );
+                if((info_pg_show_type.toLowerCase() === "tv"))
+                {
+                    addEpToDwlDLib(
+                        `${info_pg_show_link}`,
+                        info_pg_show_type,
+                        temp_ep_size,
+                        `${temp_ep_qlty}`,
+                        `${temp_ep_audio}`,
+                        ssnName,
+                        ssnNum,
+                        ep_num_or_length
+                    );
+                }
+                else
+                {
+                    addEpToDwlDLib(
+                        `${info_pg_show_link}`,
+                        info_pg_show_type,
+                        temp_ep_size,
+                        `${temp_ep_qlty}`,
+                        `${temp_ep_audio}`,
+                    );
+                }
             }
 
             // Close the modal
