@@ -334,7 +334,6 @@
         {
             ctct_base.removeEventListener("transitionend" , handleTransitionEnd);
             ctct_base.remove();
-            ctct_ftr_input_fld.blur();
 
             // Allow Chatbot intialization
             isHlpCtrChatBotInit = false;
