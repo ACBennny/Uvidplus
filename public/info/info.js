@@ -2284,7 +2284,7 @@
 
             // Diplay results 
             infoMoreStaffBdr.querySelector(".info_more_staff_rslt_grid").innerHTML = staffRsltStruct;
-            infoMoreStaffBdr.querySelector(".info_more_staff_box").scrollTo(0, 0);
+            infoMoreStaffBdr.querySelector(".info_more_staff_ctnt_box").scrollTo(0, 0);
 
             // Update pagination
             currStaffPg = page;
