@@ -13,6 +13,7 @@
     let isBasicSliderDragging = false;
     let basicSliderDraggingDist = 10;
     let singleCardSlide;
+    let multiCardSlide
 
 
 
@@ -74,9 +75,9 @@
             let boxDimension = item.getBoundingClientRect();
             let boxWidth = boxDimension.width;
             let boxW = boxWidth - boxErrorMargin;
-            let multiCardSlide = boxW;
             let boxChildrenDimension = item.querySelectorAll(".basic_carousel_card")[0]?.getBoundingClientRect();
             let boxChildrenWidth = boxChildrenDimension?.width;
+            multiCardSlide = boxW;
             singleCardSlide = boxChildrenWidth;
 
             // Unhide/hide right arrow if content is overflowing
@@ -86,7 +87,7 @@
             }
 
             // Unhide/hide left arrow if content is overflowing
-            if((Math.ceil(item.scrollLeft)) > (Math.ceil(singleCardSlide) + boxErrorMargin))
+            if((Math.ceil(item.scrollLeft)) > (Math.ceil(multiCardSlide) + boxErrorMargin))
             {
                 basic_slider_LeftArrBox[i].classList.remove("hide");
             }
@@ -160,12 +161,12 @@
 
             const arrow_right_atn = () =>
             {
-                item.scrollLeft += singleCardSlide;
+                item.scrollLeft += multiCardSlide;
             }
 
             const arrow_left_atn = () =>
             {
-                item.scrollLeft -= singleCardSlide;
+                item.scrollLeft -= multiCardSlide;
             }
     
             item.addEventListener("mousedown", mouse_down_atn);
