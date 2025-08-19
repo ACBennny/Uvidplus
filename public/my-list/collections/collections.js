@@ -2759,7 +2759,7 @@ let editCLStruct =
 
                     // Display Movies
                     case "1":
-                        filterCLModalType("movies");
+                        filterCLModalType("movie");
                         break;
                         
                     // Display Tv

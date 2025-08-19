@@ -264,7 +264,7 @@
 
                     // Display Movies
                     case "1":
-                        filterWLModalType("movies");
+                        filterWLModalType("movie");
                         break;
                         
                     // Display Tv

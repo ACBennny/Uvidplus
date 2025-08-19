@@ -92,7 +92,7 @@
                         <div class="genMenuModalCtntBtnText">All</div>
                     </button>
                     <button class="genMenuModalCtntBtnBox wlModalFilterTypeTabs" data-show-type-opt="1">
-                        <div class="genMenuModalCtntBtnText">Movies</div>
+                        <div class="genMenuModalCtntBtnText">Movie</div>
                     </button>
                     <button class="genMenuModalCtntBtnBox wlModalFilterTypeTabs" data-show-type-opt="2">
                         <div class="genMenuModalCtntBtnText">Tv</div>
@@ -273,7 +273,7 @@
                         <div class="genMenuModalCtntBtnText">All</div>
                     </button>
                     <button class="genMenuModalCtntBtnBox clModalFilterTypeTabs" data-show-type-opt="1">
-                        <div class="genMenuModalCtntBtnText">Movies</div>
+                        <div class="genMenuModalCtntBtnText">Movie</div>
                     </button>
                     <button class="genMenuModalCtntBtnBox clModalFilterTypeTabs" data-show-type-opt="2">
                         <div class="genMenuModalCtntBtnText">Tv</div>
