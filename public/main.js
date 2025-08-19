@@ -1801,9 +1801,6 @@
                 
                 // Configure View More btn
                 viewMoreSearchResults();
-
-                // Reattaching listeners
-                attachAddToCLEventListeners();
             };
 
             // Viewing More Results
