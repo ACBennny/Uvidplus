@@ -1557,9 +1557,9 @@
             {
                 // Open the first episode of the first show
                 let url = (info_pg_show_type == "tv")
-                    ? document.querySelector('.showset').querySelectorAll(".ep_cardBdr .ep_cardCtntBdr")[0].getAttribute("href")
-                    : `${info_pg_show_link}/watch`;
-                preWatchPage(url);
+                    ? document.querySelector('.showset')?.querySelectorAll(".ep_cardBdr .ep_cardCtntBdr")[0]?.click()
+                    : preWatchPage(`${info_pg_show_link}/watch`);
+
             }
         });
     }
