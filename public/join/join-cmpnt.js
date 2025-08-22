@@ -252,7 +252,7 @@
                             </div>
                             <div class="join_outro_det_box">
                                 <p class="join_outro_det_txt">
-                                    Hi there! I'm <span class="join_outro_det_txt_mjr" onbeforeonload="window.open('https://github.com/ACBennny')">ACBennny</span>,
+                                    Hi there! I'm <span class="join_outro_det_txt_mjr">ACBennny</span>,
                                     and thanks for checking out Uvid+.
                                 </p>
                                 <p class="join_outro_det_txt">
@@ -263,10 +263,10 @@
                                 <p class="join_outro_det_txt">
                                     <u>What does this mean?</u>
                                     <br>
-                                    Uvid+ does <strong>NOT</strong> and will <strong>NOT</strong> bill you. Thus, it does not require any real information from you 
-                                    besides a valid working email for account activites (i.e. setup, management). 
-                                    <br>
-                                    You can enter random data on the other categoreies as it's not used for anything.
+                                    Uvid+ does <strong>NOT</strong> and will <strong>NOT</strong> bill you. 
+                                    Thus, besides a working email for account management, 
+                                    you should <strong>NOT</strong> enter any real information 
+                                    as it is <strong>NOT</strong> required.
                                 </p>
                                 <p class="join_outro_det_txt">
                                     Visit the
