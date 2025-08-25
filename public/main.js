@@ -16,6 +16,7 @@
     const documentMain = document.querySelector("main");
     const documentCtnt = document.querySelector("content .content");
     const preload = document.querySelector("#preloader");
+    const projectLink = "https://acuvid.netlify.app";
     const developerLink = "https://acbennny.netlify.app";
     const basicSliderScriptPath = "/basic_slider.js";
     const topNavBar = document.querySelector(".topNavBar");
