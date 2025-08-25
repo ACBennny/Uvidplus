@@ -174,7 +174,6 @@
             </div>
         </div>
     `;
-
     let exploreBase;
     let catalogBase;
     let catalogParamsOrder = ["search", "sort", "format", "score", "year", "lang", "genre"];
@@ -365,9 +364,11 @@
         topNavBar.insertAdjacentHTML(`afterbegin` , searchstruct);
         topNavBar.classList.add("initialize");
 
+        // Get/Set URL Params
         initURLParams();
-        preSanitizaUserInput();
 
+        // Attach Input sanitization listeners
+        preSanitizaUserInput();
 
         // Definitions
         catalogSearchQuery = '';
@@ -397,20 +398,20 @@
             toggleInputFieldState(true);
         });
 
-
         // Close the search input
         openCatalogSearchInputCoverIcon.addEventListener("click" , () => 
         {
             toggleInputFieldState(false);
         });
 
-
         // Update catalog search Input and add event listener   
         catalogSearchInput.setAttribute(`value` , `${catalogURLSearchParam}`);
 
+        // Get matching results & Hide/Unhide x-mark button while typing
         catalogSearchInput.addEventListener("input", () => 
         {
-            // Update result text and Hide/Unhide x-mark button while typing
+            getFilterAndSortInput();
+
             if(catalogSearchInput.value.length > 0)
             {
                 catalogSearchXmark.classList.add("isTyping");
@@ -420,20 +421,22 @@
                 catalogSearchXmark.classList.remove("isTyping");
             }
         });
+
+        // Close filters while typing
         catalogSearchInput.addEventListener("click" , (e) => 
         {
             catalogHeadBdr.classList.remove("show");
         });
+
+        // Get matching results
         catalogSearchInput.addEventListener("keyup" , (e) => 
         {
-            // Filter inputs
             if((typeof e !== "undefined") && (typeof e.key !== "undefined") && (e.key.toLowerCase() === "enter"))
             {
                 catalogSearchInput.blur();
                 getFilterAndSortInput();
             }
         });
-
 
         // Clear Search field
         catalogSearchXmark.addEventListener("click" , () => 
@@ -443,24 +446,20 @@
             catalogSearchXmark.classList.remove("isTyping");
         });
 
-
         // Open/Close filters
         toggleCatFiltBtn.addEventListener("click" , () => 
         {
             catalogHeadBdr.classList.toggle("show");
         });
 
-
         // Apply filters
         applycatFiltBtn.addEventListener("click" , getFilterAndSortInput);
 
-        
         // Clear all filters
         clearCatalogFilters.addEventListener("click" , () => 
         {
             clrCtgFilters();
         });
-
 
         // Initialize filters
         initCatalogFilters();
@@ -716,7 +715,6 @@
         selectedFilters.search = catalogSearchQuery;
         updateURLParams(catalogParamsOrder[0], catalogSearchQuery);
 
-
         // Get values from filter selectors
         catalogFilterSelect.forEach((select) => 
         {
@@ -754,7 +752,6 @@
                     break;
             }
         });
-
 
         // Get values from genre filters
         catalogGenreCards.forEach((card) => 
@@ -858,7 +855,7 @@
             `;
             ctgPaginationBdr.classList.remove("active");
         }
-    };
+    }
 
     // Filters the fetched results
     function filterCtgResults(results, filters) 
@@ -1175,6 +1172,3 @@
             }
         });
     }
-
-
-
