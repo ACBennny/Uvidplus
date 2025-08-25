@@ -252,7 +252,8 @@
                             </div>
                             <div class="join_outro_det_box">
                                 <p class="join_outro_det_txt">
-                                    Hi there! I'm <span class="join_outro_det_txt_mjr">ACBennny</span>,
+                                    Hi there! I'm
+                                    <a class="join_outro_det_txt_mjr" onclick="window.open('${developerLink}')">ACBennny</a>
                                     and thanks for checking out Uvid+.
                                 </p>
                                 <p class="join_outro_det_txt">
@@ -267,13 +268,17 @@
                                     Thus, besides a working email for account management, 
                                     you should <strong>NOT</strong> enter any real information 
                                     as it is <strong>NOT</strong> required.
-                                </p>
-                                <p class="join_outro_det_txt">
-                                    Visit the
+                                    <br>
+                                    In fact, it is <i>against</i> the
                                     <a class="join_outro_det_txt_mjr" onclick="window.open('#/tou')">Terms of Use</a> 
                                     and 
                                     <a class="join_outro_det_txt_mjr" onclick="window.open('#/privacy')">Privacy Policy</a> 
-                                    for more recent details.
+                                    to do so.
+                                </p>
+                                <p class="join_outro_det_txt">
+                                    Click
+                                    <a class="join_outro_det_txt_mjr" onclick="window.open('${projectLink}')">here</a> 
+                                    to learn more about this project and other details (After you've finished exloring this one).
                                 </p>
                             </div>
                             <div class="join_submit_box space_h">
