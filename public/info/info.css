@@ -211,6 +211,7 @@ html:root
     color: var(--genWhiteTypeMid);
     text-transform: none;
     font-style: italic;
+    text-align: center;
 }
 
 .quick_det_item .quick_det_divider
