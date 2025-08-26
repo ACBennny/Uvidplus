@@ -508,6 +508,7 @@ body[gen-menu-modal-is-dragging="true"] .clModalBox
     align-items: center;
     padding: var(--navBarHeight) var(--genBorderSpacing) 0;
     margin-bottom: 1.5625rem;
+    overflow: hidden;
     z-index: 3;
 }
 
@@ -525,7 +526,7 @@ body[gen-menu-modal-is-dragging="true"] .clModalBox
 {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: calc(100% + 1rem);
     overflow: hidden;
     z-index: 3;
 }
@@ -537,6 +538,8 @@ body[gen-menu-modal-is-dragging="true"] .clModalBox
     left: 0;
     right: 0;
     bottom: 0;
+    width: 100%;
+    height: 100%;
     z-index: -3;
 }
 
