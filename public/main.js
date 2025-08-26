@@ -2448,6 +2448,10 @@
             dragOffsetX = touch.clientX - rect.left;
             dragOffsetY = touch.clientY - rect.top;
         
+            // Update custom preview position
+            customDragPreview.style.left = `${touch.clientX - dragOffsetX}px`;
+            customDragPreview.style.top = `${touch.clientY - dragOffsetY}px`;
+        
             // Add dragging class for styling
             targetElement.classList.add('dragging');
             document.querySelectorAll(".genDraggableElement:not(.dragging)").forEach((elem) => 
