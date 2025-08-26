@@ -150,7 +150,6 @@ let mylist_collections_struct =
                                         </div>
                                     </div>
                                 </div>
-                                <div class="clModalHeader_Shadow"></div>
                             </div>
                         </div>
                         <div class="clModalHeadBox">
