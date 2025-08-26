@@ -590,6 +590,7 @@ body[gen-menu-modal-is-dragging="true"] .clModalBox
     height: 100%;
     max-width: var(--clModalHeadThumbWidth);
     max-height: var(--clModalHeadThumbHeight);
+    aspect-ratio: 16/9;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -619,6 +620,7 @@ body[gen-menu-modal-is-dragging="true"] .clModalBox
     height: clamp(100% , 100% , 100%);
     object-fit: cover;
     object-position: center;
+    border-radius: 0.9375rem;
 }
 
 .clModalHeadBox .clModalHeader_DetBdr
