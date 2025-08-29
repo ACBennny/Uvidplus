@@ -337,7 +337,7 @@
     function fdbk_toParams(data_js) 
     {
         let form_data = [];
-        for ( var key in data_js ) 
+        for ( let key in data_js ) 
         {
             form_data.push(encodeURIComponent(key) + "=" + encodeURIComponent(data_js[key]));
         }
