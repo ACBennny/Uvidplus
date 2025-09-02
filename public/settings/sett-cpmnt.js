@@ -92,7 +92,8 @@ const sett_cmpnt_lib =
         sett_title: `Theater Mode`,
         sett_desc: 
         `
-            Toggles Fullscreen.
+            This simply enables Fullscreen, which may make for a slightly more intuitive experience 
+            when accessed on web browsers.
         `,
         sett_atn_type: `modal`,
         sett_atn_id: `sett_theater_mode`,
@@ -119,8 +120,8 @@ const sett_cmpnt_lib =
         sett_title: `Cast data Usage`,
         sett_desc: 
         `   
-            Select the default data usage when casting as it is optimized for larger screens 
-            (e.g., televisions) and uses more data than shows streamed via a mobile device.
+            Select the default data usage when casting, as it is optimized for larger screens 
+            (e.g., televisions), and uses more data than shows streamed via a mobile device.
         `,
         sett_atn_type: `menu`,
         sett_atn_id: `sett_cast_data_usage`,
