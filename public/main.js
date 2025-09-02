@@ -1049,8 +1049,7 @@
 
 
         function devToolKey(e)
-        {   
-            return
+        {
             let keyStr = e.key.toLowerCase();
             
             if((

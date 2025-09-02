@@ -5228,6 +5228,11 @@ only screen and (max-height: 30.375rem)
     {
         font-size: 0.625rem;
     }
+
+    .basicCatalogBox
+    {
+        --basicCatalogCardWidth: 7.5rem;
+    }
 }
 
 
@@ -5241,7 +5246,7 @@ only screen and (max-height: 30.375rem)
 
     .basicCatalogBox
     {
-        --basicCatalogCardWidth: 7.8125rem;
+        --basicCatalogCardWidth: 6.25rem;
     }
 
     .specialEp_box .specialEp_SpImgBdr
