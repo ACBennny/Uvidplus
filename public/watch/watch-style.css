@@ -208,6 +208,19 @@ html:root
     pointer-events: none;
 }
 
+.watch_pg_plyr_ext_box_cls
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.watch_pg_plyr_ext_frm_cls
+{
+    width: 100%;
+    height: 100%;
+}
+
 
 
 

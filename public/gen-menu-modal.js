@@ -465,6 +465,13 @@
             `,
         },
         {
+            menu_id: `watch_plyr_sel_menu`,
+            menu_ctnt: 
+            `
+                <div class="genMenuModalCtntBox watchPlyrSelCtntBox"></div>
+            `,
+        },
+        {
             menu_id: `sett_sect_nav`,
             menu_ctnt:
             `
@@ -725,6 +732,11 @@
     function show_info_ep_cards(btnEvent)
     {
         callGlobalFunctions(`showInfoEpCardAtns` , [btnEvent]);
+    }
+
+    function watch_plyr_sel_menu(btnEvent)
+    {
+        callGlobalFunctions("addExtSelEvLstnr", [btnEvent])
     }
 
     function sett_sect_nav()

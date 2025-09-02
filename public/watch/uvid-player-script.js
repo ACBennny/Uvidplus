@@ -527,7 +527,7 @@
     // Keyboard key functions for pc only
     function kybrdShtCt(e)
     {
-        if(!(isPageWatchPage())) return; 
+        if(!(isPageWatchPage()) || !(isWpgExt)) return; 
 
         const tagName = document.activeElement.tagName.toLowerCase();
         if(mobWindow.matches) return;
@@ -589,34 +589,14 @@
     // Preps the videos for play to simulate quick loading times
     function prepUVCtnt()
     {
-        const vid_urls = 
-        [
-            // "/media/videos/3.mp4",
-            // "/media/videos/3_360p.mp4", 
-            // "/media/videos/3_720p.mp4", 
-            "/media/videos/3_1080p.mp4"
-        ];
-
-        vid_urls.forEach((url, i) => 
-        {
-            setTimeout(() => 
-            {
-                fetch(url)
-                .catch((err) => 
-                {
-                    console.error(`Failed to fetch the video URL:${url}`);
-                    console.error(err);
-                });
-            }, (i * 5000));
-        });
-
         // Add lisener for keyboard shortcuts on video player
         document.addEventListener("keydown",  kybrdShtCt);
+        document.addEventListener("keydown",  devToolKey);
 
         // Add listener for saving watch history if user switches tabs
         document.addEventListener("visibilitychange", async () => 
         {
-            if((isPageWatchPage()) && (document.visibilityState === "hidden"))
+            if((isPageWatchPage() && !(isWpgExt)) && (document.visibilityState === "hidden"))
             {
                 await saveWatchProgessInHist();
             }
@@ -972,19 +952,17 @@
 
 
     // Save currentDuration progress to user history
-    const saveWatchProgessInHist = async () => 
+    const updUsrWatchHist = async (currTime = `00:00`, ttlTime = `00:57`) =>
     {
-        if(!(isPageWatchPage())) return;
-
         isUVidSv = true;
-        
-        let currTime = currentDuration.textContent;
-        let ttlTime = totalDuration.textContent;
-
         try
         {
             let selectedProfile = await getSelectedProfile();
-            let showLink = `${window.location.hash}`;
+            let showLink = ((typeof info_pg_show_link === "string") && (info_pg_show_link !== "")) 
+                ? ((typeof info_pg_show_type === "string") && (info_pg_show_type !== "") && (info_pg_show_type.toLowerCase() === "tv"))  
+                    ? `${info_pg_show_link}/watch/${watchPgShowSsn}/${watchPgShowEps}` 
+                    : `${info_pg_show_link}/watch`
+                : `${window.location.hash}`;
             
             // Check and remove the old entry
             selectedProfile.prof_history = selectedProfile.prof_history.filter(item => item.hist_link !== showLink);
@@ -1014,6 +992,16 @@
             // Reset flag
             isUVidSv = false;
         }
+    }
+
+    const saveWatchProgessInHist = async () => 
+    {
+        if(!(isPageWatchPage()) || (isWpgExt)) return;
+        
+        let currTime = currentDuration.textContent;
+        let ttlTime = totalDuration.textContent;
+
+        await updUsrWatchHist(currTime, ttlTime);
     }
 
 
@@ -1155,10 +1143,10 @@
         const updUVPlyrBlobProgress = () =>
         {
             const ttl_progress = srcProgress.reduce((a, b) => a + b, 0);
-            const ttl_pctl = ttl_progress / ttlSrcLength;
+            const ttl_pctl = (ttl_progress / ttlSrcLength) * 10;
 
             let ldr_txt = document.querySelector(".watch_pg_plyr_ldr_pctl_txt");
-            ldr_txt.textContent = `${ttl_pctl.toFixed(1)}%`;
+            ldr_txt.textContent = `${(ttl_pctl.toFixed(0) <= 100) ? ttl_pctl.toFixed(1) : 100}%`;
 
             // Action(s) to be performed when progress is at 100%
             if((ttl_pctl >= 100) && !(window.__uvp_uvplr_ctnt_loaded))
@@ -1303,7 +1291,7 @@
 
             const currTimeFlr = Math.floor(currentTime);
 
-            if(((currTimeFlr - lastUVidSv) >= sv_prd_cycle) && !isUVidSv)
+            if((Math.abs((currTimeFlr - lastUVidSv)) >= sv_prd_cycle) && !isUVidSv)
             {
                 lastUVidSv = currTimeFlr;
                 await saveWatchProgessInHist();
@@ -1998,6 +1986,7 @@
             ldr_btn.classList.remove("hide");
         }
     }
+
         
 
 

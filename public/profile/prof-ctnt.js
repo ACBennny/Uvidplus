@@ -599,25 +599,3 @@
         });
     }
     
-
-
-    // Function to convert time to seconds, handling both "HH:MM:SS" and "MM:SS" formats
-    function timeToSeconds(time) 
-    {
-        const parts = time.split(':').map(Number);
-    
-        if (parts.length === 3) 
-        {
-            // "HH:MM:SS" format
-            return parts[0] * 3600 + parts[1] * 60 + parts[2];
-        } 
-        else if (parts.length === 2) 
-        {
-            // "MM:SS" format
-            return parts[0] * 60 + parts[1];
-        } 
-        else 
-        {
-            notification(`notifyBad` , `Invalid time format`);
-        }
-    }

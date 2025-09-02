@@ -301,6 +301,7 @@ body
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
+    font-weight: bold;
     border-radius: 0.3125rem;
     transition: all 300ms ease-in-out;
 }

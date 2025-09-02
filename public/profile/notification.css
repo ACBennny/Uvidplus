@@ -222,7 +222,6 @@ html:root
 
 .notification_action_box .notification_action_text
 {
-    font-family: 'Poppins' , sans-serif;
     color: var(--genGreenTypeMid);
     font-size: 0.875rem;
     text-transform: uppercase;

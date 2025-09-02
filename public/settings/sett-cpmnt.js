@@ -199,6 +199,21 @@ const sett_cmpnt_lib =
     {
         sett_sect: `experience`,
         sett_orientation: `horizontal`,
+        sett_title: `External Player`,
+        sett_desc: 
+        `   
+            By default, Uvid+ has a its own custom player which plays a sample video for demonstration purposes only.
+            If this setting is turned on, an external player from unaffiliated third-party service(s) may be used instead.
+            Note that Uvid+ has no control over the content shown on external players, and some Uvid+ features may be unavailable.
+        `,
+        sett_atn_type: `toggle`,
+        sett_atn_id: `sett_ext_plyr`,
+        sett_atn_title: `Toggle`,
+        sett_atn_func: ``,
+    },
+    {
+        sett_sect: `experience`,
+        sett_orientation: `horizontal`,
         sett_title: `Connected Apps`,
         sett_desc: 
         `   
@@ -485,15 +500,15 @@ const sett_prof_pref_cmp =
             If you would like to see it, you can turn it on.
         `,
     },
-    // {
-    //     p_type: `menu`,
-    //     p_id: `sett_mng_prof_ctnt_restriction`,
-    //     p_name: `Content Restrictions (Beta)`,
-    //     p_desc: 
-    //     `
-    //         Select the maximum age range for the age rating of content to be displayed.
-    //     `,
-    // },
+    {
+        p_type: `menu`,
+        p_id: `sett_mng_prof_ctnt_restriction`,
+        p_name: `Content Restrictions (Alpha)`,
+        p_desc: 
+        `
+            Select the maximum age range for the age rating of content to be displayed.
+        `,
+    },
 ];
 
 

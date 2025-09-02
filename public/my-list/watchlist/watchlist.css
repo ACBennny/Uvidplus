@@ -203,7 +203,6 @@ html:root
     hyphens: auto;
     color: var(--genWhiteTypeLight);
     font-size: 0.875rem;
-    font-family: 'Poppins' , sans-serif;
     font-weight: 600;
     overflow-wrap: break-word;
     overflow: hidden;
@@ -912,7 +911,6 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 {
     display: flex;
     flex-direction: row;
-    font-family: 'Poppins' , sans-serif;
     font-size: 0.9375rem;
 }
 
@@ -1181,7 +1179,6 @@ body[gen-menu-modal-is-dragging="true"] .wlModalBox
 
 .wlModalGrid_CardCtnt_DetTagSectBox .wlModalGrid_CardCtnt_DetTagSectText
 {
-    font-family: 'Poppins' , sans-serif;
     font-size: 0.75rem;
     font-weight: 500;
     color: var(--genWhiteTypeMid);

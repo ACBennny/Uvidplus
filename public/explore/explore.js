@@ -15,7 +15,7 @@
             <div class="exploreBdr">
                 <div class="exploreBox ftrCategoriesBox">
                     <div class="exploreTitleBox">
-                        <div class="exploreTitleText">Categories</div>
+                        <h3 class="exploreTitleText">Categories</h3>
                     </div>
                     <div class="exploreGridBdr">
                         <div class="exploreGridBox"></div>

@@ -560,7 +560,7 @@
                                                     <p class="hm_hero_detSptLgtText">#${i+1} Trending</p>
                                                 </div>
                                                 <div class="hm_hero_detTitleBox">
-                                                    <div class="hm_hero_detTitleText">${show_title}</div>
+                                                    <h1 class="hm_hero_detTitleText">${show_title}</h1>
                                                 </div>
                                                 <div class="hm_hero_detTagBdr">
                                                     <div class="hm_hero_detTagBox">

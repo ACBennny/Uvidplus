@@ -75,42 +75,42 @@
                     <div class="settCtntBox">
                         <section class="settCtntTab" id="sett_membership">
                             <div class="settCtntTitleBox">
-                                <div class="settCtntTitleText">
+                                <h2 class="settCtntTitleText">
                                     <span class="major">M</span>
                                     <span class="minor">embership & Billing</span>
-                                </div>
+                                </h2>
                             </div>
                         </section>
                         <section class="settCtntTab" id="sett_preferences">
                             <div class="settCtntTitleBox">
-                                <div class="settCtntTitleText">
+                                <h2 class="settCtntTitleText">
                                     <span class="major">P</span>
                                     <span class="minor">rofile & Parental Controls</span>
-                                </div>
+                                </h2>
                             </div>
                         </section>
                         <section class="settCtntTab" id="sett_experience">
                             <div class="settCtntTitleBox">
-                                <div class="settCtntTitleText">
+                                <h2 class="settCtntTitleText">
                                     <span class="major">A</span>
                                     <span class="minor">pp Experience</span>
-                                </div>
+                                </h2>
                             </div>
                         </section>
                         <section class="settCtntTab" id="sett_privacy">
                             <div class="settCtntTitleBox">
-                                <div class="settCtntTitleText">
+                                <h2 class="settCtntTitleText">
                                     <span class="major">P</span>
                                     <span class="minor">rivacy & Security</span>
-                                </div>
+                                </h2>
                             </div>
                         </section>
                         <section class="settCtntTab" id="sett_information">
                             <div class="settCtntTitleBox">
-                                <div class="settCtntTitleText">
+                                <h2 class="settCtntTitleText">
                                     <span class="major">A</span>
                                     <span class="minor">bout & Legal</span>
-                                </div>
+                                </h2>
                             </div>
                         </section>
                     </div>
@@ -551,6 +551,14 @@
                             await updateUserData(
                             {
                                 cellular_stream_ntfy: ischk
+                            });
+                            notification('notifyGood', 'Preferences saved');
+                            break;
+                            
+                        case 'sett_ext_plyr':
+                            await updateUserData(
+                            {
+                                use_ext_plr: ischk
                             });
                             notification('notifyGood', 'Preferences saved');
                             break;
@@ -2657,14 +2665,14 @@
         // Update the menu items
         const audio_lang_btn = mngProfBase.querySelector("#sett_mng_prof_audio_lang");
         const sbtl_lang_btn = mngProfBase.querySelector("#sett_mng_prof_sbtl_lang");
-        // const ctnt_lang_btn = mngProfBase.querySelector("#sett_mng_prof_ctnt_restriction");
+        const ctnt_lang_btn = mngProfBase.querySelector("#sett_mng_prof_ctnt_restriction");
 
         audio_lang_btn.querySelector(".genBtnText").textContent = audio_lang;
         audio_lang_btn.setAttribute("title", `${audio_lang}`);
         sbtl_lang_btn.querySelector(".genBtnText").textContent = sbtl_lang;
         sbtl_lang_btn.setAttribute("title", `${sbtl_lang}`);
-        // ctnt_lang_btn.querySelector(".genBtnText").textContent = ctnt_lang;
-        // ctnt_lang_btn.setAttribute("title", `${ctnt_lang}`);
+        ctnt_lang_btn.querySelector(".genBtnText").textContent = ctnt_lang;
+        ctnt_lang_btn.setAttribute("title", `${ctnt_lang}`);
 
         // Update Toggle buttons
         const sett_rad_btn = document.querySelectorAll(".settMngProfTglInp");

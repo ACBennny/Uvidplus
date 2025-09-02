@@ -183,7 +183,6 @@
 {
     position: absolute;
     top: 0.625rem;
-    font-family: 'Poppins' , sans-serif;
     font-size: 0.75rem;
     color: var(--genGreenTypeLight2);
     pointer-events: none;
@@ -204,7 +203,6 @@
 .feedback_sectBox .feedback_sectField
 {
     width: 100%;
-    font-family: 'Poppins' , sans-serif;
     font-size: 0.875rem;
     color: var(--genWhiteTypeLight);
     border: none;

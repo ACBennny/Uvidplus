@@ -243,7 +243,6 @@ html:root
 {
     content: 'Read More';
     color: var(--prsn_det_bio_btn_clr);
-    font-family: 'Poppins' , sans-serif;
     font-size:  0.875rem;
     font-weight: 500;
     transition: all 150ms ease-in-out;

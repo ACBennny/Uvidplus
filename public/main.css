@@ -6,8 +6,6 @@
  * @version (v0.01)
  *
 ****************************************************************************************************************************************/
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
 
 *{
     margin: 0;
@@ -15,6 +13,22 @@
     box-sizing: border-box;
 }
 
+
+@font-face
+{
+    font-family: 'Berlin Sans FB';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Berlin Sans FB'), url('/fonts/BRLNSR.woff2') format('woff2');
+}
+
+@font-face
+{
+    font-family: 'Berlin Sans FB Bold';
+    font-style: normal;
+    font-weight: bold;
+    src: local('Berlin Sans FB Bold'), url('/fonts/BRLNSB.woff2') format('woff2');
+}
 
 
 html
@@ -25,6 +39,7 @@ html
     -webkit-user-select: none;
     user-select: none;
     scroll-behavior: smooth;
+    font-size: large;
 }
 
 html:root
@@ -144,7 +159,7 @@ html:root
 
 body
 {
-    font-family: 'Zen Dots', sans-serif;
+    font-family: 'Berlin Sans FB', sans-serif;
     min-height: 100svh;
     min-height: 100vh;
 }
@@ -658,9 +673,25 @@ input[disabled]
     pointer-events: none;
 }
 
+h1, h2, h3, h4, h5, h6
+{
+    font-family: 'Berlin Sans FB Bold', sans-serif;
+}
+
+::before, ::after,
+button, button *,
+input, input::placeholder,
+textarea, textarea::placeholder
+{
+    font-family: 'Berlin Sans FB', sans-serif;
+    outline: none;
+    border: none;
+    background-color: #00000000;
+}
 
 a
 {
+    font-family: 'Berlin Sans FB', sans-serif;
     text-decoration: none;
     -moz-user-select: -moz-none;
     -moz-user-select: none;
@@ -691,18 +722,10 @@ ul
     }
 }
 
-p
-{
-    font-family: 'Poppins', sans-serif;
-}
 
-button, input
-{
-    font-family: 'Zen dots', sans-serif;
-    outline: none;
-    border: none;
-    background-color: #00000000;
-}
+
+
+/* ----------- General Button Layout with/without an icon ---------- */
 
 button:not(:disabled)
 {
@@ -714,8 +737,6 @@ button:not(:disabled)
     cursor: pointer;
 }
 
-
-/* ----------- General Button Layout with/without an icon ---------- */
 .genBtnBox
 {
     width: -moz-fit-content;
@@ -772,7 +793,6 @@ button:not(:disabled)
 
 .genBtnBox .genBtnText
 {
-    font-family: 'Poppins' , sans-serif;
     font-size: var(--genBtnTextSize);
     text-transform: capitalize;
 }
@@ -1798,7 +1818,6 @@ html:root:has(.btmNavBar.hidden)
 
 .btmNavItemsCardTitleBox .btmNavItemsCardTitleText
 {
-    font-family: 'Poppins' , sans-serif;
     font-size: 0.75rem;
     color: var(--btmNavBarIconClr);
     text-align: center;
@@ -2569,7 +2588,6 @@ html:root:has(.btmNavBar.hidden)
 
 .quickSearchResultDetTagSectBox .quickSearchResultDetTagSectText
 {
-    font-family: 'Poppins' , sans-serif;
     font-size: 0.75rem;
     font-weight: 500;
     color: var(--genWhiteTypeMid);
@@ -2617,7 +2635,6 @@ html:root:has(.btmNavBar.hidden)
     -webkit-hyphens: auto;
     hyphens: auto;
     color: var(--genWhiteTypeMid);
-    font-family: 'Poppins' , sans-serif;
     font-size: 0.75rem;
     overflow-wrap: break-word;
     overflow: hidden;
@@ -2983,7 +3000,6 @@ html:root:has(.btmNavBar.hidden)
 
 .cardQualityBox .cardQualityText
 {
-    font-family: 'Poppins' , sans-serif;
     color: var(--genWhiteTypeBright);
     font-size: 1.25rem;
     text-shadow: 0 0 0.4375rem #000000;
@@ -3056,7 +3072,6 @@ html:root:has(.btmNavBar.hidden)
     line-height: var(--cardInfoTitleTextH);
     -webkit-hyphens: auto;
     hyphens: auto;
-    font-family: 'Poppins' , sans-serif;
     width: 100%;
     color: var(--genWhiteTypeBright);
     font-size: 0.875rem;
@@ -3820,7 +3835,6 @@ html:root:has(.btmNavBar.hidden)
 .genMenuModalCtntBtnBox .genMenuModalCtntBtnText
 {
     margin-right: 1.25rem;
-    font-family: 'Poppins' , sans-serif;
     font-size: 0.875rem;
     color: var(--clModalActionMenuClr);
     text-align: left;
@@ -4043,7 +4057,6 @@ html:root:has(.btmNavBar.hidden)
     height: 100%;
     color: #cdcdcd;
     font-size: 0.875rem;
-    font-family: 'Poppins' , sans-serif;
     font-weight: 500;
     text-align: left;
 }
@@ -4070,7 +4083,6 @@ html:root:has(.btmNavBar.hidden)
     padding: 0.9375rem 1.25rem;
     color: var(--genWhiteTypeMid);
     font-size: 1rem;
-    font-family: 'Poppins' , sans-serif;
     overflow-wrap: break-word;
     overflow: hidden;
 }
@@ -4449,7 +4461,6 @@ html:root:has(.btmNavBar.hidden)
 
 .footer_UsefulLinksBox .footer_UsefulLinks
 {
-    font-family: 'Poppins' , sans-serif;
     width: 100%;
     color: var(--footerTxtClrMid);
     font-size: 0.8125rem;
@@ -4491,7 +4502,6 @@ html:root:has(.btmNavBar.hidden)
 
 .developer_creditsText .developer_creditsName
 {
-    font-family: 'Poppins' , sans-serif;
     position: relative;
     color: var(--genGreenTypeLight);
     cursor: pointer;

@@ -179,7 +179,6 @@ html:root
     height: 100%;
     padding: .625rem calc((var(--help_ctr_hdr_ctnt_srchIconSize) * 2));
     color: var(--help_ctr_hdr_ctnt_srchClr);
-    font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     outline: none;
     border: none;

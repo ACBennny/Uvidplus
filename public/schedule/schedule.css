@@ -227,7 +227,6 @@ html:root
 
 .schedule_dateMinorBox .schedule_dateMinorText
 {
-    font-family: 'Poppins' , san-serif;
     font-weight: 600;
     color: var(--genWhiteTypeMid);
     font-size: 0.875rem;

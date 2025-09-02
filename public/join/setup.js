@@ -1,5 +1,5 @@
 /*************************************************************
- * This is the script for the Sign Up page of Uvid+
+ * This is the script for the Setup page of Uvid+
  * 
  * @author (Anyanwu Benedict Chukwuemeka)
  * @version (v0.01)
@@ -81,6 +81,46 @@
             jn_area.innerHTML = signup_intro;
             init_signup_intro();
         }
+    }
+
+    // Pass field toggle
+    function tgl_pass_fld_state()
+    {
+        const passFld = document.querySelectorAll(".form_PassBox .form_Pass");
+        const tglPassBtn = document.querySelectorAll(".form_input_box .togglePass_btn");
+
+        // Unhides the icon to change the input type of the password
+        passFld.forEach((field, i) => 
+        {
+            field.addEventListener("input" , () => 
+            {
+                // if the length is greater than zero unhide icon
+                if(field.value.length > 0)
+                {
+                    tglPassBtn[i].classList.add("active");
+                    return;
+                }
+                // if less than zero covert type back to password and hide icon
+                field.type = "password";
+                tglPassBtn[i].classList.remove("active");
+            });
+        });
+
+        // Allows user to change input type for password in order to see password via onclick
+        tglPassBtn.forEach((one, i) => 
+        {
+            one.addEventListener("click" , () => 
+            {
+                if(one.getAttribute("visibility") === "open")
+                {
+                    passFld[i].type = "password";
+                    one.removeAttribute("visibility");
+                    return;
+                }
+                passFld[i].type = "text";
+                one.setAttribute("visibility", "open");
+            });
+        });
     }
 
     // Initialize important reminder
@@ -197,7 +237,7 @@
             // Switch to the next field
             newFullName.onkeyup = (e) => 
             {
-                if((typeof e === "undefined") || (typeof e.key === "undefined")) return;
+                if((typeof e === "undefined") || (typeof e.key === "undefined") || !(isFullNameValid)) return;
                 
                 let key = e.key.toLowerCase();
 
@@ -457,6 +497,7 @@
                             cast_data_usage_ul: 0,
                             dwld_qlty_pref: 0,
                             dwld_audio_pref: 0,
+                            use_ext_plr: false,
                             wifi_only_dwld: true,
                             wifi_only_stream: false,
                             cellular_stream_ntfy: true,
@@ -1195,7 +1236,7 @@
 
                     if(digits.length < 13)
                     {
-                        cardNumWarn.textContent = "Card number must be at least 13";
+                        cardNumWarn.textContent = "Card number must be at least 13 digits long";
                         cardNumWarn.classList.add("active");
                         isCardNumValid = false;
                     }
@@ -1357,7 +1398,8 @@
                 // Return if value is not a number
                 if(!(/^\d+$/.test(cardCode.value)))
                 {
-                    cardCode.setAttribute(`data-inp-invalid`, 'true');
+                    cardCodeWarn.textContent = "Invalid Security Code";
+                    cardCodeWarn.classList.add("active");
                     isCardCodeValid = false;
                     return;
                 }

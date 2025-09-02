@@ -201,9 +201,12 @@ html:root
 {
     color: var(--genWhiteTypeMid2);
     font-size: 0.875rem;
-    font-weight: 600;
-    font-family: 'poppins' , sans-serif;
     text-transform: uppercase;
+}
+
+.quick_det_item:has(.quick_det_rating_icon) .quick_det_text
+{
+    font-size: 1rem;
 }
 
 .quick_det_text.tagline
@@ -300,37 +303,6 @@ html:root
     border-radius: 0.3125rem;
 }
 
-.quick_atnCtnt .scoreBox
-{
-    width: 100%;
-}
-
-.scoreBdr .scoreBox
-{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.scoreBox .scoreIconBox
-{
-    width: 1.125rem;
-}
-
-.scoreIconBox .scoreIcon
-{
-    width: 100%;
-    fill: #14d60d;
-}
-
-.scoreBox .scoreIconNo
-{
-    color: #dfdfdf;
-    font-size: 0.75rem;
-    margin-left: 0.3125rem;
-}
 
 .topIconBox
 {
@@ -1522,7 +1494,6 @@ html:has(.sect-crsl-img-base.max) body
 .abt-stmt-checkBoxCls::before
 {
     content: 'Read More';
-    font-family: 'Poppins' , sans-serif;
     font-size:  0.875rem;
     font-weight: 500;
     transition: all 150ms ease-in-out;
@@ -1883,7 +1854,6 @@ html:has(.sect-crsl-img-base.max) body
     border: none;
     color: var(--genWhiteTypeLight);
     font-size: 0.75rem;
-    font-family: 'Poppins', sans-serif;
     background-color: #00000000;
 }
 
@@ -1954,7 +1924,6 @@ html:has(.sect-crsl-img-base.max) body
     line-height: var(--episode_setTextH);
     color: var(--genWhiteTypeLight);
     font-size: 0.75rem;
-    font-family: 'Poppins', sans-serif;
     -webkit-hyphens: auto;
     hyphens: auto;
     overflow-wrap: break-word;

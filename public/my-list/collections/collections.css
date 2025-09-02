@@ -207,7 +207,6 @@ html:root
     hyphens: auto;
     color: var(--genWhiteTypeLight);
     font-size: 0.875rem;
-    font-family: 'Poppins' , sans-serif;
     font-weight: 600;
     overflow-wrap: break-word;
     overflow: hidden;
@@ -363,7 +362,6 @@ html:root
     min-height: 100vh;
     opacity: 0;
     visibility: hidden;
-    /* transform: scale(0.75); */
     transform: translateY(100%);
     transition: all 150ms ease-in-out;
     z-index: 125;
@@ -373,7 +371,6 @@ html:root
 {
     opacity: 1;
     visibility: visible;
-    /* transform: scale(1.00); */
     transform: translateY(0%);
     transition: all 300ms ease-in-out;
 }
@@ -857,7 +854,6 @@ body[gen-menu-modal-is-dragging="true"] .clModalBox
 {
     display: flex;
     flex-direction: row;
-    font-family: 'Poppins' , sans-serif;
     font-size: 0.9375rem;
 }
 
@@ -1126,7 +1122,6 @@ body[gen-menu-modal-is-dragging="true"] .clModalBox
 
 .clModalGrid_CardCtnt_DetTagSectBox .clModalGrid_CardCtnt_DetTagSectText
 {
-    font-family: 'Poppins' , sans-serif;
     font-size: 0.75rem;
     font-weight: 500;
     color: var(--genWhiteTypeMid);

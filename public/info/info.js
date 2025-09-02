@@ -251,7 +251,6 @@
 
 
 
-
     async function preShowSection()
     {
         info_pg_show_link = `#/${hash_parts[1]}/${hash_parts[2]}`;
@@ -261,6 +260,7 @@
         // Fetch show details
         try
         {
+            // return
             showsStructData = await __getUVPShowDet(info_pg_show_id, info_pg_show_type, ["videos","images","credits","keywords","recommendations","external_ids"]);
 
             if(((hash_parts[3]) && (hash_parts[3].toString().trim().toLowerCase() === "watch")))
@@ -697,7 +697,7 @@
             infoPageBase.querySelector(".tro").insertAdjacentHTML("beforeend", tv_ep_base);
 
             const seasonOverlaySelectorBox = infoPageBase.querySelector(".seasons_selectorBox");
-            showEpData = showsStructData?.seasons || [];
+            showEpData = showsStructData?.seasons?.filter(item => ((typeof item?.season_number === "number") && (item?.season_number > 0))) || [];
             
             if((showEpData.length > 0))
             {
@@ -708,8 +708,8 @@
                     // Configure the season selector
                     let seasonOverlaySelectorBoxInnerHTML = 
                     `
-                        <button type="button" class="seasons_selector" show-type="${showType}" data-ep-length="${epc}" data-ssn-num="${ep.season_number}">
-                            <div class="selectorMain">${ep.name}</div>
+                        <button type="button" class="seasons_selector" show-type="${showType}" data-ep-length="${epc}" data-ssn-num="${ep?.season_number}">
+                            <div class="selectorMain">${ep?.name || `Season ${ep?.season_number}`}</div>
                             <p class="selectorMinor">${epc} episodes</p>
                         </button>
                     `;
@@ -1539,13 +1539,15 @@
         }
 
         // Open the most recent episode
-        watchNowBtn.addEventListener("click" , async () => 
+        watchNowBtn.disabled = false;
+        watchNowBtn.onclick = async () =>
         {
+            watchNowBtn.disabled = true;
             let thisProf = await getSelectedProfile();
 
             // Get the most recent addition to watch history for that show
             let watchNowItem = thisProf.prof_history.filter(item => 
-                item.hist_link.split('/')[3] === info_pg_show_link.split('/')[2]
+                item.hist_link.split('/')[2] === info_pg_show_link.split('/')[2]
             );
 
             if(watchNowItem.length > 0)
@@ -1556,12 +1558,12 @@
             else
             {
                 // Open the first episode of the first show
-                let url = (info_pg_show_type == "tv")
+                (info_pg_show_type == "tv")
                     ? document.querySelector('.showset')?.querySelectorAll(".ep_cardBdr .ep_cardCtntBdr")[0]?.click()
                     : preWatchPage(`${info_pg_show_link}/watch`);
 
             }
-        });
+        };
     }
 
 

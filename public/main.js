@@ -1048,6 +1048,46 @@
         }
 
 
+        function devToolKey(e)
+        {   
+            return
+            let keyStr = e.key.toLowerCase();
+            
+            if((
+                (keyStr === "f12")
+                || (e.ctrlKey && e.shiftKey && keyStr === 'c')
+                || (e.ctrlKey && e.shiftKey && keyStr === 'f')
+                || (e.ctrlKey && e.shiftKey && keyStr === 'i')
+                || (e.ctrlKey && e.shiftKey && keyStr === 'j')
+                || (e.ctrlKey && e.shiftKey && keyStr === 'l')
+                || (e.ctrlKey && e.shiftKey && keyStr === 'm')
+                || (e.ctrlKey && e.shiftKey && keyStr === 'n')
+                || (e.ctrlKey && e.shiftKey && keyStr === 'p')
+                || (e.ctrlKey && e.shiftKey && keyStr === 'r')
+                || (e.ctrlKey && e.shiftKey && keyStr === '+')
+            ))
+            {
+                if(typeof e !== "undefined") e.preventDefault();
+                if((isPageWatchPage()) && (isWpgExt)) return fail_ext_plyr();
+                viewCodeProperly(e);
+            }
+        }
+
+        // Directs the user to my page to view details about this project (and my other works)
+        function viewCodeProperly(e)
+        {
+            const viewRight = () => window.open(developerLink, '_blank');
+
+            initConfirmModal(
+                `Trying to view the code to this project?`,
+                `View it along with all my projects on my page`,
+                `Continue`,
+                `Close`,
+                viewRight
+            );
+        }
+
+
     
     // RELOADING
         
@@ -1255,6 +1295,58 @@
             }
 
             return result;
+        }
+
+
+    
+    // TIME CONVERSION
+
+        // Function to convert time to seconds, handling both "HH:MM:SS" and "MM:SS" formats
+        function timeToSeconds(time) 
+        {
+            const parts = time.split(':').map(Number);
+        
+            if (parts.length === 3) 
+            {
+                // "HH:MM:SS" format
+                return Number(parts[0] * 3600 + parts[1] * 60 + parts[2]);
+            } 
+            else if (parts.length === 2) 
+            {
+                // "MM:SS" format
+                return Number(parts[0] * 60 + parts[1]);
+            } 
+            else 
+            {
+                notification(`notifyBad` , `Invalid time format`);
+                return 0;
+            }
+        }
+
+        // Convert time in seconds to the appropriate format based on size
+        function secondsToTime(seconds)
+        {
+            seconds = Math.floor(seconds);
+
+            let d = Math.floor(seconds / 86400);
+            let h = Math.floor((seconds % 86400) / 3600);
+            let m = Math.floor((seconds % 3600) / 60);
+            let s = seconds % 60;
+
+            const pad = (n) => String(n).padStart(2, "0");
+
+            if(d > 0)
+            {
+                return `${d}:${pad(h)}:${pad(m)}:${pad(s)}`;    // D:HH:MM:SS
+            }
+            else if(h > 0)
+            {
+                return `${pad(h)}:${pad(m)}:${pad(s)}`;         // HH:MM:SS
+            }
+            else
+            {
+                return `${pad(m)}:${pad(s)}`;                   // MM:SS 
+            }
         }
 
 

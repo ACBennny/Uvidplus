@@ -18,7 +18,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Zen Dots' , sans-serif;
+    font-family: 'Berlin Sans FB', sans-serif;
     color: var(--color2);
     font-size: var(--fzTxt);
     text-align: center;
@@ -235,7 +235,6 @@
 
 .form_input_bdr
 {
-    font-family: 'Poppins', sans-serif;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -271,7 +270,6 @@
 
 .form_input_box .form_input_field
 {
-    font-family: 'Poppins', sans-serif;
     width: 100%;
     height: 100%;
     font-size: calc(var(--fzTxt) + .0625rem);
@@ -860,7 +858,6 @@
 .input_verCode_num #input_verCode
 {
     display: flex;
-    font-family: 'Poppins', sans-serif;
     width: 100%;
     height: 100%;
     font-size: calc(var(--fzTxt) + .0625rem);
