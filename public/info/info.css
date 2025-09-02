@@ -214,7 +214,7 @@ html:root
     color: var(--genWhiteTypeMid);
     text-transform: none;
     font-style: italic;
-    text-align: center;
+    text-align: left;
 }
 
 .quick_det_item .quick_det_divider
@@ -2470,6 +2470,11 @@ html:has(.sect-crsl-img-base.max) body
     {
         text-align: center;
         font-size: 1.5625rem;
+    }
+
+    .quick_det_text.tagline
+    {
+        text-align: center;
     }
 
     .info_atn_bdr

@@ -483,9 +483,12 @@
     let thumbnailBox;
     let thumbnail;
     let thumbnails = [];
+    let thumbnailAdjust = 0.20;
     let thumbnailWidth = 250;
+    thumbnailWidth = (thumbnailWidth + (thumbnailWidth * thumbnailAdjust));
     let thumbnailSpacing = thumbnailWidth * 0.75;
     let thumbnailHeight = 150;
+    thumbnailHeight = (thumbnailHeight + (thumbnailHeight * thumbnailAdjust));
     let horizontalItemCount = 5;
     let verticalItemCount = 5;
     let settingsBtn;
@@ -1773,8 +1776,8 @@
         // Creating thumbnails
         let preview_video = document.createElement('video');
         preview_video.preload = "metadata";
-        preview_video.width = "500";
-        preview_video.height = "300"
+        preview_video.width = thumbnailWidth;
+        preview_video.height = thumbnailHeight;
         preview_video.controls = true;
         preview_video.src = mainVideo.querySelector("source").src;
         preview_video.addEventListener("loadeddata", async function()

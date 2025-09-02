@@ -39,7 +39,7 @@ html
     -webkit-user-select: none;
     user-select: none;
     scroll-behavior: smooth;
-    font-size: large;
+    font-size: large; /* -- 20% larger than standard -- */
 }
 
 html:root

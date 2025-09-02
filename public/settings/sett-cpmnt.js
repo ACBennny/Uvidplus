@@ -331,16 +331,17 @@ const sett_cmpnt_lib =
     // About & Legal
     {
         sett_sect: `information`,
-        sett_orientation: `vertical`,
+        sett_orientation: `horizontal`,
         sett_title: `Version`,
         sett_desc: 
         `
-            1.000.000.000.0.00.000
+            View details about this version, other versions, and the project in general.
+            You can also view my other projects too.
         `,
-        sett_atn_type: null,
-        sett_atn_id: null,
-        sett_atn_title: null,
-        sett_atn_func: null,
+        sett_atn_type: `link`,
+        sett_atn_id: `sett_tou`,
+        sett_atn_title: `View`,
+        sett_atn_func: `${projectLink}`,
     },
     {
         sett_sect: `information`,
