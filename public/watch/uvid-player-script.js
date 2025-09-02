@@ -530,7 +530,7 @@
     // Keyboard key functions for pc only
     function kybrdShtCt(e)
     {
-        if(!(isPageWatchPage()) || !(isWpgExt)) return; 
+        if(!(isPageWatchPage()) || (isWpgExt)) return; 
 
         const tagName = document.activeElement.tagName.toLowerCase();
         if(mobWindow.matches) return;
