@@ -291,9 +291,7 @@
         sideNavLinks[6].classList.add("active");
         btmNavLinks[4].classList.add("active");
 
-        if(prof_nav_sect === "create")
-        {}
-        else if(prof_nav_sect === "switch")
+        if((prof_nav_sect === "switch") || (prof_nav_sect === "create"))
         {
             initManageProfileModal('switch');
         }
