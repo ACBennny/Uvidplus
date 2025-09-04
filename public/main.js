@@ -1050,7 +1050,9 @@
 
         function devToolKey(e)
         {
-            let keyStr = e.key.toLowerCase();
+            if((typeof e === "undefined") || (typeof e.key === "undefined")) return
+            
+            let keyStr = e?.key?.toLowerCase();
             
             if((
                 (keyStr === "f12")
