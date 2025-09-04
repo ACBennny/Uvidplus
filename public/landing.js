@@ -234,31 +234,10 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="questions_Card">
-                            <button type="button" class="questions_CardBtn" aria-expanded="false">
-                                <h4 class="questions_CardAsk">
-                                    <span class="qca_Major">I</span>
-                                    <span class="qca_Minor">s Uvid+ kid friendly?</span>
-                                </h4>
-                                <div class="questions_CardIconBox">
-                                    <span class="questions_CardIcon"></span>
-                                </div>
-                            </button>
-                            <div class="questions_CardTextBox">
-                                <p class="questions_CardText">
-                                    Yes of course, Uvid+ allows families to enjoy shows together with simple and easy to use parental controls.
-                                    <br>
-                                    Parents can create and manage profiles for their kids at no extra cost**.
-                                </p>
-                            </div>
-                        </div>
                     </div>
                     <div class="questions_footerBox">
                         <p>
                             * This only applies to new members and does not include all features.
-                        </p>
-                        <p>
-                            ** Profiles are bound to a single account.
                         </p>
                     </div>
                 </div>
