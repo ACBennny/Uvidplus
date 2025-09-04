@@ -615,6 +615,8 @@
         
         const initRstInterval = () =>
         {
+            clearInterval(joinRstInterval);
+            joinRsndBtn.disabled = true;
             joinRstInterval = setInterval(() => 
             {
                 joinRstPrd--;
@@ -632,7 +634,7 @@
         initRstInterval();
 
         // Resend verification email
-        joinRsndBtn.addEventListener("click", async () => 
+        joinRsndBtn.onclick = async () => 
         {
             // Disable button for sometime to prevent spam
             initRstInterval();
@@ -669,13 +671,13 @@
                 console.error("Failed to resend verification:", error);
                 notification(`notifyBad` , "Unable to send verification email. Try again later.");
             }
-        });
+        };
 
         // Send immediately if not already done
         if(snt == false) joinRsndBtn.click();
 
         // Validate the verification process
-        joinVrfyBtn.addEventListener("click", async () => 
+        joinVrfyBtn.onclick = async () => 
         {
             joinVrfyBtn.disabled = true;
             const auth = window.firebaseAuth;
@@ -713,7 +715,7 @@
                 notification(`notifyBad` , "Something went wrong. Try reloading the page.");
                 joinVrfyBtn.disabled = false;
             }
-        });
+        };
     }
 
 
