@@ -568,7 +568,7 @@
                         <div class="footer_abt_textBox">
                             <p class="footer_abt_text">
                                 <span>Uvid+ is an online streaming platform tailored with providing the best streaming experience.</span>
-                                <span>Here you can watch from a vast library of movies, tv shows, anime and even cartoon shows for the kids.</span>
+                                <span>Here you can watch from a vast library of movies, tv shows, anime and much more.</span>
                             </p>
                         </div>
                         <div class="footer_Important_linksBox">
@@ -1051,7 +1051,7 @@
         function devToolKey(e)
         {
             if((typeof e === "undefined") || (typeof e.key === "undefined")) return
-            
+
             let keyStr = e?.key?.toLowerCase();
             
             if((
