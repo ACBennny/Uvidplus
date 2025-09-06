@@ -991,6 +991,7 @@
             genScrollingAtn();  
             hideTMDBAdltCtnt();
         }
+        
 
 
     // VISIT DEVELOPER PAGE
@@ -1615,11 +1616,13 @@
         
         function initConfirmModal(theQuestionText, theWarnText, positiveOptText, negativeOptText, positiveFunc)
         {
+            // Return if a notification is currently active
+            if((window.__initConfirmModal_atv) && (window.__initConfirmModal_atv == true)) return;
 
             // Return if the question text is empty (null)
             if((theQuestionText == null)) return;
 
-            //
+            window.__initConfirmModal_atv = true;
             confirmModalBase = document.createElement("div");
             confirmModalBase.classList.add("confirmModalBase");
             confirmModalBase.innerHTML = confirmModalStruct;
@@ -1670,6 +1673,7 @@
 
             confirmModalBase.addEventListener("transitionend" , function handleTransitionEnd()
             {
+                window.__initConfirmModal_atv = false;
                 documentBody.removeAttribute(`data-modal-state`);
                 confirmModalBase.removeEventListener("transitionend" , handleTransitionEnd);
                 confirmModalBase.innerHTML = confirmModalStruct;
