@@ -383,14 +383,14 @@
                                     <span class="join_outro_det_txt_mjr">"Continue"</span> below.
                                 </p>
                                 <p class="join_outro_det_txt">
-                                    If you are still not receiving the verification email despite resending multiple times 
-                                    (and checking all inboxes, including spam), please click 
-                                    <a class="join_outro_det_txt_mjr" onclick="vrfy_fail_guide()">here</a>
-                                </p>
-                                <p class="join_outro_det_txt">
                                     If you did not sign up using the Email/Password (i.e through a provider like Google), 
                                     you are automatically verified by the provider. If you are seeing this popup, just click
                                     <span class="join_outro_det_txt_mjr">"Continue"</span> below.
+                                </p>
+                                <p class="join_outro_det_txt">
+                                    If you are still not receiving the verification email despite resending multiple times 
+                                    (and checking all inboxes, including spam), please click 
+                                    <a class="join_outro_det_txt_mjr" onclick="vrfy_fail_guide()">here</a>.
                                 </p>
                                 <p class="join_outro_det_txt">
                                     Resend verification email in 
