@@ -420,227 +420,46 @@
         // Request password before proceeding
         function validateDelReq(btnEv)
         {
-            const delAccBdr = document.createElement("div");
-            delAccBdr.classList.add("genAtnModalBdr");
-            delAccBdr.innerHTML = 
-            `
-                <div class="genAtnModalBcg closeDelAccBtn"></div>
-                <div class="genAtnModalBox">
-                    <div class="genAtnModalCtnt">
-                        <div class="genAtnModalHeader">
-                            <div class="genAtnModalHeaderIconBox closeDelAccBtn">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="genAtnModalHeaderIcon">
-                                    <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
-                                </svg>
-                            </div>
-                            <div class="genAtnModalHeaderText">
-                                <span class="large">C</span>
-                                <span class="small">onfirm password</span>
-                            </div>
-                        </div>
-                        <div class="genAtnModalOptBcg createProfItemBcg">
-                            <div class="genAtnModalOptBdr createProfItemBox">
-                                <div class="newCLBdr active">
-                                    <div class="newCLBox">
-                                        <div class="newCLInputBdr">
-                                            <div class="newCLInputBox">
-                                                <input type="password" name="delPassField" id="delAccInputId" class="newCLInputClass" placeholder="Enter your password" />
-                                            </div>
-                                        </div>
-                                        <div class="newCLWarnBdr">
-                                            <div class="newCLWarnBox">
-                                                <p id="delAccWarnId" class="newCLWarnText" tabindex="-1"></p>
-                                            </div>
-                                        </div>
-                                        <div class="newCLAtnBdr">
-                                            <div class="newCLAtnBox">
-                                                <button type="button" id="cfrmDelPass" class="genBtnBox midSolidBtn">
-                                                    <div class="genBtnText">Confirm</div>
-                                                </button>
-                                                <button type="button" id="cnclDelPass" class="genBtnBox hollowBtn closeDelAccBtn">
-                                                    <div class="genBtnText">Cancel</div>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            documentCtnt.appendChild(delAccBdr);
-    
-            const delAccCloseBtn = document.querySelectorAll(".closeDelAccBtn");
-            const delAccWarn = document.querySelector("#delAccWarnId");
-            const delAccInput = document.querySelector("#delAccInputId");
-            const delAccBtn = document.querySelector("#cfrmDelPass");
-            const del_pass_cond = new RegExp("^[A-Za-z0-9!@#$%^&*_+-~`)(></\"?|]");
-            let delApArray = [];
-            let isUserPassValid = false;
-            let delAccTimer;
-    
-            // Disabling btn to prevent multiple calls
-            if(typeof btnEv !== "undefined") btnEv.disabled = true;
-    
-            // Transitioning elements
-            delAccTimer = setTimeout(() => 
+            // Reauthenticate user before proceeding to deletion
+            async function reauthB4DelAcc(password) 
             {
-                documentBody.setAttribute(`data-modal-state` , `open`);
-                delAccBdr.classList.add("active");
-                clearTimeout(delAccTimer);
-            }, 250);
-            
-            // Automatically focus on input feild after transition
-            delAccBdr.addEventListener("transitionend" , function handleTransitionEnd()
-            {
-                delAccBdr.removeEventListener("transitionend" , handleTransitionEnd);
-                delAccInput.focus();
-            });
+                const auth = window.firebaseAuth;
+                const user = auth.currentUser;
 
-            // Allow any character but whitespaces
-            delAccInput.addEventListener("beforeinput", (event) => 
-            {
-                if(event.data != null && !(del_pass_cond).test(event.data))
-                    event.preventDefault();
-            });
+                // Return if no user is signed in
+                if(!user)
+                {
+                    notification(`notifyBad`, "No user is currently signed in.");
+                    return false;
+                }
 
-            // Validate password
-            function valDelPass(event) 
-            {
-                delApArray.length = 0;
-                delApArray.push(delAccInput.value);
-                let lastPassArrayVal = delApArray.at(-1);
-                const userPass_Cond_SpecialChar = /\W/g;
-                const userPass_Cond_num = /\d/g;
-                const userPass_Cond_Lett_Upr = /[A-Z]/g;
-                const userPass_Cond_Lett_Lwr = /[a-z]/g;
+                const email = user.email; // Use email from current session
+                const credential = firebase.auth.EmailAuthProvider.credential(email, password);
 
-                // Checks if there is any value in the input feild
-                if(((event.data == null) && (lastPassArrayVal.length <= 0)))
+                try
                 {
-                    isUserPassValid = false;
-                }
-                // Checks if the pattern is less "8" characters and above than "100" characters
-                else if(((lastPassArrayVal.length > 0) && (lastPassArrayVal.length < 8)))
+                    await user.reauthenticateWithCredential(credential);
+                    proceedToDelAcc();
+                } 
+                catch (error) 
                 {
-                    isUserPassValid = false;
-                }
-                // Checks if the input fits the specified pattern
-                else if(!(lastPassArrayVal.match(userPass_Cond_SpecialChar) 
-                    && lastPassArrayVal.match(userPass_Cond_Lett_Upr)
-                    && lastPassArrayVal.match(userPass_Cond_Lett_Lwr)
-                    && lastPassArrayVal.match(userPass_Cond_num)
-                ))
-                {
-                    isUserPassValid = false;
-                }
-                // If all checks are completed then it is accepted
-                else
-                {
-                    isUserPassValid = true;
+                    notification(`notifyBad`, "Incorrect password");
+                    console.error("Reauthentication failed:\n", error);
                 }
             }
-            
-            delAccInput.addEventListener("input", valDelPass);
-    
-            // Validate pass by pressing the "Enter" key
-            delAccInput.addEventListener("keyup" , (e) => 
+
+
+            // Deleting the user's account
+            async function proceedToDelAcc()
             {
-                if((typeof e === undefined) || (typeof e.key === "undefined")) return;
+                const auth = window.firebaseAuth;
+                const user = auth.currentUser;
 
-                if((e.key.toLowerCase() === "enter"))
-                {
-                    delAccBtn.click();
-                }
-            });
-    
-            // Get pass input for verification
-            delAccBtn.addEventListener("click" , () => 
-            {
-                if(isUserPassValid == true)
-                {
-                    delAccInput.disabled = true;
-                    delAccBtn.disabled = true;
-                    closeDelAcc(true);
-                }
-                else
-                {
-                    notification(`notifyBad`, "Invalid password");
-                    closeDelAcc();
-                }
-            });
-    
-            // Closes the delAcc modal
-            function closeDelAcc(isPass = false)
-            {
-                if(isPass == true) proceedToDelAcc(delAccInput.value);
-
-                delAccBtn.classList.replace("midSolidBtn" , "inactiveBtn");
-                delAccInput.value = "";
-                delAccInput.disabled = true;
-                delAccBtn.disabled = true;
-                delAccBdr.classList.remove("active");
-                
-                delAccBdr.addEventListener("transitionend" , function handleTransitionEnd()
-                {
-                    delAccBdr.removeEventListener("transitionend" , handleTransitionEnd);
-                    delAccBdr.remove();
-                    documentBody.removeAttribute(`data-modal-state`);
-                    if(typeof btnEv !== "undefined") btnEv.disabled = false;
-                });
-            }
-    
-            // Closes the modal
-            delAccCloseBtn.forEach(one => 
-            {
-                one.addEventListener("mousedown" , closeDelAcc);
-            });
-        }
-
-        // Reauthenticate user before proceeding to deletion
-        async function reauthB4DelAcc(password) 
-        {
-            const auth = window.firebaseAuth;
-            const user = auth.currentUser;
-
-            // Return if no user is signed in
-            if(!user)
-            {
-                notification(`notifyBad`, "No user is currently signed in.");
-                return false;
-            }
-
-            const email = user.email; // Use email from current session
-            const credential = firebase.auth.EmailAuthProvider.credential(email, password);
-
-            try
-            {
-                await user.reauthenticateWithCredential(credential);
-                return true;
-            } 
-            catch (error) 
-            {
-                notification(`notifyBad`, "Incorrect password");
-                console.error("Reauthentication failed:\n", error);
-                return false;
-            }
-        }
-
-
-        // Deleting the user's account
-        async function proceedToDelAcc(password)
-        {
-            const auth = window.firebaseAuth;
-            const user = auth.currentUser;
-            const authB4Del = await reauthB4DelAcc(password);
-
-            if((authB4Del)) 
-            {
                 // Delete all user's information
                 const proDelReq = async () => 
                 {
-                    try {
+                    try 
+                    {
                         await firebase.firestore().collection("uvp_fb_users").doc(user.uid).delete();
                         await user.delete();
                         notification(`notifyGood`, "Account deleted. Goodbye for now :(");
@@ -652,7 +471,7 @@
                         notification(`notifyBad`, "Account deleted failed");
                     }
                 }
-                
+
                 // Confirm one final time
                 initConfirmModal(
                     `Are you sure you want to delete your account?`,
@@ -661,6 +480,196 @@
                     `Cancel`,
                     proDelReq
                 );
+            }
+            
+            if((!window.hasEmPswdOrigin || window.hasEmPswdOrigin == false))
+            {
+                const auth = window.firebaseAuth;
+                const user = auth.currentUser;
+                const provider = new firebase.auth.GoogleAuthProvider();
+
+                user.reauthenticateWithPopup(provider)
+                    .then(() => proceedToDelAcc())
+                    .catch((error) => console.error(error));
+            }
+            else
+            {
+                const delAccBdr = document.createElement("div");
+                delAccBdr.classList.add("genAtnModalBdr");
+                delAccBdr.innerHTML = 
+                `
+                    <div class="genAtnModalBcg closeDelAccBtn"></div>
+                    <div class="genAtnModalBox">
+                        <div class="genAtnModalCtnt">
+                            <div class="genAtnModalHeader">
+                                <div class="genAtnModalHeaderIconBox closeDelAccBtn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="genAtnModalHeaderIcon">
+                                        <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                                    </svg>
+                                </div>
+                                <div class="genAtnModalHeaderText">
+                                    <span class="large">C</span>
+                                    <span class="small">onfirm password</span>
+                                </div>
+                            </div>
+                            <div class="genAtnModalOptBcg createProfItemBcg">
+                                <div class="genAtnModalOptBdr createProfItemBox">
+                                    <div class="newCLBdr active">
+                                        <div class="newCLBox">
+                                            <div class="newCLInputBdr">
+                                                <div class="newCLInputBox">
+                                                    <input type="password" name="delPassField" id="delAccInputId" class="newCLInputClass" placeholder="Enter your password" />
+                                                </div>
+                                            </div>
+                                            <div class="newCLWarnBdr">
+                                                <div class="newCLWarnBox">
+                                                    <p id="delAccWarnId" class="newCLWarnText" tabindex="-1"></p>
+                                                </div>
+                                            </div>
+                                            <div class="newCLAtnBdr">
+                                                <div class="newCLAtnBox">
+                                                    <button type="button" id="cfrmDelPass" class="genBtnBox midSolidBtn">
+                                                        <div class="genBtnText">Confirm</div>
+                                                    </button>
+                                                    <button type="button" id="cnclDelPass" class="genBtnBox hollowBtn closeDelAccBtn">
+                                                        <div class="genBtnText">Cancel</div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                documentCtnt.appendChild(delAccBdr);
+        
+                const delAccCloseBtn = document.querySelectorAll(".closeDelAccBtn");
+                const delAccWarn = document.querySelector("#delAccWarnId");
+                const delAccInput = document.querySelector("#delAccInputId");
+                const delAccBtn = document.querySelector("#cfrmDelPass");
+                const del_pass_cond = new RegExp("^[A-Za-z0-9!@#$%^&*_+-~`)(></\"?|]");
+                let delApArray = [];
+                let isUserPassValid = false;
+                let delAccTimer;
+        
+                // Disabling btn to prevent multiple calls
+                if(typeof btnEv !== "undefined") btnEv.disabled = true;
+        
+                // Transitioning elements
+                delAccTimer = setTimeout(() => 
+                {
+                    documentBody.setAttribute(`data-modal-state` , `open`);
+                    delAccBdr.classList.add("active");
+                    clearTimeout(delAccTimer);
+                }, 250);
+                
+                // Automatically focus on input feild after transition
+                delAccBdr.addEventListener("transitionend" , function handleTransitionEnd()
+                {
+                    delAccBdr.removeEventListener("transitionend" , handleTransitionEnd);
+                    delAccInput.focus();
+                });
+
+                // Allow any character but whitespaces
+                delAccInput.addEventListener("beforeinput", (event) => 
+                {
+                    if(event.data != null && !(del_pass_cond).test(event.data))
+                        event.preventDefault();
+                });
+
+                // Validate password
+                function valDelPass(event) 
+                {
+                    delApArray.length = 0;
+                    delApArray.push(delAccInput.value);
+                    let lastPassArrayVal = delApArray.at(-1);
+                    const userPass_Cond_SpecialChar = /\W/g;
+                    const userPass_Cond_num = /\d/g;
+                    const userPass_Cond_Lett_Upr = /[A-Z]/g;
+                    const userPass_Cond_Lett_Lwr = /[a-z]/g;
+
+                    // Checks if there is any value in the input feild
+                    if(((event.data == null) && (lastPassArrayVal.length <= 0)))
+                    {
+                        isUserPassValid = false;
+                    }
+                    // Checks if the pattern is less "8" characters and above than "100" characters
+                    else if(((lastPassArrayVal.length > 0) && (lastPassArrayVal.length < 8)))
+                    {
+                        isUserPassValid = false;
+                    }
+                    // Checks if the input fits the specified pattern
+                    else if(!(lastPassArrayVal.match(userPass_Cond_SpecialChar) 
+                        && lastPassArrayVal.match(userPass_Cond_Lett_Upr)
+                        && lastPassArrayVal.match(userPass_Cond_Lett_Lwr)
+                        && lastPassArrayVal.match(userPass_Cond_num)
+                    ))
+                    {
+                        isUserPassValid = false;
+                    }
+                    // If all checks are completed then it is accepted
+                    else
+                    {
+                        isUserPassValid = true;
+                    }
+                }
+                
+                delAccInput.addEventListener("input", valDelPass);
+        
+                // Validate pass by pressing the "Enter" key
+                delAccInput.addEventListener("keyup" , (e) => 
+                {
+                    if((typeof e === undefined) || (typeof e.key === "undefined")) return;
+
+                    if((e.key.toLowerCase() === "enter"))
+                    {
+                        delAccBtn.click();
+                    }
+                });
+        
+                // Get pass input for verification
+                delAccBtn.addEventListener("click" , () => 
+                {
+                    if(isUserPassValid == true)
+                    {
+                        delAccInput.disabled = true;
+                        delAccBtn.disabled = true;
+                        closeDelAcc(true);
+                    }
+                    else
+                    {
+                        notification(`notifyBad`, "Invalid password");
+                        closeDelAcc();
+                    }
+                });
+        
+                // Closes the delAcc modal
+                function closeDelAcc(isPass = false)
+                {
+                    if(isPass == true) reauthB4DelAcc(delAccInput.value);
+
+                    delAccBtn.classList.replace("midSolidBtn" , "inactiveBtn");
+                    delAccInput.value = "";
+                    delAccInput.disabled = true;
+                    delAccBtn.disabled = true;
+                    delAccBdr.classList.remove("active");
+                    
+                    delAccBdr.addEventListener("transitionend" , function handleTransitionEnd()
+                    {
+                        delAccBdr.removeEventListener("transitionend" , handleTransitionEnd);
+                        delAccBdr.remove();
+                        documentBody.removeAttribute(`data-modal-state`);
+                        if(typeof btnEv !== "undefined") btnEv.disabled = false;
+                    });
+                }
+        
+                // Closes the modal
+                delAccCloseBtn.forEach(one => 
+                {
+                    one.addEventListener("mousedown" , closeDelAcc);
+                });
             }
         }
 

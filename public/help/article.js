@@ -38,11 +38,14 @@
         // Insert structure
         documentCtnt.insertAdjacentHTML("afterbegin" , hlp_ctr_atcl_pg_struct);
 
-        // Update article name for now
+        // Update article name
         document.querySelector(".atcl_hdr_txt").textContent = atcl_item[0].pplr_tpc_name;
 
+        // Insert article body if not empty
+        if((atcl_item[0].pplr_tpc_body !== "")) document.querySelector(".atcl_body_txt").innerHTML = atcl_item[0].pplr_tpc_body;
+
         // Initialize popular articles
-        init_rand_pplr_atcl();
+        init_rand_pplr_atcl(atcl_no);
     }
 
 
@@ -50,7 +53,7 @@
 // POPULAR ARTICLES
 
     // Generating random popular articles
-    function init_rand_pplr_atcl()
+    function init_rand_pplr_atcl(article)
     {
         // Return if array undefined
         if((typeof pplr_tpc_arr === "undefined")) return;
@@ -63,7 +66,7 @@
 
         // Definitons
         let atcl_pplr_card_struct = ``;
-        let temp_pplr_arr = pplr_tpc_arr;
+        let temp_pplr_arr = pplr_tpc_arr.filter(topic => topic.pplr_tpc_id !== article);
         let shuffle_pplr_arr = shuffleArray(temp_pplr_arr);
 
         // Get five of the shuffled popular topics

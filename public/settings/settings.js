@@ -190,7 +190,10 @@
     {
         for(let i = 0; i < sett_cmpnt_lib.length; i++)
         {
-            let item = sett_cmpnt_lib[i];
+            const item = sett_cmpnt_lib[i];
+            const reqEmPswd = (item.sett_reqEmPswd && typeof item.sett_reqEmPswd === "boolean") ? item.sett_reqEmPswd : false;
+            const origin = (window.hasEmPswdOrigin && typeof window.hasEmPswdOrigin === "boolean") ? window.hasEmPswdOrigin : false;
+
             let settCtntStruct = ``;
             let sectCtntInfoStruct = ``;
             let settCtntAtnStruct = ``;
@@ -211,7 +214,7 @@
             `;
 
             // Determine and set the appropriate content for the action btn
-            if(settCtntOrientFlag == false)
+            if((reqEmPswd == origin) && (settCtntOrientFlag == false))
             {
                 if(item.sett_atn_type === "toggle")
                 {
@@ -466,19 +469,29 @@
 
         const email = user.email;
         const userDB = await getUserData();
-        const fullname = userDB.full_name;
+        const fullname = userDB?.full_name || user?.displayName;
         const wifi_only_dwld = userDB.wifi_only_dwld;
         const wifi_only_strm = userDB.wifi_only_stream;
         const cell_strm_ntfy = userDB.cellular_stream_ntfy;
         const share_pi = userDB.share_prsnl_info;
 
-        // Name
-        let fname_prnt = document.getElementById("sett_change_fullname").closest(".sett_ctnt_hrtl");
-        fname_prnt.querySelector(".settCtntSectDescText").textContent = fullname;
+        // Update based on seup origin (Email/Password or Provider)
+        if((window.hasEmPswdOrigin && window.hasEmPswdOrigin == true))
+        {
+            // Name
+            let fname_prnt = document.getElementById("sett_change_fullname").closest(".sett_ctnt_hrtl");
+            fname_prnt.querySelector(".settCtntSectDescText").textContent = fullname;
 
-        // Email
-        let email_prnt = document.getElementById("sett_change_email").closest(".sett_ctnt_hrtl");
-        email_prnt.querySelector(".settCtntSectDescText").textContent = email;
+            // Email
+            let email_prnt = document.getElementById("sett_change_email").closest(".sett_ctnt_hrtl");
+            email_prnt.querySelector(".settCtntSectDescText").textContent = email;
+        }
+        else
+        {
+            document.querySelectorAll("#sett_privacy .settCtntSectDescText")[0].textContent = fullname;
+            document.querySelectorAll("#sett_privacy .settCtntSectDescText")[1].textContent = email;
+            document.querySelectorAll("#sett_privacy .settCtntSectBdr")[2].remove();
+        }
 
         // Wifi Only dowload
         document.getElementById("sett_wifi_dwld").checked = typeof wifi_only_dwld === "boolean" ? wifi_only_dwld : null;
@@ -2770,7 +2783,14 @@
 
         mngProfLockBtn.onclick = () => 
         {
-            reqPassB4MngPrflLock(prof_id);
+            if((window.hasEmPswdOrigin && window.hasEmPswdOrigin == true)) 
+            {
+                reqPassB4MngPrflLock(prof_id);
+            }
+            else
+            {
+                sett_mng_prfl_lock(prof_id);
+            }
         }
         
         // Update menu items
@@ -3869,7 +3889,7 @@
         }, 250);
 
         // Closes the Cnct3rdPartyApp modal
-        async function closeUpdFullname()
+        async function closeCnct3rdPartyApp()
         {
             cnct3rdPartyAppBdr.classList.remove("active");
             cnct3rdPartyAppBdr.addEventListener("transitionend" , function handleTransitionEnd()
@@ -3896,7 +3916,7 @@
         // Closes the modal
         cnct3rdPartyAppCloseBtn.forEach(one => 
         {
-            one.addEventListener("mousedown" , closeUpdFullname);
+            one.addEventListener("mousedown" , closeCnct3rdPartyApp);
         });
     }
 

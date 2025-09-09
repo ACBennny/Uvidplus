@@ -12,42 +12,76 @@ let pplr_tpc_arr =
     {
         pplr_tpc_id: `58679021`,
         pplr_tpc_name: `How to sign up for Uvid+?`,
+        pplr_tpc_body: ``,
     },
     {
         pplr_tpc_id: `11358423`,
         pplr_tpc_name: `I can't sign into Uvid+`,
+        pplr_tpc_body: ``,
+    },
+    {
+        pplr_tpc_id: `16081474`,
+        pplr_tpc_name: `I am not receiving a verification email`,
+        pplr_tpc_body: 
+        `
+            If a user created an account using "<u>Email/Password</u>", the user will be required to verify the email address used to create the account.
+            <br>
+            When account creation is complete, a verification email is sent to the registered email. The user should check their inbox 
+            (including spam) and follow the instrustions outlined there. 
+            <br><br>
+            After doing this, the user may return back to the Uvid+ page and hit the <u>"continue"</u> button on the screen to proceed with
+            their account setup.
+            <br><br>
+            As simple as it sounds, there are cases where the verification email is not received (in any inboxes) by the user.
+            <br><br>
+            The first option would be to attempt resending the verification email. While not all too common, network declines or interferences
+            may cause delays in time taken to recieve a verification email. Nevertheless, it shouldn't take more than a few minutes.
+            <br><br>
+            However, it's been recently made known that certain external factors (such as region blocking, aggressive filtering 
+            from third-party email providers, etcetera), may cause the verification email to never get to the user. 
+            <br><br>
+            This issue isn't an error of Uvid+, is beyond our scope, and thus cannot be fixed by us. 
+            We apologize for the inconvenience as we explore other alternatives.
+            <br><br>
+            In the mean time, users are left with only one option. This is to recreate their Uvid+ account using one of the available email providers.
+            This requires the user to <a href="javascript:;" class="important" onclick="cfrmB4DelAcc()">DELETE</a> the previously created account 
+            if they wish to <u>use the same</u> email to register for a new one.
+        `,
     },
     {
         pplr_tpc_id: `58523412`,
         pplr_tpc_name: `How can I change my username?`,
+        pplr_tpc_body: ``,
     },
     {
         pplr_tpc_id: `82541406`,
         pplr_tpc_name: `How can I change my email address?`,
+        pplr_tpc_body: ``,
     },
     {
         pplr_tpc_id: `38427142`,
         pplr_tpc_name: `Plans and Pricing`,
+        pplr_tpc_body: ``,
     },
     {
         pplr_tpc_id: `64804346`,
         pplr_tpc_name: `How can I change my membership plan?`,
-    },
-    {
-        pplr_tpc_id: `16081474`,
-        pplr_tpc_name: `Is Uvid+ kid friendly?`,
+        pplr_tpc_body: ``,
     },
     {
         pplr_tpc_id: `16456529`,
         pplr_tpc_name: `Where can I watch?`,
+        pplr_tpc_body: ``,
     },
     {
         pplr_tpc_id: `60953494`,
         pplr_tpc_name: `Where can I redeem gift cards?`,
+        pplr_tpc_body: ``,
     },
     {
         pplr_tpc_id: `67664905`,
         pplr_tpc_name: `How to sign out?`,
+        pplr_tpc_body: ``,
     },
 ];
 

@@ -700,9 +700,18 @@ html:root
     margin: 0;
 }
 
-.join_outro_det_txt .join_outro_det_txt_mjr
+.join_outro_det_txt_mjr
 {
-    color: var(--genWhiteTypeMid2);
-    font-weight: 600;
-    text-transform: uppercase;
+    color: var(--genGreenTypeMid);
+    transition: all 300ms ease-in-out;
+}
+
+
+
+@media(hover: hover)
+{
+    .join_outro_det_txt_mjr:hover
+    {
+        color: var(--genGreenTypeLight);
+    }
 }

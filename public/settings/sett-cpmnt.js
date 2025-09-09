@@ -14,6 +14,7 @@ const sett_cmpnt_lib =
         sett_sect: `membership`,
         sett_orientation: `horizontal`,
         sett_title: `Manage Membership`,
+        sett_reqEmPswd: false,
         sett_desc: 
         `
             View the details of your membership, make changes and more.
@@ -27,6 +28,7 @@ const sett_cmpnt_lib =
         sett_sect: `membership`,
         sett_orientation: `horizontal`,
         sett_title: `Payment Cards`,
+        sett_reqEmPswd: false,
         sett_desc: 
         `
             View, edit, update or add new payment cards.
@@ -41,6 +43,7 @@ const sett_cmpnt_lib =
         sett_sect: `membership`,
         sett_orientation: `horizontal`,
         sett_title: `Billing History`,
+        sett_reqEmPswd: false,
         sett_desc: 
         `
             View all past billing details.
@@ -55,6 +58,7 @@ const sett_cmpnt_lib =
         sett_sect: `membership`,
         sett_orientation: `horizontal`,
         sett_title: `Redeem  Gift Card or Promocode`,
+        sett_reqEmPswd: false,
         sett_desc: 
         `
             Redeem a gift card or promocode to get exclusive discounts during discount events.
@@ -77,6 +81,7 @@ const sett_cmpnt_lib =
         sett_sect: `experience`,
         sett_orientation: `horizontal`,
         sett_title: `App language`,
+        sett_reqEmPswd: false,
         sett_desc: 
         `
             English.
@@ -90,6 +95,7 @@ const sett_cmpnt_lib =
         sett_sect: `experience`,
         sett_orientation: `horizontal`,
         sett_title: `Theater Mode`,
+        sett_reqEmPswd: false,
         sett_desc: 
         `
             This simply enables Fullscreen, which may make for a slightly more intuitive experience 
@@ -104,6 +110,7 @@ const sett_cmpnt_lib =
         sett_sect: `experience`,
         sett_orientation: `horizontal`,
         sett_title: `Notifications`,
+        sett_reqEmPswd: false,
         sett_desc: 
         `
             Receive notifications about the shows you love. 
@@ -118,6 +125,7 @@ const sett_cmpnt_lib =
         sett_sect: `experience`,
         sett_orientation: `horizontal`,
         sett_title: `Cast data Usage`,
+        sett_reqEmPswd: false,
         sett_desc: 
         `   
             Select the default data usage when casting, as it is optimized for larger screens 
@@ -132,6 +140,7 @@ const sett_cmpnt_lib =
         sett_sect: `experience`,
         sett_orientation: `horizontal`,
         sett_title: `Download Quality`,
+        sett_reqEmPswd: false,
         sett_desc: 
         `   
             Select your preferred quality for downloaded shows. 
@@ -146,6 +155,7 @@ const sett_cmpnt_lib =
         sett_sect: `experience`,
         sett_orientation: `horizontal`,
         sett_title: `Download Audio`,
+        sett_reqEmPswd: false,
         sett_desc: 
         `   
             When possible, you can select the language that will be downloaded along with the
@@ -162,6 +172,7 @@ const sett_cmpnt_lib =
         sett_sect: `experience`,
         sett_orientation: `horizontal`,
         sett_title: `Wi-Fi Only Downloading`,
+        sett_reqEmPswd: false,
         sett_desc: 
         `   
             Only download shows when a Wi-Fi network is available.
@@ -175,6 +186,7 @@ const sett_cmpnt_lib =
         sett_sect: `experience`,
         sett_orientation: `horizontal`,
         sett_title: `Wi-Fi Only Streaming`,
+        sett_reqEmPswd: false,
         sett_desc: 
         `   
             Only stream shows when a Wi-Fi network is available.
@@ -188,6 +200,7 @@ const sett_cmpnt_lib =
         sett_sect: `experience`,
         sett_orientation: `horizontal`,
         sett_title: `Cellular Streaming`,
+        sett_reqEmPswd: false,
         sett_desc: 
         `   
             Notify when streaming on mobile data.
@@ -201,6 +214,7 @@ const sett_cmpnt_lib =
         sett_sect: `experience`,
         sett_orientation: `horizontal`,
         sett_title: `External Player`,
+        sett_reqEmPswd: false,
         sett_desc: 
         `   
             By default, Uvid+ has a its own custom player which plays a sample video for demonstration purposes only.
@@ -216,6 +230,7 @@ const sett_cmpnt_lib =
         sett_sect: `experience`,
         sett_orientation: `horizontal`,
         sett_title: `Connected Apps`,
+        sett_reqEmPswd: false,
         sett_desc: 
         `   
             Get more amazing features by connecting Uvid+ to your favourite apps.
@@ -234,6 +249,7 @@ const sett_cmpnt_lib =
         sett_sect: `privacy`,
         sett_orientation: `horizontal`,
         sett_title: `Fullname`,
+        sett_reqEmPswd: true,
         sett_desc: 
         `
             N/A
@@ -247,6 +263,7 @@ const sett_cmpnt_lib =
         sett_sect: `privacy`,
         sett_orientation: `horizontal`,
         sett_title: `Email`,
+        sett_reqEmPswd: true,
         sett_desc: 
         `
             N/A
@@ -260,6 +277,7 @@ const sett_cmpnt_lib =
         sett_sect: `privacy`,
         sett_orientation: `horizontal`,
         sett_title: `Password`,
+        sett_reqEmPswd: true,
         sett_desc: 
         `
             Change your password.
@@ -273,6 +291,7 @@ const sett_cmpnt_lib =
         sett_sect: `privacy`,
         sett_orientation: `horizontal`,
         sett_title: `Device Management`,
+        sett_reqEmPswd: false,
         sett_desc: 
         `
             Manage the devices connected to your account.
@@ -286,9 +305,11 @@ const sett_cmpnt_lib =
         sett_sect: `privacy`,
         sett_orientation: `horizontal`,
         sett_title: `Sharing/Selling of Personal Information`,
+        sett_reqEmPswd: false,
         sett_desc: 
         `
-            Note that disabling sharing of personal information will neither change nor reduce
+            If Uvid+ should ever start sharing/selling of personal information,
+            note that disabling sharing of personal information will neither change nor reduce
             the presentation of ads and ad breaks for ad based plans. Instead, this only substitutes
             personalized ads with more generic ads that are not determined based on your personal information.
         `,
@@ -301,6 +322,7 @@ const sett_cmpnt_lib =
         sett_sect: `privacy`,
         sett_orientation: `horizontal`,
         sett_title: `Sign Out`,
+        sett_reqEmPswd: false,
         sett_desc: 
         `
             This will sign you out of your account.
@@ -315,6 +337,7 @@ const sett_cmpnt_lib =
         sett_sect: `privacy`,
         sett_orientation: `horizontal`,
         sett_title: `Delete your Account`,
+        sett_reqEmPswd: false,
         sett_desc: 
         `
             Deleting your account is a permanent action. 
@@ -333,6 +356,7 @@ const sett_cmpnt_lib =
         sett_sect: `information`,
         sett_orientation: `horizontal`,
         sett_title: `Version`,
+        sett_reqEmPswd: false,
         sett_desc: 
         `
             View details about this version, other versions, and the project in general.
@@ -347,6 +371,7 @@ const sett_cmpnt_lib =
         sett_sect: `information`,
         sett_orientation: `horizontal`,
         sett_title: `Terms of Use`,
+        sett_reqEmPswd: false,
         sett_desc: 
         `
             View the terms and conditions that bind how you interact with our services.
@@ -360,6 +385,7 @@ const sett_cmpnt_lib =
         sett_sect: `information`,
         sett_orientation: `horizontal`,
         sett_title: `Privacy Policy`,
+        sett_reqEmPswd: false,
         sett_desc: 
         `
             View our privacy policy to understand how we protect you and your data.
@@ -373,6 +399,7 @@ const sett_cmpnt_lib =
         sett_sect: `information`,
         sett_orientation: `horizontal`,
         sett_title: `Copyright`,
+        sett_reqEmPswd: false,
         sett_desc: 
         `
             Learn more about how Uvid+ associates with content provided on its platform.
@@ -386,6 +413,7 @@ const sett_cmpnt_lib =
         sett_sect: `information`,
         sett_orientation: `horizontal`,
         sett_title: `Ad Choices`,
+        sett_reqEmPswd: false,
         sett_desc: 
         `
             Learn more about how ads work and affect Uvid+ and your experience.
@@ -399,6 +427,7 @@ const sett_cmpnt_lib =
         sett_sect: `information`,
         sett_orientation: `horizontal`,
         sett_title: `Help`,
+        sett_reqEmPswd: false,
         sett_desc: 
         `
             Find possible solutions to questions you may have about our services.
@@ -412,6 +441,7 @@ const sett_cmpnt_lib =
         sett_sect: `information`,
         sett_orientation: `horizontal`,
         sett_title: `Feedback`,
+        sett_reqEmPswd: false,
         sett_desc: 
         `
             Send your thoughts, suggestions, or report any bugs/issues you may have encountered.

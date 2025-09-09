@@ -343,7 +343,7 @@ html:root
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 0 var(--genStatic_pd);
+    padding: 0 var(--genStatic_pd) var(--genStatic_pd);
 }
 
 .mng_mbsp_ctnt_box .mng_mbsp_card_bdr

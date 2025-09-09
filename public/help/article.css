@@ -120,8 +120,13 @@ html:root
 
 .atcl_body_box .atcl_body_txt
 {
-    color: var(--genWhiteTypeLight);
+    color: var(--genWhiteTypeMid);
     font-size: 1rem;
+}
+
+.atcl_body_txt .important
+{
+    color: var(--genGreenTypeLight2)
 }
 
 

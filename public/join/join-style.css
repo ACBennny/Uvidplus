@@ -479,8 +479,10 @@
 {
     width: 100%;
     height: fit-content;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     color: var(--color2);
     font-size: var(--fzTxt);

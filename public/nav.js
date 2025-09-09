@@ -207,8 +207,8 @@
         'feedback': 
         {
             route_pbl_only: false,
-            route_auth: true,
-            route_member: true,
+            route_auth: false,
+            route_member: false,
             route_atn: "init_FeedbackForm",
             route_title: "Feedback • Uvid+",
         },
@@ -298,8 +298,6 @@
     // Handles routing process
     async function page_router()
     {
-        // K
-
         // Get the current hash value
         hash_win = window.location.hash || page_route_fallback();
 

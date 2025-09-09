@@ -72,7 +72,15 @@
                                             <!-- Log In btn -->
                                             <div class="form_input_bdr">
                                                 <div class="join_submit_box">
-                                                    <input type="button" class="genBtn join_submit_btn form_LogIn " id="logIn_btn" value="Log In" >
+                                                    <input type="button" class="genBtn join_submit_btn form_LogIn " id="logIn_btn" value="Sign In" >
+                                                </div>
+                                                <div class="form_input_box">
+                                                    <div class="form_text">
+                                                        <span>OR</span>
+                                                    </div>
+                                                </div>
+                                                <div class="join_submit_box">
+                                                    <input type="button" class="genBtn join_submit_btn" id="emPrvd_btn" value="Sign in with a Provider" >
                                                 </div>
                                             </div>
 
@@ -84,10 +92,6 @@
                                                         <span class="form_links toRecoverAccForm">Reset Password</span>
                                                     </div>
                                                 </div>
-                                            </div>
-
-                                            <!-- Contact us if you need help -->
-                                            <div class="form_input_bdr">
                                                 <div class="form_input_box">
                                                     <div class="form_text">
                                                         <span>Experiencing any issues?</span>
@@ -118,7 +122,7 @@
                                             <!-- Email -->
                                             <div class="form_input_bdr">
                                                 <div class="form_input_nameBox">
-                                                    <label for="form_recover_Acc" class="form_input_name">Email</label>
+                                                    <label for="form_recover_Acc" class="form_input_name">Email (Only for password accounts)</label>
                                                 </div>
                                                 <div class="form_input_box">
                                                     <input type="text" id="form_recover_Acc" class="form_input_field" placeholder="Enter your email">
@@ -142,13 +146,9 @@
                                                 <div class="form_input_box">
                                                     <div class="form_text">
                                                         <span>Have an Account?</span>
-                                                        <span class="form_links toLogInForm">Log In</span>
+                                                        <span class="form_links toLogInForm">Sign In</span>
                                                     </div>
                                                 </div>
-                                            </div>
-
-                                            <!-- Contact us if you need help -->
-                                            <div class="form_input_bdr">
                                                 <div class="form_input_box">
                                                     <div class="form_text">
                                                         <span>Experiencing any issues?</span>
@@ -253,23 +253,21 @@
                             <div class="join_outro_det_box">
                                 <p class="join_outro_det_txt">
                                     Hi there! I'm
-                                    <a class="join_outro_det_txt_mjr" onclick="window.open('${developerLink}')">ACBennny</a>
+                                    <a onclick="window.open('${developerLink}')">ACBennny</a>
                                     and thanks for checking out Uvid+.
                                 </p>
                                 <p class="join_outro_det_txt">
                                     As this may be your first time here, I'd like to remind you that this is a demo of my personal 
-                                    project and while it may behave or look like one, it is <strong>NOT</strong> an actual streaming service. 
+                                    project and while it may behave or look like one, it is NOT an actual streaming service. 
                                     It merely simulates one.
                                 </p>
                                 <p class="join_outro_det_txt">
                                     <u>What does this mean?</u>
                                     <br>
-                                    Uvid+ does <strong>NOT</strong> and will <strong>NOT</strong> bill you. 
-                                    Thus, besides a working email for account management, 
-                                    you should <strong>NOT</strong> enter any real information 
-                                    as it is <strong>NOT</strong> required.
+                                    Uvid+ does NOT and will NOT bill you. Thus, besides a working email for account management, 
+                                    you should NOT enter any real information as it is NOT required.
                                     <br>
-                                    In fact, it is <i>against</i> the
+                                    In fact, it is against the
                                     <a class="join_outro_det_txt_mjr" onclick="window.open('#/tou')">Terms of Use</a> 
                                     and 
                                     <a class="join_outro_det_txt_mjr" onclick="window.open('#/privacy')">Privacy Policy</a> 
@@ -283,6 +281,49 @@
                             </div>
                             <div class="join_submit_box space_h">
                                 <input type="button" class=" genBtn join_submit_btn join_ntc_btn" value="Got It" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    const signup_choice = 
+    `
+        <div class="join_house signup_n">
+            <div class="join_bdr">
+                <div class="join_box">
+                    <div class="join_outro_bdr">
+                        <div class="join_outro_box">
+                            <div class="join_plan_hdr_box">
+                                <div class="join_plan_hdr_txt_mjr">What Do You Prefer?</div>
+                                <p class="join_plan_hdr_txt_mnr">Choose how you'd like to sign up</p>
+                            </div>
+                            <div class="join_outro_det_box">
+                                <p class="join_outro_det_txt">
+                                    <span class="join_outro_det_txt_mjr"><u>Email/Password</u></span>
+                                    <br>
+                                    Sign up using any email of your choice.
+                                    You will be required to create a password and verify the email.
+                                </p>
+                                <p class="join_outro_det_txt">
+                                    <span class="join_outro_det_txt_mjr"><u>Email Providers</u></span>
+                                    <br>
+                                    No verification or password is required. If you have an email with any of 
+                                    the listed providers simply click on them to continue.
+                                </p>
+                                <p class="join_outro_det_txt">
+                                    By creating an account with "Email/Password" or through any of the "Email Providers", 
+                                    you acknowledge you have read, understood, and agree to both the
+                                    <a class="join_outro_det_txt_mjr" onclick="window.open('#/tou')">Terms of Use</a> 
+                                    and 
+                                    <a class="join_outro_det_txt_mjr" onclick="window.open('#/privacy')">Privacy Policy</a>. 
+                                </p>
+                            </div>
+                            <div class="join_submit_box">
+                                <input type="button" id="join_mtd_empwsd_btn" class="genBtn join_submit_btn" value="Email/Password" />
+                                <input type="button" id="join_mtd_emprvd_btn" class="genBtn join_submit_btn" value="Email Provider" />
                             </div>
                         </div>
                     </div>
@@ -331,6 +372,7 @@
                                 <div class="join_plan_hdr_txt_mjr">Email Verification</div>
                             </div>
                             <div class="join_outro_det_box">
+                            <div class="join_outro_det_box">
                                 <p class="join_outro_det_txt">
                                     Your account has been created. However, you will need to verify your email before you can continue.
                                     <br>
@@ -338,6 +380,16 @@
                                 </p>
                                 <p class="join_outro_det_txt">
                                     After verifying, come back to this page and press 
+                                    <span class="join_outro_det_txt_mjr">"Continue"</span> below.
+                                </p>
+                                <p class="join_outro_det_txt">
+                                    If you are still not receiving the verification email despite resending multiple times 
+                                    (and checking all inboxes, including spam), please click 
+                                    <a class="join_outro_det_txt_mjr" onclick="vrfy_fail_guide()">here</a>
+                                </p>
+                                <p class="join_outro_det_txt">
+                                    If you did not sign up using the Email/Password (i.e through a provider like Google), 
+                                    you are automatically verified by the provider. If you are seeing this popup, just click
                                     <span class="join_outro_det_txt_mjr">"Continue"</span> below.
                                 </p>
                                 <p class="join_outro_det_txt">
@@ -793,7 +845,7 @@
                 dwld_dev: 
                 {
                     bnft_name: `Download Devices`,
-                    bnft_desc: `7`,
+                    bnft_desc: `5`,
                 },
                 ad: 
                 {

@@ -123,6 +123,17 @@
         });
     }
 
+    // Initialize the sign up intro
+    function init_signup_intro()
+    {
+        let introSbtBtn = document.querySelector(".join_intro_submitBtn");
+
+        introSbtBtn.onclick = () => 
+        {
+            init_signup_rmnd();
+        }
+    }
+
     // Initialize important reminder
     function init_signup_rmnd()
     {
@@ -133,18 +144,46 @@
 
         joinNtcBtn.onclick = () => 
         {
-            switch_step(1);
+            init_signup_choice();
         }
     }
 
-    // Initialize the sign up intro
-    function init_signup_intro()
+    // Initialize the signup choice
+    function init_signup_choice()
     {
-        let introSbtBtn = document.querySelector(".join_intro_submitBtn");
+        document.querySelector(".join_fence").scrollTo(0,0);
+        document.querySelector(".join_area").innerHTML = signup_choice;
 
-        introSbtBtn.onclick = () => 
+        const joinMtdPswdAtn = () => 
         {
-            init_signup_rmnd();
+            switch_step(1);
+        }
+
+        const joinMtdPrvdAtn = () => initPrvdModal();
+
+        const joinMtdPswdBtn = document.querySelector("#join_mtd_empwsd_btn");
+        const joinMtdPrvdBtn = document.querySelector("#join_mtd_emprvd_btn");
+
+        joinMtdPswdBtn.onclick = () => 
+        {
+            initConfirmModal(
+                `Use 'Email/Password'?`,
+                `Confirm if you want to use this method to sign up`,
+                `Proceed`,
+                `Back`,
+                joinMtdPswdAtn
+            );
+        }
+
+        joinMtdPrvdBtn.onclick = () => 
+        {
+            initConfirmModal(
+                `Use 'Email Providers'?`,
+                `Confirm if you want to use this method to sign up`,
+                `Proceed`,
+                `Back`,
+                joinMtdPrvdAtn
+            );
         }
     }
 
@@ -478,95 +517,16 @@
                         // Create the user's account
                         const newUserCred = await auth.createUserWithEmailAndPassword(newEmail.value, newPassword.value);
                         const user = newUserCred.user;
-                        const uer_uid = user.uid;
-                        const uv_fb_db = window.firebaseDB;
+                        const uid = user.uid;
 
                         // Send verification email
                         await user.sendEmailVerification();
-                        
-                        // Update the user details 
-                        const new_sgl_usr_obj = 
-                        {
-                            full_name: newFullName.value,
-                            phone_no: ``,
-                            is_3_day_ntc: false,
-                            is_membership_active: false,
-                            is_setup: true,
-                            stp_steps: `2`,
-                            curr_plan_id: ``,
-                            cast_data_usage_ul: 0,
-                            dwld_qlty_pref: 0,
-                            dwld_audio_pref: 0,
-                            use_ext_plr: false,
-                            wifi_only_dwld: true,
-                            wifi_only_stream: false,
-                            cellular_stream_ntfy: true,
-                            share_prsnl_info: false,
-                            downloads: [],
-                            profiles:
-                            {
-                                [`${generateRandomString().toLowerCase()}`]: 
-                                {
-                                    prof_selected: true,
-                                    prof_name: `${newFullName.value}`,
-                                    prof_type: `default`,
-                                    prof_frgImg: `/images/uvid-profile-base.png`,
-                                    prof_bcgImg: `/images/uvid-green-bcg1-dark.jpg`,
-                                    prof_audio_lang: 8,
-                                    prof_subtitle_lang: 8,
-                                    prof_show_subtitles: false,
-                                    prof_auto_play: false,
-                                    prof_auto_next: false,
-                                    prof_auto_skip: false,
-                                    prof_lock_state: false,
-                                    prof_lock_pin: `0000`,
-                                    prof_show_adult_ctnt: false,
-                                    prof_ctnt_restriction: 5,
-                                    prof_history:
-                                    [],
-                                    prof_likes:
-                                    [],
-                                    prof_dislikes:
-                                    [],
-                                    prof_watchlist:
-                                    [],
-                                    prof_collections:
-                                    [],
-                                },
-                            },
-                            ntfy_pref:
-                            {
-                                ntfy_what_you_stream: true,
-                                ntfy_recommendation: true,
-                                ntfy_exploration: true,
-                                ntfy_promotions: true,
-                                ntfy_surveys: true,
-                            },
-                            notifications:
-                            [
-                                {
-                                    notify_addedDate: `${getCurrDate("short")}`,
-                                    notify_readStatus: false,
-                                    notify_thumbnail: `/images/uvid-bcg1.jpg`,
-                                    notify_mainTopic: `Welcome to Uvid+`,
-                                    notify_subTopic: `We are glad you joined us. Browse and watch your favourite movies and tv shows.`,
-                                    notify_actionText: `Explore`,
-                                    notify_actionLink: `#/explore`,
-                                },
-                                {
-                                    notify_addedDate: `${getCurrDate("short")}`,
-                                    notify_readStatus: false,
-                                    notify_thumbnail: `/images/uvid-bcg2.jpg`,
-                                    notify_mainTopic: `Switch Profiles`,
-                                    notify_subTopic: `You can now create and customize up to five different profiles.`,
-                                    notify_actionText: `Try it Out`,
-                                    notify_actionLink: `#/profile/switch`,
-                                },
-                            ],
-                        };
 
-                        // Store the user's object in firebase
-                        await uv_fb_db.collection("uvp_fb_users").doc(uer_uid).set(new_sgl_usr_obj);
+                        // Setup firebase
+                        window._is_uvp_fb_setup = false;
+                        const isFbStp = await uvp_fb_setup(uid, newFullName.value);
+
+                        if(!isFbStp) throw new Error("Firebase user initialization in firestore failed");
 
                         // Notify user of successful account creation
                         notification(`notifyGood` , "Account created");
@@ -582,7 +542,7 @@
                     catch (error) 
                     {
                         // console.error("Signup failed:", error.message);
-                        notification(`notifyBad` , `Please check that all fields have been correctly filled`);
+                        notification(`notifyBad` , `An error occurred during account creation`);
 
                         // Enable all fields & signup button
                         allFormFields.forEach(item => item.disabled = false);
@@ -595,6 +555,119 @@
                     notification(`notifyBad` , `Please check that all fields have been correctly filled`);
                 }
             });
+    }
+
+
+    // Creates a user's profile in firebase after user's account has been created
+    async function uvp_fb_setup(usr_id = "", usr_nm = "")
+    {
+        try
+        {
+            const uv_fb_db = window.firebaseDB;
+
+            if((
+                (window._is_uvp_fb_setup == undefined || typeof window._is_uvp_fb_setup !== "boolean" || window._is_uvp_fb_setup != false)
+                || (typeof uv_fb_db === "undefined" || uv_fb_db == null)
+                || (typeof usr_id !== "string" || usr_id === "")
+                || (typeof usr_nm !== "string" || usr_nm === "")
+            )) throw new Error("Invlaid param");
+
+            const nm_split = usr_nm?.trim()?.split(" ");
+
+            // Update the user details 
+            const new_sgl_usr_obj = 
+            {
+                full_name: usr_nm,
+                phone_no: ``,
+                is_3_day_ntc: false,
+                is_membership_active: false,
+                is_setup: true,
+                stp_steps: `2`,
+                curr_plan_id: ``,
+                cast_data_usage_ul: 0,
+                dwld_qlty_pref: 0,
+                dwld_audio_pref: 0,
+                use_ext_plr: false,
+                wifi_only_dwld: true,
+                wifi_only_stream: false,
+                cellular_stream_ntfy: true,
+                share_prsnl_info: false,
+                downloads: [],
+                profiles:
+                {
+                    [`${generateRandomString().toLowerCase()}`]: 
+                    {
+                        prof_selected: true,
+                        prof_name: `${(nm_split[0]) ? nm_split[0] : usr_nm}`,
+                        prof_type: `default`,
+                        prof_frgImg: `/images/uvid-profile-base.png`,
+                        prof_bcgImg: `/images/uvid-green-bcg1-dark.jpg`,
+                        prof_audio_lang: 8,
+                        prof_subtitle_lang: 8,
+                        prof_show_subtitles: false,
+                        prof_auto_play: false,
+                        prof_auto_next: false,
+                        prof_auto_skip: false,
+                        prof_lock_state: false,
+                        prof_lock_pin: `0000`,
+                        prof_show_adult_ctnt: false,
+                        prof_ctnt_restriction: 5,
+                        prof_history:
+                        [],
+                        prof_likes:
+                        [],
+                        prof_dislikes:
+                        [],
+                        prof_watchlist:
+                        [],
+                        prof_collections:
+                        [],
+                    },
+                },
+                ntfy_pref:
+                {
+                    ntfy_what_you_stream: true,
+                    ntfy_recommendation: true,
+                    ntfy_exploration: true,
+                    ntfy_promotions: true,
+                    ntfy_surveys: true,
+                },
+                notifications:
+                [
+                    {
+                        notify_addedDate: `${getCurrDate("short")}`,
+                        notify_readStatus: false,
+                        notify_thumbnail: `/images/uvid-bcg1.jpg`,
+                        notify_mainTopic: `Welcome to Uvid+`,
+                        notify_subTopic: `We are glad you joined us. Browse and watch your favourite movies and tv shows.`,
+                        notify_actionText: `Explore`,
+                        notify_actionLink: `#/explore`,
+                    },
+                    {
+                        notify_addedDate: `${getCurrDate("short")}`,
+                        notify_readStatus: false,
+                        notify_thumbnail: `/images/uvid-bcg2.jpg`,
+                        notify_mainTopic: `Switch Profiles`,
+                        notify_subTopic: `You can now create and customize up to five different profiles.`,
+                        notify_actionText: `Try it Out`,
+                        notify_actionLink: `#/profile/switch`,
+                    },
+                ],
+            };
+
+            // Store the user's object in firebase
+            await uv_fb_db.collection("uvp_fb_users").doc(usr_id).set(new_sgl_usr_obj);
+
+            window._is_uvp_fb_setup = true;
+            return true;
+        }
+        catch(err)
+        {
+            notification('notifyBad', 'A fatal error has occured. Kindly reload the page.');
+            console.error(err);
+            window._is_uvp_fb_setup = false;
+            return false;
+        }
     }
 
 
@@ -716,6 +789,12 @@
                 joinVrfyBtn.disabled = false;
             }
         };
+    }
+
+    // Verification email send fail guide
+    function vrfy_fail_guide() 
+    {
+        window.open('#/help/article/16081474', '_blank');
     }
 
 
@@ -1182,7 +1261,7 @@
              *  1 - Should be at least thirteen (13) numbers
              */
 
-            // Allows 0-9
+            // Allows 0-9 
             cardNum.addEventListener("beforeinput", (event) => 
             {
                 if (event.data != null && !(card_num_cond.test(event.data))) 

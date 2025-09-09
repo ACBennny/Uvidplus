@@ -21,7 +21,7 @@
                             Watch a boundless haven of movies, TV shows and tons more 
                             with our unmatched streaming services.
                             <br>
-                            Starts <strong>$4.99</strong>. Cancel Anytime. Terms Apply.
+                            Starts <u>$4.99</u>. Cancel Anytime. Terms Apply.
                             <br>
                             <!-- New Member? Start your 10 day free trial. -->
                         </p>
@@ -66,7 +66,7 @@
                                 </div>
                                 <div class="feature_card feature_cardUnder">
                                 </div>
-                            </div>
+                            </div> 
                         </div>
                         <div class="feature_cardBaseBdr">
                             <div class="feature_cardBaseBox">

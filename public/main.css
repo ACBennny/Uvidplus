@@ -661,7 +661,9 @@ content .content
 
 
 input[disabled="true"],
-input[disabled]
+input[disabled],
+textarea[disabled="true"],
+textarea[disabled]
 {
     filter: brightness(0.5);
     text-decoration: none;

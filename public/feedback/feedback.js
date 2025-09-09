@@ -24,6 +24,10 @@
                             <div class="feedback_name">Feedback Form</div>
                         </div>
                         <div class="feedback_ctnt">
+                            <label for="feedback_email" class="feedback_sectBox feedback_sectInputBox">
+                                <div class="feedback_sectLabel">Email</div>
+                                <input type="email" name="feedback_contact" id="feedback_email" class="feedback_sectField feedback_sectInput"  placeholder="Enter email" required disabled />
+                            </label>
                             <label for="feedback_subject" class="feedback_sectBox feedback_sectInputBox">
                                 <div class="feedback_sectLabel">Title</div>
                                 <input type="text" name="subject" id="feedback_subject" class="feedback_sectField feedback_sectInput"  placeholder="Enter title" maxlength="125" required disabled />
@@ -37,6 +41,7 @@
                                     <div class="feedback_sectLabel">Feedback Type</div>
                                     <select type="number" name="feedback_type" id="feedback_type" class="feedback_sectField feedback_sectSelect" disabled>
                                         <option value="NA">Select an option</option>
+                                        <option value="Sign Up/Sign In Issue">Sign Up/Sign In Issue</option>
                                         <option value="Bug Report">Bug Report</option>
                                         <option value="Help Center Article">Help Center Article</option>
                                         <option value="Suggestion">Suggestion</option>
@@ -183,7 +188,7 @@
             btn.addEventListener("click", close_FeedbackForm);
             btn.action = close_FeedbackForm;
         });
-        sendButton.addEventListener("click", validate_input);
+        sendButton.addEventListener("click", val_fdbk_form_inp);
         js_form.addEventListener("submit", no_deflt_atn);
         
         // Make button available (Will be removed)
@@ -258,7 +263,7 @@
                 btn.removeEventListener("click", btn.action);
             }
         });
-        sendButton.removeEventListener("click", validate_input);
+        sendButton.removeEventListener("click", val_fdbk_form_inp);
         js_form.removeEventListener("submit", no_deflt_atn);
         
         feedbackForm_timer = setTimeout(() => 
@@ -283,12 +288,14 @@
     {
         notification(`notifyGood` , `Feedback sent successfully`);
         toggle_sendBtn(false);
+        document.querySelectorAll(".feedback_sectField").forEach(fld => fld.disabled = false);
     }
 
     function fdbk_onError(error) 
     {
         notification(`notifyBad` , `An error occurred during sending`);
         toggle_sendBtn(false);
+        document.querySelectorAll(".feedback_sectField").forEach(fld => fld.disabled = false);
     }
 
 
@@ -296,16 +303,17 @@
     {
         toggle_sendBtn(true);
 
-        let subject = postSanitizeUserInput(document.querySelector("#" + form_id_js + " [name='subject']").value);
-        let message = postSanitizeUserInput(document.querySelector("#" + form_id_js + " [name='text']").value);
-        let type = postSanitizeUserInput(document.querySelector("#" + form_id_js + " [name='feedback_type']").value);
-        let severity = postSanitizeUserInput(document.querySelector("#" + form_id_js + " [name='severity_level']").value);
+        const email = postSanitizeUserInput(document.querySelector("#" + form_id_js + " [name='feedback_contact']").value);
+        const subject = postSanitizeUserInput(document.querySelector("#" + form_id_js + " [name='subject']").value);
+        const message = postSanitizeUserInput(document.querySelector("#" + form_id_js + " [name='text']").value);
+        const type = postSanitizeUserInput(document.querySelector("#" + form_id_js + " [name='feedback_type']").value);
+        const severity = postSanitizeUserInput(document.querySelector("#" + form_id_js + " [name='severity_level']").value);
 
-        fdbk_send(subject, message, type, severity);
+        fdbk_send(email, subject, message, type, severity);
     }
 
 
-    function fdbk_send(subject, message, type, severity)
+    function fdbk_send(email, subject, message, type, severity)
     {
 
         let request = new XMLHttpRequest();
@@ -322,6 +330,7 @@
         };
         data_js['subject'] = subject;
         data_js['text'] = message;
+        data_js['extra_feedback_contact'] = email;
         data_js['extra_feedback_type'] = type;
         data_js['extra_severity_level'] = severity;
         let params = fdbk_toParams(data_js);
@@ -345,18 +354,23 @@
         return form_data.join("&");
     }
 
-    function validate_input()
+    function val_fdbk_form_inp()
     {
+        document.querySelectorAll(".feedback_sectField").forEach(fld => fld.disabled = true);
+
+        const check_for_AtSign_in_Email = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        const eml = postSanitizeUserInput(document.querySelector("#" + form_id_js + " [name='feedback_contact']").value);
         const sbj = postSanitizeUserInput(document.querySelector("#" + form_id_js + " [name='subject']").value.trim().replace(/\s+/g, ' '));
         const txt = postSanitizeUserInput(document.querySelector("#" + form_id_js + " [name='text']").value.trim().replace(/\s+/g, ' '));
 
-        if((sbj !== "") && (txt !== ""))
+        if((eml !== "") && (check_for_AtSign_in_Email.test(eml)) && (sbj !== "") && (txt !== ""))
         {
             notification(`notifyGood` , `Sending feedback..`);
             fdbk_get();
         }
         else
         {
-            notification(`notifyBad` , `Please fill out all required fields`);
+            document.querySelectorAll(".feedback_sectField").forEach(fld => fld.disabled = false);
+            notification(`notifyBad` , `Please fill out all required fields correctly`);
         }
     }

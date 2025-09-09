@@ -49,6 +49,7 @@
 
             // Submitting Info
             const logInBtn = document.querySelector("#logIn_btn");
+            const prvdSignIn = document.querySelector("#emPrvd_btn");
 
 
             // Forgot password
@@ -272,6 +273,13 @@
             {
                 signInUvidUser(userEmail.value , userPassword.value);
             });
+
+
+
+
+        // Sign In with a Provider
+
+            prvdSignIn.onclick = () => initPrvdModal();
         
         
 
@@ -354,6 +362,149 @@
             {
                 sendPasswordReset(resetPass_email.value);
             });
+    }
+
+
+    // Sign In with a Provider
+    function initPrvdModal()
+    {
+        try
+        {
+            const cnctEmPrvdBdr = document.createElement("div");
+            cnctEmPrvdBdr.classList.add("genAtnModalBdr");
+            cnctEmPrvdBdr.innerHTML = 
+            `
+                <div class="genAtnModalBcg closeCnctEmPrvdBtn"></div>
+                <div class="genAtnModalBox">
+                    <div class="genAtnModalCtnt">
+                        <div class="genAtnModalHeader">
+                            <div class="genAtnModalHeaderIconBox closeCnctEmPrvdBtn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="genAtnModalHeaderIcon">
+                                    <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                                </svg>
+                            </div>
+                            <div class="genAtnModalHeaderText">
+                                <span class="large">S</span>
+                                <span class="small">elect an Email Provider</span>
+                            </div>
+                        </div>
+                        <div class="genAtnModalOptBcg createProfItemBcg">
+                            <div class="genAtnModalOptBdr createProfItemBox">
+                                <button class="genAtnModalOptBox cnctEmPrvdItem" data-prvd="google">
+                                    <div class="genAtnModalOptIconBox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genAtnModalOptIconSvg">
+                                            <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133c-1.147 1.147-2.933 2.4-6.053 2.4c-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0C5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36c2.16-2.16 2.84-5.213 2.84-7.667c0-.76-.053-1.467-.173-2.053z" />
+                                        </svg>
+                                    </div>
+                                    <div class="genAtnModalOptTextBox ">
+                                        <span class="genAtnModalOptText ">Google</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            documentCtnt.appendChild(cnctEmPrvdBdr);
+
+            const cnctEmPrvdCloseBtn = document.querySelectorAll(".closeCnctEmPrvdBtn");
+            const cnctEmPrvdItemBtn = document.querySelectorAll(".cnctEmPrvdItem");
+            let cnctEmPrvdTimer;
+
+            // Transitioning elements
+            cnctEmPrvdTimer = setTimeout(async () => 
+            {
+                clearTimeout(cnctEmPrvdTimer);
+                documentBody.setAttribute(`data-modal-state` , `open`);
+                cnctEmPrvdBdr.classList.add("active");
+            }, 250);
+
+            // Closes the CnctEmPrvd modal
+            async function closeCnctEmPrvd()
+            {
+                cnctEmPrvdBdr.classList.remove("active");
+                cnctEmPrvdBdr.addEventListener("transitionend" , function handleTransitionEnd()
+                {
+                    cnctEmPrvdBdr.removeEventListener("transitionend" , handleTransitionEnd);
+                    cnctEmPrvdBdr.remove();
+                    documentBody.removeAttribute(`data-modal-state`);
+                    joinMtdPrvdBtn.disabled = false;
+                });
+            }
+
+            async function em_prvd_signin(provider)
+            {
+                // firebase.auth().signInWithRedirect(provider);
+                const auth = window.firebaseAuth;
+                auth.signInWithPopup(provider)
+                    .then(async (result) => 
+                    {
+                        if(result?.user)
+                        {
+                            const user = result?.user;
+                            const isNewUser = Boolean(result?.additionalUserInfo?.isNewUser);
+
+                            // Initialize new user's details in firebase
+                            if(isNewUser)
+                            {
+                                window._is_uvp_fb_setup = false;
+                                const isFbStp = await uvp_fb_setup(user.uid, (user?.displayName || `First-name-${generateRandomString()} Last-name-${generateRandomString()}`));
+
+                                if(!isFbStp) throw new Error("Firebase user initialization in firestore failed");
+
+                                console.log("Welcome new user:", user.displayName);
+                            }
+                            else
+                            {
+                                console.log("Welcome back:", user.displayName);
+                            }
+
+                            // Refresh page to update UI
+                            window.location.hash = "#/setup";
+                            refreshPage();
+                        }
+                    })
+                    .catch((error) => 
+                    {
+                        console.error(error);
+                    });
+            }
+
+            // Sign up with chosen provider
+            const getEmPrvd = async (prvd = "") =>
+            {
+                if(typeof prvd !== "string") throw new Error("Invalid provider type");
+
+                switch(prvd.toLowerCase())
+                {
+                    case 'google':
+                        console.log("Provider Selected: GOOGLE");
+                        const provider = new firebase.auth.GoogleAuthProvider();
+                        em_prvd_signin(provider);
+                        break;
+                    default:
+                        notification('notifyBad', 'Invalid or no provider was selected');
+                        break;
+                }
+            }
+
+            // Sign in with resp[ective provider
+            cnctEmPrvdItemBtn.forEach((btn) => 
+            {
+                btn.onclick = () => getEmPrvd(`${btn.getAttribute("data-prvd")?.toLowerCase() || ""}`);
+            });
+
+            // Closes the modal
+            cnctEmPrvdCloseBtn.forEach(one => 
+            {
+                one.addEventListener("mousedown" , closeCnctEmPrvd);
+            });
+        }
+        catch(error)
+        {
+            notification('notifyBad', 'An error occurred');
+            console.error(error);
+        }
     }
 
     
