@@ -326,7 +326,7 @@ const sett_cmpnt_lib =
         sett_desc: 
         `
             This will sign you out of your account.
-            You can always get back to the action by entering your log in credentials.
+            Stay signed-in to continue enjoying a seamless experience.
         `,
         sett_atn_type: `modal`,
         sett_atn_id: `sett_sign_out`,
