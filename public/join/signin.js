@@ -434,7 +434,6 @@
 
             async function em_prvd_signin(provider)
             {
-                // firebase.auth().signInWithRedirect(provider);
                 const auth = window.firebaseAuth;
                 auth.signInWithPopup(provider)
                     .then(async (result) => 
@@ -460,8 +459,7 @@
                             }
 
                             // Refresh page to update UI
-                            window.location.hash = "#/setup";
-                            refreshPage();
+                            refreshUserState();
                         }
                     })
                     .catch((error) => 

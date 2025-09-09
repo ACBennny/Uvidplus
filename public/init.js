@@ -49,17 +49,17 @@
         window.addEventListener('DOMContentLoaded', event =>
         {
             // Direct Traffic to the netlify domain
-            // let dmn = window.location.hostname.toLowerCase();
-            // let fb_dm_1 = "uvidplus.firebaseapp.com";
-            // let fb_dm_2 = "uvidplus.web.app";
+            let dmn = window.location.hostname.toLowerCase();
+            let fb_dm_1 = "uvidplus.firebaseapp.com";
+            let fb_dm_2 = "uvidplus.web.app";
 
-            // if((dmn === fb_dm_1) || (dmn === fb_dm_2))
-            // {
-            //     window.location.href = "https://uvidplus.netlify.app";
-            // }
+            if((dmn === fb_dm_1) || (dmn === fb_dm_2))
+            {
+                window.location.href = "https://uvidplus.netlify.app";
+            }
             
             // Start offline checker
-            // offline_status_hbt();
+            offline_status_hbt();
 
             const firebaseConfig = 
             {
@@ -81,37 +81,6 @@
                 window.firebaseDB = firebase.firestore();
 
                 const auth = window.firebaseAuth;
-
-                // Setting up user's signing in with a provider
-                auth.getRedirectResult()
-                    .then(async (result) => 
-                    {
-                        if (result.user)
-                        {
-                            const user = result.user;
-                            const info = firebase.auth.getAdditionalUserInfo(result);
-                            const isNewUser = info.isNewUser;
-
-                            // Initialize new user's details in firebase
-                            if(isNewUser)
-                            {
-                                window._is_uvp_fb_setup = false;
-                                const isFbStp = await uvp_fb_setup(user.uid, (user?.displayName || `First-name-${generateRandomString()} Last-name-${generateRandomString()}`));
-
-                                if(!isFbStp) throw new Error("Firebase user initialization in firestore failed");
-
-                                console.log("Welcome new user:", user.displayName);
-                            }
-                            else
-                            {
-                                console.log("Welcome back:", user.displayName);
-                            }
-                        }
-                    })
-                    .catch((error) => 
-                    {
-                        console.error(error);
-                    });
 
                 // Get user (if it exists)
                 auth.onAuthStateChanged((user) => 
