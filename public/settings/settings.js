@@ -191,8 +191,7 @@
         for(let i = 0; i < sett_cmpnt_lib.length; i++)
         {
             const item = sett_cmpnt_lib[i];
-            const reqEmPswd = (item.sett_reqEmPswd && typeof item.sett_reqEmPswd === "boolean") ? item.sett_reqEmPswd : false;
-            const origin = (window.hasEmPswdOrigin && typeof window.hasEmPswdOrigin === "boolean") ? window.hasEmPswdOrigin : false;
+            const reqEmPswd = item.sett_reqEmPswd;
 
             let settCtntStruct = ``;
             let sectCtntInfoStruct = ``;
@@ -214,8 +213,9 @@
             `;
 
             // Determine and set the appropriate content for the action btn
-            if((reqEmPswd == origin) && (settCtntOrientFlag == false))
+            if((reqEmPswd == false) || (window.hasEmPswdOrigin == true) && (settCtntOrientFlag == false))
             {
+
                 if(item.sett_atn_type === "toggle")
                 {
                     settCtntAtnStruct = 
@@ -473,6 +473,7 @@
         const wifi_only_dwld = userDB.wifi_only_dwld;
         const wifi_only_strm = userDB.wifi_only_stream;
         const cell_strm_ntfy = userDB.cellular_stream_ntfy;
+        const use_ext = userDB.use_ext_plr;
         const share_pi = userDB.share_prsnl_info;
 
         // Update based on seup origin (Email/Password or Provider)
@@ -501,6 +502,9 @@
 
         // Cellular Stream notification
         document.getElementById("sett_cellular_stream").checked = typeof cell_strm_ntfy === "boolean" ? cell_strm_ntfy : null;
+
+        // External Player
+        document.getElementById("sett_ext_plyr").checked = typeof use_ext === "boolean" ? use_ext : null;
 
         // Info sharing
         document.getElementById("sett_prsnl_info_shrng").checked = typeof share_pi === "boolean" ? share_pi : null;
