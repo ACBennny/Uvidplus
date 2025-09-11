@@ -608,12 +608,23 @@
                     {
                         const _ext_ev_dt = JSON.parse(_ext_event?.data);
                         const _ext_data = JSON.parse(_ext_ev_dt?.data);
-                        const _ext_last_ssn = _ext_data[`tv-${_ext_id}`]?.last_season_watched;
-                        const _ext_last_ep = _ext_data[`tv-${_ext_id}`]?.last_episode_watched;
-                        const _ext_cur_time = _ext_data[`tv-${_ext_id}`]?.show_progress[`s${_ext_last_ssn}e${_ext_last_ep}`]?.progress?.watched || _ext_data[`tv-${_ext_id}`]?.progress?.watched;
-                        const _ext_ttl_dur = _ext_data[`tv-${_ext_id}`]?.show_progress[`s${_ext_last_ssn}e${_ext_last_ep}`]?.progress?.duration || _ext_data[`tv-${_ext_id}`]?.progress?.duration;
+                        
+                        if((info_pg_show_type.toLowerCase() === "tv"))
+                        {
+                            const _ext_last_ssn = _ext_data[`tv-${_ext_id}`]?.last_season_watched;
+                            const _ext_last_ep = _ext_data[`tv-${_ext_id}`]?.last_episode_watched;
+                            const _ext_cur_time = _ext_data[`tv-${_ext_id}`]?.show_progress[`s${_ext_last_ssn}e${_ext_last_ep}`]?.progress?.watched || _ext_data[`tv-${_ext_id}`]?.progress?.watched;
+                            const _ext_ttl_dur = _ext_data[`tv-${_ext_id}`]?.show_progress[`s${_ext_last_ssn}e${_ext_last_ep}`]?.progress?.duration || _ext_data[`tv-${_ext_id}`]?.progress?.duration;
 
-                        _ext_usr_watch_hist_upd(_ext_last_ssn, _ext_last_ep, _ext_cur_time, _ext_ttl_dur);
+                            _ext_usr_watch_hist_upd(_ext_last_ssn, _ext_last_ep, _ext_cur_time, _ext_ttl_dur);
+                        }
+                        else
+                        {
+                            const _ext_cur_time = _ext_data[`movie-${_ext_id}`]?.progress?.watched;
+                            const _ext_ttl_dur = _ext_data[`movie-${_ext_id}`]?.progress?.duration;
+
+                            _ext_usr_watch_hist_upd(null, null, _ext_cur_time, _ext_ttl_dur);
+                        }
                     }
                 }
                 catch(_ext_err){}

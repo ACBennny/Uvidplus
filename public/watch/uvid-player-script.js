@@ -599,7 +599,7 @@
         // Add listener for saving watch history if user switches tabs
         document.addEventListener("visibilitychange", async () => 
         {
-            if((isPageWatchPage() && !(isWpgExt)) && (document.visibilityState === "hidden"))
+            if((isPageWatchPage() && !(isWpgExt) && (typeof mainVideo !== "undefined")) && (document.visibilityState === "hidden"))
             {
                 await saveWatchProgessInHist();
             }
@@ -957,7 +957,12 @@
     // Save currentDuration progress to user history
     const updUsrWatchHist = async (currTime = `00:00`, ttlTime = `00:57`) =>
     {
+        if((typeof currTime !== "string" || typeof ttlTime !== "string")
+            || (currTime === "" || ttlTime === "")
+        ) return;
+
         isUVidSv = true;
+        
         try
         {
             let selectedProfile = await getSelectedProfile();
