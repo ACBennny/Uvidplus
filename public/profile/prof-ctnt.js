@@ -257,7 +257,7 @@
                     });
                     const likes_sets = await Promise.all(likes_fetch);
 
-                    likes_items.reverse().forEach((likes_item, i) =>
+                    likes_items.forEach((likes_item, i) =>
                     {
                         const itemLink = likes_item.ls_item;
                         const itemSplit = itemLink.split('/');
@@ -364,7 +364,7 @@
                     });
                     const dislikes_sets = await Promise.all(dislikes_fetch);
 
-                    dislikes_items.reverse().forEach((dislikes_item, i) =>
+                    dislikes_items.forEach((dislikes_item, i) =>
                     {
                         const itemLink = dislikes_item.ds_item;
                         const itemSplit = itemLink.split('/');
