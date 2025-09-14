@@ -330,7 +330,19 @@
         let show_foreground = `https://image.tmdb.org/t/p/original/${showsStructData?.poster_path}`;
 
         let show_title = showsStructData?.name || showsStructData?.title || "N/A";
-        let show_tagline = showsStructData?.tagline;
+
+        let show_tagline = (showsStructData?.tagline) 
+            ? 
+                `
+                    <div class="quick_det_bdr">
+                        <div class="quick_det_box">
+                            <div class="quick_det_item">
+                                <span class="quick_det_text tagline">${showsStructData?.tagline}</span>
+                            </div>
+                        </div>
+                    </div>
+                ` 
+            : "";
         let show_trailers = (getShowMainTrailer(showsStructData?.videos)?.key)
             ? `https://www.youtube.com/embed/${getShowMainTrailer(showsStructData?.videos)?.key}`
             : null;
@@ -418,13 +430,7 @@
                                 <div class="title_ctntBdr">
                                     <h1 id="show_Header_Name">${show_title}</h1>
 
-                                    <div class="quick_det_bdr">
-                                        <div class="quick_det_box">
-                                            <div class="quick_det_item">
-                                                <span class="quick_det_text tagline">${show_tagline}</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    ${show_tagline}
 
                                     <div class="quick_det_bdr">
                                         <div class="quick_det_box">
