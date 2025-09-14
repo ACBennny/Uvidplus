@@ -26,7 +26,7 @@
                         <div class="settingNavTitleBox">
                             <p class="settingNavTitleText">Settings</p>
                         </div>
-                        <button type="button" class="settingNavOptBox settSectNavOptBtn" data-sett-sect="membership">
+                        <button type="button" class="settingNavOptBox settSectNavOptBtn" settSectNavOptBtn" data-sett-sect="membership">
                             <div class="settingNavOptIcon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="settingNavOptSvg">
                                     <path d="M20.941 8.189c.58.573.83 1.295.947 2.152c.112.826.112 1.876.112 3.178v.105c0 1.302 0 2.352-.112 3.178c-.117.857-.367 1.579-.947 2.152s-1.31.82-2.178.935c-.835.111-1.898.111-3.216.111h-4.925c-1.318 0-2.38 0-3.216-.111c-.868-.115-1.598-.362-2.178-.935a3 3 0 0 1-.735-1.204c.871.107 1.95.107 3.195.107h5.01c1.281 0 2.385 0 3.27-.117c.947-.126 1.856-.41 2.593-1.138s1.024-1.626 1.151-2.562c.12-.874.12-1.965.119-3.232v-.188c0-1.23 0-2.296-.11-3.158c.46.151.868.379 1.22.727m-10.748.859c-.932 0-1.687.746-1.687 1.666s.755 1.667 1.687 1.667c.931 0 1.686-.746 1.686-1.667c0-.92-.755-1.666-1.686-1.666" />
@@ -142,6 +142,8 @@
     `;
     let settNavBdr;
     let sett_mng_prfls_curr_pid = null;
+    let isSectNavBtnPress = false;
+    let sectNavBtnIndex = 5;
 
 
 
@@ -166,8 +168,10 @@
     function settCallFunc()
     {
         window.addEventListener("resize", toggleSettNav);
+        window.onsc
         init_sett_profile_cards();
         sett_sect_router();
+        sett_sect_auto();
         attachGenMenuModalEventListeners();
         attachSettSectNavListeners();
         upd_sett_info();
@@ -353,13 +357,19 @@
             }
         });
 
-        settSectNavBtn.forEach((newBtn) => 
+        settSectNavBtn.forEach((newBtn, index) => 
         {
-            let btn_sect = newBtn.getAttribute("data-sett-sect");
+            if((newBtn.classList.contains("genMenuModalCtntBtnBox")) && ((index) == (sectNavBtnIndex)))
+            {
+                newBtn.classList.add("selected");
+                console.log("adwsd")
+            }
             
             const nav_action = () => 
             {
-                // Scroll to section
+                let btn_sect = newBtn.getAttribute("data-sett-sect");
+                
+                sectNavBtnIndex = index;
                 sett_sect_dstn(btn_sect);
             }
 
@@ -421,6 +431,9 @@
         // Return if no match is found
         if(!sectTab) return;
 
+        // Disable observer
+        isSectNavBtnPress = true;
+
         // Update the url
         sett_url_upd(sect);
 
@@ -446,6 +459,77 @@
             top: sectTabH,
             behavior: "smooth"
         });
+        
+        // Enable observer
+        if("onscrollend" in window)
+        {
+            // For browsers that support "scrollend"
+            window.onscrollend = () => 
+            {
+                isSectNavBtnPress = false;
+            };
+        }
+        else
+        {
+            // Fallback: detect manual scrolling
+            let settNavBtnScrollTmr;
+
+            const settNavBtnScrollEv = () => 
+            {
+                clearTimeout(settNavBtnScrollTmr);
+                window.removeEventListener("scroll", settNavBtnScrollEv);
+
+                settNavBtnScrollTmr = setTimeout(() => 
+                {
+                    isSectNavBtnPress = false;
+                }, 150);
+            }
+
+            window.addEventListener("scroll", settNavBtnScrollEv);
+        }
+    }
+
+    // Automatically updates the selected section when in view
+    function sett_sect_auto()
+    {
+        const settTabs = document.querySelectorAll(".settCtntTab");
+        const settSectObserver = new IntersectionObserver((entries) => 
+        {
+            if((isSectNavBtnPress == true)) return;
+
+            let visibleEntry = null;
+
+            // Get the entry that's mostly in visible in viewport
+            entries.forEach((entry) => 
+            {
+                if(entry.isIntersecting)
+                {
+                    if(!(visibleEntry) || (entry.intersectionRatio > visibleEntry.intersectionRatio))
+                    {
+                        visibleEntry = entry;
+                    }
+                }
+            });
+
+            // Select the the most visible entry in viewport
+            if(visibleEntry)
+            {
+                const eid = visibleEntry.target.id.trim().toLowerCase();
+                const etab = eid.slice(5);
+
+                document.querySelectorAll(".settSectNavOptBtn").forEach(btn => btn.classList.remove("active"));
+
+                document.querySelector(`.settSectNavOptBtn[data-sett-sect='${etab}']`)?.classList.add("active");
+                
+                sectNavBtnIndex = Math.abs(Array.from(settTabs).indexOf(visibleEntry.target)) + 5;
+            }
+        }, {
+            root: null,
+            rootMargin: '0px',
+            threshold: [0.25, 0.5, 0.75, 1.0]
+        });
+
+        settTabs.forEach(tab => settSectObserver.observe(tab));
     }
 
 
