@@ -255,9 +255,10 @@
                         
                         return __getUVPShowDet(itemId, itemType);
                     });
-                    const likes_sets = await Promise.all(likes_fetch);
+                    let likes_sets = await Promise.all(likes_fetch);
+                    likes_sets = likes_sets.reverse();
 
-                    likes_items.forEach((likes_item, i) =>
+                    likes_items.reverse().forEach((likes_item, i) =>
                     {
                         const itemLink = likes_item.ls_item;
                         const itemSplit = itemLink.split('/');
@@ -362,9 +363,10 @@
                         
                         return __getUVPShowDet(itemId, itemType);
                     });
-                    const dislikes_sets = await Promise.all(dislikes_fetch);
+                    let dislikes_sets = await Promise.all(dislikes_fetch);
+                    dislikes_sets = dislikes_sets.reverse();
 
-                    dislikes_items.forEach((dislikes_item, i) =>
+                    dislikes_items.reverse().forEach((dislikes_item, i) =>
                     {
                         const itemLink = dislikes_item.ds_item;
                         const itemSplit = itemLink.split('/');
