@@ -264,14 +264,15 @@
                                 <p class="join_outro_det_txt">
                                     <u>What does this mean?</u>
                                     <br>
-                                    Uvid+ does NOT and will NOT bill you. Thus, besides a working email for account management, 
-                                    you should NOT enter any real information as it is NOT required.
+                                    Uvid+ does NOT and will NOT bill you. Asides an email to create and manage your account, all the forms in the upcoming steps
+                                    do not require any real information. They exist as part of the simulation process to replicate the experience
+                                    of a real streaming service. Feel free to enter any random details in those fields.
                                     <br>
-                                    In fact, it is against the
+                                    You may read the
                                     <a class="join_outro_det_txt_mjr" onclick="window.open('#/tou')">Terms of Use</a> 
                                     and 
                                     <a class="join_outro_det_txt_mjr" onclick="window.open('#/privacy')">Privacy Policy</a> 
-                                    to do so.
+                                    to learn more.
                                 </p>
                                 <p class="join_outro_det_txt">
                                     Click
