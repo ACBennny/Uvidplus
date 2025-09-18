@@ -2346,7 +2346,6 @@ html:root:has(.btmNavBar.hidden)
 
 .quickSearchInputBox .quickSearchInputFieldClass
 {
-    font-family: 'Zen dots' , sans-serif;
     width: 100%;
     height: 100%;
     padding: 0.625rem var(--quickSearchInputIconWidth);
@@ -4163,7 +4162,6 @@ html:root:has(.btmNavBar.hidden)
 
 .newCLInputBox .newCLInputClass
 {
-    font-family: 'Zen dots' , sans-serif;   
     width: 100%;
     height: 100%;
     height: 2.5rem;
@@ -4177,7 +4175,6 @@ html:root:has(.btmNavBar.hidden)
 
 .newCLInputBox .newCLTextAreaClass
 {
-    font-family: 'Zen dots' , sans-serif;   
     width: 100%;
     height: -moz-fit-content;
     height: fit-content;
