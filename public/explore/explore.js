@@ -222,6 +222,9 @@
         language: "",
         genres: [],
     };
+    const ctgYrLwrBnd = 1960;
+    const ctgYrUprBnd = new Date().getFullYear();
+    let ctgYrCurr = ctgYrUprBnd;
     let ctgPaginationBdr;
     let ctgCurrPg = 1;
     let ctgTtlPg = 0;
@@ -561,6 +564,38 @@
         }
 
 
+        // Generate the Year options
+        let ctgYrStruct = ``;
+        const ctgYrCard = document.createElement("div");
+        ctgYrCard.className = "catalogFilterCardBdr";
+        ctgYrCard.innerHTML = 
+        `
+            <div class="catalogFilterCardBox">
+                <div class="catalogFilterDisplayIcon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="catalogFilterDisplaySvg">
+                        <path fill-rule="evenodd" d="M13.698 3.314a.75.75 0 0 1 .809.133l6 5.5a.75.75 0 0 1-1.014 1.106L14.75 5.705V20a.75.75 0 0 1-1.5 0V4a.75.75 0 0 1 .448-.687M10 3.25a.75.75 0 0 1 .75.75v16a.75.75 0 0 1-1.257.553l-6-5.5a.75.75 0 0 1 1.014-1.106l4.743 4.348V4a.75.75 0 0 1 .75-.75" clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+                <div class="catalogFilterTitleBox">
+                    <div class="catalogFilterTitleText">Year</div>
+                </div>
+                <div class="catalogFilterSelectBdr">
+                    <select class="catalogFilterSelectBox" name="year" id="filter_year">
+                        <option value="">Any</option>
+                    </select>
+                </div>
+            </div>
+        `;
+
+        for(let y = ctgYrUprBnd; y >= ctgYrLwrBnd; y--)
+        {
+            ctgYrStruct += `<option value="${y}">${y}</option>`;
+        }
+
+        ctgYrCard.querySelector("select#filter_year").insertAdjacentHTML(`beforeend`, ctgYrStruct);
+        catalogFilterBox.appendChild(ctgYrCard);
+
+
         // Generate the Genre options
         for(let i = 0; i < uvp_genres.length; i++)
         {
@@ -597,7 +632,7 @@
                     
                 case 'year':
                     field.value = `${catalogURLYearParam.toLowerCase()}`;
-                    break;
+                    break;                                                 
                     
                 case 'lang.':
                     field.value = `${catalogURLLangParam.toLowerCase()}`;
