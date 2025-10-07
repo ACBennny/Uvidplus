@@ -1896,8 +1896,9 @@ let editCLStruct =
 
             // Only seven results are displayed
             const resultRange = items.slice(0, 7);
+            let addShowToCLRsltStruct = ``;
 
-            addShowToCLResultBox.innerHTML = resultRange.map((item) => 
+            addShowToCLRsltStruct = resultRange.map((item) => 
             {
                 const {
                     show_link = `#/${item?.media_type}/${item?.id}`,
@@ -1988,6 +1989,7 @@ let editCLStruct =
                     return null;
                 }
             }).join('');
+            addShowToCLResultBox.innerHTML = addShowToCLRsltStruct;
 
             // Reattaching listeners
             addItemToCL();
@@ -2046,7 +2048,7 @@ let editCLStruct =
         });
     }
 
-    // Closes the modal for adding shows to yur collection
+    // Closes the modal for adding shows to your collection
     function closeAddShowToCL()
     {
         addShowToCLBase.classList.remove("active");

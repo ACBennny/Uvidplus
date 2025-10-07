@@ -1819,8 +1819,9 @@
             {
                 // Only seven results are displayed
                 const resultRange = items.slice(0, 25);
+                let qkSrchRsltStruct = ``;
 
-                quickSearchResultBox.innerHTML = resultRange.map((item) => 
+                qkSrchRsltStruct = resultRange.map((item) => 
                 {
                     const {
                         show_link = `#/${item?.media_type}/${item?.id}`,
@@ -1896,6 +1897,7 @@
                         return null;
                     }
                 }).join('');
+                quickSearchResultBox.innerHTML = qkSrchRsltStruct;
                 
                 // Configure View More btn
                 viewMoreSearchResults();
