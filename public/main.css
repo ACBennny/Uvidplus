@@ -663,7 +663,9 @@ content .content
 input[disabled="true"],
 input[disabled],
 textarea[disabled="true"],
-textarea[disabled]
+textarea[disabled],
+select[disabled="true"],
+select[disabled]
 {
     filter: brightness(0.5);
     text-decoration: none;
@@ -673,6 +675,11 @@ textarea[disabled]
     user-select: none;
     cursor:not-allowed;
     pointer-events: none;
+}
+
+select
+{
+    font-family: 'Berlin Sans FB', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6
