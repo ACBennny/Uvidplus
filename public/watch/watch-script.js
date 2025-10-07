@@ -415,7 +415,7 @@
             watchPgSelEpBtn.remove();
         }
 
-        document.querySelector(".watch_pg_plyr_sel_btn").querySelector(".genBtnText").textContent = `Player ${extDfltPlyrExt.slice((extDfltPlyrExt.length - 1))}`
+        if((isWpgExt == true)) document.querySelector(".watch_pg_plyr_sel_btn").querySelector(".genBtnText").textContent = `Player ${extDfltPlyrExt.slice((extDfltPlyrExt.length - 1))}`;
 
         // Display base
         watch_pg_tmr = setTimeout(() => 
