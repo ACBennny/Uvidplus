@@ -594,9 +594,9 @@
                             _ext_ssn_ep = formatWatchPgSsnEp(Number(_this_ssn), Number(_this_eps));
                             watchPgShowSsn = _ext_ssn_ep?.season;
                             watchPgShowEps = _ext_ssn_ep?.episode;
-                        }
                         
-                        updWatchInfo();
+                            updWatchInfo();
+                        }
                     }
                 }
                 catch(_ext_sv_err){}
