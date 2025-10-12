@@ -1034,9 +1034,13 @@
     // Inserts the sources and tracks for the video player
     function preUVPlyr()
     {
+        if((!isPageWatchPage() || (isWpgExt))) return;
+
         video_player = document.querySelector(".video_player");
         video_player.innerHTML = video_player_html;
         mainVideo = video_player.querySelector(".main-video");
+
+        if((typeof mainVideo === "undefined")) return;
 
         const sources = 
         [
@@ -1080,6 +1084,8 @@
     // Initializes the video player
     function initUVPlyr()
     {
+        if((!isPageWatchPage() || (isWpgExt) || (typeof mainVideo === "undefined"))) return;
+
         vidBdr = document.querySelector(".vid_bdr");
 
         currentDuration = video_player.querySelector(".current-time");
@@ -1145,11 +1151,13 @@
         // Blob url
         let mainVideoSources = mainVideo.querySelectorAll("source");
         let ttlSrcLength = mainVideoSources.length;
-        let srcProgress = new Array(ttlSrcLength).fill(0);
+        let srcProgress = new Array(ttlSrcLength).fill(0) || [];
 
         // Update UI based on currentDuration vid process
         const updUVPlyrBlobProgress = () =>
         {
+            if((!isPageWatchPage() || (isWpgExt) || (typeof mainVideo === "undefined") || (window.__uvp_uvplr_ctnt_loaded))) return;
+
             const ttl_progress = srcProgress.reduce((a, b) => a + b, 0);
             const ttl_pctl = (ttl_progress / ttlSrcLength) * 10;
 
@@ -1161,6 +1169,9 @@
             {
                 // Set flag to true to prevent repetitive calls
                 window.__uvp_uvplr_ctnt_loaded = true;
+
+                // Remove selector on element
+                ldr_txt == null;
 
                 // Force reload since blob is ready
                 mainVideo.load();
