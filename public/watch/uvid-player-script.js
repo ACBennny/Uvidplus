@@ -1154,7 +1154,7 @@
             const ttl_pctl = (ttl_progress / ttlSrcLength) * 10;
 
             let ldr_txt = document.querySelector(".watch_pg_plyr_ldr_pctl_txt");
-            ldr_txt.textContent = `${(ttl_pctl.toFixed(0) <= 100) ? ttl_pctl.toFixed(1) : 100}%`;
+            ldr_txt.textContent = `${(ttl_pctl.toFixed(0) <= 99) ? ttl_pctl.toFixed(0) : 100}%`;
 
             // Action(s) to be performed when progress is at 100%
             if((ttl_pctl >= 100) && !(window.__uvp_uvplr_ctnt_loaded))
