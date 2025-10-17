@@ -652,7 +652,11 @@
             menu_id: `schedule_filter_menu`,
             menu_ctnt: 
             `
-                <div class="genMenuModalCtntBox scheduleFilterCtntBox"></div>
+                <div class="genMenuModalCtntBox scheduleFilterCtntBox">
+                    <div class="genMenuModalCtntSectBox">
+                        <p class="genMenuModalCtntSectText">View a Country's Schedule</p>
+                    </div>
+                </div>
             `,
         },
     ];
