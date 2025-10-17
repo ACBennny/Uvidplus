@@ -223,7 +223,7 @@ const uvp_regions =
     },
     {
         rg_name: `Israel`,
-        rg_code: `Italy`,
+        rg_code: `IL`,
     },
     {
         rg_name: `Japan`,
