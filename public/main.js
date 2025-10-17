@@ -2203,7 +2203,7 @@
         // Generates the appropriate link based on the TMDB info provided
         function genUVPLink(info)
         {
-            if (!info || !info.id) return "#/home";
+            if (!info || !info.id) return "#/explore/?search= ";
 
             const isMovie = !!info.title;
             const typePath = isMovie ? "movie" : "tv";

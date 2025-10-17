@@ -656,6 +656,11 @@
                     <div class="genMenuModalCtntSectBox">
                         <p class="genMenuModalCtntSectText">View a Country's Schedule</p>
                     </div>
+                    <div class="genMenuModalCtntDescBox">
+                        <p class="genMenuModalCtntDescText">
+                            Select a country from the list below to view its streaming schedule.
+                        </p>
+                    </div>
                 </div>
             `,
         },

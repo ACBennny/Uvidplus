@@ -65,7 +65,7 @@
                             There are no shows streaming at this time
                             <br>
                             If you believe this to be an error, you can refresh the page by clicking
-                            <a onclick="refreshPage()"><strong>here.</strong></a>
+                            <a onclick="refreshPage()"><strong><u>HERE</u</strong></a>.
                         </p>
                     </div>
                 </div>
@@ -85,6 +85,7 @@
         sideNavLinks[4].classList.add("active");
         btmNavLinks[3].classList.add("active");
         
+        attachGenMenuModalEventListeners();
 
         // Load and build schedule
         await loadSchedule();
@@ -133,7 +134,8 @@
         }
         catch(error)
         {
-            console.error(`Failed to load schedule\n${error}`);
+            console.error(`Failed to load schedule\n`);
+            console.log(typeof error);
             notification(`notifyBad`, `Failed to load schedule. Please try again later.`);
         }
     }
@@ -202,8 +204,10 @@
                     const cardBdr = document.createElement("div");
                     cardBdr.className = "schedule_ctntCardBdr";
 
-                    const tmdb_info = await getTMDBInfoFromTVMazeId(show?.id);
-                    const tmdb_link = genUVPLink(tmdb_info);
+                    const tmdb_info = await getTMDBInfoFromTVMazeId(show?.id) || {};
+                    const tmdb_link = (Object.entries(tmdb_info).length > 0) 
+                        ? genUVPLink(tmdb_info) 
+                        : `#/explore/?search=${show.name}`;
 
                     const cardBox = document.createElement("a");
                     cardBox.className = "schedule_ctntCardBox";
@@ -451,7 +455,7 @@
     }
 
 
-    // Updates items with draggable menus
+    // Selecting a region to see its schedule
     function attachSchdlFltrListeners()
     {
         // Notify user of the purpose
@@ -481,7 +485,7 @@
 
 
         // Insert menu options and add seletors
-        menuCtntBox.innerHTML = menuCtntStruct;
+        menuCtntBox.innerHTML += menuCtntStruct;
         const menuOptBtns = document.querySelectorAll(".scheduleFilterOptBtn");
 
         // Get, select, and scroll to the chosen option
@@ -528,18 +532,23 @@
                         notification(`notifyBad`, `What are you looking for? ¯\\\_(ツ)_/¯`);
                         return;
                     }
+                    else if((btnOptNo === "IL"))
+                    {
+                        notification(`notifyBad`, `ISRAEL, END THE GENOCIDE!`);
+                        notification(`notifyBad`, `ISRAEL, FREE PALESTINE!!`);
+                        notification(`notifyBad`, `ISRAEL, STOP KILLING CHILDREN!!!`);
+                    }
 
                     // Update flag
                     window.__uvp_schdl_fltr_rgn = btnOptNo !== ""
                         ? btnOptNo
                         : dflt_schdl_fltr_rgn
 
+                    // Notify User
+                    notification(`notifyGood`, `Displaying schedule for "${btn.querySelector(".genMenuModalCtntBtnText").textContent}"`);
 
                     // Refresh page to reflect changes
                     setTimeout(refreshPage, 100);
-
-                    // Notify User
-                    notification(`notifyGood`, `Displaying schedule for "${btn.querySelector(".genMenuModalCtntBtnText").textContent}"`);
                 } 
                 catch(error) 
                 {
