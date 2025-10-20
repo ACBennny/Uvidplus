@@ -1051,7 +1051,7 @@
 
         function devToolKey(e)
         {
-            if((typeof e === "undefined") || (typeof e.key === "undefined")) return
+            if((typeof e === "undefined") || (typeof e.key === "undefined")) return;
 
             let keyStr = e?.key?.toLowerCase();
             
@@ -1071,6 +1071,7 @@
             {
                 if(typeof e !== "undefined") e.preventDefault();
                 if((isPageWatchPage()) && (isWpgExt)) return fail_ext_plyr();
+                if((e.ctrlKey && e.shiftKey && keyStr === 'i')) return window.open('#/settings', '_self');
                 viewCodeProperly(e);
             }
         }
