@@ -160,8 +160,8 @@ html:root
 body
 {
     font-family: 'Berlin Sans FB', sans-serif;
-    min-height: 100svh;
     min-height: 100vh;
+    min-height: 100svh;
 }
 
 @supports(-webkit-tap-highlight-color: #00000000)
