@@ -159,6 +159,7 @@
         documentCtnt.insertAdjacentHTML(`beforeend`, sett_base_struct);
         settNavBdr = document.querySelector(".settingNavBdr");
         topNavBar.innerHTML = settPageNav;
+        sectNavBtnIndex = 5;
 
         toggleSettNav();
         sett_cmpnt_builder();
