@@ -958,6 +958,7 @@
     // Initialize payment options (Step 3)
     async function init_signup_3()
     {
+        alert("Just a reminder: The payment form you are seeing or about to see is NOT a real payment form and does not require any real information.");
 
         // Check that a plan has been selected
         const usrData = await getUserData();
