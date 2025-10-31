@@ -545,29 +545,29 @@
                         ? `https://vidsrc.cc/v3/embed/tv/${_ext_id}/${_ext_ssn}/${_ext_eps}?autoPlay=${_ext_auto_play}&poster=true` 
                         : `https://vidsrc.cc/v3/embed/movie/${_ext_id}?autoPlay=${_ext_auto_play}&poster=true`;
                     break;
-                    
-                case '_ext_use_sel_ext_plyr_7':
-                    _ext_frm_src = (info_pg_show_type.toLowerCase() === "tv") 
-                        ? `https://player.smashystream.com/tv/${_ext_id}?s=${_ext_ssn}&e=${_ext_eps}?subLang=${_ext_subttl_lang_name}&startTime=${_ext_vd_prgs}` 
-                        : `https://player.smashystream.com/movie/${_ext_id}?subLang=${_ext_subttl_lang_name}&startTime=${_ext_vd_prgs}`;
-                    break;
 
-                case '_ext_use_sel_ext_plyr_8':
+                case '_ext_use_sel_ext_plyr_7':
                     _ext_frm_src = (info_pg_show_type.toLowerCase() === "tv") 
                         ? `https://111movies.com/tv/${_ext_id}/${_ext_ssn}/${_ext_eps}` 
                         : `https://111movies.com/movie/${_ext_id}`;
                     break;
                     
-                case '_ext_use_sel_ext_plyr_9':
+                case '_ext_use_sel_ext_plyr_8':
                     _ext_frm_src = (info_pg_show_type.toLowerCase() === "tv") 
                         ? `https://multiembed.mov/?video_id=${_ext_id}&tmdb=1&s=${_ext_ssn}&e=${_ext_eps}` 
                         : `https://multiembed.mov/?video_id=${_ext_id}&tmdb=1`;
                     break;
                     
-                case '_ext_use_sel_ext_plyr_10':
+                case '_ext_use_sel_ext_plyr_9':
                     _ext_frm_src = (info_pg_show_type.toLowerCase() === "tv") 
                         ? `https://vidlink.pro/tv/${_ext_id}/${_ext_ssn}/${_ext_eps}?primaryColor=${_ext_theme}&secondaryColor=${_ext_theme_sec.toLowerCase()}&iconColor=dfdfdf&icons=default&player=default&title=true&poster=true&autoplay=${_ext_auto_play}&nextbutton=true` 
                         : `https://vidlink.pro/movie/${_ext_id}?primaryColor=${_ext_theme}&secondaryColor=${_ext_theme_sec.toLowerCase()}&iconColor=dfdfdf&icons=default&player=default&title=true&poster=true&autoplay=${_ext_auto_play}&nextbutton=false`;
+                    break;
+                    
+                case '_ext_use_sel_ext_plyr_10':
+                    _ext_frm_src = (info_pg_show_type.toLowerCase() === "tv") 
+                        ? `https://player.smashystream.com/tv/${_ext_id}?s=${_ext_ssn}&e=${_ext_eps}?subLang=${_ext_subttl_lang_name}&startTime=${_ext_vd_prgs}` 
+                        : `https://player.smashystream.com/movie/${_ext_id}?subLang=${_ext_subttl_lang_name}&startTime=${_ext_vd_prgs}`;
                     break;
 
                 default:
@@ -804,7 +804,7 @@
     {
         try
         {
-            const ply_sets = [1, 7, 1, 1, 4, 1, 1, 1, 1];
+            const ply_sets = [1, 7, 1, 1, 4, 1, 1, 1, 1, 1];
             const _ext_plyr_sel_btn = document.querySelector(".watch_pg_plyr_sel_btn");
             const _ext_frm_wrap = document.getElementById("watch_pg_plyr_ext_box_id");
             const _ext_menu_box = document.querySelector(".watchPlyrSelCtntBox");
