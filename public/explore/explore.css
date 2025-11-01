@@ -48,7 +48,7 @@ html:root
     max-width: var(--genMaxContainerWidth);
     display: flex;
     flex-direction: column;
-    padding: calc((var(--navBarHeight) + 1.25rem)) 0;
+    padding: calc((var(--navBarHeight) + 1.25rem)) 0 0;
 }
 
 .exploreBdr .exploreBox
