@@ -487,7 +487,7 @@
             const _ext_eps = watchPgShowEps;
             const _ext_show_link = ((info_pg_show_type.toLowerCase() === "tv")) ? `${info_pg_show_link}/watch/${_ext_ssn}/${_ext_eps}` : `${info_pg_show_link}/watch`;
             const _ext_theme = "1FC316";
-            const _ext_theme_sec = "1DA21675";
+            const _ext_theme_sec = "DFDFDF";
             const _ext_theme_icn = "FFFFFF";
             const _ext_subttl_lang_iso = "en";
             const _ext_subttl_lang_name = "english";
