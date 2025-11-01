@@ -150,10 +150,6 @@
         // Updating Chat area's height as user types in field
         const updFldHeight = (reset = false) =>
         {
-
-            let chat_h = (Math.round((ctct_chat_bdr.getBoundingClientRect().height)) / 16);
-            let hdr_h = (Math.round((ctct_hdr_bdr.getBoundingClientRect().height)) / 16);
-            let body_h = (Math.round((ctct_body_bdr.getBoundingClientRect().height)) / 16);
             let fld_h = (Math.round((ctct_ftr_input_fld.getBoundingClientRect().height) + 25) / 16);
 
             if((reset == true))
@@ -161,10 +157,7 @@
                 fld_h = 4.5;
             }
 
-            body_h = chat_h - (hdr_h + fld_h);
-
-            ctct_body_bdr.setAttribute(`style`, `height: ${body_h}rem`);
-            ctct_ftr_bdr.setAttribute(`style`, `height: ${fld_h}rem`);
+            ctct_chat_bdr.setAttribute(`style`, `--ctct_ftr_input_h: ${fld_h}rem`);
         }
 
         ctct_ftr_input_fld.addEventListener("input" , updFldHeight);
