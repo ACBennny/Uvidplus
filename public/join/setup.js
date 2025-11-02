@@ -803,6 +803,8 @@
     {
         // Return to verification if user is not verified
         if(!(isUserVerified())) return init_signup_vrfy(false);
+        
+        alert("Just a reminder: Uvid+ does not charge you or request any monetary goods from you. This is just part of the simulation process for this demo.\nRead the 'Terms of Use' for more details.");
 
         const planFtrUL = document.querySelector(".join_plan_ftr_ul");
         const planSlsBox = document.querySelector(".join_plan_sls_box");
