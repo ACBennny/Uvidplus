@@ -958,7 +958,7 @@
     // Initialize payment options (Step 3)
     async function init_signup_3()
     {
-        alert("Just a reminder: The payment form you are seeing or about to see is NOT a real payment form and does not require any real information.");
+        alert("Just a reminder: The payment form you are seeing or about to see is NOT a real payment form and does not require any real information.\nUvid+ does not charge you. This is just part of the simulation process for this demo.\nRead the 'Terms of Use' for more details.");
 
         // Check that a plan has been selected
         const usrData = await getUserData();
@@ -1198,6 +1198,7 @@
     // Initializes the modal for new users to enter their payment card details.
     async function init_1st_setup_pymt_opt_register()
     {
+        alert("Just a reminder: The payment form you are seeing or about to see is NOT a real payment form and does not require any real information.\nUvid+ does not charge you. This is just part of the simulation process for this demo.\nRead the 'Terms of Use' for more details.");
 
         // Check that a plan has been selected
         const usrData = await getUserData();
