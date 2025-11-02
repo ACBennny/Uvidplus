@@ -804,7 +804,7 @@
         // Return to verification if user is not verified
         if(!(isUserVerified())) return init_signup_vrfy(false);
         
-        setTimeout(() => alert("Just a reminder: Uvid+ does not charge you or request any monetary goods from you. This is just part of the simulation process for this demo.\nRead the 'Terms of Use' for more details."), 5000);
+        setTimeout(() => alert("Just a reminder: Uvid+ does not charge you or request any monetary goods from you. This is just part of the simulation process for this demo.\nRead the 'Terms of Use' for more details."), 2500);
 
         const planFtrUL = document.querySelector(".join_plan_ftr_ul");
         const planSlsBox = document.querySelector(".join_plan_sls_box");
@@ -960,7 +960,7 @@
     // Initialize payment options (Step 3)
     async function init_signup_3()
     {
-        setTimeout(() => alert("Just a reminder: The payment form you are seeing or about to see is NOT a real payment form and does not require any real information.\nUvid+ does not charge you. This is just part of the simulation process for this demo.\nRead the 'Terms of Use' for more details."), 5000);
+        setTimeout(() => alert("Just a reminder: The payment form you are seeing or about to see is NOT a real payment form and does not require any real information.\nUvid+ does not charge you. This is just part of the simulation process for this demo.\nRead the 'Terms of Use' for more details."), 2500);
 
         // Check that a plan has been selected
         const usrData = await getUserData();
