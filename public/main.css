@@ -195,7 +195,8 @@ html:has(body[gen-menu-modal-is-dragging="true"])
     background-color: #00000000;
 }
 
-html:has(body[data-modal-state="open"])
+html:has(body[data-modal-state="open"]),
+html:has(.join_fence)
 {
     overflow: hidden !important;
 }
