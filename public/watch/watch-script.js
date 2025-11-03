@@ -425,7 +425,7 @@
 
         if((isWpgExt == true))
         {
-            document.querySelector(".watch_pg_plyr_sel_btn").querySelector(".genBtnText").textContent = `Player ${extDfltPlyrExt.slice((extDfltPlyrExt.length - 1))}`;
+            document.querySelector(".watch_pg_plyr_sel_btn").querySelector(".genBtnText").textContent = `Player ${extDfltPlyrExt.slice((22))}`;
         }
         else
         {
