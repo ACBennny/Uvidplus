@@ -224,7 +224,6 @@
         let watchPgPrevBtn = watchPgBase.querySelector(".watch_pg_prev_ep_btn");
         let watchPgNextBtn = watchPgBase.querySelector(".watch_pg_next_ep_btn");
         let watchPgSelEpBtn = watchPgBase.querySelector(".watch_pg_eps_sel_btn");
-        let watchPgSelExtBtn = watchPgBase.querySelector(".wpg_ctrl_to_ext_btn");
         let watch_pg_tmr;
 
         // Returning back to show's info page (Closes the watch page)
@@ -424,20 +423,24 @@
             watchPgSelEpBtn.remove();
         }
 
-        if((isWpgExt == true)) document.querySelector(".watch_pg_plyr_sel_btn").querySelector(".genBtnText").textContent = `Player ${extDfltPlyrExt.slice((extDfltPlyrExt.length - 1))}`;
-
-        // External Plyr
-        watchPgSelExtBtn.onclick = () =>   
+        if((isWpgExt == true))
         {
-            const true_wpg_ctrl_to_ext = () => window.open('#/settings/experience', '_self');
+            document.querySelector(".watch_pg_plyr_sel_btn").querySelector(".genBtnText").textContent = `Player ${extDfltPlyrExt.slice((extDfltPlyrExt.length - 1))}`;
+        }
+        else
+        {
+            watchPgBase.querySelector(".wpg_ctrl_to_ext_btn").onclick = () =>   
+            {
+                const true_wpg_ctrl_to_ext = () => window.open('#/settings/experience', '_self');
 
-            initConfirmModal(
-                `External Player disabled`,
-                `To use external player, turn it on in Settings > App Experience > External Player'`,
-                `Settings`,
-                `Cancel`,
-                true_wpg_ctrl_to_ext
-            );
+                initConfirmModal(
+                    `External Player disabled`,
+                    `To use external player, turn it on in Settings > App Experience > External Player'`,
+                    `Settings`,
+                    `Cancel`,
+                    true_wpg_ctrl_to_ext
+                );
+            }
         }
 
         // Display base
