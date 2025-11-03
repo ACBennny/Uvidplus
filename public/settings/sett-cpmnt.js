@@ -220,6 +220,9 @@ const sett_cmpnt_lib =
             By default, Uvid+ has a its own custom player which plays a sample video for demonstration purposes only.
             If this setting is turned on, an external player from unaffiliated third-party service(s) may be used instead.
             Note that Uvid+ has no control over the content shown on external players, and some Uvid+ features may be unavailable.
+            <br>
+            <u>Important: Enusre that you use an adblocker or browser a with built-in adblocker, 
+            preferably Brave browser or UBlock Origin if on a different browser as external players tend to have lots of spammy ads.</u>
         `,
         sett_atn_type: `toggle`,
         sett_atn_id: `sett_ext_plyr`,
