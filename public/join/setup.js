@@ -960,7 +960,9 @@
     // Initialize payment options (Step 3)
     async function init_signup_3()
     {
-        setTimeout(() => alert("Just a reminder: The payment form you are seeing or about to see is NOT a real payment form and does not require any real information.\nUvid+ does not charge you. This is just part of the simulation process for this demo.\nRead the 'Terms of Use' for more details."), 2500);
+        setTimeout(() => alert(
+        `Just a reminder: The payment form you are seeing or about to see is NOT a real payment form and does not require any real information.
+        \nYou can skip this step by clicking the "Skip" button at the bottom of the form, Doing this will generate random information for those fields.`), 2000);
 
         // Check that a plan has been selected
         const usrData = await getUserData();
@@ -1140,7 +1142,7 @@
             
             try
             {
-                let start_date = getCurrDate("short");
+                const start_date = getCurrDate("short");
                 let end_date = getNextDate(start_date, membership_BILL_CYCLE, "short");
 
                 // Update billing information
@@ -1254,6 +1256,9 @@
 
             // Submit button
             const planFormSbtBtn = document.querySelector("#form_pymt_sbmtBtn");
+
+            // Skip button
+            const planFormSkipBtn = document.querySelector("#form_pymt_skipBtn");
             
 
 
@@ -1600,7 +1605,7 @@
                 planFormSbtBtn.disabled = true;
 
                 // Update the User's info
-                let start_date = getCurrDate("short");
+                const start_date = getCurrDate("short");
 
                 try
                 {
@@ -1655,6 +1660,79 @@
                 notification(`notifyBad` , `Please check that all fields have been correctly filled`);
             }
         });
+
+
+        // Skip step
+        planFormSkipBtn.onclick = () => 
+        {
+            const pymtFrmSkipStepTrue = async () => 
+            {
+                // Disable all input fields and buttons
+                allFormFields.forEach(item => item.disabled = true);
+                planFormSbtBtn.disabled = true;
+                planFormSkipBtn.disabled = true;
+
+                // Update the User's info
+                const start_date = getCurrDate("short");
+                const start_mn = start_date.split("/")[1];
+                const start_yr = start_date.split("/")[2];
+
+                try
+                {
+                    await updateUserData(
+                    {
+                        is_setup: false,
+                        is_membership_active: true,
+                        stp_steps: `outro`,
+                        curr_plan: 
+                        {
+                            curr_plan_id: `${usrCurrPlan}`,
+                            curr_plan_next: `${usrCurrPlan}`,
+                            curr_plan_start: `${start_date}`,
+                            curr_plan_end: `${getNextDate(start_date, membership_BILL_CYCLE, "short")}`,
+                        },
+                        pymt_mtd: 
+                        {
+                            [`${generateRandomString(32)}`]: 
+                            {
+                                pymt_type: `card`,
+                                pymt_cardName: `UvidPlus-user-first-name-${generateRandomString(16)} UvidPlus-user-last-name-${generateRandomString(16)}`,
+                                pymt_cardNo: `1234 5678 9012 3456`,
+                                pymt_cardExp: `${start_mn}/${start_yr}`,
+                                pymt_cardCode: `1234`,
+                                pymt_isDflt: true
+                            }
+                        },
+                        billing_hist: 
+                        [
+                            {
+                                bill_plan_id: `${usrCurrPlan}`,
+                                bill_plan_name: `${plan_obj.plan_name}`,
+                                bill_plan_price: `${plan_obj.plan_price_month}`,
+                                bill_plan_date: `${start_date}`,
+                                bill_plan_status: null,
+                            }
+                        ],
+                    });
+
+                    // Initialize finalization message
+                    init_signup_outro();
+                }
+                catch(err)
+                {
+                    console.error(err)
+                    notification(`notifyBad`, `Something went wrong. Try again later`);
+                }
+            }
+
+            initConfirmModal(
+                `Skip Payment Option Step?`,
+                `Doing so will automatically generate random information for this step.`,
+                `Skip`,
+                `Cancel`,
+                pymtFrmSkipStepTrue
+            );
+        }
     }
 
     // Gets the information for the currently selected plan

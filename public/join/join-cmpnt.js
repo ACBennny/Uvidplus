@@ -1047,6 +1047,9 @@
                                         <div class="join_submit_box">
                                             <input type="button" class="genBtn join_submit_btn" id="form_pymt_sbmtBtn" value="Start Membership">
                                         </div>
+                                        <div class="join_submit_box">
+                                            <input type="button" class="genBtn genBtnBox join_submit_btn hollowBtn" id="form_pymt_skipBtn" value="Skip Step & Start Membership">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
