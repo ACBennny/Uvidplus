@@ -819,13 +819,36 @@
                 }
                 catch(_ext_err){}
             }
-
+            
             const _ext_plyr_8_frm_lstnr = (_ext_event) =>
             {
                 try
                 {
                     if(_ext_event.origin !== _ext_frm_org) return;
                               
+                    if(_ext_event.data && _ext_event.data.type === 'PLAYER_EVENT')
+                    {
+                        if((info_pg_show_type.toLowerCase() === "tv"))
+                        {
+                            const {currentTime, duration, season, episode} = _ext_event.data.data;
+                            _ext_usr_watch_hist_upd(season, episode, currentTime, duration);
+                        }
+                        else
+                        {
+                            const {currentTime, duration } = _ext_event.data.data;
+                            _ext_usr_watch_hist_upd(null, null, currentTime, duration);
+                        }
+                    }
+                }
+                catch(_ext_err){}
+            }
+
+            const _ext_plyr_9_frm_lstnr = (_ext_event) =>
+            {
+                try
+                {
+                    if(_ext_event.origin !== _ext_frm_org) return;
+                    
                     if(_ext_event.data && _ext_event.data.type === 'PLAYER_EVENT')
                     {
                         if((info_pg_show_type.toLowerCase() === "tv"))
@@ -890,6 +913,10 @@
             else if((ext === "_ext_use_sel_ext_plyr_8"))
             {
                 window.onmessage = (_ext_event) => _ext_plyr_8_frm_lstnr(_ext_event);
+            }
+            else if((ext === "_ext_use_sel_ext_plyr_9"))
+            {
+                window.onmessage = (_ext_event) => _ext_plyr_9_frm_lstnr(_ext_event);
             }
             
             _ext_frm_wrap.innerHTML = "";
