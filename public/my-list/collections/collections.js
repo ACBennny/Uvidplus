@@ -497,6 +497,7 @@ let editCLStruct =
     // Inserting the empty bdr when there are no collections
     function insertEmptyCLBdr()
     {
+        clBodyCtntBox.innerHTML = "";
         clBodyCtntBox.insertAdjacentHTML(`afterbegin` , emptyCLStruct);
     }
 
@@ -964,6 +965,13 @@ let editCLStruct =
         {
             const action = () => 
             {
+                // Return if user has no collections
+                if((clLibraryIndexedInv.length < 1))
+                {
+                    notification('notifyBad', `You don't have any collections.`);
+                    return;
+                }
+
                 // Update button index
                 clBodySortTabIndex = index;
 
@@ -2876,14 +2884,14 @@ let editCLStruct =
         // Set as collection thumbnail
         setCLThumbBtn.onclick = async () => 
         {
+            // Notify user
+            notification(`notifyGood` , `Thumbnail set successfully`);
+
             // Update the bcg image
             await updClModalPpty(
             {
                 cl_bcg: clModalGridCardImage
             });
-
-            //Notify myLists
-            notification(`notifyGood` , `Thumbnail set successfully`);
         }
 
         // Sharing the Show
