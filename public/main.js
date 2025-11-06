@@ -70,6 +70,7 @@
     let openGenMenuModalBtnTimer
     let openGenMenuModalTimer;
     let genMenuModalDisplayThreshold = 5;
+    let genMenuBoxThreshold = 64;
     let genAtnModalBoxDragDist = 10;
     let genMenuModalIsDragging = false;
     let genMenuBoxStartY = 0;
@@ -2890,6 +2891,8 @@
         // Displays the gen menu modal
         function displayGenMenuModal()
         {
+            genMenuModalBox.scrollTo(0,0);
+            // updateGenMenuModalBoxHeight(Math.round(genMenuModalBdr.offsetHeight - genMenuBoxThreshold));
             genMenuModalBdr.setAttribute("aria-expanded" , "true");
             documentBody.setAttribute(`gen-menu-modal-is-dragging` , `true`);
 
@@ -2991,6 +2994,10 @@
             else
             {
                 genMenuModalBox.style.height = `${height}px`;
+
+                ((height >= genMenuModalBdr.offsetHeight)) 
+                    ? genMenuModalBox.classList.add("isTop")
+                    : genMenuModalBox.classList.remove("isTop")
             }
         }
 
@@ -3002,7 +3009,9 @@
                 // Record current scroll position
                 winScrollPos = window.scrollY;
             }
-            if(Math.round(genMenuModalBox.scrollTop) > 0) return;
+
+            if((Math.round(genMenuModalBox.scrollTop) > 0) && !(e.target.closest(".genMenuModalDragHandleBdr"))) return;
+
             genMenuModalIsDragging = true;
             genMenuBoxStartY = e.pageY || e.touches?.[0].pageY;
             startGenMenuBoxHeight = parseInt(genMenuModalBox.offsetHeight);
@@ -3018,17 +3027,21 @@
             window.scrollTo(0, winScrollPos);
 
             const genMenuBoxDeltaY = (e.pageY || e.touches?.[0].pageY);
-            let newGenMenuBoxHeight = (startGenMenuBoxHeight + genMenuBoxStartY) - genMenuBoxDeltaY;
-            currGenMenuBoxHeight = newGenMenuBoxHeight;
-            currGenMenuBoxHeight < startGenMenuBoxHeight ? updateGenMenuModalBoxHeight(currGenMenuBoxHeight) : updateGenMenuModalBoxHeight(startGenMenuBoxHeight);
+            let newGenMenuBoxHeight = ((startGenMenuBoxHeight + genMenuBoxStartY) - genMenuBoxDeltaY);
+            updateGenMenuModalBoxHeight(newGenMenuBoxHeight);
         
             // Prevent the cards from being clicked while dragging 
             if(((Math.abs(genMenuBoxDeltaY - genMenuBoxStartY) > genAtnModalBoxDragDist)))
             {
                 // Add CSS class to disable clicks during dragging
-                if (!(genMenuModalBox.classList.contains("disableClicks")))
+                if(!(genMenuModalBox.classList.contains("disableClicks")))
                 {
                     genMenuModalBox.classList.add("disableClicks");
+                }
+
+                if((e.target.closest(".genMenuModalDragHandleBdr")) && !(genMenuModalBox.classList.contains("disableScroll")))
+                {
+                    genMenuModalBox.classList.add("disableScroll");
                 }
             }
         }
@@ -3039,8 +3052,16 @@
             genMenuModalIsDragging = false;
             genMenuModalBdr.classList.remove("isDragging");
             genMenuModalBox.classList.remove("disableClicks");
+            genMenuModalBox.classList.remove("disableScroll");
+
             const menuModalBoxH = parseInt(genMenuModalBox.style.height);
-            menuModalBoxH < Math.round((startGenMenuBoxHeight * 0.75)) ? hideGenMenuModal() : updateGenMenuModalBoxHeight(startGenMenuBoxHeight);
+            menuModalBoxH < Math.round((genMenuModalBdr.offsetHeight * 0.50)) 
+                ? hideGenMenuModal() 
+                : (menuModalBoxH >= Math.round((genMenuModalBdr.offsetHeight * 0.50))) && (menuModalBoxH < Math.round((genMenuModalBdr.offsetHeight * 0.75)))
+                    ? updateGenMenuModalBoxHeight((genMenuModalBdr.offsetHeight * 0.55))
+                    : (menuModalBoxH >= Math.round((genMenuModalBdr.offsetHeight * 0.95)))
+                        ? updateGenMenuModalBoxHeight((genMenuModalBdr.offsetHeight))
+                        : updateGenMenuModalBoxHeight(Math.round(genMenuModalBdr.offsetHeight - genMenuBoxThreshold));
         }
 
 
