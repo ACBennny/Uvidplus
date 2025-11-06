@@ -252,32 +252,14 @@
                             </div>
                             <div class="join_outro_det_box">
                                 <p class="join_outro_det_txt">
-                                    Hi there! I'm
-                                    <a onclick="window.open('${developerLink}')">ACBennny</a>
-                                    and thanks for checking out Uvid+.
-                                </p>
-                                <p class="join_outro_det_txt">
-                                    As this may be your first time here, I'd like to remind you that this is a demo of my personal 
-                                    project and while it may behave or look like one, it is NOT an actual streaming service. 
-                                    It merely simulates one.
-                                </p>
-                                <p class="join_outro_det_txt">
-                                    <u>What does this mean?</u>
+                                    Hi, thanks for checking out Uvid+.
                                     <br>
-                                    Uvid+ does NOT and will NOT bill you. Asides an email to create and manage your account, all the forms in the upcoming steps
-                                    do not require any real information. They exist as part of the simulation process to replicate the experience
-                                    of a real streaming service. Feel free to enter any random details in those fields.
-                                    <br>
-                                    You may read the
-                                    <a class="join_outro_det_txt_mjr" onclick="window.open('#/tou')">Terms of Use</a> 
-                                    and 
-                                    <a class="join_outro_det_txt_mjr" onclick="window.open('#/privacy')">Privacy Policy</a> 
-                                    to learn more.
+                                    Incase it wasn't already obvious, this is NOT a paid service. <u class="join_outro_det_txt_mjr">It's free.</u> It's always free.
                                 </p>
                                 <p class="join_outro_det_txt">
-                                    Click
-                                    <a class="join_outro_det_txt_mjr" onclick="window.open('${projectLink}')">here</a> 
-                                    to learn more about this project and other details (After you've finished exloring this one).
+                                    The project is still in development and bugs may occur. Feel free to use the 
+                                    <a href="#/feedback" target="_blank" class="join_outro_det_txt_mjr">Feedback form</a> 
+                                    to report any bugs or make suggestions.
                                 </p>
                             </div>
                             <div class="join_submit_box space_h">
@@ -452,7 +434,7 @@
                                 </div>
                             </div>
                             <div class="join_intro_ftr_descBox">
-                                <p class="join_intro_ftr_descTxt">Choose your plan</p>
+                                <p class="join_intro_ftr_descTxt">Choose your plan. It's all <u>free</u>.</p>
                             </div>
                             <div class="join_intro_ptr_iconBdr ptr_2">
                                 <div class="join_intro_ptr_iconBox">
@@ -475,7 +457,7 @@
                                 </div>
                             </div>
                             <div class="join_intro_ftr_descBox">
-                                <p class="join_intro_ftr_descTxt">Confirm your subscription and commence your never-ending entertainment.</p>
+                                <p class="join_intro_ftr_descTxt">Commence your never-ending entertainment.</p>
                             </div>
                         </div>
                     </div>
@@ -693,7 +675,7 @@
                         <div class="join_plan_box">
                             <div class="join_plan_hdr_box">
                                 <div class="join_plan_hdr_txt_mjr">Choose Your Plan</div>
-                                <p class="join_plan_hdr_txt_mnr">Select the plan that's right for you</p>
+                                <p class="join_plan_hdr_txt_mnr">No additional advantages. All Free</p>
                             </div>
                             <div class="join_plan_sls_bdr">
                                 <div class="join_plan_sls_box"></div>
@@ -705,7 +687,7 @@
                                 <div class="join_plan_ntc_box">
                                     <div class="join_plan_ntc_cardBox">
                                         <p class="join_plan_ntc_card_txt">
-                                            Device and content availability vary by country or regions.
+                                            Content availability may vary by country or regions.
                                             Not all content are available for download. Download limits may apply.
                                         </p>
                                     </div>
@@ -713,12 +695,6 @@
                                         <p class="join_plan_ntc_card_txt">
                                             Video and audio quality are subject to your internet service and device capabilities. 
                                             Not all content are available in all resolutions.
-                                        </p>
-                                    </div>
-                                    <div class="join_plan_ntc_cardBox">
-                                        <p class="join_plan_ntc_card_txt">
-                                            All plans include promos for Uvid+ programs. 
-                                            Live programs are included with any plan and may contain ads.
                                         </p>
                                     </div>
                                 </div>
@@ -739,14 +715,14 @@
         {
             plan_name: `Essential`, 
             plan_id: `Estl`, 
-            plan_price_month: `$4.99`,
+            plan_price_month: `$0.00`,
             plan_price_sel: ``, 
             plan_benefits: 
             {
                 mnth_price: 
                 {
                     bnft_name: `Monthly Price`,
-                    bnft_desc: `$4.99`,
+                    bnft_desc: `$0.00`,
                 },
                 qlty: 
                 {
@@ -779,14 +755,14 @@
         {
             plan_name: `Standard`, 
             plan_id: `stnd`, 
-            plan_price_month: `$9.99`,
+            plan_price_month: `$0.00`,
             plan_price_sel: ``, 
             plan_benefits: 
             {
                 mnth_price: 
                 {
                     bnft_name: `Monthly Price`,
-                    bnft_desc: `$9.99`,
+                    bnft_desc: `$0.00`,
                 },
                 qlty: 
                 {
@@ -819,14 +795,14 @@
         {
             plan_name: `Ultimate`, 
             plan_id: `ultm`, 
-            plan_price_month: `$14.99`,
+            plan_price_month: `$0.00`,
             plan_price_sel: ``, 
             plan_benefits: 
             {
                 mnth_price: 
                 {
                     bnft_name: `Monthly Price`,
-                    bnft_desc: `$14.99`,
+                    bnft_desc: `$0.00`,
                 },
                 qlty: 
                 {
@@ -957,7 +933,7 @@
                                 <!-- title -->
                                 <div class="join_plan_hdr_box">
                                     <div class="join_plan_hdr_txt_mjr">Confirm Your Subscription</div>
-                                    <p class="join_plan_hdr_txt_mnr">No commitments. Cancel anytime.</p>
+                                    <p class="join_plan_hdr_txt_mnr">Skip if not done automatically</p>
                                 </div>
 
                                 <!-- Form Fields -->
@@ -1033,9 +1009,6 @@
                                                     By pressing "Start Membership" you acknowledge you have read, understood, and agree to both the
                                                     <span onclick="window.open('#/tou')"><strong>Terms of Use</strong></span> and 
                                                     <span onclick="window.open('#/privacy')"><strong>Privacy Policy</strong></span>.
-                                                    Uvid+ will automatically continue your membership and charge the selected membership fee to  
-                                                    your payment method until you cancel. You can cancel at any time to avoid future charges.
-                                                    Visit our <span onclick="window.open('#/help')"><strong>Help Center</strong></span> if you have any questions.
                                                 </p>
                                             </div>
                                         </div>
@@ -1074,14 +1047,10 @@
                                     </div>
                                     <div class="join_outro_det_box">
                                         <p class="join_outro_det_txt">
-                                            Your Uvid+ membership has begun. It will automatically continue at the end of every
-                                            billing cycle (30 days). You may cancel before this time to avoid getting charged.
+                                            Your Uvid+ membership has begun. It will automatically continue after every 30 days unless cancelled.
                                         </p>
                                         <p class="join_outro_det_txt">
-                                            If you're loving the Uvid+ experience, then there's no need to take any action.
-                                        </p>
-                                        <p class="join_outro_det_txt">
-                                            <span class="join_outro_det_txt_mjr">Your NEVER-ENDING ENTERTAINMENT STARTS NOW!</span>
+                                            Your <span class="join_outro_det_txt_mjr">NEVER-ENDING ENTERTAINMENT</span> starts now!
                                         </p>
                                     </div>
                                     <div class="join_submit_box space_h">

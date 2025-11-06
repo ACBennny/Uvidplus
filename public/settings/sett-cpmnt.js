@@ -218,11 +218,9 @@ const sett_cmpnt_lib =
         sett_desc: 
         `   
             By default, Uvid+ has a its own custom player which plays a sample video for demonstration purposes only.
-            If this setting is turned on, an external player from unaffiliated third-party service(s) may be used instead.
-            Note that Uvid+ has no control over the content shown on external players, and some Uvid+ features may be unavailable.
-            <br>
-            <u>Important: Enusre that you use an adblocker or browser a with built-in adblocker, 
-            preferably Brave browser or UBlock Origin if on a different browser as external players tend to have lots of spammy ads.</u>
+            If turned on, an external player from unaffiliated third-party service(s) may be used instead.
+            Note that Uvid+ has no control over the content shown on external players, 
+            <u>and use an adblocker due to ads</u>.
         `,
         sett_atn_type: `toggle`,
         sett_atn_id: `sett_ext_plyr`,
@@ -307,23 +305,6 @@ const sett_cmpnt_lib =
     {
         sett_sect: `privacy`,
         sett_orientation: `horizontal`,
-        sett_title: `Sharing/Selling of Personal Information`,
-        sett_reqEmPswd: false,
-        sett_desc: 
-        `
-            If Uvid+ should ever start sharing/selling of personal information,
-            note that disabling sharing of personal information will neither change nor reduce
-            the presentation of ads and ad breaks for ad based plans. Instead, this only substitutes
-            personalized ads with more generic ads that are not determined based on your personal information.
-        `,
-        sett_atn_type: `toggle`,
-        sett_atn_id: `sett_prsnl_info_shrng`,
-        sett_atn_title: `Toggle`,
-        sett_atn_func: ``,
-    },
-    {
-        sett_sect: `privacy`,
-        sett_orientation: `horizontal`,
         sett_title: `Sign Out`,
         sett_reqEmPswd: false,
         sett_desc: 
@@ -354,21 +335,20 @@ const sett_cmpnt_lib =
 
 
 
-    // About & Legal
+    // App Information
     {
         sett_sect: `information`,
-        sett_orientation: `horizontal`,
+        sett_orientation: `vertical`,
         sett_title: `Version`,
         sett_reqEmPswd: false,
         sett_desc: 
         `
-            View details about this version, other versions, and the project in general.
-            You can also view my other projects too.
+            Three (3)
         `,
-        sett_atn_type: `link`,
-        sett_atn_id: `sett_tou`,
-        sett_atn_title: `View`,
-        sett_atn_func: `${projectLink}`,
+        sett_atn_type: null,
+        sett_atn_id: null,
+        sett_atn_title: null,
+        sett_atn_func: null,
     },
     {
         sett_sect: `information`,
@@ -519,7 +499,7 @@ const sett_prof_pref_cmp =
     {
         p_type: `toggle`,
         p_id: `sett_mng_prof_auto_skip`,
-        p_name: `Auto Skip (Beta)`,
+        p_name: `Auto Skip (Coming Soon)`,
         p_desc: 
         `
             Automatically skip past opening and ending sequences (intros & outros) when detected.
@@ -538,7 +518,7 @@ const sett_prof_pref_cmp =
     {
         p_type: `menu`,
         p_id: `sett_mng_prof_ctnt_restriction`,
-        p_name: `Content Restrictions (Alpha)`,
+        p_name: `Content Restrictions (Coming Soon)`,
         p_desc: 
         `
             Select the maximum age range for the age rating of content to be displayed.

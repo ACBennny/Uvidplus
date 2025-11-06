@@ -21,7 +21,6 @@
                 await auth.currentUser.getIdToken(true);
                 window.uvidUser = auth.currentUser;
                 window.uvidUserVrfd = !!auth.currentUser.emailVerified;
-                console.info("user state refresh successfull")
             }
             else
             {

@@ -451,11 +451,6 @@
 
                                 if(!isFbStp) throw new Error("Firebase user initialization in firestore failed");
 
-                                console.log("Welcome new user:", user.displayName);
-                            }
-                            else
-                            {
-                                console.log("Welcome back:", user.displayName);
                             }
 
                             // Refresh page to update UI
@@ -476,7 +471,6 @@
                 switch(prvd.toLowerCase())
                 {
                     case 'google':
-                        console.log("Provider Selected: GOOGLE");
                         const provider = new firebase.auth.GoogleAuthProvider();
                         em_prvd_signin(provider);
                         break;

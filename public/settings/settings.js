@@ -6,7 +6,7 @@
  * Profile & Parental Controls = preferences
  * App experience = experience
  * Privacy & Security = privacy
- * About & legal = information
+ * Help & More = information
  * 
  * @author (Anyanwu Benedict Chukwuemeka)
  * @version (v0.01)
@@ -67,7 +67,7 @@
                                     <path fill-rule="evenodd" d="m20.83 10.715l-.518 1.932c-.605 2.255-.907 3.383-1.592 4.114a4 4 0 0 1-2.01 1.161q-.145.034-.295.052c-.915.113-2.032-.186-4.064-.73c-2.255-.605-3.383-.907-4.114-1.592a4 4 0 0 1-1.161-2.011c-.228-.976.074-2.103.679-4.358l.517-1.932l.244-.905c.455-1.666.761-2.583 1.348-3.21a4 4 0 0 1 2.01-1.16c.976-.228 2.104.074 4.36.679c2.254.604 3.382.906 4.113 1.59a4 4 0 0 1 1.161 2.012c.228.976-.075 2.103-.679 4.358m-9.778-.91a.75.75 0 0 1 .919-.53l4.83 1.295a.75.75 0 1 1-.389 1.448l-4.83-1.294a.75.75 0 0 1-.53-.918m-.776 2.898a.75.75 0 0 1 .918-.53l2.898.777a.75.75 0 1 1-.388 1.448l-2.898-.776a.75.75 0 0 1-.53-.919" clip-rule="evenodd" />
                                 </svg>
                             </div>
-                            <p class="settingNavOptText">About & Legal</p>
+                            <p class="settingNavOptText">App Information</p>
                         </button>
                     </div>
                 </div>
@@ -109,7 +109,7 @@
                             <div class="settCtntTitleBox">
                                 <h2 class="settCtntTitleText">
                                     <span class="major">A</span>
-                                    <span class="minor">bout & Legal</span>
+                                    <span class="minor">pp Information</span>
                                 </h2>
                             </div>
                         </section>
@@ -363,7 +363,6 @@
             if((newBtn.classList.contains("genMenuModalCtntBtnBox")) && ((index) == (sectNavBtnIndex)))
             {
                 newBtn.classList.add("selected");
-                console.log("adwsd")
             }
             
             const nav_action = () => 
@@ -559,7 +558,6 @@
         const wifi_only_strm = userDB.wifi_only_stream;
         const cell_strm_ntfy = userDB.cellular_stream_ntfy;
         const use_ext = userDB.use_ext_plr;
-        const share_pi = userDB.share_prsnl_info;
 
         // Update based on seup origin (Email/Password or Provider)
         if((window.hasEmPswdOrigin && window.hasEmPswdOrigin == true))
@@ -590,9 +588,6 @@
 
         // External Player
         document.getElementById("sett_ext_plyr").checked = typeof use_ext === "boolean" ? use_ext : null;
-
-        // Info sharing
-        document.getElementById("sett_prsnl_info_shrng").checked = typeof share_pi === "boolean" ? share_pi : null;
     }
 
 
@@ -661,14 +656,6 @@
                             await updateUserData(
                             {
                                 use_ext_plr: ischk
-                            });
-                            notification('notifyGood', 'Preferences saved');
-                            break;
-                            
-                        case 'sett_prsnl_info_shrng':
-                            await updateUserData(
-                            {
-                                share_prsnl_info: ischk
                             });
                             notification('notifyGood', 'Preferences saved');
                             break;
@@ -1055,53 +1042,13 @@
         }
 
         // Cancel membership
-        function cfrm_b4_cncl_1()
+        function cfrm_b4_cncl_null()
         {
             initConfirmModal(
-                `Are you trying to cancel your membership?`,
-                ``,
-                `I think so?`,
+                `Cancel membership?`,
+                `It's always free`,
+                `Yes`,
                 `No`,
-                cfrm_b4_cncl_2
-            );
-        }
-        function cfrm_b4_cncl_2()
-        {
-            initConfirmModal(
-                `Do you want to cancel your membership?`,
-                `You'll lose all access and benefits after your current membership ends`,
-                `Sadly, yes`,
-                `No, I don't`,
-                cfrm_b4_cncl_3
-            );
-        }
-        function cfrm_b4_cncl_3()
-        {
-            initConfirmModal(
-                `Are you sure you want to cancel your membership?`,
-                `You'll risk losing all access to any future grants, benefits, and future discounts on Uvid+`,
-                `Lose everything :/`,
-                `Stay awesome`,
-                cfrm_b4_cncl_4
-            );
-        }
-        function cfrm_b4_cncl_4()
-        {
-            initConfirmModal(
-                `You are about to cancel your membership?`,
-                `You current membership remains active until the billing cycle ends`,
-                `I understand..`,
-                `Certainly not`,
-                cfrm_b4_cncl_5
-            );
-        }
-        function cfrm_b4_cncl_5()
-        {
-            initConfirmModal(
-                `Final confirmation: Cancel membership?`,
-                `Last opportunity to return`,
-                `Confirm my loss`,
-                `Cancel`,
                 req_mbsp_cncl
             );
         }
@@ -1144,7 +1091,7 @@
             mngMbspSwitchBtn.removeEventListener("click", init_mbsp_switch);
 
             mngMbspCancelBtn.classList.add("hide");
-            mngMbspCancelBtn.removeEventListener("click", cfrm_b4_cncl_1);
+            mngMbspCancelBtn.removeEventListener("click", cfrm_b4_cncl_null);
 
             mngMbspAddBtn.classList.remove("hide");
             mngMbspAddBtn.addEventListener("click", req_mbsp_switch);
@@ -1152,7 +1099,7 @@
         }
 
         mngMbspSwitchBtn.addEventListener("click", req_mbsp_switch);
-        mngMbspCancelBtn.addEventListener("click", cfrm_b4_cncl_1);
+        mngMbspCancelBtn.addEventListener("click", cfrm_b4_cncl_null);
     }
 
 

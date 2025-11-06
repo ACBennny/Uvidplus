@@ -21,9 +21,8 @@
                             Watch a boundless haven of movies, TV shows and tons more 
                             with our unmatched streaming services.
                             <br>
-                            Starts <u>$4.99</u>. Cancel Anytime. Terms Apply.
+                            Starts <u>Free</u>. Always <u>Free</u>. Terms Apply.
                             <br>
-                            <!-- New Member? Start your 10 day free trial. -->
                         </p>
                     </div>
                     <div class="propmpt_AccActionBdr">
@@ -44,9 +43,9 @@
             <div class="feature_ItemsBdr">
                 <div class="feature_ItemsBox">
                     <div class="feature_TitleBox">
-                        <h1 class="ftrTitle">Get More From Your Membership</h1>
+                        <h1 class="ftrTitle">More reasons to join</h1>
                         <p class="ftrSubTitle">
-                            Just a few out of many features included in your package
+                            Just a few reasons to join Uvid+
                         </p>
                     </div>
                     <div class="feature_ItemsContainer">
@@ -154,8 +153,8 @@
                             </button>
                             <div class="questions_CardTextBox">
                                 <p class="questions_CardText">
-                                    Uvid+ is just one of many streaming services that presents people the opportunity
-                                    to watch a haven full of diverse movies, TV Shows, anime and cartoon shows for the kids.
+                                    Uvid+ is a platform that allows users to explore a wide variety of shows anywhere, anytime.
+                                    At the core, it is a personal project to improve my web development skills.
                                 </p>
                             </div>
                         </div>
@@ -188,13 +187,8 @@
                             </button>
                             <div class="questions_CardTextBox">
                                 <p class="questions_CardText">
-                                    Uvid+ is going big on it's device support plan. 
-                                    <br>
                                     You can watch Uvid+ shows on a wide range of devices
                                     including phones, tablets, laptops, desktops, and TV.
-                                    <br><br>
-                                    We are working hard to bring Uvid+ to you on your favourite game consoles.
-                                    Stay tuned!
                                 </p>
                             </div>
                         </div>
@@ -210,9 +204,7 @@
                             </button>
                             <div class="questions_CardTextBox">
                                 <p class="questions_CardText">
-                                    Uvid+ is not free but a paid subscription service. However, when offered, new members may get it free* for a limited trial period of 10 days after which you're billing period starts.
-                                    <br>
-                                    We will remind you up to 3 days before your trial ends. You can cancel anytime. Terms Apply.
+                                    Yes, Uvid+ is free. It has always been free. Don't listen to anyone saying otherwise.
                                 </p>
                             </div>
                         </div>
@@ -228,17 +220,12 @@
                             </button>
                             <div class="questions_CardTextBox">
                                 <p class="questions_CardText">
-                                    Stream unlimited movies, TV Shows, Animes and Cartoon shows for a fixed monthly price.
-                                    <br>
-                                    Uvid+ presents three different bundles all at different prices ranging from $4.99 to $14.99.
+                                    Uvid+ presents three different bundles all for $0. 
+                                    Tiers don't have any advantages over the other.
+                                    It's still the same Uvid+ experience.
                                 </p>
                             </div>
                         </div>
-                    </div>
-                    <div class="questions_footerBox">
-                        <p>
-                            * This only applies to new members and does not include all features.
-                        </p>
                     </div>
                 </div>
             </div>

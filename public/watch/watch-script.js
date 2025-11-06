@@ -23,7 +23,7 @@
                     <path d="M13.656 10.451c.896.658 1.344.987 1.344 1.55c0 .562-.448.89-1.344 1.548a13 13 0 0 1-.718.495c-.197.125-.421.254-.653.381c-.894.49-1.34.734-1.741.463s-.437-.838-.51-1.971c-.02-.32-.034-.635-.034-.917s.013-.596.034-.917c.072-1.133.109-1.7.51-1.97c.4-.271.847-.027 1.74.462c.233.127.457.256.654.381c.226.143.471.314.718.495" />
                 </svg>
             </div>
-            <span class="genBtnText">External</span>
+            <span class="genBtnText">Ext. Player</span>
         </button>
     `;
     const wpg_ctrl_ext = 
@@ -435,7 +435,7 @@
 
                 initConfirmModal(
                     `External Player disabled`,
-                    `To use external player, turn it on in Settings > App Experience > External Player'`,
+                    `Go to "App Experience" in Settings to turn it on.`,
                     `Settings`,
                     `Cancel`,
                     true_wpg_ctrl_to_ext
@@ -804,7 +804,6 @@
                               
                     if(_ext_event.data && _ext_event.data.type === 'PLAYER_EVENT')
                     {
-                        console.log("Here Progress")
                         if((info_pg_show_type.toLowerCase() === "tv"))
                         {
                             const {currentTime, duration, season, episode} = _ext_event.data.data;

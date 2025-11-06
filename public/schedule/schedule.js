@@ -135,7 +135,6 @@
         catch(error)
         {
             console.error(`Failed to load schedule\n`);
-            console.log(typeof error);
             notification(`notifyBad`, `Failed to load schedule. Please try again later.`);
         }
     }
