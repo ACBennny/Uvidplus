@@ -2989,6 +2989,7 @@
                 {
                     clearTimeout(genMenuModalBoxHeightTimer);
                     genMenuModalBox.style.height = "fit-content";
+                    genMenuModalBox.classList.remove("isTop");
                 }, 150);
             }
             else
@@ -3053,7 +3054,6 @@
             genMenuModalBdr.classList.remove("isDragging");
             genMenuModalBox.classList.remove("disableClicks");
             genMenuModalBox.classList.remove("disableScroll");
-            genMenuModalBox.classList.remove("isTop");
 
             const menuModalBoxH = parseInt(genMenuModalBox.style.height);
             menuModalBoxH < Math.round((genMenuModalBdr.offsetHeight * 0.60)) 
