@@ -3056,11 +3056,18 @@
             genMenuModalBox.classList.remove("disableScroll");
 
             const menuModalBoxH = parseInt(genMenuModalBox.style.height);
+            // menuModalBoxH < Math.round((genMenuModalBdr.offsetHeight * 0.60)) 
+            //     ? hideGenMenuModal() 
+            //     : (menuModalBoxH >= Math.round((genMenuModalBdr.offsetHeight * 0.95)))
+            //         ? updateGenMenuModalBoxHeight((genMenuModalBdr.offsetHeight))
+            //         : updateGenMenuModalBoxHeight(Math.round(genMenuModalBdr.offsetHeight - genMenuBoxThreshold));
             menuModalBoxH < Math.round((genMenuModalBdr.offsetHeight * 0.60)) 
                 ? hideGenMenuModal() 
-                : (menuModalBoxH >= Math.round((genMenuModalBdr.offsetHeight * 0.95)))
-                    ? updateGenMenuModalBoxHeight((genMenuModalBdr.offsetHeight))
-                    : updateGenMenuModalBoxHeight(Math.round(genMenuModalBdr.offsetHeight - genMenuBoxThreshold));
+                : (menuModalBoxH >= Math.round((genMenuModalBdr.offsetHeight * 0.60))) && (menuModalBoxH < Math.round((genMenuModalBdr.offsetHeight * 0.95)))
+                    ? updateGenMenuModalBoxHeight(Math.round(genMenuModalBdr.offsetHeight - genMenuBoxThreshold))
+                    : (menuModalBoxH >= Math.round((genMenuModalBdr.offsetHeight * 0.95)))
+                        ? updateGenMenuModalBoxHeight((genMenuModalBdr.offsetHeight))
+                        : updateGenMenuModalBoxHeight(Math.round(startGenMenuBoxHeight));
         }
 
 
