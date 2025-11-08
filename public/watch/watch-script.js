@@ -16,7 +16,7 @@
                 </svg>
             </div>
         </button>
-        <button type="button" class="genBtnBox greySolidBtn wpg_ctrl_to_ext_btn">
+        <button type="button" class="genBtnBox greySolidBtn wpg_ctrl_to_ext_btn" title="Use External Player">
             <div class="genBtnIcon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
                     <path fill-rule="evenodd" d="M5.467 4.392a.75.75 0 0 1-.001 1.06A9.22 9.22 0 0 0 2.75 12a9.22 9.22 0 0 0 2.775 6.606a.75.75 0 1 1-1.05 1.071A10.72 10.72 0 0 1 1.25 12c0-2.972 1.207-5.664 3.156-7.609a.75.75 0 0 1 1.06.001m13.15.072a.75.75 0 0 1 1.06.011A10.72 10.72 0 0 1 22.75 12c0 2.964-1.2 5.65-3.141 7.594a.75.75 0 1 1-1.062-1.06A9.22 9.22 0 0 0 21.25 12a9.22 9.22 0 0 0-2.644-6.475a.75.75 0 0 1 .01-1.06M8.308 7.488a.75.75 0 0 1-.035 1.06c-.949.888-1.524 2.102-1.524 3.434c0 1.348.589 2.575 1.558 3.466a.75.75 0 1 1-1.016 1.104c-1.252-1.151-2.042-2.77-2.042-4.57c0-1.779.771-3.38 2-4.53a.75.75 0 0 1 1.06.036m7.434.038a.75.75 0 0 1 1.06-.024c1.197 1.145 1.947 2.727 1.947 4.48c0 1.775-.767 3.373-1.99 4.521a.75.75 0 1 1-1.027-1.093c.945-.887 1.517-2.1 1.517-3.428c0-1.313-.559-2.512-1.484-3.396a.75.75 0 0 1-.023-1.06" clip-rule="evenodd" />
@@ -537,14 +537,21 @@
                         ? `https://player.vidplus.to/embed/tv/${_ext_id}/${_ext_ssn}/${_ext_eps}?autoplay=${_ext_auto_play}&autonext=${_ext_auto_next}&nextbutton=true&poster=true&title=true&download=true&watchparty=false&chromecast=true&episodelist=true&servericon=true&setting=true&pip=true&primarycolor=${_ext_theme}&secondarycolor=${_ext_theme_sec}&iconcolor=${_ext_theme_icn}&progress=${_ext_vd_prgs}&logourl=https%3A%2F%2Fuvidplus.netlify.app%2Fimages%2Fuvid-logo.png&font=Roboto&fontcolor=FFFFFF&fontsize=20&opacity=0.5` 
                         : `https://player.vidplus.to/embed/movie/${_ext_id}?autoplay=${_ext_auto_play}&poster=true&title=true&download=true&watchparty=false&chromecast=true&servericon=true&setting=true&pip=true&primarycolor=${_ext_theme}&secondarycolor=${_ext_theme_sec}&iconcolor=${_ext_theme_icn}&progress=${_ext_vd_prgs}&logourl=https%3A%2F%2Fuvidplus.netlify.app%2Fimages%2Fuvid-logo.png&font=Roboto&fontcolor=FFFFFF&fontsize=20&opacity=0.5`;
                     break;
-                    
+
                 case '_ext_use_sel_ext_plyr_2':
+                    _ext_frm_org = `https://vidsrc.cc`;
+                    _ext_frm_src = (info_pg_show_type.toLowerCase() === "tv") 
+                        ? `https://vidsrc.cc/v3/embed/tv/${_ext_id}/${_ext_ssn}/${_ext_eps}?autoPlay=${_ext_auto_play}&startAt=${_ext_vd_prgs}&color=${_ext_theme}&poster=true` 
+                        : `https://vidsrc.cc/v3/embed/movie/${_ext_id}?autoPlay=${_ext_auto_play}&startAt=${_ext_vd_prgs}&color=${_ext_theme}&poster=true`;
+                    break;
+                    
+                case '_ext_use_sel_ext_plyr_3':
                     _ext_frm_src = (info_pg_show_type.toLowerCase() === "tv") 
                         ? `https://player.videasy.net/tv/${_ext_id}/${_ext_ssn}/${_ext_eps}?progress=${_ext_vd_prgs}&nextEpisode=true&autoplayNextEpisode=${_ext_auto_next}&episodeSelector=true&overlay=true&color=${_ext_theme.toLowerCase()}` 
                         : `https://player.videasy.net/movie/${_ext_id}?progress=${_ext_vd_prgs}&overlay=true&color=${_ext_theme.toLowerCase()}`;
                     break;
 
-                case '_ext_use_sel_ext_plyr_3':
+                case '_ext_use_sel_ext_plyr_4':
                     const _3_origs = [`vidfast.pro`, `vidfast.xyz`, `vidfast.io`, `vidfast.net`, `vidfast.in`, `vidfast.me`, `vidfast.pm`];
                     _ext_frm_org = `https://${_3_origs[ext_pos]}`;
                     _ext_frm_src = (info_pg_show_type.toLowerCase() === "tv") 
@@ -552,34 +559,41 @@
                         : `https://${_3_origs[ext_pos]}/movie/${_ext_id}?theme=${_ext_theme}&startAt=${_ext_vd_prgs}&autoPlay=${_ext_auto_play}&title=true&poster=true&fullScreenButton=true&sub=${_ext_subttl_lang_iso}&hideServer=false`;
                     break;
                     
-                case '_ext_use_sel_ext_plyr_4':
+                case '_ext_use_sel_ext_plyr_5':
                     _ext_frm_src = (info_pg_show_type.toLowerCase() === "tv") 
                         ? `https://www.vidking.net/embed/tv/${_ext_id}/${_ext_ssn}/${_ext_eps}?color=${_ext_theme.toLowerCase()}&autoPlay=${_ext_auto_play}&progress=${_ext_vd_prgs}&nextEpisode=true&episodeSelector=true` 
                         : `https://www.vidking.net/embed/movie/${_ext_id}?color=${_ext_theme.toLowerCase()}&autoPlay=${_ext_auto_play}&progress=${_ext_vd_prgs}`;
                     break;
 
-                case '_ext_use_sel_ext_plyr_5':
+                case '_ext_use_sel_ext_plyr_6':
                     _ext_frm_org = `https://vidrock.net`;
                     _ext_frm_src = (info_pg_show_type.toLowerCase() === "tv") 
                         ? `https://vidrock.net/tv/${_ext_id}/${_ext_ssn}/${_ext_eps}?autoplay=${_ext_auto_play}&autonext=${_ext_auto_next}` 
                         : `https://vidrock.net/movie/${_ext_id}?autoplay=${_ext_auto_play}`;
                     break;
 
-                case '_ext_use_sel_ext_plyr_6':
+                case '_ext_use_sel_ext_plyr_7':
                     _ext_frm_org = `https://vidnest.fun`;
                     _ext_frm_src = (info_pg_show_type.toLowerCase() === "tv") 
                         ? `https://vidnest.fun/tv/${_ext_id}/${_ext_ssn}/${_ext_eps}?progress=${_ext_vd_prgs}` 
                         : `https://vidnest.fun/movie/${_ext_id}progress=${_ext_vd_prgs}`;
                     break;
 
-                case '_ext_use_sel_ext_plyr_7':
+                case '_ext_use_sel_ext_plyr_8':
                     _ext_frm_org = `https://player.vidify.top`;
                     _ext_frm_src = (info_pg_show_type.toLowerCase() === "tv") 
                         ? `https://player.vidify.top/embed/tv/${_ext_id}/${_ext_ssn}/${_ext_eps}?autoplay=${_ext_auto_play}&autonext=${_ext_auto_next}&nextbutton=true&poster=true&watchparty=false&chromecast=true&servericon=true&setting=true&pip=true&download=true&logourl=https%3A%2F%2Fuvidplus.netlify.app%2Fimages%2Fuvid-logo.png&font=Roboto&fontcolor=6f63ff&fontsize=20&opacity=0.5&primarycolor=${_ext_theme}&secondarycolor=${_ext_theme_sec}&iconcolor=${_ext_theme_icn}` 
                         : `https://player.vidify.top/embed/movie/${_ext_id}?autoplay=${_ext_auto_play}&poster=true&watchparty=false&chromecast=true&servericon=true&setting=true&pip=true&download=true&logourl=https%3A%2F%2Fuvidplus.netlify.app%2Fimages%2Fuvid-logo.png&font=Roboto&fontcolor=6f63ff&fontsize=20&opacity=0.5&primarycolor=${_ext_theme}&secondarycolor=${_ext_theme_sec}&iconcolor=${_ext_theme_icn}`;
                     break;
+
+                case '_ext_use_sel_ext_plyr_9':
+                    _ext_frm_org = `https://vidsrc.cc`;
+                    _ext_frm_src = (info_pg_show_type.toLowerCase() === "tv") 
+                        ? `https://vidsrc.cc/v2/embed/tv/${_ext_id}/${_ext_ssn}/${_ext_eps}?autoPlay=${_ext_auto_play}&startAt=${_ext_vd_prgs}&color=${_ext_theme}&poster=true` 
+                        : `https://vidsrc.cc/v2/embed/movie/${_ext_id}?autoPlay=${_ext_auto_play}&startAt=${_ext_vd_prgs}&color=${_ext_theme}&poster=true`;
+                    break;
                     
-                case '_ext_use_sel_ext_plyr_8':
+                case '_ext_use_sel_ext_plyr_10':
                     const _5_origs = [`vidsrc-embed.ru`, `vidsrc-embed.su`, `vidsrcme.su`, `vsrc.su`];
                     _ext_frm_org = `https://${_5_origs[ext_pos]}`;
                     _ext_frm_src = (info_pg_show_type.toLowerCase() === "tv") 
@@ -587,32 +601,25 @@
                         : `https://${_5_origs[ext_pos]}/embed/movie?tmdb=${_ext_id}&ds_lang=${_ext_subttl_lang_iso}&autoplay=${_ext_ap}&color=${_ext_theme}`;
                     break;
 
-                case '_ext_use_sel_ext_plyr_9':
-                    _ext_frm_org = `https://vidsrc.cc`;
-                    _ext_frm_src = (info_pg_show_type.toLowerCase() === "tv") 
-                        ? `https://vidsrc.cc/v3/embed/tv/${_ext_id}/${_ext_ssn}/${_ext_eps}?autoPlay=${_ext_auto_play}&poster=true` 
-                        : `https://vidsrc.cc/v3/embed/movie/${_ext_id}?autoPlay=${_ext_auto_play}&poster=true`;
-                    break;
-
-                case '_ext_use_sel_ext_plyr_10':
+                case '_ext_use_sel_ext_plyr_11':
                     _ext_frm_src = (info_pg_show_type.toLowerCase() === "tv") 
                         ? `https://111movies.com/tv/${_ext_id}/${_ext_ssn}/${_ext_eps}` 
                         : `https://111movies.com/movie/${_ext_id}`;
                     break;
                     
-                case '_ext_use_sel_ext_plyr_11':
+                case '_ext_use_sel_ext_plyr_12':
                     _ext_frm_src = (info_pg_show_type.toLowerCase() === "tv") 
                         ? `https://multiembed.mov/?video_id=${_ext_id}&tmdb=1&s=${_ext_ssn}&e=${_ext_eps}` 
                         : `https://multiembed.mov/?video_id=${_ext_id}&tmdb=1`;
                     break;
                     
-                case '_ext_use_sel_ext_plyr_12':
+                case '_ext_use_sel_ext_plyr_13':
                     _ext_frm_src = (info_pg_show_type.toLowerCase() === "tv") 
                         ? `https://vidlink.pro/tv/${_ext_id}/${_ext_ssn}/${_ext_eps}?primaryColor=${_ext_theme}&secondaryColor=${_ext_theme_sec.toLowerCase()}&iconColor=${_ext_theme_icn}&icons=default&player=default&title=true&poster=true&autoplay=${_ext_auto_play}&nextbutton=true` 
                         : `https://vidlink.pro/movie/${_ext_id}?primaryColor=${_ext_theme}&secondaryColor=${_ext_theme_sec.toLowerCase()}&iconColor=${_ext_theme_icn}&icons=default&player=default&title=true&poster=true&autoplay=${_ext_auto_play}&nextbutton=false`;
                     break;
                     
-                case '_ext_use_sel_ext_plyr_13':
+                case '_ext_use_sel_ext_plyr_14':
                     _ext_frm_src = (info_pg_show_type.toLowerCase() === "tv") 
                         ? `https://player.smashystream.com/tv/${_ext_id}?s=${_ext_ssn}&e=${_ext_eps}?subLang=${_ext_subttl_lang_name}&startTime=${_ext_vd_prgs}` 
                         : `https://player.smashystream.com/movie/${_ext_id}?subLang=${_ext_subttl_lang_name}&startTime=${_ext_vd_prgs}`;
@@ -673,8 +680,31 @@
                 }
                 catch(_ext_err){}
             }
+
+            const _ext_plyr_2_frm_lstnr = (_ext_event) =>
+            {
+                try
+                {
+                    if(_ext_event.origin !== _ext_frm_org) return;
+                              
+                    if(_ext_event.data && _ext_event.data.type === 'PLAYER_EVENT')
+                    {
+                        if((info_pg_show_type.toLowerCase() === "tv"))
+                        {
+                            const {currentTime, duration, season, episode} = _ext_event.data.data;
+                            _ext_usr_watch_hist_upd(season, episode, currentTime, duration);
+                        }
+                        else
+                        {
+                            const {currentTime, duration } = _ext_event.data.data;
+                            _ext_usr_watch_hist_upd(null, null, currentTime, duration);
+                        }
+                    }
+                }
+                catch(_ext_err){}
+            }
             
-            const _ext_plyr_2_frm_lstnr = async (_ext_event) =>
+            const _ext_plyr_3_frm_lstnr = async (_ext_event) =>
             {
                 try
                 {
@@ -704,7 +734,7 @@
                 catch(_ext_err){}
             }
 
-            const _ext_plyr_3_frm_lstnr = ({origin, data}) =>
+            const _ext_plyr_4_frm_lstnr = ({origin, data}) =>
             {
                 try
                 {
@@ -727,7 +757,7 @@
                 catch(_ext_err){}
             }
             
-            const _ext_plyr_4_frm_lstnr = async (_ext_event) =>
+            const _ext_plyr_5_frm_lstnr = async (_ext_event) =>
             {
                 try
                 {
@@ -743,29 +773,6 @@
                         else
                         {
                             const {currentTime, duration} = _ext_ev_dt.data;
-                            _ext_usr_watch_hist_upd(null, null, currentTime, duration);
-                        }
-                    }
-                }
-                catch(_ext_err){}
-            }
-
-            const _ext_plyr_5_frm_lstnr = (_ext_event) =>
-            {
-                try
-                {
-                    if(_ext_event.origin !== _ext_frm_org) return;
-                              
-                    if(_ext_event.data && _ext_event.data.type === 'PLAYER_EVENT')
-                    {
-                        if((info_pg_show_type.toLowerCase() === "tv"))
-                        {
-                            const {currentTime, duration, season, episode} = _ext_event.data.data;
-                            _ext_usr_watch_hist_upd(season, episode, currentTime, duration);
-                        }
-                        else
-                        {
-                            const {currentTime, duration } = _ext_event.data.data;
                             _ext_usr_watch_hist_upd(null, null, currentTime, duration);
                         }
                     }
@@ -865,6 +872,29 @@
                 catch(_ext_err){}
             }
 
+            const _ext_plyr_10_frm_lstnr = (_ext_event) =>
+            {
+                try
+                {
+                    if(_ext_event.origin !== _ext_frm_org) return;
+                    
+                    if(_ext_event.data && _ext_event.data.type === 'PLAYER_EVENT')
+                    {
+                        if((info_pg_show_type.toLowerCase() === "tv"))
+                        {
+                            const {currentTime, duration, season, episode} = _ext_event.data.data;
+                            _ext_usr_watch_hist_upd(season, episode, currentTime, duration);
+                        }
+                        else
+                        {
+                            const {currentTime, duration } = _ext_event.data.data;
+                            _ext_usr_watch_hist_upd(null, null, currentTime, duration);
+                        }
+                    }
+                }
+                catch(_ext_err){}
+            }
+
             _ext_frm_base.oncontextmenu = (e) => {e.preventDefault(); fail_ext_plyr();}
             _ext_frm_wrap.oncontextmenu = (e) => {e.preventDefault(); fail_ext_plyr();}
 
@@ -917,6 +947,10 @@
             {
                 window.onmessage = (_ext_event) => _ext_plyr_9_frm_lstnr(_ext_event);
             }
+            else if((ext === "_ext_use_sel_ext_plyr_10"))
+            {
+                window.onmessage = (_ext_event) => _ext_plyr_10_frm_lstnr(_ext_event);
+            }
             
             _ext_frm_wrap.innerHTML = "";
             _ext_frm_wrap.insertAdjacentElement('afterbegin', _ext_new_frm);
@@ -933,7 +967,7 @@
     {
         try
         {
-            const ply_sets = [1, 1, 7, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1];
+            const ply_sets = [1, 1, 1, 7, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1];
             const _ext_plyr_sel_btn = document.querySelector(".watch_pg_plyr_sel_btn");
             const _ext_frm_wrap = document.getElementById("watch_pg_plyr_ext_box_id");
             const _ext_menu_box = document.querySelector(".watchPlyrSelCtntBox");
@@ -959,7 +993,7 @@
                 {
                     _ext_menu_opt_struct +=
                     `
-                        <button class="genMenuModalCtntBtnBox watchPlyrSelCtntBtn ${(e > 5) ? 'important' : ''}" data-sel-id="${e + 1}" data-sel-pos="${(p - 1)}">
+                        <button class="genMenuModalCtntBtnBox watchPlyrSelCtntBtn ${(e > 6) ? 'important' : ''}" data-sel-id="${e + 1}" data-sel-pos="${(p - 1)}">
                             <div class="genMenuModalCtntBtnIcon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genMenuModalCtntBtnSvg">
                                     <path fill-rule="evenodd" d="M5.467 4.392a.75.75 0 0 1-.001 1.06A9.22 9.22 0 0 0 2.75 12a9.22 9.22 0 0 0 2.775 6.606a.75.75 0 1 1-1.05 1.071A10.72 10.72 0 0 1 1.25 12c0-2.972 1.207-5.664 3.156-7.609a.75.75 0 0 1 1.06.001m13.15.072a.75.75 0 0 1 1.06.011A10.72 10.72 0 0 1 22.75 12c0 2.964-1.2 5.65-3.141 7.594a.75.75 0 1 1-1.062-1.06A9.22 9.22 0 0 0 21.25 12a9.22 9.22 0 0 0-2.644-6.475a.75.75 0 0 1 .01-1.06M8.308 7.488a.75.75 0 0 1-.035 1.06c-.949.888-1.524 2.102-1.524 3.434c0 1.348.589 2.575 1.558 3.466a.75.75 0 1 1-1.016 1.104c-1.252-1.151-2.042-2.77-2.042-4.57c0-1.779.771-3.38 2-4.53a.75.75 0 0 1 1.06.036m7.434.038a.75.75 0 0 1 1.06-.024c1.197 1.145 1.947 2.727 1.947 4.48c0 1.775-.767 3.373-1.99 4.521a.75.75 0 1 1-1.027-1.093c.945-.887 1.517-2.1 1.517-3.428c0-1.313-.559-2.512-1.484-3.396a.75.75 0 0 1-.023-1.06" clip-rule="evenodd" />
