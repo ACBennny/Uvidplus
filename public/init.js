@@ -12,13 +12,16 @@
     // Toggles a Message to let user know they're offline
     function updOfflineStatus()
     {
-        let oflnMdl = document.querySelector(".offline_mdl_bdr.static");
+        const oflnMdl = document.querySelector(".offline_mdl_bdr.static");
 
         if((navigator.onLine))
         {
             if(!(oflnMdl)) return;
+
+            // Remove message and refresh the current page
             documentBody.classList.remove("bodystop");
             document.querySelector(".offline_mdl_bdr.static").remove();
+            refreshPage();
         }
         else
         {
@@ -32,7 +35,7 @@
 
     function offline_status_hbt()
     {
-        let hbt_dur = 2500;
+        const hbt_dur = 2500;
         let hbt_ivl;
 
         hbt_ivl = setInterval(() => 
