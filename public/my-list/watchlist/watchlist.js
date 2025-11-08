@@ -383,13 +383,14 @@
             
             return __getUVPShowDet(itemId, itemType);
         });
-        const wl_sets = await Promise.all(wl_fetch);
+        let wl_sets = await Promise.all(wl_fetch);
+        wl_sets = wl_sets.reverse()
 
         // Filling in the grid content
-        for(let g = 0; g < wlLibraryIndexedInv.length; g++)
+        wlLibraryIndexedInv.reverse().forEach((item, g) =>
         {
-            const itemLink = wlLibraryIndexedInv[g].wl_item;
-            const itemStatus = wlLibraryIndexedInv[g].wl_status;
+            const itemLink = item.wl_item;
+            const itemStatus = item.wl_status;
             const itemSplit = itemLink.split('/');
             const itemType = itemSplit[1];
             const itemMatch = wl_sets[g];
@@ -456,7 +457,7 @@
             {
                 console.error(`${itemIdLC} not found`);
             }
-        }
+        });
 
         // Insert struct into DOM
         wlCatalogGrid.insertAdjacentHTML(`afterbegin` , struct);
