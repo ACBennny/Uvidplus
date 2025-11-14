@@ -407,6 +407,16 @@
         // Confirm before deletion
         function cfrmB4DelAcc()
         {
+            const auth = window.firebaseAuth;
+            const user = auth.currentUser;
+
+            // Return if no user is signed in
+            if(!user)
+            {
+                notification(`notifyBad`, "No user is currently signed in.");
+                return;
+            }
+
             initConfirmModal(
                 `Are you trying to delete your account?`,
                 `Press "Cancel" if you are trying to sign out`,
