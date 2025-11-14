@@ -712,7 +712,7 @@
                 cast_data_usage_ul: 0,
                 dwld_qlty_pref: 0,
                 dwld_audio_pref: 0,
-                use_ext_plr: false,
+                use_ext_plr: true,
                 wifi_only_dwld: true,
                 wifi_only_stream: false,
                 cellular_stream_ntfy: true,
