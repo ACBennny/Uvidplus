@@ -353,7 +353,7 @@
                 }
                 
                 updWatchInfo();
-                ((isWpgExt == true)) ? init_ext_plyr(extDfltPlyrExt) : restartVid();
+                ((isWpgExt == true)) ? init_ext_plyr(extDfltPlyrExt, extDfltPlyrPos) : restartVid();
             }
 
             // Going to the next episode
@@ -385,7 +385,7 @@
                 }
                 
                 updWatchInfo();
-                ((isWpgExt == true)) ? init_ext_plyr(extDfltPlyrExt) : restartVid();
+                ((isWpgExt == true)) ? init_ext_plyr(extDfltPlyrExt, extDfltPlyrPos) : restartVid();
             }
             
             // Selecting Episodes (Currently redirects you to the shows info page)
@@ -455,7 +455,7 @@
                 documentBody.classList.add("bodystop");
                 watchPgBase.removeEventListener("transitionend", handleTransitionEnd);
 
-                ((isWpgExt == true)) ? init_ext_plyr(extDfltPlyrExt) : preUVPlyr();
+                ((isWpgExt == true)) ? init_ext_plyr(extDfltPlyrExt, extDfltPlyrPos) : preUVPlyr();
             });
         },300);
 
@@ -480,7 +480,6 @@
     {
         try
         {
-            updUsrWatchHist();
             document.querySelector(".watch_pg_plyr_ldr_bdr").classList.remove("loaded");
             
             if((typeof ext !== "string") || (ext === "")) throw new Error("");
@@ -547,8 +546,8 @@
                     
                 case '_ext_use_sel_ext_plyr_3':
                     _ext_frm_src = (info_pg_show_type.toLowerCase() === "tv") 
-                        ? `https://player.videasy.net/tv/${_ext_id}/${_ext_ssn}/${_ext_eps}?progress=${_ext_vd_prgs}&nextEpisode=true&autoplayNextEpisode=${_ext_auto_next}&episodeSelector=true&overlay=true&color=${_ext_theme.toLowerCase()}` 
-                        : `https://player.videasy.net/movie/${_ext_id}?progress=${_ext_vd_prgs}&overlay=true&color=${_ext_theme.toLowerCase()}`;
+                        ? `https://player.videasy.net/tv/${_ext_id}/${_ext_ssn}/${_ext_eps}?progress=${_ext_vd_prgs}&autoPlay=${_ext_auto_play}&nextEpisode=true&autoplayNextEpisode=${_ext_auto_next}&episodeSelector=true&overlay=true&color=${_ext_theme.toLowerCase()}` 
+                        : `https://player.videasy.net/movie/${_ext_id}?progress=${_ext_vd_prgs}&autoPlay=${_ext_auto_play}&overlay=true&color=${_ext_theme.toLowerCase()}`;
                     break;
 
                 case '_ext_use_sel_ext_plyr_4':
@@ -582,8 +581,8 @@
                 case '_ext_use_sel_ext_plyr_8':
                     _ext_frm_org = `https://player.vidify.top`;
                     _ext_frm_src = (info_pg_show_type.toLowerCase() === "tv") 
-                        ? `https://player.vidify.top/embed/tv/${_ext_id}/${_ext_ssn}/${_ext_eps}?autoplay=${_ext_auto_play}&autonext=${_ext_auto_next}&nextbutton=true&poster=true&watchparty=false&chromecast=true&servericon=true&setting=true&pip=true&download=true&logourl=https%3A%2F%2Fuvidplus.netlify.app%2Fimages%2Fuvid-logo.png&font=Roboto&fontcolor=6f63ff&fontsize=20&opacity=0.5&primarycolor=${_ext_theme}&secondarycolor=${_ext_theme_sec}&iconcolor=${_ext_theme_icn}&hideprimarycolor=true&hidesecondarycolor=true&hideiconcolor=true&hideprogresscontrol=true&hideiconset=true&hideautonext=true&hideautoplay=true&hidenextbutton=true&hideposter=true&hidetitle=true&hidechromecast=true&hideepisodelist=true&hideservericon=true&hidepip=true` 
-                        : `https://player.vidify.top/embed/movie/${_ext_id}?autoplay=${_ext_auto_play}&poster=true&watchparty=false&chromecast=true&servericon=true&setting=true&pip=true&download=true&logourl=https%3A%2F%2Fuvidplus.netlify.app%2Fimages%2Fuvid-logo.png&font=Roboto&fontcolor=6f63ff&fontsize=20&opacity=0.5&primarycolor=${_ext_theme}&secondarycolor=${_ext_theme_sec}&iconcolor=${_ext_theme_icn}&hideprimarycolor=true&hidesecondarycolor=true&hideiconcolor=true&hideprogresscontrol=true&hideiconset=true&hideautonext=true&hideautoplay=true&hidenextbutton=true&hideposter=true&hidetitle=true&hidechromecast=true&hideepisodelist=true&hideservericon=true&hidepip=true`;
+                        ? `https://player.vidify.top/embed/tv/${_ext_id}/${_ext_ssn}/${_ext_eps}?autoplay=${_ext_auto_play}&autonext=${_ext_auto_next}&nextbutton=true&poster=true&watchparty=false&chromecast=true&servericon=true&setting=true&pip=true&download=true&logourl=https%3A%2F%2Fuvidplus.netlify.app%2Fimages%2Fuvid-logo.png&font=Roboto&fontcolor=6f63ff&fontsize=20&opacity=0.5&primarycolor=${_ext_theme}&secondarycolor=${_ext_theme_sec}&iconcolor=${_ext_theme_icn}&hideprimarycolor=true&hidesecondarycolor=true&hideiconcolor=true&hideiconset=true&hideautonext=true&hideautoplay=true&hidenextbutton=true&hideposter=true&hidetitle=true&hidechromecast=true&hideepisodelist=true&hideservericon=true&hidepip=true` 
+                        : `https://player.vidify.top/embed/movie/${_ext_id}?autoplay=${_ext_auto_play}&poster=true&watchparty=false&chromecast=true&servericon=true&setting=true&pip=true&download=true&logourl=https%3A%2F%2Fuvidplus.netlify.app%2Fimages%2Fuvid-logo.png&font=Roboto&fontcolor=6f63ff&fontsize=20&opacity=0.5&primarycolor=${_ext_theme}&secondarycolor=${_ext_theme_sec}&iconcolor=${_ext_theme_icn}&hideprimarycolor=true&hidesecondarycolor=true&hideiconcolor=true&hideiconset=true&hideautonext=true&hideautoplay=true&hidenextbutton=true&hideposter=true&hidetitle=true&hidechromecast=true&hideepisodelist=true&hideservericon=true&hidepip=true`;
                     break;
 
                 case '_ext_use_sel_ext_plyr_9':
@@ -951,6 +950,10 @@
             {
                 window.onmessage = (_ext_event) => _ext_plyr_10_frm_lstnr(_ext_event);
             }
+            else
+            {
+                updUsrWatchHist();
+            }
             
             _ext_frm_wrap.innerHTML = "";
             _ext_frm_wrap.insertAdjacentElement('afterbegin', _ext_new_frm);
@@ -993,7 +996,7 @@
                 {
                     _ext_menu_opt_struct +=
                     `
-                        <button class="genMenuModalCtntBtnBox watchPlyrSelCtntBtn ${(e > 6) ? 'important' : ''}" data-sel-id="${e + 1}" data-sel-pos="${(p - 1)}">
+                        <button class="genMenuModalCtntBtnBox watchPlyrSelCtntBtn ${(e > 9) ? 'important' : ''}" data-sel-id="${e + 1}" data-sel-pos="${(p - 1)}">
                             <div class="genMenuModalCtntBtnIcon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genMenuModalCtntBtnSvg">
                                     <path fill-rule="evenodd" d="M5.467 4.392a.75.75 0 0 1-.001 1.06A9.22 9.22 0 0 0 2.75 12a9.22 9.22 0 0 0 2.775 6.606a.75.75 0 1 1-1.05 1.071A10.72 10.72 0 0 1 1.25 12c0-2.972 1.207-5.664 3.156-7.609a.75.75 0 0 1 1.06.001m13.15.072a.75.75 0 0 1 1.06.011A10.72 10.72 0 0 1 22.75 12c0 2.964-1.2 5.65-3.141 7.594a.75.75 0 1 1-1.062-1.06A9.22 9.22 0 0 0 21.25 12a9.22 9.22 0 0 0-2.644-6.475a.75.75 0 0 1 .01-1.06M8.308 7.488a.75.75 0 0 1-.035 1.06c-.949.888-1.524 2.102-1.524 3.434c0 1.348.589 2.575 1.558 3.466a.75.75 0 1 1-1.016 1.104c-1.252-1.151-2.042-2.77-2.042-4.57c0-1.779.771-3.38 2-4.53a.75.75 0 0 1 1.06.036m7.434.038a.75.75 0 0 1 1.06-.024c1.197 1.145 1.947 2.727 1.947 4.48c0 1.775-.767 3.373-1.99 4.521a.75.75 0 1 1-1.027-1.093c.945-.887 1.517-2.1 1.517-3.428c0-1.313-.559-2.512-1.484-3.396a.75.75 0 0 1-.023-1.06" clip-rule="evenodd" />
@@ -1014,8 +1017,8 @@
                 </div>
                 <div class="genMenuModalCtntDescBox">
                     <p class="genMenuModalCtntDescText">
-                        Options marked in <strong>RED</strong> have near zero support for any Uvid+ features.
-                        Non-red options may have limited support but can still be inaccurate or fail.
+                        Only use <strong>RED</strong> options if none of the other players work
+                        as they will cause disruptions in watch history tracking.
                     </p>
                 </div>
                 ${_ext_menu_opt_struct}

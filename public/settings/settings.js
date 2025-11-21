@@ -2255,16 +2255,15 @@
         }, 100);
 
         // Build history elements
-        for(let i = 0; i < billHistData.length; i++)
+        billHistData.reverse().forEach((bill, i) => 
         {
-            let bill = billHistData[i];
             let bill_status_bool = bill.bill_plan_status !== null 
                 ? bill.bill_plan_status == true
-                ? "true" : "false"
+                    ? "true" : "false"
                 : "null";
             let bill_status_txt = bill.bill_plan_status !== null 
                 ? bill.bill_plan_status == true
-                ? "Paid" : "Not paid"
+                    ? "Paid" : "Not paid"
                 : "No payment";
 
             billItemStruct +=
@@ -2297,7 +2296,7 @@
                     </div>
                 </div>
             `;
-        }
+        });
         billHistGrid.innerHTML = billItemStruct;
 
         // Close the modal
