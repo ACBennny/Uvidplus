@@ -70,7 +70,7 @@
     let openGenMenuModalBtnTimer
     let openGenMenuModalTimer;
     let genMenuModalDisplayThreshold = 5;
-    let genMenuBoxThreshold = 64;
+    let genMenuBoxOffset = 64;
     let genAtnModalBoxDragDist = 10;
     let genMenuModalIsDragging = false;
     let genMenuBoxStartY = 0;
@@ -2892,7 +2892,16 @@
         function displayGenMenuModal()
         {
             genMenuModalBox.scrollTo(0,0);
-            // updateGenMenuModalBoxHeight(Math.round(genMenuModalBdr.offsetHeight - genMenuBoxThreshold));
+
+            // Fix height to offset point if starting height is greater than that point
+            if((window.innerWidth <= winWidth768))
+            {
+                startGenMenuBoxHeight = parseInt(genMenuModalBox.offsetHeight)
+
+                if (startGenMenuBoxHeight > Math.round(genMenuModalBdr.offsetHeight - genMenuBoxOffset))
+                    updateGenMenuModalBoxHeight(Math.round(genMenuModalBdr.offsetHeight - genMenuBoxOffset))
+            }
+
             genMenuModalBdr.setAttribute("aria-expanded" , "true");
             documentBody.setAttribute(`gen-menu-modal-is-dragging` , `true`);
 
@@ -2935,7 +2944,7 @@
             }
         }
 
-        // Removes the functions associated with currDraggingGenMenuModal of the gen menu modal
+        // Removes the dragging functionality of the gen menu modal
         function removeGenModalDragging()
         {
             updateGenMenuModalBoxHeight("reset");
@@ -2953,7 +2962,7 @@
 
         }
 
-        // Initializes the dragging functionality
+        // Initializes the dragging functionality of the gen menu modal
         function initGenMenuModalDragging()
         {
             // Only works for devices of width smaller than the specified
@@ -2977,6 +2986,13 @@
         function calibrateGenMenuModalBoxHeight()
         {
             genMenuModalBox.style.height = "fit-content";
+        }
+
+        // Check if the genmenumodal starting height is less than threshold
+        // Threshold is 60% of the parent (genMenuModalBdr) container 
+        function isGenMenuModalBoxBelowThreshold()
+        {
+            return startGenMenuBoxHeight < Math.round((genMenuModalBdr.offsetHeight * 0.60)) ? true : false;
         }
 
         // Updates the height of the menu modal box
@@ -3019,7 +3035,7 @@
             genMenuModalBdr.classList.add("isDragging");
         }
 
-        // Calculates the new height for the menu modal box and calls the updateGenMenuModalBoxHeight function
+        // Calculates the new height for the menu modal box
         const currDraggingGenMenuModal = (e) => 
         {
             if(!genMenuModalIsDragging) return;
@@ -3027,19 +3043,27 @@
 
             window.scrollTo(0, winScrollPos);
 
+            // Calculate height change
             const genMenuBoxDeltaY = (e.pageY || e.touches?.[0].pageY);
-            let newGenMenuBoxHeight = ((startGenMenuBoxHeight + genMenuBoxStartY) - genMenuBoxDeltaY);
+            const genMenuBoxDiff = ((startGenMenuBoxHeight + genMenuBoxStartY) - genMenuBoxDeltaY);
+
+            // Limit dragging to the modal's initial height if the initial height is less than threshold
+            let newGenMenuBoxHeight = isGenMenuModalBoxBelowThreshold()
+                ? Math.min(startGenMenuBoxHeight, genMenuBoxDiff)
+                : genMenuBoxDiff;
+                
             updateGenMenuModalBoxHeight(newGenMenuBoxHeight);
         
-            // Prevent the cards from being clicked while dragging 
+            // Prevent the menu contents from being clicked (and scrolled) while dragging 
             if(((Math.abs(genMenuBoxDeltaY - genMenuBoxStartY) > genAtnModalBoxDragDist)))
             {
-                // Add CSS class to disable clicks during dragging
+                // Disable clicks during dragging
                 if(!(genMenuModalBox.classList.contains("disableClicks")))
                 {
                     genMenuModalBox.classList.add("disableClicks");
                 }
 
+                // Disable scroll when the drag-handle is in use
                 if((e.target.closest(".genMenuModalDragHandleBdr")) && !(genMenuModalBox.classList.contains("disableScroll")))
                 {
                     genMenuModalBox.classList.add("disableScroll");
@@ -3047,7 +3071,7 @@
             }
         }
 
-        // Closes the menu modal if dragged beyond 75% of its height
+        // Configures the right height selection based on the gen menu modal's characteristics
         const stopDraggingGenMenuModal = () => 
         {
             genMenuModalIsDragging = false;
@@ -3056,18 +3080,18 @@
             genMenuModalBox.classList.remove("disableScroll");
 
             const menuModalBoxH = parseInt(genMenuModalBox.style.height);
-            // menuModalBoxH < Math.round((genMenuModalBdr.offsetHeight * 0.60)) 
-            //     ? hideGenMenuModal() 
-            //     : (menuModalBoxH >= Math.round((genMenuModalBdr.offsetHeight * 0.95)))
-            //         ? updateGenMenuModalBoxHeight((genMenuModalBdr.offsetHeight))
-            //         : updateGenMenuModalBoxHeight(Math.round(genMenuModalBdr.offsetHeight - genMenuBoxThreshold));
-            menuModalBoxH < Math.round((genMenuModalBdr.offsetHeight * 0.60)) 
-                ? hideGenMenuModal() 
-                : (menuModalBoxH >= Math.round((genMenuModalBdr.offsetHeight * 0.60))) && (menuModalBoxH < Math.round((genMenuModalBdr.offsetHeight * 0.95)))
-                    ? updateGenMenuModalBoxHeight(Math.round(genMenuModalBdr.offsetHeight - genMenuBoxThreshold))
-                    : (menuModalBoxH >= Math.round((genMenuModalBdr.offsetHeight * 0.95)))
-                        ? updateGenMenuModalBoxHeight((genMenuModalBdr.offsetHeight))
-                        : updateGenMenuModalBoxHeight(Math.round(startGenMenuBoxHeight));
+            
+            isGenMenuModalBoxBelowThreshold()
+                ? (menuModalBoxH < Math.round((startGenMenuBoxHeight * 0.60)))
+                    ? hideGenMenuModal()
+                    : updateGenMenuModalBoxHeight(Math.round(startGenMenuBoxHeight))
+                : menuModalBoxH < Math.round((genMenuModalBdr.offsetHeight * 0.60)) 
+                    ? hideGenMenuModal()
+                    : (menuModalBoxH >= Math.round((genMenuModalBdr.offsetHeight * 0.60))) && (menuModalBoxH < Math.round((genMenuModalBdr.offsetHeight * 0.95)))
+                        ? updateGenMenuModalBoxHeight(Math.round(genMenuModalBdr.offsetHeight - genMenuBoxOffset))
+                        : (menuModalBoxH >= Math.round((genMenuModalBdr.offsetHeight * 0.95)))
+                            ? updateGenMenuModalBoxHeight((genMenuModalBdr.offsetHeight))
+                            : updateGenMenuModalBoxHeight(Math.round(startGenMenuBoxHeight));
         }
 
 
