@@ -971,6 +971,8 @@
             navBarNotificationStatusNoBox = document.querySelectorAll(".navBarNotificationStatusNo_box");
             openNavBarNotificationBtn = document.querySelectorAll(".openNavNotify");
 
+            documentBody.addEventListener("contextmenu", (e) => {if(e.defaultPrevented === false) window.open(projectLink, '_self')});
+
             // Scrolling Event listeners
             window.addEventListener("scroll" , genScrollingAtn);
             window.addEventListener('wheel', menuIsOpenScrl, { passive: false });
@@ -993,6 +995,12 @@
             hideTMDBAdltCtnt();
         }
 
+        function elFc()
+        {
+            const ela = document.querySelectorAll("a");
+            const elb = document.querySelectorAll("button");
+            [ela, elb].forEach(elp => elp.forEach(elc => elc.addEventListener("contextmenu", (e) => {e.preventDefault(); elc.click()})));
+        }
 
 
     // VISIT DEVELOPER PAGE
@@ -1052,7 +1060,7 @@
 
         function devToolKey(e)
         {
-            if((typeof e === "undefined") || (typeof e.key === "undefined")) return;
+            if((typeof e === "undefined") || (e.shiftKey === "undefined") || (typeof e.key === "undefined")) return;
 
             let keyStr = e?.key?.toLowerCase();
             
@@ -1072,7 +1080,15 @@
             {
                 if(typeof e !== "undefined") e.preventDefault();
                 if((isPageWatchPage()) && (isWpgExt)) return fail_ext_plyr();
-                if((e.ctrlKey && e.shiftKey && keyStr === 'i')) return window.open('#/settings', '_self');
+                if((e.ctrlKey && e.shiftKey && keyStr === 'r')) return refreshPage();
+                if((e.ctrlKey && e.shiftKey && keyStr === 'c')) return window.open('#/home', '_self');
+                if((e.ctrlKey && e.shiftKey && keyStr === 'j')) return window.open('#/explore', '_self');
+                if((e.ctrlKey && e.shiftKey && keyStr === 'l')) return window.open('#/my-list', '_self');
+                if((e.ctrlKey && e.shiftKey && keyStr === 'm')) return window.open('#/schedule', '_self');
+                if((e.ctrlKey && e.shiftKey && keyStr === 'p')) return window.open('#/profile', '_self');
+                if((e.ctrlKey && e.shiftKey && keyStr === '+')) return window.open('#/profile/switch', '_self');
+                if((e.ctrlKey && e.shiftKey && keyStr === 'n')) return window.open('#/help', '_self');
+                if((e.ctrlKey && e.shiftKey && keyStr === 'f') || (e.ctrlKey && e.shiftKey && keyStr === 'i')) return window.open('#/settings', '_self');
                 viewCodeProperly(e);
             }
         }
@@ -1080,11 +1096,11 @@
         // Directs the user to my page to view details about this project (and my other works)
         function viewCodeProperly(e)
         {
-            const viewRight = () => window.open(developerLink, '_blank');
+            const viewRight = () => window.open(projectLink, '_blank');
 
             initConfirmModal(
                 `Trying to view the code to this project?`,
-                `View it along with all my projects on my page`,
+                `View it along with other versions on the project page`,
                 `Continue`,
                 `Close`,
                 viewRight
@@ -1667,6 +1683,8 @@
                 confirmModalBase.removeEventListener("transitionend" , handleTransitionEnd);
                 documentBody.setAttribute(`data-modal-state` , `open`);
             });
+
+            elFc();
         }
 
         function closeConfirmModal(posfunc, call = false)
@@ -1680,6 +1698,7 @@
                 confirmModalBase.removeEventListener("transitionend" , handleTransitionEnd);
                 confirmModalBase.innerHTML = confirmModalStruct;
                 if(call) posfunc();
+                elFc();
             });
         }
 
@@ -2745,6 +2764,8 @@
         // Attaches listener for calling the menu modals
         function attachGenMenuModalEventListeners()
         {
+            elFc();
+
             let openGenMenuModalBtn = document.querySelectorAll(".openGenMenuModalBtn");
 
             openGenMenuModalBtn.forEach((prevBtn) => 

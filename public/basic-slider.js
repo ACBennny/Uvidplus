@@ -242,6 +242,8 @@
             base.addEventListener("click" , card_details_atn);
             base.card_details_atn = card_details_atn;
         });
+
+        elFc();
     }
 
     // Calls the function again if window changes size

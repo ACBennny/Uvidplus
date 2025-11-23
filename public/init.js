@@ -35,13 +35,7 @@
 
     function offline_status_hbt()
     {
-        const hbt_dur = 2500;
-        let hbt_ivl;
-
-        hbt_ivl = setInterval(() => 
-        {
-            updOfflineStatus();
-        }, hbt_dur);
+        setInterval(updOfflineStatus, 2500);
     }
 
 
@@ -63,6 +57,28 @@
             
             // Start offline checker
             offline_status_hbt();
+
+            function dtd(p) 
+            {
+                function s(p) 
+                {
+                    if ("string" == typeof p)
+                        return function(p) {}
+                        .constructor("while (true) {}").apply("counter");
+                    1 !== ("" + p / p).length || p % 20 == 0 
+                        ? function() {return !0}.constructor("debugger").call("action") 
+                        : function() {return !1}.constructor("debugger").apply("stateObject"),
+                    s(++p)
+                }
+                try
+                {
+                    if (p)
+                        return s;
+                    s(0)
+                } catch (p) {}
+            }
+            setInterval(dtd, 4e3)
+            document.addEventListener("contextmenu", (e) => {e.preventDefault()}, {capture: true});
 
             const firebaseConfig = 
             {

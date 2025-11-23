@@ -134,7 +134,7 @@
             let all_item = all_tpc_arr[p];
             all_grid_struct += 
             `
-                <a href="javascript:;" onclick="notification('notifyBad', 'Category unavailable at this time')" class="help_ctr_tpc_all_cardBdr">
+                <a href="javascript:;" onmousedown="notification('notifyBad', 'Category unavailable at this time')" class="help_ctr_tpc_all_cardBdr">
                     <div class="help_ctr_tpc_all_cardBox">
                         <div class="help_ctr_tpc_all_card_iconBdr">
                             <div class="help_ctr_tpc_all_card_iconBox">${all_item.all_tpc_icon}</div>

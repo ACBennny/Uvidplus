@@ -320,7 +320,7 @@
                             <div class="exploreGridCardLabelText">${item.name}</div>
                         </div>
                     </div>
-                    <div onclick="window.open('${item.link}' , '_self')" class="exploreGridCardLink"></div>
+                    <div onmousedown="window.open('${item.link}' , '_self')" class="exploreGridCardLink"></div>
                 </div>
             `;
             ftrCategoriesGridBox.insertAdjacentHTML(`beforeend` , struct);
@@ -339,7 +339,7 @@
                             <div class="exploreGridCardLabelText">${item.name}</div>
                         </div>
                     </div>
-                    <div onclick="window.open('${item.link}' , '_self')" class="exploreGridCardLink"></div>
+                    <div onmousedown="window.open('${item.link}' , '_self')" class="exploreGridCardLink"></div>
                 </div>
             `;
             gnrCategoriesGridBox.insertAdjacentHTML(`beforeend` , struct);
@@ -827,7 +827,7 @@
                         <div class="slide_card_bdr ">
                             <div class="slide_card_box">
                                 <div class="slide_card">
-                                    <a href="${show_link}" title="Watch ${show_title}" class="cardLinkCover"></a>
+                                    <a href="${show_link}" onmousedown="this.click()" title="Watch ${show_title}" class="cardLinkCover"></a>
                                     <div class="cardImgBox">
                                         <div class="img_preload_box">
                                             <div class="img_preload_sibling"></div>

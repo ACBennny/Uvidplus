@@ -169,7 +169,6 @@
     function settCallFunc()
     {
         window.addEventListener("resize", toggleSettNav);
-        window.onsc
         init_sett_profile_cards();
         sett_sect_router();
         sett_sect_auto();

@@ -34,6 +34,7 @@
 html
 {
     background-color: #000000;
+    -webkit-touch-callout: none;
     -moz-user-select: -moz-none;
     -moz-user-select: none;
     -webkit-user-select: none;
