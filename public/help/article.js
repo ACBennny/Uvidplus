@@ -42,7 +42,7 @@
         document.querySelector(".atcl_hdr_txt").textContent = atcl_item[0].pplr_tpc_name;
 
         // Insert article body if not empty
-        if((atcl_item[0].pplr_tpc_body !== "")) document.querySelector(".atcl_body_txt").innerHTML = atcl_item[0].pplr_tpc_body;
+        if((atcl_item[0].pplr_tpc_body.trim() !== "")) document.querySelector(".atcl_body_txt").innerHTML = atcl_item[0].pplr_tpc_body;
 
         // Initialize popular articles
         init_rand_pplr_atcl(atcl_no);
