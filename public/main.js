@@ -108,27 +108,14 @@
                 <div class="offline_mdl_det_box">
                     <p class="offline_mdl_det_txt">You need to be online to use Uvid+</p>
                 </div>
-            </div>
-        </div>
-    `;
-    const inactivityModalStruct = 
-    `
-        <!-- --------- Timeout Modal -------- -->
-        <div class="inactivity_bcg">
-            <div class="inactivity_bdr">
-                <div class="inactivity_box">
-                    <div class="inactivity_headerBox">
-                        <h3 class="inactivity_header">Are you still there?</h3>
+                <button type="button" class="genBtnBox midSolidBtn " onmousedown="window.location.reload()">
+                    <div class="genBtnIcon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
+                            <path fill="currentColor" d="M18.258 3.508a.75.75 0 0 1 .463.693v4.243a.75.75 0 0 1-.75.75h-4.243a.75.75 0 0 1-.53-1.28L14.8 6.31a7.25 7.25 0 1 0 4.393 5.783a.75.75 0 0 1 1.488-.187A8.75 8.75 0 1 1 15.93 5.18l1.51-1.51a.75.75 0 0 1 .817-.162" />
+                        </svg>
                     </div>
-                    <div class="inactivity_textBox">
-                        <p class="inactivity_text">
-                            You'll be logged out in 60 seconds for inactivity. Click "I'm here" to show you are there.
-                        </p>
-                    </div>
-                    <div class="inactivity_actionBox">
-                        <button type="button" class="inactivity_actionBtn">I'm here</button>
-                    </div>
-                </div>
+                    <span class="genBtnText">Retry</span>
+                </button>
             </div>
         </div>
     `;
@@ -991,8 +978,9 @@
             attachAddToCLEventListeners();
             attachSharePageEventListeners();
             initGenMenuModal();
-            genScrollingAtn();  
+            genScrollingAtn();
             hideTMDBAdltCtnt();
+            preInstallPrompt();
         }
 
         function elFc()
@@ -1000,6 +988,7 @@
             const ela = document.querySelectorAll("a");
             const elb = document.querySelectorAll("button");
             [ela, elb].forEach(elp => elp.forEach(elc => elc.addEventListener("contextmenu", (e) => {e.preventDefault(); elc.click()})));
+            ela.forEach(a => a.addEventListener("mousedown", (e) => {e.preventDefault(); a.click()}))
         }
 
 
@@ -1447,10 +1436,23 @@
             const newMonth = date.getMonth();
             const monthArr = [`Jan` , `Feb` , `Mar` , `Apr` , `May` , `Jun` , `Jul` , `Aug` , `Sep` , `Oct` , `Nov` , `Dec`];
             const newDay = date.getDate();
-            const newDate = 
-                format === "short" 
-                ? `${newDay}/${(newMonth + 1)}/${newYear}` 
-                : `${monthArr[newMonth]} ${newDay}, ${newYear}`;
+            let newDate = ``;
+
+            // Build date based on provided format
+            switch(format)
+            {
+                case 'short':
+                    newDate = `${newDay}/${(newMonth + 1)}/${newYear}`;
+                    break;
+                    
+                case 'hyphen':
+                    newDate = `${newDay}-${(newMonth + 1)}-${newYear}`;
+                    break;
+                    
+                default:
+                    newDate = `${monthArr[newMonth]} ${newDay}, ${newYear}`;
+                    break;
+            }
 
             return newDate;
         }

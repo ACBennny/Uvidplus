@@ -197,6 +197,7 @@ html:has(body[gen-menu-modal-is-dragging="true"])
 }
 
 html:has(body[data-modal-state="open"]),
+html:has(.offline_mdl_bdr.static),
 html:has(.join_fence)
 {
     overflow: hidden !important;
@@ -324,7 +325,7 @@ html:has(.join_fence)
     width: fit-content;
     height: -moz-fit-content;
     height: fit-content;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
 }
 
 .offline_mdl_ttl_box .offline_mdl_ttl_txt
@@ -340,7 +341,7 @@ html:has(.join_fence)
     width: fit-content;
     height: -moz-fit-content;
     height: fit-content;
-    margin-top: 0.75rem;
+    margin: 0.5rem 0 1.25rem;
 }
 
 .offline_mdl_det_box .offline_mdl_det_txt

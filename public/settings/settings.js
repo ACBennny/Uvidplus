@@ -73,6 +73,46 @@
                 </div>
                 <div class="settCtntBdr">
                     <div class="settCtntBox">
+                        ${
+                            (isPWAInstalled())
+                            ? ""
+                            : `
+                                <section class="settCtntTab">
+                                    <div class="settCtntTitleBox">
+                                        <h2 class="settCtntTitleText">
+                                            <span class="major">G</span>
+                                            <span class="minor">et Uvid+</span>
+                                        </h2>
+                                    </div>
+                                    <div class="settCtntSectBdr">
+                                        <div class="settCtntSectBox">
+                                            <div class="sett_ctnt_hrtl">
+                                                <div class="sett_ctnt_info">
+                                                    <div class="settCtntSectTitleBox">
+                                                        <div class="settCtntSectTitleText">Get Uvid+ on your device</div>
+                                                    </div>
+                                                    <div class="settCtntSectDescBox">
+                                                        <p class="settCtntSectDescText">
+                                                            With Uvid+ now accessible directly from your home screen/desktop, 
+                                                            you're only a click away from your NEVER-ENDING ENTERTAINMENT.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="settCtntSectAtnBdr">
+                                                    <div class="settCtntSectAtnBox">
+                                                        <button onmousedown="hdlCstmInstallClick()" class="settCtntSectAtnBtn settCtntSectAtnIcon">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="settCtntSectAtnSvg">
+                                                                <path fill-rule="evenodd" d="M8.512 4.43a.75.75 0 0 1 1.057.082l6 7a.75.75 0 0 1 0 .976l-6 7a.75.75 0 0 1-1.138-.976L14.012 12L8.431 5.488a.75.75 0 0 1 .08-1.057" clip-rule="evenodd"></path>
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            `
+                        }
                         <section class="settCtntTab" id="sett_membership">
                             <div class="settCtntTitleBox">
                                 <h2 class="settCtntTitleText">
@@ -400,6 +440,8 @@
         }
         else
         {
+            if((!isPWAInstalled())) return sett_sect_dstn("install");
+
             // Defaults to membership section
             sett_sect_dstn("membership");
         }
@@ -425,6 +467,8 @@
     // Scrolls to the selected section
     function sett_sect_dstn(sect = "membership")
     {
+        if(sect == "install") return window.scroll(0,0);
+
         let sectTab = document.getElementById(`sett_${sect.trim().toLowerCase()}`).getBoundingClientRect();
 
         // Return if no match is found
@@ -486,6 +530,8 @@
 
             window.addEventListener("scroll", settNavBtnScrollEv);
         }
+
+
     }
 
     // Automatically updates the selected section when in view
@@ -4543,7 +4589,7 @@
         // Validation function for "Email"
         function valEmail(event)
         {
-            let eml = newEmailInput.toString().trim();
+            let eml = newEmailInput.value.toString().trim();
             let check_for_AtSign_in_Email = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
             // Checks if the field is empty

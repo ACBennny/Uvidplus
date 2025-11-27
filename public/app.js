@@ -7,6 +7,66 @@
 ****************************************************************/
 
 
+    // UVID+ PWA
+
+        // Check if the Uvidplus' PWA is alreaady installed
+        function isPWAInstalled()
+        {
+            const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+            const isFullscreen = window.matchMedia('(display-mode: fullscreen)').matches;
+            const isIosStandalone = window.navigator.standalone === true; // iOS Safari
+
+            return isStandalone || isFullscreen || isIosStandalone;
+        }
+
+        // Call Suggestion prompt once after initial load
+        function preInstallPrompt()
+        {
+            if(!isUserSignedIn() || window.preInstallCall == true) return;
+
+            setTimeout(hdlB4InstallPrompt, 2500);
+
+            window.preInstallCall = true;
+        }
+
+        // Suggest installing Uid+ to the user
+        function hdlB4InstallPrompt()
+        {
+            initConfirmModal(
+                `Add Uvid+ to your desktop/home screen?`,
+                `This allows for a more seamless native experience. You can always do this later in settings`,
+                `Let's do it`,
+                `Not now`,
+                hdlCstmInstallClick
+            );
+        }
+
+        // Initiate prompt to install Uvid+
+        async function hdlCstmInstallClick()
+        {
+            // Install if supported
+            if(window.deferredInstallPrompt)
+            {
+                window.deferredInstallPrompt.prompt();
+                const { outcome } = await window.deferredInstallPrompt.userChoice;
+                console.log('User choice:', outcome);
+                window.deferredInstallPrompt = null;
+
+                return;
+            }
+
+            // Fallback: show instructions article
+            const opnInstallHelpPage = () => window.open('#/help/article/60953494', '_self');
+            initConfirmModal(
+                `Manual install needed`,
+                `Automatic installation failed. Install manually in a few easy steps.`,
+                `Continue`,
+                `Cancel`,
+                opnInstallHelpPage
+            );
+        }
+
+
 
     // USER PROCESSING
 
