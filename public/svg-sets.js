@@ -1824,6 +1824,21 @@
             `,
         },
         {
+            icon_name: `refresh reload restart retry`,
+            icon_bold: 
+            `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="">
+                    <path fill="currentColor" d="M18.258 3.508a.75.75 0 0 1 .463.693v4.243a.75.75 0 0 1-.75.75h-4.243a.75.75 0 0 1-.53-1.28L14.8 6.31a7.25 7.25 0 1 0 4.393 5.783a.75.75 0 0 1 1.488-.187A8.75 8.75 0 1 1 15.93 5.18l1.51-1.51a.75.75 0 0 1 .817-.162" />
+                </svg>
+            `,
+            icon_outline: 
+            `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="">
+                    <path fill="currentColor" fill-rule="evenodd" d="M18.364 3.058a.75.75 0 0 1 .75.75V8.05a.75.75 0 0 1-.75.75h-4.243a.75.75 0 0 1 0-1.5h2.36a7.251 7.251 0 1 0 2.523 3.822a.75.75 0 1 1 1.45-.387a8.75 8.75 0 1 1-2.84-4.447v-2.48a.75.75 0 0 1 .75-.75" clip-rule="evenodd" />
+                </svg>
+            `,
+        },
+        {
             icon_name: `payment-card`,
             icon_bold: 
             `
