@@ -239,7 +239,7 @@ let pplr_tpc_arr =
             desktop, or TV, if it has a browser, then you can access Uvidplus.
             <br><br>
             If you want a potentially better experience, you can have Uvidplus right on your device by getting 
-            the Uvidplus webapp (PWA). It allows you to access uvidplus from on your device without neededing to open the browser 
+            the Uvidplus webapp (PWA). It allows you to access uvidplus from your device without needing to open the browser 
             and search for it. Now, you can easily dive back in with a single click.
             <br><br>
             To learn how to install the Uvidplus webapp, click <a href="#/help/article/60953494" class="important">HERE</a>.
