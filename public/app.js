@@ -22,7 +22,7 @@
         // Call Suggestion prompt once after initial load
         function preInstallPrompt()
         {
-            if(!isUserSignedIn() || window.preInstallCall == true) return;
+            if(!isUserSignedIn() || isPWAInstalled() || window.preInstallCall == true) return;
 
             setTimeout(hdlB4InstallPrompt, 2500);
 
