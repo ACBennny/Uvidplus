@@ -12,12 +12,111 @@ let pplr_tpc_arr =
     {
         pplr_tpc_id: `58679021`,
         pplr_tpc_name: `How to sign up for Uvid+?`,
-        pplr_tpc_body: ``,
+        pplr_tpc_body: 
+        `
+            You've just landed on Uvidplus and want to start your <span class="important">NEVER-ENDING ENTERTAINMENT</span>. 
+            No worries, we got you absolutely covered. Follow the guide below to setup and start exploring the world of Uvidplus.
+            <br><br>
+            1. Let's start from the landing page because that's how most got to see Uvidplus. 
+            If you're already on the signup page, kindly move to the next step.
+            When you first load in there are two big buttons: a <span class="important">"Sign Up"</span> button, 
+            and a "Sign In" button. Hit the <span class="important">"Sign Up"</span> button
+            or click <a href="#/signup" class="important">here</a>.
+            <br><br>
+            2. Once in the sign up page, you'll see a modal spelling out the three major steps to get started. After reading, click
+            the <span class="important">"GET STARTED"</span> button.
+            <br><br>
+            3. A small but important notice will appear reminding you what Uvid+ is and isn't. Don't skip past, read it.
+            Click the <span class="important">"GOT IT"</span>  button after you're done. 
+            <br><br>
+            4. In the next screen, you'll be asked to choose how you'd like to sign up. There currently two ways to sign up.
+            either with an <span class="important">"Email/Password"</span> or an <span class="important">"Email Provider"</span>.
+            Let's go into detail for setup using both.
+            <br><br>
+            <span class="important">Email/Password</span> 
+            <br>
+            This option requires creating a password and verifying the email used in the account creation process. 
+            <br>
+            a. When chosen, you'll be required to enter your name, email, and password. After doing so, your account will be created.
+            But you're not done.
+            <br> 
+            b. The email is currently unverified. A email verification is sent to the email used during setup so make sure it can receive emails.
+            <br>
+            c. Check your inbox (including spam) for the email verfication. Once received follow the instructions and complete the verification.
+            <br>
+            d. Come back to the Uvidplus page and hit the "CONTINUE" button on the screen to continue with your account set up.
+            <br>
+            e. If you did not receive an email verification, try resending it. If you still don't receive any after several attempts,
+            please click <a href="#/help/article/16081474" class="important">here</a>.
+            <br><br>
+            <span class="important">Email Providers</span> 
+            <br>
+            Email Providers don't require password/verification as those were done by the provider when creating your account with them.
+            <br>
+            a. Select the provider you wish to use.
+            <br>
+            b. You'll be redirected to the provider's page. Over there, you'll need to reauthenticate and permit Uvid+ to connect to your
+            account. This enables Uvidplus to see details like the name, email, and display pitcure associated with your email provider.
+            <br>
+            c. After granting the necessary permissions, you'll be automatically taken back to our page. 
+            You should automatically be taken to the next step upon arrival. However, if you see an Email Verification request,
+            click the "CONTINUE" button to move on. You have already been verified.
+            <br><br>
+            5. You should see a prompt to choose your tier. It's just for demonstrations and all of them are free. 
+            Regardless of what you choose, it's still the same Uvidplus experience. You may see a prompt reminding you that everything is free. 
+            <br><br>
+            6. A sample (fake) payment information card is automatically generated for your account. You can try it out later in settings if u wish to.
+            <br><br>
+            7. You are now done and ready to commence your <span class="important">NEVER-ENDING ENTERTAINMENT</span>. 
+            Hit the "EXPLORE" button and dive in. 
+        `,
     },
     {
         pplr_tpc_id: `11358423`,
         pplr_tpc_name: `I can't sign into Uvid+`,
-        pplr_tpc_body: ``,
+        pplr_tpc_body: 
+        `
+            In order to sign into Uvid+ you need to have an account. If you don't have an account and need help creating one, 
+            please click <a href="#/help/article/58679021" class="important">here</a>.
+            <br><br>
+            If you already have an account and need help signing in, you're in the right place.
+            <br><br>
+            1. Go to the <a href="#/signin" class="important">Sign In</a> page.
+            <br><br>
+            2. Once there, you'll see an area provided for you to enter your account credentials. 
+            Your account credentials are the email and password used to create your account.
+            <br><br>
+            3. Enter them correctly and hit the "SIGN IN" button. You should be automatically signed in.
+            <br><br><br>
+            <span class="important">Email Provider</span>
+            <br>
+            If you used an email provider to sign up on Uvid+, it's a slightly different procedure.
+            <br><br>
+            1. Below the "SIGN IN" button is the "SIGN IN WITH A PROVIDER" button. Click it and a list of provider(s) is shown.
+            <br><br>
+            2. Select the same email provider used when you created your acount.
+            <br><br>
+            3. You'll be redirected to the email provider's page to log in.
+            <br><br>
+            4. After successfully logging in, you'll be automatically signed into Uvid+.
+            <br><br><br>
+            <span class="important">Forgot Password</span>
+            <br>
+            If you used an "Email/Password" to sign up into Uivd+ then you can change your password if you forget it.
+            <br><br>
+            1. Below the "SIGN IN WITH A PROVIDER" button, You'll see an section called "Forgot Password?". 
+            Directly under it is a "Reset Password" prompt. Click it.
+            <br><br>
+            2. In the modal that appears, enter in your email. If the account exists, a password reset email is sent there.
+            Check all inboxes, including spam.
+            <br><br>
+            3. Once received, follow the instructions there. You should be taken to a page to reset your password.
+            <br><br>
+            4. After successfully resetting your password, come back to the Uvidplus page and sign in.
+            <br><br><br>
+            <span class="important">Important: </span>Your account email is very important and if it gets lost/forgotten, 
+            your account is essentially gone as there is no way to recover it. 
+        `,
     },
     {
         pplr_tpc_id: `16081474`,
@@ -51,19 +150,69 @@ let pplr_tpc_arr =
     {
         pplr_tpc_id: `58523412`,
         pplr_tpc_name: `How can I change my username?`,
-        pplr_tpc_body: ``,
+        pplr_tpc_body: 
+        `
+            In Uvid+ the "username" is typically referred to as your email as that is how you sign into Uvid+.
+            <br><br>
+            However, if you want to change your "name" or "Full name" in the app, then follow the steps below.
+            <br><br>
+            1. Open your account settings page.
+            <br><br>
+            2. Head over to the "Privacy & Security" section. You can quickly navigate there by clicking 
+            the button in the navigation menu.
+            <br><br>
+            3. You should see a sub-section called "Fullname". Hit the arrow button ">" next to it.
+            <br><br>
+            4. In the modal that appears, you can change the name to whatever you want.
+            <br><br>
+            5. After making your changes, hit the "Save" button to apply it to your account.
+        `,
     },
     {
         pplr_tpc_id: `82541406`,
         pplr_tpc_name: `How can I change my email address?`,
-        pplr_tpc_body: ``,
+        pplr_tpc_body: 
+        `
+            If you signed up with an external provider (e.g., Google) you can not change the eamil associated with your account.
+            <br><br>
+            If you signed up using an "Email/Password" option, then follow the steps below to change your email.
+            <br><br>
+            1. Open your account settings page.
+            <br><br>
+            2. Head over to the "Privacy & Security" section. You can quickly navigate there by clicking 
+            the button in the navigation menu.
+            <br><br>
+            3. You should see a sub-section called "Email" with you current email. Hit the arrow button ">" next to it.
+            <br><br>
+            4. You will then be prompted to enter a new email and the current password for your account.
+            <br><br>
+            5. If successful, you'll receive an email verification in your new email. You'll have to complete it to finish the changeover.
+            <br><br>
+            6. Once done, you can now log in with your new email.
+            <br><br>
+            7. An email is sent to your old email confirming the change and providing an option to revert it if you wish to do so.
+        `,
     },
     {
         pplr_tpc_id: `38427142`,
         pplr_tpc_name: `Is Uvid+ free?`,
         pplr_tpc_body: 
         `
-            Yes, Uvid+ is free. It has always been free.
+            Yes, Uvid+ is <span class="important">FREE</span>. It has <span class="important">always</span> been free. 
+            Any requests for actual payments is not from usand should be reported to us using the 
+            <a href="#/feedback" class="important">Feedback Form</a>.
+            <br><br>
+            However, if you're not new to Uvid+, you may argue that it was paid because in previous versions of Uvid+, 
+            you may have seen prices, including those for tiers. 
+            <br><br>
+            We would like to stress that this project is a demo, inspired by real streaming services. 
+            It aimed to replicate the various parts and functions of a real streaming service hence the initial tier systems 
+            and prices. If you read any of the documentation from the project homepage, app notices/reminders or the app's 
+            <a href="#/tos" class="important">Terms of use</a> and <a href="#/privacy" class="important">Privacy policy</a>,
+            you would have immediately realized they were for demonstration purposes.
+            <br><br>
+            Nonetheless, those features were removed to prevent any further confusion for old users or misrepresentation of 
+            the project for new users. Feel free to use it as much as you like for as long as you desire to do so.
         `,
     },
     {
@@ -71,28 +220,145 @@ let pplr_tpc_arr =
         pplr_tpc_name: `How to delete my account?`,
         pplr_tpc_body: 
         `
+            There's alot going on in Uvid+ and you don't want to miss out.
             If you have any questions, suggestions, etcetera, you can use the 
             <a href="#/feedback" class="important">Feedback Form</a> 
             to let us know.
             <br><br>
             If you wish to delete your account, click
-            <a href="javascript:;" class="important" onclick="cfrmB4DelAcc()">HERE</a>.
+            <a href="javascript:;" class="important" onclick="cfrmB4DelAcc()">HERE</a> 
+            and follow all instructions on the prompts that appear.
         `,
     },
     {
         pplr_tpc_id: `16456529`,
         pplr_tpc_name: `Where can I watch?`,
-        pplr_tpc_body: ``,
+        pplr_tpc_body: 
+        `
+            Uvidplus can be accessed anytime, anywhere from your browser. Whether it's a phone, tablet, laptop,
+            desktop, or TV, if it has a browser, then you can access Uvidplus.
+            <br><br>
+            If you want a potentially better experience, you can have Uvidplus right on your device by getting 
+            the Uvidplus webapp (PWA). It allows you to access uvidplus from on your device without neededing to open the browser and quickly get 
+            search for it. Easily dive back in with a single click.
+            <br><br>
+            To learn how to install the Uvidplus webapp, click <a href="#/help/article/60953494" class="important">HERE</a>.
+        `,
     },
     {
         pplr_tpc_id: `60953494`,
-        pplr_tpc_name: `Where can I redeem gift cards?`,
-        pplr_tpc_body: ``,
+        pplr_tpc_name: `How to install Uvid+?`,
+        pplr_tpc_body: 
+        `
+            The Uvid+ web app is a PWA, not a standalone app meaning it is dependent on the browser.
+            It is fully supported in Chromium-based browsers (e.g., Brave, Opera, Vivaldi, Edge, Chrome).
+            Other browsers may only have partial for support PWA installations.
+            <br><br>
+            Click <a onmousedown="hdlCstmInstallClick()" class="important">HERE</a> to attempt
+            automatic installation.
+            If the installation fails to start, it means it's either not supported in your browser or something went wrong.
+            <br><br>
+            If you don't see a tutorial for your browser/platform (e.g. Safari on macOS, Firefox on desktop, etc.),
+            then it means your browser may not have any support for PWA installation.
+            <br>
+            You can always create a shortcut if you really want a quick way to dive back in.
+            <br><br>
+            Follow the guides below to manually install Uvid+ on your device. 
+            <br><br>
+
+            <span class="important"><u>Brave, Opera, Vivaldi, Edge, Chrome (Andriod)</u></span>
+            <br>
+            1. Look for an “Install” or “Install app” icon in the address bar (monitor + arrow, plus sign in a box, etc.).
+            <br>or<br>
+            2. Open the browser menu and choose “Install Uvidplus”.
+            <br>
+            3. Confirm and you're good to go.
+            <br><br><br>
+
+            <span class="important"><u>Brave, Opera, Vivaldi, Edge, Chrome (Desktop)</u></span>
+            <br>
+            1. Open the menu - the three dots (⋮).
+            <br>
+            2. Tap “Install app” or “Add to Home screen”.
+            <br>
+            3. Confirm and you're good to go.
+            <br><br><br>
+
+            <span class="important"><u>Safari (iOS)</u></span>
+            <br>
+            1. Tap the Share button: it's the square with an arrow pointing up, at the bottom of the screen.
+            <br>
+            2. Scroll down in the share sheet and tap “Add to Home Screen”. This is the "install".
+            You may see an option to edit the name. You don't have to do anything.
+            <br>
+            3. Tap <strong>"Add"</strong> (top-right) and you're done.
+            <br><br><br>
+
+            <span class="important"><u>Firefox (Android)</u></span>
+            <br>
+            This has partial support for PWA.
+            <br>
+            2. Tap the menu (⋮) in the top-right.
+            <br>
+            3. Tap “Install” or “Add to Home screen” (varies by version).
+            <br>
+            4. Confirm with <strong>Add</strong>.
+            <br><br><br>
+
+            <span class="important"><u>Samsung Internet (Android)</u></span>
+            <br>
+            1. Tap the menu icon (three horizontal lines ☰) - usually bottom-right.
+            <br>
+            2. Tap “Add page to”.
+            <br>
+            3. Choose “Home screen”.
+            <br>
+            4. You can edit the name but it's not required.
+            <br>
+            5. Tap <strong>Add</strong> (top-right).
+            <br><br><br>
+
+            <span class="important"><u>Duck Duck Go (Android)</u></span>
+            <br>
+            Partial PWA support but still works.
+            <br>
+            1. Tap the menu (three dots) or Share icon.
+            <br>
+            2. Look for <strong>“Add to Home screen” / “Add shortcut”</strong> (wording may vary by version).
+            <br>
+            3. Confirm.
+            <br><br>
+
+            <span class="important"><u>Duck Duck Go (iOS)</u></span>
+            <br>
+            Similar to the Safari (iOS) for shortcuts.
+            <br>
+            1. Tap <strong>Share</strong>.
+            <br>
+            2. Look for “Add to Home Screen” or similar.
+            <br>
+            3. Confirm.
+        `,
     },
     {
         pplr_tpc_id: `67664905`,
         pplr_tpc_name: `How to sign out?`,
-        pplr_tpc_body: ``,
+        pplr_tpc_body: 
+        `
+            Why sign out when there's so much to see? If you're done exploring and wish to take a break,
+            you can simply close the app.
+            <br><br>
+            However, if you must sign out, then follow these simple steps:
+            <br><br>
+            1. Open your account settings page.
+            <br><br>
+            2. Head over to the "Privacy & Security" section. You can quickly navigate there by clicking 
+            the button in the navigation menu.
+            <br><br>
+            3. Hit the Sign out button there.
+            <br><br>
+            4. In the confirmation modal that pops up, confirm and you'll be signed out.
+        `,
     },
 ];
 
