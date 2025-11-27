@@ -173,7 +173,7 @@ let pplr_tpc_arr =
         pplr_tpc_name: `How can I change my email address?`,
         pplr_tpc_body: 
         `
-            If you signed up with an external provider (e.g., Google) you can not change the eamil associated with your account.
+            If you signed up with an external provider (e.g., Google) you can not change the email associated with your account.
             <br><br>
             If you signed up using an "Email/Password" option, then follow the steps below to change your email.
             <br><br>
@@ -199,7 +199,7 @@ let pplr_tpc_arr =
         pplr_tpc_body: 
         `
             Yes, Uvid+ is <span class="important">FREE</span>. It has <span class="important">always</span> been free. 
-            Any requests for actual payments is not from usand should be reported to us using the 
+            Any requests for actual payments is not from us and should be reported to us using the 
             <a href="#/feedback" class="important">Feedback Form</a>.
             <br><br>
             However, if you're not new to Uvid+, you may argue that it was paid because in previous versions of Uvid+, 
@@ -220,7 +220,7 @@ let pplr_tpc_arr =
         pplr_tpc_name: `How to delete my account?`,
         pplr_tpc_body: 
         `
-            There's alot going on in Uvid+ and you don't want to miss out.
+            There's a lot going on in Uvid+ and you don't want to miss out.
             If you have any questions, suggestions, etcetera, you can use the 
             <a href="#/feedback" class="important">Feedback Form</a> 
             to let us know.
@@ -239,8 +239,8 @@ let pplr_tpc_arr =
             desktop, or TV, if it has a browser, then you can access Uvidplus.
             <br><br>
             If you want a potentially better experience, you can have Uvidplus right on your device by getting 
-            the Uvidplus webapp (PWA). It allows you to access uvidplus from on your device without neededing to open the browser and quickly get 
-            search for it. Easily dive back in with a single click.
+            the Uvidplus webapp (PWA). It allows you to access uvidplus from on your device without neededing to open the browser 
+            and search for it. Now, you can easily dive back in with a single click.
             <br><br>
             To learn how to install the Uvidplus webapp, click <a href="#/help/article/60953494" class="important">HERE</a>.
         `,
