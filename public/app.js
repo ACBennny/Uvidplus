@@ -22,11 +22,11 @@
         // Call Suggestion prompt once after initial load
         function preInstallPrompt()
         {
-            if(!isUserSignedIn() || isPWAInstalled() || window.preInstallCall == true) return;
+            if(!isUserSignedIn() || isPWAInstalled() || localStorage.getItem('uvidplus_installed') === 'true') return;
 
             setTimeout(hdlB4InstallPrompt, 2500);
 
-            window.preInstallCall = true;
+            localStorage.setItem('uvidplus_installed', 'true');
         }
 
         // Suggest installing Uid+ to the user
@@ -48,10 +48,7 @@
             if(window.deferredInstallPrompt)
             {
                 window.deferredInstallPrompt.prompt();
-                const { outcome } = await window.deferredInstallPrompt.userChoice;
-                console.log('User choice:', outcome);
                 window.deferredInstallPrompt = null;
-
                 return;
             }
 

@@ -72,7 +72,6 @@
     {
         event.preventDefault();
         window.deferredInstallPrompt = event;
-        console.log("ddd");
     });
 
     // Init firebase and application

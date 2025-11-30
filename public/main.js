@@ -988,7 +988,6 @@
             const ela = document.querySelectorAll("a");
             const elb = document.querySelectorAll("button");
             [ela, elb].forEach(elp => elp.forEach(elc => elc.addEventListener("contextmenu", (e) => {e.preventDefault(); elc.click()})));
-            ela.forEach(a => a.addEventListener("mousedown", (e) => {e.preventDefault(); a.click()}))
         }
 
 
