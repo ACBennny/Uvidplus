@@ -24,9 +24,8 @@
         {
             if(!isUserSignedIn() || isPWAInstalled() || localStorage.getItem('uvidplus_installed') === 'true') return;
 
-            setTimeout(hdlB4InstallPrompt, 2500);
-
             localStorage.setItem('uvidplus_installed', 'true');
+            setTimeout(hdlB4InstallPrompt, 2500);
         }
 
         // Suggest installing Uid+ to the user
