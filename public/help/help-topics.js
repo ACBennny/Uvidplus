@@ -102,7 +102,7 @@ let pplr_tpc_arr =
             <br><br><br>
             <span class="important">Forgot Password</span>
             <br>
-            If you used an "Email/Password" to sign up into Uivd+ then you can change your password if you forget it.
+            If you used an "Email/Password" to sign up into Uvid+ then you can change your password if you forget it.
             <br><br>
             1. Below the "SIGN IN WITH A PROVIDER" button, You'll see an section called "Forgot Password?". 
             Directly under it is a "Reset Password" prompt. Click it.
