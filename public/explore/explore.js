@@ -23,7 +23,7 @@
                 </div>
                 <div class="exploreBox gnrCategoriesBox">
                     <div class="exploreTitleBox">
-                        <div class="exploreTitleText">Genres</div>
+                        <h3 class="exploreTitleText">Genres</h3>
                     </div>
                     <div class="exploreGridBdr">
                         <div class="exploreGridBox"></div>
