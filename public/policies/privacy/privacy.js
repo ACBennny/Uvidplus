@@ -19,14 +19,17 @@
                     <div class="middle">
                         <h3 class="mid_Title">Privacy</h3>
                         <p class="mid_Note">
-                            To simulate some processes in real streaming services, Uvid+ may ask you to provide some information, 
-                            which includes but is not limited to your name, phone number, address, postal code, 
-                            card credentials (card name, card number, CVC, etcetera), among others. 
+                            Uvid+ only stores certain information to provide a seamless experience across multiple platforms. 
                             <br><br>
-                            You should <strong>NOT</strong> put any personal information in those fields.
-                            Instead, you may provide any random information as they will not be used for anything other than the process that requires them.
+                            Such information includes but is not limited to your sign-in credentials, watchlist, collections (also known as playlists),
+                            liked shows, disliked shows, watch history, profile characteristics (profile picture, profile banner, profile name), 
+                            demo membership details, and other random/user-generated content.
                             <br><br>
-                            The random information you provide in Uvid+ will never be used to identify you. 
+                            Some information (e.g., watchlist, collectons etcetera) can be permanently deleted at any time. To permanently delete 
+                            all information, you must delete your account. 
+                            Visit this guide <span class="goToHome" onclick="window.open('#/help/article/64804346', '_self')">here</span> if you wish to do so.
+                            <br><br>
+                            Uvid+ plus does not knowingly collect any personal identifying information.
                             <br><br>
                             This policy is non-applicable to third-party services that Uvid+ may integrate/link to its platform.
                             <br><br>
