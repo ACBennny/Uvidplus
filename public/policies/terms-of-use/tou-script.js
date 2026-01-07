@@ -107,3 +107,4 @@ function display_tou_()
     // Insert the tou struct
     documentCtnt.insertAdjacentHTML(`beforeend` , uvidplus_tou_);
 }
+
