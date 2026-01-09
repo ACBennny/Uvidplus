@@ -669,13 +669,6 @@
 
 
 
-
-
-    function gen_more_menu()
-    {
-        callGlobalFunctions(`attachNavbarMoreListeners`);
-    }
-
     function wl_body_filter()
     {
         callGlobalFunctions(`attachFilterWLModalListeners`);
@@ -780,5 +773,4 @@
     {
         callGlobalFunctions(`attachSchdlFltrListeners`);
     }
-
 

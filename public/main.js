@@ -83,12 +83,6 @@
     let socialShareTimer;
     let socialDestinationH;
     let socialDestinationW;
-    let inactivityModalTimer;
-    let inactivityBcg;
-    let removeInactivityModalBtn;
-    let inactivityStartTimer;
-    let inactivityStartFixedTimerRange = 305;
-    let inactivityStartTimerRange = inactivityStartFixedTimerRange;
     const offlineModal = 
     `
         <div class="offline_mdl_bdr static">
@@ -914,7 +908,7 @@
 
 
 
-    // CALLING GLOBALL SCOPE FUNCTIONS
+    // CALLING GLOBAL SCOPE FUNCTIONS
     
         // Used to dynamically call functions in the global scope
         function callGlobalFunctions(functionName, event) 
@@ -1536,90 +1530,6 @@
 
 
 
-
-    // GENERAL FUNCTION TO LOAD SCRIPTS ONCE
-
-        /**
-         * This is used to load scripts into the DOM only once
-         * @param {string} scriptSrc The source attribute of the script
-         * @param {string} scriptId The id attribute of the script
-         * @param {Array} onLoadFuncArray An array containing functions and their events to be called when the script loads successfully
-         * @param {void} onErrorFuncArray An array containing functions and their events to be called when script fails to load
-         * @returns {void}
-         * 
-         * Sample usage
-         * 
-         *   loadScriptOnce(
-         * 
-         *       `/script_file_path.js`,
-         *       `script_id`,
-         *       [
-         *           {func_name: `onloadFunc_name`, ev_name: null,},
-         *       ],
-         *       [
-         *           {func_name: `failedScriptLoad`, ev_name: null,},
-         *       ],
-          *  );
-         */
-        function loadScriptOnce(scriptSrc, scriptId, onLoadFuncArray, onErrorFuncArray)
-        {
-            if (!document.getElementById(scriptId))
-            {
-                const script = document.createElement("script");
-                script.setAttribute(`src` , `${scriptSrc}`);
-                script.setAttribute(`id` , `${scriptId}`);
-                documentBody.appendChild(script);
-        
-                if (onLoadFuncArray.length > 0)
-                {
-                    script.addEventListener("load", () => 
-                    {
-                        callFuncsInLoadScriptOnceArr(onLoadFuncArray);
-                    });
-                }
-                if (onErrorFuncArray.length > 0)
-                {
-                    script.addEventListener("error", () => 
-                    {
-                        callFuncsInLoadScriptOnceArr(onErrorFuncArray);
-                    });
-                }
-            }
-            else
-            {
-                // Call the functions if already loaded
-                if (onLoadFuncArray.length > 0) callFuncsInLoadScriptOnceArr(onLoadFuncArray);
-            }
-        }
-
-        function callFuncsInLoadScriptOnceArr(onloadArr)
-        {
-            for(let i = 0; i < onloadArr.length; i++)
-            {
-                callGlobalFunctions(onloadArr[i].func_name , onloadArr[i].ev_name);
-            }
-        }
-
-
-
-    // GENERAL FUNCTION TO REMOVE SCRIPTS BY ID
-
-        /**
-         * Removes a script by its "id" attribute
-         * 
-         * @param {string} theId The id attribute of the script to be removed
-         */
-        function removeScriptById(theId)
-        {
-            const scriptId = document.getElementById(theId);
-            
-            if(scriptId) 
-            {
-                scriptId.remove();
-            }
-        }
-
-
     
     // CONFIRMATION MODAL
         
@@ -1761,13 +1671,6 @@
         {
             // Return if the input is empty
             if((userInp == null) || (userInp === "")) return "";
-
-            // Return if the input contains invalid characters
-            // if(!((gblInvalidChar).test(userInp)))
-            // {
-            //     notification(`notifyBad`, `Only letters, numbers, hyphens, and underscores are allowed`);
-            //     return "";
-            // }
 
             // Extra layer of sanitization
             const reSanitizedInp = charSanitize(userInp);
@@ -2075,25 +1978,6 @@
             navbarUnderlayer.classList.remove("active");
         }
 
-
-
-    // NAVBAR MORE OPTIONS
-
-        async function attachNavbarMoreListeners()
-        {
-            let selectedProfile = await getSelectedProfile();
-
-            // Updates the profile name based on current profile
-            document.querySelector(".navBarProfileNameWatching").textContent = selectedProfile.prof_name;
-
-            // Sets the username
-
-            // Listeners
-            attachSwitchProfEventListeners(true);
-            attachSignOutEventlisteners();
-            attachToggleFullScreenEventListeners();
-
-        }
 
 
 
