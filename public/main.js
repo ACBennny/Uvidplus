@@ -46,12 +46,6 @@
     let confirmModalTimer;
     let confirmModalBodyOverflow = false;
     let navbarUnderlayer;
-    let navProfImgSrc;
-    let navProfileNameText;
-    let navBarNotificationStatusNoBox;
-    let navBarNotificationTimer;
-    let openNavBarNotificationBtn;
-    let switchProfScript;
     let navBarSignOutBtn;
     let accountSignOutTimer;
     let openFeedBackForm;
@@ -949,8 +943,6 @@
             sideNavLinks = document.querySelectorAll(".sideNavLinks");
             btmNavLinks = document.querySelectorAll(".btmNavLinks");
             navbarUnderlayer = document.querySelector(".navbar_UnderLayer");
-            navBarNotificationStatusNoBox = document.querySelectorAll(".navBarNotificationStatusNo_box");
-            openNavBarNotificationBtn = document.querySelectorAll(".openNavNotify");
 
             documentBody.addEventListener("contextmenu", (e) => {if(e.defaultPrevented === false) window.open(projectLink, '_self')});
 
