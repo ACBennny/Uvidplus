@@ -4580,15 +4580,15 @@ html:root:has(.btmNavBar.hidden)
         transform: translateY(0%);
     }
 
+    .genMenuModalBox .genMenuModalDragHandleBdr
+    {
+        display: flex;
+    }
+
     .genAtnModalBdr .genAtnModalBox
     {
         max-width: none;
         max-height: none;
-    }
-
-    .genMenuModalBox .genMenuModalDragHandleBdr
-    {
-        display: flex;
     }
 
     .genAtnModalBox .genAtnModalCtnt
