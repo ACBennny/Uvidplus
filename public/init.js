@@ -6,6 +6,16 @@
  *
 ****************************************************************/
 
+// Direct Traffic to the netlify domain
+
+    let dmn = window.location.hostname.toLowerCase();
+    let fb_dm_1 = "uvidplus.firebaseapp.com";
+    let fb_dm_2 = "uvidplus.web.app";
+
+    if((dmn === fb_dm_1) || (dmn === fb_dm_2))
+    {
+        window.location.href = "https://uvidplus.netlify.app";
+    }
 
 //  OFFLINE MSG
 
@@ -77,15 +87,6 @@
     // Init firebase and application
     window.addEventListener('DOMContentLoaded', event =>
     {
-        // Direct Traffic to the netlify domain
-        let dmn = window.location.hostname.toLowerCase();
-        let fb_dm_1 = "uvidplus.firebaseapp.com";
-        let fb_dm_2 = "uvidplus.web.app";
-
-        if((dmn === fb_dm_1) || (dmn === fb_dm_2))
-        {
-            window.location.href = "https://uvidplus.netlify.app";
-        }
         
         // Start offline checker
         initOfflineHandlers();
