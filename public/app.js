@@ -533,7 +533,7 @@
                     catch(error)
                     {
                         console.error(error);
-                        notification(`notifyBad`, "Account deleted failed");
+                        notification(`notifyBad`, "Account deletion failed");
                     }
                 }
 
