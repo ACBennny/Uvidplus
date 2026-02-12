@@ -698,17 +698,16 @@
             )) throw new Error("Invlaid param");
 
             const nm_split = usr_nm?.trim()?.split(" ");
+            const start_date = getCurrDate("short");
+            const start_mn = start_date.split("/")[1];
+            const start_yr = Number(start_date.split("/")[2]) + 50;
 
             // Update the user details 
             const new_sgl_usr_obj = 
             {
                 full_name: usr_nm,
-                phone_no: ``,
+                phone_no: `01234567890`,
                 is_3_day_ntc: false,
-                is_membership_active: false,
-                is_setup: true,
-                stp_steps: `2`,
-                curr_plan_id: ``,
                 cast_data_usage_ul: 0,
                 dwld_qlty_pref: 0,
                 dwld_audio_pref: 0,
@@ -716,6 +715,38 @@
                 wifi_only_dwld: true,
                 wifi_only_stream: false,
                 cellular_stream_ntfy: true,
+                is_setup: false,
+                is_membership_active: true,
+                stp_steps: `outro`,
+                curr_plan: 
+                {
+                    curr_plan_id: `${uvid_signup_plans.ultm.plan_id}`,
+                    curr_plan_next: `${uvid_signup_plans.ultm.plan_id}`,
+                    curr_plan_start: `${start_date}`,
+                    curr_plan_end: `${getNextDate(start_date, membership_BILL_CYCLE, "short")}`,
+                },
+                pymt_mtd: 
+                {
+                    [`${generateRandomString(32)}`]: 
+                    {
+                        pymt_type: `card`,
+                        pymt_cardName: `UvidPlus-user-first-name-${generateRandomString(16)} UvidPlus-user-last-name-${generateRandomString(16)}`,
+                        pymt_cardNo: `1234 5678 9012 3456`,
+                        pymt_cardExp: `${start_mn}/${start_yr}`,
+                        pymt_cardCode: `1234`,
+                        pymt_isDflt: true
+                    }
+                },
+                billing_hist: 
+                [
+                    {
+                        bill_plan_id: `${uvid_signup_plans.ultm.plan_id}`,
+                        bill_plan_name: `${uvid_signup_plans.ultm.plan_name}`,
+                        bill_plan_price: `${uvid_signup_plans.ultm.plan_price_month}`,
+                        bill_plan_date: `${start_date}`,
+                        bill_plan_status: null,
+                    }
+                ],
                 downloads: [],
                 profiles:
                 {
@@ -898,7 +929,7 @@
                     notification(`notifyGood` , "Email verified!");
 
                     // Move to the next step
-                    switch_step(2);
+                    window.location.replace(page_route_fallback());
                 } 
                 else 
                 {
@@ -922,1024 +953,1046 @@
     }
 
 
+
+
+
+
+    /********************************
+     * === IMPORTANT =====
+     * 
+     * Note for tech guys/ code reviewers
+     * The below feature(s) were intended for the simulation process if correspondent to real streaming service user flows
+     * 
+     * As the project focus has shifted free streaming, it's reasonable to remove these steps to prevent confusion
+     * 
+     * Will be commemnting this below section(s) out.
+     * 
+     * The steps are automatially completed with random data. 
+     * 
+     * The user only needs to signup (and verify if not using email/sign in providers)
+     * 
+     * A.B.C, 2/11/2026
+     * 
+     *****************************  */ 
+
     // Initialize plan options (Step 2)
-    function init_signup_2()
-    {
-        // Return to verification if user is not verified
-        if(!(isUserVerified())) return init_signup_vrfy(false);
+    // function init_signup_2()
+    // {
+    //     // Return to verification if user is not verified
+    //     if(!(isUserVerified())) return init_signup_vrfy(false);
         
-        setTimeout(() => alert("Just a reminder: Uvid+ does not charge you or request any monetary goods from you. This is just part of the simulation process for this demo.\nRead the 'Terms of Use' for more details."), 2500);
+    //     setTimeout(() => alert("Just a reminder: Uvid+ does not charge you or request any monetary goods from you. This is just part of the simulation process for this demo.\nRead the 'Terms of Use' for more details."), 2500);
 
-        const planFtrUL = document.querySelector(".join_plan_ftr_ul");
-        const planSlsBox = document.querySelector(".join_plan_sls_box");
-        const planSbtBtn = document.querySelector("#join_plan_submitBtn");
-        let planSlsBtn;
-        let planSlsBtns = ``;
+    //     const planFtrUL = document.querySelector(".join_plan_ftr_ul");
+    //     const planSlsBox = document.querySelector(".join_plan_sls_box");
+    //     const planSbtBtn = document.querySelector("#join_plan_submitBtn");
+    //     let planSlsBtn;
+    //     let planSlsBtns = ``;
 
 
-        // Building the plan features
-        const bld_plan_ftr = (plan = "") => 
-        {
-            plan_obj = uvid_signup_plans[plan];
+    //     // Building the plan features
+    //     const bld_plan_ftr = (plan = "") => 
+    //     {
+    //         plan_obj = uvid_signup_plans[plan];
 
-            if((typeof plan_obj === "undefined") || (typeof plan_obj !== "object") || (plan_obj === null)) 
-                return notification('notifyBad' , 'An error occured while loading plan features');
+    //         if((typeof plan_obj === "undefined") || (typeof plan_obj !== "object") || (plan_obj === null)) 
+    //             return notification('notifyBad' , 'An error occured while loading plan features');
 
-            let ftr_struct = ``;
-            let plan_bnft = plan_obj.plan_benefits;
+    //         let ftr_struct = ``;
+    //         let plan_bnft = plan_obj.plan_benefits;
 
-            Object.entries(plan_bnft).forEach((bnft_obj) =>
-            {
-                let bnft_ftr = bnft_obj[1];
-                ftr_struct += 
-                `
-                    <li class="join_plan_ftr_cardBdr">
-                        <div class="join_plan_ftr_cardBox">
-                            <div class="join_plan_ftr_mnr_box">
-                                <p class="join_plan_ftr_mnr_txt">${bnft_ftr.bnft_name}</p>
-                            </div>
-                            <div class="join_plan_ftr_mjr_box">
-                                <p class="join_plan_ftr_mjr_txt">${bnft_ftr.bnft_desc}</p>
-                            </div>
-                        </div>
-                    </li>
-                `;
-            });
+    //         Object.entries(plan_bnft).forEach((bnft_obj) =>
+    //         {
+    //             let bnft_ftr = bnft_obj[1];
+    //             ftr_struct += 
+    //             `
+    //                 <li class="join_plan_ftr_cardBdr">
+    //                     <div class="join_plan_ftr_cardBox">
+    //                         <div class="join_plan_ftr_mnr_box">
+    //                             <p class="join_plan_ftr_mnr_txt">${bnft_ftr.bnft_name}</p>
+    //                         </div>
+    //                         <div class="join_plan_ftr_mjr_box">
+    //                             <p class="join_plan_ftr_mjr_txt">${bnft_ftr.bnft_desc}</p>
+    //                         </div>
+    //                     </div>
+    //                 </li>
+    //             `;
+    //         });
 
-            planFtrUL.innerHTML = ftr_struct;
-        }
+    //         planFtrUL.innerHTML = ftr_struct;
+    //     }
 
-        // Build the plan option buttons
-        Object.entries(uvid_signup_plans).forEach((plan_obj) =>
-        {
-            let plan = plan_obj[1];
-            planSlsBtns +=
-            `
-                <div class="join_plan_sls_cardBase">
-                    <div class="join_plan_sls_cardBdr">
-                        <input type="radio" name="join_plan_sls_rad" id="join_plan_sls_rad${plan.plan_id}" class="join_plan_sls_radCls" value="${plan.plan_id.toLowerCase()}" />
-                        <label for="join_plan_sls_rad${plan.plan_id}" class="join_plan_sls_lbl">
-                            <div class="join_plan_sls_cardBox">
-                                <div class="join_plan_sls_ttl_box">
-                                    <div class="join_plan_sls_ttl_txt">${plan.plan_name}</div>
-                                </div>
-                                <div class="join_plan_sls_sub_box">
-                                    <p class="join_plan_sls_sub_txt">${plan.plan_benefits.rsltn.bnft_desc}</p>
-                                </div>
-                                <div class="join_plan_sls_icon_bdr">
-                                    <div class="join_plan_sls_icon_box">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="join_plan_sls_icon_svg">
-                                            <path fill-rule="evenodd" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10m-5.97-3.03a.75.75 0 0 1 0 1.06l-5 5a.75.75 0 0 1-1.06 0l-2-2a.75.75 0 1 1 1.06-1.06l1.47 1.47l2.235-2.235L14.97 8.97a.75.75 0 0 1 1.06 0" clip-rule="evenodd" />
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-            `;
+    //     // Build the plan option buttons
+    //     Object.entries(uvid_signup_plans).forEach((plan_obj) =>
+    //     {
+    //         let plan = plan_obj[1];
+    //         planSlsBtns +=
+    //         `
+    //             <div class="join_plan_sls_cardBase">
+    //                 <div class="join_plan_sls_cardBdr">
+    //                     <input type="radio" name="join_plan_sls_rad" id="join_plan_sls_rad${plan.plan_id}" class="join_plan_sls_radCls" value="${plan.plan_id.toLowerCase()}" />
+    //                     <label for="join_plan_sls_rad${plan.plan_id}" class="join_plan_sls_lbl">
+    //                         <div class="join_plan_sls_cardBox">
+    //                             <div class="join_plan_sls_ttl_box">
+    //                                 <div class="join_plan_sls_ttl_txt">${plan.plan_name}</div>
+    //                             </div>
+    //                             <div class="join_plan_sls_sub_box">
+    //                                 <p class="join_plan_sls_sub_txt">${plan.plan_benefits.rsltn.bnft_desc}</p>
+    //                             </div>
+    //                             <div class="join_plan_sls_icon_bdr">
+    //                                 <div class="join_plan_sls_icon_box">
+    //                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="join_plan_sls_icon_svg">
+    //                                         <path fill-rule="evenodd" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10m-5.97-3.03a.75.75 0 0 1 0 1.06l-5 5a.75.75 0 0 1-1.06 0l-2-2a.75.75 0 1 1 1.06-1.06l1.47 1.47l2.235-2.235L14.97 8.97a.75.75 0 0 1 1.06 0" clip-rule="evenodd" />
+    //                                     </svg>
+    //                                 </div>
+    //                             </div>
+    //                         </div>
+    //                     </label>
+    //                 </div>
+    //             </div>
+    //         `;
             
-            // Display the default plan option's features
-            if((plan_obj[0] === "ultm")) bld_plan_ftr("ultm");
-        });
-        planSlsBox.innerHTML = planSlsBtns;
+    //         // Display the default plan option's features
+    //         if((plan_obj[0] === "ultm")) bld_plan_ftr("ultm");
+    //     });
+    //     planSlsBox.innerHTML = planSlsBtns;
 
-        // Selecting a plan option
-        planSlsBtn = document.querySelectorAll(".join_plan_sls_cardBdr");
-        planSlsBtn.forEach((oldbtn) => 
-        {
-            if(oldbtn.disp_atn)
-            {
-                btn.addEventListener("click", oldbtn.disp_atn);
-            }
-        });
-        planSlsBtn.forEach((btn) => 
-        {
-            const sel_atn = () => 
-            {
-                let btn_opt = btn.querySelector("input[name='join_plan_sls_rad']").getAttribute("value");
+    //     // Selecting a plan option
+    //     planSlsBtn = document.querySelectorAll(".join_plan_sls_cardBdr");
+    //     planSlsBtn.forEach((oldbtn) => 
+    //     {
+    //         if(oldbtn.disp_atn)
+    //         {
+    //             btn.addEventListener("click", oldbtn.disp_atn);
+    //         }
+    //     });
+    //     planSlsBtn.forEach((btn) => 
+    //     {
+    //         const sel_atn = () => 
+    //         {
+    //             let btn_opt = btn.querySelector("input[name='join_plan_sls_rad']").getAttribute("value");
 
-                if((btn_opt !== ""))
-                {
-                    // Remove any selected states
-                    planSlsBtn.forEach(isSlBtn => isSlBtn.hasAttribute("selected") ? isSlBtn.removeAttribute("selected") : null);
+    //             if((btn_opt !== ""))
+    //             {
+    //                 // Remove any selected states
+    //                 planSlsBtn.forEach(isSlBtn => isSlBtn.hasAttribute("selected") ? isSlBtn.removeAttribute("selected") : null);
 
-                    // Update the plan features
-                    bld_plan_ftr(btn_opt);
+    //                 // Update the plan features
+    //                 bld_plan_ftr(btn_opt);
 
-                    // And the selected state to current element
-                    btn.setAttribute("selected", "");
-                }
-            }
+    //                 // And the selected state to current element
+    //                 btn.setAttribute("selected", "");
+    //             }
+    //         }
 
-            btn.addEventListener("click", sel_atn);
-            btn.disp_atn = sel_atn;
-        });
+    //         btn.addEventListener("click", sel_atn);
+    //         btn.disp_atn = sel_atn;
+    //     });
 
-        // Selects the default plan option
-        document.querySelectorAll(".join_plan_sls_cardBdr")[2].click();
+    //     // Selects the default plan option
+    //     document.querySelectorAll(".join_plan_sls_cardBdr")[2].click();
 
-        // Moving to the next step
-        planSbtBtn.addEventListener("click", async () => 
-        {
-            const auth = window.firebaseAuth;
-            const user = auth.currentUser;
+    //     // Moving to the next step
+    //     planSbtBtn.addEventListener("click", async () => 
+    //     {
+    //         const auth = window.firebaseAuth;
+    //         const user = auth.currentUser;
 
-            // Return if user isn't logged in
-            if (!user)
-            {
-                notification(`notifyBad` , "You are not logged in.");
-                return;
-            }
+    //         // Return if user isn't logged in
+    //         if (!user)
+    //         {
+    //             notification(`notifyBad` , "You are not logged in.");
+    //             return;
+    //         }
 
-            // Get the selected plan
-            let sel_plan = document.querySelector(".join_plan_sls_cardBdr[selected]").querySelector("input[name='join_plan_sls_rad']").getAttribute("value");
+    //         // Get the selected plan
+    //         let sel_plan = document.querySelector(".join_plan_sls_cardBdr[selected]").querySelector("input[name='join_plan_sls_rad']").getAttribute("value");
 
-            try
-            {
-                // Update the User's info
-                await updateUserData(
-                {
-                    stp_steps: `3`,
-                    curr_plan: 
-                    {
-                        curr_plan_id: `${sel_plan}`,
-                        curr_plan_start: ``,
-                        curr_plan_end: ``,
-                    },
-                });
+    //         try
+    //         {
+    //             // Update the User's info
+    //             await updateUserData(
+    //             {
+    //                 stp_steps: `3`,
+    //                 curr_plan: 
+    //                 {
+    //                     curr_plan_id: `${sel_plan}`,
+    //                     curr_plan_start: ``,
+    //                     curr_plan_end: ``,
+    //                 },
+    //             });
 
-                // Move to the next step
-                switch_step(3);
-            }
-            catch (error)
-            {
-                console.error(error);
-                notification('notifyBad' , 'An error occured. Please try again')
-            }
-        });
-    }
+    //             // Move to the next step
+    //             switch_step(3);
+    //         }
+    //         catch (error)
+    //         {
+    //             console.error(error);
+    //             notification('notifyBad' , 'An error occured. Please try again')
+    //         }
+    //     });
+    // }
 
 
-    // Initialize payment options (Step 3)
-    async function init_signup_3()
-    {
+    // // Initialize payment options (Step 3)
+    // async function init_signup_3()
+    // {
 
-        // Check that a plan has been selected
-        const usrData = await getUserData();
-        const usrCurrPlan = usrData?.curr_plan.curr_plan_id;
-        const plan_obj = uvid_signup_plans[usrCurrPlan];
+    //     // Check that a plan has been selected
+    //     const usrData = await getUserData();
+    //     const usrCurrPlan = usrData?.curr_plan.curr_plan_id;
+    //     const plan_obj = uvid_signup_plans[usrCurrPlan];
 
-        if(!(typeof plan_obj !== "undefined") && (typeof plan_obj === "object") && (plan_obj !== null)) 
-        {
-            document.querySelectorAll("input.form_input_field").forEach(item => item.disabled = false);
-            notification('notifyBad' , 'A plan is required to proceed');
-            switch_step(2);
-            return;
-        }
+    //     if(!(typeof plan_obj !== "undefined") && (typeof plan_obj === "object") && (plan_obj !== null)) 
+    //     {
+    //         document.querySelectorAll("input.form_input_field").forEach(item => item.disabled = false);
+    //         notification('notifyBad' , 'A plan is required to proceed');
+    //         switch_step(2);
+    //         return;
+    //     }
 
-        // Check if user already has saved payment methods
-        const pymtMtdsData = usrData?.pymt_mtd;
+    //     // Check if user already has saved payment methods
+    //     const pymtMtdsData = usrData?.pymt_mtd;
 
-        // Initialize modal for new users, as they don't have any saved payment methods
-        if((typeof pymtMtdsData === "undefined") || ((typeof pymtMtdsData !== "object"))
-            || (pymtMtdsData == null) || (Object.keys(pymtMtdsData).length <= 0)
-        )
-        {
-            init_1st_setup_pymt_opt_register();
-            return;
-        }
+    //     // Initialize modal for new users, as they don't have any saved payment methods
+    //     if((typeof pymtMtdsData === "undefined") || ((typeof pymtMtdsData !== "object"))
+    //         || (pymtMtdsData == null) || (Object.keys(pymtMtdsData).length <= 0)
+    //     )
+    //     {
+    //         init_1st_setup_pymt_opt_register();
+    //         return;
+    //     }
 
-        // Insert struct
-        document.querySelector(".join_area").innerHTML = signup_3_1;
+    //     // Insert struct
+    //     document.querySelector(".join_area").innerHTML = signup_3_1;
 
-        // Get currently selected plan
-        get_setup_sls_plan();
+    //     // Get currently selected plan
+    //     get_setup_sls_plan();
 
-        // Build the payment options
-        const pymtBox = document.createElement("div");
-        let pymtItemsStruct = ``;
-        pymtBox.classList.add("form_pymt_mtd_grid");
+    //     // Build the payment options
+    //     const pymtBox = document.createElement("div");
+    //     let pymtItemsStruct = ``;
+    //     pymtBox.classList.add("form_pymt_mtd_grid");
 
-        // Build payment card elements
-        Object.entries(pymtMtdsData).forEach(([key, card]) => 
-        {
-            let cardNo = card.pymt_cardNo.toString().replace(/\s/g, '');
-            let cardNoTrim = cardNo.slice(-4);
+    //     // Build payment card elements
+    //     Object.entries(pymtMtdsData).forEach(([key, card]) => 
+    //     {
+    //         let cardNo = card.pymt_cardNo.toString().replace(/\s/g, '');
+    //         let cardNoTrim = cardNo.slice(-4);
 
-            pymtItemsStruct +=
-            `
-                <div class="form_pymt_mtd_card_bdr" data-pymt-card-id="${key}" data-pymt-card-default="${card.pymt_isDflt}">
-                    <div class="form_pymt_mtd_card_box">
-                        <div class="form_pymt_mtd_card_static_icon_bdr">
-                            <div class="form_pymt_mtd_card_static_icon_box">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="form_pymt_mtd_card_static_icon_svg">
-                                    <path fill-rule="evenodd" d="M9.944 3.25h4.112c1.838 0 3.294 0 4.433.153c1.172.158 2.121.49 2.87 1.238c.748.749 1.08 1.698 1.238 2.87c.09.673.127 1.456.142 2.363a.8.8 0 0 1 .004.23q.009.848.007 1.84v.112c0 1.838 0 3.294-.153 4.433c-.158 1.172-.49 2.121-1.238 2.87c-.749.748-1.698 1.08-2.87 1.238c-1.14.153-2.595.153-4.433.153H9.944c-1.838 0-3.294 0-4.433-.153c-1.172-.158-2.121-.49-2.87-1.238c-.748-.749-1.08-1.698-1.238-2.87c-.153-1.14-.153-2.595-.153-4.433v-.112q-.002-.992.007-1.84a.8.8 0 0 1 .003-.23c.016-.907.053-1.69.143-2.363c.158-1.172.49-2.121 1.238-2.87c.749-.748 1.698-1.08 2.87-1.238c1.14-.153 2.595-.153 4.433-.153m-7.192 7.5q-.002.582-.002 1.25c0 1.907.002 3.262.14 4.29c.135 1.005.389 1.585.812 2.008s1.003.677 2.009.812c1.028.138 2.382.14 4.289.14h4c1.907 0 3.262-.002 4.29-.14c1.005-.135 1.585-.389 2.008-.812s.677-1.003.812-2.009c.138-1.028.14-2.382.14-4.289q0-.668-.002-1.25zm18.472-1.5H2.776c.02-.587.054-1.094.114-1.54c.135-1.005.389-1.585.812-2.008s1.003-.677 2.009-.812c1.028-.138 2.382-.14 4.289-.14h4c1.907 0 3.262.002 4.29.14c1.005.135 1.585.389 2.008.812s.677 1.003.812 2.009c.06.445.094.952.114 1.539M5.25 16a.75.75 0 0 1 .75-.75h4a.75.75 0 0 1 0 1.5H6a.75.75 0 0 1-.75-.75m6.5 0a.75.75 0 0 1 .75-.75H14a.75.75 0 0 1 0 1.5h-1.5a.75.75 0 0 1-.75-.75" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="form_pymt_mtd_card_det_bdr">
-                            <div class="form_pymt_mtd_card_det_box">
-                                <div class="form_pymt_mtd_det_name_box">
-                                    <p class="form_pymt_mtd_det_name_txt">${card.pymt_cardName}</p>
-                                </div>
-                                <div class="form_pymt_mtd_det_info_box">
-                                    <p class="form_pymt_mtd_det_info_txt">
-                                        <span class="num_trim">••${cardNoTrim} |</span> 
-                                        <span class="num_exp">${card.pymt_cardExp}</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
+    //         pymtItemsStruct +=
+    //         `
+    //             <div class="form_pymt_mtd_card_bdr" data-pymt-card-id="${key}" data-pymt-card-default="${card.pymt_isDflt}">
+    //                 <div class="form_pymt_mtd_card_box">
+    //                     <div class="form_pymt_mtd_card_static_icon_bdr">
+    //                         <div class="form_pymt_mtd_card_static_icon_box">
+    //                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="form_pymt_mtd_card_static_icon_svg">
+    //                                 <path fill-rule="evenodd" d="M9.944 3.25h4.112c1.838 0 3.294 0 4.433.153c1.172.158 2.121.49 2.87 1.238c.748.749 1.08 1.698 1.238 2.87c.09.673.127 1.456.142 2.363a.8.8 0 0 1 .004.23q.009.848.007 1.84v.112c0 1.838 0 3.294-.153 4.433c-.158 1.172-.49 2.121-1.238 2.87c-.749.748-1.698 1.08-2.87 1.238c-1.14.153-2.595.153-4.433.153H9.944c-1.838 0-3.294 0-4.433-.153c-1.172-.158-2.121-.49-2.87-1.238c-.748-.749-1.08-1.698-1.238-2.87c-.153-1.14-.153-2.595-.153-4.433v-.112q-.002-.992.007-1.84a.8.8 0 0 1 .003-.23c.016-.907.053-1.69.143-2.363c.158-1.172.49-2.121 1.238-2.87c.749-.748 1.698-1.08 2.87-1.238c1.14-.153 2.595-.153 4.433-.153m-7.192 7.5q-.002.582-.002 1.25c0 1.907.002 3.262.14 4.29c.135 1.005.389 1.585.812 2.008s1.003.677 2.009.812c1.028.138 2.382.14 4.289.14h4c1.907 0 3.262-.002 4.29-.14c1.005-.135 1.585-.389 2.008-.812s.677-1.003.812-2.009c.138-1.028.14-2.382.14-4.289q0-.668-.002-1.25zm18.472-1.5H2.776c.02-.587.054-1.094.114-1.54c.135-1.005.389-1.585.812-2.008s1.003-.677 2.009-.812c1.028-.138 2.382-.14 4.289-.14h4c1.907 0 3.262.002 4.29.14c1.005.135 1.585.389 2.008.812s.677 1.003.812 2.009c.06.445.094.952.114 1.539M5.25 16a.75.75 0 0 1 .75-.75h4a.75.75 0 0 1 0 1.5H6a.75.75 0 0 1-.75-.75m6.5 0a.75.75 0 0 1 .75-.75H14a.75.75 0 0 1 0 1.5h-1.5a.75.75 0 0 1-.75-.75" clip-rule="evenodd" />
+    //                             </svg>
+    //                         </div>
+    //                     </div>
+    //                     <div class="form_pymt_mtd_card_det_bdr">
+    //                         <div class="form_pymt_mtd_card_det_box">
+    //                             <div class="form_pymt_mtd_det_name_box">
+    //                                 <p class="form_pymt_mtd_det_name_txt">${card.pymt_cardName}</p>
+    //                             </div>
+    //                             <div class="form_pymt_mtd_det_info_box">
+    //                                 <p class="form_pymt_mtd_det_info_txt">
+    //                                     <span class="num_trim">••${cardNoTrim} |</span> 
+    //                                     <span class="num_exp">${card.pymt_cardExp}</span>
+    //                                 </p>
+    //                             </div>
+    //                         </div>
+    //                     </div>
+    //                 </div>
+    //             </div>
+    //         `;
 
-            cardNo, cardNoTrim = null;
-        });
+    //         cardNo, cardNoTrim = null;
+    //     });
 
-        pymtBox.innerHTML = pymtItemsStruct;
-        document.querySelector(".form_pymt_mtd_box").appendChild(pymtBox);
+    //     pymtBox.innerHTML = pymtItemsStruct;
+    //     document.querySelector(".form_pymt_mtd_box").appendChild(pymtBox);
 
-        // Pymt selectors
-        const pymtCardsBdr = pymtBox.querySelectorAll(".form_pymt_mtd_card_bdr");
-        const pymtCardAddBtn = document.querySelector(".form_pymt_mtd_hdr_atn_btn");
+    //     // Pymt selectors
+    //     const pymtCardsBdr = pymtBox.querySelectorAll(".form_pymt_mtd_card_bdr");
+    //     const pymtCardAddBtn = document.querySelector(".form_pymt_mtd_hdr_atn_btn");
 
-        // Selecting a (default) payment option
-        pymtCardsBdr.forEach((btn) => 
-        {
-            const btn_set_atn = async () => 
-            {
-                let btnId = btn.getAttribute("data-pymt-card-id");
+    //     // Selecting a (default) payment option
+    //     pymtCardsBdr.forEach((btn) => 
+    //     {
+    //         const btn_set_atn = async () => 
+    //         {
+    //             let btnId = btn.getAttribute("data-pymt-card-id");
 
-                // Fetch payment methods
-                let tempUserData = await getUserData();
-                let pymtMtdsData = tempUserData?.pymt_mtd;
+    //             // Fetch payment methods
+    //             let tempUserData = await getUserData();
+    //             let pymtMtdsData = tempUserData?.pymt_mtd;
 
-                // Return if payment methods is unobtainable
-                if((typeof pymtMtdsData === "undefined") || (Object.keys(pymtMtdsData).length <= 0))
-                {
-                    notification(`notifyBad`, `Failed to select card`);
-                    return;
-                }
+    //             // Return if payment methods is unobtainable
+    //             if((typeof pymtMtdsData === "undefined") || (Object.keys(pymtMtdsData).length <= 0))
+    //             {
+    //                 notification(`notifyBad`, `Failed to select card`);
+    //                 return;
+    //             }
 
-                // Return if selected method doesn't exist
-                let chsnPymr = pymtMtdsData[`${btnId}`] || null;
+    //             // Return if selected method doesn't exist
+    //             let chsnPymr = pymtMtdsData[`${btnId}`] || null;
 
-                if((chsnPymr == undefined) || (chsnPymr == null) || (typeof chsnPymr !== "object"))
-                {
-                    notification(`notifyBad`, `Selected payment method is unavailable`);
-                    init_signup_3();
-                    return;
-                }
+    //             if((chsnPymr == undefined) || (chsnPymr == null) || (typeof chsnPymr !== "object"))
+    //             {
+    //                 notification(`notifyBad`, `Selected payment method is unavailable`);
+    //                 init_signup_3();
+    //                 return;
+    //             }
 
-                // Set the chosen card as default, and all other cards to false
-                Object.entries(pymtMtdsData).forEach(([key, pymt]) => 
-                {
-                    if((key === btnId))
-                    {
-                        pymt.pymt_isDflt = true;
-                    }
-                    else
-                    {
-                        pymt.pymt_isDflt = false;
-                    }
-                });
+    //             // Set the chosen card as default, and all other cards to false
+    //             Object.entries(pymtMtdsData).forEach(([key, pymt]) => 
+    //             {
+    //                 if((key === btnId))
+    //                 {
+    //                     pymt.pymt_isDflt = true;
+    //                 }
+    //                 else
+    //                 {
+    //                     pymt.pymt_isDflt = false;
+    //                 }
+    //             });
 
-                // Update user data
-                try
-                {
-                    await updateUserData(
-                    {
-                        pymt_mtd: pymtMtdsData
-                    });
+    //             // Update user data
+    //             try
+    //             {
+    //                 await updateUserData(
+    //                 {
+    //                     pymt_mtd: pymtMtdsData
+    //                 });
 
-                    // Update UI
-                    pymtCardsBdr.forEach(item => item.setAttribute("data-pymt-card-default", "false"));
-                    btn.setAttribute("data-pymt-card-default", "true");
+    //                 // Update UI
+    //                 pymtCardsBdr.forEach(item => item.setAttribute("data-pymt-card-default", "false"));
+    //                 btn.setAttribute("data-pymt-card-default", "true");
 
-                    // Notify user
-                    notification(`notifyGood` , `Payment card selected and set as default`);
-                }
-                catch(error)
-                {
-                    console.error(error)
-                    notification(`notifyBad`, `Failed to select card`);
-                }
-            }
+    //                 // Notify user
+    //                 notification(`notifyGood` , `Payment card selected and set as default`);
+    //             }
+    //             catch(error)
+    //             {
+    //                 console.error(error)
+    //                 notification(`notifyBad`, `Failed to select card`);
+    //             }
+    //         }
 
-            btn.addEventListener("click", btn_set_atn);
-        });
+    //         btn.addEventListener("click", btn_set_atn);
+    //     });
 
-        // Adding a new payment card
-        pymtCardAddBtn.onclick = () => 
-        {
-            initAddPymtMtdModal("init_signup_3");
-        }
+    //     // Adding a new payment card
+    //     pymtCardAddBtn.onclick = () => 
+    //     {
+    //         initAddPymtMtdModal("init_signup_3");
+    //     }
 
         
-        // Starting memebership
-        const pymtSbmtBtn = document.querySelector("#form_pymt_sbmtBtn");
+    //     // Starting memebership
+    //     const pymtSbmtBtn = document.querySelector("#form_pymt_sbmtBtn");
 
-        pymtSbmtBtn.addEventListener("click", async () => 
-        {
-            // Check if a card is selected
-            let isDlft = false;
-            pymtCardsBdr.forEach((btn) => 
-            {
-                if(btn.hasAttribute("data-pymt-card-default") && (btn.getAttribute("data-pymt-card-default") === "true"))
-                {
-                    isDlft = true;
-                }
-            });
+    //     pymtSbmtBtn.addEventListener("click", async () => 
+    //     {
+    //         // Check if a card is selected
+    //         let isDlft = false;
+    //         pymtCardsBdr.forEach((btn) => 
+    //         {
+    //             if(btn.hasAttribute("data-pymt-card-default") && (btn.getAttribute("data-pymt-card-default") === "true"))
+    //             {
+    //                 isDlft = true;
+    //             }
+    //         });
 
-            // Return if no card is selected
-            if(!(isDlft))
-            {
-                notification(`notifyBad`, `Please select a payment option to continue`);
-                return;
-            }
+    //         // Return if no card is selected
+    //         if(!(isDlft))
+    //         {
+    //             notification(`notifyBad`, `Please select a payment option to continue`);
+    //             return;
+    //         }
 
             
-            try
-            {
-                const start_date = getCurrDate("short");
-                let end_date = getNextDate(start_date, membership_BILL_CYCLE, "short");
+    //         try
+    //         {
+    //             const start_date = getCurrDate("short");
+    //             let end_date = getNextDate(start_date, membership_BILL_CYCLE, "short");
 
-                // Update billing information
-                let tempUserData = await getUserData();
-                let currBillHist = tempUserData?.billing_hist || [];
+    //             // Update billing information
+    //             let tempUserData = await getUserData();
+    //             let currBillHist = tempUserData?.billing_hist || [];
 
-                // Push new billing details
-                currBillHist.push(
-                    {
-                        bill_plan_id: `${usrCurrPlan}`,
-                        bill_plan_name: `${plan_obj.plan_name}`,
-                        bill_plan_price: `${plan_obj.plan_price_month}`,
-                        bill_plan_date: `${start_date}`,
-                        bill_plan_status: null,
-                    }
-                );
+    //             // Push new billing details
+    //             currBillHist.push(
+    //                 {
+    //                     bill_plan_id: `${usrCurrPlan}`,
+    //                     bill_plan_name: `${plan_obj.plan_name}`,
+    //                     bill_plan_price: `${plan_obj.plan_price_month}`,
+    //                     bill_plan_date: `${start_date}`,
+    //                     bill_plan_status: null,
+    //                 }
+    //             );
 
-                // Update the User's info
-                await updateUserData(
-                {
-                    is_membership_active: true,
-                    stp_steps: `outro`,
-                    billing_hist: currBillHist,
-                    curr_plan: 
-                    {
-                        curr_plan_id: `${usrCurrPlan}`,
-                        curr_plan_start: `${start_date}`,
-                        curr_plan_end: `${end_date}`,
-                        curr_plan_next: `${usrCurrPlan}`,
-                    },
-                });
+    //             // Update the User's info
+    //             await updateUserData(
+    //             {
+    //                 is_membership_active: true,
+    //                 stp_steps: `outro`,
+    //                 billing_hist: currBillHist,
+    //                 curr_plan: 
+    //                 {
+    //                     curr_plan_id: `${usrCurrPlan}`,
+    //                     curr_plan_start: `${start_date}`,
+    //                     curr_plan_end: `${end_date}`,
+    //                     curr_plan_next: `${usrCurrPlan}`,
+    //                 },
+    //             });
 
-                // Notify the user
-                generateNotificationMsg(
-                    `Membership renewed`,
-                    `
-                        Your Uvid+ membership was renewed on ${start_date}.
-                        Your next billing date is on ${end_date}.
-                    `,
-                    `View Membership`,
-                    `#/settings/membership/manage`,
-                    ``,
-                    `Failed to set 'Renewal Success' notification`
-                );
+    //             // Notify the user
+    //             generateNotificationMsg(
+    //                 `Membership renewed`,
+    //                 `
+    //                     Your Uvid+ membership was renewed on ${start_date}.
+    //                     Your next billing date is on ${end_date}.
+    //                 `,
+    //                 `View Membership`,
+    //                 `#/settings/membership/manage`,
+    //                 ``,
+    //                 `Failed to set 'Renewal Success' notification`
+    //             );
 
-                // Initialize finalization message
-                init_signup_outro();
-            }
-            catch(err)
-            {
-                console.error(err)
-                notification(`notifyBad`, `Something went wrong. Try again later`);
-            }
-        });
-    }
+    //             // Initialize finalization message
+    //             init_signup_outro();
+    //         }
+    //         catch(err)
+    //         {
+    //             console.error(err)
+    //             notification(`notifyBad`, `Something went wrong. Try again later`);
+    //         }
+    //     });
+    // }
 
-    // Initializes the modal for new users to enter their payment card details.
-    async function init_1st_setup_pymt_opt_register()
-    {
+    // // Initializes the modal for new users to enter their payment card details.
+    // async function init_1st_setup_pymt_opt_register()
+    // {
 
-        // Check that a plan has been selected
-        const usrData = await getUserData();
-        const usrCurrPlan = usrData?.curr_plan.curr_plan_id;
-        const plan_obj = uvid_signup_plans[usrCurrPlan];
+    //     // Check that a plan has been selected
+    //     const usrData = await getUserData();
+    //     const usrCurrPlan = usrData?.curr_plan.curr_plan_id;
+    //     const plan_obj = uvid_signup_plans[usrCurrPlan];
 
-        if((typeof plan_obj !== "undefined") && (typeof plan_obj === "object") && (plan_obj !== null)) 
-        {
-            document.querySelectorAll("input.form_input_field").forEach(item => item.disabled = false);
-        }
-        else
-        {
-            document.querySelectorAll("input.form_input_field").forEach(item => item.disabled = true);
-            notification('notifyBad' , 'A plan is required to proceed');
-            switch_step(2);
-            return;
-        }
+    //     if((typeof plan_obj !== "undefined") && (typeof plan_obj === "object") && (plan_obj !== null)) 
+    //     {
+    //         document.querySelectorAll("input.form_input_field").forEach(item => item.disabled = false);
+    //     }
+    //     else
+    //     {
+    //         document.querySelectorAll("input.form_input_field").forEach(item => item.disabled = true);
+    //         notification('notifyBad' , 'A plan is required to proceed');
+    //         switch_step(2);
+    //         return;
+    //     }
 
         
-        const pymtFrmSkipStepTrue = async () => 
-        {
-            // // Disable all input fields and buttons
-            // allFormFields.forEach(item => item.disabled = true);
-            // planFormSbtBtn.disabled = true;
-            // planFormSkipBtn.disabled = true;
+    //     const pymtFrmSkipStepTrue = async () => 
+    //     {
+    //         // // Disable all input fields and buttons
+    //         // allFormFields.forEach(item => item.disabled = true);
+    //         // planFormSbtBtn.disabled = true;
+    //         // planFormSkipBtn.disabled = true;
 
-            // Update the User's info
-            const start_date = getCurrDate("short");
-            const start_mn = start_date.split("/")[1];
-            const start_yr = Number(start_date.split("/")[2]) + 50;
+    //         // Update the User's info
+    //         const start_date = getCurrDate("short");
+    //         const start_mn = start_date.split("/")[1];
+    //         const start_yr = Number(start_date.split("/")[2]) + 50;
 
-            try
-            {
-                await updateUserData(
-                {
-                    is_setup: false,
-                    is_membership_active: true,
-                    stp_steps: `outro`,
-                    curr_plan: 
-                    {
-                        curr_plan_id: `${usrCurrPlan}`,
-                        curr_plan_next: `${usrCurrPlan}`,
-                        curr_plan_start: `${start_date}`,
-                        curr_plan_end: `${getNextDate(start_date, membership_BILL_CYCLE, "short")}`,
-                    },
-                    pymt_mtd: 
-                    {
-                        [`${generateRandomString(32)}`]: 
-                        {
-                            pymt_type: `card`,
-                            pymt_cardName: `UvidPlus-user-first-name-${generateRandomString(16)} UvidPlus-user-last-name-${generateRandomString(16)}`,
-                            pymt_cardNo: `1234 5678 9012 3456`,
-                            pymt_cardExp: `${start_mn}/${start_yr}`,
-                            pymt_cardCode: `1234`,
-                            pymt_isDflt: true
-                        }
-                    },
-                    billing_hist: 
-                    [
-                        {
-                            bill_plan_id: `${usrCurrPlan}`,
-                            bill_plan_name: `${plan_obj.plan_name}`,
-                            bill_plan_price: `${plan_obj.plan_price_month}`,
-                            bill_plan_date: `${start_date}`,
-                            bill_plan_status: null,
-                        }
-                    ],
-                });
+    //         try
+    //         {
+    //             await updateUserData(
+    //             {
+    //                 is_setup: false,
+    //                 is_membership_active: true,
+    //                 stp_steps: `outro`,
+    //                 curr_plan: 
+    //                 {
+    //                     curr_plan_id: `${usrCurrPlan}`,
+    //                     curr_plan_next: `${usrCurrPlan}`,
+    //                     curr_plan_start: `${start_date}`,
+    //                     curr_plan_end: `${getNextDate(start_date, membership_BILL_CYCLE, "short")}`,
+    //                 },
+    //                 pymt_mtd: 
+    //                 {
+    //                     [`${generateRandomString(32)}`]: 
+    //                     {
+    //                         pymt_type: `card`,
+    //                         pymt_cardName: `UvidPlus-user-first-name-${generateRandomString(16)} UvidPlus-user-last-name-${generateRandomString(16)}`,
+    //                         pymt_cardNo: `1234 5678 9012 3456`,
+    //                         pymt_cardExp: `${start_mn}/${start_yr}`,
+    //                         pymt_cardCode: `1234`,
+    //                         pymt_isDflt: true
+    //                     }
+    //                 },
+    //                 billing_hist: 
+    //                 [
+    //                     {
+    //                         bill_plan_id: `${usrCurrPlan}`,
+    //                         bill_plan_name: `${plan_obj.plan_name}`,
+    //                         bill_plan_price: `${plan_obj.plan_price_month}`,
+    //                         bill_plan_date: `${start_date}`,
+    //                         bill_plan_status: null,
+    //                     }
+    //                 ],
+    //             });
 
-                // Initialize finalization message
-                init_signup_outro();
-            }
-            catch(err)
-            {
-                console.error(err)
-                notification(`notifyBad`, `Something went wrong. Try again later`);
-            }
-        }
+    //             // Initialize finalization message
+    //             init_signup_outro();
+    //         }
+    //         catch(err)
+    //         {
+    //             console.error(err)
+    //             notification(`notifyBad`, `Something went wrong. Try again later`);
+    //         }
+    //     }
 
-        pymtFrmSkipStepTrue();
-        return;
+    //     pymtFrmSkipStepTrue();
+    //     return;
 
-        // Get currently selected plan
-        get_setup_sls_plan();
+    //     // Get currently selected plan
+    //     get_setup_sls_plan();
 
-        // Insert struct
-        document.querySelector(".join_area").innerHTML = signup_3_2;
+    //     // Insert struct
+    //     document.querySelector(".join_area").innerHTML = signup_3_2;
 
-        // Definitions
+    //     // Definitions
 
-            // All form fields
-            const allFormFields = document.querySelectorAll(".form_input_field");
+    //         // All form fields
+    //         const allFormFields = document.querySelectorAll(".form_input_field");
 
-            // Card Number
-            const card_num_cond = new RegExp("^[0-9]*$");
-            const cardNum = document.querySelector("#form_pymt_cardNum");
-            const cardNumWarn = document.querySelector("#form_pymt_cardNumWarn");
-            let isCardNumValid = false;
+    //         // Card Number
+    //         const card_num_cond = new RegExp("^[0-9]*$");
+    //         const cardNum = document.querySelector("#form_pymt_cardNum");
+    //         const cardNumWarn = document.querySelector("#form_pymt_cardNumWarn");
+    //         let isCardNumValid = false;
 
-            // Card Expiry date
-            const card_exp_cond = new RegExp("^[0-9]*$");
-            const cardExp = document.querySelector("#form_pymt_cardExp");
-            const cardExpWarn = document.querySelector("#form_pymt_cardExpWarn");
-            let isCardExpValid = false;
+    //         // Card Expiry date
+    //         const card_exp_cond = new RegExp("^[0-9]*$");
+    //         const cardExp = document.querySelector("#form_pymt_cardExp");
+    //         const cardExpWarn = document.querySelector("#form_pymt_cardExpWarn");
+    //         let isCardExpValid = false;
 
-            // Card Security Code
-            const card_code_cond = new RegExp("^[0-9]*$");
-            const cardCode = document.querySelector("#form_pymt_cardSec");
-            const cardCodeWarn = document.querySelector("#form_pymt_cardSecWarn");
-            let isCardCodeValid = false;
+    //         // Card Security Code
+    //         const card_code_cond = new RegExp("^[0-9]*$");
+    //         const cardCode = document.querySelector("#form_pymt_cardSec");
+    //         const cardCodeWarn = document.querySelector("#form_pymt_cardSecWarn");
+    //         let isCardCodeValid = false;
 
-            // Card Full Name
-            const cardName = document.querySelector("#form_pymt_cardName");
-            const cardNameWarn = document.querySelector("#form_pymt_cardNameWarn");
-            let isCardNameValid = false;
+    //         // Card Full Name
+    //         const cardName = document.querySelector("#form_pymt_cardName");
+    //         const cardNameWarn = document.querySelector("#form_pymt_cardNameWarn");
+    //         let isCardNameValid = false;
 
-            // Submit button
-            const planFormSbtBtn = document.querySelector("#form_pymt_sbmtBtn");
+    //         // Submit button
+    //         const planFormSbtBtn = document.querySelector("#form_pymt_sbmtBtn");
 
-            // Skip button
-            const planFormSkipBtn = document.querySelector("#form_pymt_skipBtn");
+    //         // Skip button
+    //         const planFormSkipBtn = document.querySelector("#form_pymt_skipBtn");
             
 
 
-        // Validates Input for Card Number
+    //     // Validates Input for Card Number
 
-            // Conditions -
-            /**
-             *  1 - Should be at least thirteen (13) numbers
-             */
+    //         // Conditions -
+    //         /**
+    //          *  1 - Should be at least thirteen (13) numbers
+    //          */
 
-            // Allows 0-9 
-            cardNum.addEventListener("beforeinput", (event) => 
-            {
-                if (event.data != null && !(card_num_cond.test(event.data))) 
-                    event.preventDefault();
-            });
+    //         // Allows 0-9 
+    //         cardNum.addEventListener("beforeinput", (event) => 
+    //         {
+    //             if (event.data != null && !(card_num_cond.test(event.data))) 
+    //                 event.preventDefault();
+    //         });
 
-            // Validation function For "Card Number"
-            // Adds a space after every four (4) numbers
-            function validateCardNum(e)
-            {
-                // Checks if the field is empty
-                if((e.data == null) && (cardNum.value.toString().length <= 0))
-                {
-                    cardNumWarn.textContent = "Required";
-                    cardNumWarn.classList.add("active");
-                    isCardNumValid = false;
-                }
-                // Checks if the card number length is less than the specified
-                else
-                {
-                    const cardNumInp = e.target;
-                    const cardNumVal = cardNumInp.value;
-                    const cursor = cardNumInp.selectionStart;
+    //         // Validation function For "Card Number"
+    //         // Adds a space after every four (4) numbers
+    //         function validateCardNum(e)
+    //         {
+    //             // Checks if the field is empty
+    //             if((e.data == null) && (cardNum.value.toString().length <= 0))
+    //             {
+    //                 cardNumWarn.textContent = "Required";
+    //                 cardNumWarn.classList.add("active");
+    //                 isCardNumValid = false;
+    //             }
+    //             // Checks if the card number length is less than the specified
+    //             else
+    //             {
+    //                 const cardNumInp = e.target;
+    //                 const cardNumVal = cardNumInp.value;
+    //                 const cursor = cardNumInp.selectionStart;
 
-                    // Store only digits
-                    const digits = cardNumVal.replace(/\D/g, '');
+    //                 // Store only digits
+    //                 const digits = cardNumVal.replace(/\D/g, '');
 
-                    // Format & break into groups of four (4)
-                    const newCardNum = digits.match(/.{1,4}/g)?.join(' ') || '';
+    //                 // Format & break into groups of four (4)
+    //                 const newCardNum = digits.match(/.{1,4}/g)?.join(' ') || '';
 
-                    // Calculate the numnber of digits before the cursor
-                    const digitsBeforeCursor = cardNumVal.slice(0, cursor).replace(/\D/g, '').length;
+    //                 // Calculate the numnber of digits before the cursor
+    //                 const digitsBeforeCursor = cardNumVal.slice(0, cursor).replace(/\D/g, '').length;
 
-                    // Rebuild string and find new cursor position
-                    let newCursor = 0;
-                    let digitCount = 0;
+    //                 // Rebuild string and find new cursor position
+    //                 let newCursor = 0;
+    //                 let digitCount = 0;
 
-                    for (let i = 0; i < newCardNum.length; i++) 
-                    {
-                        if (/\d/.test(newCardNum[i])) 
-                        {
-                            digitCount++;
-                        }
-                        if (digitCount === digitsBeforeCursor) 
-                        {
-                            newCursor = i + 1;
-                            break;
-                        }
-                    }
+    //                 for (let i = 0; i < newCardNum.length; i++) 
+    //                 {
+    //                     if (/\d/.test(newCardNum[i])) 
+    //                     {
+    //                         digitCount++;
+    //                     }
+    //                     if (digitCount === digitsBeforeCursor) 
+    //                     {
+    //                         newCursor = i + 1;
+    //                         break;
+    //                     }
+    //                 }
 
-                    cardNumInp.value = newCardNum;
-                    cardNumInp.setSelectionRange(newCursor, newCursor);
+    //                 cardNumInp.value = newCardNum;
+    //                 cardNumInp.setSelectionRange(newCursor, newCursor);
 
-                    if(digits.length < 13)
-                    {
-                        cardNumWarn.textContent = "Card number must be at least 13 digits long";
-                        cardNumWarn.classList.add("active");
-                        isCardNumValid = false;
-                    }
-                    // If all conditions are met, the input is valid, i.e "true";
-                    else
-                    {
-                        cardNumWarn.textContent = "";
-                        cardNumWarn.classList.remove("active");
-                        isCardNumValid = true;
-                    }
-                }
-            }
+    //                 if(digits.length < 13)
+    //                 {
+    //                     cardNumWarn.textContent = "Card number must be at least 13 digits long";
+    //                     cardNumWarn.classList.add("active");
+    //                     isCardNumValid = false;
+    //                 }
+    //                 // If all conditions are met, the input is valid, i.e "true";
+    //                 else
+    //                 {
+    //                     cardNumWarn.textContent = "";
+    //                     cardNumWarn.classList.remove("active");
+    //                     isCardNumValid = true;
+    //                 }
+    //             }
+    //         }
 
-            cardNum.addEventListener("input" , validateCardNum);
+    //         cardNum.addEventListener("input" , validateCardNum);
 
-            // Switch to the next field
-            cardNum.onkeyup = (e) => 
-            {
-                if((typeof e === "undefined") || (typeof e.key === "undefined") || !(isCardNumValid)) return;
+    //         // Switch to the next field
+    //         cardNum.onkeyup = (e) => 
+    //         {
+    //             if((typeof e === "undefined") || (typeof e.key === "undefined") || !(isCardNumValid)) return;
                 
-                let key = e.key.toLowerCase();
+    //             let key = e.key.toLowerCase();
 
-                if(key === "enter")
-                {
-                    cardExp.focus();
-                }
-            }
+    //             if(key === "enter")
+    //             {
+    //                 cardExp.focus();
+    //             }
+    //         }
 
 
-        // Validates Input for Expiry Date
+    //     // Validates Input for Expiry Date
 
-            // Conditions -
-            /**
-             *  1 - Should be in the format "MM/YY"
-             */
+    //         // Conditions -
+    //         /**
+    //          *  1 - Should be in the format "MM/YY"
+    //          */
 
-            // Allows 0-9
-            cardExp.addEventListener("beforeinput", (event) => 
-            {
-                if (event.data != null && !(card_exp_cond.test(event.data))) 
-                    event.preventDefault();
-            });
+    //         // Allows 0-9
+    //         cardExp.addEventListener("beforeinput", (event) => 
+    //         {
+    //             if (event.data != null && !(card_exp_cond.test(event.data))) 
+    //                 event.preventDefault();
+    //         });
 
-            // Validation function For "Security Code"
-            // Also Formats the input to "MM/YY"
-            function validateCardExp(e)
-            {
-                let input = e.target;
-                let raw = input.value;
-                let cursor = input.selectionStart;
+    //         // Validation function For "Security Code"
+    //         // Also Formats the input to "MM/YY"
+    //         function validateCardExp(e)
+    //         {
+    //             let input = e.target;
+    //             let raw = input.value;
+    //             let cursor = input.selectionStart;
 
-                // Strip non-digits and cap at 4 digits
-                let digits = raw.replace(/\D/g, '').slice(0, 4);
+    //             // Strip non-digits and cap at 4 digits
+    //             let digits = raw.replace(/\D/g, '').slice(0, 4);
 
-                // Checks if the field is empty
-                if((e.data == null) && (digits.length <= 0))
-                {
-                    cardExpWarn.textContent = "Required";
-                    cardExpWarn.classList.add("active");
-                    isCardExpValid = false;
+    //             // Checks if the field is empty
+    //             if((e.data == null) && (digits.length <= 0))
+    //             {
+    //                 cardExpWarn.textContent = "Required";
+    //                 cardExpWarn.classList.add("active");
+    //                 isCardExpValid = false;
 
-                    return;
-                }
+    //                 return;
+    //             }
 
-                // Auto-prepend "0" if user entered single-digit month (3 → 03)
-                if (digits.length === 1 && parseInt(digits, 10) > 1) 
-                {
-                    digits = '0' + digits;
-                    cursor = cursor + 1;
-                }
+    //             // Auto-prepend "0" if user entered single-digit month (3 → 03)
+    //             if (digits.length === 1 && parseInt(digits, 10) > 1) 
+    //             {
+    //                 digits = '0' + digits;
+    //                 cursor = cursor + 1;
+    //             }
 
-                // Format as MM/YY
-                let formatted = '';
+    //             // Format as MM/YY
+    //             let formatted = '';
 
-                if (digits.length >= 3) 
-                {
-                    formatted = `${digits.slice(0, 2)}/${digits.slice(2)}`;
-                } 
-                else 
-                {
-                    formatted = digits;
-                }
+    //             if (digits.length >= 3) 
+    //             {
+    //                 formatted = `${digits.slice(0, 2)}/${digits.slice(2)}`;
+    //             } 
+    //             else 
+    //             {
+    //                 formatted = digits;
+    //             }
 
-                // Detect if slash was added
-                const addedSlash = formatted[cursor - 1] === '/' && raw[cursor - 2] !== '/';
-                let newCursor = cursor;
+    //             // Detect if slash was added
+    //             const addedSlash = formatted[cursor - 1] === '/' && raw[cursor - 2] !== '/';
+    //             let newCursor = cursor;
 
-                if (raw.length < formatted.length && addedSlash) 
-                {
-                    newCursor++;
-                }
+    //             if (raw.length < formatted.length && addedSlash) 
+    //             {
+    //                 newCursor++;
+    //             }
 
-                input.value = formatted;
-                input.setSelectionRange(newCursor, newCursor);
+    //             input.value = formatted;
+    //             input.setSelectionRange(newCursor, newCursor);
 
-                if((digits > 4))
-                {
-                    const month = parseInt(digits.slice(0, 2), 10);
-                    const year = parseInt(digits.slice(2), 10);
+    //             if((digits > 4))
+    //             {
+    //                 const month = parseInt(digits.slice(0, 2), 10);
+    //                 const year = parseInt(digits.slice(2), 10);
 
-                        // get last 2 digits of current year
-                    const currYr = new Date().getFullYear() % 100;
-                    const maxValidYear = currYr + 50;
+    //                     // get last 2 digits of current year
+    //                 const currYr = new Date().getFullYear() % 100;
+    //                 const maxValidYear = currYr + 50;
 
-                    const isMonthValid = month >= 1 && month <= 12;
-                    const isYearValid = year >= currYr && year <= maxValidYear;
+    //                 const isMonthValid = month >= 1 && month <= 12;
+    //                 const isYearValid = year >= currYr && year <= maxValidYear;
 
-                    if (!isMonthValid || !isYearValid) 
-                    {
-                        cardExpWarn.classList.add("active");
-                        cardExpWarn.textContent = "Invalid expiry date";
-                        isCardExpValid = false;
-                    }
-                    else
-                    {
-                        cardExpWarn.classList.remove("active");
-                        cardExpWarn.textContent = '';
-                        isCardExpValid = true;
-                    }
-                    return;
-                }
-                cardExpWarn.textContent = "Invalid expiry date";
-                isCardExpValid = false;
-            }
+    //                 if (!isMonthValid || !isYearValid) 
+    //                 {
+    //                     cardExpWarn.classList.add("active");
+    //                     cardExpWarn.textContent = "Invalid expiry date";
+    //                     isCardExpValid = false;
+    //                 }
+    //                 else
+    //                 {
+    //                     cardExpWarn.classList.remove("active");
+    //                     cardExpWarn.textContent = '';
+    //                     isCardExpValid = true;
+    //                 }
+    //                 return;
+    //             }
+    //             cardExpWarn.textContent = "Invalid expiry date";
+    //             isCardExpValid = false;
+    //         }
 
-            cardExp.addEventListener("input" , validateCardExp);
+    //         cardExp.addEventListener("input" , validateCardExp);
 
-            // Switch to the next field
-            cardExp.onkeyup = (e) => 
-            {
-                if((typeof e === "undefined") || (typeof e.key === "undefined") || !(isCardExpValid)) return;
+    //         // Switch to the next field
+    //         cardExp.onkeyup = (e) => 
+    //         {
+    //             if((typeof e === "undefined") || (typeof e.key === "undefined") || !(isCardExpValid)) return;
                 
-                let key = e.key.toLowerCase();
+    //             let key = e.key.toLowerCase();
 
-                if(key === "enter")
-                {
-                    cardCode.focus();
-                }
-            }
+    //             if(key === "enter")
+    //             {
+    //                 cardCode.focus();
+    //             }
+    //         }
 
 
-        // Validates Input for Security Code
+    //     // Validates Input for Security Code
 
-            // Conditions -
-            /**
-             *  1 - Should be at least three (3) numbers
-             */
+    //         // Conditions -
+    //         /**
+    //          *  1 - Should be at least three (3) numbers
+    //          */
 
-            // Allows 0-9
-            cardCode.addEventListener("beforeinput", (event) => 
-            {
-                if (event.data != null && !(card_code_cond.test(event.data))) 
-                    event.preventDefault();
-            });
+    //         // Allows 0-9
+    //         cardCode.addEventListener("beforeinput", (event) => 
+    //         {
+    //             if (event.data != null && !(card_code_cond.test(event.data))) 
+    //                 event.preventDefault();
+    //         });
 
-            // Validation function For "Security Code"
-            function validateSecCode(event)
-            {
-                // Return if value is not a number
-                if(!(/^\d+$/.test(cardCode.value)))
-                {
-                    cardCodeWarn.textContent = "Invalid Security Code";
-                    cardCodeWarn.classList.add("active");
-                    isCardCodeValid = false;
-                    return;
-                }
+    //         // Validation function For "Security Code"
+    //         function validateSecCode(event)
+    //         {
+    //             // Return if value is not a number
+    //             if(!(/^\d+$/.test(cardCode.value)))
+    //             {
+    //                 cardCodeWarn.textContent = "Invalid Security Code";
+    //                 cardCodeWarn.classList.add("active");
+    //                 isCardCodeValid = false;
+    //                 return;
+    //             }
 
-                // Strip non-digits and cap at 4 digits
-                let digits = cardCode.value.replace(/\D/g, '');
+    //             // Strip non-digits and cap at 4 digits
+    //             let digits = cardCode.value.replace(/\D/g, '');
 
-                // Checks if the field is empty
-                if((event.data == null) && (digits.length <= 0))
-                {
-                    cardCodeWarn.textContent = "Required";
-                    cardCodeWarn.classList.add("active");
-                    isCardCodeValid = false;
-                }
-                else if((digits.length < 3))
-                {
-                    cardCodeWarn.textContent = "Invalid Security Code";
-                    cardCodeWarn.classList.add("active");
-                    isCardCodeValid = false;
-                }
-                // If all conditions are met, the input is valid, i.e "true";
-                else
-                {
-                    cardCodeWarn.textContent = "";
-                    cardCodeWarn.classList.remove("active");
-                    isCardCodeValid = true;
-                }
-            }
+    //             // Checks if the field is empty
+    //             if((event.data == null) && (digits.length <= 0))
+    //             {
+    //                 cardCodeWarn.textContent = "Required";
+    //                 cardCodeWarn.classList.add("active");
+    //                 isCardCodeValid = false;
+    //             }
+    //             else if((digits.length < 3))
+    //             {
+    //                 cardCodeWarn.textContent = "Invalid Security Code";
+    //                 cardCodeWarn.classList.add("active");
+    //                 isCardCodeValid = false;
+    //             }
+    //             // If all conditions are met, the input is valid, i.e "true";
+    //             else
+    //             {
+    //                 cardCodeWarn.textContent = "";
+    //                 cardCodeWarn.classList.remove("active");
+    //                 isCardCodeValid = true;
+    //             }
+    //         }
 
-            cardCode.addEventListener("input" , validateSecCode);
+    //         cardCode.addEventListener("input" , validateSecCode);
 
-            // Switch to the next field
-            cardCode.onkeyup = (e) => 
-            {
-                if((typeof e === "undefined") || (typeof e.key === "undefined") || !(isCardCodeValid)) return;
+    //         // Switch to the next field
+    //         cardCode.onkeyup = (e) => 
+    //         {
+    //             if((typeof e === "undefined") || (typeof e.key === "undefined") || !(isCardCodeValid)) return;
                 
-                let key = e.key.toLowerCase();
+    //             let key = e.key.toLowerCase();
 
-                if(key === "enter")
-                {
-                    cardName.focus();
-                }
-            }
+    //             if(key === "enter")
+    //             {
+    //                 cardName.focus();
+    //             }
+    //         }
 
 
-        // Validates Input for Card Name
+    //     // Validates Input for Card Name
 
-            // Conditions -
-            /**
-             *  1 - At least two (2) non-whitespace characters separated by a space
-             */
+    //         // Conditions -
+    //         /**
+    //          *  1 - At least two (2) non-whitespace characters separated by a space
+    //          */
             
-            function validateCardName(event)
-            {
-                let fname = cardName.value.toString().trim();
-                let fullName_Condition = /^\s*\S+(?:\s+\S+)+\s*$/;
+    //         function validateCardName(event)
+    //         {
+    //             let fname = cardName.value.toString().trim();
+    //             let fullName_Condition = /^\s*\S+(?:\s+\S+)+\s*$/;
 
-                // Checks if empty
-                if((event.data == null) && (fname === ""))
-                {
-                    cardNameWarn.textContent = "Required";
-                    cardNameWarn.classList.add("active");
-                    isCardNameValid = false;
-                }
-                // Checks if Full name was entered
-                else if(!(fullName_Condition.test(fname)))
-                {
-                    cardNameWarn.textContent = "First and last name required";
-                    cardNameWarn.classList.add("active");
-                    isCardNameValid = false;
-                }
-                else
-                {
-                    cardNameWarn.textContent = "";
-                    cardNameWarn.classList.remove("active");
-                    isCardNameValid = true;
-                } 
-            }
+    //             // Checks if empty
+    //             if((event.data == null) && (fname === ""))
+    //             {
+    //                 cardNameWarn.textContent = "Required";
+    //                 cardNameWarn.classList.add("active");
+    //                 isCardNameValid = false;
+    //             }
+    //             // Checks if Full name was entered
+    //             else if(!(fullName_Condition.test(fname)))
+    //             {
+    //                 cardNameWarn.textContent = "First and last name required";
+    //                 cardNameWarn.classList.add("active");
+    //                 isCardNameValid = false;
+    //             }
+    //             else
+    //             {
+    //                 cardNameWarn.textContent = "";
+    //                 cardNameWarn.classList.remove("active");
+    //                 isCardNameValid = true;
+    //             } 
+    //         }
 
-            cardName.addEventListener("input" , validateCardName);
+    //         cardName.addEventListener("input" , validateCardName);
 
-            // Switch to the next field
-            cardName.onkeyup = (e) => 
-            {
-                if((typeof e === "undefined") || (typeof e.key === "undefined")) return;
+    //         // Switch to the next field
+    //         cardName.onkeyup = (e) => 
+    //         {
+    //             if((typeof e === "undefined") || (typeof e.key === "undefined")) return;
                 
-                let key = e.key.toLowerCase();
+    //             let key = e.key.toLowerCase();
 
-                if(key === "enter")
-                {
-                    planFormSbtBtn.click();
-                }
-            }
-
-
-        // Submission
-        planFormSbtBtn.addEventListener("click" , async () => 
-        {
-            const auth = window.firebaseAuth;
-            const user = auth.currentUser;
-
-            // Return if user isn't logged in
-            if (!user)
-            {
-                notification(`notifyBad` , "You are not logged in.");
-                return;
-            }
-
-            // If all input fields are filled correctly, update properties and finalise
-            if(((isCardNumValid == true) && (isCardExpValid == true) && (isCardCodeValid == true) && (isCardNameValid == true)))
-            {
-                // Disable all input fields and buttons
-                allFormFields.forEach(item => item.disabled = true);
-                planFormSbtBtn.disabled = true;
-
-                // Update the User's info
-                const start_date = getCurrDate("short");
-
-                try
-                {
-                    await updateUserData(
-                    {
-                        is_setup: false,
-                        is_membership_active: true,
-                        stp_steps: `outro`,
-                        curr_plan: 
-                        {
-                            curr_plan_id: `${usrCurrPlan}`,
-                            curr_plan_next: `${usrCurrPlan}`,
-                            curr_plan_start: `${start_date}`,
-                            curr_plan_end: `${getNextDate(start_date, membership_BILL_CYCLE, "short")}`,
-                        },
-                        pymt_mtd: 
-                        {
-                            [`${generateRandomString(32)}`]: 
-                            {
-                                pymt_type: `card`,
-                                pymt_cardName: `${cardName.value}`,
-                                pymt_cardNo: `${cardNum.value}`,
-                                pymt_cardExp: `${cardExp.value}`,
-                                pymt_cardCode: `${cardCode.value}`,
-                                pymt_isDflt: true
-                            }
-                        },
-                        billing_hist: 
-                        [
-                            {
-                                bill_plan_id: `${usrCurrPlan}`,
-                                bill_plan_name: `${plan_obj.plan_name}`,
-                                bill_plan_price: `${plan_obj.plan_price_month}`,
-                                bill_plan_date: `${start_date}`,
-                                bill_plan_status: null,
-                            }
-                        ],
-                    });
-
-                    // Initialize finalization message
-                    init_signup_outro();
-                }
-                catch(err)
-                {
-                    console.error(err)
-                    notification(`notifyBad`, `Something went wrong. Try again later`);
-                }
-            }
-            // If not filled correctly, alert user 
-            else
-            {
-                notification(`notifyBad` , `Please check that all fields have been correctly filled`);
-            }
-        });
+    //             if(key === "enter")
+    //             {
+    //                 planFormSbtBtn.click();
+    //             }
+    //         }
 
 
-        // Skip step
-        planFormSkipBtn.onclick = () => 
-        {
-            initConfirmModal(
-                `Skip Payment Option Step?`,
-                `Doing so will automatically generate random information for this step.`,
-                `Skip`,
-                `Cancel`,
-                pymtFrmSkipStepTrue
-            );
-        }
-    }
+    //     // Submission
+    //     planFormSbtBtn.addEventListener("click" , async () => 
+    //     {
+    //         const auth = window.firebaseAuth;
+    //         const user = auth.currentUser;
 
-    // Gets the information for the currently selected plan
-    async function get_setup_sls_plan()
-    {
-        // Check that a plan has been selected
-        const usrData = await getUserData();
-        const usrCurrPlan = usrData?.curr_plan.curr_plan_id;
-        const plan_obj = uvid_signup_plans[usrCurrPlan];
+    //         // Return if user isn't logged in
+    //         if (!user)
+    //         {
+    //             notification(`notifyBad` , "You are not logged in.");
+    //             return;
+    //         }
+
+    //         // If all input fields are filled correctly, update properties and finalise
+    //         if(((isCardNumValid == true) && (isCardExpValid == true) && (isCardCodeValid == true) && (isCardNameValid == true)))
+    //         {
+    //             // Disable all input fields and buttons
+    //             allFormFields.forEach(item => item.disabled = true);
+    //             planFormSbtBtn.disabled = true;
+
+    //             // Update the User's info
+    //             const start_date = getCurrDate("short");
+
+    //             try
+    //             {
+    //                 await updateUserData(
+    //                 {
+    //                     is_setup: false,
+    //                     is_membership_active: true,
+    //                     stp_steps: `outro`,
+    //                     curr_plan: 
+    //                     {
+    //                         curr_plan_id: `${usrCurrPlan}`,
+    //                         curr_plan_next: `${usrCurrPlan}`,
+    //                         curr_plan_start: `${start_date}`,
+    //                         curr_plan_end: `${getNextDate(start_date, membership_BILL_CYCLE, "short")}`,
+    //                     },
+    //                     pymt_mtd: 
+    //                     {
+    //                         [`${generateRandomString(32)}`]: 
+    //                         {
+    //                             pymt_type: `card`,
+    //                             pymt_cardName: `${cardName.value}`,
+    //                             pymt_cardNo: `${cardNum.value}`,
+    //                             pymt_cardExp: `${cardExp.value}`,
+    //                             pymt_cardCode: `${cardCode.value}`,
+    //                             pymt_isDflt: true
+    //                         }
+    //                     },
+    //                     billing_hist: 
+    //                     [
+    //                         {
+    //                             bill_plan_id: `${usrCurrPlan}`,
+    //                             bill_plan_name: `${plan_obj.plan_name}`,
+    //                             bill_plan_price: `${plan_obj.plan_price_month}`,
+    //                             bill_plan_date: `${start_date}`,
+    //                             bill_plan_status: null,
+    //                         }
+    //                     ],
+    //                 });
+
+    //                 // Initialize finalization message
+    //                 init_signup_outro();
+    //             }
+    //             catch(err)
+    //             {
+    //                 console.error(err)
+    //                 notification(`notifyBad`, `Something went wrong. Try again later`);
+    //             }
+    //         }
+    //         // If not filled correctly, alert user 
+    //         else
+    //         {
+    //             notification(`notifyBad` , `Please check that all fields have been correctly filled`);
+    //         }
+    //     });
+
+
+    //     // Skip step
+    //     planFormSkipBtn.onclick = () => 
+    //     {
+    //         initConfirmModal(
+    //             `Skip Payment Option Step?`,
+    //             `Doing so will automatically generate random information for this step.`,
+    //             `Skip`,
+    //             `Cancel`,
+    //             pymtFrmSkipStepTrue
+    //         );
+    //     }
+    // }
+
+    // // Gets the information for the currently selected plan
+    // async function get_setup_sls_plan()
+    // {
+    //     // Check that a plan has been selected
+    //     const usrData = await getUserData();
+    //     const usrCurrPlan = usrData?.curr_plan.curr_plan_id;
+    //     const plan_obj = uvid_signup_plans[usrCurrPlan];
         
-        // Switching plans
-        const chsnPlanBdr = document.querySelector(".form_plan_bdr");
-        let chsnPlanBtn;
+    //     // Switching plans
+    //     const chsnPlanBdr = document.querySelector(".form_plan_bdr");
+    //     let chsnPlanBtn;
 
-        if(!(typeof plan_obj !== "undefined") && (typeof plan_obj === "object") && (plan_obj !== null)
-            || (chsnPlanBdr == undefined) || (chsnPlanBdr == null)
-        ) 
-        {
-            console.error("Failed to initialize currently selected plan")
-            return;
-        }
+    //     if(!(typeof plan_obj !== "undefined") && (typeof plan_obj === "object") && (plan_obj !== null)
+    //         || (chsnPlanBdr == undefined) || (chsnPlanBdr == null)
+    //     ) 
+    //     {
+    //         console.error("Failed to initialize currently selected plan")
+    //         return;
+    //     }
 
-        // Insert the current plan
-        chsnPlanBdr.innerHTML = 
-        `
-            <div class="form_plan_box">
-                <div class="form_plan_det_bdr">
-                    <div class="form_plan_det_box">
-                        <div class="form_plan_price_box">
-                            <p class="form_plan_price_txt">${plan_obj.plan_price_month}</p>
-                        </div>
-                        <div class="form_plan_name_box">
-                            <p class="form_plan_name_txt">Uvid+ ${plan_obj.plan_name}</p>
-                        </div>
-                    </div>
-                </div>
-                <button type="button" class="genBtnBox thin transBtn form_plan_atn_btn form_plan_atn_box">
-                    <span class="genBtnText form_plan_atn_txt">Switch</span>
-                </button>
-            </div>
-        `;
-        chsnPlanBtn = document.querySelector(".form_plan_atn_btn");
+    //     // Insert the current plan
+    //     chsnPlanBdr.innerHTML = 
+    //     `
+    //         <div class="form_plan_box">
+    //             <div class="form_plan_det_bdr">
+    //                 <div class="form_plan_det_box">
+    //                     <div class="form_plan_price_box">
+    //                         <p class="form_plan_price_txt">${plan_obj.plan_price_month}</p>
+    //                     </div>
+    //                     <div class="form_plan_name_box">
+    //                         <p class="form_plan_name_txt">Uvid+ ${plan_obj.plan_name}</p>
+    //                     </div>
+    //                 </div>
+    //             </div>
+    //             <button type="button" class="genBtnBox thin transBtn form_plan_atn_btn form_plan_atn_box">
+    //                 <span class="genBtnText form_plan_atn_txt">Switch</span>
+    //             </button>
+    //         </div>
+    //     `;
+    //     chsnPlanBtn = document.querySelector(".form_plan_atn_btn");
 
-        // Change your plan
-        const switchPlan = () => switch_step(2);
+    //     // Change your plan
+    //     const switchPlan = () => switch_step(2);
 
-        // Confirm before going back to change your plan
-        const cfrmB4PlanSwitch = () =>
-        {
-            initConfirmModal(
-                `Are you sure you want to go back`,
-                `Current changes will not be saved`,
-                `Go back`,
-                `Stay`,
-                switchPlan
-            );
-        }
+    //     // Confirm before going back to change your plan
+    //     const cfrmB4PlanSwitch = () =>
+    //     {
+    //         initConfirmModal(
+    //             `Are you sure you want to go back`,
+    //             `Current changes will not be saved`,
+    //             `Go back`,
+    //             `Stay`,
+    //             switchPlan
+    //         );
+    //     }
 
-        chsnPlanBtn.onclick = () => cfrmB4PlanSwitch();
-    }
+    //     chsnPlanBtn.onclick = () => cfrmB4PlanSwitch();
+    // }
 
 
-    // Displays welcome message after subscription is confirmed
-    function init_signup_outro()
-    {
-        // document.querySelector(".join_fence").innerHTML = signup_outro;
-        // document.querySelector(".join_fence").scrollTo(0,0);
-        documentCtnt.insertAdjacentHTML('beforeend', signup_outro);
+    // // Displays welcome message after subscription is confirmed
+    // function init_signup_outro()
+    // {
+    //     // document.querySelector(".join_fence").innerHTML = signup_outro;
+    //     // document.querySelector(".join_fence").scrollTo(0,0);
+    //     documentCtnt.insertAdjacentHTML('beforeend', signup_outro);
 
-        let joinOutroBtn = document.querySelector(".join_outro_btn");
-        let joinOutroTmr;
+    //     let joinOutroBtn = document.querySelector(".join_outro_btn");
+    //     let joinOutroTmr;
         
-        joinOutroBtn.onclick = () => 
-        {
-            document.querySelector(".join_fence").remove();
-            window.location.hash = "#/home"
-        }
+    //     joinOutroBtn.onclick = () => 
+    //     {
+    //         document.querySelector(".join_fence").remove();
+    //         window.location.hash = "#/home"
+    //     }
 
-        // Start Initializing the homepage in the background
-        joinOutroTmr = setTimeout(() => 
-        {
-            clearTimeout(joinOutroTmr);
-            preHomeSection();
-        }, 1000);
-    }
+    //     // Start Initializing the homepage in the background
+    //     joinOutroTmr = setTimeout(() => 
+    //     {
+    //         clearTimeout(joinOutroTmr);
+    //         preHomeSection();
+    //     }, 1000);
+    // }

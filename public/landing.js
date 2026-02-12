@@ -204,25 +204,7 @@
                             </button>
                             <div class="questions_CardTextBox">
                                 <p class="questions_CardText">
-                                    Yes, Uvid+ is free. It has always been free. Don't listen to anyone saying otherwise.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="questions_Card">
-                            <button type="button" class="questions_CardBtn" aria-expanded="false">
-                                <h4 class="questions_CardAsk">
-                                    <span class="qca_Major">H</span>
-                                    <span class="qca_Minor">ow much is Uvid+?</span>
-                                </h4>
-                                <div class="questions_CardIconBox">
-                                    <span class="questions_CardIcon"></span>
-                                </div>
-                            </button>
-                            <div class="questions_CardTextBox">
-                                <p class="questions_CardText">
-                                    Uvid+ presents three different bundles all for $0. 
-                                    Tiers don't have any advantages over the other.
-                                    It's still the same Uvid+ experience.
+                                    Yes, Uvid+ is free.
                                 </p>
                             </div>
                         </div>
