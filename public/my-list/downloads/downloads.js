@@ -1418,7 +1418,7 @@
 
         // Display the episode number
         dlCardTitle.textContent = (dlCardEpLnk.split('/')[1] === "tv")
-            ? `Episode${dlCardEpLnk.split('/')[5]}`
+            ? `Episode ${dlCardEpLnk.split('/')[5]}`
             : "Full movie";
 
         // Watch the Episode

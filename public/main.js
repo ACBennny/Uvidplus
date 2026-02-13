@@ -2877,7 +2877,6 @@
             document.addEventListener("touchend", stopDraggingGenMenuModal);
 
             window.addEventListener("resize" , calibrateGenMenuModalBoxHeight);
-            window.addEventListener("change" , calibrateGenMenuModalBoxHeight);
         }
 
         // Recalibrates the menu modal box height when screen size/orientation changes

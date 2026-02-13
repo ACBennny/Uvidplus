@@ -1241,7 +1241,7 @@
     {
         window.addEventListener("scroll" , checkVidBdrBounds);
         window.addEventListener("resize" , checkVidBdrBounds);
-        window.addEventListener("change" , () => 
+        screen.orientation.addEventListener("change" , () => 
         {
             checkVidBdrBounds();
             checkPIP();

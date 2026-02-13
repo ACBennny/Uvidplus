@@ -966,10 +966,6 @@
             {
                 checkBcgImgBdrBounds();
             });
-            window.addEventListener("change" , () => 
-            {
-                checkBcgImgBdrBounds();
-            });
             checkBcgImgBdrBounds();
 
 
