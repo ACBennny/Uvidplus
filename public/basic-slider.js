@@ -17,7 +17,6 @@
 
 // BASIC SLIDERS
 
-    // The slider for different shows
     // BASIC SLIDERS
     function basicSlider() 
     {
@@ -106,9 +105,7 @@
 
             updateArrows();
 
-            // -------------------------
-            // HANDLERS
-            // -------------------------
+            // Handlers
             const mouse_down_atn = (e) => 
             {
                 isDown = true;
@@ -196,9 +193,7 @@
                 leftArr.arrow_left_atn = arrow_left_atn;
             }
 
-            // -------------------------
             // CARD DETAILS (same behavior, per carousel dragging flag)
-            // -------------------------
             cards.forEach((base) => 
             {
                 let showCardLink = base.querySelector(".cardLinkCover");
@@ -256,7 +251,6 @@
         elFc();
     }
 
-    // Calls the function again if window changes size
     // Used for Responsivenes and adaptation for device orientation
     window.addEventListener("resize" , () => 
     {

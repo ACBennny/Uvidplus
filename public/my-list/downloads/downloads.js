@@ -390,10 +390,11 @@
             
             return __getUVPShowDet(itemId, itemType);
         });
-        const dl_sets = await Promise.all(dl_fetch);
+        let dl_sets = await Promise.all(dl_fetch);
+        dl_sets = dl_sets.reverse();
 
         // Filling in the grid content
-        for(let g = 0; g < dlLibraryIndexedInv.length; g++)
+        for(let g = 0; g < dlLibraryIndexedInv.reverse().length; g++)
         {
             let item = dlLibraryIndexedInv[g];
             let itemId = item?.dl_id;
