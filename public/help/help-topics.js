@@ -201,18 +201,6 @@ let pplr_tpc_arr =
             Yes, Uvid+ is <span class="important">FREE</span>. It has <span class="important">always</span> been free. 
             Any requests for actual payments is not from us and should be reported to us using the 
             <a href="#/feedback" class="important">Feedback Form</a>.
-            <br><br>
-            However, if you're not new to Uvid+, you may argue that it was paid because in previous versions of Uvid+, 
-            you may have seen prices, including those for tiers. 
-            <br><br>
-            We would like to stress that this project is a demo, inspired by real streaming services. 
-            It aimed to replicate the various parts and functions of a real streaming service hence the initial tier systems 
-            and prices. If you read any of the documentation from the project homepage, app notices/reminders or the app's 
-            <a href="#/tos" class="important">Terms of use</a> and <a href="#/privacy" class="important">Privacy policy</a>,
-            you would have immediately realized they were for demonstration purposes.
-            <br><br>
-            Nonetheless, those features were removed to prevent any further confusion for old users or misrepresentation of 
-            the project for new users. Feel free to use it as much as you like for as long as you desire to do so.
         `,
     },
     {
