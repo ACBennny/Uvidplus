@@ -152,30 +152,6 @@
         attachSignOutEventlisteners();
     }
 
-    // Message for users with expired memberships
-    function msg_mbsp_exp()
-    {
-        document.querySelector(".join_area").innerHTML = mbsp_exp_ntc;
-        let ds = document.querySelector(".mbsp_exp_ntc_btn");
-
-        ds.onclick = async () => 
-        {
-            try
-            {
-                await updateUserData(
-                {
-                    stp_steps: 2
-                });
-                switch_step(2);
-            }
-            catch(error)
-            {
-                console.error(error)
-                notification(`notifyBad`, `An error occurred. Try reloading the page`);
-            }
-        }
-    }
-
     // Switch sign up steps
     function switch_step(step = "dflt")
     {

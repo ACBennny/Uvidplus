@@ -110,7 +110,7 @@
                 s(0)
             } catch (p) {}
         }
-        setInterval(dtd, 4e3);
+        // setInterval(dtd, 4e3);
         document.addEventListener("contextmenu", (e) => {e.preventDefault()}, {capture: true});
 
         const firebaseConfig = 

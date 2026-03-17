@@ -315,35 +315,6 @@
         </div>
     `;
 
-    const mbsp_exp_ntc = 
-    `
-        <div class="join_house mbsp_exp_ntc">
-            <div class="join_bdr">
-                <div class="join_box">
-                    <div class="join_outro_bdr">
-                        <div class="join_outro_box">
-                            <div class="join_plan_hdr_box">
-                                <div class="join_plan_hdr_txt_mjr">Membership Expired</div>
-                            </div>
-                            <div class="join_outro_det_box">
-                                <p class="join_outro_det_txt">
-                                    Hello, your Uvid+ membership has expired. 
-                                    There's a lot going on in the world of Uvid+ and you certainly don't want to be left out.
-                                </p>
-                                <p class="join_outro_det_txt">
-                                    Hit the button below to get back into the action.
-                                </p>
-                            </div>
-                            <div class="join_submit_box space_h">
-                                <input type="button" class=" genBtn join_submit_btn mbsp_exp_ntc_btn" value="Continue" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-
     const signup_vrfy = 
     `
         <div class="join_house signup_vrfy">
