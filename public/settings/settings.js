@@ -2436,7 +2436,7 @@
             giftCodeMdlBdr.classList.add("active");
         }, 250);
         
-        // Automatically focus on input feild after transition
+        // Automatically focus on input field after transition
         giftCodeMdlBdr.addEventListener("transitionend" , function handleTransitionEnd()
         {
             giftCodeMdlBdr.removeEventListener("transitionend" , handleTransitionEnd);
@@ -3122,7 +3122,7 @@
             const userPass_Cond_Lett_Lwr = /[a-z]/g;
 
 
-            // Checks if there is any value in the input feild
+            // Checks if there is any value in the input field
             if(((pass === "") && (pass.length <= 0)))
             {
                 if((warn != null))
@@ -3373,7 +3373,7 @@
             mngPrflLockBdr.classList.add("active");
         }, 250);
         
-        // Automatically focus on input feild after transition
+        // Automatically focus on input field after transition
         mngPrflLockBdr.addEventListener("transitionend" , function handleTransitionEnd()
         {
             mngPrflLockBdr.removeEventListener("transitionend" , handleTransitionEnd);
@@ -4079,7 +4079,7 @@
             updFullnameBdr.classList.add("active");
         }, 250);
         
-        // Automatically focus on input feild after transition
+        // Automatically focus on input field after transition
         updFullnameBdr.addEventListener("transitionend" , function handleTransitionEnd()
         {
             updFullnameBdr.removeEventListener("transitionend" , handleTransitionEnd);
@@ -4268,7 +4268,7 @@
             clearTimeout(updUsrPassTimer);
         }, 250);
         
-        // Automatically focus on input feild after transition
+        // Automatically focus on input field after transition
         updUsrPassBdr.addEventListener("transitionend" , function handleTransitionEnd()
         {
             updUsrPassBdr.removeEventListener("transitionend" , handleTransitionEnd);
@@ -4297,7 +4297,7 @@
             const userPass_Cond_Lett_Lwr = /[a-z]/g;
 
 
-            // Checks if there is any value in the input feild
+            // Checks if there is any value in the input field
             if(((pass === "") && (pass.length <= 0)))
             {
                 if((warn != null))
@@ -4567,7 +4567,7 @@
             clearTimeout(updUsrEmailTimer);
         }, 250);
         
-        // Automatically focus on input feild after transition
+        // Automatically focus on input field after transition
         updUsrEmailBdr.addEventListener("transitionend" , function handleTransitionEnd()
         {
             updUsrEmailBdr.removeEventListener("transitionend" , handleTransitionEnd);
@@ -4637,7 +4637,7 @@
             const userPass_Cond_Lett_Lwr = /[a-z]/g;
 
 
-            // Checks if there is any value in the input feild
+            // Checks if there is any value in the input field
             if(((pass === "") && (pass.length <= 0)))
             {
                 if((warn != null))

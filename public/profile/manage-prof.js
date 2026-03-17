@@ -375,7 +375,7 @@
             cfrmPassBdr.classList.add("active");
         }, 250);
 
-        // Automatically focus on input feild after transition
+        // Automatically focus on input field after transition
         cfrmPassBdr.addEventListener("transitionend", function handleTransitionEnd()
         {
             cfrmPassBdr.removeEventListener("transitionend", handleTransitionEnd);
@@ -668,7 +668,7 @@
             clearTimeout(createProfTimer);
         }, 100);
         
-        // Automatically focus on input feild after transition
+        // Automatically focus on input field after transition
         createProfBdr.addEventListener("transitionend" , function handleTransitionEnd()
         {
             createProfBdr.removeEventListener("transitionend" , handleTransitionEnd);

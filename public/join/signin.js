@@ -190,7 +190,7 @@
                 const userPass_Cond_Lett_Upr = /[A-Z]/g;
                 const userPass_Cond_Lett_Lwr = /[a-z]/g;
 
-                // Checks if there is any value in the input feild
+                // Checks if there is any value in the input field
                 if(((event.data == null) && (pswd === "")))
                 {
                     isUserPassValid = false;

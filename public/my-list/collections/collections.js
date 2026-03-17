@@ -714,7 +714,7 @@ let editCLStruct =
                     clearTimeout(createCLTimer);
                 }, 100);
                 
-                // Automatically focus on input feild after transition
+                // Automatically focus on input field after transition
                 createListBdr.addEventListener("transitionend" , function handleTransitionEnd()
                 {
                     createListBdr.removeEventListener("transitionend" , handleTransitionEnd);

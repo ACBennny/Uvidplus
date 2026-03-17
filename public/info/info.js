@@ -1428,18 +1428,18 @@
                 // Filter episodes
                 field.addEventListener("input", (e) => 
                 {
-                    let feildVal = field.value.toString().trim();
+                    let fieldVal = field.value.toString().trim();
                     let ssn_curr_index = Number(seasonHeaderBox.getAttribute("data-current-index"));
                     let ep_curr_length = Number(seasonSelector[ssn_curr_index].getAttribute("data-ep-length"))
 
                     // Clear previous results
                     seasonSet.innerHTML = "";
 
-                    // Update all feilds' value
-                    epSearchField.forEach((valFld) => valFld.value = feildVal);
+                    // Update all fields' value
+                    epSearchField.forEach((valFld) => valFld.value = fieldVal);
 
-                    // Generate season list if feild empty
-                    if(feildVal === "")
+                    // Generate season list if field empty
+                    if(fieldVal === "")
                     {
                         if(ep_curr_length > epSetLength)
                         {
@@ -1464,7 +1464,7 @@
                         // Generate cards for episodes that match input
                         for(let i = 1; i <= ep_curr_length; i++)
                         {
-                            if(i.toString().includes(feildVal))
+                            if(i.toString().includes(fieldVal))
                             {
                                 generateShowEpCards((ssn_curr_index + 1), i, i);
                             }
@@ -2532,7 +2532,7 @@
                 // Clear any previous ep cards
                 document.querySelector(".showset").innerHTML = "";
 
-                // Update all feilds' value
+                // Update all fields' value
                 document.querySelectorAll(".episode_searchFieldClass").forEach((valFld) => valFld.value = "");
 
                 // Generate the episodes
