@@ -472,6 +472,7 @@ html:root
     -webkit-backdrop-filter: blur(0.9375rem);
     backdrop-filter: blur(0.9375rem);
     opacity: 0;
+    overflow: hidden;
     transform: scale(0.6) translateY(30%);
     transition: 300ms;
     cursor: default;
@@ -483,7 +484,8 @@ html:root
     opacity: 1;
     transform: scale(1.0) translateY(0%);
     visibility: visible;
-    z-index: 101;
+    overflow-y: auto;
+    z-index: 120;
 }
 
 .trailer_Bdr .trailer_Box
@@ -491,7 +493,6 @@ html:root
     position: relative;
     width: 98%;
     max-width: 50rem;
-    /* min-height: 25rem; */
     margin: 5.5rem 0;
     border-radius: 0.3125rem;
     background: #000000;

@@ -2650,6 +2650,7 @@
         let epCardPlyBtn = document.querySelector(".genMenuModalCtntBtnBox.ep_watchNow_btn");
         let epCardMarkAsWatchedBtn = document.querySelector(".genMenuModalCtntBtnBox.ep_markedAsWatched_btn");
         let epCardDwldBtn = document.querySelector(".genMenuModalCtntBtnBox.ep_dwld_btn");
+        let epCardExtBtn = document.querySelector(".genMenuModalCtntBtnBox.ep_ext_btn");
 
         // Update temp variables
         temp_ssn_num = epCardSsnNum;
@@ -2718,6 +2719,26 @@
             {
                 selDwldPpty('episode', epCardName);
             }
+        }
+
+        // External
+        const epExtDlTr = () => 
+        {
+            const extBs = (epShowType === "tv")
+                ? `dl.vidsrc.vip/tv/${info_pg_show_link.split('/')[2]}/${epCardSsnNum}/${epCardEpNum}`
+                : `dl.vidsrc.vip/movie/${info_pg_show_link.split('/')[2]}`;
+            window.open(`https://${extBs}`, '_blank');
+        }
+
+        epCardExtBtn.onclick = () => 
+        {
+            initConfirmModal(
+                `Download on external site?`,
+                `We are not affiliated with the site or its contents`,
+                `Proceed`,
+                `Cancel`,
+                epExtDlTr
+            );
         }
     }
 
