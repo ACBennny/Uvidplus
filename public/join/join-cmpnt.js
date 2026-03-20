@@ -405,7 +405,7 @@
                                 </div>
                             </div>
                             <div class="join_intro_ftr_descBox">
-                                <p class="join_intro_ftr_descTxt">Verify that you're not a bot</p>
+                                <p class="join_intro_ftr_descTxt">Pick show you want to watch</p>
                             </div>
                             <div class="join_intro_ptr_iconBdr ptr_2">
                                 <div class="join_intro_ptr_iconBox">
