@@ -9,15 +9,12 @@
 
 // DEFINITION
 
-    let isBasicSliderDown = false;
-    let isBasicSliderDragging = false;
-    let basicSliderDraggingDist = 10;
+    const basicSliderDraggingDist = 10;
 
 
 
 // BASIC SLIDERS
 
-    // BASIC SLIDERS
     function basicSlider() 
     {
         const carousels = document.querySelectorAll(".basic_carousel");
@@ -31,7 +28,8 @@
 
             if (!slider) return;
 
-            // Remove old references/listeners
+            
+            // Remove old listeners & references
             const old = slider._basicSliderHandlers;
 
             if (old) 
@@ -42,6 +40,7 @@
                 slider.removeEventListener("mousemove", old.mouse_move_atn);
                 slider.removeEventListener("scroll", old.mouse_scroll_atn);
             }
+
             if (rightArr?.arrow_right_atn) 
             {
                 rightArr.removeEventListener("click", rightArr.arrow_right_atn);
@@ -50,9 +49,15 @@
             {
                 leftArr.removeEventListener("click", leftArr.arrow_left_atn);
             }
+
             if (slider._basicSliderRO) 
             {
                 slider._basicSliderRO.disconnect();
+            }
+
+            if (carousel._basicClickCapture) 
+            {
+                carousel.removeEventListener("click", carousel._basicClickCapture, true);
             }
 
             cards.forEach((card) => 
@@ -66,84 +71,100 @@
 
             let isDown = false;
             let isDragging = false;
-            let startX = 0;
+            let suppressClick = false;
+            let startClientX = 0;
             let startScrollLeft = 0;
 
             const boxErrorMargin = 10;
+
             const getMultiSlide = () => 
             {
                 const w = slider.getBoundingClientRect().width;
-                return w > 1 ? (w - boxErrorMargin) : 0;
-            };
+                return w > 1 ? (w - boxErrorMargin) : 0; // hidden => 0
+            }
 
             const updateArrows = () => 
             {
                 const slideAmt = getMultiSlide();
 
+                // Default: hide arrows
                 if (!slideAmt) 
                 {
                     if (leftArr) leftArr.classList.add("hide");
                     if (rightArr) rightArr.classList.add("hide");
-
                     return;
                 }
 
                 const scrollLeft = slider.scrollLeft;
                 const canScrollLeft = scrollLeft > boxErrorMargin;
-                const canScrollRight = scrollLeft + slider.clientWidth < slider.scrollWidth - boxErrorMargin;
+                const canScrollRight =
+                    scrollLeft + slider.clientWidth < slider.scrollWidth - boxErrorMargin;
 
                 if (leftArr) leftArr.classList.toggle("hide", !canScrollLeft);
                 if (rightArr) rightArr.classList.toggle("hide", !canScrollRight);
-            };
+            }
 
-            // initial arrow visibility
+            // Initial arrow visibility
             if (rightArr) 
             {
                 const overflowing = slider.scrollWidth > Math.ceil(slider.clientWidth) + boxErrorMargin;
                 rightArr.classList.toggle("hide", !overflowing);
             }
-
             updateArrows();
 
-            // Handlers
+            
+            // DRAG HANDLERS 
+
             const mouse_down_atn = (e) => 
             {
                 isDown = true;
-                slider.classList.add("isBasicSliderDown");
-                startX = e.pageX - slider.offsetLeft;
-                startScrollLeft = slider.scrollLeft;
                 isDragging = false;
-            };
+                suppressClick = false;
 
-            const mouse_leave_atn = () => 
-            {
-                isDown = false;
-                slider.classList.remove("isBasicSliderDown");
-            };
-
-            const mouse_up_atn = () => 
-            {
-                isDown = false;
-                slider.classList.remove("isBasicSliderDown");
-            };
+                slider.classList.add("isBasicSliderDown");
+                startClientX = e.clientX;
+                startScrollLeft = slider.scrollLeft;
+            }
 
             const mouse_move_atn = (e) => 
             {
                 if (!isDown) return;
 
                 e.preventDefault();
-                const x = e.pageX - slider.offsetLeft;
-                const walk = (x - startX) * 1;
-                slider.scrollLeft = startScrollLeft - walk;
+                const dx = e.clientX - startClientX;
+                slider.scrollLeft = startScrollLeft - dx;
 
-                if (Math.abs(x - startX) > basicSliderDraggingDist) 
+                if (Math.abs(dx) > basicSliderDraggingDist) 
                 {
                     isDragging = true;
                 }
-            };
+            }
+
+            const mouse_up_atn = () => 
+            {
+                if (!isDown) return;
+
+                isDown = false;
+                slider.classList.remove("isBasicSliderDown");
+
+                // Block the click event fired by the browser on muse up
+                if (isDragging) 
+                {
+                    suppressClick = true;
+                    requestAnimationFrame(() => (suppressClick = false));
+                }
+            }
+
+            const mouse_leave_atn = () => 
+            {
+                // Treat leaving as releasing the drag
+                mouse_up_atn();
+            }
 
             const mouse_scroll_atn = () => updateArrows();
 
+
+            // ARROW HANDLERS
             const arrow_right_atn = () => 
             {
                 const slideAmt = getMultiSlide();
@@ -152,8 +173,7 @@
 
                 slider.scrollLeft += slideAmt;
                 updateArrows();
-            };
-
+            }
             const arrow_left_atn = () => 
             {
                 const slideAmt = getMultiSlide();
@@ -162,10 +182,26 @@
 
                 slider.scrollLeft -= slideAmt;
                 updateArrows();
-            };
+            }
+            // Cancel clicks while dragging
+            const click_capture = (e) => 
+            {
+                if (!suppressClick) return;
+
+                // Only cancel clicks on cards (or anything inside them)
+                if (e.target.closest(".basic_carousel_card")) 
+                {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    e.stopImmediatePropagation?.();
+                }
+            }
+
+            carousel.addEventListener("click", click_capture, true);
+            carousel._basicClickCapture = click_capture;
 
             
-            // Attach listeners & references
+            // Attach listeners and store references
             slider.addEventListener("mousedown", mouse_down_atn);
             slider.addEventListener("mouseleave", mouse_leave_atn);
             slider.addEventListener("mouseup", mouse_up_atn);
@@ -179,7 +215,7 @@
                 mouse_up_atn,
                 mouse_move_atn,
                 mouse_scroll_atn,
-            };
+            }
 
             if (rightArr) 
             {
@@ -193,15 +229,14 @@
                 leftArr.arrow_left_atn = arrow_left_atn;
             }
 
-            // CARD DETAILS (same behavior, per carousel dragging flag)
+
+            // Carousel cards
             cards.forEach((base) => 
             {
-                let showCardLink = base.querySelector(".cardLinkCover");
-                let showCards = base.querySelector(".slide_card");
-                let showCardImgs = base.querySelector(".cardImg");
-                let showCardInfoName;
-
-                if (showCards) showCardInfoName = showCards.querySelector(".cardInfo_titleText");
+                const showCardLink = base.querySelector(".cardLinkCover");
+                const showCards = base.querySelector(".slide_card");
+                const showCardImgs = base.querySelector(".cardImg");
+                const showCardInfoName = showCards?.querySelector(".cardInfo_titleText");
 
                 if (showCardLink) 
                 {
@@ -222,20 +257,10 @@
                     showCards.draggable = false;
                     showCards.style.userSelect = "none";
                 }
-
-                const card_details_atn = (e) => 
-                {
-                    if (isDragging) 
-                    {
-                        e.preventDefault();
-                        e.stopPropagation();
-                    }
-                };
-
-                base.addEventListener("click", card_details_atn);
-                base.card_details_atn = card_details_atn;
             });
 
+            
+            // RESIZE OBSERVER 
             if ("ResizeObserver" in window) 
             {
                 const ro = new ResizeObserver(() => 
@@ -251,7 +276,7 @@
         elFc();
     }
 
-    // Used for Responsivenes and adaptation for device orientation
+    // Used for responsivenes and adaptation for device orientation
     window.addEventListener("resize" , () => 
     {
         basicSlider();   

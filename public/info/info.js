@@ -2072,12 +2072,6 @@
         {
             const new_cd_atn = (e) => 
             {
-                // Return if user is dragging
-                if(isBasicSliderDragging)
-                {
-                    e.preventDefault();
-                    return;
-                }
 
                 // Get the type of sector
                 const sectType = newCard.getAttribute("data-sect-type").trim().toLowerCase() || "";

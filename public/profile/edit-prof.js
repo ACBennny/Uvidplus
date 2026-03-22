@@ -523,11 +523,6 @@
 
             card.addEventListener("click" , (e) => 
             {
-                if(isBasicSliderDragging)
-                {
-                    e.preventDefault();
-                    return;
-                }
                 editProfileFrgImg.setAttribute(`src` , `${imgSrc}`);
                 editProfOptTempFrg = imgSrc;
                 closeSelectPicModals();
@@ -645,11 +640,6 @@
 
             card.addEventListener("click" , async (e) => 
             {
-                if(isBasicSliderDragging)
-                {
-                    e.preventDefault();
-                    return;
-                }
                 editProfileBcgImg.setAttribute(`src` , `${imgSrc}`);
                 editProfOptTempBcg = imgSrc;
                 closeSelectPicModals();
