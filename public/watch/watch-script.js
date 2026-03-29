@@ -593,7 +593,7 @@
                     break;
                     
                 case '_ext_use_sel_ext_plyr_10':
-                    const _5_origs = [`vidsrc-embed.ru`, `vidsrc-embed.su`, `vidsrcme.su`, `vsrc.su`];
+                    const _5_origs = [`vsembed.ru`, `vsembed.su`, `vidsrc-embed.ru`, `vidsrc-embed.su`, `vidsrcme.su`, `vsrc.su`, `vidsrcme.vidsrc.icu`];
                     _ext_frm_org = `https://${_5_origs[ext_pos]}`;
                     _ext_frm_src = (info_pg_show_type.toLowerCase() === "tv") 
                         ? `https://${_5_origs[ext_pos]}/embed/tv?tmdb=${_ext_id}&season=${_ext_ssn}&episode=${_ext_eps}&ds_lang=${_ext_subttl_lang_iso}&autoplay=${_ext_ap}&autonext=${_ext_an}&color=${_ext_theme}` 
