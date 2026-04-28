@@ -302,8 +302,10 @@
         hash_win = window.location.hash || page_route_fallback();
 
         // Set last hash page
+        last_hash_page = hash_pages.at(-1) || page_route_fallback();
         hash_pages.push(hash_win);
-        last_hash_page = hash_pages.at(-2);
+
+        if(hash_pages.length > 3) hash_pages = hash_pages.reverse().slice(0, 3).reverse();
 
         // Split into sections
         hash_parts = hash_win.split('/');
