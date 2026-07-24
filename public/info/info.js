@@ -385,14 +385,6 @@
                 }).join("") || "N/A"
             }
         `;
-        let show_keywords = 
-        `
-            ${
-                showsStructData?.keywords?.results?.map(item => item?.name).join(", ") ||
-                showsStructData?.keywords?.keywords?.map(item => item?.name).join(", ") || 
-                "N/A"
-            }
-        `;
         
         const showHTMLCtnt =  
         `
@@ -723,7 +715,6 @@
                 <p class="abt-detText"><span class="abt-detText-major">Status</span><span class="abt-detText-minor">${show_airing_status}</span></p>
                 <p class="abt-detText"><span class="abt-detText-major">Studios</span><span class="abt-detText-minor">${show_studios}</span></p>
                 <p class="abt-detText"><span class="abt-detText-major">Genres</span><span class="abt-detText-minor abt-detText-link-set">${show_genre}</span></p>
-                <p class="abt-detText"><span class="abt-detText-major">Keywords</span><span class="abt-detText-minor">${show_keywords}</span></p>
             `;
 
             infoPageBase.querySelector(".tro").insertAdjacentHTML("beforeend", tv_ep_base);
@@ -818,7 +809,6 @@
                 <p class="abt-detText"><span class="abt-detText-major">Status</span><span class="abt-detText-minor">${show_airing_status}</span></p>
                 <p class="abt-detText"><span class="abt-detText-major">Studios</span><span class="abt-detText-minor">${show_studios}</span></p>
                 <p class="abt-detText"><span class="abt-detText-major">Genres</span><span class="abt-detText-minor abt-detText-link-set">${show_genre}</span></p>
-                <p class="abt-detText"><span class="abt-detText-major">Keywords</span><span class="abt-detText-minor">${show_keywords}</span></p>
             `;
 
             // Insert the movie card
