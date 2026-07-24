@@ -65,7 +65,7 @@
 
 // INITIALIZATION
 
-    Service Worker registration
+    // Service Worker registration
     if('serviceWorker' in navigator) 
     {
         window.addEventListener('load', () => 
