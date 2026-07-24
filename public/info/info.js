@@ -1896,7 +1896,7 @@
         }
 
         // Insert clips and trailers (YoutTube only)
-        const videoSets = showsStructData?.videos?.results || [];
+        const videoSets = showsStructData?.videos?.results?.slice(0, prsnLmt) || [];
 
         if((videoSets.length > 0))
         {
@@ -1939,7 +1939,7 @@
         }
 
         // Insert backdrops
-        const backdropSets = showsStructData?.images?.backdrops || [];
+        const backdropSets = showsStructData?.images?.backdrops?.slice(0, prsnLmt) || [];
 
         if((backdropSets.length > 0))
         {
@@ -1979,7 +1979,7 @@
         }
 
         // Insert posters
-        const posterSets = showsStructData?.images?.posters || [];
+        const posterSets = showsStructData?.images?.posters?.slice(0, prsnLmt) || [];
 
         if((posterSets.length > 0))
         {
