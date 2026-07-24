@@ -66,15 +66,15 @@
 // INITIALIZATION
 
     // Service Worker registration
-    if('serviceWorker' in navigator) 
-    {
-        window.addEventListener('load', () => 
-        {
-            navigator.serviceWorker
-            .register('/service-worker.js')
-            .catch(err => console.error('Uvidplus SW registration failed:', err));
-        });
-    }
+    // if('serviceWorker' in navigator) 
+    // {
+    //     window.addEventListener('load', () => 
+    //     {
+    //         navigator.serviceWorker
+    //         .register('/service-worker.js')
+    //         .catch(err => console.error('Uvidplus SW registration failed:', err));
+    //     });
+    // }
 
 
 
@@ -110,7 +110,7 @@
                 s(0)
             } catch (p) {}
         }
-        setInterval(dtd, 4e3);
+        // setInterval(dtd, 4e3);
         document.addEventListener("contextmenu", (e) => {e.preventDefault()}, {capture: true});
 
         const firebaseConfig = 
@@ -140,7 +140,6 @@
                 window.uvidUser = user;
                 window.uvidUserVrfd = !!(user && user.emailVerified);
                 window.hasEmPswdOrigin = user?.providerData?.some(p => p?.providerId === "password") || false;
-                handleMbspStatus();
                 startApplication();
             });
 

@@ -106,6 +106,7 @@
 
     async function startHomeSection()
     {
+        const hmCtgLength = 20;
         const homeBdr = document.querySelector(".hm_bdr");
         const homeBox = document.createElement("div");
         homeBox.className = "";
@@ -398,6 +399,8 @@
 
                 </div>
         `;
+
+
 
 
         // Generates the Home pages Hero Section
@@ -757,9 +760,9 @@
         // Generate the Featured section      
         async function genFeaturedSectForHomePage()
         {
-            const ftr_fetch = await fetchWithRetry(`https://api.themoviedb.org/3/trending/movie/week?sort_by=popularity.desc&vote_count.gte=50&api_key=${__uv_p_dev_tm_db_ap_ky}`);
-            const ftr_movie = shuffleArray(ftr_fetch?.results?.filter(fltrFetchedShows));
             const ftrBdr = homeBox.querySelectorAll(".ftr_bdr");
+            const ftr_fetch = await fetchWithRetry(`https://api.themoviedb.org/3/trending/movie/week?sort_by=popularity.desc&vote_count.gte=50&api_key=${__uv_p_dev_tm_db_ap_ky}`);
+            const ftr_movie = shuffleArray(ftr_fetch?.results?.filter(fltrFetchedShows))?.slice(0, ftrBdr.length);
 
             // Insert a random show for the featured section
             ftrBdr.forEach((bdr, i) => 
@@ -865,7 +868,7 @@
             const latest_cmb = mergeAltArrSets(
                 addMediaTypeToShowSets(latest_tv_eps, "tv"),
                 addMediaTypeToShowSets(latest_mv_fltr, "movie"),
-            )
+            )?.slice(0, hmCtgLength);
 
             // Fetch the content
             latest_cmb.forEach((item) => 
@@ -1047,7 +1050,7 @@
                         }),
                         "movie"
                     ),
-                )
+                )?.slice(0, hmCtgLength);
 
                 cmb_rslts.forEach((item) => 
                 {
@@ -1114,7 +1117,7 @@
             {
                 if(!window.__show_adult_ctnt && item.adult) return false
                 return true
-            }));
+            }))?.slice(0, hmCtgLength);
             const top_tvBdr = homeBox.querySelector(".top_tv_bdr .basic_slider_card_box");
             let top_tv_struct = ``;
 
@@ -1181,7 +1184,7 @@
             {
                 if(!window.__show_adult_ctnt && item.adult) return false
                 return true
-            }));
+            }))?.slice(0, hmCtgLength);
             const upcBdr = homeBox.querySelector(".upc_bdr .basic_slider_card_box");
             let upc_struct = ``;
 
@@ -1324,7 +1327,7 @@
             // Upcoming section
             await genUpcomingSectForHomePage();
 
-            // News Section
+            // News section
             genNewsForHomePage();
 
             // Append homepage

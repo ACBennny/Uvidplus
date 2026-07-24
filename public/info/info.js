@@ -2719,8 +2719,8 @@
         const epExtDlTr = () => 
         {
             const extBs = (epShowType === "tv")
-                ? `dl.vidsrc.vip/tv/${info_pg_show_link.split('/')[2]}/${epCardSsnNum}/${epCardEpNum}`
-                : `dl.vidsrc.vip/movie/${info_pg_show_link.split('/')[2]}`;
+                ? `vidvault.ru/tv/${info_pg_show_link.split('/')[2]}/${epCardSsnNum}/${epCardEpNum}`
+                : `vidvault.ru/movie/${info_pg_show_link.split('/')[2]}`;
             window.open(`https://${extBs}`, '_blank');
         }
 

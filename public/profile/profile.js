@@ -229,51 +229,7 @@
                         <div class="topNav_titleText">Profile</div>
                     </div>
                 </section>
-                <section class="topNav_section">
-                    <div class="sideNavItemsCardBase ">
-                        <button type="button" class="sideNavItemsCardBdr open_ntfy_btn" onclick="startNotification()">
-                            <div class="sideNavItemsCardBox">
-                                <div class="sideNavItemsCardIcon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg">
-                                        <path d="M8.352 20.242A4.63 4.63 0 0 0 12 22a4.63 4.63 0 0 0 3.648-1.758a27.2 27.2 0 0 1-7.296 0M18.75 9v.704c0 .845.24 1.671.692 2.374l1.108 1.723c1.011 1.574.239 3.713-1.52 4.21a25.8 25.8 0 0 1-14.06 0c-1.759-.497-2.531-2.636-1.52-4.21l1.108-1.723a4.4 4.4 0 0 0 .693-2.374V9c0-3.866 3.022-7 6.749-7s6.75 3.134 6.75 7" />
-                                    </svg>
-                                </div>
-                                <div class="navBarNotificationStatusNo_bdr">
-                                    <div class="navBarNotificationStatusNo_box ">
-                                        <div class="navBarNotificationStatusNo_text"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="sideNavItemsCardBase">
-                        <button type="button" class="sideNavItemsCardBdr" onclick="window.open('#/settings' , '_self')">
-                            <div class="sideNavItemsCardBox">
-                                <div class="sideNavItemsCardIcon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
-                                        <g fill-rule="evenodd" clip-rule="evenodd">
-                                            <path fill-rule="evenodd" d="M14.279 2.152C13.909 2 13.439 2 12.5 2s-1.408 0-1.779.152a2 2 0 0 0-1.09 1.083c-.094.223-.13.484-.145.863a1.62 1.62 0 0 1-.796 1.353a1.64 1.64 0 0 1-1.579.008c-.338-.178-.583-.276-.825-.308a2.03 2.03 0 0 0-1.49.396c-.318.242-.553.646-1.022 1.453c-.47.807-.704 1.21-.757 1.605c-.07.526.074 1.058.4 1.479c.148.192.357.353.68.555c.477.297.783.803.783 1.361s-.306 1.064-.782 1.36c-.324.203-.533.364-.682.556a2 2 0 0 0-.399 1.479c.053.394.287.798.757 1.605s.704 1.21 1.022 1.453c.424.323.96.465 1.49.396c.242-.032.487-.13.825-.308a1.64 1.64 0 0 1 1.58.008c.486.28.774.795.795 1.353c.015.38.051.64.145.863c.204.49.596.88 1.09 1.083c.37.152.84.152 1.779.152s1.409 0 1.779-.152a2 2 0 0 0 1.09-1.083c.094-.223.13-.483.145-.863c.02-.558.309-1.074.796-1.353a1.64 1.64 0 0 1 1.579-.008c.338.178.583.276.825.308c.53.07 1.066-.073 1.49-.396c.318-.242.553-.646 1.022-1.453c.47-.807.704-1.21.757-1.605a2 2 0 0 0-.4-1.479c-.148-.192-.357-.353-.68-.555c-.477-.297-.783-.803-.783-1.361s.306-1.064.782-1.36c.324-.203.533-.364.682-.556a2 2 0 0 0 .399-1.479c-.053-.394-.287-.798-.757-1.605s-.704-1.21-1.022-1.453a2.03 2.03 0 0 0-1.49-.396c-.242.032-.487.13-.825.308a1.64 1.64 0 0 1-1.58-.008a1.62 1.62 0 0 1-.795-1.353c-.015-.38-.051-.64-.145-.863a2 2 0 0 0-1.09-1.083M12.5 15c1.67 0 3.023-1.343 3.023-3S14.169 9 12.5 9s-3.023 1.343-3.023 3s1.354 3 3.023 3" clip-rule="evenodd" />
-                                        </g>
-                                    </svg>
-                                </div>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="sideNavItemsCardBase">
-                        <div class="sideNavItemsCardBdr openCastingOptBtn" onclick="notification('notifyBad' , 'Feature currently unavailable')">
-                            <div class="sideNavItemsCardBox">
-                                <div class="sideNavItemsCardIcon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
-                                        <path d="M6.452 3.25c-.418 0-.685 0-.918.023a4.75 4.75 0 0 0-4.261 4.261c-.023.233-.023.5-.023.918V8.5a.75.75 0 1 0 1.5 0c0-.482 0-.669.016-.819A3.25 3.25 0 0 1 5.68 4.766c.15-.015.337-.016.819-.016H14c1.907 0 3.262.002 4.29.14c1.005.135 1.585.389 2.008.812s.677 1.003.812 2.009c.138 1.028.14 2.382.14 4.289s-.002 3.262-.14 4.29c-.135 1.005-.389 1.585-.812 2.008s-1.003.677-2.009.812c-1.027.138-2.382.14-4.289.14a.75.75 0 0 0 0 1.5h.056c1.838 0 3.294 0 4.433-.153c1.172-.158 2.121-.49 2.87-1.238c.748-.749 1.08-1.698 1.238-2.87c.153-1.14.153-2.595.153-4.433v-.112c0-1.838 0-3.294-.153-4.433c-.158-1.172-.49-2.121-1.238-2.87c-.749-.748-1.698-1.08-2.87-1.238c-1.14-.153-2.595-.153-4.433-.153z" />
-                                        <path d="M2 10.25a.75.75 0 0 0 0 1.5A8.25 8.25 0 0 1 10.25 20a.75.75 0 0 0 1.5 0A9.75 9.75 0 0 0 2 10.25" />
-                                        <path d="M1.25 14a.75.75 0 0 1 .75-.75A6.75 6.75 0 0 1 8.75 20a.75.75 0 0 1-1.5 0c0-2.9-2.35-5.25-5.25-5.25a.75.75 0 0 1-.75-.75" />
-                                        <path d="M2 16.25a.75.75 0 0 0 0 1.5A2.25 2.25 0 0 1 4.25 20a.75.75 0 0 0 1.5 0A3.75 3.75 0 0 0 2 16.25" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <section class="topNav_section"></section>
             </div>
         </div>
     `;
@@ -288,8 +244,7 @@
         let prof_nav_sect = hash_parts[2];
         
         // Update Navbar active states
-        sideNavLinks[6].classList.add("active");
-        btmNavLinks[4].classList.add("active");
+        sideNavLinks[7].classList.add("active");
 
         if((prof_nav_sect === "switch") || (prof_nav_sect === "create"))
         {
@@ -373,8 +328,7 @@
         
         if((ntfyLength > 0) && (ntfyUnreadLength > 0))
         {
-            document.querySelector(".open_ntfy_btn .navBarNotificationStatusNo_text").textContent = `${ntfyLength}`;
-            document.querySelector(".open_ntfy_btn .navBarNotificationStatusNo_box").classList.add("active");
+            updNavbarNtfyStatus(ntfyLength, true);
         }
 
         // Fetch watch history, likes, and dislikes

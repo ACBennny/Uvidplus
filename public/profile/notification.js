@@ -211,11 +211,15 @@
         attachCloseNtfyModalListeners();
     }
 
-    // Removes the status after user opens the notifications
-    function updNavbarNtfyStatus()
+    // Updates the notification status
+    function updNavbarNtfyStatus(txt_ln = 0, atv = false)
     {
-        document.querySelector(".open_ntfy_btn .navBarNotificationStatusNo_text").textContent = ``;
-        document.querySelector(".open_ntfy_btn .navBarNotificationStatusNo_box").classList.remove("active");
+        try
+        {
+            document.querySelectorAll(".open_ntfy_btn .navBarNotificationStatusNo_text")?.forEach(txt => txt.textContent = `${txt_ln}`);
+            document.querySelectorAll(".open_ntfy_btn .navBarNotificationStatusNo_box")?.forEach(box => (atv == true) ? box.classList.add("active") : box.classList.remove("active"));
+        }
+        catch{}
     }
 
     // Mark all Notificatiions as read

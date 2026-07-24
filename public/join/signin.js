@@ -428,7 +428,6 @@
                     cnctEmPrvdBdr.removeEventListener("transitionend" , handleTransitionEnd);
                     cnctEmPrvdBdr.remove();
                     documentBody.removeAttribute(`data-modal-state`);
-                    joinMtdPrvdBtn.disabled = false;
                 });
             }
 

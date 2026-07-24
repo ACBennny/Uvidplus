@@ -341,14 +341,11 @@
         const curr_route = uvid_pg_routes[hash_parts[1]];
         const isUsrIn = isUserSignedIn();
         const isUsrVrfd = isUserVerified();
-        const usrData = await getUserData();
-        const isUsrStp = usrData?.is_setup;
-        const isUsrMmbr = usrData?.is_membership_active;
 
         // If no route is found
         if(!curr_route)
         {
-            if((isUsrIn) && (isUsrMmbr))
+            if((isUsrIn))
             {
                 window.location.hash = "#/home";
                 return;
@@ -374,34 +371,15 @@
             return;
         }
 
-        // If user is signed in and verified..
-        if(((curr_route.route_pbl_only) || (curr_route.route_auth)) && (isUsrIn) && (isUsrVrfd))
-        {
-            // Go to plan section if user's membership is inactive
-            if(!(isUsrMmbr) && !(isUsrStp)) return usrMbspExp();
-
-            // Go to last step if user is still in setup
-            else if(!(isUsrMmbr) && (isUsrStp))
-            {
-                const usrStpStep = usrData?.stp_steps;
-                if(usrStpStep)
-                {
-                    init_setup();
-                    switch_step(usrStpStep);
-                    return;
-                }
-            }
-        }
-
         // Defer signed-in & verified user to homepage if on public-only page (e.g landing, signup/sign in)
-        if((curr_route.route_pbl_only) && (isUsrIn) && (isUsrVrfd) && (isUsrMmbr))
+        if((curr_route.route_pbl_only) && (isUsrIn) && (isUsrVrfd))
         {
             window.location.hash = "#/home";
             return;
         }
 
         // Initialize navbars if user is a valid member
-        if((isUsrIn) && (isUsrVrfd) && (isUsrMmbr))
+        if((isUsrIn) && (isUsrVrfd))
         {
             sideNavBar.classList.add("initialize");
             btmNavBar.classList.add("initialize");

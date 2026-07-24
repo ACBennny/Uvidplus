@@ -283,18 +283,18 @@
             }
         }
     
-        const observer = new IntersectionObserver((entries) => 
-        {
-            if (entries[0].isIntersecting) 
+            const observer = new IntersectionObserver((entries) => 
             {
-                // Load the next set of items when the ctgPreLdr is in view
-                fetchItems(); 
-            }
-        }, {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        });
+                if (entries[0].isIntersecting) 
+                {
+                    // Load the next set of items when the ctgPreLdr is in view
+                    fetchItems(); 
+                }
+            }, {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            });
     
         observer.observe(ctgPreLdr);
     }

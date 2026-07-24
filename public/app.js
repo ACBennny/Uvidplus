@@ -144,106 +144,6 @@
             await db.collection("uvp_fb_users").doc(user.uid).update(updates);
         }
 
-        // Checks membership status after a period of time
-        function mbspStatusTmr()
-        {
-            let prd = 1000 * 60 * 1; // 1 minute
-            let tmr_interval;
-
-            tmr_interval = setInterval(() => 
-            {
-                handleMbspStatus();
-            }, prd);
-        }
-
-        // Check & Update membership status
-        async function handleMbspStatus()
-        {
-            // Return if user isn't signed in
-            if(!(getSignedInUser())) return;
-
-            const userData = await getUserData();
-            const isUsrMmbr = userData?.is_membership_active;
-
-            // Return if user membership is inactive
-            if((isUsrMmbr == null) || (typeof isUsrMmbr !== "boolean") || (isUsrMmbr != true)) return;
-
-
-            const isMbspAuto = userData?.curr_plan?.curr_plan_next;
-            const daysLeft = getDiffBtwDates(getCurrDate("short"), userData?.curr_plan?.curr_plan_end);
-
-            // Restart membership if cycle is complete
-            if(daysLeft < 1) await usrMbspExp();
-        }
-
-        // Uvid+ membership is expired
-        async function usrMbspExp()
-        {
-            try
-            {
-                const userData = await getUserData();
-                const start_date = getCurrDate("short");
-                const end_date = getNextDate(start_date, membership_BILL_CYCLE, "short");
-                let currBillHist = userData?.billing_hist || [];
-                const isMbspAuto = userData?.curr_plan?.curr_plan_next || "ultm";
-                const plan_obj = uvid_signup_plans[isMbspAuto];
-
-                if(!(typeof plan_obj !== "undefined") && (typeof plan_obj === "object") && (plan_obj !== null)) 
-                {
-                    console.error("Failed to update membership state");
-                    return;
-                }
-
-                // Push new billing details
-                currBillHist.push(
-                    {
-                        bill_plan_id: `${isMbspAuto}`,
-                        bill_plan_name: `${plan_obj.plan_name}`,
-                        bill_plan_price: `${plan_obj.plan_price_month}`,
-                        bill_plan_date: `${start_date}`,
-                        bill_plan_status: null,
-                    }
-                );
-
-                // Update user data
-                await updateUserData(
-                {
-                    stp_steps: "outro",
-                    is_membership_active: true,
-                    is_3_day_ntc: false,
-                    billing_hist: currBillHist,
-                    curr_plan: 
-                    {
-                        curr_plan_id: `${isMbspAuto}`,
-                        curr_plan_start: `${start_date}`,
-                        curr_plan_end: `${end_date}`,
-                        curr_plan_next: `${isMbspAuto}`,
-                    },
-                });
-
-                // Notify the user
-                await generateNotificationMsg(
-                    `Membership renewed`,
-                    `
-                        Your Uvid+ membership was automatically renewed on ${start_date}.
-                        Your next billing date is on ${end_date}.
-                    `,
-                    `View Membership`,
-                    `#/settings/membership/manage`,
-                    ``,
-                    `Failed to set 'Renewal Success' notification`
-                );
-
-                // Refresh to display changes
-                refreshPage();
-            }
-            catch(error)
-            {
-                console.error("Failed to update membership state");
-                console.error(error);
-            }
-        }
-
     
     
     // PROFILE
@@ -304,7 +204,7 @@
         async function getSelectedProfile()
         {
             const usrData = await getUserData();
-            return Object.values(usrData?.profiles).find(item => item.prof_selected) || null;
+            return (usrData) ? Object.values(usrData?.profiles)?.find(item => item?.prof_selected) : null;
         }
 
         // Gets the details of provided profile id

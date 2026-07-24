@@ -457,8 +457,6 @@
     // Selecting a region to see its schedule
     function attachSchdlFltrListeners()
     {
-        // Notify user of the purpose
-        notification(`notifyGood`, `Select a region to see its schedule.`);
 
         // Return if rgn sets are unavailable
         if((typeof uvp_regions === "undefined") || (uvp_regions.length <= 0))
@@ -487,7 +485,7 @@
         menuCtntBox.innerHTML += menuCtntStruct;
         const menuOptBtns = document.querySelectorAll(".scheduleFilterOptBtn");
 
-        // Get, select, and scroll to the chosen option
+        // Get and select the chosen option
         try 
         {
             const rgn = (window.__uvp_schdl_fltr_rgn || dflt_schdl_fltr_rgn).toString().toUpperCase();
@@ -499,15 +497,6 @@
                 if(btn.getAttribute("data-region-code").toUpperCase() === rgn)
                 {
                     btn.classList.add("selected");
-                    setTimeout(() => 
-                    {
-                        genMenuModalBox.scrollTo(
-                        {
-                            top: (Math.ceil((btn.getBoundingClientRect().top - (window.innerHeight - (genMenuModalBox.getBoundingClientRect().height * 0.80)) - 25))),
-                            behavior: "smooth"
-                        });
-                    }, 100);
-                    break;
                 }
             }
         }

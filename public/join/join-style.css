@@ -7,6 +7,12 @@
  **********************************************************************************/
 
 
+html:root
+{
+    --join_plan_sls_cardH: 6.25rem;
+}
+
+
  
 .genBtn
 {
@@ -165,7 +171,196 @@
     }
 }
 
+.join_hdr_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
 
+.join_hdr_box .join_hdr_txt_mjr
+{
+    color: var(--genWhiteTypeBright);
+    font-size: 1.625rem;
+    text-align: center;
+}
+
+.join_hdr_box .join_hdr_txt_mnr
+{
+    color: var(--genWhiteTypeMid);
+    font-size: .9375rem;
+    text-align: center;
+}
+
+
+
+
+
+
+/* =========== INTRO =========== */
+
+.join_intro_bdr
+{
+    width: 100%;
+}
+
+.join_intro_bdr .join_intro_box
+{
+    width: 100%;
+    max-width: 22.5rem;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.join_intro_hdr_box
+{
+    width: 100%;
+    margin: 1rem 0;
+}
+
+.join_intro_hdr_box .join_intro_hdr_txt
+{
+    color: var(--genWhiteTypeBright);
+    font-size: 1.625rem;
+    text-align: center;
+}
+
+.join_intro_box .join_intro_ftr_bdr
+{
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.join_intro_ftr_bdr .join_intro_ftr_box
+{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.join_intro_ftr_box .join_intro_ftr_iconBdr
+{
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.join_intro_ftr_iconBdr .join_intro_ftr_iconBox
+{
+    width: 100%;
+    height: 100%;
+}
+
+.join_intro_ftr_iconBox .join_intro_ftr_iconSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--genGreenTypeLight);
+}
+
+.join_intro_ftr_box .join_intro_ftr_descBox
+{
+    width: 100%;
+    padding: 0.5rem 0;
+}
+
+.join_intro_ftr_descBox .join_intro_ftr_descTxt
+{
+    color: var(--genWhiteTypeLight);
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+.join_intro_ptr_iconBdr
+{
+    position: absolute;
+    bottom: -10%;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+.join_intro_ptr_iconBdr.ptr_1
+{
+    left: 20%;
+}
+
+.join_intro_ptr_iconBdr.ptr_2
+{
+    right: 15%;
+}
+
+.join_intro_ptr_iconBdr .join_intro_ptr_iconBox
+{
+    width: 2rem;
+    height: 2rem;
+}
+
+.join_intro_ptr_iconBox .join_intro_ptr_iconSvg
+{
+    width: 100%;
+    height: 100%;
+    fill: var(--genWhiteTypeDark);
+}
+
+.join_intro_ptr_iconBdr.ptr_1 .join_intro_ptr_iconSvg
+{
+    transform: rotate(125deg);
+}
+
+.join_intro_ptr_iconBdr.ptr_2 .join_intro_ptr_iconSvg
+{
+    transform: rotate(-125deg) rotateY(180deg);
+}
+
+
+
+
+/* ======== OUTRO ======== */
+
+.join_outro_bdr
+{
+    width: 100%;
+}
+
+.join_outro_bdr .join_outro_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.join_outro_box .join_outro_det_box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 1.5rem 0;
+}
+
+.join_outro_det_box .join_outro_det_txt
+{
+    margin-bottom: 0.75rem;
+    color: var(--genWhiteTypeMid);
+    font-size: 0.875rem;
+}
+
+.join_outro_det_txt:last-child
+{
+    margin: 0;
+}
+
+.join_outro_det_txt_mjr
+{
+    color: var(--genGreenTypeMid);
+    transition: all 300ms ease-in-out;
+}
 
 
 
@@ -943,6 +1138,10 @@
     .genBtn:hover
     {
         box-shadow: 0 0 1.25rem var(--color1);
+    }
+    .join_outro_det_txt_mjr:hover
+    {
+        color: var(--genGreenTypeLight);
     }
 }
 

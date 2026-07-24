@@ -306,32 +306,6 @@
                                     </div>
                                 </a>
                             </div>
-                            <!-- <div class="sideNavItemsCardBase">
-                                <a href="#/news" class="sideNavItemsCardBdr sideNavLinks">
-                                    <div class="sideNavItemsCardBox">
-                                        <div class="sideNavItemsCardIcon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
-                                                <path fill-rule="evenodd" d="M10.945 1.25h2.11c1.367 0 2.47 0 3.337.117c.9.12 1.658.38 2.26.981c.298.299.512.636.667 1.01c.932.116 1.715.372 2.333.99c.602.602.86 1.36.982 2.26c.116.867.116 1.97.116 3.337v4.11c0 1.367 0 2.47-.116 3.337c-.122.9-.38 1.658-.982 2.26c-.618.618-1.4.874-2.333.991c-.155.373-.369.71-.667 1.009c-.602.602-1.36.86-2.26.982c-.867.116-1.97.116-3.337.116h-2.11c-1.367 0-2.47 0-3.337-.116c-.9-.122-1.658-.38-2.26-.982a3.1 3.1 0 0 1-.667-1.009c-.932-.117-1.715-.373-2.333-.991c-.602-.602-.86-1.36-.981-2.26c-.117-.867-.117-1.97-.117-3.337v-4.11c0-1.367 0-2.47.117-3.337c.12-.9.38-1.658.981-2.26c.618-.618 1.4-.874 2.333-.99a3.1 3.1 0 0 1 .667-1.01c.602-.602 1.36-.86 2.26-.981c.867-.117 1.97-.117 3.337-.117M4.328 4.94c-.437.106-.71.26-.919.47c-.277.276-.457.664-.556 1.398c-.101.756-.103 1.757-.103 3.192v4c0 1.435.002 2.437.103 3.192c.099.734.28 1.122.556 1.399c.209.209.482.363.92.469c-.079-.812-.079-1.806-.079-3.005v-8.11c0-1.198 0-2.193.078-3.005m15.344 14.12c.437-.106.71-.26.919-.469c.277-.277.457-.665.556-1.4c.101-.754.103-1.755.103-3.19v-4c0-1.436-.002-2.437-.103-3.193c-.099-.734-.28-1.122-.556-1.399c-.209-.209-.482-.363-.92-.469c.079.812.079 1.807.079 3.005v8.11c0 1.198 0 2.193-.078 3.005M7.808 2.853c-.734.099-1.122.28-1.399.556c-.277.277-.457.665-.556 1.4C5.752 5.562 5.75 6.564 5.75 8v8c0 1.435.002 2.436.103 3.192c.099.734.28 1.122.556 1.399c.277.277.665.457 1.4.556c.754.101 1.756.103 3.191.103h2c1.435 0 2.437-.002 3.192-.103c.734-.099 1.122-.28 1.399-.556c.277-.277.457-.665.556-1.4c.101-.755.103-1.756.103-3.191V8c0-1.435-.002-2.437-.103-3.192c-.099-.734-.28-1.122-.556-1.399c-.277-.277-.665-.457-1.4-.556c-.754-.101-1.756-.103-3.191-.103h-2c-1.435 0-2.437.002-3.192.103M8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9m0 4a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75m0 4a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/>
-                                            </svg>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavBoldIcon">
-                                                <path d="M1.75 10v4c0 2.829 0 4.243.879 5.122c.217.217.467.38.763.504l-.019-.134c-.123-.918-.123-2.063-.123-3.393V7.902c0-1.33 0-2.476.123-3.393l.02-.134a2.3 2.3 0 0 0-.764.504C1.75 5.758 1.75 7.172 1.75 10m20 0v4c0 2.829 0 4.243-.879 5.122c-.217.217-.467.38-.763.504l.019-.134c.123-.918.123-2.063.123-3.393V7.902c0-1.33 0-2.476-.123-3.393l-.02-.134c.297.123.547.287.764.504c.879.879.879 2.293.879 5.121" />
-                                                <path fill-rule="evenodd" d="M5.629 2.879C4.75 3.757 4.75 5.172 4.75 8v8c0 2.828 0 4.243.879 5.121C6.507 22 7.922 22 10.75 22h2c2.828 0 4.243 0 5.121-.879c.879-.878.879-2.293.879-5.121V8c0-2.828 0-4.243-.879-5.121C16.993 2 15.578 2 12.75 2h-2c-2.828 0-4.243 0-5.121.879M8 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5h-3A.75.75 0 0 1 8 17m.75-4.75a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8 9a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5h-6A.75.75 0 0 1 8 9" clip-rule="evenodd" />
-                                            </svg>
-                                        </div>
-                                        <div class="sideNavItemsCardTitleBdr">
-                                            <div class="sideNavItemsCardTitleBox">
-                                                <div class="sideNavItemsCardTitleText">News</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div> -->
-                        </div>
-                    </div>
-                </section>
-                <section class="sideNav_section">
-                    <div class="sideNavItemsBdr">
-                        <div class="sideNavItemsBox">
                             <div class="sideNavItemsCardBase">
                                 <a href="#/settings" class="sideNavItemsCardBdr sideNavLinks">
                                     <div class="sideNavItemsCardBox">
@@ -347,6 +321,31 @@
                                         <div class="sideNavItemsCardTitleBdr">
                                             <div class="sideNavItemsCardTitleBox">
                                                 <div class="sideNavItemsCardTitleText">Settings</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="sideNav_section">
+                    <div class="sideNavItemsBdr">
+                        <div class="sideNavItemsBox">
+                            <div class="sideNavItemsCardBase">
+                                <a class="sideNavItemsCardBdr sideNavLinks open_ntfy_btn" onclick="startNotification()">
+                                    <div class="sideNavItemsCardBox">
+                                        <div class="sideNavItemsCardIcon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavOutlineIcon">
+                                                <path fill-rule="evenodd" d="M12 1.25A7.75 7.75 0 0 0 4.25 9v.704a3.53 3.53 0 0 1-.593 1.958L2.51 13.385c-1.334 2-.316 4.718 2.003 5.35q1.133.309 2.284.523l.002.005C7.567 21.315 9.622 22.75 12 22.75s4.433-1.435 5.202-3.487l.002-.005a29 29 0 0 0 2.284-.523c2.319-.632 3.337-3.35 2.003-5.35l-1.148-1.723a3.53 3.53 0 0 1-.593-1.958V9A7.75 7.75 0 0 0 12 1.25m3.376 18.287a28.5 28.5 0 0 1-6.753 0c.711 1.021 1.948 1.713 3.377 1.713s2.665-.692 3.376-1.713M5.75 9a6.25 6.25 0 1 1 12.5 0v.704c0 .993.294 1.964.845 2.79l1.148 1.723a2.02 2.02 0 0 1-1.15 3.071a26.96 26.96 0 0 1-14.187 0a2.02 2.02 0 0 1-1.15-3.07l1.15-1.724a5.03 5.03 0 0 0 .844-2.79z" clip-rule="evenodd" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sideNavItemsCardSvg sideNavBoldIcon">
+                                                <path d="M8.352 20.242A4.63 4.63 0 0 0 12 22a4.63 4.63 0 0 0 3.648-1.758a27.2 27.2 0 0 1-7.296 0M18.75 9v.704c0 .845.24 1.671.692 2.374l1.108 1.723c1.011 1.574.239 3.713-1.52 4.21a25.8 25.8 0 0 1-14.06 0c-1.759-.497-2.531-2.636-1.52-4.21l1.108-1.723a4.4 4.4 0 0 0 .693-2.374V9c0-3.866 3.022-7 6.749-7s6.75 3.134 6.75 7" />
+                                            </svg>
+                                        </div>
+                                        <div class="sideNavItemsCardTitleBdr">
+                                            <div class="sideNavItemsCardTitleBox">
+                                                <div class="sideNavItemsCardTitleText">Notifications</div>
                                             </div>
                                         </div>
                                     </div>
@@ -469,24 +468,24 @@
                     </a>
                 </div>
                 <div class="btmNavItemsCardBase">
-                    <a href="#/profile" class="btmNavItemsCardBdr btmNavLinks ">
+                    <button type="button" class="btmNavItemsCardBdr btmNavLinks openGenMenuModalBtn" data-gen-menu-modal-type="btm_nav_more">
                         <div class="btmNavItemsCardBox">
                             <div class="btmNavItemsCardIcon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="btmNavItemsCardSvg btmNavOutlineIcon">
-                                    <path fill-rule="evenodd" d="M12 1.25a4.75 4.75 0 1 0 0 9.5a4.75 4.75 0 0 0 0-9.5M8.75 6a3.25 3.25 0 1 1 6.5 0a3.25 3.25 0 0 1-6.5 0M12 12.25c-2.04 0-3.922.47-5.322 1.27C5.3 14.308 4.25 15.51 4.25 17s1.05 2.692 2.428 3.48c1.4.8 3.283 1.27 5.322 1.27s3.922-.47 5.322-1.27c1.378-.788 2.428-1.99 2.428-3.48s-1.05-2.692-2.428-3.48c-1.4-.8-3.283-1.27-5.322-1.27M5.75 17c0-.72.517-1.517 1.672-2.177c1.134-.648 2.751-1.073 4.578-1.073s3.444.425 4.578 1.073c1.155.66 1.672 1.458 1.672 2.177s-.517 1.517-1.672 2.177c-1.134.648-2.751 1.073-4.578 1.073s-3.444-.425-4.578-1.073C6.267 18.517 5.75 17.72 5.75 17" clip-rule="evenodd" />
+                                    <path d="M9 12a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2a1 1 0 0 0 0 2" />
+                                    <path fill-rule="evenodd" d="M12 1.25C6.063 1.25 1.25 6.063 1.25 12S6.063 22.75 12 22.75S22.75 17.937 22.75 12S17.937 1.25 12 1.25M2.75 12a9.25 9.25 0 1 1 18.5 0a9.25 9.25 0 0 1-18.5 0" clip-rule="evenodd" />
                                 </svg>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="btmNavItemsCardSvg btmNavBoldIcon">
-                                    <circle cx="12" cy="6" r="4" />
-                                    <ellipse cx="12" cy="17" rx="7" ry="4" />
+                                    <path fill-rule="evenodd" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10M8 13a1 1 0 1 0 0-2a1 1 0 0 0 0 2m4 0a1 1 0 1 0 0-2a1 1 0 0 0 0 2m4 0a1 1 0 1 0 0-2a1 1 0 0 0 0 2" clip-rule="evenodd" />
                                 </svg>
                             </div>
                             <div class="btmNavItemsCardTitleBdr">
                                 <div class="btmNavItemsCardTitleBox">
-                                    <div class="btmNavItemsCardTitleText">Profile</div>
+                                    <div class="btmNavItemsCardTitleText">More</div>
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -955,7 +954,6 @@
             document.addEventListener("keydown" , quickSearchShortcut);
 
             // Components & Functionalities
-            mbspStatusTmr();
             page_router();
             attachReturnToHomePageListeners();
             attachReturnToTopOfPageListeners();
@@ -2162,12 +2160,6 @@
             try
             {
                 if(!isUserSignedIn()) return;
-
-                const userData = await getUserData();
-                const isUsrMmbr = userData?.is_membership_active;
-
-                // Return if user membership is inactive
-                if((isUsrMmbr == null) || (typeof isUsrMmbr !== "boolean") || (isUsrMmbr != true)) return;
                 
                 const selectedProfile = await getSelectedProfile();
                 const tgl_adult_ctnt = selectedProfile?.prof_show_adult_ctnt || false;

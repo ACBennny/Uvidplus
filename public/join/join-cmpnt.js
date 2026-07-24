@@ -247,8 +247,8 @@
                 <div class="join_box">
                     <div class="join_outro_bdr">
                         <div class="join_outro_box">
-                            <div class="join_plan_hdr_box">
-                                <div class="join_plan_hdr_txt_mjr">Before You Dive In</div>
+                            <div class="join_hdr_box">
+                                <div class="join_hdr_txt_mjr">Before You Dive In</div>
                             </div>
                             <div class="join_outro_det_box">
                                 <p class="join_outro_det_txt">
@@ -279,9 +279,9 @@
                 <div class="join_box">
                     <div class="join_outro_bdr">
                         <div class="join_outro_box">
-                            <div class="join_plan_hdr_box">
-                                <div class="join_plan_hdr_txt_mjr">What Do You Prefer?</div>
-                                <p class="join_plan_hdr_txt_mnr">Choose how you'd like to sign up</p>
+                            <div class="join_hdr_box">
+                                <div class="join_hdr_txt_mjr">What Do You Prefer?</div>
+                                <p class="join_hdr_txt_mnr">Choose how you'd like to sign up</p>
                             </div>
                             <div class="join_outro_det_box">
                                 <p class="join_outro_det_txt">
@@ -322,8 +322,8 @@
                 <div class="join_box">
                     <div class="join_outro_bdr">
                         <div class="join_outro_box">
-                            <div class="join_plan_hdr_box">
-                                <div class="join_plan_hdr_txt_mjr">Email Verification</div>
+                            <div class="join_hdr_box">
+                                <div class="join_hdr_txt_mjr">Email Verification</div>
                             </div>
                             <div class="join_outro_det_box">
                             <div class="join_outro_det_box">
@@ -440,9 +440,9 @@
         </div>
     `;
 
-    const signup_1 = 
+    const signup_form = 
     `
-        <div class="join_house signup_1">
+        <div class="join_house signup">
             <div class="join_bdr">
                 <div class="join_box">
 
@@ -637,373 +637,6 @@
         </div>
     `;
 
-    const signup_2 = 
-    `
-        <div class="join_house signup_2">
-            <div class="join_bdr">
-                <div class="join_box">
-                    <div class="join_plan_bdr">
-                        <div class="join_plan_box">
-                            <div class="join_plan_hdr_box">
-                                <div class="join_plan_hdr_txt_mjr">Choose Your Plan</div>
-                                <p class="join_plan_hdr_txt_mnr">No additional advantages. All Free</p>
-                            </div>
-                            <div class="join_plan_sls_bdr">
-                                <div class="join_plan_sls_box"></div>
-                            </div>
-                            <div class="join_plan_ftr_bdr">
-                                <ul class="join_plan_ftr_box join_plan_ftr_ul"></ul>
-                            </div>
-                            <div class="join_plan_ntc_bdr">
-                                <div class="join_plan_ntc_box">
-                                    <div class="join_plan_ntc_cardBox">
-                                        <p class="join_plan_ntc_card_txt">
-                                            Content availability may vary by country or regions.
-                                            Not all content are available for download. Download limits may apply.
-                                        </p>
-                                    </div>
-                                    <div class="join_plan_ntc_cardBox">
-                                        <p class="join_plan_ntc_card_txt">
-                                            Video and audio quality are subject to your internet service and device capabilities. 
-                                            Not all content are available in all resolutions.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="join_submit_box space_h">
-                                <input type="button" id="join_plan_submitBtn" class=" genBtn join_submit_btn" value="Continue" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-
-    const uvid_signup_plans = 
-    {
-        "estl": 
-        {
-            plan_name: `Essential`, 
-            plan_id: `Estl`, 
-            plan_price_month: `$0.00`,
-            plan_price_sel: ``, 
-            plan_benefits: 
-            {
-                mnth_price: 
-                {
-                    bnft_name: `Monthly Price`,
-                    bnft_desc: `$0.00`,
-                },
-                qlty: 
-                {
-                    bnft_name: `Video and sound quality`,
-                    bnft_desc: `Good`,
-                },
-                rsltn: 
-                {
-                    bnft_name: `Resolution`,
-                    bnft_desc: `HD(720p)`,
-                },
-                curr_strm: 
-                {
-                    bnft_name: `Concurrent Streams`,
-                    bnft_desc: `1`,
-                },
-                dwld_dev: 
-                {
-                    bnft_name: `Download Devices`,
-                    bnft_desc: `1`,
-                },
-                ad: 
-                {
-                    bnft_name: `Ads`,
-                    bnft_desc: `Just a few ads`,
-                },
-            }, 
-        },
-        "stnd": 
-        {
-            plan_name: `Standard`, 
-            plan_id: `stnd`, 
-            plan_price_month: `$0.00`,
-            plan_price_sel: ``, 
-            plan_benefits: 
-            {
-                mnth_price: 
-                {
-                    bnft_name: `Monthly Price`,
-                    bnft_desc: `$0.00`,
-                },
-                qlty: 
-                {
-                    bnft_name: `Video and sound quality`,
-                    bnft_desc: `Better`,
-                },
-                rsltn: 
-                {
-                    bnft_name: `Resolution`,
-                    bnft_desc: `Full HD(1080p)`,
-                },
-                curr_strm: 
-                {
-                    bnft_name: `Concurrent Streams`,
-                    bnft_desc: `3`,
-                },
-                dwld_dev: 
-                {
-                    bnft_name: `Download Devices`,
-                    bnft_desc: `3`,
-                },
-                ad: 
-                {
-                    bnft_name: `Ads`,
-                    bnft_desc: `No ads`,
-                },
-            }, 
-        },
-        "ultm": 
-        {
-            plan_name: `Ultimate`, 
-            plan_id: `ultm`, 
-            plan_price_month: `$0.00`,
-            plan_price_sel: ``, 
-            plan_benefits: 
-            {
-                mnth_price: 
-                {
-                    bnft_name: `Monthly Price`,
-                    bnft_desc: `$0.00`,
-                },
-                qlty: 
-                {
-                    bnft_name: `Video and sound quality`,
-                    bnft_desc: `Best + Spatial Audio`,
-                },
-                rsltn: 
-                {
-                    bnft_name: `Resolution`,
-                    bnft_desc: `Ultra HD(4K) + HDR`,
-                },
-                curr_strm: 
-                {
-                    bnft_name: `Concurrent Streams`,
-                    bnft_desc: `5`,
-                },
-                dwld_dev: 
-                {
-                    bnft_name: `Download Devices`,
-                    bnft_desc: `5`,
-                },
-                ad: 
-                {
-                    bnft_name: `Ads`,
-                    bnft_desc: `No ads`,
-                },
-            }, 
-        },
-    };
-
-    const signup_3_1 = 
-    `
-        <div class="join_house signup_3_2">
-            <div class="join_bdr">
-                <div class="join_box">
-
-                    <!-- Payment Form -->
-                    <div class="join_formBox active">
-                        <form action="#" name="pymt_form" id="pymt_form_id" class="join_form">
-                            <div class="form_ctnt">
-
-                                <!-- title -->
-                                <div class="join_plan_hdr_box">
-                                    <div class="join_plan_hdr_txt_mjr">Confirm Your Subscription</div>
-                                    <p class="join_plan_hdr_txt_mnr">No commitments. Cancel anytime.</p>
-                                </div>
-
-                                <!-- Form Fields -->
-                                <div class="form_inputArea">
-
-                                    <!-- Pymt plans -->
-                                    <div class="form_input_bdr">
-                                        <div class="form_pymt_mtd_bdr">
-                                            <div class="form_pymt_mtd_hdr_bdr">
-                                                <div class="form_pymt_mtd_hdr_box">
-                                                    <div class="form_pymt_mtd_hdr_ttl_box">
-                                                        <div class="form_pymt_mtd_hdr_ttl_txt">Select payment method</div>
-                                                    </div>
-                                                    <div class="form_pymt_mtd_hdr_atn_box">
-                                                        <button type="button" class="genBtnBox midSolidBtn form_pymt_mtd_hdr_atn_btn">
-                                                            <div class="genBtnIcon">
-                                                                <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="genBtnSvg">
-                                                                    <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
-                                                                </svg>
-                                                            </div>
-                                                            <span class="genBtnText">Add</span>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form_pymt_mtd_box"></div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Chosen Plan -->
-                                    <div class="form_input_bdr">
-                                        <div class="form_plan_bdr"></div>
-                                    </div>
-
-                                    <!--- Important Notices --->
-                                    <div class="join_plan_ntc_bdr">
-                                        <div class="join_plan_ntc_box">
-                                            <div class="join_plan_ntc_cardBox">
-                                                <p class="join_plan_ntc_card_txt">
-                                                    Prices displayed do not include taxes, processing fees, or other addtional bank fees (if applicable).
-                                                </p>
-                                            </div>
-                                            <div class="join_plan_ntc_cardBox">
-                                                <p class="join_plan_ntc_card_txt">
-                                                    By pressing "Start Membership" you acknowledge you have read, understood, and agree to both the
-                                                    <span onclick="window.open('#/tou')"><strong>Terms of Use</strong></span> and 
-                                                    <span onclick="window.open('#/privacy')"><strong>Privacy Policy</strong></span>.
-                                                    Uvid+ will automatically continue your membership and charge the selected membership fee to  
-                                                    your payment method until you cancel. You can cancel at any time to avoid future charges.
-                                                    Visit our <span onclick="window.open('#/help')"><strong>Help Center</strong></span> if you have any questions.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form_input_bdr tandc"></div>
-
-                                    <!-- Sign Up button -->
-                                    <div class="form_input_bdr">
-                                        <div class="join_submit_box">
-                                            <input type="button" class="genBtn join_submit_btn" id="form_pymt_sbmtBtn" value="Start Membership">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-
-    const signup_3_2 = 
-    `
-        <div class="join_house signup_3_2">
-            <div class="join_bdr">
-                <div class="join_box">
-
-                    <!-- Payment Form -->
-                    <div class="join_formBox active">
-                        <form action="#" name="pymt_form" id="pymt_form_id" class="join_form">
-                            <div class="form_ctnt">
-
-                                <!-- title -->
-                                <div class="join_plan_hdr_box">
-                                    <div class="join_plan_hdr_txt_mjr">Confirm Your Subscription</div>
-                                    <p class="join_plan_hdr_txt_mnr">Skip if not done automatically</p>
-                                </div>
-
-                                <!-- Form Fields -->
-                                <div class="form_inputArea">
-
-                                    <!-- Card Number -->
-                                    <div class="form_input_bdr">
-                                        <label for="form_pymt_cardNum" class="form_input_nameBox">
-                                            <div class="form_input_name">Card Number</div>
-                                        </label>
-                                        <div class="form_input_box">
-                                            <input type="text" id="form_pymt_cardNum" class="form_input_field" placeholder="1234 5678 9123 4567" maxlength="19" inputmode="numeric" pattern="\d*" required>
-                                        </div>
-
-                                        <!-- warning/error -->
-                                        <div class="form_input_warn" id="form_pymt_cardNumWarn"></div>
-                                    </div>
-
-                                    <!-- Expiry date -->
-                                    <div class="form_input_bdr">
-                                        <label for="form_pymt_cardExp" class="form_input_nameBox">
-                                            <div class="form_input_name">Expiry date</div>
-                                        </label>
-                                        <div class="form_input_box">
-                                            <input type="text" id="form_pymt_cardExp" class="form_input_field" placeholder="MM/YY" maxlength="5" inputmode="numeric" pattern="\d*" required>
-                                        </div>
-
-                                        <!-- warning/error -->
-                                        <div class="form_input_warn" id="form_pymt_cardExpWarn"></div>
-                                    </div>
-
-                                    <!-- Security Code -->
-                                    <div class="form_input_bdr">
-                                        <label for="form_pymt_cardSec" class="form_input_nameBox">
-                                            <div class="form_input_name">CVV/CVC</div>
-                                        </label>
-                                        <div class="form_input_box form_PassBox">
-                                            <input type="password" id="form_pymt_cardSec" class="form_input_field form_Pass" placeholder="••••" maxlength="4" inputmode="numeric" pattern="\d*" required>
-                                        </div>
-
-                                        <!-- warning/error -->
-                                        <div class="form_input_warn" id="form_pymt_cardSecWarn"></div>
-                                    </div>
-
-                                    <!-- Card Name -->
-                                    <div class="form_input_bdr">
-                                        <label for="form_pymt_cardName" class="form_input_nameBox">
-                                            <div class="form_input_name">Card Name</div>
-                                        </label>
-                                        <div class="form_input_box">
-                                            <input type="text" id="form_pymt_cardName" class="form_input_field" placeholder="Enter full name on Card" maxlength="250" required>
-                                        </div>
-
-                                        <!-- warning/error -->
-                                        <div class="form_input_warn" id="form_pymt_cardNameWarn"></div>
-                                    </div>
-
-                                    <!-- Chosen Plan -->
-                                    <div class="form_input_bdr">
-                                        <div class="form_plan_bdr"></div>
-                                    </div>
-
-                                    <!--- Important Notices --->
-                                    <div class="join_plan_ntc_bdr">
-                                        <div class="join_plan_ntc_box">
-                                            <div class="join_plan_ntc_cardBox">
-                                                <p class="join_plan_ntc_card_txt">
-                                                    Prices displayed do not include taxes, processing fees, or other addtional bank fees (if applicable).
-                                                </p>
-                                            </div>
-                                            <div class="join_plan_ntc_cardBox">
-                                                <p class="join_plan_ntc_card_txt">
-                                                    By pressing "Start Membership" you acknowledge you have read, understood, and agree to both the
-                                                    <span onclick="window.open('#/tou')"><strong>Terms of Use</strong></span> and 
-                                                    <span onclick="window.open('#/privacy')"><strong>Privacy Policy</strong></span>.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form_input_bdr tandc"></div>
-
-                                    <!-- Sign Up button -->
-                                    <div class="form_input_bdr">
-                                        <div class="join_submit_box">
-                                            <input type="button" class="genBtn join_submit_btn" id="form_pymt_sbmtBtn" value="Start Membership">
-                                        </div>
-                                        <div class="join_submit_box">
-                                            <input type="button" class="genBtn genBtnBox join_submit_btn hollowBtn" id="form_pymt_skipBtn" value="Skip Step & Start Membership">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-
     const signup_outro = 
     `
         <div class="join_fence" style="z-index: 125;">
@@ -1013,8 +646,8 @@
                         <div class="join_box">
                             <div class="join_outro_bdr">
                                 <div class="join_outro_box">
-                                    <div class="join_plan_hdr_box">
-                                        <div class="join_plan_hdr_txt_mjr">Welcome to Uvid+!</div>
+                                    <div class="join_hdr_box">
+                                        <div class="join_hdr_txt_mjr">Welcome to Uvid+!</div>
                                     </div>
                                     <div class="join_outro_det_box">
                                         <p class="join_outro_det_txt">
