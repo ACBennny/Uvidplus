@@ -2539,9 +2539,11 @@
     {
         let struct = ``;
         document.querySelector(".show-sub").classList.replace("showsub-atv" , "showsub-inatv");
+        const bcg = showsStructData?.images?.backdrops;
 
         for(let i = start; i <= end; i++)
         {
+            const rand_bcg = (bcg) ? showsStructData?.images?.backdrops[(Math.floor(Math.random() * (bcg?.length - 1)) + 1)]?.file_path : showsStructData?.backdrop_path;
             struct += 
             `
                 <div class="ep_cardBdr" data-ssn="${ssn}" data-ep="${i}" title="Watch episode ${i}">
@@ -2555,8 +2557,8 @@
                                         onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
                                         src="
                                         ${
-                                            (showsStructData?.backdrop_path)
-                                            ? `https://image.tmdb.org/t/p/original/${showsStructData?.backdrop_path}`
+                                            (rand_bcg)
+                                            ? `https://image.tmdb.org/t/p/original/${rand_bcg}`
                                             : info_pg_dflt_bcg
                                         }" 
                                         alt="Thumbnail image of Episode ${i}" class="ep_cardThumbImg"
