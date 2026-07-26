@@ -2558,7 +2558,7 @@
                                         src="
                                         ${
                                             (rand_bcg)
-                                            ? `https://image.tmdb.org/t/p/w500/${rand_bcg}`
+                                            ? `https://image.tmdb.org/t/p/w300/${rand_bcg}`
                                             : info_pg_dflt_bcg
                                         }" 
                                         alt="Thumbnail image of Episode ${i}" class="ep_cardThumbImg"
