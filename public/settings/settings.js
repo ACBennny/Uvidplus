@@ -2080,7 +2080,7 @@
                             </div>
                             <div class="genAtnModalOptBox">
                                 <div class="mngNtfyTtlBox">
-                                    <p class="mngNtfyTtlText">Promotions & membership Offers</p>
+                                    <p class="mngNtfyTtlText">Promotions</p>
                                 </div>
                                 <div class="mngNtfyAtnBtn">
                                     <div class="genCheckBoxBase">
