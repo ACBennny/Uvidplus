@@ -1222,22 +1222,6 @@
 
 
 
-    // GENERAL ERROR MESSAGE FOR:
-
-        // Failed Requests
-        function failedRequest()
-        {
-            notification(`notifyBad` , `Error processing request`);
-        }
-
-        // Failed Script loading
-        function failedScriptLoad()
-        {
-            notification(`notifyBad` , `An error occured during loading`);
-        }
-
-
-
     // GENERAL ARRAY METHODS
 
         // Shuffles an array
@@ -2028,31 +2012,39 @@
         {
             let attempt = 0;
 
-            while(attempt <= retries)
+            try
             {
-                const response = await fetch(url, options);
-
-                if(response.status === 429)
+                while(attempt <= retries)
                 {
-                    if(attempt < retries)
-                    {
-                        console.warn(`Rate limited. Retrying in ${delayMs}ms...`);
-                        await new Promise(res => setTimeout(res, delayMs));
-                        attempt++;
-                        continue;
-                    }
-                    else
-                    {
-                        throw new Error("Too many requests - try again later.");
-                    }
-                }
+                    const response = await fetch(url, options);
 
-                if(!response.ok)
-                {
-                    throw new Error(`HTTP error ${response.status}`);
-                }
+                    if(response.status === 429)
+                    {
+                        if(attempt < retries)
+                        {
+                            console.warn(`Rate limited. Retrying in ${delayMs}ms...`);
+                            await new Promise(res => setTimeout(res, delayMs));
+                            attempt++;
+                            continue;
+                        }
+                        else
+                        {
+                            throw new Error("Too many requests - try again later.");
+                        }
+                    }
 
-                return await response.json();
+                    if(!response.ok)
+                    {
+                        throw new Error(`HTTP error ${response.status}`);
+                    }
+
+                    return await response.json();
+                }
+            }
+            catch(f_err)
+            {
+                console.log(f_err)
+                page_route_error("error");
             }
         }
 
