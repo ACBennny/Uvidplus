@@ -13,12 +13,6 @@
         `
             <div class="categoryBase">
                 <div class="categoryBdr">
-                    <div class="categorySiteNameBdr">
-                        <div class="categorySiteNameBox">
-                            <div class="categorySiteNameTop"></div>
-                            <p class="categorySiteNameBtm"></p>
-                        </div>
-                    </div>
                     <div class="categoryBox showCatalog"></div>
                     <div class="preload_2_bdr" id="basicCatalogPreLdr">
                         <div class="preload_2_box">
@@ -35,8 +29,8 @@
 
         documentCtnt.insertAdjacentHTML(`afterbegin` , categoryStruct);
 
-        const ttlTop = document.querySelector(".categorySiteNameTop");
-        const ttlBtm = document.querySelector(".categorySiteNameBtm");
+        let ttlTop = ``;
+        let ttlBtm = ``;
 
         if(!(hash_parts[1] === "category")) 
         {
@@ -57,12 +51,8 @@
             const ctg_both = ctg_match?.both || null;
             const ctg_type = ctg_match?.type || "";
 
-            ttlTop.textContent = (ctg_name !== "")
-                ? `${ctg_name}`
-                : "Explore";
-            ttlBtm.textContent = (ctg_tagln !== "")
-                ? `${ctg_tagln}`
-                : "Let's explore";
+            ttlTop = (ctg_name !== "") ? `${ctg_name}` : "Explore";
+            ttlBtm = (ctg_tagln !== "") ? `${ctg_tagln}` : "Let's explore";
 
             // Fetch & display shows in the category 
             category_sect_display(
@@ -83,12 +73,8 @@
             const genre_name = genre_match?.name || "";
             const genre_tagln = genre_match?.tagline || "";
 
-            ttlTop.textContent = (genre_name !== "")
-                ? `${genre_name}`
-                : "Explore genres";
-            ttlBtm.textContent = (genre_tagln !== "")
-                ? `${genre_tagln}`
-                : "Let's explore";
+            ttlTop = (genre_name !== "") ? `${genre_name}` : "Explore genres";
+            ttlBtm = (genre_tagln !== "") ? `${genre_tagln}` : "Let's explore";
 
             // Fetch & display shows in the category 
             category_sect_display(
@@ -99,6 +85,33 @@
                 "path_2": `?with_genres=${genre_match?.id}&sort_by=popularity.desc&vote_count.gte=50&include_adult=false`,
             });
         }
+
+
+        // Update titlebar
+        topNavBar.innerHTML = 
+        `
+            <div class="topNavBdr">
+                <div class="topNavBox">
+                    <section class="topNav_section">
+                        <button type="button" class="genBtnBox genIconBtn transBtn" onclick="window.location.hash='#/explore'">
+                            <div class="genBtnIcon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
+                                    <path fill-rule="evenodd" d="M10.53 5.47a.75.75 0 0 1 0 1.06l-4.72 4.72H20a.75.75 0 0 1 0 1.5H5.81l4.72 4.72a.75.75 0 1 1-1.06 1.06l-6-6a.75.75 0 0 1 0-1.06l6-6a.75.75 0 0 1 1.06 0" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </button>
+                        <div class="categorySiteNameBdr">
+                            <div class="categorySiteNameBox">
+                                <div class="categorySiteNameTop">${ttlTop}</div>
+                                <p class="categorySiteNameBtm">${ttlBtm}</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="topNav_section"></section>
+                </div>
+            </div>
+        `;
+        topNavBar.classList.add("initialize");
     }
 
 

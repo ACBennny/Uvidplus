@@ -20,6 +20,7 @@ html:root
 .categoryBase
 {
     width: 100%;
+    padding-top: var(--navBarHeight);
 }
 
 .categoryBase .categoryBdr
@@ -32,10 +33,15 @@ html:root
     padding: 1.25rem var(--genBorderSpacing);
 }
 
-.categoryBdr .categorySiteNameBdr
+.categorySiteNameBdr
 {
-    width: 100%;
-    margin-bottom: calc(var(--categoryCardBdrPseudoInset) * -1.5);
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+html:has(.categorySiteNameBdr) .topNavBar
+{
+    background-color: #000000;
 }
 
 .categorySiteNameBdr .categorySiteNameBox
@@ -49,6 +55,24 @@ html:root
 {
     color: var(--genWhiteTypeLight);
     font-size: 1.25rem;
+}
+
+.categorySiteNameTop,
+.categorySiteNameBtm
+{
+    --categoryDetAboutTextNo: 1;
+    --categoryDetAboutTextH: 1.4;
+    position: relative;
+    -webkit-line-clamp: var(--categoryDetAboutTextNo);
+    -webkit-box-orient: vertical;
+    line-clamp:  var(--categoryDetAboutTextNo);
+    display: -webkit-box;
+    max-height: calc(var(--categoryDetAboutTextNo) * 1em * var(--categoryDetAboutTextH));
+    line-height: var(--categoryDetAboutTextH);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    overflow: hidden;
 }
 
 .categorySiteNameBox .categorySiteNameBtm
@@ -324,11 +348,6 @@ html:root
     .categoryBase .categoryBdr
     {
         padding: 1.25rem 0.9375rem;
-    }
-
-    .categoryBdr .categorySiteNameBdr
-    {
-        margin-bottom: 1.25rem;
     }
 
     .categorySiteNameBox .categorySiteNameTop
