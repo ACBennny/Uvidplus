@@ -68,11 +68,42 @@
     // Service Worker registration
     if('serviceWorker' in navigator) 
     {
-        window.addEventListener('load', () => 
+        window.addEventListener('load', async () => 
         {
-            navigator.serviceWorker
-            .register('/service-worker.js')
-            .catch(err => console.error('Uvidplus SW registration failed:', err));
+            const sw_registra = await navigator.serviceWorker.register("/service-worker.js").catch(err => console.error('Uvidplus SW registration failed:', err));
+            const sw_refresh = () => {sw_registra.waiting.postMessage({type: "SKIP_WAITING"});}
+            let refreshing = false;
+
+            sw_registra.addEventListener("updatefound", () => 
+            {
+                const newWorker = sw_registra.installing;
+
+                newWorker.addEventListener("statechange", () => 
+                {
+                    if(newWorker.state === "installed" && navigator.serviceWorker.controller) 
+                    {
+                        initConfirmModal(
+                            `A new version is available`,
+                            `Restart Uvidplus to ensure normal functioning`,
+                            'Reload',
+                            'Later',
+                            sw_refresh
+                        )
+                    };
+                });
+            });
+
+
+            navigator.serviceWorker.addEventListener("controllerchange", () => 
+            {
+
+                if(refreshing) return;
+
+                refreshing = true;
+
+                location.reload();
+            });
+
         });
     }
 
