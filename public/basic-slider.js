@@ -272,8 +272,6 @@
                 slider._basicSliderRO = ro;
             }
         });
-
-        elFc();
     }
 
     // Used for responsivenes and adaptation for device orientation

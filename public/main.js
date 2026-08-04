@@ -967,13 +967,6 @@
             preInstallPrompt();
         }
 
-        function elFc()
-        {
-            const ela = document.querySelectorAll("a");
-            const elb = document.querySelectorAll("button");
-            [ela, elb].forEach(elp => elp.forEach(elc => elc.addEventListener("contextmenu", (e) => {e.preventDefault(); elc.click()})));
-        }
-
 
     // VISIT DEVELOPER PAGE
 
@@ -1568,8 +1561,6 @@
                 confirmModalBase.removeEventListener("transitionend" , handleTransitionEnd);
                 documentBody.setAttribute(`data-modal-state` , `open`);
             });
-
-            elFc();
         }
 
         function closeConfirmModal(posfunc, call = false)
@@ -1583,7 +1574,6 @@
                 confirmModalBase.removeEventListener("transitionend" , handleTransitionEnd);
                 confirmModalBase.innerHTML = confirmModalStruct;
                 if(call) posfunc();
-                elFc();
             });
         }
 
@@ -2625,8 +2615,6 @@
         // Attaches listener for calling the menu modals
         function attachGenMenuModalEventListeners()
         {
-            elFc();
-
             let openGenMenuModalBtn = document.querySelectorAll(".openGenMenuModalBtn");
 
             openGenMenuModalBtn.forEach((prevBtn) => 
