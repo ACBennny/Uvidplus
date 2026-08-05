@@ -2033,7 +2033,7 @@
             }
             catch(f_err)
             {
-                console.log(f_err)
+                console.error(f_err)
                 page_route_error("error");
             }
         }
