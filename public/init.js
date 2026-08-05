@@ -70,9 +70,19 @@
     {
         window.addEventListener('load', async () => 
         {
-            const sw_registra = await navigator.serviceWorker.register("/service-worker.js").catch(err => console.error('Uvidplus SW registration failed:', err));
-            const sw_refresh = () => {sw_registra.waiting.postMessage({type: "SKIP_WAITING"});}
             let refreshing = false;
+            const sw_registra = await navigator.serviceWorker.register("/service-worker.js").catch(err => console.error('Uvidplus SW registration failed:', err));
+            const sw_refresh = () => 
+            {
+
+                if (sw_registra.waiting)
+                {
+                    sw_registra.waiting.postMessage(
+                    {
+                        type: "SKIP_WAITING"
+                    });
+                }
+            }
 
             sw_registra.addEventListener("updatefound", () => 
             {
@@ -88,11 +98,12 @@
                             'Reload',
                             'Later',
                             sw_refresh
-                        )
+                        );
                     };
                 });
             });
 
+            setTimeout(() => {sw_registra.update();}, 1234);
 
             navigator.serviceWorker.addEventListener("controllerchange", () => 
             {
@@ -101,7 +112,7 @@
 
                 refreshing = true;
 
-                location.reload();
+                window.location.reload();
             });
 
         });
