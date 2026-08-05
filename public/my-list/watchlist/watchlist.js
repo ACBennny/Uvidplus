@@ -401,7 +401,7 @@
                 const {
                     show_title = `${itemMatch?.name || itemMatch?.title || "N/A"}`,
                     show_year = `${itemMatch?.first_air_date?.toString()?.trim()?.split("-")[0] || itemMatch?.release_date?.toString()?.trim()?.split("-")[0] || "N/A"}`,
-                    show_foreground = `https://image.tmdb.org/t/p/original/${itemMatch?.poster_path}`,
+                    show_foreground = `https://image.tmdb.org/t/p/w500/${itemMatch?.poster_path}`,
                 } = itemMatch;
 
                 

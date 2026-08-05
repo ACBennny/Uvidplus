@@ -428,8 +428,8 @@
             {
                 const {
                     show_title = `${itemMatch?.name || itemMatch?.title || "N/A"}`,
-                    show_foreground = `https://image.tmdb.org/t/p/original/${itemMatch?.poster_path}`,
-                    show_background = `https://image.tmdb.org/t/p/original/${itemMatch?.backdrop_path}`,
+                    show_foreground = `https://image.tmdb.org/t/p/w154/${itemMatch?.poster_path}`,
+                    show_background = `https://image.tmdb.org/t/p/w300/${itemMatch?.backdrop_path}`,
                 } = itemMatch;
 
                 

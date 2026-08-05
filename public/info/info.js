@@ -325,9 +325,9 @@
 
         let show_rating = showsStructData?.adult ? "Yes" : "No";
         let show_background = (showsStructData?.backdrop_path)
-            ? `https://image.tmdb.org/t/p/original/${showsStructData?.backdrop_path}`
+            ? `https://image.tmdb.org/t/p/w1280/${showsStructData?.backdrop_path}`
             : info_pg_dflt_bcg;
-        let show_foreground = `https://image.tmdb.org/t/p/original/${showsStructData?.poster_path}`;
+        let show_foreground = `https://image.tmdb.org/t/p/w500/${showsStructData?.poster_path}`;
 
         let show_title = showsStructData?.name || showsStructData?.title || "N/A";
 
@@ -1684,7 +1684,7 @@
                     const cast = castSets[c];
                     let img = cast?.profile_path == null
                         ? `/images/uvid-profile-base.png` 
-                        : `https://image.tmdb.org/t/p/original/${cast?.profile_path}`;
+                        : `https://image.tmdb.org/t/p/w500/${cast?.profile_path}`;
                     struct += 
                     `
                         <div class="sect-crsl-card-bdr basic_carousel_card" data-sect-type="sect-person" data-prsn-id="${cast?.id}">
@@ -1739,7 +1739,7 @@
                 {
                     let img = cast?.profile_path == null
                         ? `/images/uvid-profile-base.png` 
-                        : `https://image.tmdb.org/t/p/original/${cast?.profile_path}`;
+                        : `https://image.tmdb.org/t/p/w154/${cast?.profile_path}`;
                     struct += 
                     `
                         <div class="sect-crsl-card-bdr basic_carousel_card" data-sect-type="sect-person" data-prsn-id="${cast?.id}">
@@ -1792,7 +1792,7 @@
                     const crew = crewSets[c];
                     let img = crew?.profile_path == null
                         ? `/images/uvid-profile-base.png` 
-                        : `https://image.tmdb.org/t/p/original/${crew?.profile_path}`;
+                        : `https://image.tmdb.org/t/p/w154/${crew?.profile_path}`;
                     struct += 
                     `
                         <div class="sect-crsl-card-bdr basic_carousel_card" data-sect-type="sect-person" data-prsn-id="${crew?.id}">
@@ -1847,7 +1847,7 @@
                 {
                     let img = crew?.profile_path == null
                         ? `/images/uvid-profile-base.png` 
-                        : `https://image.tmdb.org/t/p/original/${crew?.profile_path}`;
+                        : `https://image.tmdb.org/t/p/w154/${crew?.profile_path}`;
                     struct += 
                     `
                         <div class="sect-crsl-card-bdr basic_carousel_card" data-sect-type="sect-person" data-prsn-id="${crew?.id}">
@@ -1948,7 +1948,7 @@
                                             <img loading="lazy" 
                                                 onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
                                                 onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
-                                                src="https://image.tmdb.org/t/p/original/${backdrop?.file_path}" alt="poster image" class="sect-crsl-img-src"
+                                                src="https://image.tmdb.org/t/p/w300/${backdrop?.file_path}" alt="poster image" class="sect-crsl-img-src"
                                             >
                                         </div>
                                     </div>
@@ -1988,7 +1988,7 @@
                                             <img loading="lazy" 
                                                 onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
                                                 onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
-                                                src="https://image.tmdb.org/t/p/original/${poster?.file_path}" alt="poster image" class="sect-crsl-img-src"
+                                                src="https://image.tmdb.org/t/p/w154/${poster?.file_path}" alt="poster image" class="sect-crsl-img-src"
                                             >
                                         </div>
                                     </div>
@@ -2069,9 +2069,27 @@
                 if((sectType === "sect-posters") || (sectType === "sect-backdrops"))
                 {
                     const imgBase = newCard.querySelector(".sect-crsl-img-base");
+                    const imgBox = imgBase.querySelector(".sect-crsl-img-box");
+                    const imgSrc = imgBox.querySelector(".sect-crsl-img-src").getAttribute("src");
+                    const maxImg = `https://image.tmdb.org/t/p/original/${imgSrc.split("/").at(-1)}`;
+
                     if(imgBase?.classList.contains("max"))
                     {
                         imgBase?.classList.add("min");
+                        if(window.__info_sect_temp_img)
+                        {
+                            imgBox.innerHTML = 
+                            `
+                                <div class="img_preload_box">
+                                    <div class="img_preload_sibling"></div>
+                                    <img loading="lazy" 
+                                        onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                        onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
+                                        src="${window.__info_sect_temp_img}" alt="poster image" class="sect-crsl-img-src"
+                                    >
+                                </div>
+                            `;
+                        }
 
                         imgBase?.querySelector(".sect-crsl-img-box")?.addEventListener("animationend", function handleTransitionEnd()
                         {
@@ -2081,7 +2099,19 @@
                     }
                     else
                     {
+                        window.__info_sect_temp_img = imgSrc;
                         imgBase?.classList.add('max');
+                        imgBox.innerHTML = 
+                        `
+                            <div class="img_preload_box">
+                                <div class="img_preload_sibling"></div>
+                                <img loading="lazy" 
+                                    onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
+                                    onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
+                                    src="${maxImg}" alt="poster image" class="sect-crsl-img-src"
+                                >
+                            </div>
+                        `;
                     }
                 }
                 else if((sectType === "sect-videos"))
@@ -2232,10 +2262,10 @@
                 let imgSrc = (type !== "cast")
                     ? (item?.profile_path == null)
                         ? `/images/uvid-profile-base.png` 
-                        : `https://image.tmdb.org/t/p/original/${item?.profile_path}`
+                        : `https://image.tmdb.org/t/p/w154/${item?.profile_path}`
                     : (item?.profile_path == null)
                         ? `/images/uvid-profile-base.png` 
-                        : `https://image.tmdb.org/t/p/original/${item?.profile_path}`
+                        : `https://image.tmdb.org/t/p/w154/${item?.profile_path}`
 
                 staffRsltStruct += (type !== "cast")
                     ?   `

@@ -1304,8 +1304,8 @@ let editCLStruct =
                     show_title = `${itemMatch?.name || itemMatch?.title}`,
                     show_year = `${itemMatch?.first_air_date?.toString()?.trim()?.split("-")[0] || itemMatch?.release_date?.toString()?.trim()?.split("-")[0]}`,
                     show_watch_status = itemStatus,
-                    show_foreground = `https://image.tmdb.org/t/p/original/${itemMatch?.poster_path}`,
-                    show_background = `https://image.tmdb.org/t/p/original/${itemMatch?.backdrop_path}`, 
+                    show_foreground = `https://image.tmdb.org/t/p/w154/${itemMatch?.poster_path}`,
+                    show_background = `https://image.tmdb.org/t/p/w300/${itemMatch?.backdrop_path}`, 
                     show_scores = `${(typeof itemMatch?.vote_average === "number")
                         ? Number(itemMatch?.vote_average).toFixed(1)
                         : "N/A"}`,
@@ -1912,8 +1912,8 @@ let editCLStruct =
                     show_link = `#/${item?.media_type}/${item?.id}`,
                     show_type = `${item?.media_type}`,
                     show_title = `${item?.name || item?.title || "N/A"}`,
-                    show_foreground = `https://image.tmdb.org/t/p/original/${item?.poster_path}`,
-                    show_background = `https://image.tmdb.org/t/p/original/${item?.backdrop_path}`, 
+                    show_foreground = `https://image.tmdb.org/t/p/w154/${item?.poster_path}`,
+                    show_background = `https://image.tmdb.org/t/p/w300/${item?.backdrop_path}`, 
                     show_scores = `${(typeof item?.vote_average === "number")
                         ? Number(item?.vote_average).toFixed(1)
                         : "N/A"}`,

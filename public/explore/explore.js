@@ -816,7 +816,7 @@
                     show_link = `#/${item?.media_type}/${item?.id}`,
                     show_type = `${item?.media_type}`,
                     show_title = `${item?.name || item?.title || "N/A"}`,
-                    show_foreground = `https://image.tmdb.org/t/p/original/${item?.poster_path}`,
+                    show_foreground = `https://image.tmdb.org/t/p/w500/${item?.poster_path}`,
                     show_year = `${item?.first_air_date?.toString()?.trim()?.split("-")[0] || item?.release_date?.toString()?.trim()?.split("-")[0] || "N/A"}`,
                 } = item;
 

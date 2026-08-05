@@ -1716,7 +1716,7 @@
                         show_link = `#/${item?.media_type}/${item?.id}`,
                         show_type = `${item?.media_type}`,
                         show_title = `${item?.name || item?.title || "N/A"}`,
-                        show_foreground = `https://image.tmdb.org/t/p/original/${item?.poster_path}`,
+                        show_foreground = `https://image.tmdb.org/t/p/w300/${item?.poster_path}`,
                         show_scores = `${(typeof item?.vote_average === "number")
                             ? Number(item?.vote_average).toFixed(1)
                             : "N/A"}`,

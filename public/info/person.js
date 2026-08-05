@@ -37,7 +37,7 @@ let prsnData = {};
         }
 
         const prsn_pfp = (prsnData?.profile_path)
-            ? `https://image.tmdb.org/t/p/original/${prsnData?.profile_path}` 
+            ? `https://image.tmdb.org/t/p/w500/${prsnData?.profile_path}` 
             :  "/images/uvid-profile-base.png";
         const prsn_name_mjr = prsnData?.name || "N/A";
         const prsn_dpmt = prsnData?.known_for_department || "N/A";
@@ -162,7 +162,7 @@ let prsnData = {};
                                                 prsnData?.images?.profiles?.map((item) =>
                                                 {
                                                     const pfp_src = item?.file_path
-                                                        ? `https://image.tmdb.org/t/p/original/${item?.file_path}`
+                                                        ? `https://image.tmdb.org/t/p/w500/${item?.file_path}`
                                                         : "/images/uvid-profile-base.png";
 
                                                     return`

@@ -507,8 +507,8 @@
 
                     let {
                         show_link = `#/${item?.media_type.toLowerCase()}/${item?.id}`,
-                        show_foreground = `https://image.tmdb.org/t/p/original/${item?.poster_path}`,
-                        show_background = (item?.backdrop_path) ? `https://image.tmdb.org/t/p/original/${item?.backdrop_path}` : info_pg_dflt_bcg,
+                        show_foreground = `https://image.tmdb.org/t/p/w500/${item?.poster_path}`,
+                        show_background = (item?.backdrop_path) ? `https://image.tmdb.org/t/p/w1280/${item?.backdrop_path}` : info_pg_dflt_bcg,
                         show_title = `${item?.name || item?.title || "N/A"}`,
                         show_year = `${item?.first_air_date?.toString()?.trim()?.split("-")[0] || item?.release_date?.toString()?.trim()?.split("-")[0] || "N/A"}`,
                         show_type = `${item?.media_type.toUpperCase()}`,
@@ -770,8 +770,8 @@
                 let item = ftr_movie[i];
                 let {
                         show_link = `#/movie/${item?.id}`,
-                        show_foreground = `https://image.tmdb.org/t/p/original/${item?.poster_path}`,
-                        show_background = (item?.backdrop_path) ? `https://image.tmdb.org/t/p/original/${item?.backdrop_path}` : info_pg_dflt_bcg,
+                        show_foreground = `https://image.tmdb.org/t/p/w185/${item?.poster_path}`,
+                        show_background = (item?.backdrop_path) ? `https://image.tmdb.org/t/p/w1280/${item?.backdrop_path}` : info_pg_dflt_bcg,
                         show_title = `${item?.name || item?.title || "N/A"}`,
                         show_year = `${item?.first_air_date?.toString()?.trim()?.split("-")[0] || item?.release_date?.toString()?.trim()?.split("-")[0] || "N/A"}`,
                         show_type = `${item?.media_type.toUpperCase()}`,
@@ -877,7 +877,7 @@
                 {
                     let {
                         show_link = `#/tv/${item?.id}/watch/${item?.last_episode_to_air?.season_number}/${item?.last_episode_to_air?.episode_number}`,
-                        show_foreground = `https://image.tmdb.org/t/p/original/${item?.poster_path}`,
+                        show_foreground = `https://image.tmdb.org/t/p/w185/${item?.poster_path}`,
                         show_title = `${item?.name || "N/A"}`,
                         show_year = `${item?.first_air_date?.toString()?.trim()?.split("-")[0] || "N/A"}`,
                         show_type = `tv`,
@@ -916,7 +916,7 @@
                 {
                     let {
                         show_link = `#/movie/${item?.id}/watch`,
-                        show_foreground = `https://image.tmdb.org/t/p/original/${item?.poster_path}`,
+                        show_foreground = `https://image.tmdb.org/t/p/w154/${item?.poster_path}`,
                         show_title = `${item?.title || "N/A"}`,
                         show_year = `${item?.release_date?.toString()?.trim()?.split("-")[0] || "N/A"}`,
                         show_type = `movie`,
@@ -1056,7 +1056,7 @@
                 {
                     let {
                             show_link = `#/${item?.media_type}/${item?.id}`,
-                            show_foreground = `https://image.tmdb.org/t/p/original/${item?.poster_path}`,
+                            show_foreground = `https://image.tmdb.org/t/p/w500/${item?.poster_path}`,
                             show_title = `${item?.name || item?.title || "N/A"}`,
                             show_year = `${item?.first_air_date?.toString()?.trim()?.split("-")[0] || item?.release_date?.toString()?.trim()?.split("-")[0] || "N/A"}`,
                             show_type = `${item?.media_type}`,
@@ -1126,7 +1126,7 @@
             {
                 let {
                         show_link = `#/tv/${item?.id}`,
-                        show_foreground = `https://image.tmdb.org/t/p/original/${item?.poster_path}`,
+                        show_foreground = `https://image.tmdb.org/t/p/w500/${item?.poster_path}`,
                         show_title = `${item?.name || item?.title || "N/A"}`,
                         show_year = `${item?.first_air_date?.toString()?.trim()?.split("-")[0] || item?.release_date?.toString()?.trim()?.split("-")[0] || "N/A"}`,
                         show_type = `tv`,
@@ -1193,7 +1193,7 @@
             {
                 let {
                         show_link = `#/movie/${item?.id}`,
-                        show_foreground = `https://image.tmdb.org/t/p/original/${item?.poster_path}`,
+                        show_foreground = `https://image.tmdb.org/t/p/w500/${item?.poster_path}`,
                         show_title = `${item?.name || item?.title || "N/A"}`,
                         show_year = `${item?.first_air_date?.toString()?.trim()?.split("-")[0] || item?.release_date?.toString()?.trim()?.split("-")[0] || "N/A"}`,
                         show_type = `movie`,
