@@ -1,9 +1,6 @@
  /***************************************************************
  * This will hold the code for the Home Page
  * 
- * @author (Anyanwu Benedict Chukwuemeka)
- * @version (v0.01)
- *
 ****************************************************************/
 
     const hm_pg_nav  =

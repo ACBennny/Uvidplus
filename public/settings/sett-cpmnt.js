@@ -1,9 +1,6 @@
 /***************************************************************
  * This contains the components of the sections in the settings page
  * 
- * @author (Anyanwu Benedict Chukwuemeka)
- * @version (v0.01)
- *
 ****************************************************************/
 
 

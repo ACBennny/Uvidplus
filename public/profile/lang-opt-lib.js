@@ -7,9 +7,6 @@
  * 
  *      Use "LangOptLib.langOptInv" to access the array
  * 
- * @author (Anyanwu Benedict Chukwuemeka)
- * @version (v0.01)
- *
 ****************************************************************/
 
 

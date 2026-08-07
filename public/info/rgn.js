@@ -1,9 +1,6 @@
 /**********************************************************************
  * This will hold regions and their country codes and certifications
  * 
- * @author (Anyanwu Benedict Chukwuemeka)
- * @version (v0.01)
- *
 **********************************************************************/
 
 

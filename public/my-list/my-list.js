@@ -1,9 +1,6 @@
 /***************************************************************
  * This will hold the default code for the MyList pages
  * 
- * @author (Anyanwu Benedict Chukwuemeka)
- * @version (v0.01)
- *
 ****************************************************************/
 
     let myListStructHTML = 

@@ -1,9 +1,6 @@
 /***************************************************************
  * This will initialize Firebase Globally
  * 
- * @author (Anyanwu Benedict Chukwuemeka)
- * @version (v0.01)
- *
 ****************************************************************/
 
 // Direct Traffic to the netlify domain

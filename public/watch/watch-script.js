@@ -1,9 +1,6 @@
 /*************************************************************
  * This is the script for the General area of the Episode pages of Uvid+
- * 
- * @author (Anyanwu Benedict Chukwuemeka)
- * @version (v0.01)
- *************************************************************/
+ * ************************************************************/
 
 
     const wpg_ctrl_int = 

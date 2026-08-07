@@ -1,9 +1,6 @@
 /***************************************************************
  * This will hold languages and their iso code
  * 
- * @author (Anyanwu Benedict Chukwuemeka)
- * @version (v0.01)
- *
 ****************************************************************/
 
 

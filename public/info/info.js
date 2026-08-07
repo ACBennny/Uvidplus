@@ -1,9 +1,6 @@
 /***************************************************************
  * This will display the details about all shows
  * 
- * @author (Anyanwu Benedict Chukwuemeka)
- * @version (v0.01)
- *
 ****************************************************************/
 
 

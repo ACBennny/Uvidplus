@@ -9,9 +9,6 @@
  * 4 - Dropped
  * 5 - Completed
  * 
- * @author (Anyanwu Benedict Chukwuemeka)
- * @version (v0.01)
- *
 ****************************************************************/
 
 

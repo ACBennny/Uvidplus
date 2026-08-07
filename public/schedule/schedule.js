@@ -1,9 +1,6 @@
  /***************************************************************
  * This will hold the general functions for the schedule page
  * 
- * @author (Anyanwu Benedict Chukwuemeka)
- * @version (v0.01)
- *
 ****************************************************************/
 
 

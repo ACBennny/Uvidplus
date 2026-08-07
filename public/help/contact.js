@@ -1,9 +1,6 @@
 /***************************************************************
  * This will hold the default code for the Help Center Contact page
  * 
- * @author (Anyanwu Benedict Chukwuemeka)
- * @version (v0.01)
- *
 ****************************************************************/
 
 

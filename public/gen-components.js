@@ -1,9 +1,6 @@
 /*************************************************************
  * This holds the general page components used across Uvid+
- * 
- * @author (Anyanwu Benedict Chukwuemeka)
- * @version (v0.01)
- *************************************************************/
+ * ************************************************************/
 
 let gen_cmpnt_lib = 
 [

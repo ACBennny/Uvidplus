@@ -1,9 +1,6 @@
 /***************************************************************
  * This will hold the code for the person page (casts & crew)
  * 
- * @author (Anyanwu Benedict Chukwuemeka)
- * @version (v0.01)
- *
 ****************************************************************/
 
 

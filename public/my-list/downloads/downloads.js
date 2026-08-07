@@ -1,9 +1,6 @@
 /***************************************************************
  * This will hold the code for General functions of the Download page
  * 
- * @author (Anyanwu Benedict Chukwuemeka)
- * @version (v0.01)
- *
 ****************************************************************/
 
 

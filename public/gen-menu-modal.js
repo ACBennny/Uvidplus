@@ -5,10 +5,7 @@
  * cl = collection
  * wl = watchlist
  * dl = downloads
- * 
- * @author (Anyanwu Benedict Chukwuemeka)
- * @version (v0.01)
- *************************************************************/
+ * ************************************************************/
 
 
     let genMenuModalInv = 

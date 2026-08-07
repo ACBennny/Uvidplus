@@ -1,9 +1,6 @@
 /*****************************************************************************
  * This will code for constructing carousels of a user's slected profile
  * 
- * @author (Anyanwu Benedict Chukwuemeka)
- * @version (v0.01)
- *
 *****************************************************************************/
 
 

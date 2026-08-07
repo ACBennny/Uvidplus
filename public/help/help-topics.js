@@ -1,9 +1,6 @@
 /***************************************************************
  * This will hold the info on the Help Center topics
  * 
- * @author (Anyanwu Benedict Chukwuemeka)
- * @version (v0.01)
- *
 ****************************************************************/
 
 // Popular Topics

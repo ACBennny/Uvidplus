@@ -1,9 +1,6 @@
 /***************************************************************
  * This will hold the default code for the Help article pages
  * 
- * @author (Anyanwu Benedict Chukwuemeka)
- * @version (v0.01)
- *
 ****************************************************************/
 
 

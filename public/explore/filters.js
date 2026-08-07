@@ -1,9 +1,6 @@
 /*************************************************************
  * This contains the elements of the filter Catalog
- * 
- * @author (Anyanwu Benedict Chukwuemeka)
- * @version (v0.01)
- *************************************************************/
+ * ************************************************************/
 
 
 // Uvid+ categories 

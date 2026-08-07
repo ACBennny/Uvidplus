@@ -1,9 +1,6 @@
 /***************************************************************
  * This will hold the code for the navigating pages
  * 
- * @author (Anyanwu Benedict Chukwuemeka)
- * @version (v0.01)
- *
 ****************************************************************/
 
 

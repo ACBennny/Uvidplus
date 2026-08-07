@@ -3,10 +3,7 @@
  * Here , users will be able to:
  * 1. sign in to their account
  * 2. Recover their sign in detail(s) [password] if forgotten
- * 
- * @author (Anyanwu Benedict Chukwuemeka)
- * @version (v0.01)
- *************************************************************/
+ * ************************************************************/
 
 
 // DEFINITIONS

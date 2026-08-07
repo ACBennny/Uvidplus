@@ -6,10 +6,7 @@
  * App experience = experience
  * Privacy & Security = privacy
  * Help & More = information
- * 
- * @author (Anyanwu Benedict Chukwuemeka)
- * @version (v0.01)
- *************************************************************/
+ * ************************************************************/
 
 
 
