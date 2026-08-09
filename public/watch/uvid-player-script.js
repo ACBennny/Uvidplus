@@ -18,7 +18,7 @@
                 <div class="episodeTitle">Test Video</div>
             </div>
         </div>
-        <video poster="/images/uvid-bcg0.jpg" preload="metadata" class="main-video"></video>
+        <video poster="/images/uvid-bcg0.webp" preload="metadata" class="main-video"></video>
         <div class="cover-vid">
             <div class="playPause_fullscreen_VidPc"></div>
             <div class="mobile_controls_box">

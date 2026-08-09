@@ -112,7 +112,7 @@ html:root
     height: 100vh;
     -webkit-backdrop-filter: blur(var(--bcgFilt));
     backdrop-filter: blur(var(--bcgFilt));
-    background-image: url(/images/uvid-bcg0.jpg);
+    background-image: url(/images/uvid-bcg0.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

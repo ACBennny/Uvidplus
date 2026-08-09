@@ -35,7 +35,7 @@ let prsnData = {};
 
         const prsn_pfp = (prsnData?.profile_path)
             ? `https://image.tmdb.org/t/p/w500/${prsnData?.profile_path}` 
-            :  "/images/uvid-profile-base.png";
+            :  "/images/uvid-profile-base.webp";
         const prsn_name_mjr = prsnData?.name || "N/A";
         const prsn_dpmt = prsnData?.known_for_department || "N/A";
         const prsn_dob = prsnData?.birthday || "N/A";
@@ -160,7 +160,7 @@ let prsnData = {};
                                                 {
                                                     const pfp_src = item?.file_path
                                                         ? `https://image.tmdb.org/t/p/w500/${item?.file_path}`
-                                                        : "/images/uvid-profile-base.png";
+                                                        : "/images/uvid-profile-base.webp";
 
                                                     return`
                                                         <div class="slide_card_base basic_carousel_card">

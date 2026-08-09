@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div class="welcome_landBcgImgBox">
-                <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-bcg0.jpg" alt="background image of Uvid+" class="welcome_landBcgImg">
+                <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-bcg0.webp" alt="background image of Uvid+" class="welcome_landBcgImg">
             </div>
         </div>
 
@@ -122,7 +122,7 @@
                     </div>
                     <div class="streamSampleBdr">
                         <div class="streamSampleBox">
-                            <img loading="eager" src="/images/uvid-device-support.png" alt="" class="streamSampleImg">
+                            <img loading="eager" src="/images/uvid-device-support.webp" alt="" class="streamSampleImg">
                         </div>
                     </div>
                 </div>
@@ -239,7 +239,7 @@
                 <section class="topNav_section">
                     <div class="company_logoBdr" onclick="window.location.hash = page_route_fallback()">
                         <div class="company_logoBox Companylogo">
-                            <img loading="eager" src="/images/uvid-logo.png" alt="" class="company_logoImg">
+                            <img loading="eager" src="/images/uvid-logo.webp" alt="" class="company_logoImg">
                         </div>
                     </div>
                 </section>

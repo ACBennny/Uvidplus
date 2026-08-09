@@ -16,7 +16,7 @@
                                     <img loading="lazy" 
                                         onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
                                         onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
-                                        src="/images/uvid-green-bcg1-light.jpg" alt="Profile background image" class="profHeaderBcgImg"
+                                        src="/images/uvid-green-bcg1-light.webp" alt="Profile background image" class="profHeaderBcgImg"
                                     >
                                 </div>
                             </div>
@@ -30,7 +30,7 @@
                                             <img loading="lazy" 
                                                 onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
                                                 onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
-                                                src="/images/uvid-profile-base.png" alt="Profile thumbnail image" class="profHeaderFrgImgSrc"
+                                                src="/images/uvid-profile-base.webp" alt="Profile thumbnail image" class="profHeaderFrgImgSrc"
                                             >
                                         </div>
                                     </div>

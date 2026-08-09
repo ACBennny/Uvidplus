@@ -523,7 +523,7 @@ html:root
     display: flex;
     justify-content: center;
     padding: var(--genBorderSpacing);
-    background-image: url(/images/uvid-green-bcg1-dark.jpg);
+    background-image: url(/images/uvid-green-bcg1-dark.webp);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

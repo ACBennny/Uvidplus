@@ -11,7 +11,7 @@
                     <a href="/Home.html" class="Companylogo navBarCompanylogo">
                         <div class="company_logoBdr">
                             <div class="company_logoBox Companylogo">
-                                <img loading="eager" src="/images/uvid-logo.png" alt="" class="company_logoImg">
+                                <img loading="eager" src="/images/uvid-logo.webp" alt="" class="company_logoImg">
                             </div>
                         </div>
                     </a>
@@ -45,14 +45,7 @@
                 <div class="editProfileFrgImgBase " title="Change Profile Image">
                     <div class="editProfileFrgImgBdr">
                         <div class="editProfileFrgImgBox">
-                            <div class="img_preload_box">
-                                <div class="img_preload_sibling"></div>
-                                <img loading="lazy" 
-                                    onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
-                                    onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
-                                    src="" alt="Foreground Image" class="editProfileFrgImg"
-                                >
-                            </div>
+                            <img loading="lazy" src="" alt="Foreground Image" class="editProfileFrgImg">
                         </div>
                         <div class="editProfileFrgImgOverlayBdr openSelectFrgPicModal">
                             <div class="editProfileFrgImgOverlayBox">

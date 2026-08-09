@@ -276,7 +276,7 @@
             </div>
         </div>
     `;
-    const info_pg_dflt_bcg = `/images/uvid-green-bcg1-dark.jpg`;
+    const info_pg_dflt_bcg = `/images/uvid-green-bcg1-dark.webp`;
     let trailerTimer;
     const prsnLmt = 20;
     const epSetLength = 40;
@@ -1680,7 +1680,7 @@
                 {
                     const cast = castSets[c];
                     let img = cast?.profile_path == null
-                        ? `/images/uvid-profile-base.png` 
+                        ? `/images/uvid-profile-base.webp` 
                         : `https://image.tmdb.org/t/p/w500/${cast?.profile_path}`;
                     struct += 
                     `
@@ -1735,7 +1735,7 @@
                 castSets.forEach((cast) => 
                 {
                     let img = cast?.profile_path == null
-                        ? `/images/uvid-profile-base.png` 
+                        ? `/images/uvid-profile-base.webp` 
                         : `https://image.tmdb.org/t/p/w154/${cast?.profile_path}`;
                     struct += 
                     `
@@ -1788,7 +1788,7 @@
                 {
                     const crew = crewSets[c];
                     let img = crew?.profile_path == null
-                        ? `/images/uvid-profile-base.png` 
+                        ? `/images/uvid-profile-base.webp` 
                         : `https://image.tmdb.org/t/p/w154/${crew?.profile_path}`;
                     struct += 
                     `
@@ -1843,7 +1843,7 @@
                 crewSets.forEach((crew) => 
                 {
                     let img = crew?.profile_path == null
-                        ? `/images/uvid-profile-base.png` 
+                        ? `/images/uvid-profile-base.webp` 
                         : `https://image.tmdb.org/t/p/w154/${crew?.profile_path}`;
                     struct += 
                     `
@@ -1904,7 +1904,7 @@
                                                 <img loading="lazy" 
                                                     onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
                                                     onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
-                                                    src="https://i.ytimg.com/vi/${video?.key}/hqdefault.jpg" alt="${video?.name} image" class="sect-crsl-img-src"
+                                                    src="https://i.ytimg.com/vi/${video?.key}/hqdefault.webp" alt="${video?.name} image" class="sect-crsl-img-src"
                                                 >
                                             </div>
                                         </div>
@@ -2258,10 +2258,10 @@
                 let item = selStaffArr[i];
                 let imgSrc = (type !== "cast")
                     ? (item?.profile_path == null)
-                        ? `/images/uvid-profile-base.png` 
+                        ? `/images/uvid-profile-base.webp` 
                         : `https://image.tmdb.org/t/p/w154/${item?.profile_path}`
                     : (item?.profile_path == null)
-                        ? `/images/uvid-profile-base.png` 
+                        ? `/images/uvid-profile-base.webp` 
                         : `https://image.tmdb.org/t/p/w154/${item?.profile_path}`
 
                 staffRsltStruct += (type !== "cast")

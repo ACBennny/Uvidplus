@@ -102,7 +102,7 @@
                                         <img loading="lazy" 
                                             onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
                                             onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')"
-                                            src="/images/uvid-logo.png" alt="Profile thumbnail image" class="company_logoImg"
+                                            src="/images/uvid-logo.webp" alt="Profile thumbnail image" class="company_logoImg"
                                         >
                                     </div>
                                 </div>
@@ -723,8 +723,8 @@
                     prof_selected: false,
                     prof_name: `${postSanitizeUserInput(profName)}`,
                     prof_type: `other`,
-                    prof_frgImg: `/images/uvid-profile-base.png`,
-                    prof_bcgImg: `/images/uvid-green-bcg1-dark.jpg`,
+                    prof_frgImg: `/images/uvid-profile-base.webp`,
+                    prof_bcgImg: `/images/uvid-green-bcg1-dark.webp`,
                     prof_audio_lang: 8,
                     prof_subtitle_lang: 8,
                     prof_show_subtitles: false,

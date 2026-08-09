@@ -22,8 +22,8 @@
  *              prof_selected: true, // Boolean deciding whether this is the currently selected profile
  *              prof_name: `Uvid+`, // I may give option to provide a name during sign up process
  *              prof_type: `default`, // This marks a default profile. Others are labelled "other". Default can't be deleted.
- *              prof_frgImg: `/images/uvid-profile-base.png`, // The foreground/profile picture (pfp) of the profile
- *              prof_bcgImg: `/images/uvid-green-bcg1-dark.jpg`, // The background picture of the profile
+ *              prof_frgImg: `/images/uvid-profile-base.webp`, // The foreground/profile picture (pfp) of the profile
+ *              prof_bcgImg: `/images/uvid-green-bcg1-dark.webp`, // The background picture of the profile
  *              prof_audio_lang: `English`, // The selected audio language
  *              prof_subtitle_lang: `English`, // The selected subtitle language
  *              prof_show_subtitles: false, // Boolean deciding whether to show subtitles by default
@@ -650,8 +650,8 @@
                         prof_selected: true,
                         prof_name: `${(nm_split[0]) ? nm_split[0] : usr_nm}`,
                         prof_type: `default`,
-                        prof_frgImg: `/images/uvid-profile-base.png`,
-                        prof_bcgImg: `/images/uvid-green-bcg1-dark.jpg`,
+                        prof_frgImg: `/images/uvid-profile-base.webp`,
+                        prof_bcgImg: `/images/uvid-green-bcg1-dark.webp`,
                         prof_audio_lang: 8,
                         prof_subtitle_lang: 8,
                         prof_show_subtitles: false,
@@ -687,7 +687,7 @@
                     {
                         notify_addedDate: `${getCurrDate("short")}`,
                         notify_readStatus: false,
-                        notify_thumbnail: `/images/uvid-bcg1.jpg`,
+                        notify_thumbnail: `/images/uvid-bcg1.webp`,
                         notify_mainTopic: `Welcome to Uvid+`,
                         notify_subTopic: `We are glad you joined us. Browse and watch your favourite movies and tv shows.`,
                         notify_actionText: `Explore`,
@@ -696,7 +696,7 @@
                     {
                         notify_addedDate: `${getCurrDate("short")}`,
                         notify_readStatus: false,
-                        notify_thumbnail: `/images/uvid-bcg2.jpg`,
+                        notify_thumbnail: `/images/uvid-bcg2.webp`,
                         notify_mainTopic: `Switch Profiles`,
                         notify_subTopic: `You can now create and customize up to five different profiles.`,
                         notify_actionText: `Try it Out`,

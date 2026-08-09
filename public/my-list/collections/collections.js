@@ -142,7 +142,7 @@ let mylist_collections_struct =
                                             <img loading="lazy" 
                                                 onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
                                                 onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')" 
-                                                src="/images/uvid-green-bcg1-light.jpg" alt="The collections header background image" class="clModalHeader_BcgImg"
+                                                src="/images/uvid-green-bcg1-light.webp" alt="The collections header background image" class="clModalHeader_BcgImg"
                                             >
                                         </div>
                                     </div>
@@ -158,7 +158,7 @@ let mylist_collections_struct =
                                             <img loading="lazy" 
                                                 onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
                                                 onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')" 
-                                                src="/images/uvid-green-bcg1-light.jpg" alt="The collections header thumbnail image" class="clModalHeader_thumbImg"
+                                                src="/images/uvid-green-bcg1-light.webp" alt="The collections header thumbnail image" class="clModalHeader_thumbImg"
                                             >
                                         </div>
                                     </div>
@@ -784,7 +784,7 @@ let editCLStruct =
                             cl_id: `${newListId.toLowerCase()}`,
                             cl_name: `${clName}`,
                             cl_updated: `${getCurrDate()}`,
-                            cl_bcg: `/images/uvid-green-bcg1-light.jpg`,
+                            cl_bcg: `/images/uvid-green-bcg1-light.webp`,
                             cl_desc: `No description`,
                             cl_items: [],
                         }
@@ -816,7 +816,7 @@ let editCLStruct =
                                                             <img loading="lazy" 
                                                                 onload="if(!(this.parentElement.classList.contains('loaded'))) this.parentElement.classList.add('loaded')" 
                                                                 onerror="if(!(this.parentElement.classList.contains('loaderror'))) this.parentElement.classList.add('loaderror')" 
-                                                                src="/images/uvid-green-bcg1-light.jpg" alt="Thumbnail image for the collection: ${clName}" class="myListCLCatalog_ItemThumbImg"
+                                                                src="/images/uvid-green-bcg1-light.webp" alt="Thumbnail image for the collection: ${clName}" class="myListCLCatalog_ItemThumbImg"
                                                             >
                                                         </div>
                                                     </div>
@@ -1467,8 +1467,8 @@ let editCLStruct =
             clModalBase.addEventListener("transitionend" , function handleTransitionEnd()
             {
                 clModalBase.removeEventListener("transitionend" , handleTransitionEnd);
-                clModalHeaderBcgImg.setAttribute(`src` , `/images/uvid-green-bcg1-light.jpg`);
-                clModalHeaderThumbImg.setAttribute(`src` , `/images/uvid-green-bcg1-light.jpg`);
+                clModalHeaderBcgImg.setAttribute(`src` , `/images/uvid-green-bcg1-light.webp`);
+                clModalHeaderThumbImg.setAttribute(`src` , `/images/uvid-green-bcg1-light.webp`);
                 clModalHeader_DetInfo_TitleText.textContent = `N/A`;
                 clModalHeader_DetInfo_TagsCountText.textContent = `N/A`;
                 clModalHeader_DetInfo_TagsUpdateText.textContent = `N/A`;

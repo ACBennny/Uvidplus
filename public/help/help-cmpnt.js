@@ -12,7 +12,7 @@ const help_ctr_nav =
             <section class="topNav_section">
                 <div onclick="window.location.hash = page_route_fallback()" class="company_logoBdr">
                     <div class="company_logoBox Companylogo">
-                        <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-logo.png" alt="" class="company_logoImg">
+                        <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-logo.webp" alt="" class="company_logoImg">
                     </div>
                 </div>
                 <a href="#/help" type="button" class="genBtnBox thin transBtn">
@@ -50,7 +50,7 @@ const uvid_help_ctr_struct =
                 <div class="help_ctr_hdr_box">
                     <div class="help_ctr_hdr_bcg_bdr">
                         <div class="help_ctr_hdr_bcg_box">
-                            <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-green-bcg1-dark.jpg" class="help_ctr_hdr_bcg_img">
+                            <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-green-bcg1-dark.webp" class="help_ctr_hdr_bcg_img">
                         </div>
                     </div>
                     <div class="help_ctr_hdr_ctnt_bdr">
@@ -260,7 +260,7 @@ const help_ctr_ctct_struct =
                                 <div class="ctct_hdr_ttl_bdr">
                                     <div class="ctct_hdr_logo_bdr">
                                         <div class="ctct_hdr_logo_box">
-                                            <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-logo.png" class="ctct_hdr_logo_img">
+                                            <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-logo.webp" class="ctct_hdr_logo_img">
                                         </div>
                                     </div>
                                     <div class="ctct_hdr_ttl_box">
@@ -325,7 +325,7 @@ let help_ctr_dflt_chatbot_msg_arr =
             <div class="ctct_msg_base">
                 <div class="ctct_msg_pfp_bdr">
                     <div class="ctct_msg_pfp_box">
-                        <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-profile-base.png" class="ctct_msg_pfp_img" alt="The profile picture of Uvid+'s virtual support">
+                        <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-profile-base.webp" class="ctct_msg_pfp_img" alt="The profile picture of Uvid+'s virtual support">
                     </div>
                 </div>
                 <div class="ctct_msg_ctnt_bdr">
@@ -346,7 +346,7 @@ let help_ctr_dflt_chatbot_msg_arr =
             <div class="ctct_msg_base">
                 <div class="ctct_msg_pfp_bdr">
                     <div class="ctct_msg_pfp_box">
-                        <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-profile-base.png" class="ctct_msg_pfp_img" alt="The profile picture of Uvid+'s virtual support">
+                        <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-profile-base.webp" class="ctct_msg_pfp_img" alt="The profile picture of Uvid+'s virtual support">
                     </div>
                 </div>
                 <div class="ctct_msg_ctnt_bdr">

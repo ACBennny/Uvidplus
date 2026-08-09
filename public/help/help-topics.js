@@ -59,12 +59,7 @@ let pplr_tpc_arr =
             You should automatically be taken to the next step upon arrival. However, if you see an Email Verification request,
             click the "CONTINUE" button to move on. You have already been verified.
             <br><br>
-            5. You should see a prompt to choose your tier. It's just for demonstrations and all of them are free. 
-            Regardless of what you choose, it's still the same Uvidplus experience. You may see a prompt reminding you that everything is free. 
-            <br><br>
-            6. A sample (fake) payment information card is automatically generated for your account. You can try it out later in settings if u wish to.
-            <br><br>
-            7. You are now done and ready to commence your <span class="important">NEVER-ENDING ENTERTAINMENT</span>. 
+            5. You are now done and ready to commence your <span class="important">NEVER-ENDING ENTERTAINMENT</span>. 
             Hit the "EXPLORE" button and dive in. 
         `,
     },

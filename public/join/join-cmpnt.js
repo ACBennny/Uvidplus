@@ -173,7 +173,7 @@
                 <section class="topNav_section">
                     <div class="company_logoBdr" onclick="window.location.hash = page_route_fallback()">
                         <div class="company_logoBox Companylogo">
-                            <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-logo.png" alt="" class="company_logoImg">
+                            <img loading="lazy" onload="this.classList.add('loaded')" src="/images/uvid-logo.webp" alt="" class="company_logoImg">
                         </div>
                     </div>
                 </section>
@@ -197,7 +197,7 @@
                 <section class="topNav_section">
                     <div class="company_logoBdr" onclick="window.location.hash = page_route_fallback()">
                         <div class="company_logoBox Companylogo">
-                            <img loading="eager" src="/images/uvid-logo.png" alt="" class="company_logoImg">
+                            <img loading="eager" src="/images/uvid-logo.webp" alt="" class="company_logoImg">
                         </div>
                     </div>
                 </section>
@@ -217,7 +217,7 @@
                 <section class="topNav_section">
                     <div class="company_logoBdr" onclick="window.location.hash = page_route_fallback()">
                         <div class="company_logoBox Companylogo">
-                            <img loading="eager" src="/images/uvid-logo.png" alt="" class="company_logoImg">
+                            <img loading="eager" src="/images/uvid-logo.webp" alt="" class="company_logoImg">
                         </div>
                     </div>
                 </section>
