@@ -73,7 +73,7 @@
             na_date: `4th February ${new Date()?.getFullYear()}`,
         },
         {
-            na_img: `/images/uvid-cartoon3.webp`,
+            na_img: `/images/uvid-cartoon1.webp`,
             na_title: `Top New Family Shows to Watch`,
             na_date: `27th February ${new Date()?.getFullYear()}`,
         },
