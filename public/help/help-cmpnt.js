@@ -383,7 +383,7 @@ let help_ctr_dflt_chatbot_msg_arr =
                     <p class="genBtnText ctct_msg_dflt_issues_txt">Log in issues</p>
                 </button>
                 <button class="genBtnBox hollowBtn ctct_msg_dflt_issues_btn">
-                    <p class="genBtnText ctct_msg_dflt_issues_txt">Manage Membership</p>
+                    <p class="genBtnText ctct_msg_dflt_issues_txt">Manage Preferences</p>
                 </button>
                 <button class="genBtnBox hollowBtn ctct_msg_dflt_issues_btn">
                     <p class="genBtnText ctct_msg_dflt_issues_txt">Multiple Profiles</p>

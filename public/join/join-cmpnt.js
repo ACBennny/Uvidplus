@@ -3,7 +3,6 @@
  * ************************************************************/
 
 
-
 // SIGNING IN
 
     const signin_form = 
@@ -633,40 +632,3 @@
             </div>
         </div>
     `;
-
-    const signup_outro = 
-    `
-        <div class="join_fence" style="z-index: 125;">
-            <div class="join_area">
-                <div class="join_house signup_outro">
-                    <div class="join_bdr">
-                        <div class="join_box">
-                            <div class="join_outro_bdr">
-                                <div class="join_outro_box">
-                                    <div class="join_hdr_box">
-                                        <div class="join_hdr_txt_mjr">Welcome to Uvid+!</div>
-                                    </div>
-                                    <div class="join_outro_det_box">
-                                        <p class="join_outro_det_txt">
-                                            Your Uvid+ membership has begun. It will automatically continue after every 30 days unless cancelled.
-                                        </p>
-                                        <p class="join_outro_det_txt">
-                                            Your <span class="join_outro_det_txt_mjr">NEVER-ENDING ENTERTAINMENT</span> starts now!
-                                        </p>
-                                    </div>
-                                    <div class="join_submit_box space_h">
-                                        <input type="button" class=" genBtn join_submit_btn join_outro_btn" value="Explore" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-    `;
-
-
-
-

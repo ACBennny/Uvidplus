@@ -125,7 +125,6 @@
     let editProfileTitle;
     let editProfileNameField;
     let editProfileNameWarnBdr;
-    let editProfileLangSelectBdr;
     let editProfileDetBox;
     let selectFrgPicBdr;
     let selectFrgPicCarouselCard;
@@ -168,7 +167,6 @@
         editProfileBox = document.querySelector(".editProfileBox");
         editProfileNameField = document.querySelector("#editProfileNameField");
         editProfileNameWarnBdr = document.querySelector(".editProfileNameWarnBdr");
-        editProfileLangSelectBdr = document.querySelectorAll(".editProfileLangSelectBdr");
         editProfileTitle = document.querySelector(".editProfileTitle");
         editProfileDetBox = document.querySelector(".editProfileDetBox");
         deleteProfile = document.querySelector(".deleteProfile");
@@ -206,46 +204,6 @@
 
             // Update the temp value for profile name
             editProfOptTempName = fieldVal;
-        });
-
-        // Selecting Languages for different components of the app
-        editProfileLangSelectBdr.forEach(bdr => 
-        {
-            let editProfileLangSelectBox = bdr.querySelector(".editProfileLangSelectBox");
-            let editProfileLangSelectText = bdr.querySelector(".editProfileLangSelectText");
-            let editProfileLangOptBdr = bdr.querySelector(".editProfileLangOptBdr");
-            let editProfileLangOptItems = bdr.querySelectorAll(".editProfileLangOptItems");
-
-            // Opening the modal
-            editProfileLangSelectBox.addEventListener("click" , () => 
-            {
-                bdr.classList.toggle("active");
-            });
-
-            // selecting and updating
-            editProfileLangOptItems.forEach(item => 
-            {
-                item.addEventListener("click" , () => 
-                {
-                    editProfileLangOptItems.forEach(otherItem => 
-                    {
-                        otherItem.classList.remove("active");
-                    });
-                    item.classList.add("active");
-                    editProfileLangSelectText.textContent = item.textContent;
-                    bdr.classList.remove("active");
-                });
-            });
-
-            // Closing the modal
-            document.addEventListener("click" , () => 
-            {
-                if(bdr.matches(":hover"))
-                {
-                    return;
-                }
-                bdr.classList.remove("active");
-            });
         });
 
         // Opening the Profile(Frg) Pic Select Modal

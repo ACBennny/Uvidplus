@@ -14,14 +14,13 @@
     const bcgImgInv = 
     [
         {
-            bcg_sectname: `Uvid+`,
+            bcg_sectname: `ACUvid V3`,
             bcg_ImgSrcSet: [
                 {img_src: `/images/uvid-bcg0.webp`,},
                 {img_src: `/images/uvid-green-bcg2.webp`,},
                 {img_src: `/images/uvid-bcg1.webp`,},
                 {img_src: `/images/uvid-bcg2.webp`,},
                 {img_src: `/images/uvid-green-bcg1-light.webp`,},
-                {img_src: `/images/uvid-bcg3.webp`,},
                 {img_src: `/images/bcg/default.webp`,},
             ],
         },
@@ -32,7 +31,6 @@
                 {img_src: `/images/uvid-red-velvet0.webp`,},
                 {img_src: `/images/uvid-bcg1.webp`,},
                 {img_src: `/images/uvid-red-velvet1.webp`,},
-                {img_src: `/images/uvid-bcg3.webp`,},
                 {img_src: `/images/uvid-movies1.webp`,},
             ],
         },
@@ -43,7 +41,6 @@
                 {img_src: `/images/uvid-anime.webp`,},
                 {img_src: `/images/uvid-documentary.webp`,},
                 {img_src: `/images/uvid-cartoon2.webp`,},
-                {img_src: `/images/uvid-cartoon3.webp`,},
                 {img_src: `/images/uvid-cartoon1.webp`,},
             ],
         },
@@ -54,7 +51,6 @@
                 {img_src: `/images/bcg/red.webp`,},
                 {img_src: `/images/bcg/blue.webp`,},
                 {img_src: `/images/bcg/green.webp`,},
-                {img_src: `/images/bcg/grey.webp`,},
                 {img_src: `/images/bcg/pink.webp`,},
                 {img_src: `/images/bcg/orange.webp`,},
                 {img_src: `/images/bcg/yellow.webp`,},

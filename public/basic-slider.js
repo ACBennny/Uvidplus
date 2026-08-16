@@ -144,7 +144,7 @@
                 isDown = false;
                 slider.classList.remove("isBasicSliderDown");
 
-                // Block the click event fired by the browser on muse up
+                // Block the click event fired by the browser on mouse up
                 if (isDragging) 
                 {
                     suppressClick = true;

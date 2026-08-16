@@ -22,8 +22,7 @@
                             Uvid+ only stores certain information to provide a seamless experience across multiple platforms. 
                             <br><br>
                             Such information includes but is not limited to your sign-in credentials, watchlist, collections (also known as playlists),
-                            liked shows, disliked shows, watch history, profile characteristics (profile picture, profile banner, profile name), 
-                            demo membership details, and other random/user-generated content.
+                            liked shows, disliked shows, watch history, profile characteristics (profile picture, profile banner, profile name), and other random/user-generated content.
                             <br><br>
                             Some information (e.g., watchlist, collectons etcetera) can be permanently deleted at any time. To permanently delete 
                             all information, you must delete your account. 

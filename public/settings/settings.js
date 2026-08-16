@@ -400,12 +400,8 @@
     function sett_sect_router()
     {
         let settNav = hash_parts[2];
-
-        if((settNav === "preferences"))
-        {
-            sett_sect_dstn("preferences");
-        }
-        else if(settNav === "experience")
+    
+        if(settNav === "experience")
         {
             sett_sect_dstn("experience");
         }
@@ -421,8 +417,8 @@
         {
             if((!isPWAInstalled())) return sett_sect_dstn("install");
 
-            // Defaults to membership section
-            sett_sect_dstn("membership");
+            // Defaults to preferences section
+            sett_sect_dstn("preferences");
         }
     }
 
@@ -434,7 +430,7 @@
 
         if(url === "")
         {
-            window.history.replaceState(null, '', '#/settings/membership');
+            window.history.replaceState(null, '', '#/settings/preferences');
         }
         else
         {
@@ -444,7 +440,7 @@
 
 
     // Scrolls to the selected section
-    function sett_sect_dstn(sect = "membership")
+    function sett_sect_dstn(sect = "preferences")
     {
         if(sect == "install") return window.scroll(0,0);
 

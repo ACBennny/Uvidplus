@@ -36,7 +36,7 @@
             route_auth: true,
             route_member: false,
             route_atn: null,
-            route_title: "Create or Restart your Membership • Uvid+",
+            route_title: "Setup your account • Uvid+",
         },
         'signin': 
         {
