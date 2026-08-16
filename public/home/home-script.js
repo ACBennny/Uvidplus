@@ -65,27 +65,27 @@
         {
             na_img: `/images/uvid-news.webp`,
             na_title: `New plans for the News category`,
-            na_date: `19th March 2025`,
+            na_date: `19th March ${new Date()?.getFullYear()}`,
         },
         {
             na_img: `/images/uvid-anime2.webp`,
             na_title: `"Anime hits on a differrent level.."`,
-            na_date: `4th February 2025`,
+            na_date: `4th February ${new Date()?.getFullYear()}`,
         },
         {
             na_img: `/images/uvid-cartoon3.webp`,
             na_title: `Top New Family Shows to Watch`,
-            na_date: `27th February 2025`,
+            na_date: `27th February ${new Date()?.getFullYear()}`,
         },
         {
             na_img: `/images/uvid-movies0.webp`,
             na_title: `Have you watched these shows from Marvel?`,
-            na_date: `21st January 2025`,
+            na_date: `21st January ${new Date()?.getFullYear()}`,
         },
         {
             na_img: `/images/uvid-bcg2.webp`,
             na_title: `Movie Lineups for the Year`,
-            na_date: `2nd January 2025`,
+            na_date: `2nd January ${new Date()?.getFullYear()}`,
         },
     ];
 
@@ -1118,7 +1118,7 @@
             const top_tvBdr = homeBox.querySelector(".top_tv_bdr .basic_slider_card_box");
             let top_tv_struct = ``;
 
-            
+
             top_tv_airs.forEach((item) => 
             {
                 let {
