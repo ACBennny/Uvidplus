@@ -2470,10 +2470,14 @@ html:root:has(.btmNavBar.hidden)
     scroll-snap-align: start;
 }
 
+.slide_card_base
+{
+    width: 100%;
+}
+
 .slide_card_base.max_sizing
 {
     max-width: 15.625rem;
-    /* max-height: 25rem; */
 }
 
 .slide_card_base.notShowStatusMatch
