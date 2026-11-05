@@ -921,7 +921,6 @@
     
         // Reattaching listeners
         
-            attachGenMenuModalEventListeners();
             attachAddToCLEventListeners();
             attachSharePageEventListeners();
 
@@ -2182,8 +2181,8 @@
                                 </div>
                                 <button type="button" class="genBtnBox genIconBtn transBtn info_more_staff_cls_btn" title="Close the modal">
                                     <div class="genBtnIcon">
-                                        <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="genBtnSvg">
-                                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genBtnSvg">
+                                            <path d="M18.4765 4.46967C18.7694 4.17683 19.2442 4.1768 19.5371 4.46967C19.8299 4.76255 19.8299 5.23734 19.5371 5.53022L13.0634 12.0029L19.5302 18.4697C19.823 18.7626 19.8231 19.2374 19.5302 19.5302C19.2374 19.8231 18.7626 19.823 18.4697 19.5302L12.0029 13.0634L5.53705 19.5302C5.24417 19.823 4.76938 19.823 4.47651 19.5302C4.18363 19.2373 4.18367 18.7626 4.47651 18.4697L10.9423 12.0029L4.46967 5.53022C4.17678 5.23732 4.17678 4.76256 4.46967 4.46967C4.76256 4.17678 5.23732 4.17678 5.53022 4.46967L12.0029 10.9423L18.4765 4.46967Z" />
                                         </svg>
                                     </div>
                                 </button>
@@ -2484,8 +2483,8 @@
         `
             <div class="trailer_Box">
                 <div class="closeTrailerIcon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="closeTrailer closeTrailerSvg">
-                        <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="closeTrailer closeTrailerSvg">
+                        <path d="M18.4765 4.46967C18.7694 4.17683 19.2442 4.1768 19.5371 4.46967C19.8299 4.76255 19.8299 5.23734 19.5371 5.53022L13.0634 12.0029L19.5302 18.4697C19.823 18.7626 19.8231 19.2374 19.5302 19.5302C19.2374 19.8231 18.7626 19.823 18.4697 19.5302L12.0029 13.0634L5.53705 19.5302C5.24417 19.823 4.76938 19.823 4.47651 19.5302C4.18363 19.2373 4.18367 18.7626 4.47651 18.4697L10.9423 12.0029L4.46967 5.53022C4.17678 5.23732 4.17678 4.76256 4.46967 4.46967C4.76256 4.17678 5.23732 4.17678 5.53022 4.46967L12.0029 10.9423L18.4765 4.46967Z" />
                     </svg>
                 </div>
                 <iframe class="trailer_Frame" src="${trailerSrc}" title="${trailerTitle}" frameborder="0" autoplay="true" allowfullscreen></iframe>
@@ -2619,7 +2618,6 @@
         document.querySelector(".showset").insertAdjacentHTML(`beforeend`, struct);
         document.querySelector(".show-sub").scrollTo(0,0);
         document.querySelector(".show-sub").classList.replace("showsub-inatv" , "showsub-atv");
-        attachGenMenuModalEventListeners();
     }
 
 

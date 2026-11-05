@@ -445,7 +445,6 @@
         {
             clearTimeout(watch_pg_tmr);
             watchPgBase.classList.add("active");
-            attachGenMenuModalEventListeners();
 
             watchPgBase.addEventListener("transitionend", function handleTransitionEnd()
             {

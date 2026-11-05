@@ -82,8 +82,6 @@
                     ctct_base.removeEventListener("transitionend" , handleTransitionEnd);
                     ctct_ftr_input_fld.focus();
                 });
-
-                attachGenMenuModalEventListeners();
             }
             
         }, 10);
@@ -114,7 +112,6 @@
 
                     // Add listeners
                     attachDfltIssueOptBtnListeners();
-                    attachGenMenuModalEventListeners();
                 }
                 else
                 {

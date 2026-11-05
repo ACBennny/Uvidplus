@@ -81,8 +81,6 @@
         // Update Navbar active states
         sideNavLinks[4].classList.add("active");
         btmNavLinks[3].classList.add("active");
-        
-        attachGenMenuModalEventListeners();
 
         // Load and build schedule
         await loadSchedule();
@@ -326,9 +324,6 @@
 
         // Attach listners for sliders
         postSchedule();
-
-        // Attach listeners for filters
-        attachGenMenuModalEventListeners();
     }
 
 

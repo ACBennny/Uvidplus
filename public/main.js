@@ -486,40 +486,6 @@
             </div>
         </div>
     `;
-    const navBarNotificationMainHTML = 
-    `
-        <div class="navBarNotificationMinor">
-            <div class="navBarNotificationHeaderBdr">
-                <div class="navBarNotificationHeaderBox">
-                    <button type="button" class="navBarNotificationHeaderBtn markAllNavBarNotificationsAsRead">
-                        <div class="navBarNotificationHeaderIconBox">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="navBarNotificationHeaderIconSvg">
-                                <path fill-rule="evenodd" d="M18.493 6.935a.75.75 0 0 1 .072 1.058l-7.857 9a.75.75 0 0 1-1.13 0l-3.143-3.6a.75.75 0 0 1 1.13-.986l2.578 2.953l7.292-8.353a.75.75 0 0 1 1.058-.072" clip-rule="evenodd" />
-                            </svg>
-                        </div>
-                        <p class="navBarNotificationHeaderText ">Mark all as read</p>
-                    </button>
-                </div>
-            </div>
-            <div class="navBarNotificationCtntBdr">
-                <div class="navBarNotificationCtntBox"></div>
-            </div>
-            <div class="navBarNotificationFooterBdr">
-                <a href="#/my-list/notification" class="navBarNotificationFooterBox">
-                    <p class="navBarNotificationFooterText">View all</p>
-                </a>
-            </div>
-        </div>
-    `;
-    const emptyNavBarNotificationBoxStruct = 
-    `
-        <div class="navBarNotificationCardBdr emptyNavBarNotification_box">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="emptyNavBarNotification_icon">
-                <path d="M58.9 42.1c3-6.1 9.6-9.6 16.3-8.7L320 64 564.8 33.4c6.7-.8 13.3 2.7 16.3 8.7l41.7 83.4c9 17.9-.6 39.6-19.8 45.1L439.6 217.3c-13.9 4-28.8-1.9-36.2-14.3L320 64 236.6 203c-7.4 12.4-22.3 18.3-36.2 14.3L37.1 170.6c-19.3-5.5-28.8-27.2-19.8-45.1L58.9 42.1zM321.1 128l54.9 91.4c14.9 24.8 44.6 36.6 72.5 28.6L576 211.6l0 167c0 22-15 41.2-36.4 46.6l-204.1 51c-10.2 2.6-20.9 2.6-31 0l-204.1-51C79 419.7 64 400.5 64 378.5l0-167L191.6 248c27.8 8 57.6-3.8 72.5-28.6L318.9 128l2.2 0z"/>
-            </svg>
-            <p class="emptyNavBarNotification_text">No new notifications</p>
-        </div>
-    `;
     const footerStruct = 
     `
         <div class="footer_base">
@@ -645,8 +611,8 @@
                             </div>
                             <input type="text" inputmode="search" name="quickSearchInputFieldName" id="quickSearchInputFieldId" class="quickSearchInputFieldClass" placeholder="Enter title">
                             <label for="quickSearchInputFieldId" class="quickSearchInputIcon quickSearchInputRightIcon quickSearchClearInput">
-                                <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="quickSearchInputSvg">
-                                    <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="quickSearchInputSvg">
+                                    <path d="M18.4765 4.46967C18.7694 4.17683 19.2442 4.1768 19.5371 4.46967C19.8299 4.76255 19.8299 5.23734 19.5371 5.53022L13.0634 12.0029L19.5302 18.4697C19.823 18.7626 19.8231 19.2374 19.5302 19.5302C19.2374 19.8231 18.7626 19.823 18.4697 19.5302L12.0029 13.0634L5.53705 19.5302C5.24417 19.823 4.76938 19.823 4.47651 19.5302C4.18363 19.2373 4.18367 18.7626 4.47651 18.4697L10.9423 12.0029L4.46967 5.53022C4.17678 5.23732 4.17678 4.76256 4.46967 4.46967C4.76256 4.17678 5.23732 4.17678 5.53022 4.46967L12.0029 10.9423L18.4765 4.46967Z" />
                                 </svg>
                             </label>
                             <div onclick="window.open('#/explore' , '_self')" title="Explore" class="quickSearchInputIcon quickSearchInputRightIcon quickSearchToCatalog">
@@ -670,8 +636,8 @@
             <div class="genAtnModalCtnt">
                 <div class="genAtnModalHeader">
                     <div class="genAtnModalHeaderIconBox closeAddToCL">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="genAtnModalHeaderIcon">
-                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genAtnModalHeaderIcon">
+                            <path d="M18.4765 4.46967C18.7694 4.17683 19.2442 4.1768 19.5371 4.46967C19.8299 4.76255 19.8299 5.23734 19.5371 5.53022L13.0634 12.0029L19.5302 18.4697C19.823 18.7626 19.8231 19.2374 19.5302 19.5302C19.2374 19.8231 18.7626 19.823 18.4697 19.5302L12.0029 13.0634L5.53705 19.5302C5.24417 19.823 4.76938 19.823 4.47651 19.5302C4.18363 19.2373 4.18367 18.7626 4.47651 18.4697L10.9423 12.0029L4.46967 5.53022C4.17678 5.23732 4.17678 4.76256 4.46967 4.46967C4.76256 4.17678 5.23732 4.17678 5.53022 4.46967L12.0029 10.9423L18.4765 4.46967Z" />
                         </svg>
                     </div>
                     <div class="genAtnModalHeaderText">
@@ -683,8 +649,8 @@
                     <div class="genAtnModalOptBdr addToCLItemBox">
                         <div class="genAtnModalOptBox newCLBtn" title="Create Colletion" aria-label="create-collection-btn">
                             <div class="genAtnModalOptIconBox">
-                                <svg transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="genAtnModalOptIconSvg">
-                                    <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genAtnModalOptIconSvg">
+                                    <path d="M12.0205 3.25C12.4347 3.25005 12.7705 3.58582 12.7705 4V11.25H20C20.4142 11.25 20.75 11.5858 20.75 12C20.75 12.4142 20.4142 12.75 20 12.75H12.7705V20C12.7705 20.4142 12.4347 20.75 12.0205 20.75C11.6063 20.75 11.2705 20.4142 11.2705 20V12.75H4C3.58579 12.75 3.25 12.4142 3.25 12C3.25 11.5858 3.58579 11.25 4 11.25H11.2705V4C11.2705 3.58579 11.6063 3.25 12.0205 3.25Z" />
                                 </svg>
                             </div>
                             <div class="genAtnModalOptTextBox ">
@@ -727,8 +693,8 @@
             <div class="genAtnModalCtnt">
                 <div class="genAtnModalHeader">
                     <div class="genAtnModalHeaderIconBox closeSclShare">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="genAtnModalHeaderIcon">
-                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genAtnModalHeaderIcon">
+                            <path d="M18.4765 4.46967C18.7694 4.17683 19.2442 4.1768 19.5371 4.46967C19.8299 4.76255 19.8299 5.23734 19.5371 5.53022L13.0634 12.0029L19.5302 18.4697C19.823 18.7626 19.8231 19.2374 19.5302 19.5302C19.2374 19.8231 18.7626 19.823 18.4697 19.5302L12.0029 13.0634L5.53705 19.5302C5.24417 19.823 4.76938 19.823 4.47651 19.5302C4.18363 19.2373 4.18367 18.7626 4.47651 18.4697L10.9423 12.0029L4.46967 5.53022C4.17678 5.23732 4.17678 4.76256 4.46967 4.46967C4.76256 4.17678 5.23732 4.17678 5.53022 4.46967L12.0029 10.9423L18.4765 4.46967Z" />
                         </svg>
                     </div>
                     <div class="genAtnModalHeaderText">
@@ -855,8 +821,8 @@
                         </button>
                         <button data-share="navigatorShareModal" class="genAtnModalOptBox" title="" aria-label="">
                             <div class="genAtnModalOptIconBox genAtnModalShareIconBox">
-                                <svg class="genAtnModalOptIconSvg" transform="scale(0.85)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                    <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="genAtnModalOptIconSvg">
+                                    <path d="M12.0205 3.25C12.4347 3.25005 12.7705 3.58582 12.7705 4V11.25H20C20.4142 11.25 20.75 11.5858 20.75 12C20.75 12.4142 20.4142 12.75 20 12.75H12.7705V20C12.7705 20.4142 12.4347 20.75 12.0205 20.75C11.6063 20.75 11.2705 20.4142 11.2705 20V12.75H4C3.58579 12.75 3.25 12.4142 3.25 12C3.25 11.5858 3.58579 11.25 4 11.25H11.2705V4C11.2705 3.58579 11.6063 3.25 12.0205 3.25Z" />
                                 </svg>
                             </div>
                             <div class="genAtnModalOptTextBox shareTextBox">
@@ -962,6 +928,86 @@
             hideTMDBAdltCtnt();
             preInstallPrompt();
         }
+
+        
+        
+
+        // Attaches listener for calling the menu modals
+        function wc(e)
+        {
+            try
+            {
+
+                if(!e || !e?.target) return;
+
+                const tgt = e.target;
+
+                if(tgt.closest(".openGenMenuModalBtn"))
+                {
+                    const btn = tgt.closest(".openGenMenuModalBtn");
+                    const openGenMenuModalBtn = document.querySelectorAll(".openGenMenuModalBtn");
+                    const btnGrid = Array.from(document.querySelectorAll(".openGenMenuModalBtn"));
+                    const index = btnGrid.indexOf(btn);
+                    
+                    // Cooldown to prevent extreme rapid clicks
+                    openGenMenuModalBtn.forEach((currBtn) => 
+                    {
+                        currBtn.disabled = true;
+                    });
+                    openGenMenuModalBtnTimer = setTimeout(() => 
+                    {
+                        clearTimeout(openGenMenuModalBtnTimer);
+                        openGenMenuModalBtn.forEach((currBtn) => 
+                        {
+                            currBtn.disabled = false;
+                        });
+                    }, 500);
+
+                    // Close if the same button clicked to open the menu is clicked again
+                    if((currOpenGenMenuModalBtnIndex != null) && (index == currOpenGenMenuModalBtnIndex) && (genMenuModalBdr.getAttribute("aria-expanded") === "true"))
+                    {
+                        hideGenMenuModal();
+                    }
+                    else
+                    {
+                        // Set to current index
+                        currOpenGenMenuModalBtnIndex = index;
+
+                        // Get menu type
+                        let menuType = btn.getAttribute("data-gen-menu-modal-type");
+
+                        // Return if attribute is not found
+                        if((menuType == undefined) || (menuType == null))
+                        {
+                            notification(`notifyBad` , `An error occurred`);
+                            return;
+                        }
+
+                        // Fetch the corresponding menu modal
+                        let thisMenu = genMenuModalMap.get(menuType.toLowerCase());
+
+                        if(thisMenu)
+                        {
+                            const {menu_id, menu_ctnt} = thisMenu;
+                            
+                            // Update innerHTML
+                            genMenuModalCtntBdr.innerHTML = menu_ctnt;
+
+                            // Call corresponding function to attach event listeners and display menu
+                            openGenMenuModalTimer = setTimeout(() => 
+                            {
+                                clearTimeout(openGenMenuModalTimer);
+                                callGlobalFunctions(menu_id, e);
+                                calibrateGenMenuModal(true);
+                            }, 1);
+                        }
+                    }
+                }
+            }
+            catch(err){console.error(err)}
+        }
+
+        window.addEventListener("click", wc);
 
 
     // VISIT DEVELOPER PAGE
@@ -2365,13 +2411,12 @@
                 document.addEventListener('dragover', updatePreviewPosition);
                 document.addEventListener('dragend', removeCustomDragPreview);
 
-                // Re attaches listeners for context menu
-                attachGenMenuModalEventListeners();
-
                 // Updates CL items order
                 updCLMdlArrFromDragAndSortList();
             }
         }
+
+        function attachGenMenuModalEventListeners(){}
 
         // Gets the postion of the closest element being dragged over
         function getDragAfterElement(container, y)
@@ -2603,86 +2648,6 @@
             genMenuModalBox.appendChild(genMenuModalCtntBdr);
             genMenuModalBdr.appendChild(genMenuModalBox);
             documentBody.appendChild(genMenuModalBdr);
-
-            attachGenMenuModalEventListeners();
-        }
-        
-
-        // Attaches listener for calling the menu modals
-        function attachGenMenuModalEventListeners()
-        {
-            let openGenMenuModalBtn = document.querySelectorAll(".openGenMenuModalBtn");
-
-            openGenMenuModalBtn.forEach((prevBtn) => 
-            {
-                if(prevBtn.action)
-                {
-                    prevBtn.removeEventListener("click" , prevBtn.action);
-                }
-            });
-            
-            openGenMenuModalBtn.forEach((btn, index) => 
-            {
-                const action = (event) => 
-                {
-                    // Cooldown to prevent extreme rapid clicks
-                    openGenMenuModalBtn.forEach((currBtn) => 
-                    {
-                        currBtn.disabled = true;
-                    });
-                    openGenMenuModalBtnTimer = setTimeout(() => 
-                    {
-                        clearTimeout(openGenMenuModalBtnTimer);
-                        openGenMenuModalBtn.forEach((currBtn) => 
-                        {
-                            currBtn.disabled = false;
-                        });
-                    }, 500);
-
-                    // Close if the same button clicked to open the menu is clicked again
-                    if((currOpenGenMenuModalBtnIndex != null) && (index == currOpenGenMenuModalBtnIndex) && (genMenuModalBdr.getAttribute("aria-expanded") === "true"))
-                    {
-                        hideGenMenuModal();
-                    }
-                    else
-                    {
-                        // Set to current index
-                        currOpenGenMenuModalBtnIndex = index;
-
-                        // Get menu type
-                        let menuType = btn.getAttribute("data-gen-menu-modal-type");
-
-                        // Return if attribute is not found
-                        if((menuType == undefined) || (menuType == null))
-                        {
-                            notification(`notifyBad` , `An error occurred`);
-                            return;
-                        }
-
-                        // Fetch the corresponding menu modal
-                        let thisMenu = genMenuModalMap.get(menuType.toLowerCase());
-
-                        if(thisMenu)
-                        {
-                            const {menu_id, menu_ctnt} = thisMenu;
-                            
-                            // Update innerHTML
-                            genMenuModalCtntBdr.innerHTML = menu_ctnt;
-
-                            // Call corresponding function to attach event listeners and display menu
-                            openGenMenuModalTimer = setTimeout(() => 
-                            {
-                                clearTimeout(openGenMenuModalTimer);
-                                callGlobalFunctions(menu_id, event);
-                                calibrateGenMenuModal(true);
-                            }, 1);
-                        }
-                    }
-                }
-
-                btn.addEventListener("click" , action);
-                btn.action = action;
-            });
         }
 
         // Calculates the dimensions and position of the menu modal

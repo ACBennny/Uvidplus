@@ -461,9 +461,6 @@
 
         // Attach query selector
         wlBodyCardBase = document.querySelectorAll(".slide_card_base.wl_body_card_base");
-
-        // Attach listeners
-        attachGenMenuModalEventListeners();
     }
 
 
@@ -577,9 +574,6 @@
 
             // Remove card from grid
             wlCardBdr.remove();
-
-            // Reattach listeners
-            attachGenMenuModalEventListeners();
 
             // Notify users of the removal
             notification(`notifyGood` , `Show removed from watchlist`);
