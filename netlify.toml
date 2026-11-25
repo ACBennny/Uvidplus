@@ -6,3 +6,8 @@
     Content-Security-Policy = "frame-ancestors 'self'"
     X-Frame-Options = "SAMEORIGIN"
     Referrer-Policy = "strict-origin-when-cross-origin"
+[[redirects]]
+  from = "https://uvidplus.netlify.app/*"
+  to = "https://uvp.abcx.fyi/:splat"
+  status = 301
+  force = true
