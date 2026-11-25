@@ -11,7 +11,7 @@
 
     if((dmn === fb_dm_1) || (dmn === fb_dm_2))
     {
-        window.location.href = "https://uvidplus.netlify.app";
+        window.location.href = "https://uvp.abcx.fyi";
     }
 
 //  OFFLINE MSG

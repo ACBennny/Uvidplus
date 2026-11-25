@@ -22,7 +22,7 @@ const uvidplus_tou_ =
                             Uvid+ ("Uvid", "ACUvid", "Uvidplus", "we", "us") is a project developed by the GitHub account
                             <a class="goToHome" href="https://github.com/ACBennny" target="_blank">acbennny</a> 
                             and accessible for free as a "demo" through 
-                            <a class="goToHome" href="https://uvidplus.netlify.app" target="_blank">uvidplus.netlify.app</a>
+                            <a class="goToHome" href="https://uvp.abcx.fyi" target="_blank">uvp.abcx.fyi</a>
                             which simulates the user interface and user experience of a streaming platform.
                             It is provided as is, without warranty, and without guarantee, of any kind. 
                             <br><br>
@@ -59,18 +59,18 @@ const uvidplus_tou_ =
                             account creation, and account management.
                             <br><br>
                             By creating an account on 
-                            <a class="goToHome" href="https://uvidplus.netlify.app" target="_blank">Uvid+</a>,
+                            <a class="goToHome" href="https://uvp.abcx.fyi" target="_blank">Uvid+</a>,
                             you voluntaringly agree to respect, value, uphold, and be binded by these terms. 
                             <br>
                             Likewise, by deleting your
-                            <a class="goToHome" href="https://uvidplus.netlify.app" target="_blank">Uvid+</a> account,
+                            <a class="goToHome" href="https://uvp.abcx.fyi" target="_blank">Uvid+</a> account,
                             you are immediately relieved of these terms.
                             <br><br>
                             As Uvid+ is simulating a streaming service, you may see elements or components of the demo that appear to conflict with our policy. 
                             In any conflicts of interest, our terms of use, and privacy policy remain absolute.
                             <br><br>
                             Our terms, and any of the other policies we provide only apply to this demo, 
-                            <a class="goToHome" href="https://uvidplus.netlify.app" target="_blank">Uvid+</a>.
+                            <a class="goToHome" href="https://uvp.abcx.fyi" target="_blank">Uvid+</a>.
                             Other third-party services may have their own policies which may differ from ours.
                             <br>
                             Using this demo does not in any manner or form, bind you to any of the policies from the third-party services.

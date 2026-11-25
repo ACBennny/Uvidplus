@@ -1,6 +1,6 @@
 #### App Name: Uvidplus (Uvid+)
 
-#### Demo: https://uvidplus.netlify.app
+#### Demo: https://uvp.abcx.fyi
 
 #### Author(s): Anyanwu Benedict Chukwuemeka (https://github.com/ACBennny)
 
